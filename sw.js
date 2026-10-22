@@ -1,7 +1,12 @@
-/* Hall Pass offline support: keeps the game page and icons cached so solo modes work without a connection. */
-const C='hallpass-v24';const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
+/* Hall Pass offline support. The game page always comes fresh from the network (so updates show up right away);
+   the saved copy is only used when there is no connection. */
+const C='hallpass-v25';const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE.map(u=>new Request(u,{cache:'reload'})))).catch(()=>{}).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;
-  if(u.origin===location.origin){e.respondWith(fetch(e.request.mode==='navigate'||/\.html$|\/$/.test(u.pathname)?new Request(e.request.url,{cache:'no-cache',credentials:'same-origin'}):e.request).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp));return r}).catch(()=>caches.match(e.request).then(m=>m||caches.match('index.html'))));return}
-  if(/fonts\.(googleapis|gstatic)\.com/.test(u.host)){e.respondWith(caches.match(e.request).then(m=>m||fetch(e.request).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp));return r})))}});
+self.addEventListener('message',e=>{if(e.data==='skip')self.skipWaiting()});
+self.addEventListener('fetch',e=>{const q=e.request;if(q.method!=='GET'||q.headers.has('range'))return;const u=new URL(q.url);
+  if(u.origin===location.origin){const page=q.mode==='navigate'||/\/$|\.html$/.test(u.pathname);
+    if(page){e.respondWith(fetch(new Request(q.url,{cache:'no-store',credentials:'same-origin'})).then(r=>{if(r.ok&&!u.search){const cp=r.clone();caches.open(C).then(c=>c.put('index.html',cp))}return r})
+        .catch(()=>caches.match('index.html').then(m=>m||caches.match('./'))));return}
+    e.respondWith(fetch(q).then(r=>{if(r.ok&&!u.search){const cp=r.clone();caches.open(C).then(c=>c.put(q,cp))}return r}).catch(()=>caches.match(q)));return}
+  if(/fonts\.(googleapis|gstatic)\.com/.test(u.host)){e.respondWith(caches.match(q).then(m=>m||fetch(q).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put(q,cp));return r})))}});

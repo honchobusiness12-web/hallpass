@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1792697329">
+<meta name="hp-build" content="1792697767">
 <title>Hall Pass</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Draft an all-time basketball roster from any decade, pick a coach, and simulate a full season and playoffs.">
@@ -3722,7 +3722,7 @@ function startTour(k=0,dir=1){$$('.tour').forEach(x=>x.remove());TOURK=k;const s
 let INSTALL=null;
 function pwaInit(){if(!/^https?:/.test(location.protocol))return;
   try{const l=document.createElement('link');l.rel='manifest';l.href='manifest.webmanifest';document.head.appendChild(l)}catch(e){}
-  try{if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}
+  try{if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(r=>{try{r.update()}catch(e){}}).catch(()=>{})}catch(e){}
   addEventListener('beforeinstallprompt',e=>{e.preventDefault();INSTALL=e;const b=$('#instBtn');if(b)b.hidden=false})}
 async function pwaInstall(){if(!INSTALL){toast('Install from your browser','On iPhone: Share, then Add to Home Screen. On Android or desktop Chrome: the install icon in the address bar.','M12 3v12M7 10l5 5 5-5M5 21h14');return}
   INSTALL.prompt();try{await INSTALL.userChoice}catch(e){}INSTALL=null;const b=$('#instBtn');if(b)b.hidden=true}
@@ -5657,7 +5657,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792697329';
+const BUILD='1792697767';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -5665,7 +5665,7 @@ async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?
       const tr=store.get('hp_upd_try',{});if(tr.b===m[1]&&Date.now()-tr.t<300e3){if(new URLSearchParams(location.search).get('v')===m[1])return;store.set('hp_upd_try',{b:m[1],t:Date.now()});location.replace(location.pathname+'?v='+m[1]+(location.hash==='#admin'?'#admin':''));return}
       updShow({kind:'new',secs:manual?3:12});return}
     if(manual)toast('You\'re on the newest version',`Version ${CHANGELOG[0].v} is the latest. Nothing to update.`,'M5 12l5 5L20 7')}catch(e){if(manual)toast('Could not check right now','Check your connection and try again.','M12 9v4M12 17h.01')}}
-function updManual(){toastLite('Checking for updates…');try{navigator.serviceWorker&&navigator.serviceWorker.getRegistration().then(r=>r&&r.update()).catch(()=>{})}catch(e){}updCheck(true)}
+function updManual(){toastLite('Checking for updates…');try{navigator.serviceWorker&&navigator.serviceWorker.getRegistration().then(r=>{if(!r)return;r.update();if(r.waiting)r.waiting.postMessage('skip')}).catch(()=>{})}catch(e){}updCheck(true)}
 function updShow(o){if(UPD.shown)return;UPD.shown=true;o=o||{};try{saveP()}catch(e){}
   let n=o.secs||12;const el=document.createElement('div');el.id='updOv';
   el.innerHTML=`<div class="popbox"><span class="glyph upd">${icon('M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5',26)}</span><span class="label">${o.kind==='reset'?'Servers resetting':'Update incoming'}</span>
@@ -5678,7 +5678,7 @@ function updShow(o){if(UPD.shown)return;UPD.shown=true;o=o||{};try{saveP()}catch
     try{await fetch(location.pathname,{cache:'reload'})}catch(e){}try{await fetch('sw.js',{cache:'reload'})}catch(e){}
     try{const reg=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();if(reg)await reg.update()}catch(e){}
     if(UPD.want)store.set('hp_upd_try',{b:UPD.want,t:Date.now()});
-    location.replace(location.pathname+location.search.replace(/[?&]v=\d+/,'')+(location.hash==='#admin'?'#admin':''))};
+    location.replace(location.pathname+'?v='+(UPD.want||Date.now())+(location.hash==='#admin'?'#admin':''))};
   el.querySelector('#updGo').onclick=go;UPD.t=setInterval(()=>{n--;const b=$('#updN');if(b)b.textContent=Math.max(0,n);if(n<=0)go()},1000)}
 /* developer-triggered reset from the control room */
 const BOOT_TS=Date.now();try{if(/[?&]v=\d+/.test(location.search))history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
