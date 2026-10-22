@@ -4257,6 +4257,9 @@ const SB_SKEY='hp_sb_'+SB_URL.split('//')[1].split('.')[0];try{localStorage.remo
 const DB={c:null,uid:null,pid:null,ok:false,admin:false,err:'',pushT:null,pulling:false};
 const loadSB=()=>loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.js',()=>!!(window.supabase&&window.supabase.createClient));
 const BOARDS=[['daily_streak','Daily streak','days'],['gauntlet','Gauntlet','of 8'],['season_wins','Season wins','wins'],['league_titles','League titles','titles'],['hl','Higher or lower','streak'],['gd','Guess the decade','of 10'],['blind','Blind draft','team rating'],['shot','Buzzer Beater','made'],['whoami','Who am I?','of 25'],['rank','Rank \'em','of 30'],['lightning','Lightning round','pts'],['legacy','The Rise · legacy','score']];
+/* the database used to shorten names to 18 characters, so compare the way it stores them */
+const nmKey=x=>String(x||'').trim().replace(/\s+/g,' ').slice(0,18).toLowerCase();
+const nameSame=(a,b)=>!!a&&!!b&&nmKey(a)===nmKey(b);
 function dbName(){return DB.myName||'Guest '+String(DB.uid||'0000').slice(0,4).toUpperCase()}
 async function dbInit(){if(!/^https?:/.test(location.protocol)||(window.claude&&window.claude.use))return;
   try{await loadSB();const c=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,storageKey:SB_SKEY}});DB.c=c;
@@ -4443,29 +4446,31 @@ function liveMaint(pv){pv=pv===true;const m=pv?{on:true,msg:((LIVE.feed.cfg||{})
   if(el&&!on){el.classList.add('out');setTimeout(()=>el.remove(),400)}}
 
 /* ---------- unique names ---------- */
+let NMF='';
 /* the developer's own devices may always use their name, even if another (old or test) profile holds it */
-async function nameAdminForce(n){if(!isAdminDevice()||!DB.ok)return false;if(!DB.admin)await dbClaimAdmin();if(!DB.admin)return false;
-  P.name=n;try{await dbPush()}catch(e){}const r=await DB.c.rpc('admin_update_player',{p_pid:DB.pid,p_name:n,p_data:null,p_note:null});if(r.error)return false;DB.myName=n;P.nameUnclaimed=false;return true}
+async function nameAdminForce(n){if(!isAdminDevice()||!DB.ok)return false;if(!DB.admin)await dbClaimAdmin();if(!DB.admin){NMF='your admin code was not accepted by the database';return false}
+  P.name=n;try{await dbPush()}catch(e){}const r=await DB.c.rpc('admin_update_player',{p_pid:DB.pid,p_name:n,p_data:null,p_note:null});if(r.error){NMF=r.error.message;return false}DB.myName=n;P.nameUnclaimed=false;return true}
 let NMT=null;
 function nameHint(n){const h=$('#nmHint');if(!h)return;clearTimeout(NMT);const set=(t,c)=>{h.textContent=t;h.className='hint '+(c||'')};
   if(!n){set('Required. 3 to 25 characters.');return}
   const bad=nameProblem(n);if(bad){set('✗ '+bad,'errc');return}
-  if(!DB.ok||(DB.myName&&DB.myName===n)){set('✓ Looks good','okc');return}
+  if(!DB.ok||nameSame(DB.myName,n)){set('✓ Looks good','okc');return}
   set('Checking…');NMT=setTimeout(async()=>{let r=await DB.c.rpc('check_name',{p_name:n});if(r.error){const r2=await DB.c.rpc('name_available',{p_name:n});r={data:r2.error?'':r2.data?'':'Someone already has that name.'}}
     if(!$('#nmHint')||nameClean($('#nm').value)!==n)return;set(r.data?'✗ '+r.data:'✓ That name is free',r.data?'errc':'okc')},350)}
 async function nameGate(n){const h=$('#nmHint');const fail=msg=>{if(h){h.textContent='✗ '+msg;h.className='hint errc'}const i=$('#nm');if(i){i.classList.remove('shake');void i.offsetWidth;i.classList.add('shake');i.focus()}sfx('lose');return false};
   const bad=nameProblem(n);if(bad)return fail(bad);
   if(!DB.ok){P.nameUnclaimed=true;return true}
-  if(DB.myName===n){P.nameUnclaimed=false;return true}
+  if(nameSame(DB.myName,n)){P.nameUnclaimed=false;return true}
   const r=await DB.c.rpc('claim_name',{p_name:n});if(r.error){if(await nameAdminForce(n))return true;return fail(r.error.message||'That name is taken')}
   DB.myName=r.data;P.nameUnclaimed=false;return true}
 async function nameReconcile(){if(!DB.ok||!P.signed)return;
-  const admSet=P.admEdit&&DB.myName&&DB.myName===P.name;
+  const admSet=P.admEdit&&nameSame(DB.myName,P.name);
   const local=nameProblem(P.name);
-  if(!local&&DB.myName===P.name)return;
+  if(!local&&nameSame(DB.myName,P.name))return;
   if(admSet)return;
   let msg=local;if(!msg){const r=await DB.c.rpc('claim_name',{p_name:P.name});if(!r.error){DB.myName=r.data;P.nameUnclaimed=false;saveP();return}if(await nameAdminForce(P.name)){saveP();return}msg=r.error.message}
-  popShow({id:'nm:'+Date.now(),big:true,k:'msg',title:'Pick a new username',body:`"${P.name||'(blank)'}" can't be used: ${msg} Usernames need 3 to 25 characters, mostly letters, and have to be friendly and one of a kind.`});
+  const nk='hp_nmwarn';const w=store.get(nk,{});if(w.n===P.name&&Date.now()-w.t<864e5)return;store.set(nk,{n:P.name,t:Date.now()});
+  popShow({id:'nm:'+Date.now(),big:true,k:'msg',title:'Pick a new username',body:`"${P.name||'(blank)'}" can't be used: ${msg} Usernames need 3 to 25 characters, mostly letters, and have to be friendly and one of a kind. If you use this name on another phone or computer, link the two with a sync code (Profile → Sync) instead.${isAdminDevice()&&NMF?` (Admin override: ${NMF}.)`:''}`});
   setTimeout(()=>{if(!$('#popBig'))openSignIn()},2500)}
 
 /* ---------- admin edits to my profile + private messages, live ---------- */
@@ -5649,7 +5654,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792695103';
+const BUILD='1792696510';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -5670,7 +5675,7 @@ function updShow(o){if(UPD.shown)return;UPD.shown=true;o=o||{};try{saveP()}catch
     try{await fetch(location.pathname,{cache:'reload'})}catch(e){}try{await fetch('sw.js',{cache:'reload'})}catch(e){}
     try{const reg=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();if(reg)await reg.update()}catch(e){}
     if(UPD.want)store.set('hp_upd_try',{b:UPD.want,t:Date.now()});
-    location.replace(location.pathname+(UPD.want?'?v='+UPD.want:location.search)+(location.hash==='#admin'?'#admin':''))};
+    location.replace(location.pathname+location.search.replace(/[?&]v=\d+/,'')+(location.hash==='#admin'?'#admin':''))};
   el.querySelector('#updGo').onclick=go;UPD.t=setInterval(()=>{n--;const b=$('#updN');if(b)b.textContent=Math.max(0,n);if(n<=0)go()},1000)}
 /* developer-triggered reset from the control room */
 const BOOT_TS=Date.now();try{if(/[?&]v=\d+/.test(location.search))history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
