@@ -4251,6 +4251,9 @@ function liveMaint(pv){pv=pv===true;const m=pv?{on:true,msg:((LIVE.feed.cfg||{})
   if(el&&!on){el.classList.add('out');setTimeout(()=>el.remove(),400)}}
 
 /* ---------- unique names ---------- */
+/* the developer's own devices may always use their name, even if another (old or test) profile holds it */
+async function nameAdminForce(n){if(!isAdminDevice()||!DB.ok)return false;if(!DB.admin)await dbClaimAdmin();if(!DB.admin)return false;
+  P.name=n;try{await dbPush()}catch(e){}const r=await DB.c.rpc('admin_update_player',{p_pid:DB.pid,p_name:n,p_data:null,p_note:null});if(r.error)return false;DB.myName=n;P.nameUnclaimed=false;return true}
 let NMT=null;
 function nameHint(n){const h=$('#nmHint');if(!h)return;clearTimeout(NMT);const set=(t,c)=>{h.textContent=t;h.className='hint '+(c||'')};
   if(!n){set('Required. 3 to 25 characters.');return}
@@ -4262,14 +4265,14 @@ async function nameGate(n){const h=$('#nmHint');const fail=msg=>{if(h){h.textCon
   const bad=nameProblem(n);if(bad)return fail(bad);
   if(!DB.ok){P.nameUnclaimed=true;return true}
   if(DB.myName===n){P.nameUnclaimed=false;return true}
-  const r=await DB.c.rpc('claim_name',{p_name:n});if(r.error)return fail(r.error.message||'That name is taken');
+  const r=await DB.c.rpc('claim_name',{p_name:n});if(r.error){if(await nameAdminForce(n))return true;return fail(r.error.message||'That name is taken')}
   DB.myName=r.data;P.nameUnclaimed=false;return true}
 async function nameReconcile(){if(!DB.ok||!P.signed)return;
   const admSet=P.admEdit&&DB.myName&&DB.myName===P.name;
   const local=nameProblem(P.name);
   if(!local&&DB.myName===P.name)return;
   if(admSet)return;
-  let msg=local;if(!msg){const r=await DB.c.rpc('claim_name',{p_name:P.name});if(!r.error){DB.myName=r.data;P.nameUnclaimed=false;saveP();return}msg=r.error.message}
+  let msg=local;if(!msg){const r=await DB.c.rpc('claim_name',{p_name:P.name});if(!r.error){DB.myName=r.data;P.nameUnclaimed=false;saveP();return}if(await nameAdminForce(P.name)){saveP();return}msg=r.error.message}
   popShow({id:'nm:'+Date.now(),big:true,k:'msg',title:'Pick a new username',body:`"${P.name||'(blank)'}" can't be used: ${msg} Usernames need 3 to 25 characters, mostly letters, and have to be friendly and one of a kind.`});
   setTimeout(()=>{if(!$('#popBig'))openSignIn()},2500)}
 
@@ -5370,10 +5373,13 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792683572';
+const BUILD='1792689773';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
-  try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){updShow({kind:'new',secs:manual?3:12});return}
+  try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
+      /* already reloaded for this version but the browser handed back the old copy: load the fresh one directly, no second pop-up */
+      const tr=store.get('hp_upd_try',{});if(tr.b===m[1]&&Date.now()-tr.t<300e3){if(new URLSearchParams(location.search).get('v')===m[1])return;store.set('hp_upd_try',{b:m[1],t:Date.now()});location.replace(location.pathname+'?v='+m[1]+(location.hash==='#admin'?'#admin':''));return}
+      updShow({kind:'new',secs:manual?3:12});return}
     if(manual)toast('You\'re on the newest version',`Version ${CHANGELOG[0].v} is the latest. Nothing to update.`,'M5 12l5 5L20 7')}catch(e){if(manual)toast('Could not check right now','Check your connection and try again.','M12 9v4M12 17h.01')}}
 function updManual(){toastLite('Checking for updates…');try{navigator.serviceWorker&&navigator.serviceWorker.getRegistration().then(r=>r&&r.update()).catch(()=>{})}catch(e){}updCheck(true)}
 function updShow(o){if(UPD.shown)return;UPD.shown=true;o=o||{};try{saveP()}catch(e){}
@@ -5383,12 +5389,15 @@ function updShow(o){if(UPD.shown)return;UPD.shown=true;o=o||{};try{saveP()}catch
     <p class="mutep">${esc(o.msg||'A new version is live. Your progress is saved, the game will reload in a moment.')}</p>
     <div class="updbar"><i></i></div><p class="hint">Reloading in <b id="updN">${n}</b>s</p><button class="btn btn-go btn-big" id="updGo">Update now</button></div>`;
   document.body.appendChild(el);sfx('chime');const bar=el.querySelector('.updbar i');bar.style.animationDuration=n+'s';
-  const go=async()=>{clearInterval(UPD.t);try{saveP()}catch(e){}store.set('hp_updated',Date.now());
+  const go=async()=>{if(UPD.going)return;UPD.going=1;clearInterval(UPD.t);try{saveP()}catch(e){}store.set('hp_updated',Date.now());
+    /* refresh the browser's saved copy first, so the reload really gets the new version */
+    try{await fetch(location.pathname,{cache:'reload'})}catch(e){}try{await fetch('sw.js',{cache:'reload'})}catch(e){}
     try{const reg=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();if(reg)await reg.update()}catch(e){}
-    location.replace(location.pathname+location.search+(location.hash==='#admin'?'#admin':''))};
+    if(UPD.want)store.set('hp_upd_try',{b:UPD.want,t:Date.now()});
+    location.replace(location.pathname+(UPD.want?'?v='+UPD.want:location.search)+(location.hash==='#admin'?'#admin':''))};
   el.querySelector('#updGo').onclick=go;UPD.t=setInterval(()=>{n--;const b=$('#updN');if(b)b.textContent=Math.max(0,n);if(n<=0)go()},1000)}
 /* developer-triggered reset from the control room */
-const BOOT_TS=Date.now();
+const BOOT_TS=Date.now();try{if(/[?&]v=\d+/.test(location.search))history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
 function updReset(){const r=(LIVE.feed.cfg||{}).reset;if(!r||!r.ts)return;const seen=store.get('hp_reset_seen',0);
   if(r.ts<=seen||r.ts<BOOT_TS-5000)return;store.set('hp_reset_seen',r.ts);if(isAdminDevice()){toastLite('Reset sent. Every open game is reloading.');return}updShow({kind:'reset',msg:r.msg,secs:8})}
 function updBoot(){const u=store.get('hp_updated',0);if(u&&Date.now()-u<120e3){store.set('hp_updated',0);setTimeout(()=>toast('You\'re on the newest version','Everything is saved. Tap What\'s new to see what changed.','M5 12l5 5L20 7'),1500)}
