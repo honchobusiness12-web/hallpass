@@ -2204,7 +2204,7 @@ function multiNet(list){let last=null,closed=false;return{get kind(){return list
    This uses the same secure web connection as the rest of the site (port 443), so it works on school, work and home
    Wi-Fi that block the old public relays. The old relays and the direct link still run alongside as backups. */
 async function sbClient(){if(typeof DB==='undefined')throw new Error('lib');if(DB.c)return DB.c;await Promise.race([loadSB(),new Promise((_,j)=>setTimeout(()=>j(new Error('lib')),8000))]);
-  if(!DB.c)DB.c=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,storageKey:'hp_sb_auth'}});return DB.c}
+  if(!DB.c)DB.c=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,storageKey:SB_SKEY}});return DB.c}
 const sbChan=(c,code,key)=>c.channel('hp-room-'+code,{config:{broadcast:{self:false,ack:false},presence:{key}}});
 function sbSubscribe(ch,ms){return new Promise((res,rej)=>{let done=false;
   ch.subscribe(s=>{if(done)return;if(s==='SUBSCRIBED'){done=true;res()}else if(s==='CHANNEL_ERROR'||s==='TIMED_OUT'||s==='CLOSED'){done=true;rej(new Error('connect'))}});
@@ -4060,19 +4060,23 @@ function adminRoute(){if(location.hash==='#admin')openAdmin()}
 
 /* ======================= DATABASE (Supabase): cloud saves, device sync, leaderboards, permanent posts, stats ======================= */
 const SB_URL='https://lijicevoqjakcewfgtbn.supabase.co',SB_KEY='sb_publishable_YvpVAUe4rlYkzzZE305CWQ_RnDeHM5D';
+/* the sign-in is stored per database, so moving to a new database never reuses an old, invalid sign-in */
+const SB_SKEY='hp_sb_'+SB_URL.split('//')[1].split('.')[0];try{localStorage.removeItem('hp_sb_auth')}catch(e){}
 const DB={c:null,uid:null,pid:null,ok:false,admin:false,err:'',pushT:null,pulling:false};
 const loadSB=()=>loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.111.0/dist/umd/supabase.js',()=>!!(window.supabase&&window.supabase.createClient));
 const BOARDS=[['daily_streak','Daily streak','days'],['gauntlet','Gauntlet','of 8'],['season_wins','Season wins','wins'],['league_titles','League titles','titles'],['hl','Higher or lower','streak'],['gd','Guess the decade','of 10'],['blind','Blind draft','team rating'],['shot','Buzzer Beater','made'],['whoami','Who am I?','of 25'],['rank','Rank \'em','of 30'],['lightning','Lightning round','pts'],['legacy','The Rise · legacy','score']];
 function dbName(){return DB.myName||'Guest '+String(DB.uid||'0000').slice(0,4).toUpperCase()}
 async function dbInit(){if(!/^https?:/.test(location.protocol)||(window.claude&&window.claude.use))return;
-  try{await loadSB();const c=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,storageKey:'hp_sb_auth'}});DB.c=c;
+  try{await loadSB();const c=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,storageKey:SB_SKEY}});DB.c=c;
     let{data:{session}}=await c.auth.getSession();if(!session){const r=await c.auth.signInAnonymously();if(r.error)throw r.error;session=r.data.session}
-    DB.uid=session.user.id;const r2=await c.rpc('ensure_profile');if(r2.error)throw r2.error;DB.pid=r2.data;
+    DB.uid=session.user.id;let r2=await c.rpc('ensure_profile');
+    if(r2.error&&/jwt|token|auth|401|sub claim/i.test(r2.error.message+' '+(r2.error.code||''))){try{await c.auth.signOut()}catch(e){}const r3=await c.auth.signInAnonymously();if(r3.error)throw r3.error;session=r3.data.session;DB.uid=session.user.id;r2=await c.rpc('ensure_profile')}
+    if(r2.error)throw r2.error;DB.pid=r2.data;
     await dbPull();DB.ok=true;dbEvent('session',{v:CHANGELOG[0].v});try{dbPresence()}catch(e){}try{dbLiveMe()}catch(e){}memLoad().catch(()=>{});dbInboxCheck().catch(()=>{});nameReconcile().catch(()=>{});
     const f=await c.from('config').select('v').eq('k','feed').maybeSingle();if(f.data&&f.data.v)dbFeedApply(f.data.v);
     c.channel('hp-config').on('postgres_changes',{event:'*',schema:'public',table:'config'},p=>{if(p.new&&p.new.k==='feed')dbFeedApply(p.new.v)}).subscribe();
     if(store.get('hp_admin',''))dbClaimAdmin();
-  }catch(e){DB.err=(e&&e.message)||String(e);DB.ok=false}}
+  }catch(e){DB.err=(e&&e.message)||String(e);DB.ok=false;DB.tries=(DB.tries||0)+1;if(DB.tries<4)setTimeout(dbInit,DB.tries*5000)}}
 async function dbPull(force){const r=await DB.c.from('profiles').select('data,updated_at,name,banned').eq('pid',DB.pid).maybeSingle();if(r.error)throw r.error;if(r.data){DB.myName=r.data.name||'';DB.banned=!!r.data.banned}if(r.data&&r.data.data&&(r.data.data.admEdit||0)>(P.admEdit||0))force=true;
   const cloud=r.data&&r.data.data;if(cloud&&cloud.savedAt&&(force||cloud.savedAt>(P.savedAt||0))){DB.pulling=true;Object.keys(P).forEach(k=>delete P[k]);Object.assign(P,blankProfile(),cloud);store.set('hp_profile',P);DB.pulling=false;refreshNav();if($('.hero'))renderHome()}
   else if(!cloud||!cloud.savedAt||(P.savedAt||0)>cloud.savedAt)await dbPush()}
@@ -5307,7 +5311,7 @@ function adminTabs3(){const c=LIVE.feed.cfg||{};const tn=themeNow();const T=TPAC
       <button data-qa="reset">${icon('M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5',18)}<b>Reset servers</b><small>Everyone sees "restarting" and reloads</small></button>
       <button data-qa="upd">${icon('M12 3v12M7 10l5 5 5-5M5 21h14',18)}<b>Check for updates</b><small>Load the newest version on this device</small></button></div>${admMsg()}<p class="hint">${esc(ADM.pubRes||'')}</p></div>
      <div class="stack"><div class="card"><span class="label">Live right now</span><div class="admlive">
-       <div><i class="${(DB.ok?'ok':'bad')}"></i>Database ${DB.ok?'connected':'offline'}</div>
+       <div><i class="${(DB.ok?'ok':'bad')}"></i>Database ${DB.ok?'connected':'offline'}${!DB.ok&&DB.err?`<small style="color:var(--loss);margin-left:6px">${esc(DB.err)}</small>`:''}</div>
        <div><i class="${c.maint&&c.maint.on?'bad':'ok'}"></i>${c.maint&&c.maint.on?'Maintenance mode on':'Game open to everyone'}</div>
        <div><i class="${c.xp>1&&Date.now()<c.xpUntil?'ok':'off'}"></i>${c.xp>1&&Date.now()<c.xpUntil?`${c.xp}× XP until ${new Date(c.xpUntil).toLocaleString(undefined,{weekday:'short',hour:'numeric',minute:'2-digit'})}`:'No XP event'}</div>
        <div><i class="${giftLive(c.gift)?'ok':'off'}"></i>${giftLive(c.gift)?`Gift live: +${c.gift.xp} XP`:'No gift running'}</div>
@@ -5366,7 +5370,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792683170';
+const BUILD='1792683572';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){updShow({kind:'new',secs:manual?3:12});return}
