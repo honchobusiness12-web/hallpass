@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
+<meta name="hp-build" content="1792697329">
 <title>Hall Pass</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Draft an all-time basketball roster from any decade, pick a coach, and simulate a full season and playoffs.">
@@ -1305,7 +1306,7 @@ html.tourlock,html.tourlock body{overflow:hidden!important;overscroll-behavior:n
 /* ===== themes: more visible everywhere ===== */
 html:not([data-theme2="classic"]) .topbar{border-bottom:1px solid transparent;border-image:linear-gradient(90deg,transparent,var(--amber),var(--accent2),transparent) 1}
 html:not([data-theme2="classic"]) .hero h1 em{background:linear-gradient(90deg,var(--amber),var(--accent2),var(--amber));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nfxs 4s linear infinite}
-html:not([data-theme2="classic"]) .btn-go{background:linear-gradient(120deg,var(--amber),color-mix(in srgb,var(--accent2) 55%,var(--amber)));background-size:200% 100%;animation:btnflow 6s ease-in-out infinite}
+html:not([data-theme2="classic"]) .btn-go{background:linear-gradient(120deg,var(--amber),color-mix(in srgb,var(--accent2) 55%,var(--amber)));background-size:100% 100%}
 @keyframes btnflow{50%{background-position:100% 0}}
 html:not([data-theme2="classic"]) .card,html:not([data-theme2="classic"]) .mode{border-color:color-mix(in srgb,var(--amber) 22%,var(--line))}
 html:not([data-theme2="classic"]) .mode:hover{box-shadow:0 18px 40px -22px var(--amber)}
@@ -1314,13 +1315,13 @@ html:not([data-theme2="classic"]) .mode:hover{box-shadow:0 18px 40px -22px var(-
 .themetag::before{content:var(--temoji,"");width:auto;height:auto;background:none;box-shadow:none;font-size:14px}
 /* hero decoration */
 .hero{position:relative}
-html:not([data-theme2="classic"]) .hero::after{content:var(--temoji,"");position:absolute;right:2%;top:-6px;font-size:clamp(70px,12vw,150px);opacity:.9;filter:drop-shadow(0 12px 30px color-mix(in srgb,var(--amber) 60%,transparent));animation:tbob 5s ease-in-out infinite;pointer-events:none;z-index:0}
+html:not([data-theme2="classic"]) .hero::after{content:var(--temoji,"");position:absolute;right:2%;top:-6px;font-size:clamp(70px,12vw,150px);opacity:.9;text-shadow:0 12px 40px color-mix(in srgb,var(--amber) 55%,transparent);animation:tbob 5s ease-in-out infinite;will-change:transform;pointer-events:none;z-index:0}
 html:not([data-theme2="classic"]) .hero::before{content:var(--temoji2,"");position:absolute;right:20%;top:40px;font-size:clamp(34px,5vw,64px);opacity:.6;animation:tbob 6.5s ease-in-out -2s infinite;pointer-events:none}
 @keyframes tbob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}
 @media (max-width:720px){html:not([data-theme2="classic"]) .hero::after{font-size:64px;top:-30px;right:0;opacity:.5}html:not([data-theme2="classic"]) .hero::before{display:none}}
 /* corner decorations */
 #themeDecor{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
-#themeDecor span{position:absolute;font-size:46px;opacity:.16;filter:blur(.3px);animation:tbob 7s ease-in-out infinite;animation-delay:calc(var(--i) * -1.7s)}
+#themeDecor span{position:absolute;font-size:46px;opacity:.16;will-change:transform;animation:tbob 7s ease-in-out infinite;animation-delay:calc(var(--i) * -1.7s)}
 #themeDecor span:nth-child(1){left:2%;bottom:6%;font-size:90px}#themeDecor span:nth-child(2){right:3%;bottom:14%;font-size:70px}#themeDecor span:nth-child(3){left:6%;top:30%}#themeDecor span:nth-child(4){right:8%;top:46%;font-size:56px}
 /* Halloween: spider webs, orange/purple glow, pumpkin-carved headings */
 html[data-theme2="halloween"] body{background-color:#0b0814}
@@ -1340,7 +1341,7 @@ html[data-theme2="valentine"] body::after,html[data-theme2="spring"] body::after
 /* St. Patrick's: clover green rays; July 4th: stripes; Finals/gold: spotlight */
 html[data-theme2="stpat"] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:repeating-conic-gradient(from 0deg at 50% -20%,rgba(46,204,113,.05) 0 6deg,transparent 6deg 18deg)}
 html[data-theme2="july4"] body::after{content:"";position:fixed;inset:0 0 auto;height:8px;pointer-events:none;z-index:70;background:repeating-linear-gradient(90deg,#ff4d5e 0 30px,#fff 30px 60px,#4f8cff 60px 90px)}
-html[data-theme2="finals"] body::after,html[data-theme2="gold"] body::after,html[data-theme2="allstar"] body::after,html[data-theme2="playoffs"] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:conic-gradient(from 200deg at 50% -10%,transparent 0deg,color-mix(in srgb,var(--amber) 14%,transparent) 15deg,transparent 30deg,transparent 330deg,color-mix(in srgb,var(--amber) 14%,transparent) 345deg,transparent 360deg);animation:sweep 9s ease-in-out infinite alternate}
+html[data-theme2="finals"] body::after,html[data-theme2="gold"] body::after,html[data-theme2="allstar"] body::after,html[data-theme2="playoffs"] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:conic-gradient(from 200deg at 50% -10%,transparent 0deg,color-mix(in srgb,var(--amber) 14%,transparent) 15deg,transparent 30deg,transparent 330deg,color-mix(in srgb,var(--amber) 14%,transparent) 345deg,transparent 360deg);opacity:.9}
 @keyframes sweep{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
 html[data-theme2="neon"] .hero h1{text-shadow:0 0 12px var(--amber),0 0 40px var(--accent2)}
 html[data-theme2="neon"] .card,html[data-theme2="neon"] .mode{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--amber) 30%,transparent),0 0 24px -14px var(--accent2)}
@@ -4469,9 +4470,9 @@ async function nameReconcile(){if(!DB.ok||!P.signed)return;
   if(!local&&nameSame(DB.myName,P.name))return;
   if(admSet)return;
   let msg=local;if(!msg){const r=await DB.c.rpc('claim_name',{p_name:P.name});if(!r.error){DB.myName=r.data;P.nameUnclaimed=false;saveP();return}if(await nameAdminForce(P.name)){saveP();return}msg=r.error.message}
-  const nk='hp_nmwarn';const w=store.get(nk,{});if(w.n===P.name&&Date.now()-w.t<864e5)return;store.set(nk,{n:P.name,t:Date.now()});
-  popShow({id:'nm:'+Date.now(),big:true,k:'msg',title:'Pick a new username',body:`"${P.name||'(blank)'}" can't be used: ${msg} Usernames need 3 to 25 characters, mostly letters, and have to be friendly and one of a kind. If you use this name on another phone or computer, link the two with a sync code (Profile → Sync) instead.${isAdminDevice()&&NMF?` (Admin override: ${NMF}.)`:''}`});
-  setTimeout(()=>{if(!$('#popBig'))openSignIn()},2500)}
+  /* a quiet note, at most once a week per name. Never a pop-up on every load. */
+  P.nameUnclaimed=true;const nk='hp_nmwarn';const w=store.get(nk,{});if(w.n===P.name&&Date.now()-w.t<7*864e5)return;store.set(nk,{n:P.name,t:Date.now()});
+  toast('Your username isn\'t reserved',`${local?`"${P.name}": ${msg}`:`Another profile already uses "${P.name}".`} You can keep playing. To fix it, change it in Profile → Edit, or link your devices with a sync code${isAdminDevice()&&NMF?` (admin override: ${NMF})`:''}.`,'M12 9v4M12 17h.01')}
 
 /* ---------- admin edits to my profile + private messages, live ---------- */
 function adoptCloud(data,why){DB.pulling=true;Object.keys(P).forEach(k=>delete P[k]);Object.assign(P,blankProfile(),data);if(!P.h2h)P.h2h={w:0,l:0,t:0};store.set('hp_profile',P);DB.pulling=false;refreshNav();
@@ -5461,16 +5462,18 @@ function liveTheme(){const id=themeNow();const T=TPACKS[id]||TPACKS.classic;cons
   if(id!==THEME_CUR){THEME_CUR=id;themeFx(T[5]);themeDecor(id);const tg=$('#themeTag');if(tg){tg.textContent=T[6]||'';tg.hidden=!T[6]}}}
 /* gentle falling or floating particles for the theme. Off for reduced motion or when the player turns effects off. */
 let TFX={raf:0,parts:[],type:'none'};
+/* draw each emoji once into a small image, then reuse it every frame (text drawing is slow) */
+const EMOS={};function emoSprite(e){let c=EMOS[e];if(c)return c;c=document.createElement('canvas');c.width=c.height=48;const g=c.getContext('2d');if(g){g.font='38px serif';g.textAlign='center';g.textBaseline='middle';g.fillText(e,24,27)}return EMOS[e]=c}
 const fxOn=()=>!RM&&store.get('hp_fx',1)!==0;
 function themeFx(type){cancelAnimationFrame(TFX.raf);TFX.type=type;let cv=$('#themefx');if(!THEME_FX[type]||!fxOn()){if(cv)cv.remove();return}
   if(!cv){cv=document.createElement('canvas');cv.id='themefx';document.body.prepend(cv)}const x=cv.getContext('2d');if(!x)return;
-  const fit=()=>{const d=Math.min(2,devicePixelRatio||1);cv.width=innerWidth*d;cv.height=innerHeight*d;x.setTransform(d,0,0,d,0,0)};fit();addEventListener('resize',fit);
-  const N=type==='fireworks'?(TEMO[THEME_CUR]?10:0):type==='gold'||type==='sparks'?26:type==='sun'?14:34;const W=()=>innerWidth,H=()=>innerHeight;
+  const fit=()=>{const d=1;cv.width=innerWidth*d;cv.height=innerHeight*d;x.setTransform(d,0,0,d,0,0)};fit();if(TFX.fit)removeEventListener('resize',TFX.fit);TFX.fit=fit;addEventListener('resize',fit);
+  const small=innerWidth<700||(navigator.hardwareConcurrency||8)<=4;const N=Math.round((type==='fireworks'?(TEMO[THEME_CUR]?8:0):type==='gold'||type==='sparks'?20:type==='sun'?10:26)*(small?.6:1));const W=()=>innerWidth,H=()=>innerHeight;
   const cs=getComputedStyle(document.documentElement);const a1=(cs.getPropertyValue('--amber')||'#ffb547').trim(),a2=(cs.getPropertyValue('--accent2')||'#ffffff').trim()||'#fff';
   const EM=TEMO[THEME_CUR]||null;const rnd=(a,b)=>a+Math.random()*(b-a);const mk=(y)=>({x:rnd(0,W()),y:y??rnd(-H(),0),s:rnd(.6,1.4),vx:rnd(-.3,.3),vy:rnd(.25,.9),r:rnd(0,6.28),vr:rnd(-.02,.02),c:Math.random()<.5?a1:a2,ph:rnd(0,6.28),e:EM&&Math.random()<.42?EM[Math.floor(Math.random()*EM.length)]:''});
   TFX.parts=Array.from({length:N},()=>mk(rnd(0,H())));let boom=[],t0=0;
   const draw=(p)=>{x.save();x.translate(p.x,p.y);x.rotate(p.r);x.globalAlpha=.55;x.fillStyle=p.c;x.strokeStyle=p.c;const s=p.s;
-    if(p.e){x.rotate(-p.r*.7);x.globalAlpha=.8;x.font=Math.round(16+s*10)+'px serif';x.textAlign='center';x.textBaseline='middle';x.fillText(p.e,0,0);x.restore();return}
+    if(p.e){x.rotate(-p.r*.7);x.globalAlpha=.8;const sp=emoSprite(p.e);const z=(16+s*10)/48;x.drawImage(sp,-24*z,-24*z,48*z,48*z);x.restore();return}
     switch(type){
       case'snow':x.globalAlpha=.75;x.fillStyle='#fff';x.beginPath();x.arc(0,0,2.2*s,0,7);x.fill();break;
       case'leaves':x.beginPath();x.ellipse(0,0,7*s,3.6*s,0,0,7);x.fill();x.globalAlpha=.4;x.fillRect(-7*s,-.4,14*s,.8);break;
@@ -5484,7 +5487,7 @@ function themeFx(type){cancelAnimationFrame(TFX.raf);TFX.type=type;let cv=$('#th
       case'gold':case'sparks':x.globalAlpha=.35+.35*Math.sin(p.ph);x.beginPath();x.arc(0,0,1.6*s,0,7);x.fill();break;
       case'sun':x.globalAlpha=.08;x.beginPath();x.arc(0,0,40*s,0,7);x.fill();break}
     x.restore()};
-  const step=t=>{if(!$('#themefx'))return;x.clearRect(0,0,W(),H());
+  let last=0;const step=t=>{if(!$('#themefx'))return;if(t-last<30){TFX.raf=requestAnimationFrame(step);return}last=t;x.clearRect(0,0,W(),H());
     if(type==='fireworks'){if(t-t0>1400){t0=t;const cx=rnd(W()*.15,W()*.85),cy=rnd(H()*.08,H()*.4),c=Math.random()<.5?a1:a2;for(let k=0;k<46;k++){const a=k/46*6.28,v=rnd(1.2,2.6);boom.push({x:cx,y:cy,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c})}}
       boom=boom.filter(b=>b.l>0);boom.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.vy+=.025;b.vx*=.985;b.l-=.012;x.globalAlpha=Math.max(0,b.l)*.7;x.fillStyle=b.c;x.fillRect(b.x,b.y,2,2)})}
     if(type==='fireworks')TFX.parts.forEach(p=>{p.ph+=.05;p.y+=p.vy*.6;p.x+=Math.sin(p.ph)*.3;if(p.y>H()+20)Object.assign(p,mk(-10));if(!p.e)p.e=(TEMO[THEME_CUR]||['✨'])[0];draw(p)});
@@ -5654,10 +5657,10 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792696510';
+const BUILD='1792697329';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
-  try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
+  try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
       /* already reloaded for this version but the browser handed back the old copy: load the fresh one directly, no second pop-up */
       const tr=store.get('hp_upd_try',{});if(tr.b===m[1]&&Date.now()-tr.t<300e3){if(new URLSearchParams(location.search).get('v')===m[1])return;store.set('hp_upd_try',{b:m[1],t:Date.now()});location.replace(location.pathname+'?v='+m[1]+(location.hash==='#admin'?'#admin':''));return}
       updShow({kind:'new',secs:manual?3:12});return}
@@ -5682,7 +5685,7 @@ const BOOT_TS=Date.now();try{if(/[?&]v=\d+/.test(location.search))history.replac
 function updReset(){const r=(LIVE.feed.cfg||{}).reset;if(!r||!r.ts)return;const seen=store.get('hp_reset_seen',0);
   if(r.ts<=seen||r.ts<BOOT_TS-5000)return;store.set('hp_reset_seen',r.ts);if(isAdminDevice()){toastLite('Reset sent. Every open game is reloading.');return}updShow({kind:'reset',msg:r.msg,secs:8})}
 function updBoot(){const u=store.get('hp_updated',0);if(u&&Date.now()-u<120e3){store.set('hp_updated',0);setTimeout(()=>toast('You\'re on the newest version','Everything is saved. Tap What\'s new to see what changed.','M5 12l5 5L20 7'),1500)}
-  setInterval(updCheck,90e3);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&Date.now()-(UPD.last||0)>20e3){UPD.last=Date.now();updCheck()}});setTimeout(updCheck,15e3)}
+  setInterval(updCheck,180e3);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&Date.now()-(UPD.last||0)>20e3){UPD.last=Date.now();updCheck()}});setTimeout(updCheck,15e3)}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();if(v==='home')renderHome();window.scrollTo({top:0})}
