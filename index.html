@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1792782811">
+<meta name="hp-build" content="1792784182">
 <title>Hall Pass</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Draft an all-time basketball roster from any decade, pick a coach, and simulate a full season and playoffs.">
@@ -5826,7 +5826,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792782811';
+const BUILD='1792784182';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -5915,8 +5915,8 @@ function stNew(opt){const d=ST_DIFF[opt.diff]||ST_DIFF.normal;const n=opt.mode==
 function stCheck(team,first){const s=ST;s.poss=team;s.cleared=true;s.clock=12;if(!first){s.state='check';s.stateT=s.opt.mode==='practice'?.2:1}
   const off=s.teams[team],def=s.teams[team==='A'?'B':'A'];
   const spots=[[25,29],[9,20],[41,20]],dspots=[[25,23],[12,17],[38,17]];
-  off.forEach((p,k)=>{const[sx,sy]=spots[k];Object.assign(p,{x:sx,y:sy,vx:0,vy:0,z:0,vz:0,stun:0,shoot:null,cross:0,sb:0,cut:0})});
-  def.forEach((p,k)=>{const[sx,sy]=dspots[k];Object.assign(p,{x:sx,y:sy,vx:0,vy:0,z:0,vz:0,stun:0,shoot:null,cross:0,sb:0,cut:0,face:-Math.PI/2})});
+  off.forEach((p,k)=>{const[sx,sy]=spots[k];Object.assign(p,{x:sx,y:sy,vx:0,vy:0,z:0,vz:0,stun:0,shoot:null,cross:0,sb:0,cut:0,celebrate:0})});
+  def.forEach((p,k)=>{const[sx,sy]=dspots[k];Object.assign(p,{x:sx,y:sy,vx:0,vy:0,z:0,vz:0,stun:0,shoot:null,cross:0,sb:0,cut:0,celebrate:0,face:-Math.PI/2})});
   const b=s.ball;b.holder=off[0];b.flight=null;b.free=false;b.last=team;b.trail=[];stPlaceBall();
   s.ctrl=team==='A'?off[0]:(stNearest(s.teams.A,off[0].x,off[0].y)||s.teams.A[0])}
 function stPlaceBall(){const s=ST,b=s.ball,h=b.holder;if(!h)return;const mv=Math.hypot(h.vx,h.vy)>1;const ph=s.t*(mv?11:7);
@@ -6029,11 +6029,11 @@ function stStep(dt){const s=ST;if(s.paused||s.over&&s.state!=='score')return;s.t
   /* camera eases toward the action */const b=s.ball;const fx=b.holder?b.holder.x:b.x,fy=b.holder?b.holder.y:b.y;s.cam.x=stLerp(s.cam.x,stLerp(25,fx,.35),dt*2.5);s.cam.y=stLerp(s.cam.y,stLerp(22,fy,.3),dt*2.5);s.cam.z=stLerp(s.cam.z,(b.flight&&b.flight.dunk)?1.24:1.15,dt*3);
   if(s.state==='intro'){s.stateT-=dt;stPlaceBall();if(s.stateT<=0){s.state='check';s.stateT=.9;const o=$('#stIntro');if(o){o.classList.add('out');setTimeout(()=>o.remove(),400)}}return}
   if(s.state==='check'){s.stateT-=dt;s.all.forEach(p=>{p.vx=p.vy=0});stPlaceBall();if(s.stateT<=0){s.state='live';if(s.opt.mode!=='practice')tone(1400,.08,'square',.02)}return}
-  if(s.state==='score'){s.stateT-=dt;stBallPhys(dt);s.all.forEach(p=>{p.celebrate=Math.max(0,p.celebrate-dt);if(p.z>0||p.vz>0){p.vz-=SC.G*dt*1.4;p.z=Math.max(0,p.z+p.vz*dt)}});
+  if(s.state==='score'){s.stateT-=dt;stBallPhys(dt);s.all.forEach(p=>{p.celebrate=Math.max(0,p.celebrate-dt);if(p.z>0||p.vz>0){p.vz-=SC.G*dt*1.4;p.z=Math.max(0,p.z+p.vz*dt);if(p.z===0)p.vz=0}if(p.shoot&&p.shoot.done&&p.z<=0)p.shoot=null});
     if(s.stateT<=0){if(s.over)return;if(s.opt.mode==='practice'){const me=s.teams.A[0];b.holder=me;b.free=false;s.state='live';return}stCheck(s.next)}return}
   if(s.opt.mode!=='practice'&&b.holder){s.clock-=dt;if(s.clock<=0){stPop(b.holder.x,b.holder.y-2,'Shot clock','#ff8a8a',1);sfx('buzzer');stTurnover(stOpp(b.holder.team));return}}
   const D=stD();
-  s.all.forEach(p=>{p.stun=Math.max(0,p.stun-dt);p.cross=Math.max(0,p.cross-dt);p.act=Math.max(0,p.act-dt);p.sb=Math.max(0,p.sb-dt);p.anim+=dt*Math.min(1.6,Math.hypot(p.vx,p.vy)/8);
+  s.all.forEach(p=>{p.stun=Math.max(0,p.stun-dt);p.cross=Math.max(0,p.cross-dt);p.act=Math.max(0,p.act-dt);p.sb=Math.max(0,p.sb-dt);p.celebrate=Math.max(0,p.celebrate-dt);p.anim+=dt*Math.min(1.6,Math.hypot(p.vx,p.vy)/8);
     let tx,ty,sp,sprint=false;
     if(p===s.ctrl&&!s.auto){const[dx,dy]=stInputDir();sprint=!!s.keys.sprint&&p.stam>.05&&!!(dx||dy);sp=(dx||dy)?1:0;tx=p.x+dx*4;ty=p.y+dy*4;
       /* hold Space on defense near the shooter: you contest automatically */}
@@ -6171,8 +6171,8 @@ function stDrawPlayer(g,p,P_,sc){const s=ST;const[x,yz]=P_(p.x,p.y,p.z);const c1
   g.strokeStyle='rgba(255,255,255,.55)';g.lineWidth=1.2;g.beginPath();g.moveTo(x-sc*.5,jt+1);g.quadraticCurveTo(x,jt+sc*.45,x+sc*.5,jt+1);g.stroke();
   g.fillStyle='rgba(255,255,255,.95)';g.font=`800 ${Math.round(sc*.78)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillText(String(p.num),x,jt+jh*.58);g.textBaseline='alphabetic';
   /* arms by pose */const shY=jt+sc*.3;g.strokeStyle=p.skin;g.lineWidth=sc*.3;g.beginPath();
-  if(p.shoot&&!p.shoot.done||p.celebrate>0){g.moveTo(x-sc*.7,shY);g.lineTo(x-sc*.45,top-sc*.55);g.moveTo(x+sc*.7,shY);g.lineTo(x+sc*.4,top-sc*.65)}
-  else if(p.shoot){g.moveTo(x-sc*.7,shY);g.lineTo(x-sc*.2,top-sc*.4);g.moveTo(x+sc*.7,shY);g.quadraticCurveTo(x+sc*.9,top-sc*.5,x+sc*.55,top-sc*.2)}
+  if(p.shoot&&!p.shoot.done||p.celebrate>0&&!hasBall&&!def){g.moveTo(x-sc*.7,shY);g.lineTo(x-sc*.45,top-sc*.55);g.moveTo(x+sc*.7,shY);g.lineTo(x+sc*.4,top-sc*.65)}
+  else if(p.shoot&&p.z>0){g.moveTo(x-sc*.7,shY);g.lineTo(x-sc*.2,top-sc*.4);g.moveTo(x+sc*.7,shY);g.quadraticCurveTo(x+sc*.9,top-sc*.5,x+sc*.55,top-sc*.2)}
   else if(p.z>1){g.moveTo(x-sc*.7,shY);g.lineTo(x-sc*.8,top-sc*.8);g.moveTo(x+sc*.7,shY);g.lineTo(x+sc*.8,top-sc*.8)}
   else if(hasBall){const bz=s.ball.z;g.moveTo(x+side*sc*.7,shY);g.lineTo(x+side*sc*.95,y-sc*.3-Math.min(bz,2.6)*sc*.75+sc*.6);g.moveTo(x-side*sc*.7,shY);g.lineTo(x-side*sc*.9,shY+sc*1.1)}
   else if(def){g.moveTo(x-sc*.7,shY);g.lineTo(x-sc*1.5,shY+sc*.2);g.moveTo(x+sc*.7,shY);g.lineTo(x+sc*1.5,shY-sc*.3)}
