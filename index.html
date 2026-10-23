@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1792776440">
+<meta name="hp-build" content="1792782811">
 <title>Hall Pass</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Draft an all-time basketball roster from any decade, pick a coach, and simulate a full season and playoffs.">
@@ -4232,7 +4232,7 @@ async function runGauntlet(){const t=teamCalc(S.roster,S.coach,true);const opps=
 const MINI=()=>{if(!P.mini)P.mini={hl:0,gd:0,bd:0};const M=P.mini;['sc','wa','rk','lr'].forEach(k=>{if(M[k]==null)M[k]=0});return M};
 const realNames=()=>Object.keys(CAREER);
 function playerByName(n){return[...PLAYERS].filter(p=>p.name===n).sort((a,b)=>b.ovr-a.ovr)[0]}
-function renderMini(){go('home');RUN++;const M=MINI();
+function renderMini(){goTo('mini');const M=MINI();
   $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6')} Home</button><div><span class="label">Quick hits · test your hoops brain</span><h2>Mini-games</h2></div></div>
    <div class="modes">
     <div class="mode"><span class="glyph">${icon('M12 19V5M5 12l7-7 7 7',22)}</span><div><span class="label">Best streak ${M.hl}</span><h3>Higher or lower</h3><p>Who scored more per game in their career? Keep the streak alive.</p></div><button class="btn btn-go" data-mg="hl">Play</button></div>
@@ -5200,7 +5200,7 @@ const crStandings=c=>c.league.teams.map((t,i)=>({...t,i})).sort((a,b)=>(b.w-a.w)
 /* ---------- create a player ---------- */
 let CRN={pos:'SG',arch:'sniper',ht:2,num:23,name:''};
 function crDraftAttrs(){const a={...CR_ARCH[CRN.arch].a};const m=CR_HTMOD[CRN.ht]||{};for(const k in m)a[k]+=m[k];if(hasPerk('gym'))for(const k in a)a[k]+=3;return a}
-function crCreateScreen(){go('home');RUN++;if(!CRN.name&&P.signed)CRN.name=P.name;const archs=Object.entries(CR_ARCH).filter(([,a])=>a.pos.includes(CRN.pos));if(!CR_ARCH[CRN.arch].pos.includes(CRN.pos))CRN.arch=archs[0][0];
+function crCreateScreen(){goTo('crcreate');if(!CRN.name&&P.signed)CRN.name=P.name;const archs=Object.entries(CR_ARCH).filter(([,a])=>a.pos.includes(CRN.pos));if(!CR_ARCH[CRN.arch].pos.includes(CRN.pos))CRN.arch=archs[0][0];
   const at=crDraftAttrs();const fake={pos:CRN.pos,at};const ov=crOvr(fake);const L=LEG();
   $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6')} Home</button><div><span class="label">The Rise · career mode</span><h2>Create your player</h2></div></div>
     <div class="crc"><div class="card crform">
@@ -5259,7 +5259,7 @@ function crHomeCard(){const c=CAR();if(c&&c.stage!=='retired')return `<div class
   return `<div class="crhome crnew card"><div><span class="label">New · career mode</span><h3>The Rise</h3><p>Create your own player. Get drafted, earn minutes, make the big plays yourself, win rings and chase the Hall of Fame. Every game plays out differently.</p></div><button class="btn btn-go btn-big" onclick="crCreateScreen()">Create your player ${icon('M5 12h14M13 6l6 6-6 6',18)}</button></div>`}
 function crResume(){const c=CAR();if(!c)return crCreateScreen();if(c.stage==='combine')return crCombine();if(c.stage==='draft')return crDraftNight();if(c.stage==='offseason')return crOffseason();if(c.stage==='allstar')return crAllStar();renderCareer('home')}
 function crNextGame(c){if(c.stage==='season')return c.league.sched[c.gi];if(c.stage==='playoffs'&&c.po&&!c.po.done)return{opp:c.po.opp,home:true,po:1};return null}
-function renderCareer(tab){const c=CAR();if(!c)return crCreateScreen();if(tab)CRT=tab;go('home');RUN++;
+function renderCareer(tab){const c=CAR();if(!c)return crCreateScreen();if(tab)CRT=tab;goTo('career');
   const L=c.league,me=L.teams[L.my];const role=crRole(c);const ng=crNextGame(c);const opp=ng?L.teams[ng.opp]:null;
   const isRival=opp&&c.rival&&c.rival.team===ng.opp;const st=crStandings(c);const seed=st.findIndex(t=>t.me)+1;
   const tabs=[['home','Home'],['player','My player'],['stats','Stats'],['league','League'],['trophies','Trophy room']];
@@ -5826,7 +5826,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792776440';
+const BUILD='1792782811';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -6198,7 +6198,7 @@ function stPause(){const s=ST;s.paused=!s.paused;const o=$('#stPause');if(o)o.hi
 /* ---------- screens ---------- */
 let STO={mode:'1v1',diff:'easy',to:0,makeIt:false};
 function stTuneLabel(v){return v<-.45?'Easing off for you':v<-.15?'A little easier':v<=.15?'Balanced':v<=.45?'A little tougher':'Tough: you\'ve earned it'}
-function stHub(){go('home');RUN++;if(!canPlay('full'))return;
+function stHub(){goTo('sthub');if(!canPlay('full'))return;
   if(stClosed())return stGateScreen('closed');if(!stAccess())return stGateScreen('locked');
   const me=stMe();const S2=stSave();const lad=Math.min(10,S2.ladder);
   const lad10=ST_LADDER.map((q,i)=>`<div class="stlr ${i<lad?'done':i===lad?'now':''}"><b>${i+1}</b><small>${q}</small></div>`).join('');
@@ -6302,7 +6302,9 @@ function stHomeCard(){const a=stAccess()&&!stClosed();const S2=P.street||{w:0,l:
    ${a?`<div class="row"><span class="tag">${S2.w}–${S2.l} record</span></div>`:''}<button class="btn btn-go" id="stHomeGo">${a?'Play Street':'Request beta access'} ${icon('M5 12h14M13 6l6 6-6 6',16)}</button></div></div>`}
 
 /* ============ ROUTING ============ */
-function go(v){SIM=null;RUN++;leaveOnline();if(v==='home')renderHome();window.scrollTo({top:0})}
+function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
+/* re-drawing the same screen (a tab, a chip, a setting) updates it in place: no flash, no jump to the top */
+let CURV='';function goTo(id){SIM=null;RUN++;leaveOnline();const same=CURV===id;CURV=id;if(!same)window.scrollTo({top:0});return same}
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-rx]');if(b&&ON.st&&!ON.st.solo){act({t:'react',e:b.dataset.rx});b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit')}});
 $('#logoBtn').onclick=()=>go('home');
 $('#onlineNav').onclick=()=>openOnline('quick');
