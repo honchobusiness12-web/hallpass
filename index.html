@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1792820583">
+<meta name="hp-build" content="1792821934">
 <title>Hall Pass</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Draft an all-time basketball roster from any decade, pick a coach, and simulate a full season and playoffs.">
@@ -1482,6 +1482,22 @@ body.stplaying #toasts,body.stplaying #popStack{display:none}
 .stcgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}.stcgrid div{padding:8px 10px;border-radius:12px;background:var(--ink)}.stcgrid small{display:block;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}.stcgrid b{font:800 20px "Big Shoulders Display",Impact,sans-serif}@media (max-width:700px){.stcgrid{grid-template-columns:repeat(3,1fr)}}
 .stcom{position:absolute;left:50%;bottom:14px;transform:translate(-50%,-8px);max-width:86%;padding:7px 14px;border-radius:999px;background:rgba(6,9,18,.72);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:13px;letter-spacing:.01em;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:3}.stcom.on{opacity:1;transform:translate(-50%,0)}@media (pointer:coarse){.stcom{bottom:auto;top:8px}}
 .stlad.tier{color:#ffcc4d}
+html.tgate,html.tgate body{overflow:hidden}
+.tgate{position:fixed;inset:0;z-index:9000;display:grid;place-items:center;padding:16px;background:rgba(4,6,14,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:tgIn .35s ease}
+.tgate.out{opacity:0;transition:opacity .3s}@keyframes tgIn{from{opacity:0}to{opacity:1}}
+.tgcard{width:min(720px,100%);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:22px;background:var(--panel,#141a2e);border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6);animation:tgUp .45s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes tgUp{from{transform:translateY(24px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.tghead{display:flex;gap:14px;align-items:center}.tghead h2{font-size:26px;text-transform:uppercase;margin:2px 0 0}.tgbadge{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#3ddc84,#2ec4b6);color:#06120c}
+.tgnote{padding:10px 12px;border-radius:12px;background:rgba(255,204,77,.1);border:1px solid rgba(255,204,77,.35);font-size:14px}
+.tgbody{flex:1;min-height:120px;overflow:auto;padding:4px 14px 4px 4px;border-radius:14px;background:var(--ink);border:1px solid var(--line);scrollbar-width:thin}
+.tgprog{height:4px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}.tgprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2ec4b6,#3ddc84);transition:width .15s}
+.tgchk{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}.tgchk input{width:20px;height:20px;margin-top:1px;accent-color:#3ddc84;flex:none}.tgchk input:disabled+span{opacity:.5}
+.rules{padding:6px 4px}.rsec{padding:10px 8px;border-bottom:1px solid var(--line)}.rsec:last-of-type{border-bottom:0}.rsec h4{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:15px}.rsec h4 svg{color:#3ddc84}.rsec ul{margin:0;padding-left:20px;display:grid;gap:5px}.rsec li{font-size:14px;line-height:1.45;color:var(--text,#e8ecf6)}
+.rstand{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:14px;margin:8px 0;border:1px solid var(--line)}.rstand.good{background:rgba(61,220,132,.08);border-color:rgba(61,220,132,.35)}.rstand.warn{background:rgba(255,204,77,.08);border-color:rgba(255,204,77,.35)}.rstand.bad{background:rgba(255,107,107,.1);border-color:rgba(255,107,107,.4)}.rstand small{color:var(--mute)}
+.rptb{display:inline-grid;place-items:center;margin-left:6px;width:22px;height:22px;border-radius:7px;border:1px solid transparent;background:none;color:var(--mute);opacity:.55;vertical-align:middle;transition:opacity .15s,border-color .15s}.rptb:hover{opacity:1;border-color:var(--line);color:#ff8a8a}
+.sfq{display:grid;gap:8px;margin-top:10px}.sfi{padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--ink)}.sfi.report{border-left:3px solid #ff8a8a}.sfi.automod{border-left:3px solid #ffcc4d}.sfi.done,.sfi.dismissed{opacity:.6}.sfih{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.sfnote{margin:6px 0;font-size:13px;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.04)}
+.foot .linkbtn{font-size:inherit;padding:0;color:var(--amber)}
+
 .stmodes.vb6{grid-template-columns:repeat(3,minmax(0,1fr))}@media (max-width:640px){.stmodes.vb6{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .vbpart,.vbdrills{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:6px}
 .vbpc{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--ink);transition:transform .15s,border-color .2s}
@@ -1536,7 +1552,7 @@ body.stplaying .vbchips{margin-top:6px}@media (max-width:760px){.vbchips kbd{dis
 
 <div id="liveStrip" class="wrap"></div>
 <main id="app"></main>
-<footer class="foot"><div class="wrap">Hall Pass is an unofficial fan project, not affiliated with or endorsed by any professional league or team. Player names are historical public record; ratings are fan estimates for entertainment.</div></footer>
+<footer class="foot"><div class="wrap">Hall Pass is an unofficial fan project, not affiliated with or endorsed by any professional league or team. Player names are historical public record; ratings are fan estimates for entertainment. <button class="linkbtn" onclick="openRules()">Community Rules & Terms</button> · <button class="linkbtn" onclick="openReport({})">Report a problem</button></div></footer>
 
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Your account"></aside>
@@ -2043,7 +2059,7 @@ function renderHome(){
   $('#startBtn').onclick=()=>{S.challenge=null;S.daily=null;S.gauntlet=false;startDraft()};
   hsecBind();{const sg=$('#stHomeGo');if(sg)sg.onclick=()=>stHub()}liveBind();$('#mDaily').onclick=()=>startDaily();$('#mGaunt').onclick=()=>startGauntlet();$('#mMini').onclick=()=>renderMini();{const ml=$('#mLocker');if(ml)ml.onclick=()=>openLocker('shop')}lockerAuto();
   {const pb=$('#passBar');if(pb)pb.onclick=()=>openPass()}
-  if(P.signed&&!store.get('hp_tour',0)&&!LUI.toured){LUI.toured=1;setTimeout(()=>{if($('.hero'))startTour(0)},900)}
+  if(P.signed&&!store.get('hp_tour',0)&&!LUI.toured&&termsOK()){LUI.toured=1;setTimeout(()=>{if($('.hero'))startTour(0)},900)}
   if(!P.signed&&!LUI.walled&&!location.hash){LUI.walled=1;setTimeout(()=>{if($('.hero')&&!$('#modal.on')&&!$('#popBig'))openSignIn()},1100)}
   $('#mSeason').onclick=()=>!canPlay('full')?0:$('#eraHead').scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});
   $('#mBot').onclick=()=>{if(canPlay('full'))hostStart(myName(),true)};
@@ -2380,7 +2396,7 @@ function openDrawer(tab='ach'){
      <div class="pc-lvl"><div class="pc-lvlb"><b>${li.lvl}</b><small>Level</small></div><div class="pc-xp"><div class="lvl-row"><span class="mono">${fmtN(li.rem)} / ${fmtN(li.need)} XP</span><span>to level ${fmtN(li.lvl+1)}</span></div><div class="xpbar"><i id="dxp"></i></div></div>${tixHTML()}</div></div>
    ${pinsHTML()}
    <div class="stag" style="animation-delay:.05s">${supProfileCard()}</div>
-   <div class="pqs stag" style="animation-delay:.08s">${q('lockP','M20.4 7.4L16 3l-4 2-4-2-4.4 4.4L6 11v10h12V11z','Locker',"closeAll();setTimeout(()=>openLocker('inv'),250)")}${q('editP','M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z','Edit','')}${q('dPass','M3 9a3 3 0 0 0 0 6v3h18v-3a3 3 0 0 0 0-6V6H3zM13 6v12','Pass','')}${q('syncP','M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5','Sync',"closeAll();setTimeout(openSync,250)")}${q('promoP','M20 12v10H4V12M2 7h20v5H2zM12 22V7','Code',"closeAll();setTimeout(openPromo,250)")}</div>
+   <div class="pqs stag" style="animation-delay:.08s">${q('lockP','M20.4 7.4L16 3l-4 2-4-2-4.4 4.4L6 11v10h12V11z','Locker',"closeAll();setTimeout(()=>openLocker('inv'),250)")}${q('editP','M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z','Edit','')}${q('dPass','M3 9a3 3 0 0 0 0 6v3h18v-3a3 3 0 0 0 0-6V6H3zM13 6v12','Pass','')}${q('syncP','M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5','Sync',"closeAll();setTimeout(openSync,250)")}${q('promoP','M20 12v10H4V12M2 7h20v5H2zM12 22V7','Code',"closeAll();setTimeout(openPromo,250)")}${q('rulesP','M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z','Rules',"closeAll();setTimeout(openRules,250)")}</div>
    <button class="passbar stag" id="dPass2" style="animation-delay:.1s"><span class="label">Season pass</span><b>Tier ${pt}<small>/${PASS_N}</small></b><i><s style="width:${pt>=PASS_N?100:into/PASS_XP*100}%"></s></i></button>
    <div class="pc-sec stag" style="animation-delay:.14s"><span class="label">Career</span><div class="stats4">
      <div><span class="label">Seasons</span><b data-c="${P.seasons}">0</b></div><div><span class="label">Titles</span><b data-c="${P.titles}" style="color:var(--amber)">0</b></div>
@@ -2462,7 +2478,7 @@ function openSignIn(why){
     const c=COS();if(mode==='jersey')c.mode='jersey';else if(c.mode==='jersey')c.mode='init';
     P.signed=true;if(!P.born)P.born=Date.now();saveP();refreshNav();
     const r=$('#pav').getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,GRADS[grad]);$('.su').classList.add('sudone');sfx('win');
-    setTimeout(()=>{closeAll();if(isNew){toast(`Welcome, ${n}`,'Your profile is live. Every game now counts.','M5 12l5 5L20 7');renderHome();if(!store.get('hp_tour',0))setTimeout(()=>startTour(0),700)}},650)};
+    setTimeout(()=>{closeAll();if(isNew){toast(`Welcome, ${n}`,'Your profile is live. Every game now counts.','M5 12l5 5L20 7');renderHome();if(!store.get('hp_tour',0)&&termsOK())setTimeout(()=>startTour(0),700)}},650)};
   $('#mx').onclick=closeAll;$('#modal').classList.remove('wide');$('#modal').classList.add('on');$('#scrim').classList.add('on');setTimeout(()=>$('#nm').focus({preventScroll:true}),350)}
 
 /* ---------- sign-up is required: guests get one free mini-game ---------- */
@@ -2918,7 +2934,7 @@ async function quickMatch(name,onStep){onStep=onStep||(()=>{});onStep('Finding a
 /* warm everything up the moment the online screen opens so creating and joining are instant */
 function onlineWarm(){try{sbClient().then(()=>lobbyConnect()).catch(()=>{})}catch(e){}setTimeout(()=>{try{loadMqtt().catch(()=>{})}catch(e){}},400)}
 
-function openOnline(tab='quick',code='',kind){if((LIVE.feed.cfg||{}).noOnline&&!isAdminDevice()){toast('Online play is paused','The developer paused online games for a bit. Solo modes still work.','M10 9v6M14 9v6M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20');return}
+function openOnline(tab='quick',code='',kind){if(typeof modOnlineBanned==='function'&&modOnlineBanned())return;if((LIVE.feed.cfg||{}).noOnline&&!isAdminDevice()){toast('Online play is paused','The developer paused online games for a bit. Solo modes still work.','M10 9v6M14 9v6M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20');return}
   onlineWarm();lobbyLook(true);
   const box=$('#modalBox');let mode=tab;let hk=kind||'showdown';let pub=LOB.pub;
   const nm=()=>{const v=P.signed?cleanName(P.name):cleanName(nameClean(($('#on')||{}).value||''));return v};
@@ -3333,7 +3349,7 @@ function lgNewSeason(L){if(L.phase!=='done')return;const prevSt=lgStandings(L).m
 function lgAct(uid,a,name){const L=lgEnsure(ON.st);if(!L||!a)return;const ti=L.teams.findIndex(t=>t.owner===uid);const t=L.teams[ti];let ok=false;
   const lobbyH=L.humans.find(h=>h.uid===uid);
   switch(a.t){
-    case'tname':if(L.phase==='lobby'&&lobbyH){lobbyH.tname=cleanTeam(a.v);ok=true}break;
+    case'tname':if(L.phase==='lobby'&&lobbyH&&!amNameIssue(String(a.v||''))){lobbyH.tname=cleanTeam(a.v);ok=true}break;
     case'coach':if(L.phase==='lobby'&&lobbyH&&COACHES.some(c=>c.id===a.v)){lobbyH.coach=a.v;ok=true}break;
     case'pick':if(L.phase==='draft'&&t)ok=lgPick(L,ti,+a.p);break;
     case'auto':if(t){t.auto=a.on?1:0;ok=true}break;
@@ -3347,7 +3363,7 @@ function lgAct(uid,a,name){const L=lgEnsure(ON.st);if(!L||!a)return;const ti=L.t
     case'tcancel':if(t)ok=lgCancel(L,ti,String(a.id));break;
     case'sign':if(t)ok=lgSign(L,ti,+a.p);break;
     case'release':if(t)ok=lgRelease(L,ti,+a.p);break;
-    case'chat':{const m=String(a.m||'').replace(/[\u0000-\u001f\u007f]/g,'').trim().slice(0,160);
+    case'chat':{let m=String(a.m||'').replace(/[\u0000-\u001f\u007f]/g,'').trim().slice(0,160);m=m?amHostChat(m):'';
       if(m){L.chatSeq=(L.chatSeq||0)+1;L.chat.push({k:L.chatSeq,n:cleanName(name||(t&&t.oname)||'Player'),m,u:uid,c:t?t.g:(lobbyH?lobbyH.g:0)});if(L.chat.length>40)L.chat.shift();ok=true}break}
     case'train':if(t){const[pi,kk]=String(a.v).split(':');ok=lgTrain(L,ti,+pi,kk)}break;
     case'resign':if(t&&L.phase==='offseason'){ok=lgResign(L,ti,+a.p,!!a.ok)}break;
@@ -3533,7 +3549,7 @@ function lgBind(L,mi){const on=(s,f,ev)=>$$('#lgv '+s).forEach(el=>el[ev||'oncli
   on('[data-live]',()=>lgLiveOpen('live'));
   on('[data-simg]',()=>{if(LUI.sim)return;lgRunDay(L);hostCommit()});
   on('[data-simto]',el=>lgSimTo(el.dataset.simto));
-  const ci=$('#lgChat');const send=m=>{m=(m||'').trim();if(!m)return;lgDo({t:'chat',m});if(ci)ci.value=''};
+  const ci=$('#lgChat');const send=m=>{m=(m||'').trim();if(!m)return;m=amSendChat(m,'league chat');if(m==null)return;lgDo({t:'chat',m});if(ci)ci.value=''};
   if(ci)ci.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();send(ci.value)}};
   on('[data-chatsend]',()=>send(ci&&ci.value));on('[data-quick]',el=>send(el.dataset.quick))}
 async function lgSimTo(target){const L=ON.st;if(!L||LUI.sim||!ON.host||!L.solo)return;LUI.sim=true;lgRender();
@@ -3702,7 +3718,7 @@ function lgTabPO(L,mi){const P0=L.po;if(!P0)return'<p class="mutep">The bracket 
    ${L.awards&&L.awards.mvp?`<p class="hint">Regular season MVP: ${esc(LP(L,L.awards.mvp[0]).name)} (${esc(L.awards.mvp[1])})</p>`:''}`}
 
 /* chat & history */
-function lgTabChat(L,mi){return `<div class="card"><span class="label">League chat</span><ul class="chatlog" id="lgLog">${L.chat.map(c=>`<li class="${c.u===ON.uid?'me':''}"><b style="color:${(GRADS[c.c]||GRADS[0])[0]}">${esc(c.n)}</b>${esc(c.m)}</li>`).join('')||'<li class="hint">Say hi. Talk trades. Talk trash.</li>'}</ul>
+function lgTabChat(L,mi){return `<div class="card"><span class="label">League chat</span><ul class="chatlog" id="lgLog">${L.chat.map(c=>`<li class="${c.u===ON.uid?'me':''}"><b style="color:${(GRADS[c.c]||GRADS[0])[0]}">${esc(c.n)}</b>${esc(c.m)}${c.u!==ON.uid?`<button class="rptb" title="Report" data-rpt="${esc(c.n)}" data-rpq="${esc(c.m)}">${icon('M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7',12)}</button>`:''}</li>`).join('')||'<li class="hint">Say hi. Talk trades. Talk trash.</li>'}</ul>
   <div class="chips">${['GG','Ready up!','Want to trade?','Nice win','Rematch next season?'].map(q=>`<button class="cbtn sm" data-quick="${q}">${q}</button>`).join('')}</div>
   <div class="chatin"><input id="lgChat" maxlength="160" placeholder="Message the league" autocomplete="off"><button class="btn btn-go" data-chatsend>Send</button></div></div>`}
 function lgTabHist(L,mi){return `<div class="card"><span class="label">League history</span><div class="tbl-wrap"><table><tr><th>Season</th><th>Champion</th><th>MVP</th>${mi>=0?'<th class="n">Your record</th>':''}</tr>${L.hist.map(h=>`<tr class="${h.champ===mi?'me':''}"><td>${h.s}</td><td>${esc(h.cn)}</td><td>${esc(h.mvp||'–')}</td>${mi>=0?`<td class="n">${h.rec[mi]?h.rec[mi][0]+'–'+h.rec[mi][1]:'–'}</td>`:''}</tr>`).join('')}</table></div></div>`}
@@ -4331,6 +4347,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {v:'8.9',d:'2026-10-24',t:'Community Rules and AutoMod',b:'Hall Pass now has Community Rules that everyone accepts before playing. AutoMod keeps names, team names, titles and league chat friendly: it blocks hate, threats, sexual content, links and personal info, hides strong swears, and stops spam. Breaking the rules earns strikes that can mean a short mute or a pause on online play. You can now report a player from league chat or the leaderboards, or report a problem from the footer or your profile. Read the rules any time from Profile → Rules.'},
  {v:'8.8',d:'2026-10-23',t:'Street 3.0: Rep, courts and King of the Court',b:'Every Street game now earns Street Rep. Climb seven tiers from Rookie to Icon and unlock three new courts (Downtown Park, Rooftop Nights, Boardwalk Beach) and seven team kits. New signature moves: spin move, euro step and fadeaway, plus named dunks with slow-motion highlights. Live commentary calls the big plays. New mode: King of the Court, an eight-player bracket where you win three straight to take the crown. Career stats, controller support, and settings for commentary, slow-mo and screen shake.'},
  {v:'8.7',d:'2026-10-23',t:'Street 2.0',b:'Street got a full upgrade: a real arena with a crowd, a camera that follows the play, new animations, a curved shot meter, net and rim physics, and effects for dunks, blocks and steals. New moves: step-backs, and-ones, alley-oops, going on fire. New modes: The Ladder (beat ten legends) and a hands-on tutorial. Opponents now adapt to how you play, Easy is much friendlier, and blocking and stealing are easier.'},
  {v:'8.6',d:'2026-10-23',t:'Street beta: play it yourself',b:'A brand-new mode where you control the player. Move, cross people up, shoot with a timing meter, block and steal in 1-on-1 or 3-on-3 against legends, or practice your shot in a shootaround. Your MyPlayer\'s ratings carry over. Street is in private beta: request access from the home page.'},
@@ -4430,7 +4447,7 @@ function renderAdmin(){adminConnect();const f=LIVE.feed;const c=f.cfg||{};if(!AD
      <div class="card"><span class="label">Backup</span><p class="hint">Copy your whole profile as text, or paste one in to restore it.</p><textarea id="aBk" rows="6" spellcheck="false"></textarea><div class="actrow"><button class="btn btn-ghost" id="aExp">Export my profile</button><button class="btn btn-ghost" id="aImp">Import pasted profile</button></div></div></div>`,
     device:`<div class="card"><span class="label">This device is an admin</span><p class="mutep">Your admin code is saved in this browser. To make another device an admin, open #admin there and paste the same code.</p>
       <div class="actrow"><button class="btn btn-ghost" id="aShow">Show my admin code</button><button class="btn btn-ghost warn" id="aOut">Remove admin from this device</button></div><p class="codebox" id="aCode" hidden></p>
-      <p class="hint">Keep the code private. Anyone with it can post updates as you. If it ever leaks, ask Claude to make you a new one.</p></div>`,...adminTabs2(),...adminTabs3(),...adminTabsStreet()}[ADM.tab];
+      <p class="hint">Keep the code private. Anyone with it can post updates as you. If it ever leaks, ask Claude to make you a new one.</p></div>`,...adminTabs2(),...adminTabs3(),...adminTabsStreet(),...adminTabsSafety()}[ADM.tab];
   const cur=ADM_NAV.flatMap(g=>g[1]).find(x=>x[0]===ADM.tab)||['','Control room'];
   $('#app').innerHTML=`<section class="view adm"><div class="wrap"><div class="admtop"><button class="btn btn-ghost" onclick="adminExit()">${icon('M19 12H5M11 18l-6-6 6-6')} Back to the game</button><div><span class="label adm-l">● Admin · only on your devices</span><h2>Control room</h2></div><div class="meta"><span class="admpill">${DB.ok?'<i class="ok"></i>Live':'<i class="bad"></i>Offline'}</span></div></div>
     ${(c.maint&&c.maint.on&&ADM.tab!=='events')?`<div class="mtbar"><div><b>Maintenance mode is ON</b><small>Players see the "back soon" screen right now. Your devices skip it — use Preview or an Incognito window to see it.</small></div><button class="btn btn-ghost" onclick="liveMaint(true)">Preview what players see</button><button class="btn btn-go" onclick="maintOff()">Turn maintenance off</button></div>`:''}
@@ -4448,7 +4465,7 @@ function renderAdmin(){adminConnect();const f=LIVE.feed;const c=f.cfg||{};if(!AD
   const M1=$('#aMotd');if(M1)M1.onclick=()=>{const fd=feedCopy();fd.cfg.motd=$('#aM').value.trim();fd.cfg.motdId=rid();adminPublish(fd)};
   const M0=$('#aMotdOff');if(M0)M0.onclick=()=>{const fd=feedCopy();fd.cfg.motd='';adminPublish(fd)};
   const B1=$('#aBoss');if(B1)B1.onclick=()=>{const n=$('#aBn').value.trim();if(!n){ADM.pubRes='Give the boss a name first.';return renderAdmin()}const fd=feedCopy();Object.assign(fd.cfg,{boss:n,bossDay:dayKey(),rating:ADM.br||91});adminPublish(fd)};
-  if(ADM.tab==='db')adminDbDraw();adminBind2();adminBind3();stAdminBind();
+  if(ADM.tab==='db')adminDbDraw();adminBind2();adminBind3();stAdminBind();safAdminBind();
   if(ADM.tab==='players'){adminOnlineDraw();clearInterval(ADM.iv);ADM.iv=setInterval(()=>{if($('#admOnline'))adminOnlineDraw();else clearInterval(ADM.iv)},5000)}
   on('[data-at]',b=>{const k=b.dataset.at;const msg=t=>{const m=$('#atMsg');if(m)m.textContent=t};
     if(k==='xp'){gainXP(2000);msg('Added 2,000 XP.')}
@@ -4488,7 +4505,7 @@ async function dbInit(){if(!/^https?:/.test(location.protocol)||(window.claude&&
     DB.uid=session.user.id;let r2=await c.rpc('ensure_profile');
     if(r2.error&&/jwt|token|auth|401|sub claim/i.test(r2.error.message+' '+(r2.error.code||''))){try{await c.auth.signOut()}catch(e){}const r3=await c.auth.signInAnonymously();if(r3.error)throw r3.error;session=r3.data.session;DB.uid=session.user.id;r2=await c.rpc('ensure_profile')}
     if(r2.error)throw r2.error;DB.pid=r2.data;
-    await dbPull();DB.ok=true;dbEvent('session',{v:CHANGELOG[0].v});try{dbPresence()}catch(e){}try{dbLiveMe()}catch(e){}memLoad().catch(()=>{});dbInboxCheck().catch(()=>{});nameReconcile().catch(()=>{});
+    await dbPull();DB.ok=true;dbEvent('session',{v:CHANGELOG[0].v});try{dbPresence()}catch(e){}try{dbLiveMe()}catch(e){}memLoad().catch(()=>{});dbInboxCheck().catch(()=>{});nameReconcile().catch(()=>{});safetySync();setInterval(safetySync,120000);
     const f=await c.from('config').select('v').eq('k','feed').maybeSingle();if(f.data&&f.data.v)dbFeedApply(f.data.v);
     c.channel('hp-config').on('postgres_changes',{event:'*',schema:'public',table:'config'},p=>{if(p.new&&p.new.k==='feed')dbFeedApply(p.new.v)}).subscribe();
     if(store.get('hp_admin',''))dbClaimAdmin();
@@ -4518,7 +4535,7 @@ async function openBoards(board){board=board||'daily_streak';const B=BOARDS.find
   const el=$('#lbBody');if(!el)return;if(r.error){el.innerHTML=`<p class="mutep">Couldn't load the board: ${esc(r.error.message)}</p>`;return}
   const rows=r.data||[];const mine=rows.findIndex(x=>x.uid===DB.uid);let myLine='';
   if(mine<0){const m=await DB.c.from('scores').select('value').eq('board',board).eq('uid',DB.uid).maybeSingle();if(m.data){const c=await DB.c.from('scores').select('*',{count:'exact',head:true}).eq('board',board).gt('value',m.data.value);myLine=`<p class="hint">You're #${(c.count||0)+1} with ${+m.data.value} ${B[2]}.</p>`}}
-  el.innerHTML=rows.length?`<div class="tbl-wrap"><table><tr><th>#</th><th>Player</th><th class="n">${esc(B[2])}</th></tr>${rows.map((x,i)=>`<tr class="${x.uid===DB.uid?'me':''} ${x.tier==='plus'?'suprow':''}"><td>${i<3?['🥇','🥈','🥉'][i]:i+1}</td><td>${esc(x.name)}${x.tier?' '+supBadge(x.tier,true):''}${x.uid===DB.uid?' (you)':''}</td><td class="n"><b>${+x.value}</b></td></tr>`).join('')}</table></div>${myLine}`
+  el.innerHTML=rows.length?`<div class="tbl-wrap"><table><tr><th>#</th><th>Player</th><th class="n">${esc(B[2])}</th></tr>${rows.map((x,i)=>`<tr class="${x.uid===DB.uid?'me':''} ${x.tier==='plus'?'suprow':''}"><td>${i<3?['🥇','🥈','🥉'][i]:i+1}</td><td>${esc(x.name)}${x.tier?' '+supBadge(x.tier,true):''}${x.uid===DB.uid?' (you)':`<button class="rptb" title="Report" data-rpt="${esc(x.name)}" data-rpu="${x.uid}">${icon('M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7',12)}</button>`}</td><td class="n"><b>${+x.value}</b></td></tr>`).join('')}</table></div>${myLine}`
     :`<p class="mutep">Nobody is on this board yet. Be the first.</p>`}
 
 /* ---------- device sync ---------- */
@@ -4699,7 +4716,7 @@ function adoptCloud(data,why){DB.pulling=true;Object.keys(P).forEach(k=>delete P
   if($('.hero'))renderHome();if(why)toast('Profile updated',why,'M5 12l5 5L20 7')}
 function dbLiveMe(){if(!DB.c||!DB.pid)return;try{if(DB.meCh)DB.c.removeChannel(DB.meCh)}catch(e){}
   DB.meCh=DB.c.channel('hp-me-'+DB.pid)
-    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'profiles',filter:'pid=eq.'+DB.pid},p=>{const n=p.new||{};if('name' in n)DB.myName=n.name;if('banned' in n)DB.banned=n.banned;
+    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'profiles',filter:'pid=eq.'+DB.pid},p=>{const n=p.new||{};if('name' in n)DB.myName=n.name;if('banned' in n)DB.banned=n.banned;if(n.moderation)modApply(n.moderation);
       if(n.data&&(n.data.admEdit||0)>(P.admEdit||0))adoptCloud(n.data,'The developer made changes to your profile.')})
     .on('postgres_changes',{event:'DELETE',schema:'public',table:'profiles'},p=>{if(p.old&&p.old.pid===DB.pid){adoptCloud({},'');P.savedAt=0;DB.c.rpc('ensure_profile').then(r=>{if(r.data){DB.pid=r.data;dbLiveMe()}})}})
     .on('postgres_changes',{event:'*',schema:'public',table:'memberships',filter:'pid=eq.'+DB.pid},p=>{const n=p.new||{};if(n.tier&&new Date(n.until).getTime()>Date.now())memSet(n);else memLoad()})
@@ -5168,6 +5185,7 @@ function nameProblem(raw){const n=nameClean(raw);
   const toks=l.split(/[^a-z]+/).filter(Boolean);const c2=t=>t.replace(/(.)\1{2,}/g,'$1$1');
   if(NAME_BAD.some(w=>sq.includes(w)||(col1(w).length>=4&&sq1.includes(col1(w))))||toks.some(t=>NAME_BAD_W.includes(t)||NAME_BAD_W.includes(c2(t))))return"That name isn't allowed. Keep it friendly.";
   if(NAME_RES_SUB.some(w=>sq.includes(w))||toks.some(t=>NAME_RES_W.includes(t)))return'That name is reserved. Try another.';
+  {const am=typeof amNameIssue==='function'?amNameIssue(n):'';if(am)return am}
   return''}
 
 /* ======================= THE RISE: career mode. Your own player, from the combine to the Hall of Fame ======================= */
@@ -5799,7 +5817,7 @@ function supProfileCard(){const t=SUP();const m=DB.mem||P.mem;
 const ADM_NAV=[
   ['Home',[['overview','Overview','M3 12l9-9 9 9M5 10v10h14V10']]],
   ['Content',[['post','Updates & posts','M4 4h16v12H5.2L4 17.2z'],['events','Live events','M13 2L3 14h8l-1 8 10-12h-8z'],['themes','Themes','M12 2a10 10 0 1 0 0 20c1 0 2-1 2-2s-1-1.5-1-2.5 1-1.5 2-1.5h2a5 5 0 0 0 5-5c0-5-4.5-9-10-9zM7 12h.01M9 7h.01M15 7h.01']]],
-  ['Players',[['players','Players','M17 20a5 5 0 0 0-10 0M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],['me','My profile & MyPlayer','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'],['supporters','Supporters','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'],['boards','Leaderboards','M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z'],['street','Street beta','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM2 12h20M12 2v20'],['volley','Volleyball (play)','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 2c3 4 3 14 0 20M2.5 9c6 1 13 1 19 0'],['codes','Promo codes','M20 12v10H4V12M2 7h20v5H2zM12 22V7']]],
+  ['Players',[['safety','Safety & rules','M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z'],['players','Players','M17 20a5 5 0 0 0-10 0M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],['me','My profile & MyPlayer','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'],['supporters','Supporters','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'],['boards','Leaderboards','M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z'],['street','Street beta','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM2 12h20M12 2v20'],['volley','Volleyball (play)','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 2c3 4 3 14 0 20M2.5 9c6 1 13 1 19 0'],['codes','Promo codes','M20 12v10H4V12M2 7h20v5H2zM12 22V7']]],
   ['Insights',[['activity','Activity','M22 12h-4l-3 9L9 3l-3 9H2'],['db','Stats','M3 3v18h18M7 15l4-4 3 3 6-6']]],
   ['System',[['tools','Dev tools','M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z'],['device','This device','M5 2h14v20H5zM12 18h.01']]]];
 function admNavHTML(){return ADM_NAV.map(([g,items])=>`<div class="admgrp"><span class="label">${g}</span>${items.map(([k,n,ic])=>`<button data-atab="${k}" class="${(k==='me'?ADM.meSel&&ADM.tab==='players':ADM.tab===k&&!(k==='players'&&ADM.meSel))?'on':''}">${icon(ic,16)}<span>${n}</span></button>`).join('')}</div>`).join('')}
@@ -5879,7 +5897,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792820583';
+const BUILD='1792821934';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -7245,7 +7263,7 @@ function vbCreate(){goTo('vbcreate');const d=vbCreate.d=vbCreate.d||{name:P.name
   $('#vbCCap').onclick=()=>{keep();d.cap=!d.cap;vbCreate()};$('#vbCBack').onclick=()=>vbHub();
   /* preview */try{const cv=$('#vbCPrev'),g=cv.getContext('2d');const fake={h:d.h,skin:d.skin,hair:d.hair,cap:d.cap,shades:vbSave().gear.shades,kitc:VB_KITS[vbSave().gear.kit]||VB_KITS.sky,face:1,act:'cheer',celebK:'fist',x:8,y:0,z:8,vx:0,vz:0,ph:0,idle:0,slot:0,me:true,ctl:'x',sig:0,team:'A'};
     const old=VBS;VBS={t:0,V:{indoor:0},F:VBF.beach,phase:'x',all:[],dtLast:1};const V={sc:78,cx:110,yFar:192,yNear:192,k:0,W:220,H:200};g.clearRect(0,0,220,200);fake.pose=null;vbDrawP(g,fake,V);VBS=old}catch(e){VBS=null;console.error("prev",e.stack)}
-  $('#vbCGo').onclick=()=>{keep();const S=vbSave();const C={name:d.name,h:d.h,style:d.style,skin:d.skin,hair:d.hair,cap:d.cap,r:{...vbCreate.r},sp:3,season:1,stop:0,stopWins:0,world:0,seen:[],chem:{},hist:[],xpS:0};
+  $('#vbCGo').onclick=()=>{keep();{const bad=amNameIssue(d.name);if(bad){toast('Pick another name',bad,'M12 9v4M12 17h.01');return}}const S=vbSave();const C={name:d.name,h:d.h,style:d.style,skin:d.skin,hair:d.hair,cap:d.cap,r:{...vbCreate.r},sp:3,season:1,stop:0,stopWins:0,world:0,seen:[],chem:{},hist:[],xpS:0};
     C.pool=vbPool(1);C.partner=C.pool[0];C.rank=vbRankInit(1);S.career=C;saveP();sfx('chime');vbTour()}}
 function vbPool(season){const base=58+season*3;return['set','def','att','blk','all','srv'].map((st,i)=>{const q=base+vbR(0,8)+(i===0?3:0);const h=st==='blk'?vbR(1.98,2.06):vbR(1.84,1.98);return{id:'p'+season+'_'+i+'_'+(Math.random()*1e5|0),name:vbPick(VB_FIRST)+' '+vbPick(VB_LAST),style:st,h,r:vbRatings(q,st,h),per:vbPersona(st),q:Math.round(q)}})}
 function vbRankInit(season){const names=new Set();const L=[];while(L.length<15){const n=vbPick(VB_LAST)+' / '+vbPick(VB_LAST);if(names.has(n))continue;names.add(n);L.push({n,q:Math.round(60+season*3+vbR(0,22)),pts:Math.round(vbR(0,1500))})}L.push({n:'YOU',me:1,q:0,pts:0});return L}
@@ -7320,9 +7338,9 @@ async function vbNetOpen(code,host){VBN.code=code;VBN.host=host;VBN.uid=VBN.uid|
   ch.on('presence',{event:'join'},()=>{if(host)vbNetLob()});
   await sbSubscribe(ch,9000);await ch.track({uid:VBN.uid,name:P.name||'Player',host:host?1:0});VBN.alive=true}
 const vbSend=(ev,p)=>{if(VBN.ch)sbSend(VBN.ch,ev,p)};
-async function vbNetHost(){const code=Array.from({length:5},()=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.random()*32|0]).join('');try{await vbNetOpen(code,true)}catch(e){toast('Could not open a room','Check the connection and try again.','M12 9v4M12 17h.01');return}
+async function vbNetHost(){if(modOnlineBanned())return;const code=Array.from({length:5},()=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.random()*32|0]).join('');try{await vbNetOpen(code,true)}catch(e){toast('Could not open a room','Check the connection and try again.','M12 9v4M12 17h.01');return}
   VBN.seats=[VBN.uid,null,null,null];VBN.names={[VBN.uid]:P.name||'Host'};VBN.assist={[VBN.uid]:vbSet().assist};VBN.hostUid=VBN.uid;vbRoom()}
-async function vbNetJoin(code){try{await vbNetOpen(code,false)}catch(e){toast('Could not join','Check the code and the connection.','M12 9v4M12 17h.01');return}
+async function vbNetJoin(code){if(modOnlineBanned())return;try{await vbNetOpen(code,false)}catch(e){toast('Could not join','Check the code and the connection.','M12 9v4M12 17h.01');return}
   /* find the host through presence */const st=VBN.ch.presenceState?VBN.ch.presenceState():{};for(const k in st){const m=st[k][0];if(m&&m.host)VBN.hostUid=m.uid}
   vbSend('seat',{uid:VBN.uid,i:-1,name:P.name||'Player',assist:vbSet().assist});vbRoom()}
 function vbNetSeat(uid,i,name,assist){VBN.names[uid]=name;VBN.assist[uid]=assist;if(i<0){if(!VBN.seats.includes(uid)){const f=VBN.seats.indexOf(null);if(f>=0)VBN.seats[f]=uid}}else if(VBN.seats[i]==null){const j=VBN.seats.indexOf(uid);if(j>=0)VBN.seats[j]=null;VBN.seats[i]=uid}vbNetLob()}
@@ -7374,11 +7392,180 @@ function vbNetSnap(m){const s=VBS;if(!s||!s.netClient)return;const first=!s.netB
     else if(e[0]==='point'){s.crowd=1.3;const lp=null;vbComPoint(e[1],e[2],lp);if(e[2]==='Ace'||e[2]==='Block')s.wave=s.t}else if(e[0]==='hit'){if(e[1]==='attack'){s.shake=.15;s.flash=.1}vbSand(b.x,b.z,4)}else if(e[0]==='over'){s.over=true;setTimeout(()=>{if(VBS===s)vbEnd(e[1])},1500)}})}
 function vbNetEnd(w){if(VBN.host)setTimeout(()=>{},0);setTimeout(()=>vbNetLeave(),4000)}
 
+/* =====================================================================
+   COMMUNITY RULES, TERMS AND AUTOMOD
+   - Everyone accepts the current rules before playing (the version can be
+     bumped from the control room to make everyone accept again).
+   - AutoMod checks every bit of text other players can see: names, team
+     names, titles and chat. Bad stuff is blocked or masked and earns strikes.
+   - Strikes, mutes and online bans live on the server (players can't edit them).
+   - Players can report each other; reports land in the control room.
+   ===================================================================== */
+const TERMS_V='2026-10-24';
+const termsV=()=>String(((LIVE.feed||{}).cfg||{}).termsV||TERMS_V);
+const termsOK=()=>!!(P.terms&&P.terms.v===termsV());
+const RULES=[
+  ['Be respectful','M12 21s-7-4.4-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.6-9.5 9-9.5 9z',['Treat everyone the way you want to be treated. Trash talk about the game is fine; attacking a person is not.','No hate speech, slurs or jokes about anyone\'s race, religion, gender, sexuality, disability or where they\'re from.','No bullying, harassment, threats, or telling anyone to hurt themselves.']],
+  ['Keep it clean','M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14',['No sexual content, nudity or innuendo in names, titles or chat.','No graphic violence, drugs or illegal stuff.','Usernames, team names and titles must be appropriate for everyone, and can\'t pretend to be the developer, an admin or staff.']],
+  ['Stay safe','M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z',['Never share personal info: real full name, address, school, phone number, email, passwords or social media handles. Not yours, not anyone else\'s.','No links. No asking other players to move to other apps.','Never share your sync codes or admin codes. Nobody from Hall Pass will ever ask for them.']],
+  ['Play fair','M9 12l2 2 4-4M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z',['No cheating, hacking, modified game files, bots or scripts.','Don\'t abuse bugs. If you find one, tell the developer and you might get a reward.','Don\'t use several profiles to farm rewards, gifts or leaderboard spots.','Don\'t quit online games on purpose to ruin them for others.']],
+  ['No spam','M4 4h16v12H5.2L4 17.2z',['Don\'t flood the chat, repeat the same message or spam reactions.','No advertising, scams, or "free Supporter" offers. Supporter only comes from the game itself.']],
+  ['Purchases','M3 6h18v12H3zM3 10h18',['Supporter is optional and only changes cosmetics and small bonuses. Payments are handled by Stripe; Hall Pass never sees your card.','Digital items are generally non-refundable except where the law says otherwise. Ask the developer if something went wrong.','Breaking the rules can mean losing access to perks you bought.']],
+  ['How we enforce this','M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z',['AutoMod checks text automatically. It blocks or hides bad words, links and personal info, and gives strikes.','Strikes in a week: 1 is a warning, 2 is a 15-minute chat mute, 3 is a 24-hour mute, 4 is a 24-hour online ban, 5 or more is 7 days.','The developer reviews reports and can warn, mute, rename, ban from online play or leaderboards, or remove a profile.','Think a decision was wrong? Use Report a problem in these rules and explain. Every appeal is read.']],
+  ['Your data','M4 7v10c0 2 3.6 3 8 3s8-1 8-3V7M4 7c0 2 3.6 3 8 3s8-1 8-3-3.6-3-8-3-8 1-8 3z',['We store your username, your game progress, a random account ID, your Supporter status, and what you report or send in chat.','We use it to run the game, save your progress, keep the community safe and fix bugs. We never sell it.','Want your profile deleted? Ask the developer through Report a problem and it will be removed.']],
+  ['The fine print','M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6',['You must be 13 or older, or have a parent or guardian\'s permission to play.','Hall Pass is an unofficial fan project. It isn\'t affiliated with or endorsed by any league, team or player. Player names are historical public record; ratings are estimates for fun.','The game is provided as is. Features, rewards and these rules can change. When the rules change, you\'ll be asked to accept them again.']]];
+function rulesHTML(){return `<div class="rules">${RULES.map(([t,ic,list],i)=>`<section class="rsec"><h4>${icon(ic,18)}<span>${i+1}. ${t}</span></h4><ul>${list.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`).join('')}<p class="hint">Version ${esc(termsV())}. Last updated ${esc(termsV())}.</p></div>`}
+
+/* ---------- the gate: nobody plays until they accept ---------- */
+function termsGate(){if(termsOK()){const g=$('#termsGate');if(g)g.remove();document.documentElement.classList.remove('tgate');return}if($('#termsGate'))return;
+  const again=!!(P.terms&&P.terms.v);const note=((LIVE.feed||{}).cfg||{}).termsNote;
+  const el=document.createElement('div');el.id='termsGate';el.className='tgate';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-labelledby','tgH');
+  el.innerHTML=`<div class="tgcard"><div class="tghead"><span class="tgbadge">${icon('M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z',22)}</span><div><span class="label">${again?'Our rules were updated':'Before you play'}</span><h2 id="tgH">Community Rules & Terms</h2></div></div>
+    ${again&&note?`<p class="tgnote"><b>What changed:</b> ${esc(note)}</p>`:`<p class="mutep">Hall Pass is a friendly place to draft, play and compete. Please read these and agree to keep it that way.</p>`}
+    <div class="tgbody" id="tgBody" tabindex="0">${rulesHTML()}<div id="tgEnd" style="height:1px"></div></div>
+    <div class="tgprog"><i id="tgBar"></i></div><p class="hint" id="tgScroll">${icon('M6 9l6 6 6-6',14)} Scroll to the end to continue</p>
+    <label class="tgchk"><input type="checkbox" id="tgA" disabled><span>I've read and agree to the Community Rules and Terms.</span></label>
+    <label class="tgchk"><input type="checkbox" id="tgB" disabled><span>I'm 13 or older, or I have a parent or guardian's permission.</span></label>
+    <div class="actrow"><button class="btn btn-go btn-big" id="tgGo" disabled>I agree, let's play</button><button class="btn btn-ghost" id="tgNo">I don't agree</button></div><p class="hint" id="tgMsg"></p></div>`;
+  document.body.appendChild(el);document.documentElement.classList.add('tgate');
+  const body=$('#tgBody'),bar=$('#tgBar'),A=$('#tgA'),B=$('#tgB'),go=$('#tgGo');let read=false;
+  const upd=()=>{const p=Math.min(1,(body.scrollTop+body.clientHeight)/(body.scrollHeight-2));bar.style.width=(p*100)+'%';if(p>=.985&&!read){read=true;A.disabled=B.disabled=false;$('#tgScroll').textContent='Thanks for reading. Tick both boxes to continue.';$('#tgScroll').classList.add('okc')}go.disabled=!(read&&A.checked&&B.checked)};
+  body.addEventListener('scroll',upd,{passive:true});A.onchange=B.onchange=upd;setTimeout(upd,60);
+  $('#tgNo').onclick=()=>{$('#tgMsg').innerHTML='You need to accept the rules to play Hall Pass. If you don\'t agree, you can close this tab. Nothing is saved until you accept.';sfx('click')};
+  go.onclick=()=>{if(go.disabled)return;P.terms={v:termsV(),t:Date.now(),age:1};saveP();sfx('chime');dbTermsAccept();dbEvent('terms_accept',{v:termsV()});el.classList.add('out');document.documentElement.classList.remove('tgate');setTimeout(()=>{el.remove();termsAfter()},350)}}
+function termsAfter(){if(P.mustRename)return renamePrompt();if(P.signed&&!store.get('hp_tour',0)&&$('.hero'))setTimeout(()=>startTour(0),500)}
+async function dbTermsAccept(){if(!DB.ok)return;try{await DB.c.rpc('accept_terms',{p_v:termsV()})}catch(e){}}
+function termsBlock(){/* used by the tour and anything that would start on top of the gate */return !termsOK()}
+
+/* ---------- my standing (strikes, mutes, online bans) ---------- */
+let MODS=(()=>{try{return JSON.parse(localStorage.getItem('hp_mods')||'{}')}catch(e){return{}}})();
+function modApply(m){MODS=m||{};try{localStorage.setItem('hp_mods',JSON.stringify(MODS))}catch(e){}}
+async function safetySync(){if(!DB.ok)return;try{const r=await DB.c.rpc('my_standing');if(r.error||!r.data)return;const d=typeof r.data==='string'?JSON.parse(r.data):r.data;modApply(d.moderation||{});
+    if(d.terms_v&&d.terms_v===termsV()&&!termsOK()){P.terms={v:d.terms_v,t:Date.now()};saveP();termsGate()}else if(termsOK()&&d.terms_v!==termsV())dbTermsAccept()}catch(e){}}
+const modLeft=k=>Math.max(0,(+MODS[k]||0)-Date.now());
+const modMins=ms=>ms>=36e5?Math.ceil(ms/36e5)+' hour'+(Math.ceil(ms/36e5)>1?'s':''):Math.ceil(ms/6e4)+' min';
+function modMuted(){const l=modLeft('mute_until');if(l){toast('You\'re muted','You can chat again in '+modMins(l)+'. Check the Community Rules if you\'re not sure why.','M11 5L6 9H2v6h4l5 4zM23 9l-6 6M17 9l6 6');return true}return false}
+function modOnlineBanned(){const l=modLeft('online_ban_until');if(l){toast('Online play is paused for you','You broke the Community Rules. You can play online again in '+modMins(l)+'. Solo modes still work.','M12 9v4M12 17h.01');return true}return false}
+
+/* ---------- AutoMod ---------- */
+const AM_SEV=['nigger','nigga','niggr','faggot','faggit','kike','chink','wetback','beaner','raghead','towelhead','tranny','retard','spastic','whitepower','siegheil','heilhitler','killyourself','killurself','kysnow','neckyourself','hangyourself','slityourwrist','gokillyourself','iwillkillyou','illkillyou','imgonnakillyou','iknowwhereyoulive','blowjob','handjob','dildo','hentai','porn','onlyfans','pornhub','xvideos','cumshot','jizz','molest','pedophile','paedophile','childporn','hopeyoudie','hopeudie','godieinahole','gokys','incest','bestiality','nudes','sendnudes','motherfucker','cocksucker'];
+const AM_SEV_W=['rapist','rapists','pedo','pedos','paedo','fag','fags','spic','coon','gook','dyke','kkk','nazi','kys','rape','raped','raping','cum','cock','cocks','dick','dicks','pussy','tits','titties','boobs','milf','sex','sexy','horny','nude','naked','cunt','cunts','twat','whore','slut','hoe','hoes','thot','negro','penis','vagina','anal','orgasm'];
+const AM_MILD=['fuck','fck','fuk','fucking','shit','shitty','bullshit','bitch','bitches','asshole','bastard','dumbass','jackass','dipshit','wanker','bollocks','prick','damn','dammit','crap','piss','pissed','ass','asses','wtf','stfu','gtfo','fu','hell','arse','bloody','sucks'];
+const AM_MILD_OK=new Set(['hell','sucks','damn','crap','bloody','ass']);/* allowed in Standard, masked in Strict */
+const AM_LEET={'0':'o','1':'i','3':'e','4':'a','5':'s','7':'t','8':'b','9':'g','@':'a','$':'s','!':'i','|':'i','+':'t'};
+const AM_HOMO={'а':'a','е':'e','о':'o','р':'p','с':'c','у':'y','х':'x','і':'i','ј':'j','ѕ':'s','ԁ':'d','ɡ':'g','ո':'n','ı':'i','ⅼ':'l'};
+const amCol=s=>s.replace(/(.)\1+/g,'$1');
+function amNorm(raw){let s=String(raw||'').normalize('NFKD').replace(/[̀-ͯ]/g,'').replace(/[​-‏⁠﻿­]/g,'');s=s.replace(/[^\x00-\x7f]/g,c=>AM_HOMO[c]||c).toLowerCase();
+  const l=s.replace(/[013457 89@$!|+]/g,c=>c===' '?' ':AM_LEET[c]||c);const words=l.split(/[^a-z]+/).filter(Boolean);
+  /* letters spread out with spaces or dots, like "f u c k" or "f.u.c.k" */const runs=[];let cur='';l.split(/[^a-z]+/).forEach(w=>{if(w.length===1)cur+=w;else{if(cur.length>=3)runs.push(cur);cur=''}});if(cur.length>=3)runs.push(cur);
+  const flat=l.replace(/[^a-z]/g,'');return{raw:String(raw||''),low:s,words,flat,flat1:amCol(flat),runs}}
+function amCfg(){const c=(LIVE.feed||{}).cfg||{};return{on:c.amOff?false:true,level:c.amLevel||'standard',words:(c.amWords||[]).map(w=>String(w).toLowerCase().replace(/[^a-z]/g,'')).filter(w=>w.length>=3),chat:!c.chatOff}}
+/* returns {level:'ok'|'mask'|'block', why, text} */
+function amCheck(raw,kind){const C=amCfg();const N=amNorm(raw);const out=(level,why,text)=>({level,why,text:text==null?N.raw:text});if(!C.on&&kind!=='name')return out('ok');
+  const hasSub=list=>list.some(w=>N.flat.includes(w)||(w.length>=5&&N.flat1.includes(amCol(w)))||N.runs.some(r=>r.includes(w)));
+  const hasWord=list=>N.words.some(w=>list.includes(w)||list.includes(amCol(w))||list.includes(w.replace(/(.)\1{2,}/g,'$1$1')))||N.runs.some(r=>list.includes(r));
+  if(hasSub(AM_SEV)||hasWord(AM_SEV_W)||C.words.some(w=>N.flat.includes(w)))return out('block','hate, sexual or threatening language');
+  /* personal info and links (checked on the raw text) */
+  const r=N.low;if(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/.test(r))return out('block','an email address');
+  if(/(\+?\d[\d\s().-]{7,}\d)/.test(r)&&(r.replace(/\D/g,'').length>=8))return out('block','a phone number');
+  if(/https?:\/\/|www\.|\b[a-z0-9-]{2,}\.(com|net|org|gg|io|ly|me|tv|xyz|co|app|link|site|info|ru|us|uk)\b|discord\.gg|bit\.ly/.test(r))return out('block','a link');
+  if(/\b(snap(chat)?|insta(gram)?|tiktok|discord|whatsapp|telegram|kik|onlyfans|my ig|my sc)\b|add me on|dm me on|text me|call me at/.test(r))return out('block','asking to move to another app');
+  if(/\b\d{1,5}\s+[a-z]+\s+(st|street|ave|avenue|rd|road|blvd|lane|ln|dr|drive|court|ct|way)\b/.test(r)||/\b(i live (at|on)|my address|my school is|i go to [a-z]+ (high|middle|elementary))\b/.test(r))return out('block','an address or school');
+  if(kind==='name'){if(hasWord(AM_MILD)||hasSub(['fuck','shit','bitch','asshole']))return out('block','a swear word');return out('ok')}
+  /* swearing: depends on the strictness the developer picked */
+  const mildHit=N.words.filter(w=>AM_MILD.includes(w)||AM_MILD.includes(amCol(w))).length+(N.flat.includes('fuck')||N.flat.includes('shit')?1:0);
+  let text=N.raw;
+  if(N.runs.some(r=>/fuck|fuk|shit|bitch|cunt|dick|cock|ass/.test(r)))return out('block','swearing');
+  if(mildHit){if(C.level==='strict')return out('block','swearing');
+    text=text.replace(/[A-Za-z0-9@$!|+*]+/g,tok=>{const t=amNorm(tok);const w=t.flat;const bad=AM_MILD.includes(w)||AM_MILD.includes(amCol(w))||w.includes('fuck')||w.includes('shit')||w.includes('bitch');if(!bad)return tok;if(C.level==='relaxed'&&!/fuck|shit|bitch|asshole/.test(w))return tok;if(C.level!=='strict'&&AM_MILD_OK.has(w))return tok;return tok[0]+'*'.repeat(Math.max(2,tok.length-1))})}
+  /* shouting and stretched letters */
+  const letters=text.replace(/[^A-Za-z]/g,'');if(letters.length>=12&&letters===letters.toUpperCase())text=text.charAt(0)+text.slice(1).toLowerCase();
+  text=text.replace(/(.)\1{4,}/g,'$1$1$1');
+  return out(text!==N.raw?'mask':'ok',text!==N.raw?'cleaned up':'',text)}
+function amNameIssue(n){const r=amCheck(n,'name');return r.level==='block'?'That name isn\'t allowed: it contains '+r.why+'.':''}
+/* spam limits for this device */
+const AMR={chat:[],react:[],last:[]};
+function amRate(kind,txt){const now=Date.now();const L=AMR[kind]=(AMR[kind]||[]).filter(t=>now-t<(kind==='react'?6000:10000));if(L.length>=(kind==='react'?8:5))return'Slow down a little.';
+  if(txt){const k=amNorm(txt).flat;const same=AMR.last.filter(x=>x.k===k&&now-x.t<60000).length;if(same>=2)return'You already said that.';AMR.last.push({k,t:now});if(AMR.last.length>20)AMR.last.shift()}L.push(now);return''}
+/* a strike: the server keeps the count and decides on mutes */
+async function amStrike(why,where,text){const loc=(()=>{try{return JSON.parse(localStorage.getItem('hp_amloc')||'[]')}catch(e){return[]}})().filter(t=>Date.now()-t<7*864e5);loc.push(Date.now());try{localStorage.setItem('hp_amloc',JSON.stringify(loc))}catch(e){}
+  let m=null;if(DB.ok){try{const r=await DB.c.rpc('automod_log',{p_kind:where,p_reason:why,p_text:String(text||'').slice(0,200)});if(!r.error&&r.data)m=typeof r.data==='string'?JSON.parse(r.data):r.data}catch(e){}}
+  if(!m){/* offline: same ladder, kept on this device */const n=loc.length;m=Object.assign({},MODS);if(n===2)m.mute_until=Date.now()+15*6e4;if(n===3)m.mute_until=Date.now()+864e5;if(n>=4){m.mute_until=Date.now()+(n>=5?7:1)*864e5;m.online_ban_until=m.mute_until}m.strikes=loc.map(t=>({t,why}))}
+  modApply(m);const n=(m.strikes||[]).length;
+  toast(n<=1?'AutoMod warning':'AutoMod: strike '+n,n<=1?'That message broke the Community Rules ('+why+'), so it wasn\'t sent. Next time you\'ll be muted for a bit.':modLeft('mute_until')?'You\'re muted for '+modMins(modLeft('mute_until'))+'. Keep it friendly.':'Keep it friendly.','M12 9v4M12 17h.01')}
+/* checks a chat message before sending. Returns the text to send, or null */
+function amSendChat(m,where){m=String(m||'').trim();if(!m)return null;if(!amCfg().chat){toastLite('Chat is turned off right now');return null}if(modMuted())return null;
+  const rl=amRate('chat',m);if(rl){toastLite(rl);return null}
+  const r=amCheck(m,'chat');if(r.level==='block'){if(r.why==='swearing'){toast('Message not sent','AutoMod blocked it for swearing. Keep it friendly.','M12 9v4M12 17h.01');return null}amStrike(r.why,where||'chat',m);return null}return r.text}
+/* the host checks messages too, so a modified game can't get bad text to everyone else */
+function amHostChat(m){const r=amCheck(m,'chat');return r.level==='block'?null:r.text}
+
+/* ---------- reports ---------- */
+const RPT_R=[['name','Bad name or title'],['harass','Harassment or hate'],['cheat','Cheating'],['spam','Spam or scams'],['personal','Sharing personal info'],['other','Something else']];
+function openReport(o){o=o||{};if(!P.signed)return openSignIn();let reason=o.reason||'';
+  const draw=()=>{lgOpenModal(`<span class="label">Keep Hall Pass friendly</span><h2 class="mtitle">${o.name?'Report '+esc(o.name):'Report a problem'}</h2>
+    ${o.name?'':`<div class="field"><label class="label" for="rpN">Player's username (leave empty for a bug or an appeal)</label><input id="rpN" maxlength="25" value="${esc(o.typed||'')}"></div>`}
+    <span class="label">What's going on?</span><div class="chips">${RPT_R.concat(o.name?[]:[['appeal','Appeal a decision'],['bug','Bug or data request']]).map(([k,n])=>`<button class="cbtn ${reason===k?'on':''}" data-rpr="${k}">${n}</button>`).join('')}</div>
+    <div class="field" style="margin-top:10px"><label class="label" for="rpT">Details (optional)</label><textarea id="rpT" rows="3" maxlength="300" placeholder="What happened? Where?">${esc(o.note||'')}</textarea></div>
+    ${o.quote?`<p class="hint">About this message: “${esc(o.quote)}”</p>`:''}
+    <div class="actrow"><button class="btn btn-go" id="rpGo" ${reason?'':'disabled'}>Send report</button><button class="btn btn-ghost" onclick="closeAll()">Cancel</button></div><p class="hint" id="rpMsg">Reports are private. The player won't know who sent it. False reports can earn strikes.</p>`,true);
+    $$('[data-rpr]').forEach(b=>b.onclick=()=>{o.typed=$('#rpN')?$('#rpN').value:'';o.note=$('#rpT').value;reason=b.dataset.rpr;draw()});
+    $('#rpGo').onclick=async()=>{const b=$('#rpGo');b.disabled=true;const name=o.name||($('#rpN')?$('#rpN').value.trim():'');let note=$('#rpT').value.trim().slice(0,300);const nr=amCheck(note,'chat');if(nr.level==='block'&&!/personal|link/.test(nr.why))note='[removed by AutoMod]';
+      const day=(()=>{try{return JSON.parse(localStorage.getItem('hp_rpts')||'[]')}catch(e){return[]}})().filter(t=>Date.now()-t<864e5);if(day.length>=10){$('#rpMsg').textContent='You\'ve sent a lot of reports today. Thanks! Try again tomorrow.';return}
+      let err='';if(DB.ok){const r=await DB.c.rpc('report_player',{p_name:name,p_uid:o.uid||null,p_reason:reason,p_note:note,p_ctx:Object.assign({quote:o.quote||'',where:o.where||''},o.ctx||{})});if(r.error)err=r.error.message}else{dbEvent('report',{name,reason,note,where:o.where||''})}
+      if(err&&!/function|schema/i.test(err)){$('#rpMsg').textContent=err;b.disabled=false;return}if(err)dbEvent('report',{name,reason,note,where:o.where||''});
+      day.push(Date.now());try{localStorage.setItem('hp_rpts',JSON.stringify(day))}catch(e){}sfx('chime');closeAll();toast('Report sent','Thanks for helping keep Hall Pass friendly. The developer will take a look.','M5 12l5 5L20 7')}};
+  draw()}
+/* the rules, any time */
+function openRules(){const st=MODS||{};const strikes=(st.strikes||[]).filter(x=>Date.now()-x.t<7*864e5).length;const mute=modLeft('mute_until'),ban=modLeft('online_ban_until');
+  lgOpenModal(`<span class="label">Version ${esc(termsV())}${P.terms?' · you agreed '+new Date(P.terms.t).toLocaleDateString():''}</span><h2 class="mtitle">Community Rules & Terms</h2>
+   <div class="rstand ${mute||ban?'bad':strikes?'warn':'good'}"><b>${mute||ban?'Restricted':strikes?'Strikes this week: '+strikes:'Good standing'}</b><small>${ban?'Online play is paused for '+modMins(ban)+'. ':''}${mute?'Chat is muted for '+modMins(mute)+'. ':''}${!mute&&!ban?(strikes?'Strikes clear after 7 days.':'No strikes. Thanks for keeping it friendly.'):''}</small></div>
+   ${rulesHTML()}<div class="actrow"><button class="btn btn-ghost" id="ruRep">${icon('M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7',16)} Report a problem</button><button class="btn btn-go" onclick="closeAll()">Close</button></div>`,true);
+  $('#ruRep').onclick=()=>{closeAll();setTimeout(()=>openReport({}),250)}}
+/* the developer renamed you: pick a new name */
+function renamePrompt(){if(!P.mustRename||!termsOK())return;lgOpenModal(`<span class="label">Name change needed</span><h2 class="mtitle">Pick a new username</h2><p class="mutep">Your old name didn't follow the Community Rules, so it was changed to <b>${esc(P.name)}</b>. Pick a new one that's friendly for everyone.</p>
+   <div class="field"><input id="nm" maxlength="25" placeholder="e.g. Coach Dee" autocomplete="nickname"><p class="hint" id="nmHint"></p></div><div class="actrow"><button class="btn btn-go" id="rnGo">Save my name</button><button class="btn btn-ghost" id="rnLater">Later</button></div>`,true);
+  $('#rnLater').onclick=()=>closeAll();$('#rnGo').onclick=async()=>{const n=nameClean($('#nm').value);if(!(await nameGate(n)))return;P.name=n;P.mustRename=false;saveP();closeAll();refreshNav();toast('Name saved','You\'re now '+n+'.','M5 12l5 5L20 7')}}
+
+/* ---------- control room: Safety ---------- */
+function adminTabsSafety(){const c=LIVE.feed.cfg||{};const lv=c.amLevel||'standard';
+  return{safety:`<div class="admkpis" id="sfK">${['Open reports','AutoMod today','Muted now','Accepted rules'].map(n=>`<div class="kpi"><span class="label">${n}</span><b>–</b></div>`).join('')}</div>
+   <div class="lg-grid"><div class="card"><span class="label">AutoMod</span><div class="actrow">${[['relaxed','Relaxed'],['standard','Standard'],['strict','Strict']].map(([k,n])=>`<button class="btn ${lv===k?'btn-go':'btn-ghost'}" data-amlv="${k}">${n}</button>`).join('')}</div>
+      <p class="hint">${lv==='relaxed'?'Only hate, sexual content, threats, links and personal info are blocked. Swearing is allowed.':lv==='strict'?'Everything above is blocked, and any swearing blocks the message.':'Hate, sexual content, threats, links and personal info are blocked and give strikes. Strong swears are hidden with ***.'}</p>
+      <div class="stsets"><button class="stog ${c.amOff?'':'on'}" data-amt="amOff"><i></i>AutoMod on</button><button class="stog ${c.chatOff?'':'on'}" data-amt="chatOff"><i></i>League chat on</button></div>
+      <div class="field" style="margin-top:10px"><label class="label" for="amW">Extra blocked words (comma separated)</label><textarea id="amW" rows="2" placeholder="e.g. a nickname people use to bully someone">${esc((c.amWords||[]).join(', '))}</textarea></div><button class="btn btn-ghost" id="amWs">Save words</button>
+      <div class="field" style="margin-top:10px"><label class="label" for="amTry">Test AutoMod</label><input id="amTry" placeholder="Type something to see what AutoMod does"><p class="hint" id="amTryR"></p></div></div>
+    <div class="card"><span class="label">Community Rules</span><p class="mutep">Current version: <b>${esc(termsV())}</b>. Everyone must accept this version before playing.</p>
+      <div class="field"><label class="label" for="tmN">What changed (shown to players)</label><input id="tmN" maxlength="140" placeholder="e.g. New rule about spam in league chat" value="${esc(c.termsNote||'')}"></div>
+      <button class="btn btn-ghost warn" id="tmBump">Make everyone accept again</button><p class="hint">Use this after you change the rules. Every player sees the rules again next time they open the game, and can't play until they accept.</p>
+      <button class="btn btn-ghost" onclick="openRules()">Preview the rules</button></div></div>
+   <div class="card"><div class="admthemehd"><div><span class="label">Reports and AutoMod</span><h3 id="sfQh">Queue</h3></div><div class="actrow">${[['open','Open'],['all','All']].map(([k,n])=>`<button class="btn ${(ADM.sfS||'open')===k?'btn-go':'btn-ghost'}" data-sfs="${k}">${n}</button>`).join('')}</div></div><div id="sfQ" class="hint">Loading…</div></div>`}}
+async function safAdminBind(){if(ADM.tab!=='safety')return;
+  $$('[data-amlv]').forEach(b=>b.onclick=()=>admPub(cf=>{cf.amLevel=b.dataset.amlv}));
+  $$('[data-amt]').forEach(b=>b.onclick=()=>admPub(cf=>{const k=b.dataset.amt;cf[k]=!cf[k]}));
+  $('#amWs').onclick=()=>admPub(cf=>{cf.amWords=$('#amW').value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,200)});
+  $('#amTry').oninput=()=>{const v=$('#amTry').value;const r=amCheck(v,'chat'),n=amCheck(v,'name');$('#amTryR').innerHTML=!v?'':`Chat: <b>${r.level==='block'?'blocked ('+esc(r.why)+')':r.level==='mask'?'sent as “'+esc(r.text)+'”':'allowed'}</b> · As a name: <b>${n.level==='block'||nameProblem(v)?'not allowed':'allowed'}</b>`};
+  $('#tmBump').onclick=()=>{const b=$('#tmBump');if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure? Everyone has to accept again';return}const d=new Date();const v=d.toISOString().slice(0,10)+'.'+d.getHours()+d.getMinutes();admPub(cf=>{cf.termsV=v;cf.termsNote=$('#tmN').value.trim().slice(0,140)})};
+  $$('[data-sfs]').forEach(b=>b.onclick=()=>{ADM.sfS=b.dataset.sfs;renderAdmin()});
+  const Q=$('#sfQ');if(!DB.ok){Q.textContent='Needs the database connection.';return}
+  let r=await admRpc('admin_reports',{p_status:ADM.sfS||'open',p_limit:150});if(r.error){Q.innerHTML='Run <b>hallpass-database-update-10.sql</b> in Supabase to turn on reports. ('+esc(r.error.message)+')';return}
+  const rows=typeof r.data==='string'?JSON.parse(r.data):(r.data||[]);const open=rows.filter(x=>x.status==='open');
+  const k=$$('#sfK .kpi b');if(k[0])k[0].textContent=open.filter(x=>x.kind==='report').length;if(k[1])k[1].textContent=rows.filter(x=>x.kind==='automod'&&Date.now()-new Date(x.created_at)<864e5).length;
+  if(k[2])k[2].textContent=new Set(rows.filter(x=>x.target_mod&&+x.target_mod.mute_until>Date.now()).map(x=>x.target_pid)).size;
+  admRpc('admin_events_kind',{p_kind:'terms_accept',p_limit:500}).then(e=>{if(k[3]&&!e.error)k[3].textContent=new Set((e.data||[]).filter(x=>(x.meta||{}).v===termsV()).map(x=>x.uid)).size});
+  const lab=Object.fromEntries(RPT_R.concat([['appeal','Appeal'],['bug','Bug / data']]));
+  Q.innerHTML=rows.length?`<div class="sfq">${rows.map(x=>{const m=x.target_mod||{};const st=(m.strikes||[]).filter(s=>Date.now()-s.t<7*864e5).length;
+      return `<div class="sfi ${x.kind} ${x.status}"><div class="sfih"><span class="tag ${x.kind==='automod'?'':'done'}">${x.kind==='automod'?'AutoMod':'Report'}</span><b>${esc(x.target_name||'(no player)')}</b><span class="hint">${x.kind==='automod'?'blocked: '+esc(x.reason):esc(lab[x.reason]||x.reason)}${x.reporter_name&&x.kind==='report'?' · from '+esc(x.reporter_name):''} · ${ago(x.created_at)}${x.target_count>1?' · '+x.target_count+' total':''}${st?' · '+st+' strike'+(st>1?'s':''):''}${+m.mute_until>Date.now()?' · muted':''}${+m.online_ban_until>Date.now()?' · online ban':''}</span></div>
+        ${x.note?`<p class="sfnote">${esc(x.note)}</p>`:''}${x.ctx&&x.ctx.quote?`<p class="sfnote">“${esc(x.ctx.quote)}”</p>`:''}
+        ${x.status==='open'?`<div class="actrow">${x.target_pid?`<button class="mini" data-sfa="warn" data-r="${x.id}" data-p="${x.target_pid}">Warn</button><button class="mini" data-sfa="mute" data-r="${x.id}" data-p="${x.target_pid}">Mute 24h</button><button class="mini warn" data-sfa="online_ban" data-r="${x.id}" data-p="${x.target_pid}">Online ban 3d</button><button class="mini warn" data-sfa="rename" data-r="${x.id}" data-p="${x.target_pid}">Force rename</button><button class="mini warn" data-sfa="lb_ban" data-r="${x.id}" data-p="${x.target_pid}">Leaderboard ban</button><button class="mini" data-sfa="clear" data-r="${x.id}" data-p="${x.target_pid}">Clear record</button>`:''}<button class="mini" data-sfa="dismiss" data-r="${x.id}" data-p="${x.target_pid||''}">Dismiss</button></div>`:`<p class="hint">${esc(x.status)}${x.action?' · '+esc(x.action):''}</p>`}</div>`}).join('')}</div>`:'<p class="hint">Nothing here. All quiet. 🎉</p>';
+  $$('[data-sfa]').forEach(b=>b.onclick=async()=>{const a=b.dataset.sfa;const msgs={warn:'Hey! A message or name of yours broke the Hall Pass Community Rules. Please keep it friendly. Next time there will be a mute.',mute:'You\'ve been muted for 24 hours for breaking the Community Rules.',online_ban:'Online play is paused for you for 3 days for breaking the Community Rules. Solo modes still work.',rename:'Your username broke the Community Rules, so it was changed. Please pick a new, friendly one.',lb_ban:'You were removed from the leaderboards for breaking the fair play rules.'};
+    b.disabled=true;const r=await admRpc('admin_moderate',{p_report:+b.dataset.r,p_pid:b.dataset.p||null,p_action:a,p_hours:a==='online_ban'?72:24,p_msg:msgs[a]||''});b.textContent=r.error?'Failed':'Done ✓';sfx(r.error?'lose':'click');setTimeout(()=>safAdminBind(),500)})}
+
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
 /* re-drawing the same screen (a tab, a chip, a setting) updates it in place: no flash, no jump to the top */
 let CURV='';function goTo(id){SIM=null;RUN++;leaveOnline();const same=CURV===id;CURV=id;if(!same)window.scrollTo({top:0});return same}
-document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-rx]');if(b&&ON.st&&!ON.st.solo){act({t:'react',e:b.dataset.rx});b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit')}});
+document.addEventListener('click',e=>{const rp=e.target.closest&&e.target.closest('[data-rpt]');if(rp){e.preventDefault();e.stopPropagation();openReport({name:rp.dataset.rpt,uid:rp.dataset.rpu||null,quote:rp.dataset.rpq||'',where:rp.dataset.rpu?'leaderboard':'league chat'});return}const b=e.target.closest&&e.target.closest('[data-rx]');if(b&&ON.st&&!ON.st.solo){if(amRate('react')){toastLite('Easy on the reactions');return}act({t:'react',e:b.dataset.rx});b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit')}});
 $('#logoBtn').onclick=()=>go('home');
 $('#onlineNav').onclick=()=>openOnline('quick');
 $('#acctBtn').onclick=()=>openDrawer();
@@ -7387,7 +7574,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
 $$('[data-open]').forEach(b=>b.onclick=()=>b.dataset.open==='howto'?openHowTo():openHof());
 {const sb=$('#sndBtn');sb.innerHTML=icon(soundIcon())+`<span>${SND.on?'Sound on':'Muted'}</span>`;sb.onclick=soundToggle;$('#instBtn').onclick=pwaInstall;pwaInit()}
 addEventListener('resize',()=>{if(SIM)drawChart()});
-smoothInstall();liveTheme();liveStripPaint();liveMaint();refreshNav();renderHome();setTimeout(livePopups,2200);setTimeout(()=>{tixDaily();lockerAuto()},3200);setTimeout(()=>{memApply();supThanks()},900);
+smoothInstall();liveTheme();liveStripPaint();liveMaint();refreshNav();renderHome();termsGate();setInterval(()=>{if(!termsOK())termsGate();else if(P.mustRename&&!termsGate.ren){termsGate.ren=1;renamePrompt()}},5000);setTimeout(livePopups,2200);setTimeout(()=>{tixDaily();lockerAuto()},3200);setTimeout(()=>{memApply();supThanks()},900);
 setTimeout(()=>{if(!(window.claude&&window.claude.use)){loadMqtt().catch(()=>{});loadPeer().catch(()=>{})}},1500);
 {const m=location.hash.match(/^#join-([A-Za-z0-9]{5})$/);if(m)openOnline('join',m[1].toUpperCase())}
 gateInstall();
