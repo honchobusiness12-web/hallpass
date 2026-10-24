@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1792817794">
+<meta name="hp-build" content="1792820583">
 <title>Hall Pass</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Draft an all-time basketball roster from any decade, pick a coach, and simulate a full season and playoffs.">
@@ -1482,6 +1482,32 @@ body.stplaying #toasts,body.stplaying #popStack{display:none}
 .stcgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}.stcgrid div{padding:8px 10px;border-radius:12px;background:var(--ink)}.stcgrid small{display:block;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}.stcgrid b{font:800 20px "Big Shoulders Display",Impact,sans-serif}@media (max-width:700px){.stcgrid{grid-template-columns:repeat(3,1fr)}}
 .stcom{position:absolute;left:50%;bottom:14px;transform:translate(-50%,-8px);max-width:86%;padding:7px 14px;border-radius:999px;background:rgba(6,9,18,.72);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:13px;letter-spacing:.01em;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:3}.stcom.on{opacity:1;transform:translate(-50%,0)}@media (pointer:coarse){.stcom{bottom:auto;top:8px}}
 .stlad.tier{color:#ffcc4d}
+.stmodes.vb6{grid-template-columns:repeat(3,minmax(0,1fr))}@media (max-width:640px){.stmodes.vb6{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vbpart,.vbdrills{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:6px}
+.vbpc{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--ink);transition:transform .15s,border-color .2s}
+.vbpc b{font-size:14px}.vbpc small{font-size:12px;color:var(--mute)}.vbpc i{font-style:normal;font-size:12px;color:var(--mute);opacity:.85}.vbpc.on{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber) inset}.vbpc:hover{transform:translateY(-2px)}
+.vbven{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:6px}
+.vbvc{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:54px 10px 10px;border-radius:14px;border:1px solid var(--line);overflow:hidden;text-align:left;background:var(--ink);transition:transform .15s}
+.vbvc i{position:absolute;inset:0 0 auto 0;height:46px;background:linear-gradient(180deg,var(--a) 0,var(--b) 62%,var(--c) 62%)}.vbvc b{font-size:13px}.vbvc small{font-size:11px;color:var(--mute)}.vbvc.on{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber) inset}.vbvc.lock{opacity:.5;cursor:not-allowed}.vbvc.lock i{filter:grayscale(1)}.vbvc:not(.lock):hover{transform:translateY(-2px)}
+.vbsetc{margin-top:14px}
+.vbwrap canvas{display:block;margin:0 auto}
+.vbchips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px;justify-content:center}.vbcl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:0 2px 0 8px}
+.vbchip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--ink);font-size:13px;font-weight:600}.vbchip kbd{font-size:10px;padding:1px 5px;border-radius:5px;background:rgba(255,255,255,.08);border:1px solid var(--line)}.vbchip.on{border-color:var(--amber);color:var(--amber)}
+body.stplaying .vbchips{margin-top:6px}@media (max-width:760px){.vbchips kbd{display:none}.vbchip{padding:5px 9px;font-size:12px}}
+.vbtb{grid-template-columns:1fr 1fr}.vbtb .big{grid-column:1/-1;width:auto}
+.vbwind{display:inline-flex;align-items:center;gap:4px}.vbwind i{display:inline-block;font-style:normal}
+.vbgear{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:8px}.vbgi{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 8px;border-radius:14px;border:1px solid var(--line);background:var(--ink);text-align:center;transition:transform .15s}
+.vbgi b{font-size:13px}.vbgi small{font-size:11px;color:var(--mute)}.vbgi.on{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber) inset}.vbgi.lock{opacity:.5;cursor:not-allowed}.vbgi:not(.lock):hover{transform:translateY(-2px)}
+.vbgb{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 -6px 12px rgba(0,0,0,.25)}.vbgb.e{background:rgba(255,255,255,.06);font-size:24px;box-shadow:none}
+.vbsw{display:flex;gap:8px;margin-top:6px}.vbsw button{width:32px;height:32px;border-radius:50%;border:2px solid transparent}.vbsw button.on{border-color:var(--amber);box-shadow:0 0 0 2px var(--bg,#0b0e17) inset}
+.vbtm{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.vbtm div{padding:10px;border-radius:12px;background:var(--ink)}.vbtm small{display:block;font-size:11px;color:var(--mute);text-transform:uppercase}.vbtm b{font-size:16px}@media (max-width:640px){.vbtm{grid-template-columns:1fr 1fr}}
+.vbstop{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:start;margin-bottom:14px}.vbstopart{height:140px;border-radius:16px;overflow:hidden;position:relative}.vbstopart i{position:absolute;inset:0;background:linear-gradient(180deg,var(--a) 0,var(--b) 58%,var(--c) 58%)}
+.vbstop h3{font-size:28px;text-transform:uppercase;margin:2px 0 6px}.vbbr{margin:8px 0}@media (max-width:700px){.vbstop{grid-template-columns:1fr}.vbstopart{height:90px}}
+.vbup{display:grid;gap:8px;margin-top:6px}.vbur{display:grid;grid-template-columns:70px 36px 1fr auto;gap:8px;align-items:center}.vbur small{color:var(--mute);font-size:12px}.vbur i{height:6px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}.vbur i s{display:block;height:100%;background:linear-gradient(90deg,#ffb547,#ff6b3d)}
+.vbchem{height:8px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden;margin:6px 0 10px}.vbchem i{display:block;height:100%;background:linear-gradient(90deg,#2ec4b6,#3ddc84)}
+.vbseats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.vbseat{display:flex;flex-direction:column;align-items:flex-start;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--ink);text-align:left}.vbseat small{font-size:11px;color:var(--mute)}.vbseat.a{border-left:4px solid #5ec8ff}.vbseat.b{border-left:4px solid #ff8f7a}.vbseat.me{border-color:#3ddc84}
+@media (max-width:640px){.vbseats{grid-template-columns:1fr 1fr}}@media (max-height:520px){body.stplaying .vbchips{position:fixed;bottom:6px;left:50%;transform:translateX(-50%);z-index:6;max-width:52vw;gap:4px;margin:0}body.stplaying .vbchips .vbcl{display:none}body.stplaying .vbchip{padding:4px 8px;font-size:11px;background:rgba(10,13,24,.75)}}
+.vbcode{font:900 22px "Big Shoulders Display",Impact,sans-serif;letter-spacing:.12em;color:var(--amber)}
 .stmodes.vb3{grid-template-columns:repeat(3,1fr)}@media (max-width:640px){.stmodes.vb3{grid-template-columns:1fr}}.vbart{font-size:64px;animation:tbob 3s ease-in-out infinite}
 .vbsky{background:linear-gradient(180deg,#2a6fd6,#7fc3ff 60%,#f2d49b 60%)!important;position:relative}
 .vbsun{position:absolute;right:16%;top:14%;width:34px;height:34px;border-radius:50%;background:#ffe9a8;box-shadow:0 0 30px #ffe9a8}
@@ -5853,7 +5879,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792817794';
+const BUILD='1792820583';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -6429,284 +6455,924 @@ function stHomeCard(){const a=stAccess()&&!stClosed();const S2=P.street||{w:0,l:
    ${a?`<div class="row"><span class="tag">${S2.w}–${S2.l} record</span></div>`:''}<button class="btn btn-go" id="stHomeGo">${a?'Play Street':'Request beta access'} ${icon('M5 12h14M13 6l6 6-6 6',16)}</button></div></div>`}
 
 /* =====================================================================
-   BEACH VOLLEYBALL (admins only): 2-on-2 side view, rally scoring.
-   Units are meters. x runs 0..16 (net at 8), y is height above the sand.
-   Modes: quick match, beach tournament, serve + spike training.
+   VOLLEYBALL 2 (admins only). Beach 2v2 and indoor 6v6 on a 3D court seen
+   from a broadcast angle. Units are meters: x runs along the court (net in
+   the middle), z runs across it (0 = far sideline), y is height.
+   Every player reads an input object, so the same engine runs local humans,
+   computer players and online players.
    ===================================================================== */
-const VB={W:16,NET:8,NETH:2.43,G:13,BR:.21,REACH:1.95,JUMP:7.6};
-const VB_DIFF={easy:{n:'Easy',react:.32,err:.9,spd:.82,dig:.45,blk:.15,acc:.55},normal:{n:'Normal',react:.2,err:.55,spd:.94,dig:.65,blk:.3,acc:.75},hard:{n:'Hard',react:.12,err:.28,spd:1.03,dig:.82,blk:.45,acc:.9}};
-const VB_STYLE={setter:['Setter','Digs everything and feeds you. Their own spikes are softer'],spiker:['Spiker','Hits the hardest and most accurate spikes, but digs less'],all:['All-round','A bit of everything']};
-const VB_TEAMS=[['Sandstorm','#f2a541'],['Riptide','#2ec4b6'],['Sunset Kings','#ff6b6b'],['Tidebreakers','#7c5cff'],['Palm Squad','#3ddc84'],['Boardwalk','#ffcc33'],['Coral Crew','#ff8fab'],['Dune Raiders','#c8a165']];
-const VB_TIME=['day','sunset','night'];
-const VB_ACH={vbwin:'First beach win',vbace:'Ace!',vbblock:'Stuff block',vbtour:'Beach champion'};
+const VBF={beach:{L:16,W:8,NETH:2.43,n:2,blockTouch:true,atk:0},indoor:{L:18,W:9,NETH:2.43,n:6,blockTouch:false,atk:3}};
+const VBG=10.2,VBDT=1/120;
 let VBS=null,VBRAF=0,VBLAST=0;
 const vbOK=()=>isAdminDevice();
 const vbR=(a,b)=>a+Math.random()*(b-a);
 const vbC=(v,a,b)=>Math.max(a,Math.min(b,v));
 const vbOpp=t=>t==='A'?'B':'A';
-function vbSave(){if(!P.vb)P.vb={w:0,l:0,kills:0,aces:0,blocks:0,digs:0,xp:0,tour:null,titles:0,best:{serve:0,spike:0}};return P.vb}
+const vbPick=a=>a[Math.random()*a.length|0];
+const vbW=o=>{let t=0;for(const k in o)t+=Math.max(0,o[k]);let r=Math.random()*t;for(const k in o){r-=Math.max(0,o[k]);if(r<=0)return k}return Object.keys(o)[0]};
+const VB_DIFF={easy:{n:'Easy',q:-9,react:.3,read:.15,err:1.5},normal:{n:'Normal',q:-4,react:.2,read:.4,err:1},hard:{n:'Hard',q:5,react:.13,read:.7,err:.7},pro:{n:'Pro',q:11,react:.09,read:.9,err:.5}};
+const VB_FIRST=['Kai','Mateo','Luca','Noa','Rafa','Tane','Ezra','Milo','Jonah','Ari','Bodhi','Cruz','Duke','Elio','Finn','Gus','Hugo','Ivo','Jett','Koa','Leo','Niko','Otis','Pax','Remy','Sol','Teo','Vito','Wes','Zane','Ana','Bree','Cleo','Dani','Eva','Gia','Isla','Jade','Kira','Lani','Maya','Nia','Olive','Paz','Rio','Sky','Tia','Uma','Vida','Zoe'];
+const VB_LAST=['Alvarez','Brooks','Costa','Dumont','Ekwueme','Fischer','Garza','Haugen','Ito','Jansen','Kahale','Lindqvist','Moreau','Nakoa','Okafor','Pereira','Quist','Rasmussen','Silva','Tavita','Ueda','Varga','Wolfe','Xavier','Yilmaz','Zeller','Akana','Bianchi','Castillo','Duarte'];
+const VB_TEAMNAMES=['Sandstorm','Riptide','Sunset Kings','Tidebreakers','Palm Squad','Boardwalk','Coral Crew','Dune Raiders','Saltwater','Heatwave','Shoreline','Bluewater','Lagoon','Driftwood','Big Surf','Undertow'];
+/* venues: sky, sea, props, wind */
+const VB_VENUES={
+  coral:{n:'Coral Bay',sky:['#2a6fd6','#8ccbff','#ffe1b0'],sea:['#1c86c9','#45b3e6'],sand:['#f2d49b','#d9b16f'],sun:[.82,.15],props:'palms',wind:[0,1.5],crowd:.7},
+  sunset:{n:'Sunset Cove',sky:['#3b2a6b','#ff7e5f','#feb47b'],sea:['#c0587a','#e98d6b'],sand:['#eec48e','#c99a5e'],sun:[.7,.42],props:'palms',wind:[.5,2.5],crowd:.8},
+  night:{n:'Neon Pier',sky:['#05081a','#141c45','#2a2366'],sea:['#0b1a3a','#13284f'],sand:['#b59b74','#8c7652'],sun:null,props:'lights',wind:[0,1.2],crowd:.9,night:1},
+  city:{n:'Skyline Beach',sky:['#4a90e2','#a9d4ff','#ffe9c7'],sea:['#2b7fb8','#5db7e0'],sand:['#efd3a1','#d4ad6e'],sun:[.2,.18],props:'city',wind:[1,3],crowd:1},
+  glacier:{n:'Glacier Bay',sky:['#6c8fb5','#bcd5ea','#eef4fa'],sea:['#3d6a8a','#6f9cbb'],sand:['#e6ddd0','#c8bba8'],sun:[.3,.2],props:'mountains',wind:[2.5,4.5],crowd:.5},
+  desert:{n:'Desert Lake',sky:['#d26a2e','#f2a65a','#ffe0a6'],sea:['#3b8ea5','#6fb7c9'],sand:['#e8b77a','#c98e4f'],sun:[.5,.3],props:'mesas',wind:[1.5,3.5],crowd:.6},
+  island:{n:'Island Masters',sky:['#1e88c7','#73d0f0','#d8f6ff'],sea:['#0fa3a3','#4fd1c5'],sand:['#fff0cc','#f0d79e'],sun:[.85,.12],props:'palms',wind:[.5,2],crowd:.85},
+  arena:{n:'Center Court',sky:['#120a2a','#2a1650','#4a2470'],sea:['#1d1440','#2a1c55'],sand:['#e9cf9c','#cfa86a'],sun:null,props:'stadium',wind:[0,.4],crowd:1.2,night:1},
+  gym:{n:'Hall Pass Gym',indoor:1,wind:[0,0],crowd:1}};
+const VB_BALLS={classic:['Classic',['#2a6fd6','#ffcc33','#ffffff']],sunset:['Sunset',['#ff6b6b','#ffb347','#fff3c4']],neon:['Neon',['#39ff14','#ff2bd6','#1e1e1e']],retro:['Retro',['#e4572e','#f3a712','#29335c']],galaxy:['Galaxy',['#7b4dff','#00d4ff','#120a2a']],gold:['Gold',['#ffd25e','#c98a0b','#fff8e1']]};
+const VB_KITS={sky:['Sky','#5ec8ff','#1f5fd6'],coral:['Coral','#ff8f7a','#d9432f'],lime:['Lime','#b6f04a','#5f9e12'],royal:['Royal','#8a7dff','#3b2bbf'],black:['Blackout','#4a4f63','#15171f'],stripes:['Flag stripes','#ffffff','#e63946'],sunrise:['Sunrise','#ffd166','#ef476f']};
+const VB_SHADES={none:'None',aviator:'Aviators',sport:'Sport wraps',mirror:'Mirror shades'};
+const VB_CELEB={fist:'Fist pump',jump:'Jump for joy',bump:'Chest bump',dance:'Little dance',sky:'Point to the sky'};
+
+/* ---------- save ---------- */
+function vbSave(){if(!P.vb2){const o=P.vb||{};P.vb2={xp:o.xp||0,w:o.w||0,l:o.l||0,tot:{m:0,pts:0,k:0,att:0,ace:0,blk:0,dig:0,err:0,perf:0},best:{serve:0,spike:0,pass:0,block:0},ach:[],gear:{ball:'classic',kit:'sky',shades:'none',celeb:'fist',own:[]},set:{assist:1,com:1,slow:1,shake:1,hints:1},career:null,kotb:{w:0},titles:0}}
+  const S=P.vb2;S.tot=S.tot||{};S.gear=S.gear||{ball:'classic',kit:'sky',shades:'none',celeb:'fist',own:[]};S.gear.own=S.gear.own||[];S.set=S.set||{assist:1,com:1,slow:1,shake:1,hints:1};S.best=S.best||{};S.ach=S.ach||[];S.kotb=S.kotb||{w:0};return S}
 const vbLevel=xp=>Math.floor(Math.sqrt((xp||0)/60))+1;
-function vbP(team,i,me,name,col){return{team,i,me,name,col,x:0,y:0,vx:0,vy:0,face:team==='A'?1:-1,pose:'ready',poseT:0,cool:0,dive:0,anim:0,plan:null,
-  skin:['#f1c7a1','#d9a47a','#b67a52','#8d5a3b','#5e3b26'][Math.floor(Math.random()*5)],cap:Math.random()<.5,st:{k:0,ace:0,blk:0,dig:0,pts:0,att:0,err:0}}}
+const vbSet=()=>vbSave().set;
+
+/* ---------- players ---------- */
+let VBID=0;
+function vbPersona(style){const base={aggr:vbR(.3,.9),tip:vbR(.05,.25),roll:vbR(.03,.18),line:vbR(.25,.7),quick:vbR(.05,.35),risk:vbR(.2,.8),flair:vbR(0,1),fake:vbR(0,.2),dump:vbR(0,.12),serve:{jump:vbR(.1,1),float:vbR(.2,1),under:vbR(0,.15),sky:vbR(0,.12)},cheat:vbR(-.5,.5)};
+  if(style==='att'){base.aggr+=.2;base.serve.jump+=.5}if(style==='def'){base.tip+=.1;base.roll+=.08;base.aggr-=.15;base.serve.float+=.5}return base}
+function vbRatings(q,style,h){const j=()=>vbR(-5,5);const r={spd:q+j(),jmp:q+j(),srv:q+j(),atk:q+j(),blk:q+j(),dig:q+j(),set:q+j()};
+  if(style==='att'){r.atk+=7;r.jmp+=4;r.dig-=6}else if(style==='def'){r.dig+=8;r.spd+=4;r.blk-=6}else if(style==='blk'){r.blk+=9;r.jmp+=3;r.spd-=4}else if(style==='srv'){r.srv+=9}else if(style==='set'){r.set+=10;r.dig+=3;r.atk-=5}
+  if(h){r.blk+=(h-1.9)*40;r.spd-=(h-1.9)*20}for(const k in r)r[k]=vbC(Math.round(r[k]),35,99);return r}
+function vbP(o){const t=o.team;return{id:++VBID,team:t,slot:o.slot||0,name:o.name||vbPick(VB_FIRST)+' '+vbPick(VB_LAST),ctl:o.ctl||'ai',me:!!o.me,r:o.r,h:o.h||vbR(1.82,2.02),role:o.role||'any',
+  per:o.per||vbPersona(o.style),kit:o.kit,skin:o.skin||vbPick(['#f1c7a1','#d9a47a','#b67a52','#8d5a3b','#5e3b26']),hair:o.hair||vbPick(['#1b1210','#2b1c14','#4a2d1a','#e2c27a','#7a3b1d','#0d0d0d']),cap:o.cap!=null?o.cap:Math.random()<.4,shades:o.shades||(Math.random()<.35?vbPick(['aviator','sport']):'none'),celeb:o.celeb||vbPick(Object.keys(VB_CELEB)),lib:!!o.lib,
+  x:0,z:0,y:0,vx:0,vz:0,vy:0,face:t==='A'?1:-1,air:0,dive:0,down:0,cool:0,want:null,jumpQ:0,blockJ:0,ph:0,step:0,pose:null,act:'ready',actT:0,idle:vbR(0,9),sig:0,
+  in:{mx:0,mz:0,ev:[],shot:'power',aim:0,call:'high'},st:{pts:0,k:0,att:0,ace:0,blk:0,dig:0,err:0,perf:0,pass:0,passQ:0}}}
+const vbReach=p=>p.h*1.33;
+const vbJumpV=p=>Math.sqrt(2*VBG*(.5+(p.r.jmp-35)/64*.48));
+const vbSpeed=p=>(4.1+(p.r.spd-35)/64*2.4)*(p.down>0?0:1);
+const vbDir=t=>t==='A'?1:-1;
 
 /* ---------- match setup ---------- */
-function vbNew(opt){const d=VB_DIFF[opt.diff]||VB_DIFF.normal;const S=vbSave();const ot=opt.oppTeam||VB_TEAMS[Math.floor(Math.random()*VB_TEAMS.length)];
-  const A=[vbP('A',0,true,P.name||'You','#5ec8ff'),vbP('A',1,false,'Partner','#5ec8ff')],B=[vbP('B',0,false,ot[0]+' 1',ot[1]),vbP('B',1,false,ot[0]+' 2',ot[1])];
-  VBS={opt,d,A,B,all:[...A,...B],oppName:ot[0],oppCol:ot[1],score:{A:0,B:0},sets:{A:0,B:0},setN:1,setsToWin:opt.sets===3?2:1,to:opt.to||21,serve:'A',touches:0,side:null,lastP:null,
-    ball:{x:2,y:2,vx:0,vy:0,spin:0,live:false,trail:[]},state:'intro',stT:opt.mode==='train'?.3:1.8,keys:{},touch:{x:0,on:false},pops:[],parts:[],shake:0,netShake:0,flash:0,crowd:0,t:0,over:false,paused:false,
-    auto:!!opt.auto,time:opt.time||VB_TIME[Math.floor(Math.random()*3)],slow:0,train:opt.mode==='train'?{kind:opt.drill||'serve',score:0,balls:12,left:12,targets:[]}:null,mark:null,hint:null};
-  if(VBS.train)vbTrainSetup();else vbServeSetup('A');return VBS}
-function vbHome(p){return p.team==='A'?(p.i?2.8:6.2):(p.i?13.2:9.8)}
-function vbServeSetup(team){const s=VBS;s.serve=team;s.state=s.state==='intro'?'intro':'serve';s.stT=s.state==='intro'?s.stT:1.1;s.touches=0;s.side=null;s.lastP=null;s.plan=null;
-  s.all.forEach(p=>{p.x=vbHome(p);p.y=0;p.vy=0;p.vx=0;p.dive=0;p.plan=null;p.pose='ready'});
-  const t=s[team];const srv=team==='A'&&!s.auto?t[0]:t[(s.score[team]+s.setN)%2];srv.x=team==='A'?.5:15.5;s.server=srv;
-  const mate=t.find(q=>q!==srv);mate.x=team==='A'?6.4:9.6;
-  const b=s.ball;b.live=false;b.x=srv.x+(team==='A'?.3:-.3);b.y=1.3;b.vx=b.vy=0;b.trail=[];s.servePow=null}
-function vbPop(x,y,t,c,big){VBS.pops.push({x,y,t:0,text:t,col:c||'#fff',big})}
-function vbSand(x,n,y){for(let i=0;i<n;i++)VBS.parts.push({x:x+vbR(-.2,.2),y:y||0,vx:vbR(-2.4,2.4),vy:vbR(1,4.5),t:0,life:vbR(.4,.8)})}
-/* aim the ball so it passes through (tx,ty) after T seconds */
-function vbAim(b,tx,ty,T){b.vx=(tx-b.x)/T;b.vy=(ty-b.y)/T+.5*VB.G*T}
-/* make sure a ball sent over clears the net: raise it until it does */
-function vbAimOver(b,tx,T){for(let k=0;k<12;k++){vbAim(b,tx,0,T);const tn=(VB.NET-b.x)/b.vx;if(tn<=0||tn>T)return;const yn=b.y+b.vy*tn-.5*VB.G*tn*tn;if(yn>VB.NETH+.35)return;T+=.08}}
-function vbLand(h,maxT){const b=VBS.ball;let x=b.x,y=b.y,vx=b.vx,vy=b.vy;for(let i=0;i<(maxT||300);i++){vy-=VB.G/60;x+=vx/60;y+=vy/60;if(Math.abs(x-VB.NET)<.1&&y<VB.NETH)vx=-vx*.35;if(y<=h&&vy<0)return{x,t:i/60}}return{x,t:5}}
+function vbNew(opt){const fmt=opt.fmt||'beach';const F=VBF[fmt];const d=VB_DIFF[opt.diff]||VB_DIFF.normal;const G=vbSave().gear;
+  const ven=VB_VENUES[opt.venue]?opt.venue:fmt==='indoor'?'gym':'coral';const V=VB_VENUES[ven];
+  const s={opt,fmt,F,d,ven,V,teams:{A:[],B:[]},all:[],score:{A:0,B:0},sets:{A:0,B:0},setN:1,setsToWin:opt.sets>=5?3:opt.sets>=3?2:1,to:opt.to||(fmt==='indoor'?25:21),
+    names:{A:opt.nameA||'You',B:opt.nameB||vbPick(VB_TEAMNAMES)},kit:{A:VB_KITS[opt.kitA||G.kit]||VB_KITS.sky,B:VB_KITS[opt.kitB]||null},
+    ball:{x:0,y:0,z:0,vx:0,vy:0,vz:0,live:false,spin:0,trail:[],ver:0,kind:'',fl:null,hitT:0,by:null,launch:null},
+    phase:'intro',phT:opt.mode==='train'?.2:2.4,t:0,serveTeam:'A',server:null,rot:{A:0,B:0},touches:0,side:null,lastP:null,plan:{A:null,B:null},
+    wind:{x:0,z:0},pops:[],parts:[],prints:[],shake:0,flash:0,netShake:0,slowT:0,zoom:1,zoomT:0,crowd:0,wave:-9,horn:0,over:false,paused:false,
+    keys:{},touch:{x:0,z:0,on:false},hist:{A:{line:1,cut:1,tip:1,roll:1,power:1},B:{line:1,cut:1,tip:1,roll:1,power:1}},tac:{A:{shotFail:0,powerFail:0},B:{shotFail:0,powerFail:0}},mom:0,
+    auto:!!opt.auto,call:{block:'me',mine:0,yours:0},events:[],comT:-9,net:opt.net||null,train:null,log:[],rally:0,maxRally:0};
+  if(!s.kit.B||s.kit.B===s.kit.A)s.kit.B=s.kit.A===VB_KITS.coral?VB_KITS.sky:VB_KITS.coral;
+  const w=vbR(V.wind[0],V.wind[1]);const wa=vbR(0,Math.PI*2);s.wind={x:Math.cos(wa)*w,z:Math.sin(wa)*w*.6,str:w};
+  VBS=s;(opt.build||vbBuildTeams)(s);s.all=[...s.teams.A,...s.teams.B];
+  s.all.forEach(p=>{p.kitc=s.kit[p.team]});
+  if(opt.mode==='train')vbTrainSetup();else vbServeSetup(opt.firstServe||'A',true);
+  return s}
+function vbMe(){const C=vbSave().career;const G=vbSave().gear;if(C&&C.r)return{name:C.name,r:{...C.r},h:C.h,style:C.style,skin:C.skin,hair:C.hair,shades:G.shades,celeb:G.celeb,cap:C.cap};
+  return{name:P.name||'You',r:{spd:72,jmp:72,srv:72,atk:72,blk:68,dig:70,set:70},h:1.9,style:'all',shades:G.shades,celeb:G.celeb}}
+function vbBuildTeams(s){const o=s.opt;const q={easy:58,normal:68,hard:77,pro:85}[o.diff]||68;
+  if(s.fmt==='indoor'){const roles=['S','OH','MB','OPP','OH','MB'];const mine=vbMe();
+    ['A','B'].forEach(t=>{const qq=t==='A'?Math.max(q,66):q;roles.forEach((rl,i)=>{const human=t==='A'&&i===1&&!o.auto;const sty={S:'set',OH:'att',MB:'blk',OPP:'att'}[rl];
+      const p=vbP(human?{...mine,team:t,slot:i,role:rl,ctl:'local',me:true}:{team:t,slot:i,role:rl,style:sty,r:vbRatings(qq,sty,rl==='MB'?vbR(1.98,2.08):rl==='S'?vbR(1.84,1.94):vbR(1.9,2.02)),h:rl==='MB'?vbR(1.98,2.08):undefined});s.teams[t].push(p)});
+      const lib=vbP({team:t,slot:6,role:'L',style:'def',r:vbRatings(qq,'def',1.8),h:1.8,lib:true});lib.r.atk=40;lib.r.blk=40;s.teams[t].lib=lib});return}
+  const mine=vbMe();const pr=o.partner||{style:o.style||'all'};
+  s.teams.A.push(vbP(o.auto?{team:'A',slot:0,r:vbRatings(q+2,'all')}:{...mine,team:'A',slot:0,ctl:'local',me:true}));
+  s.teams.A.push(vbP({team:'A',slot:1,name:pr.name,r:pr.r||vbRatings(Math.max(q,64)+2,pr.style),style:pr.style,h:pr.h,per:pr.per}));
+  const opp=o.opp||[{},{}];opp.forEach((x,i)=>s.teams.B.push(vbP({team:'B',slot:i,name:x.name,r:x.r||vbRatings(q,x.style||vbPick(['att','def','all','blk','srv'])),style:x.style,h:x.h})));
+  if(o.chem)s.chem=o.chem}
+/* indoor: which player stands in which zone, and who swaps for the libero */
+function vbZone(s,t,p){const n=6;return(((p.slot-s.rot[t])%n)+n)%n+1}
+const vbFront=(s,p)=>s.fmt!=='indoor'||[2,3,4].includes(vbZone(s,p.team,p));
+function vbLineup(s,t){/* the libero replaces the back-row middle */const T=s.teams[t];if(s.fmt!=='indoor'||!T.lib)return;const lib=T.lib;
+  const mbBack=T.find(p=>p.role==='MB'&&!vbFront(s,p)&&vbZone(s,t,p)!==1);const onCourt=T.indexOf(lib)>=0;
+  if(onCourt){const out=T.libFor;if(!mbBack||mbBack!==out){/* swap back */const i=T.indexOf(lib);T[i]=out;T.libFor=null;out.x=lib.x;out.z=lib.z}}
+  if(mbBack&&T.indexOf(lib)<0){const i=T.indexOf(mbBack);lib.slot=mbBack.slot;lib.x=mbBack.x;lib.z=mbBack.z;T[i]=lib;T.libFor=mbBack}
+  s.all=[...s.teams.A,...s.teams.B];s.all.forEach(p=>p.kitc=s.kit[p.team])}
+/* where everyone stands for a serve */
+function vbBase(s,p,phase){const F=s.F,t=p.team,dir=vbDir(t),net=F.L/2;
+  if(s.fmt==='beach'){const T=s.teams[t];const i=T.indexOf(p);const srv=s.serveTeam===t;
+    if(phase==='serve'){if(srv){if(p===s.server)return[t==='A'?-.6:F.L+.6,p.z||F.W*vbR(.3,.7)];return[net-dir*1.4,F.W*(i?.68:.32)]}return[net-dir*(F.L/2-2.2),F.W*(i?.72:.28)]}
+    return[net-dir*(F.L/2-3),F.W*(i?.7:.3)]}
+  const zn=vbZone(s,t,p);const rows={1:[6.4,.8],2:[1.6,.8],3:[1.4,.5],4:[1.6,.2],5:[6.4,.2],6:[7,.5]}[zn];let[dx,zf]=rows;
+  if(phase==='serve'&&s.serveTeam!==t&&!vbFront(s,p))dx=6.2;
+  if(phase==='serve'&&p===s.server)return[t==='A'?-.7:F.L+.7,F.W*.75];
+  const zz=t==='A'?zf:1-zf;return[net-dir*dx,F.W*zz]}
+function vbServeSetup(team,first){const s=VBS;s.serveTeam=team;s.phase=first?'intro':'serve';if(!first)s.phT=1.2;s.touches=0;s.side=null;s.lastP=null;s.plan={A:null,B:null};s.spiker=null;s.blockBy=null;s.aceOK=false;s.rally=0;
+  ['A','B'].forEach(t=>vbLineup(s,t));
+  const T=s.teams[team];let srv;if(s.fmt==='indoor')srv=T.find(p=>vbZone(s,team,p)===1);else{const k=s.srvIdx||{A:0,B:0};srv=T[k[team]%T.length]}
+  s.server=srv;s.all.forEach(p=>{const[x,z]=vbBase(s,p,'serve');if(first||p===srv){p.x=x;p.z=z}p.want=[x,z];p.y=0;p.vy=0;p.vx=p.vz=0;p.dive=0;p.down=0;p.act='ready';p.air=0;p.plan=null;p.sig=0});
+  if(s.fmt==='beach'){/* the net player flashes a block signal behind their back */const nt=s.teams[team].find(p=>p!==srv);if(nt){nt.sig=1.6;nt.sigK=Math.random()<.5?'line':'angle'}}
+  const b=s.ball;b.live=false;b.trail=[];b.x=srv.x;b.y=1.1;b.z=srv.z;b.vx=b.vy=b.vz=0;b.kind='';b.by=srv;
+  s.servePow=null;s.serveType=srv.ctl==='ai'?null:(s.serveType||'float');s.srvAim=0;s.aiSrvT=vbR(.6,1.6);
+  s.events.push(['serve',team])}
 
-/* ---------- serve ---------- */
-function vbServe(p,pw){const s=VBS,b=s.ball;const dir=p.team==='A'?1:-1;b.live=true;b.x=p.x+dir*.25;b.y=2.9;pw=vbC(pw,.15,1);
-  const deep=p.team==='A'?VB.NET+1.5+pw*6.2:VB.NET-1.5-pw*6.2;const tx=deep+vbR(-.6,.6)*(p.me&&!s.auto?1:1.4);vbAimOver(b,tx,1.55-pw*.5);
-  p.pose='serve';p.poseT=.35;s.state='rally';s.side=p.team;s.touches=0;s.lastP=p;s.served=p;s.aceChance=1;tone(240,.05,'sine',.03);sfx('click');
-  if(p.me&&pw>.97){vbPop(p.x,3.4,'Overcooked','#ff8a8a')}}
+/* ---------- hits ---------- */
+/* launch the ball so it reaches (tx,ty,tz) after T seconds (wind ignored: small) */
+function vbAim(b,tx,ty,tz,T){b.vx=(tx-b.x)/T;b.vz=(tz-b.z)/T;b.vy=(ty-b.y)/T+.5*VBG*T}
+/* raise a ball sent over until it clears the net */
+function vbAimOver(b,tx,tz,T,clear){const s=VBS,net=s.F.L/2;for(let k=0;k<16;k++){vbAim(b,tx,0,tz,T);const tn=(net-b.x)/b.vx;if(!(tn>0&&tn<T))return T;const yn=b.y+b.vy*tn-.5*VBG*tn*tn;if(yn>s.F.NETH+(clear||.25))return T;T+=.07}return T}
+function vbLaunch(kind,by){const s=VBS,b=s.ball;b.live=true;b.kind=kind;b.by=by;b.ver++;b.hitT=s.t;b.launch={x:b.x,y:b.y,z:b.z,vx:b.vx,vy:b.vy,vz:b.vz,t:s.t,fl:b.fl};b.pred={};s.rally+=0}
+/* where the ball will be when it comes down through height h (deterministic, cached per flight) */
+function vbPredict(h){const s=VBS,b=s.ball;if(!b.live||!b.launch)return null;const key=Math.round(h*20);if(b.pred[key]!==undefined)return b.pred[key];
+  const L=b.launch;let x=L.x,y=L.y,z=L.z,vx=L.vx,vy=L.vy,vz=L.vz,t=0;const w=s.wind;let r=null;
+  for(let i=0;i<600;i++){vbAccel(L,t,x,y,z,vx,vy,vz,w,VBDT);vx+=VBA[0]*VBDT;vy+=VBA[1]*VBDT;vz+=VBA[2]*VBDT;x+=vx*VBDT;y+=vy*VBDT;z+=vz*VBDT;t+=VBDT;
+    if(y<=h&&vy<0){r={x,z,t:L.t+t,vy,vx,vz,spd:Math.hypot(vx,vy,vz)};break}if(y<0)break}
+  b.pred[key]=r;return r}
+const VBA=[0,0,0];
+function vbAccel(L,t,x,y,z,vx,vy,vz,w,dt){let ax=0,az=0;const hi=vbC(y/3,0,1.5);ax+=w.x*.12*hi;az+=w.z*.12*hi;
+  if(L.fl){const f=L.fl;az+=Math.sin(f.ph+t*f.fq)*f.a;ax+=Math.cos(f.ph*1.7+t*f.fq*.8)*f.a*.4;if(t>f.dur){ /* knuckle dies out */}}
+  VBA[0]=ax;VBA[1]=-VBG;VBA[2]=az}
 
-/* ---------- touches ---------- */
-function vbHand(p){return[p.x+p.face*.12,p.y+VB.REACH+(p.y>0?.1:0)]}
-function vbCanHit(p){const b=VBS.ball;if(!b.live||p.cool>0)return false;if(p.team==='A'?b.x>VB.NET+.05:b.x<VB.NET-.05)return false;const[hx,hy]=vbHand(p);
-  const b2=VBS.ball,hot=Math.hypot(b2.vx,b2.vy)>11&&VBS.lastP&&VBS.lastP.team!==p.team;const you=p.me&&!VBS.auto;const reach=(you?(hot?.72:.95):hot?.5:.8)+(p.dive>0?.4:0);const d=Math.hypot(b.x-hx,b.y-hy);const low=b.y<1.4&&Math.abs(b.x-p.x)<(p.dive>0?1.2:hot?(you?.6:.45):.75);return d<reach||low}
-function vbTouch(p,kind){const s=VBS,b=s.ball;if(!vbCanHit(p))return false;
-  const side=p.team;if(s.side!==side){s.side=side;s.touches=0}s.touches++;const wasServe=s.aceChance;s.aceChance=0;
-  if(s.touches>3){vbPoint(vbOpp(side),'Four hits');return true}
-  s.lastP=p;s.hitT=s.t;p.cool=.3;const mate=s[side].find(q=>q!==p);const t=s.touches;const dir=side==='A'?1:-1;
-  const fast=Math.abs(b.vx)>8||b.vy<-9;if(wasServe&&!(p.me&&!s.auto)&&Math.random()<(side==='B'?.04+s.d.err*.12:.07)){b.vx=-dir*vbR(2,6);b.vy=vbR(2,4);p.pose='bump';p.poseT=.3;s.aceChance=1;s.lastP=s.served;vbPop(p.x,2,'Shanked','#ff8a8a');return true}
-  /* a hard-hit ball is a dig: it might pop up badly */
-  if(fast&&t===1){const you=p.me&&!s.auto;const sty=s.opt.style||'setter';const ok=you?.8-(s.opt.diff==='hard'?.08:0):s[side]===s.B?s.d.dig:sty==='setter'?.85:sty==='all'?.8:.72;if(Math.random()>ok){b.vx=dir*vbR(-7,-2.5);b.vy=vbR(1.5,4.5);p.pose='bump';p.poseT=.3;vbPop(p.x,2,'Shanked','#ff8a8a');return true}p.st.dig++;vbPop(p.x,2.4,'DIG!','#7fd6ff')}
-  let k=kind;if(t>=3&&k!=='spike')k='over';if(k==='spike'&&!(p.y>.25&&b.y>VB.NETH))k=t>=3?'over':t===2?'set':'bump';
-  if(k==='spike'){const nearNet=Math.abs(p.x-VB.NET)<3.5;const sty2=s.opt.style||'setter';const acc=p.me&&!s.auto?.92:p.team==='B'?s.d.acc:sty2==='spiker'?.93:sty2==='all'?.82:.74;const you=p.me&&!s.auto,kx=you?(s.keys.r?1:0)-(s.keys.l?1:0)+(s.touch.on?Math.sign(s.touch.x):0)+(s.pad?Math.round(s.pad.x):0):0;const deep=you?(kx>0?vbR(.9,2.4):kx<0?vbR(5.2,7):vbR(2.6,5)):vbR(1,6.5);let tx=VB.NET+dir*deep;if(Math.random()>acc)tx=VB.NET+dir*vbR(7.6,9.5);
-    const sp=(nearNet?vbR(15,19):vbR(11,14))*(p.team==='A'&&!p.me&&s.opt.style==='spiker'?1.12:1)*(p.team==='B'?({easy:.85,normal:1,hard:1.1})[s.opt.diff]||1:1);const T=Math.max(.32,Math.abs(tx-b.x)/sp);vbAimOver(b,tx,T);p.st.att++;p.pose='spike';p.poseT=.3;s.shake=.2;s.flash=.12;vbPop(b.x,b.y+.5,'SPIKE!','#ffcc4d',1);tone(150,.07,'square',.035);vbSand(p.x,4);s.spiker=p}
-  else if(k==='set'){s.spiker=null;const spk=mate;const tx=VB.NET-dir*1.3,ty=VB.REACH+1.85;const T=1.05;vbAim(b,tx,ty,T);p.pose='set';p.poseT=.35;spk.plan={x:tx,y:ty,t:T,at:s.t};if(spk.me&&!s.auto){s.hint={x:tx,t:s.t+T}}tone(440,.04,'sine',.02)}
-  else if(k==='over'){s.spiker=null;const tx=VB.NET+dir*vbR(2,7);vbAimOver(b,tx,1.25);p.pose='bump';p.poseT=.3;tone(300,.04,'sine',.02)}
-  else{/* bump to the setter */const setter=mate;const tx=VB.NET-dir*1.7,ty=2.3;vbAim(b,tx,ty,1.2);setter.plan={x:tx,y:ty,t:1.2,at:s.t,set:1};p.pose='bump';p.poseT=.3;tone(260,.04,'sine',.02);vbSand(p.x,2)}
-  return true}
-function vbPoint(team,why){const s=VBS;if(s.state!=='rally')return;s.state='point';s.stT=1.4;s.score[team]++;const lp=s.lastP;
-  if(why==='Kill'&&lp&&lp.team===team){lp.st.k++;lp.st.pts++}if(why==='Ace'&&s.served&&s.served.team===team){s.served.st.ace++;s.served.st.pts++}if(why==='Block'&&lp&&lp.team===team){lp.st.blk++;lp.st.pts++}
-  if(lp&&lp.team!==team&&(why==='Out'||why==='Net'))lp.st.err++;
-  s.crowd=1.2;vbPop(8,5.2,(team==='A'?'Your point':s.oppName+' point')+(why?' · '+why:''),team==='A'?'#3ddc84':'#ff8a8a',1);sfx(team==='A'?'swish':'click');if(team==='A'&&(why==='Kill'||why==='Ace'))setTimeout(()=>sfx('cheer'),100);
-  s[team].forEach(p=>{if(p.y===0){p.pose='cheer';p.poseT=1}});
-  const a=s.score.A,b=s.score.B;const target=s.setN===3?15:s.to;
+/* ---------- serving ---------- */
+const VB_SERVES={jump:['Jump serve','Fast and heavy. Risky.'],float:['Float serve','Wobbles in the air. Hard to pass.'],under:['Underhand','Slow and safe.'],sky:['Sky ball','Sky high. Brutal in the wind.']};
+function vbServe(p,type,pw,aim){const s=VBS,b=s.ball,F=s.F,dir=vbDir(p.team),net=F.L/2;pw=vbC(pw,.1,1);
+  const acc=(p.r.srv-35)/64;let err=(1-acc)*.9+(type==='jump'?.5:type==='float'?.25:.1);if(pw>.93&&type!=='under')err+=(pw-.93)*14;
+  b.x=p.x+dir*.3;b.z=p.z;b.y=type==='jump'?3.15:type==='under'?.9:2.5;b.fl=null;
+  const deep=type==='under'?vbR(2,5.5):2+pw*(F.L/2-2.6);let tx=net+dir*deep+vbR(-1,1)*err;const tz=vbC(F.W*.5+aim*F.W*.36+vbR(-1,1)*err*.8,-1,F.W+1);
+  let T;if(type==='jump')T=.62+(1-pw)*.35;else if(type==='float')T=.95+(1-pw)*.35;else if(type==='sky')T=2.6;else T=1.55;
+  if(type==='sky'){vbAim(b,tx,0,tz,T)}else vbAimOver(b,tx,tz,T,type==='jump'?.15:.3);
+  if(type==='float'){b.fl={a:vbR(1.4,2.6)*(.6+acc*.6),fq:vbR(5,9),ph:vbR(0,6),dur:3}}
+  if(type==='jump'&&Math.random()<err*.08){/* into the net */vbAim(b,net,F.NETH-.4,tz,T*.6)}
+  vbLaunch('serve',p);s.phase='rally';s.side=p.team;s.touches=0;s.lastP=p;s.aceOK=true;s.served=p;s.serveKind=type;s.rallyT=s.t;
+  p.act=type==='jump'?'jserve':'serve';p.actT=.45;if(type==='jump'){p.vy=vbJumpV(p)*.85;p.vx=dir*2.5}
+  s.events.push(['hit','serve',type]);vbSnd(type==='jump'?'spike':'serve');s.plan={A:null,B:null};vbDefPlan(vbOpp(p.team))}
+
+/* ---------- contacts ---------- */
+/* hand/platform position and whether the ball is reachable right now */
+function vbCanReach(p,kind){const s=VBS,b=s.ball;if(!b.live||p.cool>0||p.down>0)return false;const net=s.F.L/2;
+  if(p.team==='A'?b.x>net+.25:b.x<net-.25)return false;const dx=b.x-p.x,dz=b.z-p.z;const hd=Math.hypot(dx,dz);
+  const top=vbReach(p)+p.y+.2;const human=p.ctl!=='ai';
+  if(kind==='spike'||kind==='block')return p.y>.15&&hd<(human?1.05:.85)&&b.y<top+.3&&b.y>top-1;
+  const R=(p.dive>0?1.9:human?1.15:.95);return hd<R&&b.y<top+.15&&b.y>(p.dive>0?.05:.35)}
+/* quality 0..1 to the target error in meters */
+const vbErr=q=>(1-q)*(1-q)*3.2;
+function vbTouch(p,kind,q,o){const s=VBS,b=s.ball,F=s.F,net=F.L/2,dir=vbDir(p.team);o=o||{};
+  const side=p.team;if(s.side!==side){s.side=side;s.touches=0}s.touches++;
+  if(s.touches>3){vbPoint(vbOpp(side),'Four hits',p);return}
+  if(s.lastP===p&&s.touches>1&&!(s.blockedTouch)){vbPoint(vbOpp(side),'Double touch',p);return}
+  s.blockedTouch=false;
+  const wasServe=b.kind==='serve',wasAttack=b.kind==='attack';s.aceOK=false;s.lastP=p;p.cool=.35;s.rally++;
+  const T=s.teams[side];const mates=T.filter(x=>x!==p);
+  /* hard balls: digs can shank */
+  const spd=Math.hypot(b.vx,b.vy,b.vz);
+  if((wasAttack||wasServe)&&kind!=='attack'){const diff=(spd-8)/14+(s.serveKind==='float'&&wasServe?.12:0);q=vbC(q-Math.max(0,diff)*(1.05-(p.r.dig-35)/64*.6),0,1);
+    if(wasAttack)p.st.dig++;if(wasServe){p.st.pass++;p.st.passQ+=q}}
+  if(q<.12&&kind!=='attack'){/* shank */b.vx=dir*vbR(-4,4);b.vz=vbR(-5,5);b.vy=vbR(2,5);b.fl=null;vbLaunch('shank',p);vbPop(p,'Shanked','#ff8a8a');p.act='bump';p.actT=.3;s.events.push(['hit','shank']);vbSnd('bump');s.plan[side]=null;return}
+  if(wasAttack&&q>.35&&kind!=='attack')vbPop(p,q>.8?'Great dig!':'Dig!','#7fd6ff');
+  b.fl=null;
+  if(kind==='attack'){vbAttack(p,q,o);return}
+  if(kind==='over'){const tx=net+dir*vbR(2.5,F.L/2-1.5),tz=vbR(1,F.W-1);vbAimOver(b,tx,tz,1.45,.6);vbLaunch('free',p);p.act='bump';p.actT=.3;s.plan[side]=null;vbSnd('bump');s.events.push(['hit','free']);vbDefPlan(vbOpp(side));return}
+  if(kind==='set'){vbSet2(p,q,o);return}
+  /* pass/dig to the setter spot */
+  const setter=vbPickSetter(s,side,p);const sx=net-dir*(s.fmt==='indoor'?1.1:1.3),sz=s.fmt==='indoor'?F.W*(side==='A'?.6:.4):F.W*.5+(setter?(setter.z-F.W/2)*.25:0);
+  const e=vbErr(q)*(s.d&&p.team==='B'?s.d.err:1)*.7;const a=vbR(0,6.28);const tx=vbC(sx+Math.cos(a)*e,dir>0?.5:net+.5,dir>0?net-.3:F.L-.5),tz=vbC(sz+Math.sin(a)*e,.3,F.W-.3);
+  const Tp=vbC(1.15+(1-q)*.3,1,1.6);vbAim(b,tx,2.5,tz,Tp);vbLaunch(kind==='dig'?'dig':'pass',p);p.act=kind==='set'?'set':'bump';p.actT=.35;vbSnd('bump');
+  s.plan[side]={stage:2,setter,passQ:q,at:[tx,tz],t:s.t+Tp};if(setter)setter.plan={k:'set',x:tx,z:tz,t:s.t+Tp};
+  if(p.ctl!=='ai'&&q>.85){p.st.perf++;vbPop(p,'Perfect pass','#3ddc84')}
+  if(s.train&&s.train.kind==='pass'&&p.ctl!=='ai'){s.train.lastQ=q;setTimeout(()=>{if(VBS===s&&s.ball.live&&s.phase==='rally'){s.ball.live=false;vbTrainLand()}},1000)}
+  s.events.push(['hit','pass',q])}
+function vbPickSetter(s,side,passer){const T=s.teams[side].filter(p=>p!==passer&&p.down<=0);if(!T.length)return null;
+  if(s.fmt==='indoor'){const S=T.find(p=>p.role==='S');if(S)return S;const o=T.find(p=>p.role==='OPP')||T.find(p=>p.lib);if(o)return o}
+  return T.reduce((a,p)=>!a||Math.abs(p.x-s.F.L/2)<Math.abs(a.x-s.F.L/2)?p:a,null)}
+/* the set: high outside, quick, back set, or a pipe from the back row */
+function vbSet2(p,q,o){const s=VBS,b=s.ball,F=s.F,net=F.L/2,dir=vbDir(p.team),side=p.team;const T=s.teams[side];
+  let hitter=o.hitter;let call=o.call;
+  if(!hitter){const opts=T.filter(x=>x!==p&&x.down<=0&&(s.fmt==='beach'||(x.lib?false:true)));
+    if(s.fmt==='beach')hitter=opts[0];else{const human=opts.find(x=>x.ctl!=='ai'&&x.callSet);hitter=human||vbIndoorHitter(s,side,p,opts,q)}}
+  if(!hitter){vbTouch(p,'over',q);return}
+  if(!call)call=hitter.ctl!=='ai'?(hitter.in.call||'high'):vbAICall(s,hitter,p,q);
+  if(s.fmt==='indoor'&&!vbFront(s,hitter))call='pipe';
+  const reach=vbReach(hitter)+.5+(hitter.r.jmp-35)/64*.48;let tx,tz,Tt;
+  const pinZ=z=>z<F.W/2?.9:F.W-.9;
+  if(call==='quick'){tx=net-dir*.85;tz=vbC(p.z+(hitter.z>p.z?1.3:-1.3),.8,F.W-.8);Tt=.62}
+  else if(call==='back'){tx=net-dir*1;tz=vbC(p.z+(hitter.z>p.z?2.5:-2.5),.8,F.W-.8);Tt=1.05}
+  else if(call==='pipe'){tx=net-dir*3.6;tz=F.W*.5;Tt=1.15}
+  else{tx=net-dir*1.05;tz=s.fmt==='indoor'?pinZ(hitter.z):pinZ(hitter.z);Tt=1.35}
+  const sq=vbC(q*.55+(p.r.set-35)/64*.45+(s.chem&&side==='A'?s.chem*.15:0)-(p.team==='B'&&s.d?(s.d.err-1)*.15:0),0,1);const e=vbErr(sq)*.6;tx+=vbR(-e,e)*.6;tz+=vbR(-e,e);
+  vbAim(b,tx,reach-.1,tz,Tt);vbLaunch('set',p);p.act='set';p.actT=.4;vbSnd('set');
+  hitter.plan={k:'hit',x:tx,z:tz,y:reach-.1,t:s.t+Tt,call,sq};s.plan[side]={stage:3,hitter,call,t:s.t+Tt,sq};
+  if(hitter.ctl!=='ai')s.hint={x:tx,z:tz,t:s.t+Tt,p:hitter};
+  s.events.push(['hit','set',call])}
+/* the ball goes over: power, line, cut, tip or roll shot */
+function vbAttack(p,q,o){const s=VBS,b=s.ball,F=s.F,net=F.L/2,dir=vbDir(p.team);const shot=o.shot||'power';const aim=o.aim||0;
+  if(s.fmt==='indoor'&&!vbFront(s,p)&&Math.abs(p.takeoff-net)<F.atk&&b.y>F.NETH){vbPoint(vbOpp(p.team),'Back-row attack',p);return}
+  const acc=(p.r.atk-35)/64;const human=p.ctl!=='ai';const qq=vbC(q,0,1);let err=((1-acc)*.8+(1-qq)*1.3)*.62;if(p.team==='B'&&s.d)err*=s.d.err;
+  const sideZ=b.z<F.W/2?'near0':'nearW';
+  let tx,tz,spd,kind=shot;const opp=vbOpp(p.team);
+  /* aim: -1 toward z=0, +1 toward z=W. Line = same side as you, cut = sharp across */
+  if(shot==='tip'){tx=net+dir*vbR(1.2,2.6);tz=vbC(b.z+aim*2.4+vbR(-.8,.8),.4,F.W-.4);vbAimOver(b,tx,tz,.75,.35)}
+  else if(shot==='roll'){tx=net+dir*vbR(F.L/2-2.6,F.L/2-.6);tz=aim?(aim<0?vbR(.4,1.6):vbR(F.W-1.6,F.W-.4)):vbR(.6,F.W-.6);vbAimOver(b,tx,tz,1.15,.5)}
+  else{/* power, line or cut */const pw=.75+acc*.25+(qq-.5)*.25;spd=(15+acc*9)*pw;
+    if(shot==='line'){tz=b.z<F.W/2?vbR(.6,1.4):vbR(F.W-1.4,F.W-.6);tx=net+dir*vbR(4,F.L/2-.6)}
+    else if(shot==='cut'){tz=b.z<F.W/2?vbR(F.W-2.4,F.W-.8):vbR(.8,2.4);tx=net+dir*vbR(1.4,3.2)}
+    else{tz=vbC(F.W/2+aim*F.W*.38+vbR(-1.2,1.2),.4,F.W-.4);tx=net+dir*vbR(3,F.L/2-.8)}
+    tx+=vbR(-1,1)*err*.8;tz+=vbR(-1,1)*err*.6;const dist=Math.hypot(tx-b.x,tz-b.z);let T=Math.max(.25,dist/spd);
+    /* low contact or late swing: slower and loopier, maybe into the net */
+    if(b.y<F.NETH+.25){T*=1.6}vbAimOver(b,tx,tz,T,.08);if(Math.random()<err*.05)vbAim(b,net,F.NETH-.3,b.z+vbR(-.5,.5),T)}
+  if(o.fake)vbPop(p,'Fake! Tip','#ffcc4d');
+  vbLaunch('attack',p);b.shot=shot;p.act='spike';p.actT=.35;p.st.att++;s.spiker=p;s.plan[p.team]=null;
+  if(shot==='power'||shot==='line'||shot==='cut'){s.shake=.18;s.flash=.12;vbSnd('spike');if(human&&qq>.85){vbHigh(p);vbPop(p,'Crushed it!','#ffcc4d')}}else vbSnd('tip');
+  s.hist[p.team][shot==='line'||shot==='cut'||shot==='tip'||shot==='roll'?shot:'power']++;s.lastShot=shot;
+  s.events.push(['hit','attack',shot]);vbDefPlan(opp)}
+function vbHigh(p){const s=VBS;if(!vbSet().slow||s.net)return;s.slowT=.5;s.zoomT=.7}
+function vbPop(p,t,c,big){const s=VBS;s.pops.push({x:p.x!=null?p.x:p[0],z:p.z!=null?p.z:p[1],y:(p.y||0)+2.6,t:0,text:t,col:c||'#fff',big:!!big});if(s.net&&s.net.host)s.events.push(['pop',p.x,p.z,t,c,big?1:0])}
+function vbSnd(k){const s=VBS;if(s.auto)return;const m={serve:()=>tone(240,.05,'sine',.03),spike:()=>{tone(150,.07,'square',.04);noise&&noise(.08,.05,900)},bump:()=>tone(260,.04,'sine',.025),set:()=>tone(440,.04,'sine',.02),tip:()=>tone(520,.03,'sine',.02),block:()=>tone(520,.08,'square',.035),land:()=>noise&&noise(.12,.04,500),whistle:()=>sfx('whistle'),
+  horn:()=>{[0,90,180,270].forEach((d,i)=>setTimeout(()=>tone(i%2?233:311,.12,'sawtooth',.03),d))}};try{(m[k]||(()=>{}))()}catch(e){}if(s.net&&s.net.host)s.events.push(['snd',k])}
+
+/* ---------- points ---------- */
+function vbPoint(team,why,by){const s=VBS;if(s.phase!=='rally')return;s.phase='dead';s.phT=1.7;s.score[team]++;const lp=s.lastP;s.ball.live=false;
+  const won=team==='A';s.mom=vbC(s.mom+(won?.3:-.3),-1,1);
+  if(why==='Kill'&&lp&&lp.team===team){lp.st.k++;lp.st.pts++}if(why==='Ace'&&s.served&&s.served.team===team){s.served.st.ace++;s.served.st.pts++}if(why==='Block'&&s.blockBy){s.blockBy.st.blk++;s.blockBy.st.pts++}
+  if(by&&by.team!==team)by.st.err++;
+  /* tactics: teams notice what is failing */
+  if(lp&&lp.team!==team&&s.ball.kind==='attack'){const tc=s.tac[lp.team];if(s.lastShot==='tip'||s.lastShot==='roll')tc.shotFail++;else tc.powerFail++}
+  s.crowd=1.3;s.maxRally=Math.max(s.maxRally,s.rally);
+  const label=(team==='A'?s.names.A:s.names.B)+' point'+(why?' · '+why:'');vbPop([s.F.L/2,s.F.W*.25],label,team==='A'?'#3ddc84':'#ff8a8a',1);
+  vbSnd('whistle');if(why==='Ace'||why==='Block'||(why==='Kill'&&s.rally>=4)){setTimeout(()=>sfx('cheer'),100);s.horn=1;vbSnd('horn');s.wave=s.t}
+  s.events.push(['point',team,why]);vbComPoint(team,why,lp);
+  s.teams[team].forEach(p=>{if(p.down<=0){p.act='cheer';p.actT=1.4;p.celebK=p.celeb}});s.teams[vbOpp(team)].forEach(p=>{if(p.down<=0){p.act='sad';p.actT=1.2}});
+  const a=s.score.A,b=s.score.B;const last=s.setN===s.setsToWin*2-1&&s.setsToWin>1;const target=last?15:s.to;
   if((a>=target||b>=target)&&Math.abs(a-b)>=2){const w=a>b?'A':'B';s.sets[w]++;
-    if(s.sets[w]>=s.setsToWin){s.over=true;s.slow=1;setTimeout(()=>{if(VBS===s)vbEnd(w)},1700);return}
-    vbPop(8,6,`Set ${s.setN} to ${w==='A'?'you':s.oppName}`,'#ffcc4d',1);s.setN++;s.score={A:0,B:0};s.stT=2.2}
-  else if((a===target-1||b===target-1)&&a!==b)vbPop(8,6.1,(a>b?'Set point':'Set point for them'),'#ffcc4d');
-  s.nextServe=team}
-
-/* ---------- computer players ---------- */
-function vbAI(p,dt){const s=VBS,b=s.ball,d=p.team==='B'?s.d:VB_DIFF.normal;const mine=x=>p.team==='A'?x<VB.NET:x>VB.NET;const dir=p.team==='A'?1:-1;
-  if(s.state!=='rally'||!b.live)return vbHome(p);
-  const mate=s[p.team].find(q=>q!==p);
-  /* planned contact: setter waiting under a pass, or spiker timing a jump */
-  if(p.plan&&s.side===p.team){const pl=p.plan;const tl=pl.t-(s.t-pl.at);
-    if(pl.set){if(tl<-.4)p.plan=null;if(vbCanHit(p))vbTouch(p,mate.me&&!s.auto?'set':(s.opt.style==='spiker'&&p.team==='A'?'set':'set'));return pl.x}
-    const jumpAt=.36;if(tl<=jumpAt&&tl>0&&p.y===0&&Math.abs(p.x-pl.x)<.9)p.vy=VB.JUMP;if(p.y>.2&&vbCanHit(p)){vbTouch(p,Math.random()<(p.team==='B'?d.acc:.85)?'spike':'over');p.plan=null}if(tl<-.5)p.plan=null;return pl.x}
-  /* the other team is attacking: one blocks at the net, one digs */
-  if(!mine(b.x)||s.side&&s.side!==p.team){const blocker=s[p.team].reduce((a,q)=>Math.abs(q.x-VB.NET)<Math.abs(a.x-VB.NET)?q:a);
-    const atk=s[vbOpp(p.team)].find(q=>q.plan&&!q.plan.set);if(p===blocker&&atk){/* mirror the spiker at the net, jump with them */const sx=VB.NET+dir*-.55;if(atk.y>.15&&p.y===0&&Math.random()<dt/Math.max(.05,d.react))p.vy=VB.JUMP*.95;return sx}
-    if(p.seen!==s.lastP||p.seenT!==s.hitT){p.seen=s.lastP;p.seenT=s.hitT;p.lag=d.react*(Math.hypot(b.vx,b.vy)>11?1.6:1);p.err=vbR(-d.err,d.err)*.6}if(p.lag>0){p.lag-=dt;return p.tx0==null?p.x:p.tx0}const land=vbLand(1.4).x+(p.err||0);
-    p.tx0=land;if(mine(land)){const closer=Math.abs(p.x-land)<=Math.abs(mate.x-land)||mate.y>0;if(closer){if(b.y<1.3&&Math.abs(b.x-p.x)>.7&&Math.abs(b.x-p.x)<2.2&&p.dive<=0&&Math.random()<d.dig*dt*8)vbDive(p,Math.sign(b.x-p.x));if(vbCanHit(p))vbTouch(p,'bump');return land}}
-    return p===blocker?VB.NET-dir*1.2:vbHome(p)+(p.team==='A'?-1:1)}
-  /* our side, nobody planned: whoever is closer plays it */
-  const land=vbLand(VB.REACH).x;const closer=Math.abs(p.x-land)<=Math.abs(mate.x-land);if(closer&&!(mate.me&&!s.auto)){if(vbCanHit(p))vbTouch(p,s.touches===1?'set':'bump');return land}
-  return mate.me&&!s.auto&&s.touches>=1?VB.NET-dir*1.3:vbHome(p)}
-function vbDive(p,dir){if(p.dive>0||p.y>0)return;p.dive=.5;p.vx=dir*7.5;p.pose='dive';p.poseT=.6;vbSand(p.x,10)}
+    if(s.sets[w]>=s.setsToWin){s.over=true;s.slowT=1.5;s.events.push(['over',w]);setTimeout(()=>{if(VBS===s)vbEnd(w)},1900);return}
+    vbPop([s.F.L/2,s.F.W*.4],`Set ${s.setN} to ${w==='A'?s.names.A:s.names.B}`,'#ffcc4d',1);s.setN++;s.score={A:0,B:0};s.phT=2.6;s.prints=[];s.newSet=1}
+  else if((a===target-1||b===target-1)&&a!==b)setTimeout(()=>vbCom(a>b?'Set point.':'Set point for '+s.names.B+'.',1),900);
+  /* serve rotation: indoor rotates on side-out; beach alternates servers */
+  if(s.serveTeam!==team){s.rot[team]=(s.rot[team]+1)%6;if(s.fmt==='beach'){s.srvIdx=s.srvIdx||{A:0,B:0};s.srvIdx[team]++}}
+  s.nextServe=team;
+  /* AI timeout when things go badly */
+  const opp=vbOpp(team);const run=s.runs=(s.lastPt===team?(s.runs||0)+1:1);s.lastPt=team;if(run>=4&&s.teams[opp].every(p=>p.ctl==='ai')&&!s.toUsed?.[opp]){s.toUsed=s.toUsed||{};s.toUsed[opp]=1;s.phT=3;setTimeout(()=>vbCom(s.names[opp]+' call a timeout to stop the run.',1),600);s.tac[opp].reset=1}}
 
 /* ---------- one step ---------- */
-function vbStep(dt){const s=VBS;if(s.paused)return;s.t+=dt;s.shake=Math.max(0,s.shake-dt);s.netShake=Math.max(0,s.netShake-dt);s.flash=Math.max(0,s.flash-dt);s.crowd=Math.max(0,s.crowd-dt);
-  s.pops.forEach(p=>p.t+=dt);s.pops=s.pops.filter(p=>p.t<1.5);s.parts.forEach(q=>{q.t+=dt;q.x+=q.vx*dt;q.y=Math.max(0,q.y+q.vy*dt);q.vy-=9*dt});s.parts=s.parts.filter(q=>q.t<q.life);
-  const b=s.ball;
-  if(s.state==='intro'){s.stT-=dt;if(s.stT<=0){s.state=s.train?'train':'serve';s.stT=1.1;const o=$('#vbIntro');if(o){o.classList.add('out');setTimeout(()=>o.remove(),400)}}}
-  if(s.state==='serve'){s.stT-=dt;const sv=s.server;b.x=sv.x+(sv.team==='A'?.3:-.3);b.y=1.3+Math.abs(Math.sin(s.t*3))*.2;if(s.stT<=0&&(sv.team==='B'||s.auto||!sv.me))vbServe(sv,sv.team==='B'?vbR(.35,.9):vbR(.5,.85))}
-  if(s.state==='point'){s.stT-=dt;if(s.stT<=0&&!s.over){if(s.train)vbTrainNext();else vbServeSetup(s.nextServe)}}
-  s.all.forEach(p=>{if(p.off)return;p.cool=Math.max(0,p.cool-dt);p.dive=Math.max(0,p.dive-dt);p.poseT=Math.max(0,p.poseT-dt);if(p.poseT<=0&&p.y===0&&p.dive<=0)p.pose='ready';
-    if(p.me&&!s.auto){const k=s.keys;const dir=(k.r?1:0)-(k.l?1:0)+(s.touch.on?s.touch.x:0)+(s.pad?s.pad.x:0);if(p.dive<=0)p.vx=vbC(dir,-1,1)*6.6*(p.y>0?.75:1)}
-    else if(!(s.state==='serve'&&p===s.server)&&s.state!=='intro'){const tx=vbAI(p,dt);const sp=6.4*(p.team==='B'?s.d.spd:1);if(p.dive<=0){const dx=tx-p.x;p.vx=Math.abs(dx)<.06?0:Math.sign(dx)*Math.min(sp,Math.abs(dx)*9)}}
-    if(p.dive>0)p.vx*=.95;p.x+=p.vx*dt;const lo=p.team==='A'?.25:VB.NET+.32,hi=p.team==='A'?VB.NET-.32:VB.W-.25;p.x=vbC(p.x,lo,hi);
-    if(p.y>0||p.vy>0){p.vy-=VB.G*dt;p.y=Math.max(0,p.y+p.vy*dt);if(p.y===0){p.vy=0;vbSand(p.x,4)}}
-    if(s.state==='rally'&&b.live)p.face=Math.sign(b.x-p.x)||p.face;else if(Math.abs(p.vx)>.3)p.face=Math.sign(p.vx);p.anim+=Math.abs(p.vx)*dt});
-  /* you: bumps and sets happen when the ball reaches you; Space at the top of a jump spikes */
-  if(s.state==='rally'&&!s.auto){const me=s.A[0];if(me.wantHit>0){me.wantHit-=dt;if(vbTouch(me,'spike'))me.wantHit=0}else if(vbCanHit(me)&&me.y===0)vbTouch(me,s.side==='A'&&s.touches===1?'set':s.side==='A'&&s.touches===2?'over':'bump')}
-  if(s.state==='train')vbTrainStep(dt);
-  if(s.state!=='rally'||!b.live)return;
-  b.trail.push([b.x,b.y]);if(b.trail.length>9)b.trail.shift();const px=b.x;b.vy-=VB.G*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;b.spin+=b.vx*dt*1.6;
-  /* crossing the net: blocks, tape and the net itself */
-  if((px-VB.NET)*(b.x-VB.NET)<=0&&px!==b.x){const recv=b.vx>0?'B':'A';const blk=s[recv].find(q=>q.y>.3&&Math.abs(q.x-VB.NET)<.9);
-    if(blk&&b.y<blk.y+VB.REACH+.35&&b.y>VB.NETH-.1&&s.spiker&&s.spiker.team!==recv){const you=blk.me&&!s.auto;if(Math.random()<(you?.7:recv==='B'?s.d.blk:.35)){b.x=px;b.vx=-b.vx*.35;b.vy=-vbR(1,3);s.lastP=blk;s.side=recv;s.touches=0;s.netShake=.3;vbPop(VB.NET,3.4,'BLOCKED!','#7fd6ff',1);tone(520,.07,'square',.03);s.shake=.15;blk.pose='block';blk.poseT=.4;
-      if(true){/* the ball now falls on the attacker's side: count it as a block point if it lands there */s.blockBy=blk}}}
-    else if(b.y<VB.NETH){b.x=VB.NET+(b.vx>0?-1:1)*(VB.BR+.05);b.vx=-b.vx*.3;b.vy*=.5;s.netShake=.4;tone(180,.05,'triangle',.02)}
-    else if(b.y<VB.NETH+.2){b.vy=Math.abs(b.vy)*.35+1;b.vx*=.6;s.netShake=.25;vbPop(VB.NET,3,'Tape!','#ffcc4d')}
-    if(Math.sign(b.x-VB.NET)!==Math.sign(px-VB.NET)){s.spikerCross=1}}
-  if(b.y<=VB.BR){b.live=false;b.y=VB.BR;vbSand(b.x,16);s.shake=Math.max(s.shake,.08);const inA=b.x>=0&&b.x<VB.NET,inB=b.x>=VB.NET&&b.x<=VB.W;const landSide=inA?'A':inB?'B':null;
-    if(s.train){vbTrainLand(b.x);return}
-    if(!landSide){vbPoint(vbOpp(s.lastP?s.lastP.team:s.side||'A'),'Out');return}
-    const scorer=vbOpp(landSide);const why=s.blockBy&&s.blockBy.team===scorer?'Block':s.aceChance&&s.served&&s.served.team===scorer?'Ace':s.lastP&&s.lastP.team===scorer?'Kill':'';s.blockBy=null;vbPoint(scorer,why)}}
+function vbStep(dt){const s=VBS;if(!s||s.paused)return;s.t+=dt;s.shake=Math.max(0,s.shake-dt);s.flash=Math.max(0,s.flash-dt);s.netShake=Math.max(0,s.netShake-dt);s.crowd=Math.max(0,s.crowd-dt*.6);s.zoomT=Math.max(0,s.zoomT-dt);s.horn=Math.max(0,s.horn-dt);
+  s.pops.forEach(p=>p.t+=dt);s.pops=s.pops.filter(p=>p.t<1.6);s.parts.forEach(q=>{q.t+=dt;q.x+=q.vx*dt;q.z+=q.vz*dt;q.y=Math.max(0,q.y+q.vy*dt);q.vy-=9*dt});s.parts=s.parts.filter(q=>q.t<q.life);
+  const b=s.ball,F=s.F,net=F.L/2;
+  if(s.phase==='intro'){s.phT-=dt;if(s.phT<=0){s.phase=s.train?'train':'serve';s.phT=1.2;const o=$('#vbIntro');if(o){o.classList.add('out');setTimeout(()=>o.remove(),400)}vbCom(vbPick(['Here we go. '+s.names.A+' against '+s.names.B+'.','Players are ready. First serve coming up.','Welcome to '+s.V.n+'!']),1)}}
+  if(s.phase==='dead'){s.phT-=dt;if(s.phT<=0&&!s.over){if(s.train)vbTrainNext();else vbServeSetup(s.nextServe)}}
+  if(s.phase==='serve'){s.phT-=dt;const sv=s.server;b.x=sv.x+vbDir(sv.team)*.25;b.z=sv.z;b.y=1.1+Math.abs(Math.sin(s.t*3.2))*.25;
+    if(sv.ctl==='ai'&&s.phT<=0){s.aiSrvT-=dt;if(s.aiSrvT<=0){const ty=vbAIServe(sv);vbServe(sv,ty.type,ty.pw,ty.aim)}}}
+  if(s.train)vbTrainStep(dt);
+  /* players */
+  s.all.forEach(p=>vbPlayerStep(s,p,dt));
+  /* ball */
+  if(!b.live)return;
+  b.trail.push([b.x,b.y,b.z]);if(b.trail.length>10)b.trail.shift();const L=b.launch;
+  let n=Math.max(1,Math.round(dt/VBDT));const h=dt/n;
+  for(let i=0;i<n&&b.live;i++){const px=b.x;vbAccel(L,s.t-L.t,b.x,b.y,b.z,b.vx,b.vy,b.vz,s.wind,h);b.vx+=VBA[0]*h;b.vy+=VBA[1]*h;b.vz+=VBA[2]*h;b.x+=b.vx*h;b.y+=b.vy*h;b.z+=b.vz*h;b.spin+=h*(Math.hypot(b.vx,b.vz)*1.5+2);
+    if((px-net)*(b.x-net)<=0&&px!==b.x)vbNetCross(px);
+    if(b.y<=.11){vbLand();break}}}
+function vbNetCross(px){const s=VBS,b=s.ball,F=s.F,net=F.L/2;const recv=b.vx>0?'B':'A';const from=vbOpp(recv);
+  /* antennas: crossing outside the posts is out */
+  if(b.y>F.NETH-.05&&(b.z<-.05||b.z>F.W+.05)&&b.kind!=='block'){vbPop([net,vbC(b.z,0,F.W)],'Outside the antenna','#ff8a8a');vbPoint(recv,'Out',s.lastP);return}
+  /* blocks */
+  const blockers=s.teams[recv].filter(q=>q.y>.15&&Math.abs(q.x-net)<1&&vbFront(s,q)&&!q.lib);
+  for(const q of blockers){const top=vbReach(q)+q.y+.25;const wz=.55+(q.r.blk-35)/64*.2;
+    if(b.kind==='attack'&&b.y<top&&b.y>F.NETH-.15&&Math.abs(b.z-q.z)<wz){const human=q.ctl!=='ai';const at=s.spiker;
+      const tim=vbC(1-Math.abs(q.vy)/6,0,1);let pStuff=.22+(q.r.blk-(at?at.r.atk:70))/120+tim*.2+(human?.12:0)-(b.shot==='tip'||b.shot==='roll'?.5:0);if(q.team==='B'&&s.d)pStuff+=(s.d.q)/80;
+      const r=Math.random();
+      if(r<pStuff){b.x=px;b.vx=-b.vx*.3;b.vy=-vbR(1.5,4);b.vz*=.4;b.fl=null;vbLaunch('block',q);s.blockBy=q;s.lastP=q;s.side=recv;s.touches=F.blockTouch?1:0;s.netShake=.35;s.shake=.2;q.act='block';q.actT=.4;
+        if(s.train)s.train.blk=3;vbPop(q,'STUFF BLOCK!','#7fd6ff',1);vbSnd('block');if(human)vbHigh(q);s.events.push(['block',q.team]);vbCom(vbLine('block',q),1);return}
+      if(r<pStuff+.3){/* soft block: slows it, stays live */b.vx*=.45;b.vy=Math.abs(b.vy)*.25+vbR(1.5,3.5);b.vz+=vbR(-1.5,1.5);vbLaunch('block',q);s.lastP=q;s.side=recv;s.touches=F.blockTouch?1:0;s.blockedTouch=true;s.netShake=.25;if(s.train)s.train.blk=Math.max(s.train.blk||0,1);vbPop(q,'Touch','#9cc2ff');vbSnd('block');
+        s.plan[recv]=null;return}}}
+  /* the net and the tape */
+  if(b.y<F.NETH){b.x=net+(b.vx>0?-.14:.14);b.vx=-b.vx*.25;b.vy*=.4;b.vz*=.6;vbLaunch(b.kind==='serve'?'netserve':'net',s.lastP);s.netShake=.45;vbSnd('block');s.plan={A:null,B:null};
+    if(b.kind==='netserve'){s.aceOK=false}return}
+  if(b.y<F.NETH+.18){b.vy=Math.abs(b.vy)*.3+1;b.vx*=.45;vbLaunch(b.kind,s.lastP);s.netShake=.3;vbPop([net,b.z],'Tape!','#ffcc4d')}
+  /* fresh side: plan the receive */
+  s.plan[from]=null;vbDefPlan(recv);if(b.kind==='serve'&&s.server)s.server.st.srvIn=1}
+function vbLand(){const s=VBS,b=s.ball,F=s.F,net=F.L/2;b.live=false;b.y=.11;vbSand(b.x,b.z,18);s.shake=Math.max(s.shake,.08);vbSnd('land');
+  if(s.train){vbTrainLand();return}
+  const inside=b.x>=-.05&&b.x<=F.L+.05&&b.z>=-.05&&b.z<=F.W+.05;const landSide=b.x<net?'A':'B';
+  if(!inside){const toucher=s.lastP;/* touched by the receiving side last? then they lose it */const t=toucher?toucher.team:vbOpp(landSide);vbPoint(vbOpp(t),'Out',toucher);return}
+  const scorer=vbOpp(landSide);let why='';if(s.blockBy&&s.blockBy.team===scorer&&b.kind==='block')why='Block';else if(s.aceOK&&s.served&&s.served.team===scorer)why='Ace';else if(s.lastP&&s.lastP.team===scorer&&(b.kind==='attack'||b.kind==='free'||b.kind==='set'))why='Kill';else if(s.lastP&&s.lastP.team===landSide)why='Dropped';
+  if(b.kind==='netserve'||b.kind==='net'){why=s.lastP&&s.lastP.team!==scorer?'Net':why}
+  vbPoint(scorer,why,s.lastP&&s.lastP.team!==scorer?s.lastP:null)}
+function vbSand(x,z,n){const s=VBS;if(s.V.indoor){return}for(let i=0;i<n;i++)s.parts.push({x:x+vbR(-.15,.15),z:z+vbR(-.15,.15),y:0,vx:vbR(-2,2),vz:vbR(-1,1),vy:vbR(1,4),t:0,life:vbR(.35,.7)})}
+
+/* ---------- each player ---------- */
+function vbPlayerStep(s,p,dt){if(p.off)return;const F=s.F,net=F.L/2,dir=vbDir(p.team);p.cool=Math.max(0,p.cool-dt);p.actT=Math.max(0,p.actT-dt);p.sig=Math.max(0,p.sig-dt);p.idle+=dt;
+  if(p.dive>0){p.dive-=dt;if(p.dive<=0){p.down=.55;p.act='getup';p.actT=.55}}if(p.down>0){p.down-=dt;p.vx*=.85;p.vz*=.85}
+  if(p.actT<=0&&p.y===0&&p.dive<=0&&p.down<=0&&p.act!=='ready')p.act='ready';
+  let tx=p.x,tz=p.z,sp=0;
+  if(p.ctl==='ai'){if(s.phase!=='intro'&&!(s.phase==='serve'&&p===s.server)){const r=vbAI(s,p,dt);if(r){tx=r[0];tz=r[1];sp=r[2]==null?1:r[2]}}}
+  else vbHumanStep(s,p,dt);
+  if(p.ctl==='ai'&&p.dive<=0&&p.down<=0){const dx=tx-p.x,dz=tz-p.z,m=Math.hypot(dx,dz);const v=vbSpeed(p)*(p.y>0?.35:1)*sp*(p.team==='B'&&s.d?1+s.d.q/250:1);
+    if(m>.05){const k=Math.min(v,m*7)/m;const ax=dx*k,az=dz*k;p.vx+=(ax-p.vx)*Math.min(1,dt*10);p.vz+=(az-p.vz)*Math.min(1,dt*10)}else{p.vx*=.7;p.vz*=.7}}
+  p.x+=p.vx*dt;p.z+=p.vz*dt;
+  /* stay on your side (servers start behind the line) */
+  const lo=p.team==='A'?-2.5:net+.22,hi=p.team==='A'?net-.22:F.L+2.5;p.x=vbC(p.x,lo,hi);p.z=vbC(p.z,-1.5,F.W+1.5);
+  if(p.y>0||p.vy>0){p.vy-=VBG*dt;p.y=Math.max(0,p.y+p.vy*dt);if(p.y===0){p.vy=0;p.air=0;p.jumpKind=null;vbSand(p.x,p.z,5);if(p.act==='spike'||p.act==='block'||p.act==='jump'||p.act==='jserve')p.actT=Math.min(p.actT,.12)}else p.air+=dt}
+  const mv=Math.hypot(p.vx,p.vz);p.ph+=mv*dt*2.2;if(mv>.4){p.step+=mv*dt;if(p.step>.55&&p.y===0&&!s.V.indoor){p.step=0;s.prints.push([p.x,p.z,s.t]);if(s.prints.length>260)s.prints.shift()}}
+  if(s.ball.live&&p.dive<=0)p.face=Math.sign(s.ball.x-p.x)||p.face;else if(Math.abs(p.vx)>.4)p.face=Math.sign(p.vx);
+  /* AI contacts */
+  if(p.ctl==='ai'&&s.phase==='rally')vbAIContact(s,p);
+  /* pending human contacts */
+  if(p.ctl!=='ai'&&s.phase==='rally')vbHumanContact(s,p)}
+function vbDive(p,dx,dz){if(p.dive>0||p.down>0||p.y>0)return;const m=Math.hypot(dx,dz)||1;p.dive=.42;p.vx=dx/m*7.2;p.vz=dz/m*7.2;p.act='dive';p.actT=.9;p.diveDir=Math.sign(dx)||p.face;vbSand(p.x,p.z,12)}
+function vbJump(p,kind){if(p.y>0||p.down>0||p.dive>0)return false;p.vy=vbJumpV(p)*(kind==='block'?.92:1);p.act=kind==='block'?'block':'jump';p.actT=1;p.takeoff=p.x;p.jumpKind=kind;return true}
+/* ---------- computer players: every player has a personality, reads the play, and changes plans ---------- */
+function vbDiffFor(s,p){return p.team==='B'?s.d:(s.opt.mode==='online'?VB_DIFF.normal:VB_DIFF[s.opt.partnerDiff]||VB_DIFF.hard)}
+/* a new ball is coming to this team: who takes it */
+function vbDefPlan(team){const s=VBS,b=s.ball,F=s.F;if(!b.live)return;const hard=b.kind==='attack';const hc=hard?.75:.9;const P=vbPredict(hc)||vbPredict(.15);if(!P)return;
+  const T=s.teams[team].filter(p=>p.down<=0&&p.dive<=0);if(!T.length)return;
+  const human=T.find(p=>p.ctl!=='ai');let recv=null;
+  /* calls from the human: "mine" or "yours" */
+  if(human&&s.call.mine>s.t-4&&s.call.mineFor===b.ver-0){recv=human}
+  if(!recv){let best=null,bs=1e9;T.forEach(p=>{if(s.fmt==='indoor'&&p.role==='S'&&!hard&&b.kind!=='free'&&T.length>2)return;/* the setter doesn't take first ball */
+      const d=Math.hypot(p.x-P.x,p.z-P.z);const tt=d/vbSpeed(p);let sc=tt+(p.ctl!=='ai'?-.15:0)+(p.lib?-.25:0)+(p.role==='MB'&&s.fmt==='indoor'?.4:0);
+      if(human&&p===human&&s.call.yours>s.t-4)sc+=9;if(sc<bs){bs=sc;best=p}});recv=best}
+  /* judge in or out */
+  const D=vbDiffFor(s,recv||T[0]);const margin=.4-D.read*.3;const outBy=Math.max(-P.x+0,P.x-F.L,-P.z,P.z-F.W);
+  const leave=(b.kind==='serve'||b.kind==='attack'||b.kind==='free')&&outBy>margin&&Math.random()<.6+D.read*.4;
+  s.plan[team]={stage:1,recv:leave?null:recv,pt:P,leave,ver:b.ver,hc};s.teams[team].forEach(p=>{if(p.plan&&p.plan.k!=='set')p.plan=null});
+  if(leave&&recv&&recv.ctl==='ai'&&Math.random()<.5)vbPop(recv,'Out!','#9cc2ff');
+  s.react=s.react||{};s.teams[team].forEach(p=>{p.lag=vbDiffFor(s,p).react*(hard?1.3:1)*vbR(.7,1.3)})}
+function vbAIServe(p){const s=VBS;const W=Object.assign({},p.per.serve);if(s.fmt==='indoor'){W.sky=0;W.under*=.2}else if(s.wind.str>2)W.sky*=3;else W.sky*=.3;
+  const press=Math.max(s.score.A,s.score.B)>=s.to-2;if(press&&p.per.risk<.5){W.jump*=.5;W.under+=.1}
+  const type=vbW(W);const pw=type==='jump'?vbR(.55,.95):type==='float'?vbR(.4,.9):vbR(.2,.6);
+  /* target the weaker passer */const opp=s.teams[vbOpp(p.team)];let tgt=opp[0];opp.forEach(q=>{const a=q.st.pass?q.st.passQ/q.st.pass:.7;const b2=tgt.st.pass?tgt.st.passQ/tgt.st.pass:.7;if(a<b2-.05)tgt=q});
+  let aim=vbC((tgt.z-s.F.W/2)/(s.F.W*.36),-1,1);if(Math.random()<.3)aim=vbR(-1,1);/* seams and corners */
+  if(p.team==='B'&&s.d===VB_DIFF.easy)aim*=.5;return{type,pw,aim}}
+/* the computer chooses a set */
+function vbAICall(s,hitter,setter,q){const per=hitter.per;if(q<.45)return 'high';return vbW({high:1.2,quick:per.quick*(q>.7?1.6:.6),back:.18})}
+function vbIndoorHitter(s,side,setter,opts,q){const front=opts.filter(p=>vbFront(s,p)&&!p.lib);const back=opts.filter(p=>!vbFront(s,p)&&!p.lib&&p.role!=='S');
+  const W={};front.forEach(p=>{W[p.id]=p.role==='MB'?(q>.65?1.1:.15):p.role==='OPP'?.9:1.3;if(p.ctl!=='ai')W[p.id]*=1.4});back.forEach(p=>{if(p.role==='OH'||p.role==='OPP')W[p.id]=q>.7?.45:.1});
+  const id=+vbW(W);return opts.find(p=>p.id===id)||front[0]||opts[0]}
+/* choosing the shot: personality, set quality, the block and where defenders stand */
+function vbAIShot(s,p){const F=s.F,net=F.L/2,dir=vbDir(p.team);const per=p.per;const plan=p.plan||{};const sq=plan.sq==null?.7:plan.sq;const opp=s.teams[vbOpp(p.team)];
+  const blk=opp.find(q=>q.y>.1&&Math.abs(q.x-net)<1.2);const blkZ=blk?blk.z:null;const deepD=opp.filter(q=>Math.abs(q.x-net)>4).length;const shortD=opp.filter(q=>Math.abs(q.x-net)<3.5&&q.y===0).length;
+  const tc=s.tac[p.team];const W={power:per.aggr*(.6+sq),line:per.line*.9,cut:(1-per.line)*.6,tip:per.tip+(deepD>=opp.length-1?.25:0)+(blk?.15:0),roll:per.roll+(shortD?.25:0)+(sq<.45?.5:0)};
+  if(blk){const lineSide=blk.z<p.z===(p.z<F.W/2)?'line':'angle';if(blk.blockK==='line')W.line*=.3,W.cut*=1.6;if(blk.blockK==='angle')W.line*=1.8,W.power*=.6;W.power*=.8}else{W.power*=1.6}
+  if(tc.powerFail>tc.shotFail+2){W.tip*=1.8;W.roll*=1.8;W.power*=.6}if(tc.shotFail>tc.powerFail+2){W.power*=1.6;W.tip*=.5}
+  const press=Math.max(s.score.A,s.score.B)>=s.to-2;if(press&&per.risk<.45){W.power*=.7;W.roll*=1.3}
+  if(sq<.3){W.power*=.3;W.line*=.3;W.cut*=.3}
+  const shot=vbW(W);
+  /* aim at the biggest hole */
+  let aim=0;if(shot==='power'||shot==='tip'||shot==='roll'){let best=-1,bz=F.W/2;for(let z=.6;z<F.W-.5;z+=.5){const gap=Math.min(...opp.map(q=>Math.abs(q.z-z)+(Math.abs(q.x-net)>4&&shot==='tip'?2:0)));if(gap>best){best=gap;bz=z}}aim=vbC((bz-F.W/2)/(F.W*.38),-1,1);if(Math.random()<.35)aim=vbR(-1,1)}
+  return{shot,aim,fake:shot==='tip'&&Math.random()<per.fake*2.5}}
+/* where each computer player wants to be */
+function vbAI(s,p,dt){const F=s.F,net=F.L/2,dir=vbDir(p.team),b=s.ball,t=p.team,opp=vbOpp(t);const D=vbDiffFor(s,p);
+  if(s.phase==='dead'){if(p.act==='cheer'||p.act==='sad')return[p.x,p.z,0];const[x,z]=vbBase(s,p,'serve');return[x,z,.5]}
+  if(s.phase==='serve'){const[x,z]=p.want||vbBase(s,p,'serve');return[x+Math.sin(p.idle*1.3)*.08,z+Math.cos(p.idle)*.08,.6]}
+  if(!b.live)return[p.x,p.z,0];
+  if(p.lag>0){p.lag-=dt;return p.lastT||[p.x,p.z,.5]}
+  const r=vbAIWhere(s,p,D);p.lastT=r;return r}
+function vbAIWhere(s,p,D){const F=s.F,net=F.L/2,dir=vbDir(p.team),b=s.ball,t=p.team,opp=vbOpp(t);const pl=s.plan[t];
+  /* setting: get under the pass */
+  if(p.plan&&p.plan.k==='set'){const P=vbPredict(2.4)||{x:p.plan.x,z:p.plan.z};if(b.kind!=='pass'&&b.kind!=='dig'&&b.kind!=='shank'){p.plan=null}else return[P.x+dir*.1,P.z,1]}
+  /* attacking: approach and jump on time */
+  if(p.plan&&p.plan.k==='hit'){const h=p.plan;const tl=h.t-s.t;const up=vbJumpV(p)/VBG*.92;const tox=h.x-dir*.35,toz=h.z;
+    if(b.kind!=='set'){p.plan=null}else{
+      if(tl>up+.55)return[h.x-dir*(s.fmt==='indoor'&&h.call==='pipe'?1.2:2.4),toz,1];
+      const d=Math.hypot(p.x-tox,p.z-toz);if(tl<=up&&p.y===0&&d<1.3&&p.down<=0){vbJump(p,'spike')}
+      return[tox,toz,1.15]}}
+  /* receiving */
+  if(pl&&pl.stage===1&&pl.recv===p&&pl.ver===b.ver){const P=vbPredict(pl.hc)||pl.pt;const e=(p.readE&&p.readE.v===b.ver)?p.readE:(p.readE={v:b.ver,x:vbR(-1,1)*(1-D.read)*.5,z:vbR(-1,1)*(1-D.read)*.5});
+    const tx=P.x+e.x,tz=P.z+e.z;const dist=Math.hypot(p.x-tx,p.z-tz);const tl=P.t-s.t;
+    if(dist>1.1&&dist<3.2&&tl<.5&&tl>.1&&p.dive<=0&&Math.random()<.25+D.read*.5)vbDive(p,tx-p.x,tz-p.z);
+    return[tx-dir*.15,tz,1.1]}
+  /* the other team has it: block and defend */
+  if(s.side===opp||(b.kind==='pass'||b.kind==='set'||b.kind==='dig')&&b.by&&b.by.team===opp){return vbAIDefense(s,p,D)}
+  /* our side, someone else is on it: get ready to attack or cover */
+  if(s.side===t){const op=s.plan[t];if(s.fmt==='indoor'&&op&&op.stage>=2&&vbFront(s,p)&&p.role!=='S'&&!p.lib){/* approach as a decoy */const z=p.role==='OH'?(t==='A'?.9:F.W-.9):p.role==='OPP'?(t==='A'?F.W-.9:.9):F.W/2;return[net-dir*(p.role==='MB'?1.8:3.3),z,.8]}
+    const[x,z]=vbBase(s,p,'rally');return[x+dir*.6,z,.7]}
+  const[x,z]=vbBase(s,p,'rally');return[x,z,.7]}
+function vbAIDefense(s,p,D){const F=s.F,net=F.L/2,dir=vbDir(p.team),t=p.team,opp=vbOpp(t);const T=s.teams[t];const op=s.plan[opp];const hitter=op&&op.stage===3?op.hitter:null;
+  const hz=hitter&&hitter.plan?hitter.plan.z:s.ball.z;const hist=s.hist[opp];const tot=hist.line+hist.cut+hist.tip+hist.roll+hist.power;const share=k=>hist[k]/tot;
+  /* who blocks */
+  let blockers=[];if(s.fmt==='beach'){const human=T.find(q=>q.ctl!=='ai');let bl;if(human){bl=s.call.block==='me'?human:T.find(q=>q!==human)}else{bl=T.reduce((a,q)=>Math.abs(q.x-net)<Math.abs(a.x-net)?q:a)}
+    if(!s.pullT||s.pullT.v!==s.ball.ver){s.pullT={v:s.ball.ver,pull:op&&op.sq<.35||Math.random()<.12}}if(!s.pullT.pull||human)blockers=[bl]}
+  else{const front=T.filter(q=>vbFront(s,q)&&!q.lib);const near=front.slice().sort((a,b)=>Math.abs(a.z-hz)-Math.abs(b.z-hz));blockers=near.slice(0,hitter&&hitter.plan&&hitter.plan.call==='quick'?1:2)}
+  if(blockers.includes(p)){/* line or angle, chosen from the hand signal and what they've seen */
+    if(!p.blockKv||p.blockKv!==s.ball.ver){p.blockKv=s.ball.ver;let k=p.sigK||(Math.random()<.5?'line':'angle');if(Math.random()<D.read){k=share('line')>share('cut')+.05?'line':share('cut')>share('line')+.05?'angle':k}p.blockK=k}
+    const side=hz<F.W/2?-1:1;let z=hz+(p.blockK==='line'?side*.45:-side*.45);if(blockers.length===2)z+=(blockers.indexOf(p)?.45:-.45);
+    if(hitter&&hitter.y>.15&&p.y===0&&!p.bjv){const delay=D.react*vbR(.6,1.2);if(!p.bjT||p.bjT.v!==s.ball.ver)p.bjT={v:s.ball.ver,t:s.t+delay};if(s.t>=p.bjT.t){vbJump(p,'block');p.bjv=s.ball.ver}}
+    if(p.bjv&&p.bjv!==s.ball.ver)p.bjv=0;
+    return[net-dir*.42,vbC(z,.3,F.W-.3),1.1]}
+  /* defenders: cover what the block leaves open, lean toward what they've seen */
+  const blk=blockers[0];const others=T.filter(q=>!blockers.includes(q));const i=others.indexOf(p);
+  let depth=F.L/2-3.2;if(share('tip')>.28&&Math.random()<D.read)depth=F.L/2-4.6;if(share('roll')>.25)depth=F.L/2-2.4;depth+=p.per.cheat*.6;
+  let z;if(s.fmt==='beach'){if(blk){const side=hz<F.W/2?-1:1;z=blk.blockK==='line'?hz-side*F.W*.35:vbC(hz+side*1.4,.6,F.W-.6)}else z=F.W*(i?.7:.3)}
+  else{const zs=[.18,.5,.82];z=F.W*zs[i%3];depth=i<3?F.L/2-2.6:F.L/2-5.2;if(i>=3)z=F.W*(i===3?.35:.65)}
+  return[net-dir*depth,vbC(z,.5,F.W-.5),.95]}
+/* contacts for computer players */
+function vbAIContact(s,p){const b=s.ball,F=s.F,net=F.L/2,dir=vbDir(p.team);if(!b.live||p.cool>0)return;const onSide=p.team==='A'?b.x<net+.1:b.x>net-.1;if(!onSide&&p.jumpKind!=='block')return;
+  const D=vbDiffFor(s,p);const t=p.team;const pl=s.plan[t];const base=.6+(D.q)/60;if(s.lastP===p&&s.side===t&&!s.blockedTouch&&!(p.plan&&p.plan.k==='hit'))return;const tch=s.side===t?s.touches:0;
+  /* spike */
+  if(p.plan&&p.plan.k==='hit'&&p.y>.1&&vbCanReach(p,'spike')){const top=vbReach(p)+p.y;const q=vbC(1-Math.abs(top-b.y)/.9,0,1)*.6+(p.plan.sq||.6)*.4+(D.q)/60;const o=vbAIShot(s,p);vbTouch(p,'attack',q,o);p.plan=null;return}
+  if(p.jumpKind==='block'||p.y>.1)return;
+  const mineToPlay=(pl&&pl.recv===p&&pl.ver===b.ver)||(p.plan&&p.plan.k==='set');
+  const desc=b.vy<0;
+  if(p.plan&&p.plan.k==='set'&&desc&&b.y<2.8&&vbCanReach(p,'set')){const pq=(pl&&pl.passQ)||.7;
+    /* setter dump: tip it over on two */
+    if(tch===1&&s.fmt==='beach'&&pq>.7&&Math.abs(b.x-net)<1.6&&Math.random()<p.per.dump*.4){vbTouch(p,'attack',.8,{shot:'tip',aim:vbR(-1,1)});vbPop(p,'Setter dump!','#ffcc4d');p.plan=null;return}
+    if(tch>=2){vbTouch(p,'over',.6);p.plan=null;return}
+    if(pq>.75&&p.per.flair>.6&&p.y===0&&Math.random()<.4){p.vy=2.6;p.act='jump'}
+    vbTouch(p,'set',vbC(base+vbR(-.2,.25),0,1));p.plan=null;return}
+  if(mineToPlay&&desc&&b.y<1.25&&vbCanReach(p,'pass')){const q=vbC(base+(p.r.dig-60)/120+vbR(-.25,.25),0,1);
+    if(tch>=2)vbTouch(p,'over',q);else vbTouch(p,'pass',q);return}
+  /* scramble: the ball is dropping near me and nobody has it */
+  if(desc&&b.y<1&&vbCanReach(p,'pass')&&(s.side!==vbOpp(t)||b.kind!=='attack')){const others=s.teams[t].filter(q=>q!==p&&q.ctl==='ai'&&vbCanReach(q,'pass'));const human=s.teams[t].find(q=>q.ctl!=='ai'&&vbCanReach(q,'pass'));if(human)return;
+    if(tch>=2){vbTouch(p,'over',.5)}else if(tch===1&&pl&&pl.stage>=2){vbTouch(p,'set',.45)}else vbTouch(p,'pass',vbC(base-.1+vbR(-.2,.2),0,1))}}
+
+/* ---------- commentary ---------- */
+const VB_LINES={ace:['ACE! Nobody touched it.','Service ace from {n}!','{n} with the ace. Unreturnable.','That serve was nasty. Ace.'],
+  block:['Stuffed! {n} with the block.','Roof! {n} shuts it down.','{n} says not today!','Huge block by {n}.'],
+  power:['{n} hammers it home!','Pure power from {n}.','Boom! {n} crushes the kill.','{n} with a rocket.'],
+  line:['{n} goes straight down the line!','Line shot, perfect from {n}.'],cut:['Sharp cut shot from {n}!','{n} slices it cross-court.'],
+  tip:['Soft hands. {n} tips it in.','Cheeky tip from {n}!','{n} drops it in the hole.'],roll:['{n} rolls it deep into the corner.','Pokey shot, and it falls! {n}.'],
+  out:['Long! That one sails out.','Just wide.','Out by a foot.'],net:['Into the net.','Net. Free point.'],rally:['What a rally!','Unbelievable defense on both sides!','That rally had everything.'],
+  dump:['Setter dump! Sneaky.'],four:['Four touches. Point the other way.']};
+function vbLine(k,p){const s=VBS;const n=p?(p.ctl==='local'?'You':p.name.split(' ')[0]):'';let t=vbPick(VB_LINES[k]||['']).replace(/\{n\}/g,n);if(n==='You')t=t.replace('You says','You say').replace('You hammers','You hammer').replace('You goes','You go').replace('You tips','You tip').replace('You rolls','You roll').replace('You slices','You slice').replace('You drops','You drop').replace('You shuts','You shut').replace('You crushes','You crush');return t}
+function vbCom(t,pri){const s=VBS;if(!s||s.auto||!vbSet().com||!t)return;if(!pri&&s.t-s.comT<1.8)return;s.comT=s.t;const el=$('#vbCom');if(!el)return;el.textContent=t;el.classList.remove('on');void el.offsetWidth;el.classList.add('on');clearTimeout(vbCom.h);vbCom.h=setTimeout(()=>{if(el.isConnected)el.classList.remove('on')},2600)}
+function vbComPoint(team,why,lp){const s=VBS;if(s.rally>=9){vbCom(vbLine('rally'),1);return}
+  if(why==='Ace')vbCom(vbLine('ace',s.served),1);else if(why==='Kill'&&lp)vbCom(vbLine(s.ball.shot&&VB_LINES[s.ball.shot]?s.ball.shot:'power',lp),1);else if(why==='Out')vbCom(vbLine('out'));else if(why==='Net')vbCom(vbLine('net'));else if(why==='Four hits')vbCom(vbLine('four'))}
+/* ---------- people: local keyboard/touch/controller, or remote players online ---------- */
+function vbLocalInput(s,p){const k=s.keys;let mx=(k.r?1:0)-(k.l?1:0),mz=(k.d?1:0)-(k.u?1:0);if(s.touch.on){mx=s.touch.x;mz=s.touch.z}if(s.pad&&(s.pad.x||s.pad.y)){mx=s.pad.x;mz=s.pad.y}
+  const m=Math.hypot(mx,mz);if(m>1){mx/=m;mz/=m}p.in.mx=mx;p.in.mz=mz;p.in.shot=k.tip||s.shotSel==='tip'?'tip':k.roll||s.shotSel==='roll'?'roll':'power';p.in.aim=mz}
+function vbHumanStep(s,p,dt){if(p.ctl==='local'&&!s.netClient)vbLocalInput(s,p);const I=p.in;const F=s.F;
+  /* movement (screen up = far sideline) */
+  if(p.dive<=0&&p.down<=0&&!(s.phase==='serve'&&p===s.server&&s.servePow!=null)){const v=vbSpeed(p)*(p.y>0?.3:1);const ax=I.mx*v,az=I.mz*v;p.vx+=(ax-p.vx)*Math.min(1,dt*14);p.vz+=(az-p.vz)*Math.min(1,dt*14)}
+  if(s.phase==='serve'&&p===s.server){p.vx=0;p.x=vbC(p.x,p.team==='A'?-2.2:F.L+.3,p.team==='A'?-.3:F.L+2.2);if(s.servePow!=null)s.servePow=Math.min(1.08,(s.t-s.powT)/1.05)}
+  while(I.ev.length){const e=I.ev.shift();vbHumanEvent(s,p,e)}}
+function vbHumanEvent(s,p,e){const F=s.F,net=F.L/2,b=s.ball;const k=e.k||e;
+  if(s.over||s.phase==='intro')return;
+  if(s.phase==='serve'||s.phase==='train'&&s.train&&s.train.kind==='serve'){if(p===s.server){
+      if(k==='jump'&&s.servePow==null&&s.phT<=.6){s.servePow=0;s.powT=s.t;return}
+      if(k==='jumpUp'&&s.servePow!=null){const pw=s.servePow;s.servePow=null;vbServe(p,s.serveType||'float',Math.min(1,pw)+(pw>1?.08:0),vbC(p.in.mz,-1,1));return}
+      if(k==='c1')s.serveType='jump';if(k==='c2')s.serveType='float';if(k==='c3')s.serveType='under';if(k==='c4'&&s.fmt==='beach')s.serveType='sky';return}}
+  if(k==='c1')p.in.call='high';if(k==='c2')p.in.call='quick';if(k==='c3')p.in.call=s.fmt==='indoor'?'pipe':'back';if(k==='c1'||k==='c2'||k==='c3'){p.callSet=1;vbPop(p,'Set me: '+({high:'high',quick:'quick',back:'back',pipe:'pipe'})[p.in.call]+'!','#9cc2ff');return}
+  if(k==='mine'){s.call.mine=s.t;s.call.mineFor=b.ver;s.call.yours=0;vbPop(p,'Mine!','#3ddc84');const t=p.team;if(b.live&&s.plan[t]&&s.plan[t].stage===1)s.plan[t].recv=p;return}
+  if(k==='yours'){s.call.yours=s.t;s.call.mine=0;vbPop(p,'Yours!','#ffcc4d');const t=p.team;if(b.live&&s.plan[t]&&s.plan[t].recv===p){vbDefPlan(t)}return}
+  if(k==='blockcall'){s.call.block=s.call.block==='me'?'partner':'me';vbPop(p,s.call.block==='me'?'I\'ll block':'You block','#9cc2ff');return}
+  if(s.phase!=='rally')return;
+  if(k==='jump'){const atNet=Math.abs(p.x-net)<1.4;const theirs=p.team==='A'?b.x>net-.3||b.vx>0&&s.side==='A'&&s.touches>=3:b.x<net+.3;vbJump(p,atNet&&(s.side!==p.team||theirs)&&b.kind!=='set'?'block':'spike');p.hitDone=0;return}
+  if(k==='dive'){let dx=p.in.mx,dz=p.in.mz;if(!dx&&!dz){const P=vbPredict(.4);if(P){dx=P.x-p.x;dz=P.z-p.z}else dx=p.face}vbDive(p,dx,dz);return}
+  if(k==='pass'){/* timing: how close to the ideal moment the press lands */const second=s.side===p.team&&s.touches===1;const hc=second?2.3:.9;const P=vbPredict(hc);if(!P){p.passReq=null;return}
+    const off=s.t-P.t;if(off<-.5){vbPop(p,'Too early','#ff8a8a');return}const q=vbC(1-Math.abs(off+.02)/.32,0,1);p.passReq={q,ver:b.ver,t:s.t,second};return}}
+function vbHumanContact(s,p){const b=s.ball,F=s.F,net=F.L/2;if(!b.live||p.cool>0)return;if(s.lastP===p&&s.side===p.team&&!s.blockedTouch)return;
+  const own=p.team==='A'?b.x<net+.15:b.x>net-.15;
+  /* spike: you jumped and the ball is in reach */
+  if(p.y>.12&&p.jumpKind==='spike'&&own&&p.hitDone!==b.ver&&vbCanReach(p,'spike')&&b.kind!=='attack'&&!(b.kind==='serve'&&s.side!==p.team)){
+    const top=vbReach(p)+p.y;const q=vbC(1-Math.abs(top-b.y)/1.1,0,1)*.65+vbC(1-Math.abs(p.vy)/5,0,1)*.35;p.hitDone=b.ver;
+    const sq=p.plan&&p.plan.sq!=null?p.plan.sq:.7;let shot=p.in.shot||'power';const aim=p.in.aim||0;
+    if(shot==='power'&&Math.abs(aim)>.5){const mySide=p.z<F.W/2?-1:1;shot=Math.sign(aim)===mySide?'line':'cut'}
+    vbTouch(p,'attack',q*.8+sq*.2,{shot,aim});p.plan=null;if(q>.85)p.st.perf++;s.hint=null;return}
+  if(p.y>.12)return;
+  const desc=b.vy<0;const R=p.passReq&&p.passReq.ver===b.ver?p.passReq:null;
+  const second=s.side===p.team&&s.touches===1;const third=s.side===p.team&&s.touches>=2;
+  const lowOK=desc&&b.y<(second?2.8:1.35);
+  if(lowOK&&own&&vbCanReach(p,'pass')){
+    let q=null;if(R){q=R.q}else if(vbSet().assist&&!s.netClient&&b.y<(second?2.2:.95)){q=.42}else if(p.remoteAssist&&b.y<(second?2.2:.95))q=.42;
+    if(q==null)return;p.passReq=null;
+    /* how centered you are under it */const P=vbPredict(second?2.3:.9);if(P){const off=Math.hypot(P.x-p.x,P.z-p.z);q=vbC(q-Math.max(0,off-.45)*.35,0,1)}
+    if(R&&q>.85)vbPop(p,'Perfect!','#3ddc84');else if(R&&q<.35)vbPop(p,R.q<.4?'Off timing':'Reach','#ff8a8a');
+    if(third)vbTouch(p,'over',q);else if(second)vbTouch(p,'set',q);else vbTouch(p,'pass',q)}}
+
 /* ---------- training drills ---------- */
-function vbTrainSetup(){const s=VBS,t=s.train;s.all.forEach(p=>{p.x=vbHome(p);p.y=0});s.B.forEach(p=>{p.x=-50;p.off=1});t.targets=[];vbTrainNext(true)}
-function vbTrainNext(first){const s=VBS,t=s.train,b=s.ball;if(!first&&t.left<=0){s.over=true;setTimeout(()=>{if(VBS===s)vbEnd('A')},900);return}
-  t.targets=[{x:vbR(9.5,15),w:vbR(1,1.8),pts:0}];t.targets[0].pts=t.targets[0].w<1.3?3:2;s.state='train';s.touches=0;s.side=null;
-  const me=s.A[0];if(t.kind==='serve'){me.x=.5;s.server=me;b.live=false;b.x=me.x+.3;b.y=1.3;s.serveReady=1}
-  else{me.x=VB.NET-2.6;b.live=true;b.x=VB.NET-1.2;b.y=1.2;s.side='A';s.touches=2;s.lastP=s.A[1];vbAim(b,VB.NET-1.3,VB.REACH+1.85,1.05);s.state='rally';s.hint={x:VB.NET-1.3,t:s.t+1.05};s.spiker=me}}
-function vbTrainStep(){const s=VBS;if(s.train.kind==='serve'){const sv=s.server,b=s.ball;b.x=sv.x+.3;b.y=1.3+Math.abs(Math.sin(s.t*3))*.2}}
-function vbTrainLand(x){const s=VBS,t=s.train;t.left--;const tg=t.targets[0];let msg='Miss',col='#ff8a8a';
-  if(tg&&Math.abs(x-tg.x)<tg.w/2){t.score+=tg.pts;msg=`+${tg.pts} on target!`;col='#3ddc84';s.crowd=1}else if(x>VB.NET&&x<VB.W){t.score+=1;msg='+1 in';col='#ffcc4d'}
-  vbPop(x,1.5,msg,col,1);s.state='point';s.stT=.9}
-
-/* ---------- drawing ---------- */
-let VBBG={key:'',cv:null};
-function vbScene(W,H){const s=VBS;const key=W+'x'+H+s.time;if(VBBG.key===key)return VBBG.cv;const dpr=Math.min(1.5,devicePixelRatio||1);const cv=document.createElement('canvas');cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
-  const g=cv.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);const sc=W/18,gy=H*.8;const night=s.time==='night',sun=s.time==='sunset';
-  const sky=g.createLinearGradient(0,0,0,gy);if(night){sky.addColorStop(0,'#05081a');sky.addColorStop(1,'#1b2350')}else if(sun){sky.addColorStop(0,'#3b2a6b');sky.addColorStop(.5,'#ff7e5f');sky.addColorStop(1,'#feb47b')}else{sky.addColorStop(0,'#2a6fd6');sky.addColorStop(.65,'#8ccbff');sky.addColorStop(1,'#ffe1b0')}
-  g.fillStyle=sky;g.fillRect(0,0,W,gy);
-  if(night){for(let i=0;i<80;i++){g.fillStyle=`rgba(255,255,255,${Math.random()*.8})`;g.fillRect(Math.random()*W,Math.random()*gy*.6,1.5,1.5)}g.fillStyle='#f4f1e1';g.beginPath();g.arc(W*.8,H*.14,sc*.7,0,7);g.fill()}
-  else{const sx=W*(sun?.72:.82),sy=H*(sun?.42:.15);const sg=g.createRadialGradient(sx,sy,0,sx,sy,sc*3);sg.addColorStop(0,'rgba(255,240,190,1)');sg.addColorStop(.25,'rgba(255,220,150,.9)');sg.addColorStop(1,'rgba(255,220,150,0)');g.fillStyle=sg;g.beginPath();g.arc(sx,sy,sc*3,0,7);g.fill()}
-  /* sea */const sea=g.createLinearGradient(0,gy-sc*2.2,0,gy-sc*.6);sea.addColorStop(0,night?'#0b1a3a':sun?'#c0587a':'#1c86c9');sea.addColorStop(1,night?'#13284f':sun?'#e98d6b':'#45b3e6');g.fillStyle=sea;g.fillRect(0,gy-sc*2.2,W,sc*1.7);
-  /* palms */const palm=(x,h,f)=>{g.strokeStyle=night?'#0b0f1e':'#3b2a1a';g.lineWidth=sc*.18;g.beginPath();g.moveTo(x,gy-sc*.5);g.quadraticCurveTo(x+f*sc*.6,gy-h*.5,x+f*sc*.3,gy-h);g.stroke();g.fillStyle=night?'#0b0f1e':'#1f5a2a';for(let a=0;a<6;a++){g.beginPath();const ang=-Math.PI/2+(a-2.5)*.55;g.ellipse(x+f*sc*.3+Math.cos(ang)*sc*.6,gy-h+Math.sin(ang)*sc*.25+sc*.15,sc*.75,sc*.16,ang,0,7);g.fill()}};
-  palm(W*.04,sc*4.2,1);palm(W*.12,sc*3.4,-1);palm(W*.94,sc*4.4,-1);palm(W*.87,sc*3.2,1);
-  /* crowd on the bleachers */const by=gy-sc*.7;for(let r=0;r<3;r++)for(let x=sc*1.6+r*sc*.3;x<W-sc*1.4;x+=sc*.42){if(x>W*.42&&x<W*.58)continue;const hue=Math.floor(Math.random()*360);g.fillStyle=`hsl(${hue},${night?20:45}%,${night?22:48}%)`;g.beginPath();g.arc(x,by-r*sc*.38,sc*.13,0,7);g.fill();g.fillRect(x-sc*.13,by-r*sc*.38+sc*.08,sc*.26,sc*.2)}
-  /* sand with texture */const sand=g.createLinearGradient(0,gy-sc*.5,0,H);sand.addColorStop(0,night?'#b59b74':'#f2d49b');sand.addColorStop(1,night?'#8c7652':'#d9b16f');g.fillStyle=sand;g.fillRect(0,gy-sc*.5,W,H);
-  for(let i=0;i<500;i++){g.fillStyle=`rgba(${Math.random()<.5?'255,255,255':'120,90,40'},${Math.random()*.12})`;g.fillRect(Math.random()*W,gy-sc*.5+Math.random()*(H-gy+sc*.5),2,2)}
-  /* court lines and posts */const X=x=>sc+x*sc;g.strokeStyle=night?'#6aa0ff':'#2f7bff';g.lineWidth=3;g.beginPath();g.moveTo(X(0),gy);g.lineTo(X(16),gy);g.stroke();g.fillStyle=g.strokeStyle;g.fillRect(X(0)-2,gy-4,4,8);g.fillRect(X(16)-2,gy-4,4,8);
-  if(night){[W*.2,W*.8].forEach(x=>{g.fillStyle='#22283c';g.fillRect(x-2,gy-sc*5.5,4,sc*5);const lg=g.createRadialGradient(x,gy-sc*5.6,0,x,gy-sc*5.6,sc*5);lg.addColorStop(0,'rgba(255,250,220,.35)');lg.addColorStop(1,'rgba(255,250,220,0)');g.fillStyle=lg;g.fillRect(x-sc*5,gy-sc*10,sc*10,sc*10)})}
-  VBBG={key,cv};return cv}
-function vbDraw(){const s=VBS,cv=$('#vbCanvas');if(!s||!cv)return;const g=cv.getContext('2d');const W=cv.clientWidth,H=cv.clientHeight;const dpr=Math.min(1.5,devicePixelRatio||1);
+const VB_DRILLS={serve:['Serve targets','Hold Space, let go for power. Pick a serve with 1, 2, 3. Aim with W/S.'],spike:['Spike targets','Your coach sets you. Jump at JUMP!, aim with W/S, hold J to tip, L to roll.'],pass:['Serve receive','The machine serves at you. Get under it and press K right as the ring closes.'],block:['Block the hitter','The coach attacks from the other side. Jump at the net to stuff it.']};
+function vbTrainSetup(){const s=VBS;const k=s.opt.drill||'serve';s.train={kind:k,score:0,left:10,targets:[]};s.phase='train';const F=s.F;
+  s.teams.B.forEach((p,i)=>{if(k==='serve'||k==='spike'){p.x=-50;p.off=1}});if(k==='block'){const m=s.teams.A.find(p=>p.ctl==='ai');if(m){m.x=-50;m.off=1}}vbTrainNext(true)}
+function vbTrainNext(first){const s=VBS,t=s.train,F=s.F,net=F.L/2,b=s.ball;if(!first&&t.left<=0){s.over=true;setTimeout(()=>{if(VBS===s)vbEnd('A')},900);return}
+  const me=s.teams.A.find(p=>p.ctl!=='ai');const mate=s.teams.A.find(p=>p!==me);s.touches=0;s.side=null;s.lastP=null;s.plan={A:null,B:null};
+  t.targets=[{x:net+vbR(2,F.L/2-1.2),z:vbR(1,F.W-1),r:vbR(.8,1.3)}];
+  if(t.kind==='serve'){me.x=-.6;me.z=F.W/2;s.server=me;s.phase='train';b.live=false;s.servePow=null;s.serveType=s.serveType||'float'}
+  else if(t.kind==='spike'){me.x=net-3.3;me.z=vbR(1.2,F.W-1.2);mate.x=net-1.3;mate.z=F.W/2;b.x=mate.x;b.z=mate.z;b.y=2.4;b.vx=b.vy=b.vz=0;s.phase='rally';s.side='A';s.touches=1;s.lastP={team:'A'};
+    setTimeout(()=>{if(VBS!==s)return;b.x=mate.x;b.z=mate.z;b.y=2.4;s.touches=1;s.side='A';s.lastP=mate;vbSet2(mate,.8,{hitter:me,call:vbPick(['high','high','quick','back'])})},first?300:50)}
+  else if(t.kind==='pass'){const srv=s.teams.B[0];s.teams.B[1].x=F.L-3;srv.x=F.L+.6;srv.z=vbR(1,F.W-1);me.x=3;me.z=F.W/2;mate.x=net-1.3;mate.z=F.W/2;s.phase='rally';b.x=srv.x;b.z=srv.z;b.live=false;
+    setTimeout(()=>{if(VBS!==s)return;s.phase='rally';vbServe(srv,vbPick(['float','float','jump','under']),vbR(.4,.8),(me.z-F.W/2)/(F.W*.36)+vbR(-.5,.5));s.plan.A={stage:1,recv:me,pt:vbPredict(.9),ver:b.ver,hc:.9};s.plan.A.recv=me},first?400:200)}
+  else{/* block: their setter sets their hitter */const st=s.teams.B[0],hit=s.teams.B[1];st.x=net+1.2;st.z=F.W/2;hit.x=net+3.5;hit.z=vbR(1,F.W-1);me.x=net-.6;me.z=F.W/2;s.phase='rally';
+    setTimeout(()=>{if(VBS!==s)return;b.x=st.x;b.z=st.z;b.y=2.4;s.side='B';s.touches=1;s.lastP=st;vbSet2(st,.85,{hitter:hit,call:vbPick(['high','high','quick'])})},first?500:250)}}
+function vbTrainStep(dt){const s=VBS,t=s.train;if(t.kind==='serve'&&s.phase==='train'){const sv=s.server,b=s.ball;b.x=sv.x+.25;b.z=sv.z;b.y=1.1+Math.abs(Math.sin(s.t*3))*.2}}
+function vbTrainLand(){const s=VBS,t=s.train,b=s.ball,F=s.F,net=F.L/2;t.left--;let msg='Miss',col='#ff8a8a',pts=0;
+  if(t.kind==='serve'||t.kind==='spike'){const tg=t.targets[0];const inB=b.x>net&&b.x<=F.L&&b.z>=0&&b.z<=F.W;if(tg&&Math.hypot(b.x-tg.x,b.z-tg.z)<tg.r){pts=3;msg='+3 bullseye!';col='#3ddc84'}else if(inB){pts=1;msg='+1 in';col='#ffcc4d'}}
+  else if(t.kind==='pass'){pts=t.lastQ!=null?(t.lastQ>.8?3:t.lastQ>.55?2:t.lastQ>.3?1:0):0;msg=pts?`+${pts} pass`:'No pass';col=pts>=2?'#3ddc84':pts?'#ffcc4d':'#ff8a8a';t.lastQ=null}
+  else{pts=t.blk||0;msg=pts===3?'+3 stuff!':pts?'+1 touch':'They scored';col=pts?'#3ddc84':'#ff8a8a';t.blk=0}
+  t.score+=pts;vbPop([b.x,b.z],msg,col,1);s.phase='dead';s.phT=.9;if(pts>=3)s.crowd=1}
+/* ---------- drawing: a broadcast camera on the sideline ---------- */
+let VBBG={key:'',cv:null,ex:0},VBFANS=null;
+function vbView(W,H){const s=VBS,F=s.F;const sc=W/(F.L+4.6);return{W,H,sc,cx:W/2,yFar:H*.56,yNear:H*.93,k:.26,ex:H*.7}}
+function vbProj(V,x,y,z){const F=VBS.F;const f=.8+.2*(z/F.W);const sx=V.cx+(x-F.L/2)*V.sc*f+(z-F.W/2)*V.sc*V.k;const gy=V.yFar+(z/F.W)*(V.yNear-V.yFar);return[sx,gy-y*V.sc*f,f]}
+function vbBack(V){const s=VBS,ven=s.ven,F=s.F;const key=V.W+'x'+V.H+ven+s.fmt;if(VBBG.key===key)return VBBG;const dpr=Math.min(1.5,devicePixelRatio||1);const ex=V.ex;
+  const cv=document.createElement('canvas');cv.width=Math.round(V.W*dpr);cv.height=Math.round((V.H+ex)*dpr);const g=cv.getContext('2d');g.setTransform(dpr,0,0,dpr,0,ex*dpr);
+  const W=V.W,H=V.H,VN=s.V,P_=(x,y,z)=>vbProj(V,x,y,z);const rng=mulberry32(ven.length*131+7);const sc=V.sc;
+  const[,farY]=P_(0,0,-1.2);const horizon=farY-H*.2;
+  if(VN.indoor){/* gym */const wall=g.createLinearGradient(0,-ex,0,farY);wall.addColorStop(0,'#0e1220');wall.addColorStop(1,'#232a44');g.fillStyle=wall;g.fillRect(0,-ex,W,farY+ex);
+    for(let i=0;i<6;i++){const lx=W*(i+.5)/6;const lg=g.createRadialGradient(lx,-ex*.2,0,lx,-ex*.2,W*.25);lg.addColorStop(0,'rgba(255,250,230,.35)');lg.addColorStop(1,'rgba(255,250,230,0)');g.fillStyle=lg;g.fillRect(lx-W*.25,-ex,W*.5,ex+H*.4);g.fillStyle='#fff8e0';g.fillRect(lx-12,-ex*.2-3,24,6)}
+    [['HALL PASS',W*.18],['VOLLEYBALL',W*.5],['CHAMPIONSHIP',W*.82]].forEach(([t,x])=>{g.fillStyle='#c0392b';g.fillRect(x-W*.11,horizon-H*.16,W*.22,H*.07);g.fillStyle='#fff';g.font=`800 ${Math.round(H*.04)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.fillText(t,x,horizon-H*.105)});
+    for(let r=0;r<5;r++){g.fillStyle=r%2?'#2a3150':'#323a5e';g.fillRect(0,horizon+r*H*.035,W,H*.035)}
+    const fl=g.createLinearGradient(0,farY,0,H);fl.addColorStop(0,'#c98a4b');fl.addColorStop(1,'#e0a866');g.fillStyle=fl;g.fillRect(0,farY-4,W,H-farY+4);
+    for(let i=0;i<60;i++){g.fillStyle=`rgba(90,50,20,${.04+rng()*.05})`;const y=farY+rng()*(H-farY);g.fillRect(0,y,W,1)}
+    const quad=(x0,z0,x1,z1,c)=>{const a=P_(x0,0,z0),b=P_(x1,0,z0),c2=P_(x1,0,z1),d=P_(x0,0,z1);g.fillStyle=c;g.beginPath();g.moveTo(a[0],a[1]);g.lineTo(b[0],b[1]);g.lineTo(c2[0],c2[1]);g.lineTo(d[0],d[1]);g.closePath();g.fill()};
+    quad(-3,-2.5,F.L+3,F.W+2.5,'#1f6fb5');quad(0,0,F.L,F.W,'#e8873a');quad(F.L/2-F.atk,0,F.L/2+F.atk,F.W,'rgba(255,255,255,.08)')}
+  else{const sky=g.createLinearGradient(0,-ex,0,horizon);sky.addColorStop(0,VN.sky[0]);sky.addColorStop(.6,VN.sky[1]);sky.addColorStop(1,VN.sky[2]);g.fillStyle=sky;g.fillRect(0,-ex,W,horizon+ex+2);
+    if(VN.night){for(let i=0;i<120;i++){g.fillStyle=`rgba(255,255,255,${rng()*.8})`;g.fillRect(rng()*W,-ex+rng()*(horizon+ex)*.8,1.5,1.5)}g.fillStyle='#f4f1e1';g.beginPath();g.arc(W*.82,-ex*.3,sc*.7,0,7);g.fill()}
+    if(VN.sun){const sx=W*VN.sun[0],sy=-ex+(horizon+ex)*VN.sun[1]*1.6;const sg=g.createRadialGradient(sx,sy,0,sx,sy,sc*3.2);sg.addColorStop(0,'rgba(255,245,210,1)');sg.addColorStop(.2,'rgba(255,225,160,.9)');sg.addColorStop(1,'rgba(255,220,150,0)');g.fillStyle=sg;g.beginPath();g.arc(sx,sy,sc*3.2,0,7);g.fill()}
+    for(let i=0;i<6&&!VN.night;i++){g.fillStyle='rgba(255,255,255,.7)';const cx=rng()*W,cy=-ex+rng()*(horizon+ex)*.55;for(let k=0;k<4;k++){g.beginPath();g.arc(cx+k*sc*.6,cy+(k%2)*sc*.15,sc*(.45+rng()*.3),0,7);g.fill()}}
+    /* far scenery */
+    if(VN.props==='mountains'){for(let k=0;k<2;k++){const n=k?7:5;for(let i=0;i<n;i++){const cx=W*(i+.5)/n+(rng()-.5)*W*.08,hh=H*(.14+rng()*.18)*(k?.75:1.15),w=W*(.16+rng()*.1);g.fillStyle=k?'#8aa4bf':'#a9bfd5';g.beginPath();g.moveTo(cx-w,horizon);g.lineTo(cx,horizon-hh);g.lineTo(cx+w,horizon);g.closePath();g.fill();
+   g.fillStyle='rgba(255,255,255,.92)';g.beginPath();g.moveTo(cx,horizon-hh);g.lineTo(cx-w*.22,horizon-hh*.78);g.lineTo(cx-w*.08,horizon-hh*.82);g.lineTo(cx+w*.05,horizon-hh*.74);g.lineTo(cx+w*.22,horizon-hh*.78);g.closePath();g.fill()}}}
+    if(VN.props==='mesas'){g.fillStyle='#a8572a';for(let i=0;i<4;i++){const x=rng()*W,w=W*(.1+rng()*.12),h=H*(.06+rng()*.08);g.fillRect(x,horizon-h,w,h);g.beginPath();g.moveTo(x-w*.15,horizon);g.lineTo(x,horizon-h);g.lineTo(x,horizon);g.fill();g.beginPath();g.moveTo(x+w*1.15,horizon);g.lineTo(x+w,horizon-h);g.lineTo(x+w,horizon);g.fill()}}
+    if(VN.props==='city'){for(let x=0;x<W;){const w=sc*(.8+rng()*1.6),h=H*(.06+rng()*.18);g.fillStyle=`hsl(215,${15+rng()*15}%,${45+rng()*15}%)`;g.fillRect(x,horizon-h,w,h);g.fillStyle='rgba(255,255,255,.35)';for(let wy=horizon-h+4;wy<horizon-4;wy+=7)for(let wx=x+3;wx<x+w-3;wx+=6)if(rng()<.5)g.fillRect(wx,wy,2,3);x+=w+2}}
+    if(VN.props==='stadium'||VN.props==='lights'){g.fillStyle='#1a1336';g.fillRect(0,horizon-H*.12,W,H*.12);for(let i=0;i<4;i++){const x=W*(i+.5)/4;g.fillStyle='#2b2450';g.fillRect(x-2,horizon-H*.32,4,H*.2);const lg=g.createRadialGradient(x,horizon-H*.33,0,x,horizon-H*.33,W*.18);lg.addColorStop(0,'rgba(255,250,220,.55)');lg.addColorStop(1,'rgba(255,250,220,0)');g.fillStyle=lg;g.fillRect(x-W*.18,horizon-H*.5,W*.36,H*.4);g.fillStyle='#fffbe6';g.fillRect(x-10,horizon-H*.335,20,5)}}
+    const sea=g.createLinearGradient(0,horizon,0,horizon+H*.06);sea.addColorStop(0,VN.sea[0]);sea.addColorStop(1,VN.sea[1]);g.fillStyle=sea;g.fillRect(0,horizon,W,H*.06);
+    if(VN.props==='palms'||VN.props==='lights'){const palm=(x,hh,f)=>{g.strokeStyle=VN.night?'#0b0f1e':'#3b2a1a';g.lineWidth=sc*.16;g.beginPath();g.moveTo(x,horizon+H*.05);g.quadraticCurveTo(x+f*sc*.5,horizon-hh*.4,x+f*sc*.3,horizon-hh);g.stroke();g.fillStyle=VN.night?'#0b0f1e':'#1f5a2a';for(let a=0;a<6;a++){g.beginPath();const ang=-Math.PI/2+(a-2.5)*.55;g.ellipse(x+f*sc*.3+Math.cos(ang)*sc*.55,horizon-hh+Math.sin(ang)*sc*.22+sc*.12,sc*.7,sc*.15,ang,0,7);g.fill()}};
+      palm(W*.03,H*.3,1);palm(W*.1,H*.22,-1);palm(W*.95,H*.32,-1);palm(W*.88,H*.2,1)}
+    /* bleachers and ad boards behind the far sideline */
+    g.fillStyle=VN.sand[0];g.fillRect(0,horizon+H*.055,W,H*.1);g.fillStyle=VN.night?'#1c1f33':'#d9dde6';g.fillRect(W*.12,horizon+H*.035,W*.76,H*.12);g.fillStyle=VN.night?'#14172a':'#b9bfcc';for(let r=0;r<4;r++)g.fillRect(W*.12,horizon+H*.035+r*H*.03,W*.76,2);
+    const sand=g.createLinearGradient(0,horizon+H*.13,0,H);sand.addColorStop(0,VN.sand[0]);sand.addColorStop(1,VN.sand[1]);g.fillStyle=sand;g.fillRect(0,horizon+H*.13,W,H);
+    for(let i=0;i<900;i++){g.fillStyle=`rgba(${rng()<.5?'255,255,255':'120,90,40'},${rng()*.13})`;g.fillRect(rng()*W,horizon+H*.13+rng()*(H-horizon),2,2)}
+    const ads=['HALL PASS','BEACH TOUR','HALL PASS','SUN & SAND'];ads.forEach((t,i)=>{const x=W*(.14+i*.18),y=horizon+H*.15;g.fillStyle=['#2f7bff','#ff6b3d','#2f7bff','#13a36b'][i];g.fillRect(x,y,W*.16,H*.035);g.fillStyle='#fff';g.font=`800 ${Math.round(H*.024)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.fillText(t,x+W*.08,y+H*.026)})}
+  /* court lines */
+  const lw=Math.max(2,sc*.07);g.strokeStyle=VN.indoor?'#fff':'#2f7bff';g.lineWidth=lw;const line=(a,b)=>{const p=P_(a[0],0,a[1]),q=P_(b[0],0,b[1]);g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(q[0],q[1]);g.stroke()};
+  line([0,0],[F.L,0]);line([F.L,0],[F.L,F.W]);line([F.L,F.W],[0,F.W]);line([0,F.W],[0,0]);if(VN.indoor){line([F.L/2,0],[F.L/2,F.W]);line([F.L/2-F.atk,0],[F.L/2-F.atk,F.W]);line([F.L/2+F.atk,0],[F.L/2+F.atk,F.W])}
+  VBBG={key,cv,ex};VBFANS=null;return VBBG}
+function vbFans(V){if(VBFANS&&VBFANS.k===V.W+'x'+V.H+VBS.ven)return VBFANS.a;const s=VBS,rng=mulberry32(99);const a=[];const[,farY]=vbProj(V,0,0,-1.2);const horizon=farY-V.H*.2;const n=Math.round(120*(s.V.crowd||1));
+  for(let i=0;i<n;i++){const row=i%4;const x=V.W*(s.V.indoor?.02:.13)+rng()*V.W*(s.V.indoor?.96:.74);const y=(s.V.indoor?horizon+V.H*.03:horizon+V.H*.06)+row*V.H*.028;a.push({x,y,c:`hsl(${Math.floor(rng()*360)},${45+rng()*30}%,${45+rng()*20}%)`,sk:vbPick(['#f1c7a1','#d9a47a','#b67a52','#8d5a3b','#5e3b26']),ph:rng()*6})}
+  a.sort((p,q)=>p.y-q.y);VBFANS={k:V.W+'x'+V.H+s.ven,a};return a}
+function vbDraw(){const s=VBS,cv=$('#vbCanvas');if(!s||!cv)return;const g=cv.getContext('2d');const W=cv.clientWidth,H=cv.clientHeight;if(!W)return;const dpr=Math.min(1.5,devicePixelRatio||1);
   if(cv.width!==Math.round(W*dpr)||cv.height!==Math.round(H*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr)}
-  g.setTransform(dpr,0,0,dpr,0,0);const shk=s.shake>0?vbR(-1,1)*s.shake*14:0;g.translate(shk,shk*.4);g.drawImage(vbScene(W,H),0,0,W,H);
-  const sc=W/18,gy=H*.8;const X=x=>sc+x*sc,Y=y=>gy-y*sc;
-  /* waves shimmer */g.fillStyle='rgba(255,255,255,.35)';for(let i=0;i<10;i++){const wx=((i*137+s.t*22)%(W+60))-30;g.fillRect(wx,gy-sc*1.6+Math.sin(s.t*1.5+i)*3+(i%3)*sc*.3,sc*.7,2)}
-  if(s.crowd>0){for(let i=0;i<8;i++){g.fillStyle=`rgba(255,255,255,${s.crowd*.5})`;g.fillRect(Math.random()*W,gy-sc*(.9+Math.random()*1.1),3,3)}}
-  /* where the ball will land, for you */if(s.state==='rally'&&s.ball.live&&!s.auto){const L=vbLand(.0);if(L.x<VB.NET&&L.x>0){g.strokeStyle='rgba(61,220,132,.75)';g.lineWidth=2;g.beginPath();g.ellipse(X(L.x),gy+3,sc*.35,sc*.08,0,0,7);g.stroke()}}
-  if(s.hint&&s.t<s.hint.t+.3&&!s.auto){const tl=s.hint.t-s.t;g.strokeStyle='#ffcc4d';g.lineWidth=3;g.beginPath();g.ellipse(X(s.hint.x),gy+3,sc*.45,sc*.1,0,0,7);g.stroke();
-    if(tl<.55&&tl>-.1){g.font=`900 ${Math.round(sc*.55)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.fillStyle='#ffcc4d';g.fillText('JUMP!',X(s.hint.x),Y(4.6))}}
-  if(s.train&&s.train.targets[0]){const t=s.train.targets[0];g.fillStyle='rgba(255,204,77,.35)';g.fillRect(X(t.x-t.w/2),gy-3,t.w*sc,8);g.fillStyle='#ffcc4d';g.font=`800 ${Math.round(sc*.35)}px Barlow,sans-serif`;g.textAlign='center';g.fillText('+'+t.pts,X(t.x),gy+sc*.5)}
-  s.all.forEach(p=>{if(p.x<-5)return;g.fillStyle='rgba(0,0,0,.2)';g.beginPath();g.ellipse(X(p.x),gy+2,sc*.45*(1-Math.min(.5,p.y/3)),sc*.1,0,0,7);g.fill()});
-  g.fillStyle='rgba(0,0,0,.18)';g.beginPath();g.ellipse(X(s.ball.x),gy+2,sc*.2*(1-Math.min(.6,s.ball.y/8)),sc*.05,0,0,7);g.fill();
-  /* net with mesh, tape and padded posts */const nb=s.netShake>0?Math.sin(s.netShake*50)*4:0;g.fillStyle='#d6dbe6';g.fillRect(X(VB.NET)-sc*.07,Y(VB.NETH+.25),sc*.14,VB.NETH*sc+sc*.25);g.fillStyle='#2f7bff';g.fillRect(X(VB.NET)-sc*.1,Y(1.1),sc*.2,sc*1.1);
-  g.save();g.translate(nb,0);g.fillStyle='rgba(20,24,40,.25)';g.fillRect(X(VB.NET)-sc*.04,Y(VB.NETH),sc*.08,sc*1);g.strokeStyle='rgba(20,24,40,.55)';g.lineWidth=1;for(let yy=VB.NETH-1;yy<=VB.NETH;yy+=.1){g.beginPath();g.moveTo(X(VB.NET)-sc*.06,Y(yy));g.lineTo(X(VB.NET)+sc*.06,Y(yy));g.stroke()}
-  g.fillStyle='#fff';g.fillRect(X(VB.NET)-sc*.07,Y(VB.NETH)-3,sc*.14,5);g.restore();
-  s.all.forEach(p=>{if(p.x>-5)vbDrawP(g,p,X,Y,sc)});
-  const b=s.ball;b.trail.forEach((t,i)=>{g.globalAlpha=i/b.trail.length*.35;g.fillStyle='#fff3c4';g.beginPath();g.arc(X(t[0]),Y(t[1]),sc*VB.BR*(.4+i/b.trail.length*.6),0,7);g.fill()});g.globalAlpha=1;
-  const bx=X(b.x),by=Y(b.y),br=sc*VB.BR*1.15;g.fillStyle='#fffaf0';g.beginPath();g.arc(bx,by,br,0,7);g.fill();g.save();g.translate(bx,by);g.rotate(b.spin);g.lineWidth=2.2;
-  g.strokeStyle='#2a6fd6';g.beginPath();g.arc(0,0,br*.92,.2,1.7);g.stroke();g.strokeStyle='#ffcc33';g.beginPath();g.arc(0,0,br*.92,2.3,3.8);g.stroke();g.strokeStyle='#ff6b6b';g.beginPath();g.arc(0,0,br*.92,4.4,5.9);g.stroke();g.restore();
-  if(s.flash>0){g.fillStyle=`rgba(255,255,255,${s.flash*1.5})`;g.beginPath();g.arc(bx,by,br*3,0,7);g.fill()}
-  s.parts.forEach(q=>{g.fillStyle=`rgba(217,177,111,${1-q.t/q.life})`;g.fillRect(X(q.x),Y(q.y),3,3)});
-  s.pops.forEach(p=>{const k=p.t<.15?p.t/.15:1;g.globalAlpha=Math.max(0,1-Math.max(0,p.t-.9)/.6);g.font=`900 ${Math.round(sc*(p.big?.75:.5)*(.6+.4*k))}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.lineWidth=4;g.strokeStyle='rgba(0,0,0,.5)';g.strokeText(p.text,X(p.x),Y(p.y+p.t*.5));g.fillStyle=p.col;g.fillText(p.text,X(p.x),Y(p.y+p.t*.5));g.globalAlpha=1});
-  if(s.state==='serve'&&s.server.me&&!s.auto){g.font=`700 ${Math.round(sc*.36)}px Barlow,sans-serif`;g.fillStyle='#fff';g.textAlign='center';g.lineWidth=3;g.strokeStyle='rgba(0,0,0,.45)';const tx='Hold Space to serve. Let go for power';g.strokeText(tx,W/2,H*.1);g.fillText(tx,W/2,H*.1)}
-  if(s.servePow!=null&&s.server&&s.server.me){const w=sc*3,x0=X(s.server.x)+sc*.4,y0=Y(3.6);g.fillStyle='rgba(0,0,0,.45)';g.fillRect(x0,y0,w,sc*.24);const pw=s.servePow;g.fillStyle=pw>.92?'#ff6b6b':pw>.55?'#3ddc84':'#ffcc4d';g.fillRect(x0,y0,w*pw,sc*.24);g.strokeStyle='#fff';g.lineWidth=1;g.strokeRect(x0+w*.55,y0,w*.37,sc*.24)}
-  vbHud()}
-function vbDrawP(g,p,X,Y,sc){const s=VBS;const x=X(p.x),y=Y(p.y);const c=p.col;const H=sc*1.9;g.save();
-  if(p.pose==='dive'){g.translate(x,y-sc*.3);g.rotate(p.face*1.25);g.translate(-x,-(y-sc*.3))}
-  const run=Math.abs(p.vx)>.5&&p.y===0;const st=run?Math.sin(p.anim*5)*sc*.2:0;const crouch=(p.pose==='ready'||p.pose==='bump')&&p.y===0?sc*.08:0;g.lineCap='round';
-  g.strokeStyle=p.skin;g.lineWidth=sc*.17;g.beginPath();g.moveTo(x-sc*.1,y-H*.42+crouch);g.lineTo(x-sc*.16+st,y);g.moveTo(x+sc*.1,y-H*.42+crouch);g.lineTo(x+sc*.16-st,y);g.stroke();
-  g.fillStyle='#1d2338';g.fillRect(x-sc*.21,y-H*.5+crouch,sc*.42,sc*.2);g.fillStyle=c;g.beginPath();g.roundRect?g.roundRect(x-sc*.22,y-H*.84+crouch,sc*.44,H*.38,sc*.1):g.rect(x-sc*.22,y-H*.84+crouch,sc*.44,H*.38);g.fill();
-  g.fillStyle='rgba(255,255,255,.9)';g.font=`800 ${Math.round(sc*.22)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.fillText(p.me?'1':String(p.i+(p.team==='A'?2:7)),x,y-H*.62+crouch);
-  const sh=y-H*.8+crouch,f=p.face;g.strokeStyle=p.skin;g.lineWidth=sc*.12;g.beginPath();
-  const pose=p.y>.2&&p.pose!=='spike'&&p.pose!=='block'?(s.ball.live&&p.vy>0?'reach':p.pose):p.pose;
-  if(pose==='spike'){g.moveTo(x+f*sc*.15,sh);g.lineTo(x+f*sc*.45,sh-sc*.55);g.moveTo(x-f*sc*.15,sh);g.lineTo(x-f*sc*.3,sh-sc*.4)}
-  else if(pose==='block'||pose==='reach'){g.moveTo(x-sc*.15,sh);g.lineTo(x-sc*.1+f*sc*.1,sh-sc*.75);g.moveTo(x+sc*.15,sh);g.lineTo(x+sc*.1+f*sc*.1,sh-sc*.75)}
-  else if(pose==='set'){g.moveTo(x-sc*.15,sh);g.lineTo(x+f*sc*.05,sh-sc*.62);g.moveTo(x+sc*.15,sh);g.lineTo(x+f*sc*.15,sh-sc*.62)}
-  else if(pose==='cheer'){const w=Math.sin(s.t*12)*sc*.1;g.moveTo(x-sc*.15,sh);g.lineTo(x-sc*.35,sh-sc*.6+w);g.moveTo(x+sc*.15,sh);g.lineTo(x+sc*.35,sh-sc*.6-w)}
-  else if(pose==='serve'){g.moveTo(x+f*sc*.15,sh);g.lineTo(x+f*sc*.35,sh-sc*.6);g.moveTo(x-f*sc*.15,sh);g.lineTo(x-f*sc*.2,sh+sc*.3)}
-  else{g.moveTo(x-sc*.18,sh);g.lineTo(x+f*sc*.32,sh+sc*.35);g.moveTo(x+sc*.18,sh);g.lineTo(x+f*sc*.34,sh+sc*.36)}g.stroke();
-  g.fillStyle=p.skin;g.beginPath();g.arc(x,y-H*.95+crouch,sc*.17,0,7);g.fill();g.fillStyle='#1b1210';g.beginPath();g.arc(x,y-H*.99+crouch,sc*.17,Math.PI,2*Math.PI);g.fill();
-  if(p.cap){g.fillStyle=c;g.fillRect(x-sc*.17,y-H*1.04+crouch,sc*.34,sc*.07);g.fillRect(x+f*sc*.05,y-H*1.0+crouch,f*sc*.22,sc*.04)}
-  g.restore();if(p.me&&!s.auto){g.fillStyle='#3ddc84';g.beginPath();g.moveTo(x,y-H*1.25);g.lineTo(x-sc*.14,y-H*1.38);g.lineTo(x+sc*.14,y-H*1.38);g.fill()}}
-function vbHud(){const s=VBS,el=$('#vbHud');if(!el)return;const k=JSON.stringify([s.score,s.sets,s.serve,s.state,s.touches,s.side,s.train&&[s.train.score,s.train.left]]);if(el.dataset.k===k)return;el.dataset.k=k;
-  if(s.train){el.innerHTML=`<div class="sthb"><div class="sths"><small>${s.train.kind==='serve'?'Serve drill':'Spike drill'}</small><b>${s.train.score}</b></div><div class="sths"><small>Balls left</small><b>${s.train.left}</b></div><div class="sths"><small>Best</small><b>${vbSave().best[s.train.kind]||0}</b></div></div>`;return}
-  el.innerHTML=`<div class="sthb"><div class="stteam ${s.serve==='A'?'on':''}"><small>You${s.serve==='A'?' 🏐':''}${s.setsToWin>1?' · sets '+s.sets.A:''}</small><b>${s.score.A}</b></div><div class="stmid"><small>Set ${s.setN} · to ${s.setN===3?15:s.to}</small><b>${s.state==='rally'&&s.side?s.touches+'/3':'—'}</b><small>touches</small></div><div class="stteam them ${s.serve==='B'?'on':''}"><small>${s.serve==='B'?'🏐 ':''}${esc(s.oppName)}${s.setsToWin>1?' · sets '+s.sets.B:''}</small><b>${s.score.B}</b></div></div>`}
+  const V=vbView(W,H);const F=s.F;const b=s.ball;const P_=(x,y,z)=>vbProj(V,x,y,z);
+  /* camera: rise with high balls, zoom in on big moments */
+  const[bx0,by0]=P_(b.x,b.y,b.z);s.camY=s.camY||0;const want=Math.max(0,H*.1-by0);s.camY+=(Math.min(V.ex*.9,want)-s.camY)*.12;
+  const zt=s.zoomT>0&&vbSet().slow?1.2:1;s.zoom=(s.zoom||1)+(zt-(s.zoom||1))*.15;s.zf=s.zf||[W/2,H/2];if(s.zoomT>0)s.zf=[bx0,by0+s.camY];
+  const shk=s.shake>0&&vbSet().shake?vbR(-1,1)*s.shake*14:0;
+  g.setTransform(dpr,0,0,dpr,0,0);g.fillStyle='#05070f';g.fillRect(0,0,W,H);
+  const zm=s.zoom;const fx=s.zf[0],fy=s.zf[1];g.setTransform(dpr*zm,0,0,dpr*zm,dpr*(fx-fx*zm+shk),dpr*(fy-fy*zm+shk*.5+s.camY*zm));
+  const BG=vbBack(V);g.drawImage(BG.cv,0,-BG.ex,W,H+BG.ex);
+  /* crowd */const fans=vbFans(V);const cheer=s.crowd;fans.forEach(f=>{const wave=s.t-s.wave<3?Math.max(0,1-Math.abs(f.x/W-(s.t-s.wave)/2.2)*6):0;const up=Math.max(wave,cheer>0?cheer*(.5+.5*Math.sin(s.t*9+f.ph)):0);const bob=Math.sin(s.t*2+f.ph)*1.2-up*4;
+    g.fillStyle=f.c;g.fillRect(f.x-4,f.y-2+bob,8,8);g.fillStyle=f.sk;g.beginPath();g.arc(f.x,f.y-5+bob,3.3,0,7);g.fill();if(up>.3){g.strokeStyle=f.sk;g.lineWidth=1.6;g.beginPath();g.moveTo(f.x-3,f.y+bob);g.lineTo(f.x-6,f.y-9+bob);g.moveTo(f.x+3,f.y+bob);g.lineTo(f.x+6,f.y-9+bob);g.stroke()}});
+  /* waves shimmer */if(!s.V.indoor){const[,farY]=P_(0,0,-1.2);const hz=farY-H*.2;g.fillStyle='rgba(255,255,255,.35)';for(let i=0;i<9;i++){const wx=((i*151+s.t*18)%(W+60))-30;g.fillRect(wx,hz+H*.01+(i%3)*H*.015+Math.sin(s.t+i)*2,W*.04,1.5)}}
+  /* footprints */if(s.prints.length){g.fillStyle='rgba(120,85,40,.16)';s.prints.forEach(([x,z])=>{const[a,c,f]=P_(x,0,z);g.beginPath();g.ellipse(a,c,V.sc*.09*f,V.sc*.04*f,0,0,7);g.fill()})}
+  /* targets in training */if(s.train&&s.train.targets[0]&&(s.train.kind==='serve'||s.train.kind==='spike')){const t=s.train.targets[0];const[a,c,f]=P_(t.x,0,t.z);g.fillStyle='rgba(255,204,77,.28)';g.strokeStyle='#ffcc4d';g.lineWidth=2;g.beginPath();g.ellipse(a,c,t.r*V.sc*f,t.r*V.sc*f*.42,0,0,7);g.fill();g.stroke()}
+  vbDrawGuides(g,V);
+  /* shadows */s.all.forEach(p=>{if(p.off)return;const[a,c,f]=P_(p.x,0,p.z);g.fillStyle=`rgba(0,0,0,${.22-Math.min(.12,p.y/8)})`;g.beginPath();g.ellipse(a,c,V.sc*.42*f*(1-Math.min(.4,p.y/3)),V.sc*.13*f,0,0,7);g.fill()});
+  if(b.live||s.phase==='serve'||s.phase==='train'||s.phase==='dead'){const[a,c,f]=P_(b.x,0,b.z);g.fillStyle=`rgba(0,0,0,${.28-Math.min(.2,b.y/14)})`;g.beginPath();g.ellipse(a,c,V.sc*.17*f,V.sc*.06*f,0,0,7);g.fill()}
+  /* everything else in depth order, with the net in slices */
+  const ents=[];s.all.forEach(p=>{if(!p.off)ents.push([p.z,0,p])});ents.push([b.z,1,b]);const NS=10;for(let i=0;i<NS;i++)ents.push([F.W*(i+.5)/NS,2,i]);ents.push([-.6,3,0],[F.W+.6,3,1]);ents.sort((a,c)=>a[0]-c[0]);
+  ents.forEach(e=>{if(e[1]===0)vbDrawP(g,e[2],V);else if(e[1]===1)vbDrawBall(g,V);else if(e[1]===2)vbDrawNet(g,V,e[2],NS);else vbDrawPost(g,V,e[2])});
+  /* particles */s.parts.forEach(q=>{const[a,c]=P_(q.x,q.y,q.z);g.fillStyle=`rgba(217,177,111,${1-q.t/q.life})`;g.fillRect(a,c,3,3)});
+  if(s.flash>0){const[a,c]=P_(b.x,b.y,b.z);g.fillStyle=`rgba(255,255,255,${s.flash*1.6})`;g.beginPath();g.arc(a,c,V.sc*.6,0,7);g.fill()}
+  /* pops */s.pops.forEach(p=>{const[a,c,f]=P_(p.x,p.y+p.t*.6,p.z);const k=p.t<.15?p.t/.15:1;g.globalAlpha=Math.max(0,1-Math.max(0,p.t-1)/.6);g.font=`900 ${Math.round(V.sc*(p.big?.62:.42)*(.6+.4*k)*f)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.lineWidth=4;g.strokeStyle='rgba(0,0,0,.55)';g.strokeText(p.text,a,c);g.fillStyle=p.col;g.fillText(p.text,a,c);g.globalAlpha=1});
+  vbDrawServeUI(g,V);
+  g.setTransform(dpr,0,0,dpr,0,0);vbHud()}
+/* landing spot, timing ring, jump cue */
+function vbDrawGuides(g,V){const s=VBS,b=s.ball,F=s.F;const me=s.all.find(p=>p.ctl==='local');if(!me||!b.live||s.auto)return;const hints=vbSet().hints;const P_=(x,y,z)=>vbProj(V,x,y,z);
+  const mine=me.team==='A'?b.vx<0||b.x<F.L/2:b.vx>0||b.x>F.L/2;
+  if(hints&&mine&&b.kind!=='set'){const L=vbPredict(.12);if(L){const[a,c,f]=P_(L.x,0,L.z);g.strokeStyle='rgba(61,220,132,.8)';g.lineWidth=2;g.beginPath();g.ellipse(a,c,V.sc*.32*f,V.sc*.12*f,0,0,7);g.stroke()}}
+  /* timing ring: shrinks to the ideal moment */
+  const pl=s.plan[me.team];const second=s.side===me.team&&s.touches===1;const myBall=(pl&&pl.stage===1&&pl.recv===me&&pl.ver===b.ver)||(second&&me.plan&&me.plan.k==='set')||(pl&&pl.stage===2&&pl.setter===me);
+  if(myBall&&b.kind!=='attack'||myBall&&b.kind==='attack'){const P=vbPredict(second||(pl&&pl.setter===me)?2.3:.9);if(P){const tl=P.t-s.t;if(tl<1.2&&tl>-.2){const[a,c,f]=P_(P.x,0,P.z);const r0=V.sc*.35*f;const r=r0+Math.max(0,tl)*V.sc*1.6*f;
+      g.strokeStyle='rgba(255,255,255,.85)';g.lineWidth=2.5;g.beginPath();g.ellipse(a,c,r0,r0*.38,0,0,7);g.stroke();const near=Math.abs(tl)<.07;g.strokeStyle=near?'#3ddc84':tl<.2?'#ffcc4d':'rgba(255,255,255,.6)';g.lineWidth=near?4:2;g.beginPath();g.ellipse(a,c,r,r*.38,0,0,7);g.stroke();
+      if(hints&&tl<.25&&tl>-.08&&!me.passReq){g.font=`900 ${Math.round(V.sc*.4)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.fillStyle='#fff';g.fillText(second||(pl&&pl.setter===me)?'SET!':'PASS!',a,c-V.sc*2.4*f)}}}}
+  /* spike: where to be and when to jump */
+  if(s.hint&&s.hint.p===me&&s.t<s.hint.t+.3){const h=s.hint;const tl=h.t-s.t;const[a,c,f]=P_(h.x-vbDir(me.team)*.35,0,h.z);g.strokeStyle='#ffcc4d';g.lineWidth=3;g.beginPath();g.ellipse(a,c,V.sc*.4*f,V.sc*.15*f,0,0,7);g.stroke();
+    const up=vbJumpV(me)/VBG*.92;if(tl<up+.12&&tl>up-.2&&me.y===0){g.font=`900 ${Math.round(V.sc*.55)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.lineWidth=4;g.strokeStyle='rgba(0,0,0,.5)';g.strokeText('JUMP!',a,c-V.sc*2.8*f);g.fillStyle='#ffcc4d';g.fillText('JUMP!',a,c-V.sc*2.8*f)}}
+  /* block cue */const opp=s.plan[vbOpp(me.team)];if(opp&&opp.stage===3&&opp.hitter&&Math.abs(me.x-F.L/2)<1.5&&me.y===0&&opp.hitter.y>.1&&hints){const[a,c]=P_(me.x,3.4,me.z);g.font=`900 ${Math.round(V.sc*.45)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.fillStyle='#7fd6ff';g.fillText('BLOCK!',a,c)}}
+function vbDrawServeUI(g,V){const s=VBS;const sv=s.server;if(!sv||sv.ctl!=='local'||s.auto)return;if(!(s.phase==='serve'||s.phase==='train'&&s.train&&s.train.kind==='serve'))return;const[a,c,f]=vbProj(V,sv.x,2.9,sv.z);const w=V.sc*2.6;
+  g.fillStyle='rgba(0,0,0,.5)';g.fillRect(a-w/2,c-V.sc*.6,w,V.sc*.22);const pw=s.servePow||0;const t=s.serveType||'float';const zone=t==='jump'?[.68,.93]:t==='under'?[.2,.95]:t==='sky'?[.3,.95]:[.55,.93];
+  g.fillStyle='rgba(61,220,132,.35)';g.fillRect(a-w/2+w*zone[0],c-V.sc*.6,w*(zone[1]-zone[0]),V.sc*.22);g.fillStyle=pw>1?'#ff6b6b':pw>=zone[0]&&pw<=zone[1]?'#3ddc84':'#ffcc4d';g.fillRect(a-w/2,c-V.sc*.6,w*Math.min(1,pw),V.sc*.22);g.strokeStyle='#fff';g.lineWidth=1;g.strokeRect(a-w/2,c-V.sc*.6,w,V.sc*.22);
+  g.font=`700 ${Math.round(V.sc*.26)}px Barlow,sans-serif`;g.textAlign='center';g.fillStyle='#fff';g.fillText((VB_SERVES[t]||['Serve'])[0]+(s.servePow==null?' · hold Space':''),a,c-V.sc*.75)}
+function vbDrawNet(g,V,i,NS){const s=VBS,F=s.F;const P_=(x,y,z)=>vbProj(V,x,y,z);const z0=F.W*i/NS,z1=F.W*(i+1)/NS;const sh=s.netShake>0?Math.sin(s.netShake*50+i)*.05*s.netShake*4:0;const net=F.L/2+sh;
+  const a=P_(net,F.NETH,z0),b=P_(net,F.NETH,z1),c=P_(net,F.NETH-1,z1),d=P_(net,F.NETH-1,z0);g.fillStyle='rgba(15,18,30,.22)';g.beginPath();g.moveTo(a[0],a[1]);g.lineTo(b[0],b[1]);g.lineTo(c[0],c[1]);g.lineTo(d[0],d[1]);g.closePath();g.fill();
+  g.strokeStyle='rgba(20,24,40,.5)';g.lineWidth=1;for(let k=1;k<4;k++){const u=k/4;g.beginPath();g.moveTo(a[0]+(d[0]-a[0])*u,a[1]+(d[1]-a[1])*u);g.lineTo(b[0]+(c[0]-b[0])*u,b[1]+(c[1]-b[1])*u);g.stroke()}
+  g.beginPath();g.moveTo(a[0],a[1]);g.lineTo(d[0],d[1]);g.stroke();g.strokeStyle='#fff';g.lineWidth=Math.max(2,V.sc*.07);g.beginPath();g.moveTo(a[0],a[1]);g.lineTo(b[0],b[1]);g.stroke();
+  if(i===0||i===NS-1){const z=i===0?0:F.W;const t=P_(net,F.NETH+.8,z),bt=P_(net,F.NETH-1,z);g.strokeStyle='#ff4d4d';g.lineWidth=3;g.beginPath();g.moveTo(bt[0],bt[1]-V.sc*1);g.lineTo(t[0],t[1]);g.stroke();g.strokeStyle='#fff';g.setLineDash([4,4]);g.beginPath();g.moveTo(bt[0],bt[1]-V.sc*1);g.lineTo(t[0],t[1]);g.stroke();g.setLineDash([])}}
+function vbDrawPost(g,V,i){const s=VBS,F=s.F;const z=i?F.W+.6:-.6;const[a,c,f]=vbProj(V,F.L/2,0,z),[,t]=vbProj(V,F.L/2,F.NETH+.15,z);g.fillStyle=s.V.indoor?'#c9ced8':'#2f7bff';g.fillRect(a-V.sc*.07*f,t,V.sc*.14*f,c-t);g.fillStyle='#1d2338';g.fillRect(a-V.sc*.12*f,c-V.sc*1*f,V.sc*.24*f,V.sc*1*f);
+  if(!s.V.indoor){/* flag shows the wind */const w=s.wind;const fl=Math.min(1,w.str/4);const dx=Math.sign(w.x)||1;g.strokeStyle='#444';g.lineWidth=1.5;g.beginPath();g.moveTo(a,t);g.lineTo(a,t-V.sc*1.1*f);g.stroke();const y0=t-V.sc*1.1*f;const L=V.sc*(.25+.5*fl)*f;
+    g.fillStyle='#ffcc33';g.beginPath();g.moveTo(a,y0);for(let k=0;k<=6;k++){const u=k/6;g.lineTo(a+dx*L*u,y0+Math.sin(s.t*8+u*5)*V.sc*.06*fl+u*V.sc*.12*(1-fl))}for(let k=6;k>=0;k--){const u=k/6;g.lineTo(a+dx*L*u,y0+V.sc*.3*(1-u*.6)+Math.sin(s.t*8+u*5)*V.sc*.06*fl+u*V.sc*.12*(1-fl))}g.closePath();g.fill()}}
+function vbDrawBall(g,V){const s=VBS,b=s.ball;const P_=(x,y,z)=>vbProj(V,x,y,z);const cols=(VB_BALLS[vbSave().gear.ball]||VB_BALLS.classic)[1];
+  if(b.live&&(b.kind==='attack'||b.kind==='serve'))b.trail.forEach((t,i)=>{const[a,c,f]=P_(t[0],t[1],t[2]);g.globalAlpha=i/b.trail.length*.3;g.fillStyle='#fff3c4';g.beginPath();g.arc(a,c,V.sc*.15*f*(i/b.trail.length+.3),0,7);g.fill()});g.globalAlpha=1;
+  const[a,c,f]=P_(b.x,b.y,b.z);const r=V.sc*.2*f;g.fillStyle='#fffaf0';g.beginPath();g.arc(a,c,r,0,7);g.fill();g.save();g.beginPath();g.arc(a,c,r,0,7);g.clip();g.translate(a,c);g.rotate(b.spin);
+  for(let k=0;k<3;k++){g.fillStyle=cols[k];g.beginPath();g.ellipse(0,0,r*1.05,r*.42,k*2.09,0,Math.PI);g.fill()}g.restore();g.strokeStyle='rgba(0,0,0,.25)';g.lineWidth=1;g.beginPath();g.arc(a,c,r,0,7);g.stroke()}
 
-/* ---------- input (keyboard, touch, controller) ---------- */
-const VB_KEYS={ArrowLeft:'l',KeyA:'l',ArrowRight:'r',KeyD:'r',Space:'jump',KeyW:'jump',ArrowUp:'jump',KeyK:'set',KeyQ:'set',KeyE:'dive',ShiftLeft:'dive',Escape:'pause',KeyP:'pause'};
-function vbKey(e,down){if(!VBS||!$('#vbCanvas'))return;const k=VB_KEYS[e.code];if(!k)return;e.preventDefault();if(k==='pause'){if(down)vbPause();return}const was=VBS.keys[k];VBS.keys[k]=down;if(down&&!was)vbPress(k);if(!down&&was)vbRel(k)}
-function vbPress(k){const s=VBS;if(!s||s.paused||s.over)return;const me=s.A[0];
-  if((s.state==='serve'||s.state==='train'&&s.train&&s.train.kind==='serve')&&s.server===me){if(k==='jump'){s.servePow=0;s.powT=s.t}return}
-  if(k==='jump'){if(me.y===0)me.vy=VB.JUMP;me.wantHit=.5}
-  else if(k==='set'){vbTouch(me,s.side==='A'&&s.touches>=1?'set':'bump')}else if(k==='dive')vbDive(me,(s.keys.l?-1:s.keys.r?1:Math.sign(s.ball.x-me.x))||1)}
-function vbRel(k){const s=VBS;if(k==='jump'&&s.servePow!=null&&s.server===s.A[0]){const pw=s.servePow;s.servePow=null;vbServe(s.A[0],pw)}}
-addEventListener('keydown',e=>vbKey(e,true));addEventListener('keyup',e=>vbKey(e,false));
-function vbLoop(t){if(!VBS||!$('#vbCanvas')){VBRAF=0;document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}return}let dt=Math.min(.05,(t-(VBLAST||t))/1000);VBLAST=t;if(VBS.slow)dt*=.4;padPoll('vb');let acc=dt;
-  while(acc>1e-6){const h=Math.min(1/60,acc);const s=VBS;if(s.servePow!=null)s.servePow=Math.min(1,(s.t-s.powT)/1.15);vbStep(h);acc-=h}vbDraw();VBRAF=requestAnimationFrame(vbLoop)}
-function vbPause(){VBS.paused=!VBS.paused;const o=$('#vbPause');if(o)o.hidden=!VBS.paused}
+/* ---------- animated players: a small skeleton blended between poses ---------- */
+const VBPOSE={ready:{th:[.38,.18],sh:[-.3,-.42],le:.35,ua:[.65,.55],fa:[1.15,1.05]},bump:{th:[.65,.45],sh:[-.45,-.55],le:.5,ua:[1.05,1.05],fa:[1.2,1.2]},set:{th:[.25,.1],sh:[-.2,-.25],le:.05,ua:[2.55,2.45],fa:[3.35,3.25]},
+  jump:{th:[.35,-.1],sh:[-.7,-.55],le:-.1,ua:[3.05,2.4],fa:[4.1,2.7]},spike:{th:[.2,-.2],sh:[-.5,-.6],le:.4,ua:[1.4,2.1],fa:[1.2,1.9]},block:{th:[.12,-.08],sh:[-.12,-.22],le:0,ua:[2.95,2.95],fa:[3.05,3.05]},
+  serve:{th:[.15,-.05],sh:[-.1,-.15],le:.15,ua:[2.6,2.9],fa:[3.6,3.0]},jserve:{th:[.3,-.1],sh:[-.6,-.5],le:.2,ua:[1.5,2.6],fa:[1.3,2.9]},dive:{th:[-.3,-.5],sh:[-.6,-.7],le:1.35,ua:[1.6,1.55],fa:[1.62,1.55]},getup:{th:[1.1,.9],sh:[-.6,-.8],le:.9,ua:[.4,.3],fa:[.5,.4]},
+  sad:{th:[.3,.2],sh:[-.3,-.35],le:.55,ua:[.55,.5],fa:[-.15,-.15]},signal:{th:[.2,.1],sh:[-.25,-.3],le:.3,ua:[-.5,.5],fa:[-.1,1.0]},adjust:{th:[.2,.1],sh:[-.25,-.3],le:.15,ua:[2.6,.5],fa:[4.3,1]},
+  fist:{th:[.2,.05],sh:[-.2,-.2],le:-.05,ua:[2.6,.5],fa:[3.3,1.2]},sky:{th:[.1,0],sh:[-.1,-.1],le:-.15,ua:[3.05,.3],fa:[3.1,.4]},cheer:{th:[.15,-.05],sh:[-.25,-.3],le:-.05,ua:[2.8,2.8],fa:[3.1,3.1]}};
+function vbTargetPose(s,p){let k=p.act;const run=Math.hypot(p.vx,p.vz)>.8&&p.y===0&&p.dive<=0&&p.down<=0;
+  if(k==='cheer'){const c=p.celebK||'fist';if(c==='fist')return vbBlend('fist',{ua:[2.6+Math.sin(s.t*14)*.35,.5]});if(c==='sky')return VBPOSE.sky;if(c==='dance'){const w=Math.sin(s.t*8);return vbBlend('cheer',{ua:[1.6+w,1.6-w],fa:[2.2+w,2.2-w],le:w*.15})}if(c==='bump')return vbBlend('cheer',{le:-.35});return VBPOSE.cheer}
+  if(k==='getup')return VBPOSE.getup;if(k==='dive')return VBPOSE.dive;if(k==='sad')return VBPOSE.sad;
+  if(p.y>0){if(k==='block')return VBPOSE.block;if(k==='spike'||k==='jserve')return VBPOSE.spike;if(k==='set')return VBPOSE.set;return VBPOSE.jump}
+  if(k==='bump')return VBPOSE.bump;if(k==='set')return VBPOSE.set;if(k==='serve')return VBPOSE.serve;if(k==='jserve')return VBPOSE.jserve;
+  if(s.phase==='serve'&&p===s.server&&p.y===0)return{th:[.1,0],sh:[-.1,-.1],le:.1,ua:[.9,.5],fa:[1.6,1.1]};
+  if(p.sig>0)return VBPOSE.signal;
+  if(run){const ph=p.ph*3.4;const a=Math.sin(ph);return{th:[a*.75+.15,-a*.75+.15],sh:[a*.75-.25-Math.max(0,-a)*.7,-a*.75-.25-Math.max(0,a)*.7],le:.32,ua:[-a*.8+.3,a*.8+.3],fa:[-a*.8+1.2,a*.8+1.2]}}
+  if(s.phase==='serve'&&(p.idle%9)<.8)return VBPOSE.adjust;
+  const bob=Math.sin(p.idle*5)*.04;return vbBlend('ready',{le:.35+bob})}
+function vbBlend(k,o){return Object.assign({},VBPOSE[k],o)}
+function vbPoseStep(p,tp,dt){if(!p.pose)p.pose=JSON.parse(JSON.stringify(tp));const q=p.pose,k=Math.min(1,dt*18);['th','sh','ua','fa'].forEach(n=>{q[n][0]+=(tp[n][0]-q[n][0])*k;q[n][1]+=(tp[n][1]-q[n][1])*k});q.le+=(tp.le-q.le)*k}
+function vbDrawP(g,p,V){const s=VBS;const[x,gy,f]=vbProj(V,p.x,p.y,p.z);const H=p.h*V.sc*f*.95;const fd=p.face;const tp=vbTargetPose(s,p);vbPoseStep(p,tp,s.dtLast||1/60);const q=p.pose;
+  const thL=H*.25,shL=H*.25,toL=H*.3,uaL=H*.17,faL=H*.16,hr=H*.068;const pt=(o,a,l)=>[o[0]+Math.sin(a)*l*fd,o[1]+Math.cos(a)*l];
+  /* hips sit so the lower foot touches the ground */const knee=[pt([0,0],q.th[0],thL),pt([0,0],q.th[1],thL)];const foot=[pt(knee[0],q.sh[0],shL),pt(knee[1],q.sh[1],shL)];const drop=Math.max(foot[0][1],foot[1][1]);
+  const dive=p.act==='dive'||p.act==='getup';const hip=[x,gy-drop+(dive?H*.25:0)];const K=[[hip[0]+knee[0][0],hip[1]+knee[0][1]],[hip[0]+knee[1][0],hip[1]+knee[1][1]]],Fo=[[hip[0]+foot[0][0],hip[1]+foot[0][1]],[hip[0]+foot[1][0],hip[1]+foot[1][1]]];
+  const sh=[hip[0]+Math.sin(q.le)*toL*fd,hip[1]-Math.cos(q.le)*toL];const head=[sh[0]+Math.sin(q.le)*hr*1.5*fd,sh[1]-Math.cos(q.le)*hr*1.5];
+  const E=[pt(sh,q.ua[0],uaL),pt(sh,q.ua[1],uaL)];const Hd=[pt(E[0],q.fa[0],faL),pt(E[1],q.fa[1],faL)];const kit=p.lib?['#ffd166','#d4a017']:[p.kitc[1],p.kitc[2]];const indoor=s.V.indoor;
+  g.lineCap='round';g.lineJoin='round';const seg=(a,b,w,c)=>{g.strokeStyle=c;g.lineWidth=w;g.beginPath();g.moveTo(a[0],a[1]);g.lineTo(b[0],b[1]);g.stroke()};
+  /* far arm and leg first */const dark=p.skin;seg(hip,K[1],H*.1,dark);seg(K[1],Fo[1],H*.085,dark);if(indoor){seg(K[1],[K[1][0]+(Fo[1][0]-K[1][0])*.18,K[1][1]+(Fo[1][1]-K[1][1])*.18],H*.1,'#f2f2f2');seg(Fo[1],[Fo[1][0]+fd*H*.05,Fo[1][1]],H*.06,'#f4f6fb')}
+  seg(sh,E[1],H*.075,dark);seg(E[1],Hd[1],H*.065,dark);g.globalAlpha=1;
+  /* shorts and top */seg(hip,K[0],H*.1,p.skin);seg(K[0],Fo[0],H*.085,p.skin);if(indoor){seg(K[0],[K[0][0]+(Fo[0][0]-K[0][0])*.18,K[0][1]+(Fo[0][1]-K[0][1])*.18],H*.1,'#f2f2f2');seg(Fo[0],[Fo[0][0]+fd*H*.05,Fo[0][1]],H*.06,'#f4f6fb')}
+  const sk0=[hip[0]+(K[0][0]-hip[0])*.38,hip[1]+(K[0][1]-hip[1])*.38],sk1=[hip[0]+(K[1][0]-hip[1]*0-hip[0])*.38,hip[1]+(K[1][1]-hip[1])*.38];seg(hip,sk0,H*.13,kit[1]);seg(hip,sk1,H*.13,kit[1]);
+  seg(hip,sh,H*.17,kit[0]);const mid=[(hip[0]+sh[0])/2,(hip[1]+sh[1])/2];if(H>26){g.fillStyle='rgba(255,255,255,.9)';g.font=`800 ${Math.round(H*.09)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillText(String(p.me?1:(p.slot+2)+(p.team==='B'?6:0)),mid[0],mid[1]);g.textBaseline='alphabetic'}
+  /* head */g.fillStyle=p.skin;g.beginPath();g.arc(head[0],head[1],hr,0,7);g.fill();g.fillStyle=p.hair;g.beginPath();g.arc(head[0],head[1]-hr*.15,hr*1.02,Math.PI*(fd>0?.95:1.05)+(fd>0?0:0),Math.PI*(fd>0?2.05:1.95)+0);g.fill();
+  if(p.cap){g.fillStyle=kit[0];g.beginPath();g.arc(head[0],head[1]-hr*.2,hr*1.02,Math.PI,2*Math.PI);g.fill();g.fillRect(head[0]+(fd>0?0:-hr*1.6),head[1]-hr*.32,hr*1.6,hr*.22)}
+  if(p.shades&&p.shades!=='none'){g.fillStyle=p.shades==='mirror'?'#c0e6ff':'#111';g.fillRect(head[0]+fd*hr*.15-(fd<0?hr*.85:0),head[1]-hr*.25,hr*.85,hr*.3)}
+  if(p.act==='sad'){/* head down */}
+  /* near arm */seg(sh,E[0],H*.08,p.skin);seg(E[0],Hd[0],H*.07,p.skin);
+  if(p.sig>0){/* fingers behind the back: 1 = block line, 2 = block angle */const sameTeamHuman=s.all.some(q=>q.ctl==='local'&&q.team===p.team);if(sameTeamHuman||s.auto===false){g.fillStyle='#fff';const n=p.sigK==='line'?1:2;for(let i=0;i<n;i++)g.fillRect(Hd[0][0]-fd*(2+i*3),Hd[0][1]-H*.07,1.8,H*.06)}}
+  /* marker for you */if(p.ctl==='local'){g.fillStyle='#3ddc84';const ty=head[1]-hr*2.4;g.beginPath();g.moveTo(head[0],ty+hr*.9);g.lineTo(head[0]-hr*.7,ty);g.lineTo(head[0]+hr*.7,ty);g.fill()}
+  else if(p.ctl==='remote'){g.font=`800 ${Math.round(Math.max(12,H*.12))}px Barlow,sans-serif`;g.textAlign='center';g.lineWidth=3;g.strokeStyle='rgba(0,0,0,.6)';const nm=p.name.split(' ')[0];g.strokeText(nm,head[0],head[1]-hr*2);g.fillStyle='#ffcc4d';g.fillText(nm,head[0],head[1]-hr*2)}
+  g.lineCap='butt'}
+function vbHud(){const s=VBS,el=$('#vbHud');if(!el)return;const me=s.all.find(p=>p.ctl==='local');
+  const k=JSON.stringify([s.phase,s.server&&s.server.id,s.score,s.sets,s.serveTeam,s.phase==='rally'?s.touches:0,s.side,s.train&&[s.train.score,s.train.left],s.call.block,s.serveType,s.shotSel,me&&me.in.call,Math.round(s.wind.str*2)]);if(el.dataset.k===k)return;el.dataset.k=k;
+  const wind=s.V.indoor?'':`<span class="vbwind" title="Wind"><i style="transform:rotate(${Math.atan2(s.wind.z,s.wind.x)}rad)">➜</i>${s.wind.str<.6?'Calm':s.wind.str.toFixed(1)+' m/s'}</span>`;
+  if(s.train){el.innerHTML=`<div class="sthb"><div class="sths"><small>${VB_DRILLS[s.train.kind][0]}</small><b>${s.train.score}</b></div><div class="sths"><small>Balls left</small><b>${s.train.left}</b></div><div class="sths"><small>Best</small><b>${vbSave().best[s.train.kind]||0}</b></div></div>`;return}
+  const last=s.setsToWin>1&&s.setN===s.setsToWin*2-1;el.innerHTML=`<div class="sthb"><div class="stteam ${s.serveTeam==='A'?'on':''}"><small>${esc(s.names.A)}${s.serveTeam==='A'?' 🏐':''}${s.setsToWin>1?' · sets '+s.sets.A:''}</small><b>${s.score.A}</b></div><div class="stmid"><small>Set ${s.setN} · to ${last?15:s.to}</small><b>${s.phase==='rally'&&s.side?s.touches+'/3':'·'}</b><small>${wind||'touches'}</small></div><div class="stteam them ${s.serveTeam==='B'?'on':''}"><small>${s.serveTeam==='B'?'🏐 ':''}${esc(s.names.B)}${s.setsToWin>1?' · sets '+s.sets.B:''}</small><b>${s.score.B}</b></div></div>`;vbChips()}
+/* ---------- input ---------- */
+const VB_KEYS={ArrowLeft:'l',KeyA:'l',ArrowRight:'r',KeyD:'r',ArrowUp:'u',KeyW:'u',ArrowDown:'d',KeyS:'d',Space:'jump',KeyK:'pass',KeyE:'dive',ShiftLeft:'dive',ShiftRight:'dive',KeyJ:'tip',KeyL:'roll',Digit1:'c1',Digit2:'c2',Digit3:'c3',Digit4:'c4',KeyC:'mine',KeyX:'yours',KeyB:'blockcall',Escape:'pause',KeyP:'pause'};
+const VB_HOLD=new Set(['l','r','u','d','tip','roll']);
+function vbKey(e,down){if(!VBS||!$('#vbCanvas'))return;if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;const k=VB_KEYS[e.code];if(!k)return;e.preventDefault();if(k==='pause'){if(down&&!VBS.net)vbPause();return}
+  const was=VBS.keys[k];VBS.keys[k]=down;if(down&&!was)vbPress(k);if(!down&&was)vbRel(k)}
+function vbMeP(){const s=VBS;return s&&s.all.find(p=>p.ctl==='local')}
+function vbPress(k){const s=VBS;if(!s||s.paused)return;if(VB_HOLD.has(k))return;vbEv(k)}
+function vbRel(k){if(k==='jump')vbEv('jumpUp')}
+function vbEv(k){const s=VBS;if(s.netClient){vbNetSendEv(k);return}const me=vbMeP();if(me)me.in.ev.push(k)}
+addEventListener('keydown',e=>vbKey(e,true));addEventListener('keyup',e=>vbKey(e,false));addEventListener('blur',()=>{if(VBS)VBS.keys={}});
+function vbLoop(t){if(!VBS||!$('#vbCanvas')){VBRAF=0;document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}return}let dt=Math.min(.05,(t-(VBLAST||t))/1000);VBLAST=t;const s=VBS;
+  if(s.slowT>0){s.slowT-=dt;dt*=.4}s.dtLast=dt;padPoll('vb');
+  if(s.netClient)vbNetClientTick(dt);else{let acc=dt;while(acc>1e-6){const h=Math.min(1/60,acc);vbStep(h);acc-=h}if(s.net&&s.net.host)vbNetHostTick(dt)}
+  vbDraw();VBRAF=requestAnimationFrame(vbLoop)}
+function vbPause(){const s=VBS;s.paused=!s.paused;const o=$('#vbPause');if(o)o.hidden=!s.paused}
+/* context buttons under the court: serve type, shot, set call, partner calls */
+function vbChips(){const s=VBS,el=$('#vbChips');if(!el)return;const me=vbMeP();if(!me){el.innerHTML='';return}
+  const serving=(s.phase==='serve'||s.phase==='train'&&s.train&&s.train.kind==='serve')&&s.server===me;let h='';
+  if(serving){h=`<span class="vbcl">Serve</span>`+[['c1','jump'],['c2','float'],['c3','under']].concat(s.fmt==='beach'?[['c4','sky']]:[]).map(([c,t],i)=>`<button class="vbchip ${(s.serveType||'float')===t?'on':''}" data-vbev="${c}"><kbd>${i+1}</kbd>${VB_SERVES[t][0]}</button>`).join('')}
+  else{const sel=s.shotSel||'power';h=`<span class="vbcl">Shot</span>`+[['power','Power','Space'],['tip','Tip','J'],['roll','Roll','L']].map(([k,n,kb])=>`<button class="vbchip ${sel===k?'on':''}" data-vbshot="${k}"><kbd>${kb}</kbd>${n}</button>`).join('')+
+    `<span class="vbcl">Set me</span>`+[['c1','high','High'],['c2','quick','Quick'],['c3',s.fmt==='indoor'?'pipe':'back',s.fmt==='indoor'?'Pipe':'Back']].map(([c,k,n],i)=>`<button class="vbchip ${me.in.call===k?'on':''}" data-vbev="${c}"><kbd>${i+1}</kbd>${n}</button>`).join('')+
+    `<span class="vbcl">Call</span><button class="vbchip" data-vbev="mine"><kbd>C</kbd>Mine!</button><button class="vbchip" data-vbev="yours"><kbd>X</kbd>Yours!</button>${s.fmt==='beach'?`<button class="vbchip on" data-vbev="blockcall"><kbd>B</kbd>${s.call.block==='me'?'I block':'Partner blocks'}</button>`:''}`}
+  el.innerHTML=h;[...el.querySelectorAll('[data-vbev]')].forEach(b=>b.onclick=()=>{vbEv(b.dataset.vbev);sfx('click');setTimeout(()=>{const H=$('#vbHud');if(H)H.dataset.k=''},30)});[...el.querySelectorAll('[data-vbshot]')].forEach(b=>b.onclick=()=>{s.shotSel=b.dataset.vbshot;const H=$('#vbHud');if(H)H.dataset.k='';sfx('click')})}
 
-/* ---------- screens ---------- */
-let VBO={mode:'quick',diff:'normal',to:21,sets:1,style:'setter',time:'day',drill:'serve'};
-function vbHub(){if(!vbOK()){toast('Volleyball is admins only','This mode is only on the developer\'s devices.','M12 9v4M12 17h.01');return}goTo('vbhub');const S=vbSave();const lvl=vbLevel(S.xp);const nx=Math.pow(lvl,2)*60;
-  const tour=S.tour;
-  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6')} Home</button><div><span class="label">Admins only</span><h2>Beach volleyball</h2></div><div class="meta"><span class="tag" style="border-color:#c0392b;color:#ffb3a8">Admin</span></div></div>
-   <div class="card vbhero"><div class="vbart">🏐</div><div class="vbhtxt"><span class="label">Beach level ${lvl}</span><h3>${esc(P.name||'You')}</h3><div class="xpbar" style="max-width:340px"><i style="width:${Math.min(100,((S.xp||0)/nx)*100)}%"></i></div>
-     <div class="vbstats">${[['Record',S.w+'–'+S.l],['Kills',S.kills],['Aces',S.aces],['Blocks',S.blocks],['Digs',S.digs],['Titles',S.titles]].map(([n,v])=>`<div><small>${n}</small><b>${v}</b></div>`).join('')}</div></div></div>
-   <div class="stmodes vb3">${[['quick','Quick match','You and a partner against a beach team.'],['tour','Tournament',tour?`In progress: ${tour.round===0?'semifinal':'final'}`:'Four teams, semis and a final. Win the trophy.'],['train','Training','Serve and spike drills. Hit the targets.']].map(([k,n,d])=>`<button class="stmode ${VBO.mode===k?'on':''}" data-vbm="${k}"><span class="glyph">🏐</span><b>${n}</b><small>${d}</small></button>`).join('')}</div>
-   ${VBO.mode==='quick'?`<div class="card stset"><div class="setrow"><span class="label">Rivals</span>${lgChips('data-vbd',Object.entries(VB_DIFF).map(([k,d])=>[k,d.n]),VBO.diff)}</div>
-     <div class="setrow"><span class="label">Format</span>${lgChips('data-vbs',[[1,'1 set'],[3,'Best of 3']],VBO.sets)}</div><div class="setrow"><span class="label">Points</span>${lgChips('data-vbt',[[11,'11'],[15,'15'],[21,'21']],VBO.to)}</div>
-     <div class="setrow"><span class="label">Partner</span>${lgChips('data-vbp',Object.entries(VB_STYLE).map(([k,v])=>[k,v[0]]),VBO.style)}</div><p class="hint">${VB_STYLE[VBO.style][1]}</p>
-     <div class="setrow"><span class="label">Time of day</span>${lgChips('data-vbtime',[['day','Day'],['sunset','Sunset'],['night','Night lights']],VBO.time)}</div></div>`:''}
-   ${VBO.mode==='tour'?`<div class="card stset"><span class="label">Beach tournament</span><div class="vbbracket">${vbBracketHTML()}</div><p class="hint">${tour?'Your next match is ready.':'Best of 1 set to 15 each round. Win the final for a title and big XP.'}</p></div>`:''}
-   ${VBO.mode==='train'?`<div class="card stset"><div class="setrow"><span class="label">Drill</span>${lgChips('data-vbdr',[['serve','Serve targets'],['spike','Spike targets']],VBO.drill)}</div><p class="hint">${VBO.drill==='serve'?'Hold Space, let go for power. Land it in the gold zone.':'Your coach sets it up. Jump with Space at the JUMP! sign and hammer it into the zone.'} 12 balls. Best: ${S.best[VBO.drill]||0}</p></div>`:''}
-   <button class="btn btn-go btn-big" id="vbGo" style="width:100%;margin-top:14px">${VBO.mode==='train'?'Start drill':VBO.mode==='tour'?(tour?'Play next round':'Enter the tournament'):'Serve it up'} ${icon('M5 12h14M13 6l6 6-6 6',18)}</button>
+/* ---------- controllers (Street and volleyball) ---------- */
+const PAD={prev:{}};
+function padPoll(game){let gp=null;try{const l=navigator.getGamepads?navigator.getGamepads():[];for(const g of l)if(g&&g.connected){gp=g;break}}catch(e){}if(!gp)return;
+  const ax=Math.abs(gp.axes[0])>.2?gp.axes[0]:0,ay=Math.abs(gp.axes[1])>.2?gp.axes[1]:0;const btn=i=>!!(gp.buttons[i]&&gp.buttons[i].pressed);const dl=btn(14),dr=btn(15),du=btn(12),dd=btn(13);
+  const S=game==='vb'?VBS:ST;if(!S)return;S.pad={x:ax||(dr?1:dl?-1:0),y:ay||(dd?1:du?-1:0)};
+  const map=game==='vb'?{0:'jump',2:'pass',1:'dive',3:'shotcycle',4:'callcycle',5:'mine',9:'pause'}:{0:'shoot',2:'move',1:'pass',5:'sprint',7:'sprint',9:'pause'};
+  for(const i in map){const k=map[i];const now=btn(+i);const was=!!PAD.prev[game+i];PAD.prev[game+i]=now;if(now===was)continue;
+    if(k==='pause'){if(now)(game==='vb'?vbPause:stPause)();continue}
+    if(game==='vb'){if(k==='shotcycle'){if(now){const o=['power','tip','roll'];S.shotSel=o[(o.indexOf(S.shotSel||'power')+1)%3];toastLite('Shot: '+S.shotSel)}continue}
+      if(k==='callcycle'){if(now){const me=vbMeP();const srv=S.server===me&&S.phase==='serve';const o=srv?['c1','c2','c3']:['c1','c2','c3'];S.cyc=((S.cyc||0)+1)%3;vbEv(o[S.cyc])}continue}
+      if(now)vbPress(k);else vbRel(k);continue}
+    if(now){S.keys[k]=true;stPress(k)}else{S.keys[k]=false;stRelease(k)}}}
+addEventListener('gamepadconnected',()=>toastLite('Controller connected 🎮'));
+
+/* ---------- unlocks and gear ---------- */
+const VB_UNL={ball:{classic:0,sunset:{lvl:2},neon:{lvl:4},retro:{lvl:6},galaxy:{kotb:1},gold:{stop:3}},kit:{sky:0,coral:0,lime:{lvl:3},royal:{lvl:5},sunrise:{lvl:7},stripes:{lvl:9},black:{world:1}},shades:{none:0,aviator:{lvl:2},sport:{lvl:4},mirror:{stop:1}},celeb:{fist:0,jump:{lvl:3},bump:{lvl:5},sky:{lvl:7},dance:{kotb:1}}};
+function vbUnl(cat,id){const c=VB_UNL[cat][id];if(!c)return true;const S=vbSave();const C=S.career||{};if(c.lvl&&vbLevel(S.xp)>=c.lvl)return true;if(c.kotb&&S.kotb.w>=c.kotb)return true;if(c.stop&&(C.stopWins||0)>=c.stop)return true;if(c.world&&(C.world||0)>=c.world)return true;return false}
+function vbUnlTxt(cat,id){const c=VB_UNL[cat][id];return c.lvl?'Beach level '+c.lvl:c.kotb?'Win King of the Beach':c.stop?(c.stop>1?`Win ${c.stop} tour events`:'Win a tour event'):c.world?'Become World Champion':''}
+function vbVenues(){const S=vbSave();const C=S.career||{};const v=['coral','sunset','night'];(C.seen||[]).forEach(x=>{if(!v.includes(x))v.push(x)});return v}
+
+/* ---------- partners for quick matches ---------- */
+function vbPartners(){const rng=mulberry32(4242);const L=[['Setter','set','Feeds you perfect sets. Digs well.'],['Spiker','att','Hits hard. Weaker defense.'],['Defender','def','Gets to everything in the back.'],['Blocker','blk','A wall at the net.'],['All-round','all','Solid at everything.']];
+  return L.map(([n,st,d],i)=>({id:'q'+i,name:VB_FIRST[(i*7+3)%VB_FIRST.length]+' '+VB_LAST[(i*5+2)%VB_LAST.length],style:st,label:n,desc:d}))}
+
+/* ---------- hub ---------- */
+let VBO={mode:'quick',diff:'normal',to:21,sets:1,partner:'q0',venue:'coral',drill:'serve',idiff:'normal',isets:3,ito:25};
+function vbHub(){if(!vbOK()){toast('Volleyball is admins only','This mode is only on the developer\'s devices.','M12 9v4M12 17h.01');return}goTo('vbhub');const S=vbSave();const lvl=vbLevel(S.xp);const nx=Math.pow(lvl,2)*60,pv=Math.pow(lvl-1,2)*60;const T=S.tot;const C=S.career;const st=vbSet();
+  const modes=[['quick','🏐','Quick match','2-on-2 on the beach with a partner you pick.'],['tour','🏆','Pro Beach Tour',C?`Season ${C.season} · ${C.stop<8?'Stop '+(C.stop+1)+' of 8':'World Championship'}`:'Create your player and chase a world title.'],['kotb','👑','King of the Beach',S.kotb.cur?'Round '+(S.kotb.cur.round+1)+' of 3':'Rotating partners. Best individual wins.'],['indoor','🏟️','Indoor 6v6','Rotations, a libero and a setter running plays.'],['train','🎯','Training','Serving, spiking, passing and blocking drills.'],['online','🌐','Online 2v2','Play with your friends. Admin devices only.']];
+  const partners=vbPartners();const venues=vbVenues();
+  let panel='';
+  if(VBO.mode==='quick')panel=`<div class="card stset"><div class="setrow"><span class="label">Rivals</span>${lgChips('data-vbd',Object.entries(VB_DIFF).map(([k,d])=>[k,d.n]),VBO.diff)}</div>
+    <div class="setrow"><span class="label">Format</span>${lgChips('data-vbs',[[1,'1 set'],[3,'Best of 3']],VBO.sets)}</div><div class="setrow"><span class="label">Points</span>${lgChips('data-vbt',[[15,'15'],[21,'21']],VBO.to)}</div>
+    <span class="label">Partner</span><div class="vbpart">${partners.map(p=>`<button class="vbpc ${VBO.partner===p.id?'on':''}" data-vbpt="${p.id}"><b>${p.label}</b><small>${esc(p.name)}</small><i>${p.desc}</i></button>`).join('')}</div>
+    <span class="label" style="display:block;margin-top:12px">Beach</span><div class="vbven">${Object.entries(VB_VENUES).filter(([k,v])=>!v.indoor).map(([k,v])=>{const lock=!venues.includes(k);return `<button class="vbvc ${VBO.venue===k?'on':''} ${lock?'lock':''}" data-vbv="${k}" ${lock?'disabled':''} style="--a:${v.sky[1]};--b:${v.sky[2]};--c:${v.sand[0]}"><i></i><b>${v.n}</b><small>${lock?'🔒 Visit on the Tour':'Wind '+v.wind[0]+'–'+v.wind[1]+' m/s'}</small></button>`}).join('')}</div></div>`;
+  if(VBO.mode==='indoor')panel=`<div class="card stset"><div class="setrow"><span class="label">Rivals</span>${lgChips('data-vbid',Object.entries(VB_DIFF).map(([k,d])=>[k,d.n]),VBO.idiff)}</div><div class="setrow"><span class="label">Format</span>${lgChips('data-vbis',[[1,'1 set'],[3,'Best of 3'],[5,'Best of 5']],VBO.isets)}</div><div class="setrow"><span class="label">Points</span>${lgChips('data-vbit',[[15,'15'],[25,'25']],VBO.ito)}</div>
+    <p class="hint">You play outside hitter and rotate with your team. Front row you attack and block; back row you pass and can hit a pipe from behind the 3 m line. Call for the set with 1, 2, 3.</p></div>`;
+  if(VBO.mode==='train')panel=`<div class="card stset"><div class="vbdrills">${Object.entries(VB_DRILLS).map(([k,d])=>`<button class="vbpc ${VBO.drill===k?'on':''}" data-vbdr="${k}"><b>${d[0]}</b><small>Best: ${S.best[k]||0}</small><i>${d[1]}</i></button>`).join('')}</div></div>`;
+  if(VBO.mode==='kotb')panel=`<div class="card stset">${vbKotbHTML()}</div>`;
+  if(VBO.mode==='tour')panel=`<div class="card stset">${C?vbTourMini():'<p class="hint">Build your beach volleyball player: height, style and look. Pick a partner, then play eight tour stops and climb the world rankings. Top 8 go to the World Championship.</p>'}</div>`;
+  if(VBO.mode==='online')panel=`<div class="card stset"><p class="hint">Make a room and share the code. Up to four players; empty spots are filled by the computer. Only admin devices can join.</p><div class="actrow"><button class="btn btn-go" id="vbHost">Create a room</button><div class="field" style="display:flex;gap:8px;flex:1;min-width:220px"><input id="vbCode" placeholder="Room code" maxlength="5" style="text-transform:uppercase"><button class="btn btn-ghost" id="vbJoin">Join</button></div></div></div>`;
+  const goLbl={quick:'Serve it up',tour:C?'Open the Tour':'Create your player',kotb:S.kotb.cur?'Play round '+(S.kotb.cur.round+1):'Start King of the Beach',indoor:'Start the match',train:'Start drill',online:''}[VBO.mode];
+  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6')} Home</button><div><span class="label">Admins only</span><h2>Volleyball</h2></div><div class="meta"><button class="btn btn-ghost" id="vbGearB">🕶️ Gear</button></div></div>
+   <div class="card vbhero"><div class="vbart">🏐</div><div class="vbhtxt"><span class="label">Beach level ${lvl}${C?' · '+esc(C.name):''}</span><h3>${esc(C?C.name:P.name||'You')}</h3><div class="xpbar" style="max-width:360px"><i style="width:${Math.min(100,((S.xp-pv)/(nx-pv))*100)}%"></i></div>
+     <div class="vbstats">${[['Record',S.w+'–'+S.l],['Kills',T.k||0],['Aces',T.ace||0],['Blocks',T.blk||0],['Digs',T.dig||0],['Titles',(S.titles||0)+S.kotb.w]].map(([n,v])=>`<div><small>${n}</small><b>${v}</b></div>`).join('')}</div></div></div>
+   <div class="stmodes vb6">${modes.map(([k,e,n,d])=>`<button class="stmode ${VBO.mode===k?'on':''}" data-vbm="${k}"><span class="glyph">${e}</span><b>${n}</b><small>${d}</small></button>`).join('')}</div>
+   ${panel}
+   ${goLbl?`<button class="btn btn-go btn-big" id="vbGo" style="width:100%;margin-top:14px">${goLbl} ${icon('M5 12h14M13 6l6 6-6 6',18)}</button>`:''}
+   <div class="card vbsetc"><span class="label">Settings</span><div class="stsets">${[['assist','Pass assist (auto-bump if you miss the timing)'],['hints','Rings and cues'],['com','Commentary'],['slow','Slow-mo and zoom'],['shake','Screen shake']].map(([k,n])=>`<button class="stog ${st[k]?'on':''}" data-vbset="${k}"><i></i>${n}</button>`).join('')}</div></div>
    <details class="card stctl"><summary><b>Controls</b><span class="hchev">${icon('M6 9l6 6 6-6',14)}</span></summary><div class="stkeys">${vbControls()}</div></details>
    <p class="hint" style="margin-top:10px">Only admin devices can see or play this. Players never see it.</p></div></section>`;
   const on=(a,f)=>$$(`[${a}]`).forEach(b=>b.onclick=()=>{f(b);sfx('click');vbHub()});
-  on('data-vbm',b=>VBO.mode=b.dataset.vbm);on('data-vbd',b=>VBO.diff=b.dataset.v);on('data-vbs',b=>VBO.sets=+b.dataset.v);on('data-vbt',b=>VBO.to=+b.dataset.v);on('data-vbp',b=>VBO.style=b.dataset.v);on('data-vbtime',b=>VBO.time=b.dataset.v);on('data-vbdr',b=>VBO.drill=b.dataset.v);
-  $('#vbGo').onclick=()=>{if(VBO.mode==='train')return vbStart({mode:'train',drill:VBO.drill,diff:'normal',time:'day'});if(VBO.mode==='tour'){if(!S.tour)vbTourNew();const T=S.tour;const opp=T.teams[T.round===0?1:T.finalOpp];return vbStart({mode:'tour',diff:T.round===0?'normal':'hard',to:15,sets:1,style:'setter',oppTeam:opp,time:T.round===0?'sunset':'night'})}vbStart({...VBO})}}
-function vbTourNew(){const S=vbSave();const t=shuffle(VB_TEAMS.slice()).slice(0,3);S.tour={teams:[['You','#5ec8ff'],...t],round:0,finalOpp:null};saveP()}
-function vbBracketHTML(){const T=vbSave().tour;if(!T)return '<p class="hint">Enter to see the bracket.</p>';const tm=T.teams;
-  return `<div class="vbb"><div><span class="label">Semifinals</span><div class="vbm ${T.round>0?'done':'now'}"><b>You</b> vs <b>${esc(tm[1][0])}</b></div><div class="vbm done"><b>${esc(tm[2][0])}</b> vs <b>${esc(tm[3][0])}</b>${T.finalOpp?` → ${esc(tm[T.finalOpp][0])}`:''}</div></div><div><span class="label">Final</span><div class="vbm ${T.round===1?'now':''}"><b>${T.round>0?'You':'?'}</b> vs <b>${T.finalOpp?esc(tm[T.finalOpp][0]):'?'}</b></div></div></div>`}
-function vbControls(){return `<div><b>Keyboard</b><ul><li><kbd>A</kbd>/<kbd>D</kbd> or arrows: move</li><li><kbd>Space</kbd> jump. At the top of your jump it spikes; at the net it blocks</li><li>Aim a spike: hold toward the net for a sharp short angle, hold back for deep, nothing for the middle</li><li>Bumps and sets happen on their own when the ball reaches you. <kbd>K</kbd> forces a set</li><li><kbd>E</kbd> dive for a ball you can't reach</li><li>Serve: hold <kbd>Space</kbd>, let go in the green</li><li><kbd>Esc</kbd> pause</li></ul></div>
-  <div><b>Tips</b><ul><li>The green ring shows where the ball will land on your side.</li><li>When your partner sets you, stand on the gold ring and jump at <b>JUMP!</b></li><li>Rally scoring, win by 2. Sets to your chosen points, third set to 15.</li><li>A controller works too: stick to move, A jump, X set, B dive.</li></ul></div>`}
-function vbStart(opt){if(!vbOK())return;const s=vbNew(opt);goTo('vbgame');VBBG.key='';
-  $('#app').innerHTML=`<section class="view stview"><div class="wrap"><div class="stbar"><button class="btn btn-ghost" id="vbQuit">${icon('M19 12H5M11 18l-6-6 6-6')} Leave</button><div class="stvs"><b>${opt.mode==='train'?'Training':'You + Partner'}</b>${opt.mode==='train'?'':`<span>vs</span><b>${esc(s.oppName)}</b>`}</div><button class="btn btn-ghost" id="vbPz">${icon('M10 4H6v16h4zM18 4h-4v16h4z',16)} Pause</button></div>
-   <div id="vbHud" class="sthud"></div><div class="stwrap vbwrap"><canvas id="vbCanvas" tabindex="0" aria-label="Volleyball court"></canvas>
-    ${opt.mode!=='train'?`<div id="vbIntro" class="stintro"><div class="stiside a"><div class="stivp"><b>${esc(P.name||'You')}</b><small>and Partner (${VB_STYLE[opt.style||'setter'][0]})</small></div></div><div class="stivs">VS</div><div class="stiside b"><div class="stivp" style="border-color:${s.oppCol}"><b>${esc(s.oppName)}</b><small>${s.d.n}</small></div></div><div class="stisub">${opt.mode==='tour'?'Tournament':s.setsToWin>1?'Best of 3':'1 set'} · to ${s.to}</div></div>`:''}
-    <div id="vbPause" class="stpause" hidden><div class="card"><h3>Paused</h3><div class="stkeys">${vbControls()}</div><div class="actrow" style="justify-content:center"><button class="btn btn-go" id="vbRes">Resume</button><button class="btn btn-ghost" id="vbQuit2">Leave</button></div></div></div>
-    <div class="sttouch"><div class="stjoy" id="vbJoy"><i></i></div><div class="stbtns"><button data-vbb="set">Set</button><button data-vbb="dive">Dive</button><button data-vbb="jump" class="big" style="grid-column:1/-1;width:auto">Jump / Spike</button></div></div></div></div></section>`;
-  document.body.classList.add('stplaying');try{cancelAnimationFrame(TFX.raf);const tf=$('#themefx');if(tf)tf.remove();THEME_CUR=''}catch(e){}
-  const cv=$('#vbCanvas');const fit=()=>{if(!cv.isConnected){removeEventListener('resize',fit);return}const pw=cv.parentElement.clientWidth;const short=innerHeight<520;const avail=short?innerHeight-12:innerHeight-170;const w=Math.max(280,Math.min(pw,avail/.56));cv.style.width=w+'px';cv.style.height=Math.round(w*.56)+'px'};fit();addEventListener('resize',fit);
-  cv.focus({preventScroll:true});window.scrollTo({top:0});
-  const quit=()=>{VBS=null;cancelAnimationFrame(VBRAF);document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}vbHub()};$('#vbQuit').onclick=quit;$('#vbQuit2').onclick=quit;$('#vbPz').onclick=vbPause;$('#vbRes').onclick=vbPause;
-  const j=$('#vbJoy'),kn=j.querySelector('i');let id=null,cx=0;j.addEventListener('touchstart',e=>{const t=e.changedTouches[0];id=t.identifier;cx=j.getBoundingClientRect().left+j.offsetWidth/2;e.preventDefault()},{passive:false});
-  j.addEventListener('touchmove',e=>{for(const t of e.changedTouches)if(t.identifier===id){const dx=vbC((t.clientX-cx)/45,-1,1);VBS.touch={x:Math.abs(dx)<.15?0:dx,on:true};kn.style.transform=`translateX(${dx*36}px)`}e.preventDefault()},{passive:false});
-  j.addEventListener('touchend',()=>{id=null;VBS.touch={x:0,on:false};kn.style.transform=''});
-  $$('[data-vbb]').forEach(b=>{const k=b.dataset.vbb;b.addEventListener('touchstart',e=>{e.preventDefault();VBS.keys[k]=true;vbPress(k);b.classList.add('on')},{passive:false});b.addEventListener('touchend',e=>{e.preventDefault();VBS.keys[k]=false;vbRel(k);b.classList.remove('on')})});
-  cancelAnimationFrame(VBRAF);VBLAST=0;VBRAF=requestAnimationFrame(vbLoop)}
-function vbEnd(w){const s=VBS;if(!s)return;cancelAnimationFrame(VBRAF);document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}const S=vbSave();const me=s.A[0];const won=w==='A';
-  if(s.train){const k=s.train.kind;const sc=s.train.score;const best=sc>(S.best[k]||0);if(best)S.best[k]=sc;S.xp+=10+sc;saveP();
-    $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="card stend won"><span class="label">Training · ${k==='serve'?'serve targets':'spike targets'}</span><h1>${sc} points</h1><p class="hint">${best?'New personal best!':'Best: '+S.best[k]}</p><div class="actrow" style="justify-content:center"><button class="btn btn-go btn-big" id="vbAgain">Again</button><button class="btn btn-ghost" onclick="VBS=null;vbHub()">Volleyball menu</button></div></div></div></section>`;
-    const o=s.opt;VBS=null;$('#vbAgain').onclick=()=>vbStart(o);return}
-  if(won)S.w++;else S.l++;S.kills+=me.st.k;S.aces+=me.st.ace;S.blocks+=me.st.blk;S.digs+=me.st.dig;const lv0=vbLevel(S.xp);const xpg=(won?60:25)+me.st.k*4+me.st.ace*5+me.st.blk*5+me.st.dig*2+(s.opt.diff==='hard'?30:0);S.xp+=xpg;gainXP(Math.round(xpg/2));
-  let tourMsg='';if(s.opt.mode==='tour'){const T=S.tour;if(!won){tourMsg='Knocked out. Enter again any time.';S.tour=null}else if(T.round===0){T.round=1;T.finalOpp=Math.random()<.5?2:3;tourMsg=`On to the final against ${T.teams[T.finalOpp][0]}!`}else{S.titles++;S.tour=null;tourMsg='Tournament champions! 🏆';const u=unlocks();if(!u.title.includes('Beach King'))u.title.push('Beach King')}}
-  const got=[];if(!S.ach)S.ach=[];const award=id=>{if(!S.ach.includes(id)){S.ach.push(id);got.push(id)}};if(won)award('vbwin');if(me.st.ace)award('vbace');if(me.st.blk)award('vbblock');if(tourMsg.startsWith('Tournament champions'))award('vbtour');
-  saveP();if(won){confetti();sfx('win')}else sfx('lose');const up=vbLevel(S.xp)>lv0;
-  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="card stend ${won?'won':''}"><span class="label">Beach volleyball · ${s.d.n}${s.opt.mode==='tour'?' · tournament':''}</span><h1>${won?'You win':'You lose'}</h1>
-   <div class="stfinal"><div><small>You + Partner</small><b>${s.setsToWin>1?s.sets.A:s.score.A}</b></div><span>–</span><div><small>${esc(s.oppName)}</small><b>${s.setsToWin>1?s.sets.B:s.score.B}</b></div></div>${s.setsToWin>1?'<p class="hint">Sets won</p>':''}
-   ${tourMsg?`<p class="stlad">${esc(tourMsg)}</p>`:''}<p class="hint">+${xpg} beach XP${up?' · <b>Level up!</b>':''}${got.length?' · '+got.map(id=>'Badge: '+(VB_ACH[id]||id)).join(', '):''}</p>
-   <div class="tbl-wrap"><table><tr><th>Player</th><th class="n">Points</th><th class="n">Kills</th><th class="n">Aces</th><th class="n">Blocks</th><th class="n">Digs</th><th class="n">Errors</th></tr>${s.all.map(p=>`<tr class="${p.team==='A'?'me':''}"><td>${p.me?'<b>You</b>':esc(p.name)}</td><td class="n">${p.st.pts}</td><td class="n">${p.st.k}</td><td class="n">${p.st.ace}</td><td class="n">${p.st.blk}</td><td class="n">${p.st.dig}</td><td class="n">${p.st.err}</td></tr>`).join('')}</table></div>
-   <div class="actrow" style="justify-content:center;margin-top:14px"><button class="btn btn-go btn-big" id="vbAgain">${s.opt.mode==='tour'&&S.tour?'Play the final':'Play again'}</button><button class="btn btn-ghost" onclick="VBS=null;vbHub()">Volleyball menu</button><button class="btn btn-ghost" onclick="VBS=null;go('home')">Home</button></div></div></div></section>`;
-  const o=s.opt;VBS=null;$('#vbAgain').onclick=()=>{if(o.mode==='tour'){VBO.mode='tour';if(vbSave().tour){const T=vbSave().tour;return vbStart({mode:'tour',diff:'hard',to:15,sets:1,style:'setter',oppTeam:T.teams[T.finalOpp],time:'night'})}return vbHub()}vbStart(o)};refreshNav()}
-function vbHomeCard(){const S=vbSave();return `<div class="sthome card vbhome"><div class="sthart vbsky" aria-hidden="true"><span class="vbsun"></span><span class="vbnet"></span><span class="vbball">🏐</span></div><div class="sthtxt"><span class="label"><span class="betatag" style="background:#c0392b">Admin</span> Only you can see this</span><h3>Volleyball</h3><p>2-on-2 beach volleyball: bump, set, spike, block and dive. Quick matches, a tournament and training drills.</p><div class="row"><span class="tag">Beach level ${vbLevel(S.xp)}</span><span class="tag">${S.w}–${S.l}</span></div><button class="btn btn-go" onclick="vbHub()">Play volleyball ${icon('M5 12h14M13 6l6 6-6 6',16)}</button></div></div>`}
+  on('data-vbm',b=>VBO.mode=b.dataset.vbm);on('data-vbd',b=>VBO.diff=b.dataset.v);on('data-vbs',b=>VBO.sets=+b.dataset.v);on('data-vbt',b=>VBO.to=+b.dataset.v);on('data-vbpt',b=>VBO.partner=b.dataset.vbpt);on('data-vbv',b=>VBO.venue=b.dataset.vbv);on('data-vbdr',b=>VBO.drill=b.dataset.vbdr);
+  on('data-vbid',b=>VBO.idiff=b.dataset.v);on('data-vbis',b=>VBO.isets=+b.dataset.v);on('data-vbit',b=>VBO.ito=+b.dataset.v);on('data-vbset',b=>{st[b.dataset.vbset]=st[b.dataset.vbset]?0:1;saveP()});
+  $('#vbGearB').onclick=()=>vbGear();
+  const go=$('#vbGo');if(go)go.onclick=()=>{const m=VBO.mode;
+    if(m==='quick'){const pt=partners.find(p=>p.id===VBO.partner)||partners[0];return vbStart({mode:'quick',fmt:'beach',diff:VBO.diff,sets:VBO.sets,to:VBO.to,venue:VBO.venue,partner:{name:pt.name,style:pt.style}})}
+    if(m==='indoor')return vbStart({mode:'indoor',fmt:'indoor',diff:VBO.idiff,sets:VBO.isets,to:VBO.ito,venue:'gym',nameB:vbPick(['Thunder','Vipers','Titans','Falcons','Storm','Eagles'])});
+    if(m==='train')return vbStart({mode:'train',fmt:'beach',drill:VBO.drill,diff:'normal',venue:'coral'});
+    if(m==='kotb')return vbKotbPlay();if(m==='tour')return C?vbTour():vbCreate()};
+  const hb=$('#vbHost');if(hb)hb.onclick=()=>vbNetHost();const jb=$('#vbJoin');if(jb)jb.onclick=()=>{const c=($('#vbCode').value||'').trim().toUpperCase();if(c.length<4)return toastLite('Enter the room code');vbNetJoin(c)}}
+function vbControls(){return `<div><b>Keyboard</b><ul><li><kbd>WASD</kbd>/arrows: move (W/S is across the court)</li><li><kbd>K</kbd> pass or set. Press as the white ring closes for a perfect touch</li><li><kbd>Space</kbd> jump: spike on your side, block at the net</li><li>Spike aim: hold <kbd>W</kbd>/<kbd>S</kbd> toward a sideline. Your side = line shot, the other side = cut shot</li><li>Hold <kbd>J</kbd> to tip, <kbd>L</kbd> to roll shot</li><li><kbd>E</kbd>/<kbd>Shift</kbd> dive</li><li><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> call your set (high, quick, back) or pick a serve; <kbd>4</kbd> sky ball</li><li><kbd>C</kbd> "Mine!" · <kbd>X</kbd> "Yours!" · <kbd>B</kbd> who blocks</li><li>Serve: hold <kbd>Space</kbd>, let go in the green</li></ul></div>
+  <div><b>Tips</b><ul><li>The green ring shows where the ball will land.</li><li>When your partner sets you, stand on the gold ring and jump at JUMP!</li><li>Wind (see the flags) pushes high balls. Float serves wobble.</li><li>Watch your partner's hand signal before the serve: one finger = block line, two = block angle.</li><li>The other team learns your favorite shots. Mix it up.</li></ul></div>
+  <div><b>Controller</b><ul><li>Stick: move · A jump · X pass/set · B dive</li><li>Y cycle shot · LB call set/serve · RB "Mine!" · Start pause</li></ul></div>`}
 
-/* ---------- game controllers (shared by Street and volleyball) ---------- */
-const PAD={prev:{}};
-function padPoll(game){let gp=null;try{const l=navigator.getGamepads?navigator.getGamepads():[];for(const g of l)if(g&&g.connected){gp=g;break}}catch(e){}if(!gp)return;
-  const ax=Math.abs(gp.axes[0])>.2?gp.axes[0]:0,ay=Math.abs(gp.axes[1])>.2?gp.axes[1]:0;const btn=i=>!!(gp.buttons[i]&&gp.buttons[i].pressed);
-  const dl=btn(14),dr=btn(15),du=btn(12),dd=btn(13);const map=game==='vb'?{0:'jump',2:'set',1:'dive',9:'pause'}:{0:'shoot',2:'move',1:'pass',5:'sprint',7:'sprint',9:'pause'};
-  if(game==='vb'&&VBS){VBS.pad={x:ax||(dr?1:dl?-1:0)}}else if(game==='st'&&ST){ST.pad={x:ax||(dr?1:dl?-1:0),y:ay||(dd?1:du?-1:0)}}
-  for(const i in map){const k=map[i];const now=btn(+i);const was=!!PAD.prev[game+i];PAD.prev[game+i]=now;
-    if(k==='pause'){if(now&&!was)(game==='vb'?vbPause:stPause)();continue}
-    const S=game==='vb'?VBS:ST;if(!S)continue;if(now&&!was){S.keys[k]=true;(game==='vb'?vbPress:stPress)(k)}else if(!now&&was){S.keys[k]=false;(game==='vb'?vbRel:stRelease)(k)}}}
-addEventListener('gamepadconnected',()=>toastLite('Controller connected 🎮'));
+/* ---------- gear ---------- */
+function vbGear(){goTo('vbgear');const S=vbSave();const G=S.gear;const sec=(cat,title,list,cur,render)=>`<div class="card"><span class="label">${title}</span><div class="vbgear">${Object.entries(list).map(([id,v])=>{const ok=vbUnl(cat,id);return `<button class="vbgi ${cur===id?'on':''} ${ok?'':'lock'}" data-vbg="${cat}:${id}" ${ok?'':'disabled'}>${render(id,v)}<b>${Array.isArray(v)?v[0]:v}</b><small>${ok?(cur===id?'Equipped':'Tap to equip'):'🔒 '+vbUnlTxt(cat,id)}</small></button>`}).join('')}</div></div>`;
+  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" id="vbGBack">${icon('M19 12H5M11 18l-6-6 6-6')} Volleyball</button><div><span class="label">Your look on the sand</span><h2>Gear</h2></div></div><div class="stack">
+    ${sec('ball','Ball',VB_BALLS,G.ball,(id,v)=>`<span class="vbgb" style="background:conic-gradient(${v[1][0]} 0 33%,${v[1][1]} 0 66%,${v[1][2]} 0)"></span>`)}
+    ${sec('kit','Team kit',VB_KITS,G.kit,(id,v)=>`<span class="vbgb" style="background:linear-gradient(135deg,${v[1]},${v[2]})"></span>`)}
+    ${sec('shades','Shades',VB_SHADES,G.shades,id=>`<span class="vbgb e">${id==='none'?'🙂':id==='mirror'?'🪩':'🕶️'}</span>`)}
+    ${sec('celeb','Celebration',VB_CELEB,G.celeb,id=>`<span class="vbgb e">${({fist:'✊',jump:'🙌',bump:'🤜',dance:'💃',sky:'☝️'})[id]}</span>`)}</div></div></section>`;
+  $('#vbGBack').onclick=()=>vbHub();$$('[data-vbg]').forEach(b=>b.onclick=()=>{const[c,id]=b.dataset.vbg.split(':');G[c]=id;saveP();sfx('click');vbGear()})}
+
+/* ---------- start a match ---------- */
+function vbStart(opt){if(!vbOK())return;cancelAnimationFrame(VBRAF);const s=vbNew(opt);goTo('vbgame');VBBG.key='';
+  const isTrain=opt.mode==='train';const nB=s.names.B;
+  $('#app').innerHTML=`<section class="view stview"><div class="wrap"><div class="stbar"><button class="btn btn-ghost" id="vbQuit">${icon('M19 12H5M11 18l-6-6 6-6')} Leave</button><div class="stvs">${isTrain?'<b>Training</b>':`<b>${esc(s.names.A)}</b><span>vs</span><b>${esc(nB)}</b>`}</div>${opt.mode==='online'?'<span></span>':`<button class="btn btn-ghost" id="vbPz">${icon('M10 4H6v16h4zM18 4h-4v16h4z',16)} Pause</button>`}</div>
+   <div id="vbHud" class="sthud"></div><div class="stwrap vbwrap"><canvas id="vbCanvas" tabindex="0" aria-label="Volleyball court"></canvas><div id="vbCom" class="stcom" aria-live="polite"></div>
+    ${isTrain?'':`<div id="vbIntro" class="stintro"><div class="stiside a"><div class="stivp"><b>${esc(s.names.A)}</b><small>${s.teams.A.map(p=>esc(p.ctl==='local'?'You':p.name.split(' ')[0])).slice(0,6).join(' · ')}</small></div></div><div class="stivs">VS</div><div class="stiside b"><div class="stivp"><b>${esc(nB)}</b><small>${s.opt.mode==='online'?'Online':s.d.n}</small></div></div><div class="stisub">${esc(s.V.n)} · ${s.setsToWin>1?'best of '+(s.setsToWin*2-1):'1 set'} to ${s.to}${s.V.indoor?'':' · wind '+(s.wind.str<.6?'calm':s.wind.str.toFixed(1)+' m/s')}</div></div>`}
+    <div id="vbPause" class="stpause" hidden><div class="card"><h3>Paused</h3><div class="stkeys">${vbControls()}</div><div class="actrow" style="justify-content:center"><button class="btn btn-go" id="vbRes">Resume</button><button class="btn btn-ghost" id="vbQuit2">Leave</button></div></div></div>
+    <div class="sttouch"><div class="stjoy" id="vbJoy"><i></i></div><div class="stbtns vbtb"><button data-vbb="pass">Pass</button><button data-vbb="dive">Dive</button><button data-vbb="jump" class="big">Jump</button></div></div></div>
+   <div id="vbChips" class="vbchips"></div></div></section>`;
+  document.body.classList.add('stplaying');try{cancelAnimationFrame(TFX.raf);const tf=$('#themefx');if(tf)tf.remove();THEME_CUR=''}catch(e){}
+  const cv=$('#vbCanvas');const fit=()=>{if(!cv.isConnected){removeEventListener('resize',fit);return}const pw=cv.parentElement.clientWidth;const short=innerHeight<520;const top=cv.parentElement.getBoundingClientRect().top+(window.scrollY||0);const ch=($('#vbChips')||{}).offsetHeight||40;const avail=short?innerHeight-12:innerHeight-top-ch-22;const w=Math.max(280,Math.min(pw,avail/.6));cv.style.width=w+'px';cv.style.height=Math.round(w*.6)+'px'};fit();setTimeout(fit,60);addEventListener('resize',fit);
+  cv.focus({preventScroll:true});window.scrollTo({top:0});
+  const quit=()=>{if(VBS&&VBS.net)vbNetLeave();VBS=null;cancelAnimationFrame(VBRAF);document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}vbHub()};$('#vbQuit').onclick=quit;$('#vbQuit2').onclick=quit;const pz=$('#vbPz');if(pz)pz.onclick=vbPause;$('#vbRes').onclick=vbPause;
+  const j=$('#vbJoy'),kn=j.querySelector('i');let id=null,cx=0,cy=0;j.addEventListener('touchstart',e=>{const t=e.changedTouches[0];id=t.identifier;const r=j.getBoundingClientRect();cx=r.left+r.width/2;cy=r.top+r.height/2;e.preventDefault()},{passive:false});
+  j.addEventListener('touchmove',e=>{for(const t of e.changedTouches)if(t.identifier===id){let dx=(t.clientX-cx)/45,dz=(t.clientY-cy)/45;const m=Math.hypot(dx,dz);if(m>1){dx/=m;dz/=m}if(m<.15)dx=dz=0;VBS.touch={x:dx,z:dz,on:true};kn.style.transform=`translate(${dx*36}px,${dz*36}px)`}e.preventDefault()},{passive:false});
+  const end=()=>{id=null;VBS.touch={x:0,z:0,on:false};kn.style.transform=''};j.addEventListener('touchend',end);j.addEventListener('touchcancel',end);
+  $$('[data-vbb]').forEach(b=>{const k=b.dataset.vbb;const dn=e=>{e.preventDefault();VBS.keys[k]=true;vbPress(k);b.classList.add('on');vib(8)},up=e=>{e.preventDefault();VBS.keys[k]=false;vbRel(k);b.classList.remove('on')};b.addEventListener('touchstart',dn,{passive:false});b.addEventListener('touchend',up);b.addEventListener('mousedown',dn);b.addEventListener('mouseup',up)});
+  VBLAST=0;VBRAF=requestAnimationFrame(vbLoop)}
+
+/* ---------- final whistle ---------- */
+function vbEnd(w){const s=VBS;if(!s)return;cancelAnimationFrame(VBRAF);document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}const S=vbSave();const me=s.all.find(p=>p.ctl==='local')||s.teams.A[0];const myT=me.team;const won=w===myT;const o=s.opt;
+  if(s.net)vbNetEnd(w);
+  if(s.train){const k=s.train.kind;const sc=s.train.score;const best=sc>(S.best[k]||0);if(best)S.best[k]=sc;S.xp+=10+sc*2;saveP();
+    $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="card stend won"><span class="label">Training · ${VB_DRILLS[k][0]}</span><h1>${sc} points</h1><p class="hint">${best?'New personal best!':'Best: '+S.best[k]}</p><div class="actrow" style="justify-content:center"><button class="btn btn-go btn-big" id="vbAgain">Again</button><button class="btn btn-ghost" id="vbMenu">Volleyball menu</button></div></div></div></section>`;
+    VBS=null;$('#vbAgain').onclick=()=>vbStart(o);$('#vbMenu').onclick=()=>vbHub();return}
+  if(won)S.w++;else S.l++;const T=S.tot;T.m=(T.m||0)+1;['pts','k','att','ace','blk','dig','err','perf'].forEach(k=>T[k]=(T[k]||0)+(me.st[k]||0));
+  const lv0=vbLevel(S.xp);const xpg=(won?60:25)+me.st.k*4+me.st.ace*5+me.st.blk*5+me.st.dig*2+me.st.perf+({easy:0,normal:10,hard:25,pro:40})[o.diff||'normal'];S.xp+=xpg;gainXP(Math.round(xpg/2));
+  let extra='';if(o.mode==='tour')extra=vbTourAfter(won,me,s);if(o.mode==='kotb')extra=vbKotbAfter(s);
+  const got=[];const award=(id,n)=>{if(!S.ach.includes(id)){S.ach.push(id);got.push(n)}};if(won)award('vbwin','First win');if(me.st.ace)award('vbace','Ace!');if(me.st.blk)award('vbblock','Stuff block');if(me.st.k>=8)award('vbk8','Hammer (8 kills)');if(s.maxRally>=10)award('vbrally','Marathon rally');if(o.fmt==='indoor'&&won)award('vbindoor','Indoor winner');
+  saveP();if(won){confetti();sfx('win')}else sfx('lose');const up=vbLevel(S.xp)>lv0;
+  const rows=s.all.concat(s.teams.A.lib&&!s.teams.A.includes(s.teams.A.lib)?[s.teams.A.lib]:[]).filter(p=>p.st.pts+p.st.dig+p.st.att+p.st.pass>0||p.ctl!=='ai'||s.fmt==='beach');
+  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="card stend ${won?'won':''}"><span class="label">${esc(s.V.n)} · ${({quick:'Quick match',tour:'Pro Beach Tour',kotb:'King of the Beach',indoor:'Indoor 6v6',online:'Online'})[o.mode]||''}${s.d&&o.mode!=='online'?' · '+s.d.n:''}</span><h1>${won?'You win':'You lose'}</h1>
+   <div class="stfinal"><div><small>${esc(s.names.A)}</small><b>${s.setsToWin>1?s.sets.A:s.score.A}</b></div><span>–</span><div><small>${esc(s.names.B)}</small><b>${s.setsToWin>1?s.sets.B:s.score.B}</b></div></div>${s.setsToWin>1?'<p class="hint">Sets won</p>':''}
+   ${extra}<p class="hint">+${xpg} beach XP${up?' · <b>Level up!</b> New gear may be unlocked':''}${got.length?' · '+got.map(n=>'Badge: '+n).join(', '):''}</p>
+   <div class="tbl-wrap"><table><tr><th>Player</th><th class="n">Pts</th><th class="n">Kills</th><th class="n">Att</th><th class="n">Aces</th><th class="n">Blocks</th><th class="n">Digs</th><th class="n">Errors</th></tr>${rows.map(p=>`<tr class="${p.team===myT?'me':''}"><td>${p.ctl==='local'?'<b>You</b>':esc(p.name)}${p.lib?' <small>(L)</small>':''}</td><td class="n">${p.st.pts}</td><td class="n">${p.st.k}</td><td class="n">${p.st.att}</td><td class="n">${p.st.ace}</td><td class="n">${p.st.blk}</td><td class="n">${p.st.dig}</td><td class="n">${p.st.err}</td></tr>`).join('')}</table></div>
+   <div class="actrow" style="justify-content:center;margin-top:14px">${o.mode==='online'?'':`<button class="btn btn-go btn-big" id="vbAgain">${o.mode==='tour'?'Back to the Tour':o.mode==='kotb'?(S.kotb.cur?'Next round':'Play again'):'Play again'}</button>`}<button class="btn btn-ghost" id="vbMenu">Volleyball menu</button></div></div></div></section>`;
+  VBS=null;const ag=$('#vbAgain');if(ag)ag.onclick=()=>{if(o.mode==='tour')return vbTour();if(o.mode==='kotb')return S.kotb.cur?vbKotbPlay():vbHub();vbStart(o)};$('#vbMenu').onclick=()=>vbHub();refreshNav()}
+function vbHomeCard(){const S=vbSave();return `<div class="sthome card vbhome"><div class="sthart vbsky" aria-hidden="true"><span class="vbsun"></span><span class="vbnet"></span><span class="vbball">🏐</span></div><div class="sthtxt"><span class="label"><span class="betatag" style="background:#c0392b">Admin</span> Only you can see this</span><h3>Volleyball</h3><p>Beach 2v2 and indoor 6v6. Pro Beach Tour, King of the Beach, training and online with friends.</p><div class="row"><span class="tag">Beach level ${vbLevel(S.xp)}</span><span class="tag">${S.w}–${S.l}</span></div><button class="btn btn-go" onclick="vbHub()">Play volleyball ${icon('M5 12h14M13 6l6 6-6 6',16)}</button></div></div>`}
+/* ---------- Pro Beach Tour ---------- */
+const VB_TOUR=[['coral','Coral Bay Open',1],['sunset','Sunset Cove Classic',1],['city','Skyline Beach Slam',2],['desert','Desert Lake Open',1],['glacier','Glacier Bay Challenge',2],['night','Neon Pier Nights',1],['island','Island Masters',2],['sunset','Sunset Cove Grand Slam',2]];
+const VB_STYLES={att:['Attacker','Big hitter. Kills and blocks.'],def:['Defender','Digs everything. Fast feet.'],all:['All-round','Good at everything.'],blk:['Blocker','A wall at the net.'],srv:['Server','Aces and pressure from the line.'],set:['Setter','Great hands. Feeds the hitter.']};
+const VB_PTS={win:500,f:360,sf:240,qf:120};
+function vbCreate(){goTo('vbcreate');const d=vbCreate.d=vbCreate.d||{name:P.name||'You',h:1.92,style:'all',skin:'#d9a47a',hair:'#1b1210',cap:true};
+  const r=vbRatings(60,d.style,d.h);vbCreate.r=r;
+  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" id="vbCBack">${icon('M19 12H5M11 18l-6-6 6-6')} Volleyball</button><div><span class="label">Pro Beach Tour</span><h2>Create your player</h2></div></div>
+   <div class="lg-grid"><div class="card"><div class="field"><label>Name on the scoreboard</label><input id="vbCName" maxlength="18" value="${esc(d.name)}"></div>
+     <span class="label">Height</span>${lgChips('data-vch',[[1.8,"5'11\""],[1.86,"6'1\""],[1.92,"6'4\""],[1.98,"6'6\""],[2.04,"6'8\""]],d.h)}
+     <span class="label" style="display:block;margin-top:10px">Style</span><div class="vbpart">${Object.entries(VB_STYLES).filter(([k])=>k!=='set').map(([k,v])=>`<button class="vbpc ${d.style===k?'on':''}" data-vcs="${k}"><b>${v[0]}</b><i>${v[1]}</i></button>`).join('')}</div>
+     <span class="label" style="display:block;margin-top:10px">Skin</span><div class="vbsw">${['#f1c7a1','#d9a47a','#b67a52','#8d5a3b','#5e3b26'].map(c=>`<button class="${d.skin===c?'on':''}" data-vck="${c}" style="background:${c}"></button>`).join('')}</div>
+     <span class="label" style="display:block;margin-top:10px">Hair</span><div class="vbsw">${['#1b1210','#4a2d1a','#7a3b1d','#e2c27a','#b8b8b8'].map(c=>`<button class="${d.hair===c?'on':''}" data-vchr="${c}" style="background:${c}"></button>`).join('')}</div>
+     <div class="stsets"><button class="stog ${d.cap?'on':''}" id="vbCCap"><i></i>Wear a cap</button></div></div>
+    <div class="card"><span class="label">Starting ratings</span><canvas id="vbCPrev" width="220" height="200" style="width:220px;height:200px;display:block;margin:0 auto"></canvas><div class="strates">${[['Serve','srv'],['Attack','atk'],['Block','blk'],['Dig','dig'],['Set','set'],['Jump','jmp'],['Speed','spd']].map(([n,k])=>`<div><small>${n}</small><b>${r[k]}</b><i><s style="width:${r[k]}%"></s></i></div>`).join('')}</div>
+     <p class="hint">You'll earn skill points every match to raise these.</p></div></div>
+   <button class="btn btn-go btn-big" id="vbCGo" style="width:100%;margin-top:14px">Start my career ${icon('M5 12h14M13 6l6 6-6 6',18)}</button></div></section>`;
+  const keep=()=>{d.name=($('#vbCName').value||'').trim().slice(0,18)||'You'};
+  $$('[data-vch]').forEach(b=>b.onclick=()=>{keep();d.h=+b.dataset.v;vbCreate()});$$('[data-vcs]').forEach(b=>b.onclick=()=>{keep();d.style=b.dataset.vcs;vbCreate()});$$('[data-vck]').forEach(b=>b.onclick=()=>{keep();d.skin=b.dataset.vck;vbCreate()});$$('[data-vchr]').forEach(b=>b.onclick=()=>{keep();d.hair=b.dataset.vchr;vbCreate()});
+  $('#vbCCap').onclick=()=>{keep();d.cap=!d.cap;vbCreate()};$('#vbCBack').onclick=()=>vbHub();
+  /* preview */try{const cv=$('#vbCPrev'),g=cv.getContext('2d');const fake={h:d.h,skin:d.skin,hair:d.hair,cap:d.cap,shades:vbSave().gear.shades,kitc:VB_KITS[vbSave().gear.kit]||VB_KITS.sky,face:1,act:'cheer',celebK:'fist',x:8,y:0,z:8,vx:0,vz:0,ph:0,idle:0,slot:0,me:true,ctl:'x',sig:0,team:'A'};
+    const old=VBS;VBS={t:0,V:{indoor:0},F:VBF.beach,phase:'x',all:[],dtLast:1};const V={sc:78,cx:110,yFar:192,yNear:192,k:0,W:220,H:200};g.clearRect(0,0,220,200);fake.pose=null;vbDrawP(g,fake,V);VBS=old}catch(e){VBS=null;console.error("prev",e.stack)}
+  $('#vbCGo').onclick=()=>{keep();const S=vbSave();const C={name:d.name,h:d.h,style:d.style,skin:d.skin,hair:d.hair,cap:d.cap,r:{...vbCreate.r},sp:3,season:1,stop:0,stopWins:0,world:0,seen:[],chem:{},hist:[],xpS:0};
+    C.pool=vbPool(1);C.partner=C.pool[0];C.rank=vbRankInit(1);S.career=C;saveP();sfx('chime');vbTour()}}
+function vbPool(season){const base=58+season*3;return['set','def','att','blk','all','srv'].map((st,i)=>{const q=base+vbR(0,8)+(i===0?3:0);const h=st==='blk'?vbR(1.98,2.06):vbR(1.84,1.98);return{id:'p'+season+'_'+i+'_'+(Math.random()*1e5|0),name:vbPick(VB_FIRST)+' '+vbPick(VB_LAST),style:st,h,r:vbRatings(q,st,h),per:vbPersona(st),q:Math.round(q)}})}
+function vbRankInit(season){const names=new Set();const L=[];while(L.length<15){const n=vbPick(VB_LAST)+' / '+vbPick(VB_LAST);if(names.has(n))continue;names.add(n);L.push({n,q:Math.round(60+season*3+vbR(0,22)),pts:Math.round(vbR(0,1500))})}L.push({n:'YOU',me:1,q:0,pts:0});return L}
+function vbRankSorted(C){return C.rank.slice().sort((a,b)=>b.pts-a.pts)}
+function vbMyRank(C){return vbRankSorted(C).findIndex(x=>x.me)+1}
+function vbTourMini(){const C=vbSave().career;const st=C.stop<8?VB_TOUR[C.stop]:null;return `<div class="vbtm"><div><small>Season</small><b>${C.season}</b></div><div><small>World rank</small><b>#${vbMyRank(C)}</b></div><div><small>Next</small><b>${st?esc(st[1]):'World Championship'}</b></div><div><small>Partner</small><b>${esc(C.partner.name.split(' ')[0])}</b></div></div>`}
+function vbChem(C){return Math.min(1,(C.chem[C.partner.id]||0)/12)}
+function vbTour(){goTo('vbtour');const S=vbSave();const C=S.career;if(!C)return vbCreate();const stop=C.stop;const worlds=stop>=8;const st=worlds?['sunset','World Championship',3]:VB_TOUR[stop];const V=VB_VENUES[worlds?'arena':st[0]];
+  const rk=vbRankSorted(C);const my=vbMyRank(C);const cost=v=>v<70?1:v<80?2:v<90?3:5;const cur=C.event;
+  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" id="vbTBack">${icon('M19 12H5M11 18l-6-6 6-6')} Volleyball</button><div><span class="label">Pro Beach Tour · Season ${C.season}</span><h2>${esc(C.name)}</h2></div><div class="meta"><span class="tag">World #${my}</span>${C.world?`<span class="tag done">🏆 ${C.world}× World Champ</span>`:''}</div></div>
+   <div class="card vbstop" style="--a:${V.sky[1]};--b:${V.sky[2]};--c:${V.sand[0]}"><div class="vbstopart"><i></i></div><div><span class="label">${worlds?'Season finale':'Stop '+(stop+1)+' of 8'}${st[2]>=2?' · Grand Slam':''}</span><h3>${esc(st[1])}</h3><p class="hint">${esc(V.n)} · wind ${V.wind[0]}–${V.wind[1]} m/s · ${worlds?(my<=8?'You qualified! Best of 3 sets.':'Only the top 8 qualify. You are #'+my+'.'):'8-team bracket. '+(st[2]>=2?'Final is best of 3.':'One set to 21.')}</p>
+     ${cur?`<div class="vbbr">${vbBracketHTML(cur)}</div>`:''}
+     <button class="btn btn-go" id="vbTPlay">${worlds&&my>8?'Skip to next season':cur?'Play the '+['quarterfinal','semifinal','final'][cur.round]:'Enter the event'} ${icon('M5 12h14M13 6l6 6-6 6',16)}</button></div></div>
+   <div class="lg-grid"><div class="card"><span class="label">Your ratings · ${C.sp} skill point${C.sp===1?'':'s'}</span><div class="vbup">${[['Serve','srv'],['Attack','atk'],['Block','blk'],['Dig','dig'],['Set','set'],['Jump','jmp'],['Speed','spd']].map(([n,k])=>`<div class="vbur"><small>${n}</small><b>${C.r[k]}</b><i><s style="width:${C.r[k]}%"></s></i><button class="mini go" data-vbup="${k}" ${C.sp<cost(C.r[k])||C.r[k]>=99?'disabled':''}>+1 · ${cost(C.r[k])}</button></div>`).join('')}</div></div>
+    <div class="card"><span class="label">Partner · chemistry ${Math.round(vbChem(C)*100)}%</span><div class="vbchem"><i style="width:${vbChem(C)*100}%"></i></div><div class="vbpart">${C.pool.map(p=>`<button class="vbpc ${C.partner.id===p.id?'on':''}" data-vbpp="${p.id}"><b>${esc(p.name)}</b><small>${VB_STYLES[p.style][0]} · ${p.q} OVR</small><i>${C.chem[p.id]?C.chem[p.id]+' matches together':'New partner'}</i></button>`).join('')}</div><p class="hint">Chemistry grows every match you play together: better sets and better reads.</p></div></div>
+   <div class="card"><span class="label">World rankings</span><div class="tbl-wrap"><table><tr><th>#</th><th>Team</th><th class="n">Points</th></tr>${rk.map((x,i)=>`<tr class="${x.me?'me':''}"><td>${i+1}</td><td>${x.me?'<b>'+esc(C.name)+' / '+esc(C.partner.name.split(' ').pop())+'</b>':esc(x.n)}</td><td class="n">${fmtN(x.pts)}</td></tr>`).join('')}</table></div></div></div></section>`;
+  $('#vbTBack').onclick=()=>vbHub();
+  $$('[data-vbup]').forEach(b=>b.onclick=()=>{const k=b.dataset.vbup;const c=cost(C.r[k]);if(C.sp<c)return;C.sp-=c;C.r[k]++;saveP();sfx('pop');vbTour()});
+  $$('[data-vbpp]').forEach(b=>b.onclick=()=>{if(C.event){toastLite('Finish this event first');return}C.partner=C.pool.find(p=>p.id===b.dataset.vbpp);saveP();sfx('click');vbTour()});
+  $('#vbTPlay').onclick=()=>{if(worlds&&my>8){vbSeasonEnd(false);return}if(!C.event)C.event=vbEventNew(C,worlds);saveP();vbTourPlay()}}
+function vbEventNew(C,worlds){const rk=vbRankSorted(C).filter(x=>!x.me);const field=worlds?rk.slice(0,7):rk.slice(0,4).concat(shuffle(rk.slice(4)).slice(0,3));const seeds=field.sort((a,b)=>b.q-a.q);
+  /* you play the lowest seed first */const teams=[{n:'YOU',me:1},...seeds.reverse()];const order=[0,1,2,3,4,5,6,7];return{teams:teams.map(t=>t.n),q:teams.map(t=>t.q||0),round:0,w:[],worlds}}
+function vbBracketHTML(E){const tn=i=>i===0?'You':esc(E.teams[i]);const qf=[[0,1],[2,3],[4,5],[6,7]];const sf=E.w[0]?[[E.w[0][0],E.w[0][1]],[E.w[0][2],E.w[0][3]]]:[[0,-1],[-1,-1]];const fi=E.w[1]?[[E.w[1][0],E.w[1][1]]]:[[-1,-1]];
+  const col=(t,pairs,r)=>`<div class="kocol"><span class="label">${t}</span>${pairs.map(([a,b])=>`<div class="komatch ${(a===0||b===0)&&r===E.round?'now':''}">${[a,b].map(x=>`<div class="${E.w[r]&&E.w[r].includes(x)?'w':E.w[r]?'l':''}">${x<0?'?':tn(x)} <small>${x>0?E.q[x]:''}</small></div>`).join('')}</div>`).join('')}</div>`;
+  return `<div class="kobr">${col('Quarterfinals',qf,0)}${col('Semifinals',sf,1)}${col('Final',fi,2)}</div>`}
+function vbSimWin(E,a,b){const qa=a===0?vbTeamQ():E.q[a],qb=b===0?vbTeamQ():E.q[b];return Math.random()<.5+(qa-qb)*.03?a:b}
+function vbTeamQ(){const C=vbSave().career;const avg=r=>Object.values(r).reduce((x,y)=>x+y,0)/7;return(avg(C.r)+C.partner.q)/2}
+function vbTourPlay(){const S=vbSave(),C=S.career,E=C.event;const r=E.round;const opp=r===0?1:E.w[r-1][1];const st=E.worlds?['arena','World Championship',3]:VB_TOUR[C.stop];const q=E.q[opp];
+  const diff=q<64?'easy':q<72?'normal':q<80?'hard':'pro';const nm=E.teams[opp].split(' / ');const sets=(st[2]>=2&&r===2)||E.worlds?3:1;
+  if(!C.seen.includes(st[0]))C.seen.push(st[0]);saveP();
+  vbStart({mode:'tour',fmt:'beach',diff,sets,to:sets>1?21:21,venue:E.worlds?'arena':st[0],nameA:C.name.split(' ')[0]+' / '+C.partner.name.split(' ').pop(),nameB:E.teams[opp],partner:{name:C.partner.name,style:C.partner.style,r:C.partner.r,h:C.partner.h,per:C.partner.per},
+    opp:nm.map(n=>({name:vbPick(VB_FIRST)+' '+n,r:vbRatings(q,vbPick(['att','def','all','blk','srv']))})),chem:vbChem(C)})}
+function vbTourAfter(won,me,s){const S=vbSave(),C=S.career,E=C.event;if(!C||!E)return '';C.chem[C.partner.id]=(C.chem[C.partner.id]||0)+1;const sp=(won?3:1)+Math.floor(me.st.k/5)+(me.st.ace?1:0);C.sp+=sp;
+  let msg=`+${sp} skill points`;const r=E.round;
+  if(!won){const place=['qf','sf','f'][r];vbStopEnd(C,E,place);msg+=` · Out in the ${['quarterfinal','semifinal','final'][r]}. +${VB_PTS[place]} ranking points`}
+  else{if(r===0){const w=[0];[[2,3],[4,5],[6,7]].forEach(([a,b])=>w.push(vbSimWin(E,a,b)));E.w.push(w);E.round=1;msg+=` · Into the semifinals vs ${E.teams[w[1]]}`}
+    else if(r===1){const w=[0,vbSimWin(E,E.w[0][2],E.w[0][3])];E.w.push(w);E.round=2;msg+=` · Into the final vs ${E.teams[w[1]]}!`}
+    else{E.w.push([0]);C.stopWins++;S.titles=(S.titles||0)+(E.worlds?1:0);vbStopEnd(C,E,'win');msg+=E.worlds?' · 🏆 WORLD CHAMPIONS! 🏆':` · 🏆 Event champions! +${VB_PTS.win} ranking points`}}
+  saveP();return `<p class="stlad">${esc(msg)}</p>`}
+function vbStopEnd(C,E,place){/* points for everyone in the event */const pts={};E.teams.forEach((n,i)=>{if(i)pts[n]=VB_PTS.qf+Math.round(vbR(0,1)*(E.q[i]>75?VB_PTS.sf:60))});
+  C.rank.forEach(x=>{if(x.me)x.pts+=VB_PTS[place]*(E.worlds?2:1);else if(pts[x.n])x.pts+=pts[x.n];else x.pts+=Math.round(vbR(0,60))});
+  C.hist.push({s:C.season,stop:C.stop,place});C.event=null;if(E.worlds){vbSeasonEnd(place==='win',true)}else C.stop++}
+function vbSeasonEnd(champ,quiet){const S=vbSave(),C=S.career;if(champ){C.world=(C.world||0)+1;const u=unlocks();if(!u.title.includes('Beach World Champion'))u.title.push('Beach World Champion')}
+  C.season++;C.stop=0;C.event=null;C.pool=[C.partner,...vbPool(C.season).slice(0,5)];C.rank.forEach(x=>{x.pts=Math.round(x.pts*.3);if(!x.me)x.q=Math.min(92,x.q+2)});C.sp+=5;saveP();toast(champ?'World Champion! 🏆':'New season','Season '+C.season+' begins. Your rivals got better too.','M5 12l5 5L20 7');if(!quiet)vbTour()}
+
+/* ---------- King of the Beach: rotating partners, best individual wins ---------- */
+function vbKotbNew(){const S=vbSave();const me=vbMe();const pl=[{name:me.name,me:1}];for(let i=0;i<3;i++){const st=vbPick(['att','def','all','blk','srv']);pl.push({name:vbPick(VB_FIRST)+' '+vbPick(VB_LAST),style:st,r:vbRatings(70+i*3,st),h:vbR(1.84,2.02)})}
+  S.kotb.cur={pl,round:0,diff:[0,0,0,0],pts:[0,0,0,0]};saveP();return S.kotb.cur}
+const KOTB_R=[[[0,1],[2,3]],[[0,2],[1,3]],[[0,3],[1,2]]];
+function vbKotbHTML(){const K=vbSave().kotb.cur;if(!K)return '<p class="hint">Four players, three matches. You partner with each of the others once. Every point your team wins counts for you; the best point difference after three games is King of the Beach.</p>';
+  const order=K.pl.map((p,i)=>i).sort((a,b)=>K.diff[b]-K.diff[a]||K.pts[b]-K.pts[a]);
+  return `<div class="tbl-wrap"><table><tr><th>Player</th><th class="n">+/-</th><th class="n">Points</th></tr>${order.map(i=>`<tr class="${i===0?'me':''}"><td>${i===0?'<b>You</b>':esc(K.pl[i].name)}</td><td class="n">${K.diff[i]>0?'+':''}${K.diff[i]}</td><td class="n">${K.pts[i]}</td></tr>`).join('')}</table></div><p class="hint">Round ${K.round+1}: you and <b>${esc(K.pl[KOTB_R[K.round][0][1]].name)}</b> vs ${esc(K.pl[KOTB_R[K.round][1][0]].name)} and ${esc(K.pl[KOTB_R[K.round][1][1]].name)}. One set to 15.</p>`}
+function vbKotbPlay(){const S=vbSave();const K=S.kotb.cur||vbKotbNew();const R=KOTB_R[K.round];const mate=K.pl[R[0][1]],o1=K.pl[R[1][0]],o2=K.pl[R[1][1]];
+  vbStart({mode:'kotb',fmt:'beach',diff:'hard',sets:1,to:15,venue:vbPick(vbVenues()),nameA:'You + '+mate.name.split(' ')[0],nameB:o1.name.split(' ')[0]+' + '+o2.name.split(' ')[0],partner:{name:mate.name,style:mate.style,r:mate.r,h:mate.h},opp:[{name:o1.name,r:o1.r,style:o1.style,h:o1.h},{name:o2.name,r:o2.r,style:o2.style,h:o2.h}]})}
+function vbKotbAfter(s){const S=vbSave(),K=S.kotb.cur;if(!K)return '';const R=KOTB_R[K.round];const d=s.score.A-s.score.B;R[0].forEach(i=>{K.diff[i]+=d;K.pts[i]+=s.score.A});R[1].forEach(i=>{K.diff[i]-=d;K.pts[i]+=s.score.B});
+  /* the other matches the AIs play happen off screen: nothing to add in 4-player format */K.round++;
+  if(K.round>=3){const order=K.pl.map((p,i)=>i).sort((a,b)=>K.diff[b]-K.diff[a]||K.pts[b]-K.pts[a]);const won=order[0]===0;S.kotb.cur=null;if(won)S.kotb.w++;saveP();
+    return `<p class="stlad">${won?'👑 You are King of the Beach!':'King of the Beach: '+esc(K.pl[order[0]].name)+'. You finished #'+(order.indexOf(0)+1)+'.'}</p>`}
+  saveP();return `<p class="stlad">After round ${K.round}: you're ${K.diff[0]>=0?'+':''}${K.diff[0]}. ${3-K.round} to go.</p>`}
+/* ---------- online 2v2: the host runs the game, everyone else sends inputs and draws snapshots ---------- */
+const VBN={ch:null,code:'',host:false,uid:'',seats:[null,null,null,null],names:{},assist:{},alive:false,lastIn:'',inT:0,snapT:0,seq:0};
+const VB_ACT=['ready','bump','set','jump','spike','block','serve','jserve','dive','getup','cheer','sad'];
+async function vbNetOpen(code,host){VBN.code=code;VBN.host=host;VBN.uid=VBN.uid||getUid();const c=await sbClient();const ch=c.channel('hp-room-vb'+code,{config:{broadcast:{self:false,ack:false},presence:{key:VBN.uid}}});VBN.ch=ch;
+  ch.on('broadcast',{event:'lob'},({payload})=>{if(!host){VBN.seats=payload.seats;VBN.names=payload.names;vbRoomPaint()}});
+  ch.on('broadcast',{event:'seat'},({payload})=>{if(host)vbNetSeat(payload.uid,payload.i,payload.name,payload.assist)});
+  ch.on('broadcast',{event:'go'},({payload})=>{if(!host)vbNetGo(payload)});
+  ch.on('broadcast',{event:'snap'},({payload})=>{if(!host)vbNetSnap(payload)});
+  ch.on('broadcast',{event:'in'},({payload})=>{if(host)vbNetIn(payload)});
+  ch.on('broadcast',{event:'ev'},({payload})=>{if(host)vbNetEvIn(payload)});
+  ch.on('broadcast',{event:'bye'},({payload})=>{if(!host&&payload.host){vbNetGone('The host closed the room.')}});
+  ch.on('presence',{event:'leave'},({key})=>{if(host){const i=VBN.seats.indexOf(key);if(i>=0){VBN.seats[i]=null;vbNetLob();if(VBS&&VBS.net){const p=VBS.all.find(q=>q.uid===key);if(p){p.ctl='ai';p.in.ev=[];vbPop(p,'Left the game','#ff8a8a')}}}}else if(key===VBN.hostUid)vbNetGone('The host left.')});
+  ch.on('presence',{event:'join'},()=>{if(host)vbNetLob()});
+  await sbSubscribe(ch,9000);await ch.track({uid:VBN.uid,name:P.name||'Player',host:host?1:0});VBN.alive=true}
+const vbSend=(ev,p)=>{if(VBN.ch)sbSend(VBN.ch,ev,p)};
+async function vbNetHost(){const code=Array.from({length:5},()=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.random()*32|0]).join('');try{await vbNetOpen(code,true)}catch(e){toast('Could not open a room','Check the connection and try again.','M12 9v4M12 17h.01');return}
+  VBN.seats=[VBN.uid,null,null,null];VBN.names={[VBN.uid]:P.name||'Host'};VBN.assist={[VBN.uid]:vbSet().assist};VBN.hostUid=VBN.uid;vbRoom()}
+async function vbNetJoin(code){try{await vbNetOpen(code,false)}catch(e){toast('Could not join','Check the code and the connection.','M12 9v4M12 17h.01');return}
+  /* find the host through presence */const st=VBN.ch.presenceState?VBN.ch.presenceState():{};for(const k in st){const m=st[k][0];if(m&&m.host)VBN.hostUid=m.uid}
+  vbSend('seat',{uid:VBN.uid,i:-1,name:P.name||'Player',assist:vbSet().assist});vbRoom()}
+function vbNetSeat(uid,i,name,assist){VBN.names[uid]=name;VBN.assist[uid]=assist;if(i<0){if(!VBN.seats.includes(uid)){const f=VBN.seats.indexOf(null);if(f>=0)VBN.seats[f]=uid}}else if(VBN.seats[i]==null){const j=VBN.seats.indexOf(uid);if(j>=0)VBN.seats[j]=null;VBN.seats[i]=uid}vbNetLob()}
+function vbNetLob(){if(!VBN.host)return;vbSend('lob',{seats:VBN.seats,names:VBN.names});vbRoomPaint()}
+function vbRoom(){goTo('vbroom');$('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" id="vbRBack">${icon('M19 12H5M11 18l-6-6 6-6')} Leave room</button><div><span class="label">Online 2v2</span><h2>Room ${VBN.code}</h2></div></div>
+  <div class="card"><p class="hint">Share the code <b class="vbcode">${VBN.code}</b> with another admin device. Tap a spot to sit there. Empty spots are played by the computer.</p><div id="vbSeats" class="vbseats"></div>
+  ${VBN.host?`<div class="setrow"><span class="label">Beach</span>${lgChips('data-vbrv',vbVenues().map(k=>[k,VB_VENUES[k].n]),VBO.venue||'coral')}</div><div class="setrow"><span class="label">Points</span>${lgChips('data-vbrt',[[15,'15'],[21,'21']],VBO.to)}</div><button class="btn btn-go btn-big" id="vbRGo" style="width:100%">Start the match</button>`:'<p class="hint">Waiting for the host to start…</p>'}</div></div></section>`;
+  $('#vbRBack').onclick=()=>{vbNetLeave();vbHub()};if(VBN.host){$$('[data-vbrv]').forEach(b=>b.onclick=()=>{VBO.venue=b.dataset.v;vbRoom()});$$('[data-vbrt]').forEach(b=>b.onclick=()=>{VBO.to=+b.dataset.v;vbRoom()});$('#vbRGo').onclick=()=>vbNetStart()}vbRoomPaint()}
+function vbRoomPaint(){const el=$('#vbSeats');if(!el)return;const lab=['Team A · 1','Team A · 2','Team B · 1','Team B · 2'];
+  el.innerHTML=VBN.seats.map((u,i)=>`<button class="vbseat ${i<2?'a':'b'} ${u===VBN.uid?'me':''}" data-vbseat="${i}"><small>${lab[i]}</small><b>${u?esc(VBN.names[u]||'Player')+(u===VBN.uid?' (you)':''):'Computer'}</b></button>`).join('');
+  $$('[data-vbseat]').forEach(b=>b.onclick=()=>{const i=+b.dataset.vbseat;if(VBN.seats[i])return;if(VBN.host)vbNetSeat(VBN.uid,i,P.name||'Host',vbSet().assist);else vbSend('seat',{uid:VBN.uid,i,name:P.name||'Player',assist:vbSet().assist})})}
+function vbNetLeave(){try{if(VBN.ch){vbSend('bye',{host:VBN.host?1:0,uid:VBN.uid});const c=DB.c;VBN.ch.untrack&&VBN.ch.untrack();if(c&&c.removeChannel)c.removeChannel(VBN.ch)}}catch(e){}VBN.ch=null;VBN.alive=false}
+function vbNetGone(msg){if(!VBN.alive)return;vbNetLeave();VBS=null;cancelAnimationFrame(VBRAF);document.body.classList.remove('stplaying');toast('Room closed',msg,'M12 9v4M12 17h.01');vbHub()}
+/* the host builds the match and tells everyone */
+function vbNetStart(){const seats=VBN.seats.slice();const q=72;const R=()=>vbRatings(q,vbPick(['att','def','all','blk']));
+  const roster=seats.map((u,i)=>({uid:u,name:u?VBN.names[u]:vbPick(VB_FIRST)+' '+vbPick(VB_LAST),r:R(),h:vbR(1.85,2),skin:vbPick(['#f1c7a1','#d9a47a','#b67a52','#8d5a3b','#5e3b26']),hair:vbPick(['#1b1210','#4a2d1a','#e2c27a']),cap:Math.random()<.5,assist:u?VBN.assist[u]:0}));
+  const wa=vbR(0,6.28);const V=VB_VENUES[VBO.venue]||VB_VENUES.coral;const ws=vbR(V.wind[0],V.wind[1]);
+  const opt={mode:'online',fmt:'beach',diff:'hard',sets:1,to:VBO.to||21,venue:VBO.venue||'coral',nameA:roster.slice(0,2).map(p=>p.name.split(' ')[0]).join(' + '),nameB:roster.slice(2).map(p=>p.name.split(' ')[0]).join(' + '),roster,wind:{x:Math.cos(wa)*ws,z:Math.sin(wa)*ws*.6,str:ws}};
+  vbSend('go',opt);vbNetGo(opt)}
+function vbNetBuild(s){const o=s.opt;o.roster.forEach((x,i)=>{const t=i<2?'A':'B';const ctl=x.uid===VBN.uid?'local':x.uid?'remote':'ai';const p=vbP({team:t,slot:i%2,name:x.name,r:x.r,h:x.h,skin:x.skin,hair:x.hair,cap:x.cap,ctl});p.uid=x.uid;p.remoteAssist=x.assist;s.teams[t].push(p)})}
+function vbNetGo(opt){const host=VBN.host;opt.build=vbNetBuild;opt.net={host};vbStart(opt);const s=VBS;s.wind=opt.wind;s.net={host};if(!host){s.netClient=true;s.netBuf=null}VBN.snapT=0;VBN.evq=[]}
+/* host: send a snapshot about 20 times a second */
+const vbN2=v=>Math.round(v*100)/100;
+function vbNetHostTick(dt){VBN.snapT+=dt;if(VBN.snapT<.05)return;VBN.snapT=0;const s=VBS,b=s.ball;
+  const p=s.all.map(q=>[vbN2(q.x),vbN2(q.y),vbN2(q.z),q.face,VB_ACT.indexOf(q.act),vbN2(q.vx),vbN2(q.vz),q.celebK?Object.keys(VB_CELEB).indexOf(q.celebK):0,q.sig>0?(q.sigK==='line'?1:2):0]);
+  const pay={ph:s.phase,sc:[s.score.A,s.score.B],se:[s.sets.A,s.sets.B],sn:s.setN,sv:s.serveTeam,tc:s.touches,sd:s.side,srv:s.server?s.all.indexOf(s.server):-1,pw:s.servePow,st:s.serveType,cb:s.call.block,
+    b:[vbN2(b.x),vbN2(b.y),vbN2(b.z),vbN2(b.vx),vbN2(b.vy),vbN2(b.vz),b.ver,b.live?1:0,b.kind],fl:b.launch&&b.launch.fl?b.launch.fl:null,p,ev:s.events.splice(0),
+    stats:s.over?s.all.map(q=>q.st):null,hint:s.hint?[vbN2(s.hint.x),vbN2(s.hint.z),vbN2(s.hint.t-s.t),s.all.indexOf(s.hint.p)]:null,plans:['A','B'].map(t=>{const pl=s.plan[t];return pl?[pl.stage,pl.recv?s.all.indexOf(pl.recv):-1,pl.setter?s.all.indexOf(pl.setter):-1,pl.hitter?s.all.indexOf(pl.hitter):-1]:null})};
+  vbSend('snap',pay)}
+function vbNetIn(m){const s=VBS;if(!s)return;const p=s.all.find(q=>q.uid===m.uid);if(!p||p.ctl!=='remote')return;p.in.mx=m.mx;p.in.mz=m.mz;p.in.shot=m.shot;p.in.aim=m.aim;if(m.call)p.in.call=m.call}
+function vbNetEvIn(m){const s=VBS;if(!s)return;const p=s.all.find(q=>q.uid===m.uid);if(!p||p.ctl!=='remote')return;
+  if(m.k==='pass'){const b=s.ball;p.passReq={q:m.q,ver:b.ver,t:s.t};return}if(m.k==='shot'){p.in.shot=m.v;return}p.in.ev.push(m.k)}
+/* client: send inputs, apply snapshots */
+function vbNetSendEv(k){const s=VBS;const me=vbMeP();if(!me)return;if(k==='pass'){/* judge timing on this screen, the host applies it */const second=s.side===me.team&&s.touches===1;const P=vbPredict(second?2.3:.9);if(!P)return;const off=s.t-P.t;if(off<-.5){vbPop(me,'Too early','#ff8a8a');return}vbSend('ev',{uid:VBN.uid,k:'pass',q:vbC(1-Math.abs(off+.02)/.32,0,1)});return}
+  if(k==='mine'||k==='yours'||k==='blockcall'){/* show it locally too */vbPop(me,k==='mine'?'Mine!':k==='yours'?'Yours!':'Block call','#9cc2ff')}vbSend('ev',{uid:VBN.uid,k})}
+function vbNetClientTick(dt){const s=VBS;s.t+=dt;const me=vbMeP();if(me){vbLocalInput(s,me);const key=[Math.round(me.in.mx*10),Math.round(me.in.mz*10),me.in.shot,me.in.call].join();VBN.inT+=dt;if(key!==VBN.lastIn||VBN.inT>.5){VBN.lastIn=key;VBN.inT=0;vbSend('in',{uid:VBN.uid,mx:me.in.mx,mz:me.in.mz,shot:me.in.shot,aim:me.in.mz,call:me.in.call})}}
+  /* smooth toward the latest snapshot and keep the ball flying between snapshots */const N=s.netBuf;if(!N)return;const k=Math.min(1,dt*14);
+  s.all.forEach((p,i)=>{const q=N.p[i];if(!q)return;p.x+=(q[0]-p.x)*k;p.y+=(q[1]-p.y)*k;p.z+=(q[2]-p.z)*k;p.face=q[3];p.act=VB_ACT[q[4]]||'ready';p.vx=q[5];p.vz=q[6];p.celebK=Object.keys(VB_CELEB)[q[7]]||'fist';p.sig=q[8]?1:0;p.sigK=q[8]===1?'line':'angle';p.ph+=Math.hypot(p.vx,p.vz)*dt*2.2;p.idle+=dt});
+  const b=s.ball;if(b.live){b.vy-=VBG*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;b.z+=b.vz*dt;b.spin+=dt*6;b.trail.push([b.x,b.y,b.z]);if(b.trail.length>10)b.trail.shift()}
+  s.pops.forEach(p=>p.t+=dt);s.pops=s.pops.filter(p=>p.t<1.6);s.shake=Math.max(0,s.shake-dt);s.flash=Math.max(0,s.flash-dt);s.crowd=Math.max(0,s.crowd-dt*.6);s.netShake=Math.max(0,s.netShake-dt);s.parts.forEach(q=>{q.t+=dt;q.x+=q.vx*dt;q.z+=q.vz*dt;q.y=Math.max(0,q.y+q.vy*dt);q.vy-=9*dt});s.parts=s.parts.filter(q=>q.t<q.life)}
+function vbNetSnap(m){const s=VBS;if(!s||!s.netClient)return;const first=!s.netBuf;s.netBuf=m;if(m.stats)m.stats.forEach((st,i)=>{if(s.all[i])s.all[i].st=st});
+  if(s.phase==='intro'&&m.ph!=='intro'){const o=$('#vbIntro');if(o){o.classList.add('out');setTimeout(()=>o.remove(),400)}}
+  s.phase=m.ph;s.score={A:m.sc[0],B:m.sc[1]};s.sets={A:m.se[0],B:m.se[1]};s.setN=m.sn;s.serveTeam=m.sv;s.touches=m.tc;s.side=m.sd;s.server=s.all[m.srv]||null;s.servePow=m.pw;s.serveType=m.st;s.call.block=m.cb;
+  const b=s.ball,B=m.b;const nv=B[6]!==b.ver;b.x=B[0];b.y=B[1];b.z=B[2];b.vx=B[3];b.vy=B[4];b.vz=B[5];b.live=!!B[7];b.kind=B[8];if(nv||first){b.ver=B[6];b.launch={x:B[0],y:B[1],z:B[2],vx:B[3],vy:B[4],vz:B[5],t:s.t,fl:m.fl};b.pred={};b.trail=[]}
+  s.hint=m.hint?{x:m.hint[0],z:m.hint[1],t:s.t+m.hint[2],p:s.all[m.hint[3]]}:null;
+  m.plans.forEach((pl,i)=>{const t=i?'B':'A';s.plan[t]=pl?{stage:pl[0],recv:s.all[pl[1]]||null,setter:s.all[pl[2]]||null,hitter:s.all[pl[3]]||null,ver:b.ver}:null});
+  const me=vbMeP();if(me&&s.plan[me.team]&&s.plan[me.team].setter===me)me.plan={k:'set'};else if(me&&me.plan&&me.plan.k==='set')me.plan=null;
+  m.ev.forEach(e=>{if(e[0]==='pop')s.pops.push({x:e[1],z:e[2],y:2.6,t:0,text:e[3],col:e[4],big:!!e[5]});else if(e[0]==='snd'){const k=e[1];const o=s.net;s.net=null;vbSnd(k);s.net=o}
+    else if(e[0]==='point'){s.crowd=1.3;const lp=null;vbComPoint(e[1],e[2],lp);if(e[2]==='Ace'||e[2]==='Block')s.wave=s.t}else if(e[0]==='hit'){if(e[1]==='attack'){s.shake=.15;s.flash=.1}vbSand(b.x,b.z,4)}else if(e[0]==='over'){s.over=true;setTimeout(()=>{if(VBS===s)vbEnd(e[1])},1500)}})}
+function vbNetEnd(w){if(VBN.host)setTimeout(()=>{},0);setTimeout(()=>vbNetLeave(),4000)}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
