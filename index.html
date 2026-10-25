@@ -5,10 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1792821934">
-<title>Hall Pass</title>
+<meta name="hp-build" content="1792908206">
+<title>Hall Pass · Draft basketball legends. Win the season.</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hall Pass">
+<meta property="og:url" content="https://hallpass.live/">
+<meta property="og:title" content="Hall Pass · Draft basketball legends. Win the season.">
+<meta property="og:description" content="Free basketball game: draft all-time legends from 8 decades, play full seasons, run leagues with friends, and play Street 1-on-1. New Daily Five puzzle every day.">
+<meta property="og:image" content="https://hallpass.live/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hall Pass · Draft basketball legends">
+<meta name="twitter:description" content="Draft all-time legends, play seasons, beat your friends. Free in your browser.">
+<meta name="twitter:image" content="https://hallpass.live/og.png">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Draft an all-time basketball roster from any decade, pick a coach, and simulate a full season and playoffs.">
+<meta name="description" content="Free basketball game in your browser. Draft all-time legends from 8 decades, simulate seasons and playoffs, run online leagues with friends, play Street 1-on-1, and solve the Daily Five puzzle.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
@@ -1482,6 +1494,28 @@ body.stplaying #toasts,body.stplaying #popStack{display:none}
 .stcgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}.stcgrid div{padding:8px 10px;border-radius:12px;background:var(--ink)}.stcgrid small{display:block;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}.stcgrid b{font:800 20px "Big Shoulders Display",Impact,sans-serif}@media (max-width:700px){.stcgrid{grid-template-columns:repeat(3,1fr)}}
 .stcom{position:absolute;left:50%;bottom:14px;transform:translate(-50%,-8px);max-width:86%;padding:7px 14px;border-radius:999px;background:rgba(6,9,18,.72);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:13px;letter-spacing:.01em;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:3}.stcom.on{opacity:1;transform:translate(-50%,0)}@media (pointer:coarse){.stcom{bottom:auto;top:8px}}
 .stlad.tier{color:#ffcc4d}
+.growrow{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin:6px 0 18px}@media (max-width:700px){.growrow{grid-template-columns:1fr}}
+.growc{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:18px 20px;border-radius:20px;border:1px solid var(--line);overflow:hidden;transition:transform .15s,border-color .2s;color:var(--text)}
+.growc:hover{transform:translateY(-2px);border-color:var(--amber)}.growc h3{font-size:28px;text-transform:uppercase;margin:2px 0}.growc p{color:var(--mute);margin:0 0 8px;font-size:14px}.growgo{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--amber);margin-top:auto}
+.growc.d5h{background:radial-gradient(120% 140% at 100% 0%,rgba(79,209,139,.25),transparent 55%),var(--panel)}.growc.inv{background:radial-gradient(120% 140% at 100% 0%,rgba(124,92,255,.28),transparent 55%),var(--panel)}
+.d5beat{padding:10px 14px;border-radius:14px;background:rgba(255,204,77,.12);border:1px solid rgba(255,204,77,.4);margin-bottom:10px}
+.d5bud{display:grid;gap:8px;margin-bottom:12px}.d5bud>div:first-child{display:flex;align-items:baseline;gap:10px}.d5bud b{font:900 30px var(--f-display,Impact)}.d5bud small{color:var(--mute)}.d5bud.over b{color:#ff6b6b}
+.d5bar{height:10px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden}.d5bar i{display:block;height:100%;background:linear-gradient(90deg,#4fd18b,#ffb547);transition:width .25s}.d5bud.over .d5bar i{background:#ff6b6b}
+.d5grid{display:grid;gap:8px}.d5row{display:grid;grid-template-columns:44px repeat(5,minmax(0,1fr));gap:6px;align-items:stretch}.d5pos{display:grid;place-items:center;font:900 18px var(--f-display,Impact);color:var(--amber);border-radius:12px;background:var(--ink)}
+.d5c{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 9px;border-radius:12px;border:1px solid var(--line);border-top:3px solid var(--c1);background:var(--panel);text-align:left;min-width:0;transition:transform .12s,border-color .15s,opacity .2s}
+.d5c small{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}.d5c b{font-size:13px;line-height:1.15;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.d5c span{display:flex;justify-content:space-between;width:100%;margin-top:auto}.d5c i{font-style:normal;font-weight:800}.d5c em{font-style:normal;color:#4fd18b;font-weight:700}
+.d5c.on{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber) inset;transform:translateY(-2px)}.d5c.cant{opacity:.4}.d5c.best{box-shadow:0 0 0 2px #4fd18b inset}.d5c u{text-decoration:none;font-size:10px;color:#4fd18b;font-weight:800}.d5c:not([disabled]):hover{transform:translateY(-2px)}
+@media (max-width:640px){.d5row{grid-template-columns:34px repeat(5,minmax(0,1fr));gap:4px}.d5c{padding:6px}.d5c b{font-size:11px}.d5c small{display:none}}
+@media (max-width:640px){.d5c span{flex-direction:column;align-items:flex-start;gap:0}.d5c i{font-size:13px}.d5c em{font-size:11px}}.d5res{text-align:center;margin-top:14px}.d5res h1{font:900 96px var(--f-display,Impact);margin:0;color:var(--amber)}.d5res h1 small{font-size:32px;color:var(--mute)}.d5sq{font-size:34px;letter-spacing:6px;margin:4px 0}
+.invlink{display:flex;gap:8px;margin:12px 0}.invlink input{flex:1;min-width:0;font-family:var(--f-mono,monospace);font-size:13px}
+.invq{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center;margin:8px 0}.invq b{font:900 40px var(--f-display,Impact);grid-row:span 2;color:var(--amber)}.invq span{color:var(--mute);font-size:14px}
+.invt{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}.invt div{padding:8px;border-radius:12px;background:var(--ink);border:1px solid var(--line);font-size:12px;display:flex;flex-direction:column;gap:2px}.invt b{font:900 22px var(--f-display,Impact)}.invt .on{border-color:#4fd18b;background:rgba(79,209,139,.1)}
+@media (max-width:560px){.invt{grid-template-columns:1fr 1fr}}.invf{display:grid;gap:4px;margin:6px 0 10px}.invf div{display:flex;justify-content:space-between;padding:6px 10px;border-radius:10px;background:var(--ink);font-size:13px}
+.gfun{display:grid;gap:6px;margin-top:10px}.gfun div{position:relative;display:grid;grid-template-columns:1fr auto 54px;gap:10px;align-items:center;padding:8px 12px;border-radius:12px;background:var(--ink);overflow:hidden}.gfun i{position:absolute;inset:0 auto 0 0;width:var(--w);background:linear-gradient(90deg,rgba(255,181,71,.25),rgba(255,181,71,.05));z-index:0}.gfun span,.gfun b,.gfun small{position:relative;z-index:1}.gfun b{font:800 20px var(--f-display,Impact)}.gfun small{color:var(--mute);text-align:right}
+.gbar{display:grid;grid-template-columns:110px 1fr 44px;gap:8px;align-items:center;font-size:13px;margin:4px 0}.gbar i{display:block;height:8px;border-radius:5px;background:linear-gradient(90deg,#7c5cff,#2ec4b6)}.gbar b{text-align:right}
+.gdays{display:flex;gap:4px;align-items:flex-end;height:110px;margin-top:6px}.gdays div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}.gdays i{width:100%;min-height:2px;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#ffb547,#ff6b3d)}.gdays small{font-size:9px;color:var(--mute);margin-top:3px}
+.trk{display:grid;gap:6px;margin:8px 0}.trk div{display:grid;grid-template-columns:110px 1fr auto;gap:8px;align-items:center}.trk small{color:var(--mute)}.trk code{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
 html.tgate,html.tgate body{overflow:hidden}
 .tgate{position:fixed;inset:0;z-index:9000;display:grid;place-items:center;padding:16px;background:rgba(4,6,14,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:tgIn .35s ease}
 .tgate.out{opacity:0;transition:opacity .3s}@keyframes tgIn{from{opacity:0}to{opacity:1}}
@@ -2025,6 +2059,7 @@ function renderHome(){
        <div><span class="label">Level</span><b data-c="${levelInfo(P.xp).lvl}">0</b></div>
      </div></div>
    </div>
+   ${growHomeHTML()}
    ${hsec('car','Your careers','The Rise and your leagues',`${crHomeCard()}${lgHomeCard()}`)}
    ${isAdminDevice()?hsec('volley','Volleyball · admins only','Only visible on your admin devices',vbHomeCard()):''}
    ${hsec('street','Street · beta','Play it yourself: real-time basketball',stHomeCard())}
@@ -2361,7 +2396,7 @@ function showResults(ctx){
   if(champ)confetti();
   got.forEach((id,i)=>setTimeout(()=>{const a=ACH.find(x=>x[0]===id);toast(a[1],a[2],a[3])},900+i*900));
   $('#again').onclick=()=>startDraft();$('#newEra').onclick=()=>go('home');
-  $('#shareImg').onclick=()=>openShare({kicker:`${ERAS[S.era].full} · ${MODES[S.mode].n} · ${DIFF[S.diff].n}`,title:champ?'Champions':ctx.finish,sub:`${me.w}–${me.l} regular season. Coach: ${S.coach.name}.`,accent:champ?'#ffb547':'#9cc2ff',lines:[['Team MVP',`${last(top.p.name)} ${(top.pts/82).toFixed(1)} ppg`],...SLOTS.slice(0,5).map(sl=>[S.roster[sl].name,S.roster[sl].ovr])]});
+  $('#shareImg').onclick=()=>openShare({kicker:`${ERAS[S.era].full} · ${MODES[S.mode].n} · ${DIFF[S.diff].n}`,title:champ?'Champions':ctx.finish,sub:`${me.w}–${me.l} regular season. Coach: ${S.coach.name}.`,accent:champ?'#ffb547':'#9cc2ff',lines:[['Team MVP',`${last(top.p.name)} ${(top.pts/82).toFixed(1)} ppg`],...SLOTS.slice(0,5).map(sl=>[S.roster[sl].name,S.roster[sl].ovr])],k:'season',challenge:{t:'season',e:S.era,w:me.w,l:me.l,ch:champ?1:0,df:S.diff,n:P.name||'A friend'}});
   const sv=$('#saveSign');if(sv)sv.onclick=()=>openSignIn();
   $('#share').onclick=async()=>{const txt=`Hall Pass · ${ERAS[S.era].full} ${MODES[S.mode].n} (${DIFF[S.diff].n})\n${ctx.finish} · ${me.w}-${me.l}\n${entry.roster.slice(0,5).join(', ')}\nCoach: ${S.coach.name} · MVP: ${top.p.name}`;
     try{await navigator.clipboard.writeText(txt);$('#shareMsg').textContent='Result copied to your clipboard.'}catch(e){$('#shareMsg').textContent=txt}};
@@ -2396,7 +2431,7 @@ function openDrawer(tab='ach'){
      <div class="pc-lvl"><div class="pc-lvlb"><b>${li.lvl}</b><small>Level</small></div><div class="pc-xp"><div class="lvl-row"><span class="mono">${fmtN(li.rem)} / ${fmtN(li.need)} XP</span><span>to level ${fmtN(li.lvl+1)}</span></div><div class="xpbar"><i id="dxp"></i></div></div>${tixHTML()}</div></div>
    ${pinsHTML()}
    <div class="stag" style="animation-delay:.05s">${supProfileCard()}</div>
-   <div class="pqs stag" style="animation-delay:.08s">${q('lockP','M20.4 7.4L16 3l-4 2-4-2-4.4 4.4L6 11v10h12V11z','Locker',"closeAll();setTimeout(()=>openLocker('inv'),250)")}${q('editP','M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z','Edit','')}${q('dPass','M3 9a3 3 0 0 0 0 6v3h18v-3a3 3 0 0 0 0-6V6H3zM13 6v12','Pass','')}${q('syncP','M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5','Sync',"closeAll();setTimeout(openSync,250)")}${q('promoP','M20 12v10H4V12M2 7h20v5H2zM12 22V7','Code',"closeAll();setTimeout(openPromo,250)")}${q('rulesP','M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z','Rules',"closeAll();setTimeout(openRules,250)")}</div>
+   <div class="pqs stag" style="animation-delay:.08s">${q('lockP','M20.4 7.4L16 3l-4 2-4-2-4.4 4.4L6 11v10h12V11z','Locker',"closeAll();setTimeout(()=>openLocker('inv'),250)")}${q('editP','M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z','Edit','')}${q('dPass','M3 9a3 3 0 0 0 0 6v3h18v-3a3 3 0 0 0 0-6V6H3zM13 6v12','Pass','')}${q('syncP','M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5','Sync',"closeAll();setTimeout(openSync,250)")}${q('promoP','M20 12v10H4V12M2 7h20v5H2zM12 22V7','Code',"closeAll();setTimeout(openPromo,250)")}${q('invP','M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M22 11h-6','Invite',"closeAll();setTimeout(openInvite,250)")}${q('rulesP','M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z','Rules',"closeAll();setTimeout(openRules,250)")}</div>
    <button class="passbar stag" id="dPass2" style="animation-delay:.1s"><span class="label">Season pass</span><b>Tier ${pt}<small>/${PASS_N}</small></b><i><s style="width:${pt>=PASS_N?100:into/PASS_XP*100}%"></s></i></button>
    <div class="pc-sec stag" style="animation-delay:.14s"><span class="label">Career</span><div class="stats4">
      <div><span class="label">Seasons</span><b data-c="${P.seasons}">0</b></div><div><span class="label">Titles</span><b data-c="${P.titles}" style="color:var(--amber)">0</b></div>
@@ -2478,7 +2513,7 @@ function openSignIn(why){
     const c=COS();if(mode==='jersey')c.mode='jersey';else if(c.mode==='jersey')c.mode='init';
     P.signed=true;if(!P.born)P.born=Date.now();saveP();refreshNav();
     const r=$('#pav').getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,GRADS[grad]);$('.su').classList.add('sudone');sfx('win');
-    setTimeout(()=>{closeAll();if(isNew){toast(`Welcome, ${n}`,'Your profile is live. Every game now counts.','M5 12l5 5L20 7');renderHome();if(!store.get('hp_tour',0)&&termsOK())setTimeout(()=>startTour(0),700)}},650)};
+    setTimeout(()=>{closeAll();if(isNew){try{growSignup()}catch(e){}toast(`Welcome, ${n}`,'Your profile is live. Every game now counts.','M5 12l5 5L20 7');renderHome();if(!store.get('hp_tour',0)&&termsOK())setTimeout(()=>startTour(0),700)}},650)};
   $('#mx').onclick=closeAll;$('#modal').classList.remove('wide');$('#modal').classList.add('on');$('#scrim').classList.add('on');setTimeout(()=>$('#nm').focus({preventScroll:true}),350)}
 
 /* ---------- sign-up is required: guests get one free mini-game ---------- */
@@ -4189,7 +4224,7 @@ const PASS_REWARDS=(()=>{const r=[];let g=BASE_GRADS,t=1,c=['night','retro','neo
 function passState(){if(!P.pass||P.pass.id!==monthKey())P.pass={id:monthKey(),xp:0,claimed:[]};return P.pass}
 const passTier=()=>Math.min(PASS_N,Math.floor(passState().xp/PASS_XP));
 function unlocks(){if(!P.unl)P.unl={grad:[],court:['maple'],title:['Rookie']};return P.unl}
-function gainXP(x){x=Math.max(0,Math.round((x||0)*(typeof liveXpMult==='function'?liveXpMult():1)*(typeof supXP==='function'?supXP():1)));P.xp+=x;if(x>0)P.tix=(P.tix||0)+Math.max(1,Math.round(x/8*(typeof supTix==='function'?supTix():1)));const ps=passState();const before=passTier();ps.xp+=x;const after=passTier();
+function gainXP(x){try{growPlay(x)}catch(e){}x=Math.max(0,Math.round((x||0)*(typeof liveXpMult==='function'?liveXpMult():1)*(typeof supXP==='function'?supXP():1)));P.xp+=x;if(x>0)P.tix=(P.tix||0)+Math.max(1,Math.round(x/8*(typeof supTix==='function'?supTix():1)));const ps=passState();const before=passTier();ps.xp+=x;const after=passTier();
   for(let k=before+1;k<=after;k++){const r=PASS_REWARDS[k-1];if(!r)continue;const u=unlocks();
     if(r.type==='grad'&&!u.grad.includes(r.v))u.grad.push(r.v);if(r.type==='court'&&!u.court.includes(r.v))u.court.push(r.v);if(r.type==='title'&&!u.title.includes(r.v))u.title.push(r.v);if(r.type==='xp')P.xp+=r.v;
     setTimeout(()=>toast(`Pass tier ${k} unlocked`,passRewardName(r),'M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'),1600+(k-before)*500)}
@@ -4237,14 +4272,16 @@ function shareCard(o){const W=1080,H=1350;const c=document.createElement('canvas
   (o.lines||[]).slice(0,7).forEach((l,k)=>{x.fillStyle='rgba(255,255,255,.06)';roundRect(x,72,y+k*96,W-144,80,18);x.fill();x.fillStyle='#eef1f8';x.font=`600 34px ${B}`;x.fillText(l[0],104,y+k*96+52);
     x.fillStyle=acc;x.font=`800 40px ${D}`;const t=String(l[1]||'');x.fillText(t,W-104-x.measureText(t).width,y+k*96+54)});
   x.fillStyle='#8f9abb';x.font=`500 26px ${M}`;x.fillText(`${P.signed?P.name+' · ':''}${new Date().toLocaleDateString()}`,72,H-70);
+  {x.font=`900 32px ${D}`;const pf='PLAY FREE · HALLPASS.LIVE';const pw=x.measureText(pf).width+56;x.fillStyle=acc;roundRect(x,W-72-pw,H-122,pw,70,35);x.fill();x.fillStyle='#0b1020';x.fillText(pf,W-72-pw+28,H-76)}
   try{return c.toDataURL('image/png')}catch(e){return null}}
 function roundRect(x,a,b,w,h,r){x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath()}
 function wrapText(x,t,a,b,w,lh){const words=String(t).split(' ');let line='',y=b;for(const wd of words){const test=line?line+' '+wd:wd;if(x.measureText(test).width>w&&line){x.fillText(line,a,y);line=wd;y+=lh}else line=test}if(line)x.fillText(line,a,y);return y}
-function openShare(o){const url=shareCard(o);const txt=[`Hall Pass · ${o.kicker||''}`,o.title,o.sub,...(o.lines||[]).map(l=>`${l[0]}: ${l[1]}`)].filter(Boolean).join('\n');
+function openShare(o){if(P.signed&&!P.refCode)refCode();const url=shareCard(o);const link=o.challenge?challengeLink(o.challenge):refLink({src:'share'});const txt=(o.text||[`Hall Pass · ${o.kicker||''}`,o.title,o.sub,...(o.lines||[]).map(l=>`${l[0]}: ${l[1]}`)].filter(Boolean).join('\n'))+'\n'+(o.challenge?'Beat me 👉 ':'Play free 👉 ')+link;dbEvent('share',{k:o.k||'card'});
   lgOpenModal(`<span class="label">Share card</span><h2 class="mtitle">Show it off</h2>${url?`<img class="sharecard" src="${url}" alt="${esc(o.title||'Result card')}">`:'<p class="mutep">Your browser could not draw the image, but you can still copy the text.</p>'}
-   <div class="actrow">${url?`<a class="btn btn-go" href="${url}" download="hallpass-${Date.now()}.png" id="shSave">${icon('M12 3v12M7 10l5 5 5-5M5 21h14',16)} Save image</a>`:''}${navigator.share?'<button class="btn btn-ghost" id="shNative">Share…</button>':''}<button class="btn btn-ghost" id="shCopy">Copy text</button></div><p class="hint" id="shMsg">On a phone you can also press and hold the image to save it.</p>`,true);
+   <div class="actrow">${url?`<a class="btn btn-go" href="${url}" download="hallpass-${Date.now()}.png" id="shSave">${icon('M12 3v12M7 10l5 5 5-5M5 21h14',16)} Save image</a>`:''}${navigator.share?'<button class="btn btn-ghost" id="shNative">Share…</button>':''}<button class="btn btn-ghost" id="shCopy">Copy text</button><button class="btn btn-ghost" id="shLink">${o.challenge?'Copy challenge link':'Copy link'}</button></div><p class="hint" id="shMsg">On a phone you can also press and hold the image to save it.</p>`,true);
   const cp=$('#shCopy');if(cp)cp.onclick=async()=>{try{await navigator.clipboard.writeText(txt);$('#shMsg').textContent='Copied.'}catch(e){$('#shMsg').textContent=txt}};
   const nv=$('#shNative');if(nv)nv.onclick=async()=>{try{if(url&&navigator.canShare){const b=await (await fetch(url)).blob();const f=new File([b],'hallpass.png',{type:'image/png'});if(navigator.canShare({files:[f]})){await navigator.share({files:[f],text:txt});return}}await navigator.share({text:txt})}catch(e){}};
+  const cl=$('#shLink');if(cl)cl.onclick=async()=>{try{await navigator.clipboard.writeText(link);$('#shMsg').textContent='Link copied. Paste it anywhere.'}catch(e){$('#shMsg').textContent=link}};
   sfx('flip')}
 
 /* ======================= MODES: daily challenge, gauntlet, mini-games ======================= */
@@ -4272,7 +4309,7 @@ async function runDaily(){const c=dailyCfg(S.daily);const t=teamCalc(S.roster,S.
   $('#dlyEnd').innerHTML=`<div class="result-hero"><span class="label">${official?'Official attempt':'Practice run · today’s official attempt is already in'}</span><h1 class="${res.won?'':'sad'}" style="font-size:clamp(48px,10vw,110px)">${res.won?'Boss down':'Not today'}</h1><p>${res.won?'You won':'You lost'} the series ${Math.max(res.wa,res.wb)}–${Math.min(res.wa,res.wb)}. Daily streak: <b>${D.streak}</b> (best ${D.best}). +${xp} XP.</p></div>
    <div class="actions"><button class="btn btn-go" id="dlyShare">Share card</button><button class="btn btn-ghost" onclick="startDaily()">Practice again</button><button class="btn btn-ghost" onclick="go('home')">Home</button></div>`;
   if(res.won){confetti();sfx('win')}else sfx('lose');
-  $('#dlyShare').onclick=()=>openShare({kicker:`Daily challenge · ${c.key}`,title:res.won?'Boss down':'So close',sub:`${res.won?'Beat':'Fell to'} ${c.boss} ${Math.max(res.wa,res.wb)}–${Math.min(res.wa,res.wb)}`,accent:res.won?'#4fd18b':'#ff6b6b',lines:[['Daily streak',D.streak],['Best streak',D.best],...SLOTS.slice(0,5).map(sl=>[S.roster[sl].name,S.roster[sl].ovr])]})}
+  $('#dlyShare').onclick=()=>openShare({k:'daily',challenge:{t:'daily',w:res.won?1:0,n:P.name||'A friend'},kicker:`Daily challenge · ${c.key}`,title:res.won?'Boss down':'So close',sub:`${res.won?'Beat':'Fell to'} ${c.boss} ${Math.max(res.wa,res.wb)}–${Math.min(res.wa,res.wb)}`,accent:res.won?'#4fd18b':'#ff6b6b',lines:[['Daily streak',D.streak],['Best streak',D.best],...SLOTS.slice(0,5).map(sl=>[S.roster[sl].name,S.roster[sl].ovr])]})}
 
 /* ---------- gauntlet: one opponent per decade, best of three, no second chances ---------- */
 function decadeTeam(e){const pool=PLAYERS.filter(p=>p.era===e).sort((a,b)=>b.ovr-a.ovr);const ros={};const used=new Set();
@@ -4347,6 +4384,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {v:'9.0',d:'2026-10-25',t:'Daily Five, invites and challenges',b:'New every day: the Daily Five. Build the best starting five under a salary cap from the same 25 players everyone gets, in about 60 seconds. One try counts, there\'s a daily leaderboard, and your result shares like a puzzle score. Invite friends with your own link: when they sign up and play 3 games you get 300 tickets, plus titles at 3, 5 and 10 friends. Share cards now carry a link, and you can challenge friends to beat your Daily Five score, your season record or your Street win.'},
  {v:'8.9',d:'2026-10-24',t:'Community Rules and AutoMod',b:'Hall Pass now has Community Rules that everyone accepts before playing. AutoMod keeps names, team names, titles and league chat friendly: it blocks hate, threats, sexual content, links and personal info, hides strong swears, and stops spam. Breaking the rules earns strikes that can mean a short mute or a pause on online play. You can now report a player from league chat or the leaderboards, or report a problem from the footer or your profile. Read the rules any time from Profile → Rules.'},
  {v:'8.8',d:'2026-10-23',t:'Street 3.0: Rep, courts and King of the Court',b:'Every Street game now earns Street Rep. Climb seven tiers from Rookie to Icon and unlock three new courts (Downtown Park, Rooftop Nights, Boardwalk Beach) and seven team kits. New signature moves: spin move, euro step and fadeaway, plus named dunks with slow-motion highlights. Live commentary calls the big plays. New mode: King of the Court, an eight-player bracket where you win three straight to take the crown. Career stats, controller support, and settings for commentary, slow-mo and screen shake.'},
  {v:'8.7',d:'2026-10-23',t:'Street 2.0',b:'Street got a full upgrade: a real arena with a crowd, a camera that follows the play, new animations, a curved shot meter, net and rim physics, and effects for dunks, blocks and steals. New moves: step-backs, and-ones, alley-oops, going on fire. New modes: The Ladder (beat ten legends) and a hands-on tutorial. Opponents now adapt to how you play, Easy is much friendlier, and blocking and stealing are easier.'},
@@ -4447,7 +4485,7 @@ function renderAdmin(){adminConnect();const f=LIVE.feed;const c=f.cfg||{};if(!AD
      <div class="card"><span class="label">Backup</span><p class="hint">Copy your whole profile as text, or paste one in to restore it.</p><textarea id="aBk" rows="6" spellcheck="false"></textarea><div class="actrow"><button class="btn btn-ghost" id="aExp">Export my profile</button><button class="btn btn-ghost" id="aImp">Import pasted profile</button></div></div></div>`,
     device:`<div class="card"><span class="label">This device is an admin</span><p class="mutep">Your admin code is saved in this browser. To make another device an admin, open #admin there and paste the same code.</p>
       <div class="actrow"><button class="btn btn-ghost" id="aShow">Show my admin code</button><button class="btn btn-ghost warn" id="aOut">Remove admin from this device</button></div><p class="codebox" id="aCode" hidden></p>
-      <p class="hint">Keep the code private. Anyone with it can post updates as you. If it ever leaks, ask Claude to make you a new one.</p></div>`,...adminTabs2(),...adminTabs3(),...adminTabsStreet(),...adminTabsSafety()}[ADM.tab];
+      <p class="hint">Keep the code private. Anyone with it can post updates as you. If it ever leaks, ask Claude to make you a new one.</p></div>`,...adminTabs2(),...adminTabs3(),...adminTabsStreet(),...adminTabsSafety(),...adminTabsGrowth()}[ADM.tab];
   const cur=ADM_NAV.flatMap(g=>g[1]).find(x=>x[0]===ADM.tab)||['','Control room'];
   $('#app').innerHTML=`<section class="view adm"><div class="wrap"><div class="admtop"><button class="btn btn-ghost" onclick="adminExit()">${icon('M19 12H5M11 18l-6-6 6-6')} Back to the game</button><div><span class="label adm-l">● Admin · only on your devices</span><h2>Control room</h2></div><div class="meta"><span class="admpill">${DB.ok?'<i class="ok"></i>Live':'<i class="bad"></i>Offline'}</span></div></div>
     ${(c.maint&&c.maint.on&&ADM.tab!=='events')?`<div class="mtbar"><div><b>Maintenance mode is ON</b><small>Players see the "back soon" screen right now. Your devices skip it — use Preview or an Incognito window to see it.</small></div><button class="btn btn-ghost" onclick="liveMaint(true)">Preview what players see</button><button class="btn btn-go" onclick="maintOff()">Turn maintenance off</button></div>`:''}
@@ -4465,7 +4503,7 @@ function renderAdmin(){adminConnect();const f=LIVE.feed;const c=f.cfg||{};if(!AD
   const M1=$('#aMotd');if(M1)M1.onclick=()=>{const fd=feedCopy();fd.cfg.motd=$('#aM').value.trim();fd.cfg.motdId=rid();adminPublish(fd)};
   const M0=$('#aMotdOff');if(M0)M0.onclick=()=>{const fd=feedCopy();fd.cfg.motd='';adminPublish(fd)};
   const B1=$('#aBoss');if(B1)B1.onclick=()=>{const n=$('#aBn').value.trim();if(!n){ADM.pubRes='Give the boss a name first.';return renderAdmin()}const fd=feedCopy();Object.assign(fd.cfg,{boss:n,bossDay:dayKey(),rating:ADM.br||91});adminPublish(fd)};
-  if(ADM.tab==='db')adminDbDraw();adminBind2();adminBind3();stAdminBind();safAdminBind();
+  if(ADM.tab==='db')adminDbDraw();adminBind2();adminBind3();stAdminBind();safAdminBind();growAdminBind();
   if(ADM.tab==='players'){adminOnlineDraw();clearInterval(ADM.iv);ADM.iv=setInterval(()=>{if($('#admOnline'))adminOnlineDraw();else clearInterval(ADM.iv)},5000)}
   on('[data-at]',b=>{const k=b.dataset.at;const msg=t=>{const m=$('#atMsg');if(m)m.textContent=t};
     if(k==='xp'){gainXP(2000);msg('Added 2,000 XP.')}
@@ -4505,7 +4543,7 @@ async function dbInit(){if(!/^https?:/.test(location.protocol)||(window.claude&&
     DB.uid=session.user.id;let r2=await c.rpc('ensure_profile');
     if(r2.error&&/jwt|token|auth|401|sub claim/i.test(r2.error.message+' '+(r2.error.code||''))){try{await c.auth.signOut()}catch(e){}const r3=await c.auth.signInAnonymously();if(r3.error)throw r3.error;session=r3.data.session;DB.uid=session.user.id;r2=await c.rpc('ensure_profile')}
     if(r2.error)throw r2.error;DB.pid=r2.data;
-    await dbPull();DB.ok=true;dbEvent('session',{v:CHANGELOG[0].v});try{dbPresence()}catch(e){}try{dbLiveMe()}catch(e){}memLoad().catch(()=>{});dbInboxCheck().catch(()=>{});nameReconcile().catch(()=>{});safetySync();setInterval(safetySync,120000);
+    await dbPull();DB.ok=true;dbEvent('session',{v:CHANGELOG[0].v});try{dbPresence()}catch(e){}try{dbLiveMe()}catch(e){}memLoad().catch(()=>{});dbInboxCheck().catch(()=>{});nameReconcile().catch(()=>{});safetySync();setInterval(safetySync,120000);try{growDB()}catch(e){}
     const f=await c.from('config').select('v').eq('k','feed').maybeSingle();if(f.data&&f.data.v)dbFeedApply(f.data.v);
     c.channel('hp-config').on('postgres_changes',{event:'*',schema:'public',table:'config'},p=>{if(p.new&&p.new.k==='feed')dbFeedApply(p.new.v)}).subscribe();
     if(store.get('hp_admin',''))dbClaimAdmin();
@@ -5818,7 +5856,7 @@ const ADM_NAV=[
   ['Home',[['overview','Overview','M3 12l9-9 9 9M5 10v10h14V10']]],
   ['Content',[['post','Updates & posts','M4 4h16v12H5.2L4 17.2z'],['events','Live events','M13 2L3 14h8l-1 8 10-12h-8z'],['themes','Themes','M12 2a10 10 0 1 0 0 20c1 0 2-1 2-2s-1-1.5-1-2.5 1-1.5 2-1.5h2a5 5 0 0 0 5-5c0-5-4.5-9-10-9zM7 12h.01M9 7h.01M15 7h.01']]],
   ['Players',[['safety','Safety & rules','M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z'],['players','Players','M17 20a5 5 0 0 0-10 0M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],['me','My profile & MyPlayer','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'],['supporters','Supporters','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'],['boards','Leaderboards','M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z'],['street','Street beta','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM2 12h20M12 2v20'],['volley','Volleyball (play)','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 2c3 4 3 14 0 20M2.5 9c6 1 13 1 19 0'],['codes','Promo codes','M20 12v10H4V12M2 7h20v5H2zM12 22V7']]],
-  ['Insights',[['activity','Activity','M22 12h-4l-3 9L9 3l-3 9H2'],['db','Stats','M3 3v18h18M7 15l4-4 3 3 6-6']]],
+  ['Insights',[['growth','Growth','M3 17l6-6 4 4 8-8M14 7h7v7'],['activity','Activity','M22 12h-4l-3 9L9 3l-3 9H2'],['db','Stats','M3 3v18h18M7 15l4-4 3 3 6-6']]],
   ['System',[['tools','Dev tools','M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z'],['device','This device','M5 2h14v20H5zM12 18h.01']]]];
 function admNavHTML(){return ADM_NAV.map(([g,items])=>`<div class="admgrp"><span class="label">${g}</span>${items.map(([k,n,ic])=>`<button data-atab="${k}" class="${(k==='me'?ADM.meSel&&ADM.tab==='players':ADM.tab===k&&!(k==='players'&&ADM.meSel))?'on':''}">${icon(ic,16)}<span>${n}</span></button>`).join('')}</div>`).join('')}
 const admPub=fn=>{const fd=feedCopy();fn(fd.cfg,fd);return adminPublish(fd)};
@@ -5897,7 +5935,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1792821934';
+const BUILD='1792908206';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -6440,7 +6478,8 @@ function stEnd(winner,forfeit){const s=ST;if(!s)return;cancelAnimationFrame(STRA
     ${ladMsg?`<p class="stlad">${esc(ladMsg)}</p>`:''}${kotcMsg?`<p class="stlad">${esc(kotcMsg)}</p>`:''}${tierMsg?`<p class="stlad tier">${esc(tierMsg)}</p>`:''}<p class="hint">+${xp} XP · +${repG} Street Rep · Player of the game: <b>${mvp.me?'You':esc(mvp.name)}</b>${got.length?' · '+got.map(id=>{const a=ACH.find(x=>x[0]===id);return a?'Achievement: '+a[1]:''}).join(', '):''}</p>
     ${s.opt.mode!=='ladder'&&s.opt.mode!=='kotc'?`<p class="hint">Next time on ${s.d.n}: <b>${stTuneLabel(S2.skill[s.opt.diff]||0)}</b></p>`:''}
     <div class="tbl-wrap"><table><tr><th>Player</th><th class="n">PTS</th><th class="n">FG</th><th class="n">3PT</th><th class="n">REB</th><th class="n">AST</th><th class="n">STL</th><th class="n">BLK</th><th class="n">Ankles</th></tr>${s.all.map(row).join('')}</table></div>
-    <div class="actrow" style="justify-content:center;margin-top:14px"><button class="btn btn-go btn-big" id="stAgain">${s.opt.mode==='ladder'&&won&&S2.ladder<10?'Next rung':s.opt.mode==='kotc'?(S2.kotc?'Play the '+KOTC_R[S2.kotc.w.length].toLowerCase():'Enter again'):'Run it back'}</button><button class="btn btn-ghost" onclick="ST=null;stHub()">Street menu</button><button class="btn btn-ghost" onclick="ST=null;go('home')">Home</button></div></div></div></section>`;
+    <div class="actrow" style="justify-content:center;margin-top:14px"><button class="btn btn-go btn-big" id="stAgain">${s.opt.mode==='ladder'&&won&&S2.ladder<10?'Next rung':s.opt.mode==='kotc'?(S2.kotc?'Play the '+KOTC_R[S2.kotc.w.length].toLowerCase():'Enter again'):'Run it back'}</button><button class="btn btn-ghost" id="stShare">Share</button><button class="btn btn-ghost" onclick="ST=null;stHub()">Street menu</button><button class="btn btn-ghost" onclick="ST=null;go('home')">Home</button></div></div></div></section>`;
+  {const sv=s;$('#stShare').onclick=()=>openShare({k:'street',kicker:`Street · ${({'3v3':'3-on-3','1v1':'1-on-1',ladder:'The Ladder',kotc:'King of the Court'})[sv.opt.mode]||''}`,title:forfeit?'Forfeit':won?(kotcMsg.startsWith('KING')?'King of the Court':'Street win'):'Tough loss',sub:`${sv.score.A}–${sv.score.B} vs ${sv.opt.mode==='3v3'?'three legends':sv.teams.B[0].name}`,accent:won?'#4fd18b':'#ff8a8a',lines:[['Points',me.st.pts],['FG',me.st.fgm+'/'+me.st.fga],['Ankles broken',me.st.ankles],['Dunks',me.st.dnk],['Street Rep',fmtN(S2.rep)]],challenge:won&&((LIVE.feed.cfg||{}).street==='all')?{t:'street',a:sv.score.A,b:sv.score.B,df:sv.opt.diff,n:P.name||'A friend'}:null})}
   const opt=s.opt;ST=null;$('#stAgain').onclick=()=>{if(opt.mode==='kotc'){const S3=stSave();if(!S3.kotc)stKotcNew();const r=S3.kotc.w.length;return stStart({mode:'kotc',diff:r===2?'legend':'normal',to:7,makeIt:false,opp:stKotcOpp()})}if(opt.mode==='ladder'){const lad=Math.min(9,stSave().ladder);stStart({mode:'ladder',diff:lad<3?'easy':lad<7?'normal':'legend',to:11})}else stStart(opt)};refreshNav()}
 
 /* ---------- control room: Street beta access ---------- */
@@ -7433,7 +7472,7 @@ function termsGate(){if(termsOK()){const g=$('#termsGate');if(g)g.remove();docum
   body.addEventListener('scroll',upd,{passive:true});A.onchange=B.onchange=upd;setTimeout(upd,60);
   $('#tgNo').onclick=()=>{$('#tgMsg').innerHTML='You need to accept the rules to play Hall Pass. If you don\'t agree, you can close this tab. Nothing is saved until you accept.';sfx('click')};
   go.onclick=()=>{if(go.disabled)return;P.terms={v:termsV(),t:Date.now(),age:1};saveP();sfx('chime');dbTermsAccept();dbEvent('terms_accept',{v:termsV()});el.classList.add('out');document.documentElement.classList.remove('tgate');setTimeout(()=>{el.remove();termsAfter()},350)}}
-function termsAfter(){if(P.mustRename)return renamePrompt();if(P.signed&&!store.get('hp_tour',0)&&$('.hero'))setTimeout(()=>startTour(0),500)}
+function termsAfter(){if(GROW.ch)return setTimeout(challengeOpen,300);if(P.mustRename)return renamePrompt();if(P.signed&&!store.get('hp_tour',0)&&$('.hero'))setTimeout(()=>startTour(0),500)}
 async function dbTermsAccept(){if(!DB.ok)return;try{await DB.c.rpc('accept_terms',{p_v:termsV()})}catch(e){}}
 function termsBlock(){/* used by the tour and anything that would start on top of the gate */return !termsOK()}
 
@@ -7561,6 +7600,141 @@ async function safAdminBind(){if(ADM.tab!=='safety')return;
   $$('[data-sfa]').forEach(b=>b.onclick=async()=>{const a=b.dataset.sfa;const msgs={warn:'Hey! A message or name of yours broke the Hall Pass Community Rules. Please keep it friendly. Next time there will be a mute.',mute:'You\'ve been muted for 24 hours for breaking the Community Rules.',online_ban:'Online play is paused for you for 3 days for breaking the Community Rules. Solo modes still work.',rename:'Your username broke the Community Rules, so it was changed. Please pick a new, friendly one.',lb_ban:'You were removed from the leaderboards for breaking the fair play rules.'};
     b.disabled=true;const r=await admRpc('admin_moderate',{p_report:+b.dataset.r,p_pid:b.dataset.p||null,p_action:a,p_hours:a==='online_ban'?72:24,p_msg:msgs[a]||''});b.textContent=r.error?'Failed':'Done ✓';sfx(r.error?'lose':'click');setTimeout(()=>safAdminBind(),500)})}
 
+/* =====================================================================
+   GROWTH: Daily Five puzzle, invite links with rewards, challenge links,
+   share links on every card, where-players-come-from tracking, and the
+   growth stats in the control room.
+   ===================================================================== */
+const SITE=(()=>{try{return /^https?:/.test(location.origin)&&!/localhost|127\.0\.0\.1/.test(location.hostname)?location.origin:'https://hallpass.live'}catch(e){return'https://hallpass.live'}})();
+const GROW={visit:null,ch:null,lastPlay:0};
+function growRefHost(r){try{const h=new URL(r).hostname.replace(/^www\./,'');if(/hallpass/.test(h))return'';const m={'t.co':'twitter','x.com':'twitter','twitter.com':'twitter','l.instagram.com':'instagram','instagram.com':'instagram','lm.facebook.com':'facebook','m.facebook.com':'facebook','facebook.com':'facebook','youtube.com':'youtube','m.youtube.com':'youtube','tiktok.com':'tiktok','reddit.com':'reddit','old.reddit.com':'reddit','discord.com':'discord','itch.io':'itch','crazygames.com':'crazygames','poki.com':'poki','google.com':'google','bing.com':'bing','duckduckgo.com':'duckduckgo','producthunt.com':'producthunt','news.ycombinator.com':'hackernews'};return m[h]||(/google\./.test(h)?'google':/reddit/.test(h)?'reddit':/itch\.io$/.test(h)?'itch':h.split('.').slice(-2,-1)[0]||'web')}catch(e){return''}}
+/* read ?src= ?r= ?c= once, remember the first visit, then tidy the address bar */
+(function growBoot(){try{const u=new URL(location.href);const q=u.searchParams;const src=(q.get('src')||q.get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,24);const ref=(q.get('r')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);const ch=q.get('c')||'';
+  let first=null;try{first=JSON.parse(localStorage.getItem('hp_first')||'null')}catch(e){}const isFirst=!first;
+  if(!first){first={src:src||(ref?'invite':growRefHost(document.referrer)||'direct'),ref,t:Date.now()};try{localStorage.setItem('hp_first',JSON.stringify(first))}catch(e){}}
+  if(ref){try{localStorage.setItem('hp_ref',ref)}catch(e){}}if(ch)GROW.ch=ch;
+  GROW.visit={src:src||(isFirst?first.src:growRefHost(document.referrer)||'return'),first:isFirst?'1':'',ref};
+  if(src||ref||ch||q.get('utm_source')){['src','r','c','utm_source','utm_medium','utm_campaign','utm_content','fbclid','gclid','ttclid'].forEach(k=>q.delete(k));history.replaceState(null,'',u.pathname+(q.toString()?'?'+q:'')+u.hash)}}catch(e){}})();
+function growFirst(){try{return JSON.parse(localStorage.getItem('hp_first')||'null')||{}}catch(e){return{}}}
+/* runs once the database is connected */
+function growDB(){if(GROW.visit&&!GROW.sent){GROW.sent=1;dbEvent('visit',GROW.visit)}refClaimMine();refRewards();if(P.signed)refCode()}
+/* every real game counts once a minute: used for invite rewards and the stats */
+function growPlay(x){if(!(x>=10))return;const now=Date.now();if(now-GROW.lastPlay<60000)return;GROW.lastPlay=now;P.gp=(P.gp||0)+1;dbEvent('play',{})}
+function growSignup(){dbEvent('signup',{src:growFirst().src||'direct'});setTimeout(()=>{refClaimMine();if(!P.srcAsked)growSurvey()},2600)}
+const GROW_SRC=[['tiktok','TikTok'],['youtube','YouTube'],['instagram','Instagram'],['reddit','Reddit'],['discord','Discord'],['friend','A friend'],['school','School'],['gamesite','A games website'],['search','Searching online'],['other','Something else']];
+function growSurvey(){if(P.srcAsked||!termsOK())return;P.srcAsked=1;saveP();lgOpenModal(`<span class="label">One quick question</span><h2 class="mtitle">How did you find Hall Pass?</h2><p class="mutep">It helps the developer know where to share the game. Tap one.</p><div class="chips" style="margin-top:10px">${GROW_SRC.map(([k,n])=>`<button class="cbtn" data-gsv="${k}">${n}</button>`).join('')}</div><div class="actrow" style="margin-top:12px"><button class="btn btn-ghost" onclick="closeAll()">Skip</button></div>`,true);
+  $$('[data-gsv]').forEach(b=>b.onclick=()=>{dbEvent('src_survey',{a:b.dataset.gsv,src:growFirst().src||''});closeAll();toastLite('Thanks! 🙌');sfx('click')})}
+
+/* ---------- invites ---------- */
+const REF_TIERS=[[1,'+300 🎟 for each friend',''],[3,'"Scout" title','Scout'],[5,'"Recruiter" title + gold card frame','Recruiter'],[10,'"Ambassador" title + 2,000 🎟','Ambassador']];
+async function refCode(){if(P.refCode)return P.refCode;if(!DB.ok)return'';try{const r=await DB.c.rpc('my_ref_code');if(!r.error&&r.data){P.refCode=String(r.data);saveP()}}catch(e){}return P.refCode||''}
+function refLink(extra){const q=new URLSearchParams();if(P.refCode)q.set('r',P.refCode);if(extra)for(const k in extra)if(extra[k]!=null&&extra[k]!=='')q.set(k,extra[k]);const s=q.toString();return SITE+'/'+(s?'?'+s:'')}
+async function refClaimMine(){const code=(()=>{try{return localStorage.getItem('hp_ref')||''}catch(e){return''}})();if(!code||!P.signed||!DB.ok||P.refJoined||!termsOK())return;
+  try{const r=await DB.c.rpc('claim_referral',{p_code:code});const d=r.data&&(typeof r.data==='string'?JSON.parse(r.data):r.data);if(d&&d.ok){P.refJoined=code;addTix(250,'Welcome gift from '+(d.name||'your friend'));saveP();toast('Your friend invited you','You both get rewards once you\'ve played 3 games. Have fun!','M5 12l5 5L20 7')}else if(d&&d.why!=='unknown'){P.refJoined=code;saveP()}try{localStorage.removeItem('hp_ref')}catch(e){}}catch(e){}}
+async function refRewards(){if(!P.signed||!DB.ok)return null;let pr=null;try{const n=await DB.c.rpc('claim_ref_rewards');if(!n.error&&n.data>0){const k=+n.data;addTix(300*k,k>1?k+' friends joined':'A friend joined');sfx('chime')}const r=await DB.c.rpc('ref_progress');if(!r.error)pr=typeof r.data==='string'?JSON.parse(r.data):r.data}catch(e){}
+  if(pr){const q=pr.qualified||0;const u=unlocks();REF_TIERS.forEach(([n,,t])=>{if(t&&q>=n&&!u.title.includes(t)){u.title.push(t);toast('New title unlocked: '+t,'Thanks for bringing friends to Hall Pass!','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z');if(t==='Ambassador')addTix(2000,'Ambassador bonus');if(t==='Recruiter')P.goldFrame=1}});P.refQ=q;saveP()}return pr}
+async function openInvite(){if(!P.signed)return openSignIn();const code=await refCode();const link=refLink({src:'invite'});
+  const draw=pr=>{const q=pr?pr.qualified:P.refQ||0;const nx=REF_TIERS.find(t=>t[0]>q)||REF_TIERS[REF_TIERS.length-1];
+    lgOpenModal(`<span class="label">Invite friends</span><h2 class="mtitle">Play with your friends</h2><p class="mutep">Send your link. When a friend signs up with it and plays 3 games, you get <b>300 🎟</b> and they get a <b>250 🎟</b> welcome gift.</p>
+     <div class="invlink"><input id="ivL" readonly value="${esc(code?link:'Connecting…')}"><button class="btn btn-go" id="ivC">Copy</button>${navigator.share?'<button class="btn btn-ghost" id="ivS">Share…</button>':''}</div>
+     <div class="invq"><b>${q}</b><span>friend${q===1?'':'s'} joined · next: ${esc(nx[1])} at ${nx[0]}</span><div class="xpbar"><i style="width:${Math.min(100,q/nx[0]*100)}%"></i></div></div>
+     <div class="invt">${REF_TIERS.map(([n,t])=>`<div class="${q>=n?'on':''}"><b>${n}</b><span>${esc(t)}</span></div>`).join('')}</div>
+     ${pr&&pr.friends&&pr.friends.length?`<span class="label">Your friends</span><div class="invf">${pr.friends.map(f=>`<div><b>${esc(f.name||'New player')}</b><span class="${f.ok?'okc':''}">${f.ok?'✓ Counted':'Played '+f.gp+'/3'}</span></div>`).join('')}</div>`:''}
+     <p class="hint">Quick messages: <button class="linkbtn" data-ivm="1">"Draft better than me?"</button> · <button class="linkbtn" data-ivm="2">"Join my league"</button> · <button class="linkbtn" data-ivm="3">"Beat my Daily Five"</button></p>`,true);
+    const msg=k=>({1:`I bet you can't draft a better all-time team than me 🏀 ${link}`,2:`Join me on Hall Pass, we can run a league together 🏆 ${link}`,3:`Try today's Hall Pass Daily Five, 60 seconds, see if you beat my score ${link}`})[k];
+    $('#ivC').onclick=async()=>{try{await navigator.clipboard.writeText(link);$('#ivC').textContent='Copied ✓';dbEvent('share',{k:'invite'})}catch(e){$('#ivL').select()}};
+    const s=$('#ivS');if(s)s.onclick=async()=>{try{await navigator.share({title:'Hall Pass',text:'Come play Hall Pass with me 🏀',url:link});dbEvent('share',{k:'invite'})}catch(e){}};
+    $$('[data-ivm]').forEach(b=>b.onclick=async()=>{const m=msg(b.dataset.ivm);try{if(navigator.share)await navigator.share({text:m});else{await navigator.clipboard.writeText(m);toastLite('Message copied')}dbEvent('share',{k:'invite_msg'})}catch(e){}})};
+  draw(null);const pr=await refRewards();if($('#ivL'))draw(pr)}
+
+/* ---------- challenge links ---------- */
+const chEnc=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const chDec=s=>decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/'))));
+function challengeLink(o){return refLink({c:chEnc(JSON.stringify(o)),src:'challenge'})}
+function challengeOpen(){if(!GROW.ch||!termsOK())return;let o=null;try{o=JSON.parse(chDec(GROW.ch))}catch(e){}GROW.ch=null;if(!o||!o.t)return;const n=esc(String(o.n||'A friend').slice(0,25));dbEvent('challenge_open',{t:o.t});
+  let title='',body='',go=null,lbl='Accept the challenge';
+  if(o.t==='d5'){const today=o.d===d5Day();title=`${n} scored ${+o.s}/100`;body=today?'on today\'s Daily Five. Same players, same budget. Can you beat it?':'on a Daily Five. Today\'s puzzle is waiting for you.';go=()=>d5Open({beat:today?{n:o.n,s:+o.s}:null});lbl='Play the Daily Five'}
+  else if(o.t==='season'){title=`${n} went ${+o.w}–${+o.l}${o.ch?' and won the title':''}`;body=`with a ${esc((ERAS[o.e]||{full:'mixed'}).full)} team. Draft from the same decade and beat ${+o.w} wins.`;go=()=>{S.era=ERAS[o.e]?o.e:'mix';S.mode='classic';S.diff=DIFF[o.df]?o.df:'pro';startDraft()}}
+  else if(o.t==='street'){title=`${n} won ${+o.a}–${+o.b} in Street`;body=`against a ${esc((ST_DIFF[o.df]||{n:'Normal'}).n)} opponent. Your turn.`;go=()=>stHub()}
+  else if(o.t==='daily'){title=`${n} ${o.w?'beat':'took on'} today's boss`;body='Draft your team and win the Daily challenge too.';go=()=>startDaily()}
+  else return;
+  lgOpenModal(`<span class="label">⚔️ Challenge</span><h2 class="mtitle">${title}</h2><p class="mutep">${body}</p><div class="actrow" style="margin-top:12px"><button class="btn btn-go btn-big" id="chGo">${lbl}</button><button class="btn btn-ghost" onclick="closeAll()">Not now</button></div>`,true);
+  $('#chGo').onclick=()=>{closeAll();if(!P.signed&&o.t!=='d5'&&!canPlay('full'))return;setTimeout(go,200)}}
+
+/* ---------- Daily Five: pick a starting five under a budget. Same puzzle for everyone, once a day ---------- */
+const D5_POS=['PG','SG','SF','PF','C'];
+const d5Day=()=>new Date().toISOString().slice(0,10);
+const d5Num=d=>Math.round((Date.parse(d)-Date.parse('2026-10-25'))/864e5)+1;
+const D5C={};
+function d5Cfg(day){if(D5C[day])return D5C[day];const R0=mulberry32(strHash('d5:'+day)>>>0);const pick=a=>a[Math.floor(R0()*a.length)];const used=new Set();const tiers=[[93,99],[90,92],[87,89],[84,86],[76,83]];
+  const pos=D5_POS.map(ps=>{const c=[];tiers.forEach(([lo,hi])=>{let pool=PLAYERS.filter(p=>p.pos===ps&&p.ovr>=lo&&p.ovr<=hi&&!used.has(p.name));if(!pool.length)pool=PLAYERS.filter(p=>p.pos===ps&&!used.has(p.name));const p=pick(pool);used.add(p.name);c.push(p)});
+    for(let i=c.length-1;i>0;i--){const j=Math.floor(R0()*(i+1));[c[i],c[j]]=[c[j],c[i]]}return c});
+  const sal=p=>Math.max(3,Math.round(cost(p)*.6));
+  const med=pos.map(c=>c.map(sal).sort((a,b)=>b-a)[2]);const cap=Math.round(med.reduce((a,b)=>a+b,0)*1.12);
+  /* every lineup that fits: find the best one and how hard it is */
+  let best=null,br=-1;const all=[];const idx=[0,0,0,0,0];
+  for(let n=0;n<3125;n++){let k=n;for(let i=0;i<5;i++){idx[i]=k%5;k=Math.floor(k/5)}const ps=idx.map((j,i)=>pos[i][j]);const tot=ps.reduce((a,p)=>a+sal(p),0);if(tot>cap)continue;
+    const r=d5Rate(ps);all.push(r);if(r>br){br=r;best=idx.slice()}}
+  all.sort((a,b)=>a-b);const low=all[Math.floor(all.length*.08)]||all[0];
+  return D5C[day]={day,pos,sal,cap,best,br,low}}
+function d5Rate(ps){const ro={};D5_POS.forEach((s,i)=>ro[s]=ps[i]);return teamCalc(ro,null,false).rating}
+function d5Score(cfg,ps){const r=d5Rate(ps);return Math.max(0,Math.min(100,Math.round(100*(r-cfg.low)/Math.max(.1,cfg.br-cfg.low))))}
+function d5State(){if(!P.d5)P.d5={day:'',score:0,pick:null,streak:0,best:0,played:0};return P.d5}
+function d5Top(st){if(!st.rank||!st.total)return'';return st.total<10?`#${st.rank} of ${st.total} today`:`top ${Math.max(1,Math.round(st.rank/st.total*100))}% today`}
+function d5Squares(cfg,pick){return pick.map((j,i)=>{const b=cfg.pos[i][cfg.best[i]],p=cfg.pos[i][j];return j===cfg.best[i]?'🟩':p.ovr>=b.ovr-2?'🟨':'⬛'}).join('')}
+let D5={sel:[null,null,null,null,null],beat:null};
+function d5Open(o){goTo('d5');o=o||{};if(o.beat)D5.beat=o.beat;const day=d5Day();const cfg=d5Cfg(day);const st=d5State();const done=st.day===day;if(done)D5.sel=st.pick.slice();
+  const spent=D5.sel.reduce((a,j,i)=>a+(j==null?0:cfg.sal(cfg.pos[i][j])),0);const left=cfg.cap-spent;const full=D5.sel.every(j=>j!=null);const ps=full?D5.sel.map((j,i)=>cfg.pos[i][j]):null;
+  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6')} Home</button><div><span class="label">Daily Five #${d5Num(day)} · ${day}</span><h2>Build today's five</h2></div><div class="meta"><span class="tag">🔥 Streak ${st.streak}</span></div></div>
+   ${D5.beat&&!done?`<div class="d5beat">⚔️ Beat <b>${esc(D5.beat.n)}</b>'s score of <b>${D5.beat.s}</b></div>`:''}
+   <div class="card d5bud ${left<0?'over':''}"><div><span class="label">Budget</span><b>$${left}M left</b><small>of $${cfg.cap}M</small></div><div class="d5bar"><i style="width:${Math.min(100,spent/cfg.cap*100)}%"></i></div>
+     <p class="hint">${done?'You played today. Come back tomorrow for a new puzzle.':'One player per position. Everyone in the world gets the same 25 players today. Better players cost more, and players from the same era build chemistry. One try counts.'}</p></div>
+   <div class="d5grid">${D5_POS.map((ps,i)=>`<div class="d5row"><div class="d5pos">${ps}</div>${cfg.pos[i].map((p,j)=>{const on=D5.sel[i]===j;const best=done&&j===cfg.best[i];const s=cfg.sal(p);const cant=!on&&!done&&(s-(D5.sel[i]!=null?cfg.sal(cfg.pos[i][D5.sel[i]]):0))>left;
+       return `<button class="d5c ${on?'on':''} ${best?'best':''} ${cant?'cant':''}" data-d5="${i}:${j}" ${done?'disabled':''} style="--c1:${ERAS[p.era].c1}"><small>${ERAS[p.era].n}</small><b>${esc(p.name)}</b><span><i>${p.ovr}</i><em>$${s}M</em></span>${best?'<u>Best pick</u>':''}</button>`}).join('')}</div>`).join('')}</div>
+   ${done?`<div class="card d5res"><span class="label">Your result</span><h1>${st.score}<small>/100</small></h1><p class="d5sq">${d5Squares(cfg,st.pick)}</p><p class="hint" id="d5Rank">${d5Top(st)}</p>
+       <div class="actrow" style="justify-content:center"><button class="btn btn-go" id="d5Sh">Share result</button><button class="btn btn-ghost" id="d5Ch">Challenge a friend</button><button class="btn btn-ghost" id="d5Lb">Today's leaderboard</button></div><p class="hint">🟩 the best pick at that spot · 🟨 close · ⬛ there was a better choice. Best possible today: the green-outlined players.</p></div>`
+     :`<button class="btn btn-go btn-big" id="d5Go" style="width:100%;margin-top:14px" ${full&&left>=0?'':'disabled'}>${full?(left<0?'Over budget':'Lock it in'):`Pick ${D5.sel.filter(j=>j==null).length} more`} ${icon('M5 12h14M13 6l6 6-6 6',18)}</button>${ps&&left>=0?`<p class="hint" style="text-align:center">Team rating ${d5Rate(ps).toFixed(1)}</p>`:''}`}
+   <div id="d5Board"></div></div></section>`;
+  $$('[data-d5]').forEach(b=>b.onclick=()=>{const[i,j]=b.dataset.d5.split(':').map(Number);D5.sel[i]=D5.sel[i]===j?null:j;sfx('click');d5Open()});
+  const g=$('#d5Go');if(g)g.onclick=()=>d5Lock();
+  if(done){$('#d5Sh').onclick=()=>d5Share();$('#d5Ch').onclick=()=>d5Challenge();$('#d5Lb').onclick=()=>d5Board(true)}d5Board(false)}
+async function d5Lock(){const day=d5Day();const cfg=d5Cfg(day);if(!D5.sel.every(j=>j!=null))return;if(!P.signed&&!canPlay('mini'))return;const st=d5State();if(st.day===day)return d5Open();
+  const ps=D5.sel.map((j,i)=>cfg.pos[i][j]);const score=d5Score(cfg,ps);const yest=new Date(Date.now()-864e5).toISOString().slice(0,10);
+  st.streak=st.day===yest?st.streak+1:1;st.day=day;st.score=score;st.pick=D5.sel.slice();st.best=Math.max(st.best,score);st.played=(st.played||0)+1;st.rank=0;st.total=0;
+  const xp=40+Math.round(score/2)+(score===100?60:0);gainXP(xp);saveP();sfx(score>=90?'win':'chime');if(score>=90)confetti();
+  if(DB.ok){try{const r=await DB.c.rpc('submit_daily5',{p_day:day,p_score:score,p_meta:{p:ps.map(p=>p.name)}});const d=r.data&&(typeof r.data==='string'?JSON.parse(r.data):r.data);if(d&&d.rank){st.rank=d.rank;st.total=d.total;saveP()}}catch(e){}}
+  d5Open();if(D5.beat){const won=score>D5.beat.s;toast(won?'Challenge won! 🏆':'Challenge lost',won?`You beat ${D5.beat.n} (${score} vs ${D5.beat.s}).`:`${D5.beat.n} scored ${D5.beat.s}, you got ${score}. Rematch tomorrow!`,'M5 12l5 5L20 7');D5.beat=null}}
+function d5Text(){const day=d5Day(),cfg=d5Cfg(day),st=d5State();return `Hall Pass Daily Five #${d5Num(day)} 🏀\n${st.score}/100${st.rank?' · '+d5Top(st):''}${st.streak>1?` · 🔥${st.streak}`:''}\n${d5Squares(cfg,st.pick)}`}
+function d5Share(){const day=d5Day(),cfg=d5Cfg(day),st=d5State();openShare({k:'d5',kicker:`Daily Five #${d5Num(day)} · ${day}`,title:`${st.score}/100`,sub:d5Squares(cfg,st.pick)+(st.rank?'  '+d5Top(st):''),accent:st.score>=90?'#4fd18b':st.score>=70?'#ffb547':'#ff8a8a',
+  lines:st.pick.map((j,i)=>[cfg.pos[i][j].name,D5_POS[i]]),text:d5Text(),challenge:{t:'d5',d:day,s:st.score,n:P.name||'A friend'}})}
+async function d5Challenge(){const st=d5State();const link=challengeLink({t:'d5',d:d5Day(),s:st.score,n:P.name||'A friend'});const txt=`I scored ${st.score}/100 on today's Hall Pass Daily Five. Beat that 👇 ${link}`;
+  try{if(navigator.share)await navigator.share({text:txt});else{await navigator.clipboard.writeText(txt);toast('Challenge copied','Paste it to a friend in any chat.','M5 12l5 5L20 7')}dbEvent('share',{k:'d5_challenge'})}catch(e){}}
+async function d5Board(open){const el=$('#d5Board');if(!el)return;if(!DB.ok){if(open)el.innerHTML='<p class="hint">The leaderboard needs an internet connection.</p>';return}
+  try{const r=await DB.c.rpc('daily5_board',{p_day:d5Day(),p_limit:10});if(r.error){el.innerHTML='';return}const d=typeof r.data==='string'?JSON.parse(r.data):r.data;if(!d||!d.total){el.innerHTML='';return}
+    el.innerHTML=`<div class="card" style="margin-top:14px"><span class="label">Today · ${d.total} player${d.total===1?'':'s'} · average ${d.avg}</span><div class="tbl-wrap"><table><tr><th>#</th><th>Player</th><th class="n">Score</th></tr>${d.top.map((x,i)=>`<tr class="${x.uid===DB.uid?'me':''}"><td>${i<3?['🥇','🥈','🥉'][i]:i+1}</td><td>${esc(x.name)}${x.uid===DB.uid?' (you)':`<button class="rptb" title="Report" data-rpt="${esc(x.name)}" data-rpu="${x.uid}">${icon('M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7',12)}</button>`}</td><td class="n"><b>${x.score}</b></td></tr>`).join('')}</table></div>${d.mine?`<p class="hint">You're #${d.mine.rank}.</p>`:''}</div>`;
+    const st=d5State();if(d.mine&&st.day===d5Day()&&!st.rank){st.rank=d.mine.rank;st.total=d.total;saveP();const rk=$('#d5Rank');if(rk)rk.textContent=d5Top(st)}}catch(e){}}
+
+/* ---------- home: Daily Five and invites up top ---------- */
+function growHomeHTML(){const day=d5Day(),st=d5State(),done=st.day===day;
+  return `<div class="growrow"><button class="growc d5h" onclick="d5Open()"><span class="label">New every day · ${done?'done today':'60 seconds'}${st.streak?' · 🔥 '+st.streak:''}</span><h3>Daily Five #${d5Num(day)}</h3><p>${done?`You scored <b>${st.score}</b>. ${d5Squares(d5Cfg(day),st.pick)}`:'Build the best starting five under budget. Same puzzle for everyone.'}</p><span class="growgo">${done?'See results':'Play now'} ${icon('M5 12h14M13 6l6 6-6 6',16)}</span></button>
+   <button class="growc inv" onclick="openInvite()"><span class="label">Invite friends · ${P.refQ||0} joined</span><h3>Bring your squad</h3><p>Get <b>300 🎟</b> for every friend who plays, plus titles at 3, 5 and 10 friends.</p><span class="growgo">Get your link ${icon('M5 12h14M13 6l6 6-6 6',16)}</span></button></div>`}
+
+/* ---------- control room: Growth ---------- */
+function adminTabsGrowth(){return{growth:`<div class="card"><div class="admthemehd"><div><span class="label">Where players come from</span><h3>Growth</h3></div><div class="actrow">${[[1,'Today'],[7,'7 days'],[30,'30 days']].map(([d,n])=>`<button class="btn ${(ADM.gd||7)===d?'btn-go':'btn-ghost'}" data-gd="${d}">${n}</button>`).join('')}</div></div><div id="grB" class="hint">Loading…</div></div>
+  <div class="card"><span class="label">Tracking links</span><p class="mutep">Use a different link for each place you post. Visits from it show up as its own row above.</p><div class="trk">${[['tiktok','TikTok bio'],['youtube','YouTube'],['instagram','Instagram'],['reddit','Reddit post'],['discord','Discord'],['itch','itch.io page'],['crazygames','CrazyGames'],['school','School flyer'],['creator1','Creator #1'],['creator2','Creator #2']].map(([k,n])=>`<div><small>${n}</small><code>${SITE}/?src=${k}</code><button class="mini" data-trk="${SITE}/?src=${k}">Copy</button></div>`).join('')}</div>
+  <p class="hint">Make your own: add <code>?src=anything</code> to the end of the link.</p></div>`}}
+async function growAdminBind(){if(ADM.tab!=='growth')return;$$('[data-gd]').forEach(b=>b.onclick=()=>{ADM.gd=+b.dataset.gd;renderAdmin()});$$('[data-trk]').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.trk);b.textContent='Copied ✓'}catch(e){}});
+  const el=$('#grB');if(!DB.ok){el.textContent='Needs the database connection.';return}const r=await admRpc('admin_growth',{p_days:ADM.gd||7});if(r.error){el.innerHTML='Run <b>hallpass-database-update-11.sql</b> in Supabase to turn on growth stats. ('+esc(r.error.message)+')';return}
+  const d=typeof r.data==='string'?JSON.parse(r.data):r.data;const S2=d.sources||[];const tot=k=>S2.reduce((a,x)=>a+(+x[k]||0),0);const pct=(a,b)=>b?Math.round(a/b*100)+'%':'–';
+  const V=tot('visitors'),SU=tot('signups'),PL=tot('played'),P3=tot('played3'),RT=tot('returned');
+  el.innerHTML=`<div class="gfun">${[['New visitors',V,''],['Signed up',SU,pct(SU,V)],['Played a game',PL,pct(PL,V)],['Played 3+',P3,pct(P3,V)],['Came back another day',RT,pct(RT,V)]].map(([n,v,p],i)=>`<div style="--w:${V?Math.max(8,v/V*100):8}%"><span>${n}</span><b>${v}</b><small>${p}</small><i></i></div>`).join('')}</div>
+   <div class="tbl-wrap" style="margin-top:12px"><table><tr><th>Source</th><th class="n">Visitors</th><th class="n">Sign-ups</th><th class="n">Played</th><th class="n">3+ games</th><th class="n">Came back</th></tr>${S2.map(x=>`<tr><td><b>${esc(x.src)}</b></td><td class="n">${x.visitors}</td><td class="n">${x.signups} <small>${pct(x.signups,x.visitors)}</small></td><td class="n">${x.played}</td><td class="n">${x.played3}</td><td class="n">${x.returned} <small>${pct(x.returned,x.visitors)}</small></td></tr>`).join('')||'<tr><td colspan="6" class="hint">No visits yet in this window.</td></tr>'}</table></div>
+   <div class="lg-grid" style="margin-top:12px"><div><span class="label">"How did you find us?"</span>${(d.survey||[]).map(x=>`<div class="gbar"><span>${esc((GROW_SRC.find(s=>s[0]===x.a)||[0,x.a])[1])}</span><i style="width:${Math.min(100,x.n/Math.max(...d.survey.map(y=>y.n))*100)}%"></i><b>${x.n}</b></div>`).join('')||'<p class="hint">No answers yet.</p>'}</div>
+    <div><span class="label">Top inviters</span>${(d.inviters||[]).map(x=>`<div class="gbar"><span>${esc(x.name||'?')}</span><i style="width:${Math.min(100,x.invited*10)}%"></i><b>${x.qualified}/${x.invited}</b></div>`).join('')||'<p class="hint">No invites yet.</p>'}
+     <span class="label" style="display:block;margin-top:10px">Shares</span>${(d.shares||[]).map(x=>`<div class="gbar"><span>${esc(x.k)}</span><i style="width:${Math.min(100,x.n*5)}%"></i><b>${x.n}</b></div>`).join('')||'<p class="hint">No shares yet.</p>'}
+     <p class="hint">Daily Five: ${d.daily5?d.daily5.today:0} played today, ${d.daily5?d.daily5.total:0} in this window.</p></div></div>
+   <span class="label" style="display:block;margin-top:12px">Day by day</span><div class="gdays">${(d.days||[]).map(x=>`<div title="${x.d}: ${x.active} active, ${x.new_visitors} new, ${x.signups} sign-ups"><i style="height:${Math.min(100,(x.active||0)/Math.max(1,...d.days.map(y=>y.active||0))*100)}%"></i><small>${String(x.d).slice(5)}</small></div>`).join('')}</div>`}
+
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
 /* re-drawing the same screen (a tab, a chip, a setting) updates it in place: no flash, no jump to the top */
@@ -7574,7 +7748,7 @@ addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
 $$('[data-open]').forEach(b=>b.onclick=()=>b.dataset.open==='howto'?openHowTo():openHof());
 {const sb=$('#sndBtn');sb.innerHTML=icon(soundIcon())+`<span>${SND.on?'Sound on':'Muted'}</span>`;sb.onclick=soundToggle;$('#instBtn').onclick=pwaInstall;pwaInit()}
 addEventListener('resize',()=>{if(SIM)drawChart()});
-smoothInstall();liveTheme();liveStripPaint();liveMaint();refreshNav();renderHome();termsGate();setInterval(()=>{if(!termsOK())termsGate();else if(P.mustRename&&!termsGate.ren){termsGate.ren=1;renamePrompt()}},5000);setTimeout(livePopups,2200);setTimeout(()=>{tixDaily();lockerAuto()},3200);setTimeout(()=>{memApply();supThanks()},900);
+smoothInstall();liveTheme();liveStripPaint();liveMaint();refreshNav();renderHome();termsGate();setTimeout(()=>{if(termsOK())challengeOpen()},1200);setInterval(()=>{if(!termsOK())termsGate();else if(P.mustRename&&!termsGate.ren){termsGate.ren=1;renamePrompt()}},5000);setTimeout(livePopups,2200);setTimeout(()=>{tixDaily();lockerAuto()},3200);setTimeout(()=>{memApply();supThanks()},900);
 setTimeout(()=>{if(!(window.claude&&window.claude.use)){loadMqtt().catch(()=>{});loadPeer().catch(()=>{})}},1500);
 {const m=location.hash.match(/^#join-([A-Za-z0-9]{5})$/);if(m)openOnline('join',m[1].toUpperCase())}
 gateInstall();
