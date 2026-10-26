@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793050826">
+<meta name="hp-build" content="1793051638">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -1651,6 +1651,10 @@ body.cb-rg{--win:#3fa9ff;--loss:#ffb000}body.cb-by{--amber:#ff6fd8}
 
 @media (max-width:440px){.nav .nb{padding:7px 5px}.nav .nb svg{width:17px;height:17px}}
 .mucr{display:block;font-size:11px;color:var(--mute);line-height:1.3;margin-top:4px}
+.mudrop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin-top:12px;padding:22px 14px;border:2px dashed var(--line);border-radius:16px;background:var(--ink-2);cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
+.mudrop:hover,.mudrop:focus-visible,.mudrop.over{border-color:var(--gold,#f5b84b);background:rgba(245,184,75,.08);outline:none}
+.mudrop.has{border-style:solid;border-color:var(--gold,#f5b84b)}.mudrop .mudi{font-size:28px;line-height:1}.mudrop small{opacity:.75}
+.muadv{margin-top:8px;font-size:.9em}.muadv summary{cursor:pointer;opacity:.75}
 </style>
 
 </head>
@@ -4474,7 +4478,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
- {v:'9.8',d:'2026-10-26',t:'Music that just works',b:'Three Hall Pass Originals now play right inside the game with no download: Blacktop Lo-fi, Night Run and Boardwalk. Each one is a little different every time you hear it. Like them, skip them, and set their volume in the Music menu. Admins can still add licensed songs in the Control Room.'},
+ {v:'9.9',d:'2026-10-26',t:'Drag songs into the admin panel',b:'Admins can now drop a song file into Admin > Music to upload it and add it to the radio in one step. The game also has a proper tab icon now.'},{v:'9.8',d:'2026-10-26',t:'Music that just works',b:'Three Hall Pass Originals now play right inside the game with no download: Blacktop Lo-fi, Night Run and Boardwalk. Each one is a little different every time you hear it. Like them, skip them, and set their volume in the Music menu. Admins can still add licensed songs in the Control Room.'},
  {v:'9.8',d:'2026-10-26',t:'Real music',b:'Five lo-fi / chill tracks by Retro Indie Josh (Arkeia) are now in the Music menu, used under Creative Commons Attribution 4.0: Communis Umbra, Light Through the Storm, Radio On, Rendezvous and Star Reaction. Plus three Hall Pass Originals that the game plays itself: Blacktop Lo-fi, Night Run and Boardwalk. Like songs, build a Liked playlist, shuffle, and set the volume.'},
  {v:'9.7',d:'2026-10-26',t:'Friends, crews and cups',b:'New Friends button: swap friend codes, see which friends are online and what they\'re playing, invite them straight into a Street game, or tap Watch to jump into their game. Start or join a crew (up to 25 people, with your own tag, emoji and color) and climb the weekly crew board. Cups: start an 8 or 16 player knockout bracket where every match is a live 1-on-1. Win one on a weekend for the Weekend Cup Champion badge. You can also block players.'},
  {v:'9.6',d:'2026-10-26',t:'Street gets deep',b:'Street Story: twelve chapters from the neighborhood park to the big arena, with a mentor, new teammates and a rival who remembers every time you beat him. The Locker: change your hair, shoes, socks, sleeves, headband, goggles and celebration, pick your jump shot style and dunk package, and equip badges like Sniper, Ankle Breaker and Rim Protector. Highlights: your best plays are saved every game. Watch them back in slow motion and save them as a video to post. Plus 2-on-2 (offline and online), and you can now watch online games, even ones that already started.'},
@@ -6035,7 +6039,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793050826';
+const BUILD='1793051638';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -8499,16 +8503,45 @@ setInterval(stTipTick,700);
 
 /* ---------- Control Room: songs ---------- */
 function adminTabsMusic(){const c=LIVE.feed.cfg||{};const ex=c.music||[];return{music:`<div class="card"><span class="label">Hall Pass radio</span><h3>Music</h3>
-  <p class="mutep">Players hear these songs and can like them. The three Hall Pass Originals are built in. <b>Only add songs your license lets you put in a game.</b> Free To Use's free license does not cover games or apps: you need their Pro (single song) or Commercial license, or music that is truly free for games (for example CC0 or CC-BY). Upload the MP3 to the repo's <code>music/</code> folder (for example <code>music/stroll.mp3</code>), then add it here with its credit and publish.</p>
+  <p class="mutep">Players hear these songs and can like them. To add one, <b>drag the song file into the box below</b>, type the artist, and press Add. <b>Only add songs you made or that are free to use in games</b> (for example CC0 or CC-BY, with the credit).</p>
   <div class="mulist">${MUS_BASE.map(x=>`<div class="murow"><span class="mupl">♪</span><div class="mutt"><b>${esc(x.t)}</b><small>${esc(x.a)} · ${esc(x.src)} · built in</small></div></div>`).join('')}${ex.map((x,i)=>`<div class="murow"><span class="mupl">♪</span><div class="mutt"><b>${esc(x.t)}</b><small>${esc(x.a)} · ${esc(x.src)}</small></div><button class="btn btn-ghost" data-mudel="${i}">Remove</button></div>`).join('')}</div>
-  <div class="grid2" style="margin-top:12px"><div class="field"><label class="label" for="muaT">Song title</label><input id="muaT" maxlength="40" placeholder="Stroll"></div><div class="field"><label class="label" for="muaA">Artist</label><input id="muaA" maxlength="40" placeholder="massobeats"></div>
-   <div class="field"><label class="label" for="muaS">File in the repo, or a link</label><input id="muaS" maxlength="200" placeholder="music/stroll.mp3"></div><div class="field"><label class="label" for="muaP">Song page (for the credit)</label><input id="muaP" maxlength="200" placeholder="https://freetouse.com/music/massobeats/stroll"></div>
-   <div class="field"><label class="label" for="muaM">Mood (optional)</label><input id="muaM" maxlength="24" placeholder="Chill lo-fi"></div></div>
-  <div class="actrow"><button class="btn btn-go" id="muaGo">Add song and publish</button><span class="hint" id="muaH"></span></div></div>`}}
-function musAdminBind(){if(ADM.tab!=='music')return;$$('[data-mudel]').forEach(b=>b.onclick=async()=>{const i=+b.dataset.mudel;await admPub(cf=>{cf.music=(cf.music||[]).filter((x,k)=>k!==i)});renderAdmin()});
-  $('#muaGo').onclick=async()=>{const v=id=>($('#'+id).value||'').trim();const t=v('muaT'),a=v('muaA'),src=v('muaS'),page=v('muaP'),mood=v('muaM');if(!t||!a||!src){$('#muaH').textContent='Title, artist and file are required.';return}
-    if(!/^(music\/[\w.\-]+\.(mp3|m4a|ogg)|https:\/\/\S+)$/i.test(src)){$('#muaH').textContent='Use music/name.mp3 or a full https link.';return}
-    const id=(t+'-'+a).toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,40);await admPub(cf=>{cf.music=(cf.music||[]).filter(x=>x.id!==id).concat([{id,t,a,src,page,mood}]).slice(0,60)});renderAdmin()}}
+  <label class="mudrop" id="muDrop" tabindex="0"><input type="file" id="muFile" accept="audio/*,.mp3,.m4a,.ogg,.wav" hidden><span class="mudi">♫</span><b id="muDropT">Drop a song here</b><small id="muDropS">or click to pick one · MP3, M4A, OGG or WAV · up to 50 MB</small></label>
+  <div class="grid2" style="margin-top:12px"><div class="field"><label class="label" for="muaT">Song title</label><input id="muaT" maxlength="40" placeholder="My song"></div><div class="field"><label class="label" for="muaA">Artist</label><input id="muaA" maxlength="40" placeholder="Who made it"></div>
+   <div class="field"><label class="label" for="muaP">Credit link (optional)</label><input id="muaP" maxlength="200" placeholder="https://..."></div><div class="field"><label class="label" for="muaM">Mood (optional)</label><input id="muaM" maxlength="24" placeholder="Chill lo-fi"></div></div>
+  <details class="muadv"><summary>Use a link or a repo file instead</summary><div class="field"><label class="label" for="muaS">File in the repo, or a link</label><input id="muaS" maxlength="300" placeholder="music/stroll.mp3"></div></details>
+  <div class="actrow"><button class="btn btn-go" id="muaGo">Add song</button><span class="hint" id="muaH"></span></div></div>`}}
+const MU_BUCKET='music';
+function muStoreUrl(path){return SB_URL.replace(/\/$/,'')+'/storage/v1/object/public/'+MU_BUCKET+'/'+path.split('/').map(encodeURIComponent).join('/')}
+function muStorePath(src){const pre=SB_URL.replace(/\/$/,'')+'/storage/v1/object/public/'+MU_BUCKET+'/';return typeof src==='string'&&src.startsWith(pre)?decodeURIComponent(src.slice(pre.length)):null}
+function muTitleFromName(n){return n.replace(/\.[a-z0-9]+$/i,'').replace(/[_\-]+/g,' ').replace(/\s+/g,' ').trim().replace(/\b\w/g,c=>c.toUpperCase()).slice(0,40)}
+function muFileOk(f){if(!f)return 'Pick a song file.';if(!/\.(mp3|m4a|ogg|oga|wav|aac|webm)$/i.test(f.name)&&!/^audio\//.test(f.type))return 'That is not a song file. Use MP3, M4A, OGG or WAV.';if(f.size>50*1024*1024)return 'That file is over 50 MB. Use an MP3 instead.';return ''}
+function muDur(f){return new Promise(res=>{try{const a=new Audio();const u=URL.createObjectURL(f);let d=0;a.preload='metadata';a.onloadedmetadata=()=>{d=a.duration;URL.revokeObjectURL(u);res(d)};a.onerror=()=>{URL.revokeObjectURL(u);res(-1)};a.src=u;setTimeout(()=>res(d||0),4000)}catch(e){res(0)}})}
+function musAdminBind(){if(ADM.tab!=='music')return;
+  $$('[data-mudel]').forEach(b=>b.onclick=async()=>{const i=+b.dataset.mudel;const x=((LIVE.feed.cfg||{}).music||[])[i];if(!x)return;
+    b.disabled=true;await admPub(cf=>{cf.music=(cf.music||[]).filter((y,k)=>k!==i)});const path=muStorePath(x.src);if(path){try{const c=await sbClient();await c.storage.from(MU_BUCKET).remove([path])}catch(e){}}renderAdmin()});
+  const drop=$('#muDrop'),fin=$('#muFile'),H=$('#muaH');let file=null;
+  const pick=async f=>{const bad=muFileOk(f);if(bad){H.textContent=bad;return}const d=await muDur(f);if(d<0){H.textContent='That file will not play. Try exporting it as an MP3.';return}
+    file=f;drop.classList.add('has');$('#muDropT').textContent=f.name;$('#muDropS').textContent=(f.size/1048576).toFixed(1)+' MB'+(d>0?' · '+Math.floor(d/60)+':'+String(Math.round(d%60)).padStart(2,'0'):'')+' · ready to add';
+    if(!$('#muaT').value.trim())$('#muaT').value=muTitleFromName(f.name);H.textContent=$('#muaA').value.trim()?'':'Now type the artist, then press Add song.';(($('#muaA').value.trim()?$('#muaGo'):$('#muaA'))||{focus(){}}).focus()};
+  fin.onchange=()=>pick(fin.files[0]);
+  drop.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fin.click()}};
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
+  drop.addEventListener('drop',e=>{const f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)pick(f)});
+  $('#muaGo').onclick=async()=>{const go=$('#muaGo');const v=id=>(($('#'+id)||{}).value||'').trim();const t=v('muaT'),a=v('muaA'),page=v('muaP'),mood=v('muaM');let src=v('muaS');
+    if(!file&&!src){H.textContent='Drop a song file in the box first.';return}if(!t||!a){H.textContent='Type the song title and the artist.';return}
+    if(page&&!/^https:\/\/\S+$/i.test(page)){H.textContent='The credit link must start with https://';return}
+    const id=(t+'-'+a).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)||('song-'+Date.now());
+    go.disabled=true;try{
+      if(file){H.textContent='Uploading… keep this page open.';const ext=(file.name.match(/\.([a-z0-9]+)$/i)||[,'mp3'])[1].toLowerCase();const path=id+'-'+Date.now().toString(36)+'.'+ext;
+        const types={mp3:'audio/mpeg',m4a:'audio/mp4',aac:'audio/aac',ogg:'audio/ogg',oga:'audio/ogg',wav:'audio/wav',webm:'audio/webm'};
+        const c=await sbClient();const {error}=await c.storage.from(MU_BUCKET).upload(path,file,{contentType:file.type||types[ext]||'audio/mpeg',cacheControl:'31536000',upsert:false});
+        if(error){const m=String(error.message||error);H.textContent=/bucket|not found/i.test(m)?'Music storage is not set up yet. Run database update 13 in Supabase first.':/policy|security|unauthor|403/i.test(m)?'Upload blocked: this account is not an admin in the database.':/size|large|413/i.test(m)?'That file is too big. Use an MP3.':'Upload failed: '+m.slice(0,90);go.disabled=false;return}
+        src=muStoreUrl(path)}
+      else if(!/^(music\/[\w.\-]+\.(mp3|m4a|ogg|wav)|https:\/\/\S+)$/i.test(src)){H.textContent='Use music/name.mp3 or a full https link.';go.disabled=false;return}
+      H.textContent='Publishing…';try{await admPub(cf=>{cf.music=(cf.music||[]).filter(x=>x.id!==id).concat([{id,t,a,src,page,mood}]).slice(0,60)})}catch(e){const up=muStorePath(src);if(up){try{const c=await sbClient();await c.storage.from(MU_BUCKET).remove([up])}catch(_){}}throw e}
+      toast('“'+t+'” added to Hall Pass radio');renderAdmin()}
+    catch(e){H.textContent='Something went wrong: '+String(e&&e.message||e).slice(0,90);go.disabled=false}}}
 
 try{a11yApply()}catch(e){}
 /* ============ STREET DEPTH: your look, signature moves, badges, highlights, story, 2-on-2, watching ============ */
