@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793034349">
+<meta name="hp-build" content="1793043577">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -1648,6 +1648,7 @@ body.cb-rg{--win:#3fa9ff;--loss:#ffb000}body.cb-by{--amber:#ff6fd8}
 .nav .nb .mueq{display:inline-flex!important}
 
 @media (max-width:440px){.nav .nb{padding:7px 5px}.nav .nb svg{width:17px;height:17px}}
+.mucr{display:block;font-size:11px;color:var(--mute);line-height:1.3;margin-top:4px}
 </style>
 
 </head>
@@ -4471,6 +4472,8 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {v:'9.8',d:'2026-10-26',t:'Music that just works',b:'Three Hall Pass Originals now play right inside the game with no download: Blacktop Lo-fi, Night Run and Boardwalk. Each one is a little different every time you hear it. Like them, skip them, and set their volume in the Music menu. Admins can still add licensed songs in the Control Room.'},
+ {v:'9.8',d:'2026-10-26',t:'Real music',b:'Five lo-fi / chill tracks by Retro Indie Josh (Arkeia) are now in the Music menu, used under Creative Commons Attribution 4.0: Communis Umbra, Light Through the Storm, Radio On, Rendezvous and Star Reaction. Plus three Hall Pass Originals that the game plays itself: Blacktop Lo-fi, Night Run and Boardwalk. Like songs, build a Liked playlist, shuffle, and set the volume.'},
  {v:'9.7',d:'2026-10-26',t:'Friends, crews and cups',b:'New Friends button: swap friend codes, see which friends are online and what they\'re playing, invite them straight into a Street game, or tap Watch to jump into their game. Start or join a crew (up to 25 people, with your own tag, emoji and color) and climb the weekly crew board. Cups: start an 8 or 16 player knockout bracket where every match is a live 1-on-1. Win one on a weekend for the Weekend Cup Champion badge. You can also block players.'},
  {v:'9.6',d:'2026-10-26',t:'Street gets deep',b:'Street Story: twelve chapters from the neighborhood park to the big arena, with a mentor, new teammates and a rival who remembers every time you beat him. The Locker: change your hair, shoes, socks, sleeves, headband, goggles and celebration, pick your jump shot style and dunk package, and equip badges like Sniper, Ankle Breaker and Rim Protector. Highlights: your best plays are saved every game. Watch them back in slow motion and save them as a video to post. Plus 2-on-2 (offline and online), and you can now watch online games, even ones that already started.'},
  {v:'9.5',d:'2026-10-26',t:'Music, volume sliders and accessibility',b:'Hall Pass has music now. Tap Music in the top bar to play, pause, skip, shuffle, repeat and like songs, keep a Liked playlist, and see song credits. Music gets quieter in games (or turn it off there) and dips under the announcer. New volume sliders for music, sound effects and the announcer. New Accessibility settings: colorblind colors (red-green or blue-yellow), reduce motion, and larger text. The Street walkthrough now teaches step-backs, spin moves and finishing at the rim, and a coach pops up with tips in your first few games.'},
@@ -6030,7 +6033,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793034349';
+const BUILD='1793043577';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -8351,49 +8354,89 @@ function hwArenaFloor(g,W,H,P_,sc,x0,y0,x1,y1,rng){g.fillStyle='#14111c';g.fillR
 function hwHomeHTML(){if(!hwOn()||typeof stAccess!=='function'||!stAccess())return '';const H=hwSave();
   return `<div class="card hwhome" onclick="STO.mode='haunt';stHub()" role="button" tabindex="0"><span class="hwicon">🎃</span><div style="flex:1;min-width:0"><span class="label">Limited time · ${hwEndsTxt()}</span><b>Halloween Hoops</b><small>${H.won?'You beat the Haunted Ladder. Run it again on the Haunted Court.':`Beat 5 zombie legends for the Ghost kit and a one-week-only badge. ${H.rung}/5 done.`}</small></div><span class="btn btn-go">Play</span></div>`}
 
+
+/* ============ HALL PASS ORIGINALS: songs the game plays live, no file needed (made for Hall Pass, free to use) ============ */
+const GEN_STYLES={
+  lofi:{bpm:82,swing:.18,key:57,prog:[[0,3,7,10],[5,8,12,15],[-2,2,5,9],[3,7,10,14]],scale:[0,3,5,7,10],crackle:.016,kick:[0,10],snare:[4,12],hat:'8',lead:'soft',bass:'root'},
+  night:{bpm:140,half:true,swing:0,key:53,prog:[[0,3,7],[-4,0,3],[-2,2,5],[-5,-1,2]],scale:[0,3,5,7,8,10],crackle:0,kick:[0,7,10],snare:[8],hat:'roll',lead:'bell',bass:'808'},
+  beach:{bpm:104,swing:.1,key:60,prog:[[5,9,12],[7,11,14],[4,7,11],[9,12,16]],scale:[0,2,4,7,9],crackle:.006,kick:[0,6,10],snare:[4,12],hat:'16',lead:'pluck',bass:'bounce'}};
+const MUS_GEN=[{id:'hp-blacktop',t:'Blacktop Lo-fi',a:'Hall Pass Originals',gen:'lofi',mood:'Chill lo-fi',len:180},{id:'hp-nightrun',t:'Night Run',a:'Hall Pass Originals',gen:'night',mood:'Hype',len:150},{id:'hp-boardwalk',t:'Boardwalk',a:'Hall Pass Originals',gen:'beach',mood:'Sunny',len:165}];
+const GEN={ctx:null,out:null,on:false,st:null,step:0,next:0,t0:0,timer:0,rng:null,len:0,mel:0};
+function genCtx(){if(GEN.ctx)return GEN.ctx;const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;GEN.ctx=new C();GEN.out=GEN.ctx.createGain();GEN.out.gain.value=0;
+  const comp=GEN.ctx.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=3;GEN.out.connect(comp);comp.connect(GEN.ctx.destination);
+  /* one shared noise buffer for drums and vinyl crackle */const n=GEN.ctx.sampleRate*2;const b=GEN.ctx.createBuffer(1,n,GEN.ctx.sampleRate);const d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;GEN.noise=b;return GEN.ctx}
+function genStart(track){const c=genCtx();if(!c)return false;if(c.state==='suspended')c.resume();GEN.st=GEN_STYLES[track.gen];GEN.len=track.len||160;GEN.on=true;GEN.step=0;GEN.next=c.currentTime+.08;GEN.t0=c.currentTime;GEN.rng=mulberry32(strHash(track.id+Date.now()));GEN.mel=0;GEN.id=track.id;
+  clearInterval(GEN.timer);GEN.timer=setInterval(genTick,40);return true}
+function genStop(){GEN.on=false;clearInterval(GEN.timer);if(GEN.out&&GEN.ctx)GEN.out.gain.setTargetAtTime(0,GEN.ctx.currentTime,.05)}
+function genElapsed(){return GEN.on&&GEN.ctx?GEN.ctx.currentTime-GEN.t0:0}
+const midiF=m=>440*Math.pow(2,(m-69)/12);
+function genTick(){const c=GEN.ctx,S=GEN.st;if(!GEN.on||!c)return;if(genElapsed()>=GEN.len){genStop();musNext(true);return}
+  const spb=60/S.bpm/4;/* sixteenth notes */while(GEN.next<c.currentTime+.15){genStep(GEN.step,GEN.next+(GEN.step%2?S.swing*spb:0));GEN.next+=spb;GEN.step++}}
+function genEnv(t,a,d,peak,node){const g=GEN.ctx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(peak,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d);if(node)node.connect(g);g.connect(GEN.out);return g}
+function genOsc(type,f,t,a,d,peak,detune,lp){const o=GEN.ctx.createOscillator();o.type=type;o.frequency.setValueAtTime(f,t);if(detune)o.detune.value=detune;let src=o;if(lp){const fl=GEN.ctx.createBiquadFilter();fl.type='lowpass';fl.frequency.value=lp;o.connect(fl);src=fl}genEnv(t,a,d,peak,src);o.start(t);o.stop(t+a+d+.05);return o}
+function genNoise(t,d,peak,type,freq,q){const s=GEN.ctx.createBufferSource();s.buffer=GEN.noise;const f=GEN.ctx.createBiquadFilter();f.type=type;f.frequency.value=freq;if(q)f.Q.value=q;s.connect(f);genEnv(t,.002,d,peak,f);s.start(t,Math.random());s.stop(t+d+.05)}
+function genStep(i,t){const S=GEN.st,r=GEN.rng;const bar=Math.floor(i/16),pos=i%16;const ch=S.prog[bar%S.prog.length];const key=S.key;const half=S.half;
+  /* drums */if(S.kick.includes(pos)){const o=GEN.ctx.createOscillator();o.frequency.setValueAtTime(half?120:110,t);o.frequency.exponentialRampToValueAtTime(42,t+.18);genEnv(t,.003,half?.5:.32,half?.9:.75,o);o.start(t);o.stop(t+.6)}
+  if(S.snare.includes(pos)){genNoise(t,.16,.32,'bandpass',half?2200:1800,.8);genOsc('triangle',190,t,.002,.08,.18)}
+  if(S.hat==='8'&&pos%2===0)genNoise(t,.04,.07+(pos%4?0:.03),'highpass',7000);
+  if(S.hat==='16')genNoise(t,.03,pos%4===2?.09:.05,'highpass',8000);
+  if(S.hat==='roll'){if(pos%2===0)genNoise(t,.03,.06,'highpass',8500);if(bar%2===1&&pos>=12){const n=4;for(let k=0;k<n;k++)genNoise(t+k*60/S.bpm/16,.02,.05,'highpass',9000)}}
+  /* chords at the start of each bar (lo-fi keys or pads) */if(pos===0){ch.forEach((n,k)=>{const f=midiF(key+12+n);if(S.lead==='bell'){genOsc('sine',f,t,.4,3.2,.05,k*4,1200)}else{genOsc('triangle',f,t,.05,1.9,.06,(k-1)*6,S.crackle?900:2400);genOsc('sine',f*2,t,.05,1.2,.02,0,1800)}})}
+  if(S.lead==='pluck'&&(pos===8))ch.forEach(n=>genOsc('triangle',midiF(key+12+n),t,.01,.5,.04,0,3000));
+  /* bass */const root=key-24+ch[0];if(S.bass==='root'&&(pos===0||pos===10))genOsc('sine',midiF(root),t,.02,.7,.32);
+  if(S.bass==='808'&&(pos===0||(pos===10&&bar%2)))genOsc('sine',midiF(root),t,.01,1.1,.5);
+  if(S.bass==='bounce'&&pos%4===0)genOsc('triangle',midiF(root+(pos===8?7:0)),t,.01,.28,.28,0,900);
+  /* melody: a gentle random walk on the scale, more notes in the second half of each phrase */const dens=bar%4>=2?.42:.26;if(pos%2===0&&r()<dens){GEN.mel=stClamp(GEN.mel+(r()<.5?-1:1)*(r()<.7?1:2),0,S.scale.length*2-1);const oct=Math.floor(GEN.mel/S.scale.length);const n=S.scale[GEN.mel%S.scale.length]+oct*12;const f=midiF(key+24+n);
+    if(S.lead==='soft')genOsc('sine',f,t,.02,.55,.07,0,2200);else if(S.lead==='bell')genOsc('sine',f,t,.005,.9,.06);else genOsc('square',f,t,.005,.22,.035,0,2600)}
+  /* vinyl crackle */if(S.crackle&&r()<.5)genNoise(t+r()*.1,.01,S.crackle*(1+r()*3),'highpass',3000)}
+
 /* ============ MUSIC: a real player with likes, playlists, credits and lock-screen controls ============ */
 /* Songs are files in the repo's music/ folder (or links the admin adds in the Control Room). Each one needs its credit line. */
-const MUS_BASE=[{id:'drizzle',t:'Drizzle',a:'massobeats',src:'music/drizzle.mp3',page:'https://freetouse.com/music/massobeats/drizzle',mood:'Chill lo-fi'}];
+const MUS_CC='Contains music ©2025 Retro Indie Josh (now Arkeia, https://arkeiamusic.itch.io/) · Licensed under Creative Commons Attribution 4.0 International';
+const MUS_BASE=[{id:'communis-umbra',t:'Communis Umbra',a:'Retro Indie Josh',src:'music/communis-umbra.mp3',page:'https://seciden.itch.io/free-music-pack-14-lo-fi-chill',lic:'https://creativecommons.org/licenses/by/4.0/',credit:MUS_CC,mood:'Lo-fi / Chill',gain:1},{id:'light-through-the-storm',t:'Light Through the Storm',a:'Retro Indie Josh',src:'music/light-through-the-storm.mp3',page:'https://seciden.itch.io/free-music-pack-14-lo-fi-chill',lic:'https://creativecommons.org/licenses/by/4.0/',credit:MUS_CC,mood:'Lo-fi / Chill',gain:0.69},{id:'radio-on',t:'Radio On',a:'Retro Indie Josh',src:'music/radio-on.mp3',page:'https://seciden.itch.io/free-music-pack-14-lo-fi-chill',lic:'https://creativecommons.org/licenses/by/4.0/',credit:MUS_CC,mood:'Lo-fi / Chill',gain:0.68},{id:'rendezvous',t:'Rendezvous',a:'Retro Indie Josh',src:'music/rendezvous.mp3',page:'https://seciden.itch.io/free-music-pack-14-lo-fi-chill',lic:'https://creativecommons.org/licenses/by/4.0/',credit:MUS_CC,mood:'Lo-fi / Chill',gain:1},{id:'star-reaction',t:'Star Reaction',a:'Retro Indie Josh',src:'music/star-reaction.mp3',page:'https://seciden.itch.io/free-music-pack-14-lo-fi-chill',lic:'https://creativecommons.org/licenses/by/4.0/',credit:MUS_CC,mood:'Lo-fi / Chill',gain:0.83}];
 const MUS={el:null,bad:new Set(),duck:0,gate:false,want:false,fadeT:0,cur:null,cnt:{}};
 let MUSS=null;
 function musSet(){if(MUSS)return MUSS;let s={};try{s=store.get('hp_music',null)||{}}catch(e){}MUSS=Object.assign({on:1,vol:.45,shuffle:0,repeat:'all',cur:'',list:'all',game:'quiet'},s);return MUSS}
 function musSave(){try{store.set('hp_music',musSet())}catch(e){}}
-function musAll(){const extra=(((LIVE||{}).feed||{}).cfg||{}).music||[];const seen=new Set();return [...MUS_BASE,...extra].filter(x=>x&&x.id&&x.src&&x.t&&!seen.has(x.id)&&seen.add(x.id))}
+function musAll(){const extra=(((LIVE||{}).feed||{}).cfg||{}).music||[];const seen=new Set();return [...MUS_BASE,...MUS_GEN,...extra].filter(x=>x&&x.id&&(x.src||x.gen)&&x.t&&!seen.has(x.id)&&seen.add(x.id))}
 function musLiked(){if(!Array.isArray(P.musLiked))P.musLiked=[];return P.musLiked}
 function musList(){const all=musAll().filter(x=>!MUS.bad.has(x.id));return musSet().list==='liked'?all.filter(x=>musLiked().includes(x.id)):all}
-function musCredit(x){return `Music: “${x.t}” by ${x.a}${x.page&&/freetouse\.com/.test(x.page)?' · Source: freetouse.com/music (Free To Use)':x.credit?' · '+x.credit:''}`}
+function musCredit(x){if(x.credit)return `“${x.t}” by ${x.a}. ${x.credit}. Converted to MP3, otherwise unchanged.`;if(x.gen)return `“${x.t}” · original music made for Hall Pass (free to use)`;return `Music: “${x.t}” by ${x.a}${x.page&&/freetouse\.com/.test(x.page)?' · Source: freetouse.com/music (Free To Use)':x.credit?' · '+x.credit:''}`}
 function musEl(){if(MUS.el)return MUS.el;const a=new Audio();a.preload='none';a.addEventListener('ended',()=>{musSet().repeat==='one'?(a.currentTime=0,a.play().catch(()=>{})):musNext(true)});
-  a.addEventListener('error',()=>{const x=MUS.cur;if(!x)return;MUS.bad.add(x.id);if(isAdminDevice&&isAdminDevice())toast('Song file missing',`Couldn't load ${x.src}. Upload it to the repo (music/ folder) or fix the link in Control Room → Music.`,'M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0z');if(musList().length)setTimeout(()=>musNext(true),400);else{MUS.cur=null;musUI()}});
+  a.addEventListener('error',()=>{const x=MUS.cur;if(!x)return;MUS.bad.add(x.id);if(isAdminDevice&&isAdminDevice()&&!MUS.warned){MUS.warned=1;toast('Song file missing',`Couldn't load ${x.src}. Upload it to the repo (music/ folder) or fix the link in Control Room → Music.`,'M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0z')}if(musList().length)setTimeout(()=>musNext(true),400);else{MUS.cur=null;musUI()}});
   ['play','pause','timeupdate','loadedmetadata'].forEach(ev=>a.addEventListener(ev,()=>musUI(ev)));MUS.el=a;return a}
 /* the volume you actually hear: your music slider, quieter in games if you like, ducked while the announcer talks */
-function musVolNow(){const S=musSet();const inGame=document.body.classList.contains('stplaying');const g=inGame?({full:1,quiet:.45,off:0})[S.game]:1;return (SND.on?1:0)*S.vol*g*(MUS.duck?.35:1)}
-function musVolTick(){const a=MUS.el;if(!a)return;const want=musVolNow();const v=a.volume+(want-a.volume)*.25;a.volume=Math.max(0,Math.min(1,Math.abs(want-v)<.01?want:v));if(want===0&&a.volume<.02&&!a.paused&&document.body.classList.contains('stplaying'))a.volume=0}
-setInterval(musVolTick,80);
+function musVolNow(){const S=musSet();const inGame=document.body.classList.contains('stplaying');const g=inGame?({full:1,quiet:.45,off:0})[S.game]:1;return (SND.on?1:0)*S.vol*g*(MUS.duck?.35:1)*((MUS.cur&&!MUS.cur.gen&&MUS.cur.gain)||1)}
+function musVolTick(){if(GEN.out&&GEN.ctx){const w=GEN.on?musVolNow()*.9:0;GEN.out.gain.setTargetAtTime(w,GEN.ctx.currentTime,.12)}const a=MUS.el;if(!a)return;const want=musVolNow();const v=a.volume+(want-a.volume)*.25;a.volume=Math.max(0,Math.min(1,Math.abs(want-v)<.01?want:v));if(want===0&&a.volume<.02&&!a.paused&&document.body.classList.contains('stplaying'))a.volume=0}
+setInterval(musVolTick,80);setInterval(()=>{if(GEN.on)musUI('timeupdate')},500);
 function musDuck(on){MUS.duck=on?1:0}
 function musPlay(id){const S=musSet();const list=musAll().filter(x=>!MUS.bad.has(x.id));const x=list.find(t=>t.id===id)||list.find(t=>t.id===S.cur)||list[0];if(!x){toastLite('No songs yet');return}
+  if(x.gen){if(MUS.el)MUS.el.pause();MUS.cur=x;S.cur=x.id;S.on=1;musSave();genStart(x);musMeta();musUI();return}genStop();
   const a=musEl();if(MUS.cur!==x||!a.src){MUS.cur=x;a.src=x.src;a.volume=0}S.cur=x.id;S.on=1;musSave();
+  if(x.credit&&!document.body.classList.contains('stplaying')&&MUS.shown!==x.id){MUS.shown=x.id;setTimeout(()=>{if(musPlaying()&&MUS.cur===x)toastLite(`♪ ${x.t} · ${x.a} (CC BY 4.0)`)},600)}
   const p=a.play();if(p&&p.catch)p.catch(e=>{if(e&&e.name==='NotAllowedError'){MUS.want=true}});musMeta();musUI();musCount(x.id)}
-function musPause(){const S=musSet();S.on=0;musSave();if(MUS.el)MUS.el.pause();musUI()}
-function musToggle(){const a=MUS.el;if(a&&!a.paused)musPause();else musPlay(musSet().cur)}
+function musPause(){const S=musSet();S.on=0;musSave();genStop();if(MUS.el)MUS.el.pause();musUI()}
+function musToggle(){if(musPlaying())musPause();else musPlay(musSet().cur)}
 function musNext(auto){const S=musSet();const L=musList();if(!L.length)return;const i=L.findIndex(x=>MUS.cur&&x.id===MUS.cur.id);let j;
   if(S.shuffle&&L.length>1){do{j=Math.random()*L.length|0}while(j===i)}else{j=i+1;if(j>=L.length){if(auto&&S.repeat==='off'){musPause();return}j=0}}musPlay(L[j].id)}
-function musPrev(){const a=MUS.el;if(a&&a.currentTime>3){a.currentTime=0;return}const L=musList();if(!L.length)return;const i=L.findIndex(x=>MUS.cur&&x.id===MUS.cur.id);musPlay(L[(i-1+L.length)%L.length].id)}
+function musPrev(){const a=MUS.el;if(GEN.on&&genElapsed()>3&&MUS.cur){genStart(MUS.cur);return}if(!GEN.on&&a&&a.currentTime>3){a.currentTime=0;return}const L=musList();if(!L.length)return;const i=L.findIndex(x=>MUS.cur&&x.id===MUS.cur.id);musPlay(L[(i-1+L.length)%L.length].id)}
 function musLike(id){const L=musLiked();const i=L.indexOf(id);if(i>=0)L.splice(i,1);else{L.push(id);sfx('pop')}saveP();try{if(typeof musLikeSync==='function')musLikeSync(id,i<0)}catch(e){}musUI();if($('#musMenu'))openMusic()}
 function musCount(id){/* play counts feed the "most loved" list once social is set up */}
 function musMeta(){const x=MUS.cur;if(!x||!('mediaSession' in navigator))return;try{navigator.mediaSession.metadata=new MediaMetadata({title:x.t,artist:x.a,album:'Hall Pass',artwork:[{src:'icon-192.png',sizes:'192x192',type:'image/png'}]});
   navigator.mediaSession.setActionHandler('play',()=>musPlay(x.id));navigator.mediaSession.setActionHandler('pause',musPause);navigator.mediaSession.setActionHandler('nexttrack',()=>musNext());navigator.mediaSession.setActionHandler('previoustrack',musPrev)}catch(e){}}
 /* browsers only allow sound after a tap: start the music on the first one if it's switched on */
-['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,()=>{if(MUS.gate)return;MUS.gate=true;const S=musSet();if((S.on||MUS.want)&&SND.on&&musAll().length)setTimeout(()=>musPlay(S.cur),150)},{passive:true,capture:true}));
-function musPlaying(){return !!(MUS.el&&!MUS.el.paused)}
+['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,()=>{if(MUS.gate)return;MUS.gate=true;const S=musSet();if((S.on||MUS.want)&&SND.on&&musAll().length){try{genCtx()&&GEN.ctx.resume()}catch(e){}musPlay(S.cur)}},{passive:true,capture:true}));
+function musPlaying(){return GEN.on||!!(MUS.el&&!MUS.el.paused)}
 /* the music button in the top bar shows little dancing bars while a song plays */
 function musBtnHTML(){return `${musPlaying()?'<span class="mueq on"><i></i><i></i><i></i></span>':icon('M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z')}<span>${musPlaying()&&MUS.cur?esc(MUS.cur.t):'Music'}</span>`}
 function musUI(ev){const b=$('#musBtn');if(b&&ev!=='timeupdate')b.innerHTML=musBtnHTML();const m=$('#musMenu');if(!m)return;const a=MUS.el;
+  if((ev==='timeupdate'||ev==='loadedmetadata')&&GEN.on){const r=$('#musSeek');if(r&&!r.dataset.drag){r.max=GEN.len;r.value=genElapsed();$('#musT').textContent=musTime(genElapsed())+' / '+musTime(GEN.len)}return}
   if(ev==='timeupdate'||ev==='loadedmetadata'){const r=$('#musSeek');if(r&&a&&isFinite(a.duration)&&!r.dataset.drag){r.max=a.duration;r.value=a.currentTime;$('#musT').textContent=musTime(a.currentTime)+' / '+musTime(a.duration)}return}
   const pp=$('#musPP');if(pp)pp.innerHTML=musPlaying()?icon('M10 4H6v16h4zM18 4h-4v16h4z',22):icon('M6 4l14 8-14 8z',22);const d=$('.mudisc');if(d)d.classList.toggle('spin',musPlaying());
   $$('[data-mutr]').forEach(r=>r.classList.toggle('on',!!(MUS.cur&&r.dataset.mutr===MUS.cur.id)));const nt=$('#musNow');if(nt&&MUS.cur)nt.innerHTML=musNowHTML()}
 function musTime(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 function musNowHTML(){const x=MUS.cur||musAll()[0];if(!x)return '<p class="hint">No songs yet.</p>';const liked=musLiked().includes(x.id);
-  return `<div class="mudisc ${musPlaying()?'spin':''}"><span>♪</span></div><div class="munow"><span class="label">${musPlaying()?'Now playing':'Paused'}${x.mood?' · '+esc(x.mood):''}</span><h3>${esc(x.t)}</h3><small>${esc(x.a)}</small>
+  return `<div class="mudisc ${musPlaying()?'spin':''}"><span>♪</span></div><div class="munow"><span class="label">${musPlaying()?'Now playing':'Paused'}${x.mood?' · '+esc(x.mood):''}</span><h3>${esc(x.t)}</h3><small>${esc(x.a)}</small>${x.credit?`<small class="mucr">${esc(x.credit)}</small>`:''}
     <button class="muheart ${liked?'on':''}" onclick="musLike('${esc(x.id)}')" aria-label="${liked?'Unlike':'Like'}">${liked?'♥':'♡'}</button></div>`}
 function openMusic(){const S=musSet();const all=musAll();const L=musList();const lk=musLiked();const a=MUS.el;
   const row=(x,i)=>{const bad=MUS.bad.has(x.id);const on=MUS.cur&&MUS.cur.id===x.id;return `<div class="murow ${on?'on':''} ${bad?'bad':''}" data-mutr="${esc(x.id)}"><button class="mupl" data-mup="${esc(x.id)}" ${bad?'disabled':''}>${on&&musPlaying()?'<span class="mueq on"><i></i><i></i><i></i></span>':i+1}</button><div class="mutt"><b>${esc(x.t)}</b><small>${esc(x.a)}${x.mood?' · '+esc(x.mood):''}${bad?' · file missing':''}</small></div><button class="muheart sm ${lk.includes(x.id)?'on':''}" data-mul="${esc(x.id)}">${lk.includes(x.id)?'♥':'♡'}</button></div>`};
@@ -8408,14 +8451,14 @@ function openMusic(){const S=musSet();const all=musAll();const L=musList();const
     <div class="mulist">${L.length?L.map(row).join(''):`<p class="hint">${S.list==='liked'?'Tap ♡ on a song to add it here.':'No songs yet.'}</p>`}</div>
     <span class="label" style="margin-top:14px;display:block">Volume</span>${sl('muvM','Music',S.vol)}${sl('muvS','Sound effects',sfxVol())}${typeof voxSet==='function'?sl('muvV','Announcer',voxSet().vol):''}
     <div class="setrow"><span class="label">Music during games</span>${lgChips('data-mugm',[['full','Full'],['quiet','Quieter'],['off','Off']],S.game)}</div>
-    <details class="mucred"><summary>Song credits</summary>${all.map(x=>`<p>${esc(musCredit(x))}${x.page?` · <a href="${esc(x.page)}" target="_blank" rel="noopener">song page</a>`:''}</p>`).join('')}<p class="hint">Music from Free To Use (freetouse.com). Thank you to the artists.</p></details>
+    <details class="mucred" open><summary>Song credits</summary>${all.map(x=>`<p>${esc(musCredit(x))}${x.page?` · <a href="${esc(x.page)}" target="_blank" rel="noopener">song page</a>`:''}${x.lic?` · <a href="${esc(x.lic)}" target="_blank" rel="noopener">license</a>`:''}</p>`).join('')}<p class="hint">Lo-fi tracks by Retro Indie Josh (Arkeia), used under CC BY 4.0. Hall Pass Originals are made for the game. Thank you to every artist credited here.</p></details>
     ${isAdminDevice&&isAdminDevice()?'<p class="hint">Admin: add more songs in Control Room → Music.</p>':''}
     <div class="actrow"><button class="btn btn-go" onclick="closeAll()">Done</button></div></div>`,true);
   $('#musPP').onclick=musToggle;$('#musNx').onclick=()=>musNext();$('#musPv').onclick=musPrev;
   $('#musSh').onclick=()=>{S.shuffle=S.shuffle?0:1;musSave();openMusic()};$('#musRp').onclick=()=>{S.repeat={all:'one',one:'off',off:'all'}[S.repeat]||'all';musSave();openMusic()};
   $$('[data-mutab]').forEach(b=>b.onclick=()=>{S.list=b.dataset.mutab;musSave();openMusic()});$$('[data-mup]').forEach(b=>b.onclick=()=>{const id=b.dataset.mup;MUS.cur&&MUS.cur.id===id&&musPlaying()?musPause():musPlay(id)});
   $$('[data-mul]').forEach(b=>b.onclick=()=>musLike(b.dataset.mul));$$('[data-mugm]').forEach(b=>b.onclick=()=>{S.game=b.dataset.v;musSave();openMusic()});
-  const sk=$('#musSeek');sk.oninput=()=>{sk.dataset.drag=1;$('#musT').textContent=musTime(+sk.value)};sk.onchange=()=>{delete sk.dataset.drag;if(MUS.el&&isFinite(MUS.el.duration))MUS.el.currentTime=+sk.value};
+  const sk=$('#musSeek');sk.oninput=()=>{sk.dataset.drag=1;$('#musT').textContent=musTime(+sk.value)};sk.onchange=()=>{delete sk.dataset.drag;if(GEN.on){GEN.t0=GEN.ctx.currentTime-(+sk.value);return}if(MUS.el&&isFinite(MUS.el.duration))MUS.el.currentTime=+sk.value};
   const bind=(id,set)=>{const r=$('#'+id);if(!r)return;r.oninput=()=>{set(+r.value);$('#'+id+'V').textContent=Math.round(+r.value*100)+'%'};r.onchange=()=>saveP()};
   bind('muvM',v=>{S.vol=v;musSave()});bind('muvS',v=>{VOL.sfx=v;volSave()});bind('muvV',v=>{voxSet().vol=v});
   const vs=$('#muvS');if(vs)vs.addEventListener('change',()=>sfx('click'));const vv=$('#muvV');if(vv)vv.addEventListener('change',()=>{if(typeof voxSay==='function'){voxStop();const was=voxSet().on;voxSet().on=1;voxSay('Testing, one two.',{pri:3});voxSet().on=was}})}
@@ -8454,7 +8497,7 @@ setInterval(stTipTick,700);
 
 /* ---------- Control Room: songs ---------- */
 function adminTabsMusic(){const c=LIVE.feed.cfg||{};const ex=c.music||[];return{music:`<div class="card"><span class="label">Hall Pass radio</span><h3>Music</h3>
-  <p class="mutep">Players hear these songs and can like them. Every song must show its credit (title and artist). To add one: download the MP3 from Free To Use, upload it to the repo's <code>music/</code> folder (for example <code>music/stroll.mp3</code>), then add it here and publish.</p>
+  <p class="mutep">Players hear these songs and can like them. The three Hall Pass Originals are built in. <b>Only add songs your license lets you put in a game.</b> Free To Use's free license does not cover games or apps: you need their Pro (single song) or Commercial license, or music that is truly free for games (for example CC0 or CC-BY). Upload the MP3 to the repo's <code>music/</code> folder (for example <code>music/stroll.mp3</code>), then add it here with its credit and publish.</p>
   <div class="mulist">${MUS_BASE.map(x=>`<div class="murow"><span class="mupl">♪</span><div class="mutt"><b>${esc(x.t)}</b><small>${esc(x.a)} · ${esc(x.src)} · built in</small></div></div>`).join('')}${ex.map((x,i)=>`<div class="murow"><span class="mupl">♪</span><div class="mutt"><b>${esc(x.t)}</b><small>${esc(x.a)} · ${esc(x.src)}</small></div><button class="btn btn-ghost" data-mudel="${i}">Remove</button></div>`).join('')}</div>
   <div class="grid2" style="margin-top:12px"><div class="field"><label class="label" for="muaT">Song title</label><input id="muaT" maxlength="40" placeholder="Stroll"></div><div class="field"><label class="label" for="muaA">Artist</label><input id="muaA" maxlength="40" placeholder="massobeats"></div>
    <div class="field"><label class="label" for="muaS">File in the repo, or a link</label><input id="muaS" maxlength="200" placeholder="music/stroll.mp3"></div><div class="field"><label class="label" for="muaP">Song page (for the credit)</label><input id="muaP" maxlength="200" placeholder="https://freetouse.com/music/massobeats/stroll"></div>
