@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1020">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793020303">
+<meta name="hp-build" content="1793031958">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -1592,6 +1592,13 @@ body.gamefs.stplaying .stbar{padding-top:env(safe-area-inset-top,0px)}
 .sttbl{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}.sttbl th,.sttbl td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right}.sttbl th:first-child,.sttbl td:first-child{text-align:left}.sttbl tr.me td{color:var(--amber)}
 
 .voxsl{display:grid;grid-template-columns:96px 1fr 52px;gap:10px;align-items:center;margin:10px 0;font-size:13px}.voxsl>span{color:var(--mute)}.voxsl select{grid-column:2/4;background:var(--ink-2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px}.voxsl input[type=range]{width:100%;accent-color:var(--amber)}.voxsl b{text-align:right;font-size:12px}
+
+.hwcard{position:relative;overflow:hidden;margin-top:14px;background:radial-gradient(600px 220px at 85% -40px,rgba(255,122,26,.25),transparent 70%),linear-gradient(160deg,#1a0f29,#0e0a18);border-color:#5b2f7a}
+.hwbats{position:absolute;right:16px;top:10px;opacity:.5;letter-spacing:10px;animation:hwfly 6s ease-in-out infinite}@keyframes hwfly{50%{transform:translate(-14px,6px)}}
+.hwrow{display:flex;gap:14px;align-items:flex-start}.hwicon{font-size:42px;line-height:1;filter:drop-shadow(0 0 12px rgba(255,122,26,.6))}.hwcard h3{color:#ffb070}
+.hwrungs{display:flex;gap:8px;margin:10px 0 4px;flex-wrap:wrap}.hwr{width:54px;padding:6px 0;border-radius:10px;text-align:center;border:1px solid #3b2a52;background:rgba(0,0,0,.25)}.hwr b{display:block;font:900 18px var(--f-display)}.hwr small{color:var(--mute);font-size:11px}.hwr.done{border-color:#7dffb5;background:rgba(125,255,181,.08)}.hwr.now{border-color:#ff7a1a;box-shadow:0 0 14px rgba(255,122,26,.35)}
+.hwhome{display:flex;align-items:center;gap:14px;cursor:pointer;margin-bottom:14px;background:linear-gradient(120deg,#2a1240,#140b22 60%,#2b1406);border-color:#6b3a8f}.hwhome b{display:block;font:900 22px var(--f-display);color:#ffb070}.hwhome small{display:block;color:var(--mute)}
+.stcourt.haunted i{background:radial-gradient(circle at 70% 30%,#f3ead0 0 12%,transparent 13%),linear-gradient(#1d0f33,#3a3045)}
 </style>
 
 </head>
@@ -1899,6 +1906,7 @@ const SLOTPOS={PG:[50,22],SG:[17,44],SF:[83,44],PF:[33,74],C:[67,74]};
 const ADJ={PG:['SG'],SG:['PG','SF'],SF:['SG','PF'],PF:['SF','C'],C:['PF']};
 const RANKS=[[1,'Walk-On'],[3,'Rotation Player'],[5,'Starter'],[8,'All-Star'],[12,'MVP Candidate'],[16,'Hall of Famer'],[22,'Immortal']];
 const ACH=[
+ ['hw'+new Date().getFullYear(),'Haunted Hooper '+new Date().getFullYear(),'Beat the Haunted Ladder during Halloween Hoops '+new Date().getFullYear()+' (one week only)','M12 3c-4 0-7 3-7 7 0 2 1 4 3 5v3l2-1 2 2 2-2 2 1v-3c2-1 3-3 3-5 0-4-3-7-7-7zM9 10h.01M15 10h.01'],
  ['streetw','Street Baller','Win a game of Street','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM2 12h20M12 2v20'],['streetl','Street Legend','Beat a Legend-level opponent in Street','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z'],['streetsh','Shutout','Win a Street game without giving up a point','M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z'],['ankles','Ankle Breaker','Make a defender fall with a crossover','M13 2L3 14h8l-1 8 10-12h-8z'],
  ['first','Opening Night','Finish your first season','M5 3l14 9-14 9z'],
  ['champ','Hang a Banner','Win a championship','M6 3h12v14l-6-4-6 4z'],
@@ -2088,7 +2096,7 @@ function renderHome(){
        <div><span class="label">Level</span><b data-c="${levelInfo(P.xp).lvl}">0</b></div>
      </div></div>
    </div>
-   ${growHomeHTML()}
+   ${hwHomeHTML()}${growHomeHTML()}
    ${hsec('car','Your careers','The Rise and your leagues',`${crHomeCard()}${lgHomeCard()}`)}
    ${isAdminDevice()?hsec('volley','Volleyball · admins only','Only visible on your admin devices',vbHomeCard()):''}
    ${hsec('street','Street · beta','Play it yourself: real-time basketball',stHomeCard())}
@@ -4413,6 +4421,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {v:'9.4',d:'2026-10-26',t:'Halloween Hoops 🎃',b:'A limited-time Street event through November 2: play on the new Haunted Court (a graveyard at midnight with fog, bats and jack-o\'-lanterns) and take on the Haunted Ladder, five zombie legends in a row. Beat all five to keep the glowing Ghost kit forever and earn the Haunted Hooper title and a badge you can only get this week.'},
  {v:'9.3',d:'2026-10-26',t:'The announcer has a voice',b:'Street and Volleyball commentary is now read out loud. Big moments like dunks, blocks, aces and ankle-breakers get louder and faster, and the important calls cut in over small talk. Pick the announcer voice, volume, speed and pitch under Voice settings in either game, or turn it off. It works in online games too.'},
  {v:'9.2',d:'2026-10-26',t:'Street online, easier volleyball, your own controls, full screen',b:'Street is now playable online: make a room, send the code and play a friend 1-on-1 or 3-on-3 (the computer fills empty spots). Your own player moves the instant you press, and everyone else glides smoothly. Shooters always square up to the rim now, and every turn is smoothed. Volleyball is much easier to pick up: one button plays the ball (pass, set, spike or block, whatever the moment needs), your player runs to the ball when you let go of the stick, and timing windows are bigger. All three can be turned off in Settings. Both games now have a Controls screen: change any key or controller button, move the touch buttons to the left side, and make them bigger. And there is a Full screen button (or press F) in both games.'},
  {v:'9.1',d:'2026-10-25',t:'Street: brand new animations',b:'Every Street player is now a fully animated athlete with knees, elbows and hands that grip the ball. Jump shots dip, rise, release at the top and finish with a wrist flick. Dunks come in seven styles (Windmill, 360, Tomahawk, Reverse and more), then you hang on the rim while it shakes and a shockwave rolls out. Blocks are a full leap and swat with a finger wag after. Crossovers swap hands, spins actually turn, broken ankles end with the defender on the floor, and players celebrate (or slump) after every bucket.'},
@@ -5968,7 +5977,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793020303';
+const BUILD='1793031958';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -6012,8 +6021,8 @@ const ST_DIFF={
 const ST_LADDER=[78,81,84,86,88,90,92,94,96,98];
 /* Street Rep: earned every game, unlocks courts and team kits */
 const ST_TIERS=[[0,'Rookie'],[250,'Hooper'],[700,'Baller'],[1500,'Star'],[3000,'All-Star'],[5500,'Legend'],[9000,'Icon']];
-const ST_COURTS={arena:['Hall Pass Arena','Indoor lights and a packed crowd',0],park:['Downtown Park','Asphalt, chain-link and sunshine',250],roof:['Rooftop Nights','City lights forty floors up',1500],beach:['Boardwalk Beach','Sunset hoops by the water',3000]};
-const ST_KITS={sky:['Sky','#5ec8ff','#1f5fd6','#173f8f',0],crimson:['Crimson','#ff6b6b','#9b1430','#6e0f22',0],gold:['Gold Rush','#ffd25e','#c98a0b','#7a5206',700],mint:['Mint','#6cf0b0','#119a62','#0b5e3c',1500],violet:['Violet','#c39bff','#6a3fd1','#3e2386',3000],midnight:['Midnight','#aab3c8','#1b2030','#0b0e17',5500],inferno:['Inferno','#ffb347','#e8461c','#7a1c0a',9000]};
+const ST_COURTS={arena:['Hall Pass Arena','Indoor lights and a packed crowd',0],park:['Downtown Park','Asphalt, chain-link and sunshine',250],roof:['Rooftop Nights','City lights forty floors up',1500],beach:['Boardwalk Beach','Sunset hoops by the water',3000],haunted:['Haunted Court','Midnight in the graveyard (Halloween)',0]};
+const ST_KITS={ghost:['Ghost','#7dffb5','#d9fbec','#b9e6d4',0,'#17352a'],ghoul:['Ghoul','#b6ff6b','#3b1d4a','#26122f',0],sky:['Sky','#5ec8ff','#1f5fd6','#173f8f',0],crimson:['Crimson','#ff6b6b','#9b1430','#6e0f22',0],gold:['Gold Rush','#ffd25e','#c98a0b','#7a5206',700],mint:['Mint','#6cf0b0','#119a62','#0b5e3c',1500],violet:['Violet','#c39bff','#6a3fd1','#3e2386',3000],midnight:['Midnight','#aab3c8','#1b2030','#0b0e17',5500],inferno:['Inferno','#ffb347','#e8461c','#7a1c0a',9000]};
 const stRep=()=>stSave().rep||0;
 function stTier(rep){let i=0;ST_TIERS.forEach((t,k)=>{if(rep>=t[0])i=k});return i}
 function stSet(){const S2=stSave();S2.set=S2.set||{com:1,slow:1,shake:1};return S2.set}
@@ -6031,7 +6040,7 @@ const ST_LINES={start:['Ball is checked. Let\'s go!','Here we go, first to {to}.
   fade:['Fadeaway... count it!','{n} with the fadeaway jumper. Butter.'],
   euro:['Euro step and the finish!','{n} glides through with the euro.'],
   spin:['Spin move! {n} is gone.','{n} spins right past him.']};
-function stCom(kind,p,extra,pri){const s=ST;if(!s||s.auto||s.opt.mode==='practice'||!stSet().com)return;if(!pri&&s.t-(s.comT==null?-9:s.comT)<2)return;const L=ST_LINES[kind];if(!L)return;s.comT=s.t;
+function stCom(kind,p,extra,pri){const s=ST;if(!s||s.auto||s.opt.mode==='practice'||!stSet().com)return;if(!pri&&s.t-(s.comT==null?-9:s.comT)<2)return;const hk={start:'hstart',dunk:'hdunk',block:'hblock',three:'hthree'}[kind];const L=(s.court==='haunted'&&hk&&Math.random()<.75)?HW_LINES[hk]:ST_LINES[kind];if(!L)return;s.comT=s.t;
   const n=p?(stLoc(p)&&!s.auto&&!s.opt.online?'You':last(p.name)):'';let t=L[Math.random()*L.length|0].replace(/\{n\}/g,n).replace(/\{to\}/g,s.to).replace(/\{d\}/g,extra||'jam');if(n==='You')t=t.replace(/You is /g,'You\'re ').replace(/You gets/g,'You get').replace(/You finishes/g,'You finish').replace(/You says/g,'You say').replace(/You spins/g,'You spin').replace(/You throws/g,'You throw').replace(/You hammers/g,'You hammer').replace(/You glides/g,'You glide').replace(/You lets/g,'You let').replace(/You just/g,'You just').replace(/You can't/g,'You can\'t');
   stnEvPush(['com',t]);voxSay(t,{pri:pri?2:1});const el=$('#stCom');if(!el)return;el.textContent=t;el.classList.remove('on');void el.offsetWidth;el.classList.add('on');clearTimeout(stCom.h);stCom.h=setTimeout(()=>{if(el.isConnected)el.classList.remove('on')},2600)}
 const ST_DUNKS=['Tomahawk','Windmill','Reverse jam','360','Two-hand hammer','Cock-back','Double-clutch'];
@@ -6070,16 +6079,16 @@ function stD(){const s=ST,d=s.d,a=stAdapt();return{perf:stClamp(d.perf+a*.12,.03
 /* ---------- start ---------- */
 function stNew(opt){const d=ST_DIFF[opt.diff]||ST_DIFF.normal;const n=opt.mode==='3v3'?3:1;const S2=stSave();
   const me=stMe();const home=[stMk({...me,me:true},'A',0)];
-  let qOpp={easy:83,normal:88,legend:94}[opt.diff]||88;if(opt.mode==='ladder')qOpp=ST_LADDER[Math.min(9,S2.ladder)];
+  let qOpp={easy:83,normal:88,legend:94}[opt.diff]||88;if(opt.mode==='ladder')qOpp=ST_LADDER[Math.min(9,S2.ladder)];if(opt.mode==='haunt')qOpp=HW_Q[Math.min(4,hwSave().rung)];
   const qMate={easy:91,normal:88,legend:86}[opt.diff]||88;
   if(opt.mode==='3v3')stLegends(2,qMate,[]).forEach((p,k)=>home.push(stMk({name:p.name,num:(strHash(p.name)%54)+1,pos:p.pos,r:stRatingsFromLegend(p),legend:p},'A',k+1)));
   const away=[];const fixed=opt.opp&&PLAYERS.find(p=>p.name===opt.opp);if(fixed)away.push(stMk({name:fixed.name,num:(strHash(fixed.name)%54)+1,pos:fixed.pos,r:stRatingsFromLegend(fixed),legend:fixed},'B',0));else if(opt.mode!=='practice'){stLegends(n,qOpp,home.map(h=>h.name)).forEach((p,k)=>away.push(stMk({name:p.name,num:(strHash(p.name)%54)+1,pos:p.pos,r:stRatingsFromLegend(p),legend:p},'B',k)))}
-  const rep=S2.rep||0;const court=ST_COURTS[opt.court]&&rep>=ST_COURTS[opt.court][2]?opt.court:(ST_COURTS[S2.court]&&rep>=ST_COURTS[S2.court][2]?S2.court:'arena');const myKit=ST_KITS[S2.kit]&&rep>=ST_KITS[S2.kit][4]?S2.kit:'sky';
+  const rep=S2.rep||0;const court=stCourtOK(opt.court,rep)?opt.court:(stCourtOK(S2.court,rep)?S2.court:'arena');const myKit=stKitOK(S2.kit,rep)?S2.kit:'sky';
   ST={court,kit:{A:ST_KITS[myKit],B:ST_KITS[myKit==='crimson'?'sky':'crimson']},opt,d,skill:(S2.skill[opt.diff]||0)*(opt.mode==='ladder'||opt.mode==='kotc'?.5:1),teams:{A:home,B:away},all:[...home,...away],score:{A:0,B:0},to:opt.to||(opt.mode==='3v3'?21:11),poss:'A',cleared:true,clock:12,
     ball:{x:25,y:30,z:4,vx:0,vy:0,vz:0,holder:null,flight:null,last:'A',free:false,spin:0,trail:[]},
     ctrl:home[0],t:0,state:'intro',stateT:opt.mode==='practice'?.2:2.4,pops:[],parts:[],shake:0,net:0,rim:0,flash:0,paused:false,over:false,keys:{},touch:{x:0,y:0,on:false},
     streak:{A:0,B:0},prac:{fga:0,fgm:0,perf:0},auto:!!opt.auto,cam:{x:25,y:24,z:1.15},tut:opt.mode==='practice'&&!P.streetTut?{k:0,t:0}:null,mine:{perf:0,shots:0},lastDrib:0};
-  if(opt.online){stnBuild(ST);return ST}stCheck('A',true);return ST}
+  if(opt.online){stnBuild(ST);return ST}if(opt.mode==='haunt')hwZombify(ST);stCheck('A',true);return ST}
 function stCheck(team,first){const s=ST;s.poss=team;s.cleared=true;s.clock=12;if(!first){s.state='check';s.stateT=s.opt.mode==='practice'?.2:1}
   const off=s.teams[team],def=s.teams[team==='A'?'B':'A'];
   const spots=[[25,29],[9,20],[41,20]],dspots=[[25,23],[12,17],[38,17]];
@@ -6291,11 +6300,13 @@ function stArena(W,H){const court=(ST&&ST.court)||'arena';const key=W+'x'+H+cour
   const ART={arena:{paint:amber,pa:.42,line:'rgba(255,250,240,.92)',logo:'HP',logoC:amber,board:['HALL PASS','STREET','HALL PASS','STREET']},
     park:{paint:'#2f6fd6',pa:.55,line:'rgba(245,245,245,.85)',logo:'PARK',logoC:'#f4f4f4',board:null},
     roof:{paint:'#ff6b3d',pa:.5,line:'rgba(255,255,255,.9)',logo:'ROOF',logoC:'#ffb347',board:null},
-    beach:{paint:'#2ec4b6',pa:.55,line:'rgba(255,255,255,.92)',logo:'BEACH',logoC:'#fff3c4',board:null}}[court];
+    beach:{paint:'#2ec4b6',pa:.55,line:'rgba(255,255,255,.92)',logo:'BEACH',logoC:'#fff3c4',board:null},
+    haunted:{paint:'#ff7a1a',pa:.38,line:'rgba(190,255,215,.8)',logo:'R.I.P.',logoC:'#9dff8a',board:null}}[court];
   /* ---- backdrop ---- */
   if(court==='arena'){const bg=g.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#080b18');bg.addColorStop(.45,'#111833');bg.addColorStop(1,'#05070f');g.fillStyle=bg;g.fillRect(0,0,W,H);
     for(let row=0;row<6;row++){const yy=cy0-sc*1.4-row*sc*1.25;for(let x=-sc;x<W+sc;x+=sc*1.05){const r=rng();g.fillStyle=`hsl(${Math.floor(r*360)},${12+r*22}%,${10+row*2.2+r*8}%)`;g.beginPath();g.arc(x+(row%2)*sc*.5,yy,sc*.42,0,7);g.fill();g.fillRect(x+(row%2)*sc*.5-sc*.45,yy+sc*.3,sc*.9,sc*.7)}}
     const lg=g.createRadialGradient(W/2,0,0,W/2,0,W*.7);lg.addColorStop(0,'rgba(255,240,200,.16)');lg.addColorStop(1,'rgba(255,240,200,0)');g.fillStyle=lg;g.fillRect(0,0,W,H)}
+  else if(court==='haunted'){hwArenaBack(g,W,H,P_,sc,cy0,rng)}
   else if(court==='park'){const sky=g.createLinearGradient(0,0,0,cy0);sky.addColorStop(0,'#3d8be0');sky.addColorStop(1,'#bfe3ff');g.fillStyle=sky;g.fillRect(0,0,W,cy0+2);
     const sg=g.createRadialGradient(W*.82,cy0*.25,0,W*.82,cy0*.25,sc*4);sg.addColorStop(0,'rgba(255,250,215,1)');sg.addColorStop(.2,'rgba(255,245,200,.9)');sg.addColorStop(1,'rgba(255,245,200,0)');g.fillStyle=sg;g.fillRect(0,0,W,cy0);
     for(let i=0;i<5;i++){g.fillStyle='rgba(255,255,255,.75)';const cx=rng()*W,cy=cy0*(.15+rng()*.3);for(let k=0;k<4;k++){g.beginPath();g.arc(cx+k*sc*.9,cy+(k%2)*sc*.2,sc*(.7+rng()*.4),0,7);g.fill()}}
@@ -6323,6 +6334,7 @@ function stArena(W,H){const court=(ST&&ST.court)||'arena';const key=W+'x'+H+cour
   if(court==='arena'){const fl=g.createLinearGradient(0,y0,0,y1);fl.addColorStop(0,'#a8703f');fl.addColorStop(.5,'#c88d55');fl.addColorStop(1,'#d9a266');g.fillStyle=fl;g.fillRect(x0-sc*1.5,y0,x1-x0+sc*3,y1-y0+sc*2);
     for(let i=-1.5;i<51.5;i+=1.25){const[a]=P_(i,0);g.fillStyle=`rgba(${70+((i*7)%3)*12},40,15,${.05+((i*13)%5)/100})`;g.fillRect(a,y0,sc*1.25*.98,y1-y0+sc*2)}
     const shn=g.createLinearGradient(x0,0,x1,0);shn.addColorStop(0,'rgba(255,255,255,0)');shn.addColorStop(.5,'rgba(255,255,255,.10)');shn.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=shn;g.fillRect(x0,y0,x1-x0,y1-y0)}
+  else if(court==='haunted'){hwArenaFloor(g,W,H,P_,sc,x0,y0,x1,y1,rng)}
   else if(court==='park'){g.fillStyle='#3b3f47';g.fillRect(0,y0,W,H-y0);const fl=g.createLinearGradient(0,y0,0,H);fl.addColorStop(0,'rgba(0,0,0,.15)');fl.addColorStop(1,'rgba(255,255,255,.05)');g.fillStyle=fl;g.fillRect(0,y0,W,H-y0);
     for(let i=0;i<1600;i++){g.fillStyle=`rgba(${rng()<.5?'255,255,255':'0,0,0'},${rng()*.09})`;g.fillRect(rng()*W,y0+rng()*(H-y0),1.6,1.6)}
     g.strokeStyle='rgba(20,22,26,.6)';g.lineWidth=1.2;for(let i=0;i<7;i++){let x=rng()*W,y=y0+rng()*(H-y0);g.beginPath();g.moveTo(x,y);for(let k=0;k<5;k++){x+=(rng()-.5)*sc*2;y+=(rng()-.3)*sc*1.2;g.lineTo(x,y)}g.stroke()}
@@ -6349,7 +6361,7 @@ function stDraw(){const s=ST,cv=$('#stCanvas');if(!s||!cv)return;const g=cv.getC
   /* camera: a gentle zoom that follows the ball */const z=s.cam.z;const[fx,fy]=stProjBase(W,s.cam.x,s.cam.y,0);const shk=s.shake>0&&stSet().shake?stRnd(-1,1)*s.shake*16:0;
   const tx=W/2-fx*z+(fx-W/2)*.0,ty=H*.52-fy*z;const ox=stClamp(tx,W-W*z,0)+shk,oy=stClamp(ty*.25,H-H*z,0)+shk*.6;
   g.setTransform(dpr*z,0,0,dpr*z,ox*dpr,oy*dpr);g.drawImage(bgc,0,0,W,H);
-  const P_=(x,y,zz)=>stProjBase(W,x,y,zz);const[,,sc]=P_(0,0,0);
+  const P_=(x,y,zz)=>stProjBase(W,x,y,zz);const[,,sc]=P_(0,0,0);if(s.court==='haunted')stHauntFx(g,W,H,P_,sc,s);
   /* crowd reacts */if(s.crowd>0){g.fillStyle=`rgba(255,240,200,${Math.min(.12,s.crowd*.08)})`;const[,cy]=P_(0,0);g.fillRect(0,0,W,cy);for(let i=0;i<6;i++){const fx2=Math.random()*W,fy2=Math.random()*cy*.8;g.fillStyle='rgba(255,255,255,.8)';g.fillRect(fx2,fy2,2,2)}}
   /* shadows */s.all.forEach(p=>{const[x,y]=P_(p.x,p.y,0);g.fillStyle=`rgba(0,0,0,${.32-Math.min(.15,p.z/40)})`;g.beginPath();g.ellipse(x,y,sc*1.15*(1-Math.min(.45,p.z/14)),sc*.44,0,0,7);g.fill()});
   {const b=s.ball;const[x,y]=P_(b.x,b.y,0);g.fillStyle=`rgba(0,0,0,${.3-Math.min(.2,b.z/50)})`;g.beginPath();g.ellipse(x,y,sc*.45,sc*.18,0,0,7);g.fill()}
@@ -6500,11 +6512,12 @@ function stDrawPlayer(g,p,P_,sc){const s=ST;const dt=Math.min(.05,s.dtLast||1/60
   /* the controlled player's ring and arrow, fire glow */
   const[gx,gy]=P_(p.x,p.y,0);const topY=Math.min(pr(v3a(S.headC,[0,0,.5*K]))[1],pr(hL)[1]-sc*.3,pr(hR)[1]-sc*.3,b0&&b0.holder===p?pr([b0.x,b0.y,b0.z+.6])[1]:1e9);
   if(p===s.ctrl&&!s.auto){g.strokeStyle='rgba(61,220,132,.35)';g.lineWidth=6;g.beginPath();g.ellipse(gx,gy,sc*1.4,sc*.54,0,0,7);g.stroke();g.strokeStyle='#3ddc84';g.lineWidth=2.2;g.stroke();g.fillStyle='#3ddc84';g.beginPath();g.moveTo(gx,topY-sc*.9);g.lineTo(gx-sc*.45,topY-sc*1.55);g.lineTo(gx+sc*.45,topY-sc*1.55);g.fill()}
+  const ghostK=tk&&tk[0]==='Ghost';if(ghostK||p.zombie){const[cx,cy]=pr(S.chest);const gg=g.createRadialGradient(cx,cy,0,cx,cy,sc*2.4);gg.addColorStop(0,p.zombie?'rgba(150,255,110,.2)':'rgba(140,255,200,.3)');gg.addColorStop(1,'rgba(140,255,200,0)');g.fillStyle=gg;g.beginPath();g.arc(cx,cy,sc*2.4,0,7);g.fill()}
   if(p.fire){const[cx,cy]=pr(S.chest);const fg=g.createRadialGradient(cx,cy,0,cx,cy,sc*2.6);fg.addColorStop(0,'rgba(255,140,30,.35)');fg.addColorStop(1,'rgba(255,140,30,0)');g.fillStyle=fg;g.beginPath();g.arc(cx,cy,sc*2.6,0,7);g.fill()}
   /* speed lines on quick moves */
   const spd=Math.hypot(p.vx,p.vy);if(spd>12||(p.mv&&(p.mv.k==='spin'||p.mv.k==='cross'))){const[cx,cy]=pr(S.chest);const a=Math.atan2(-p.vy,-p.vx);g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=2;for(let i=-1;i<=1;i++){const ox=Math.cos(a+1.57)*i*sc*.5,oy=Math.sin(a+1.57)*i*sc*.3;g.beginPath();g.moveTo(cx+ox+Math.cos(a)*sc*.6,cy+oy+Math.sin(a)*sc*.3);g.lineTo(cx+ox+Math.cos(a)*sc*2,cy+oy+Math.sin(a)*sc*.9);g.stroke()}}
   /* which side is nearer the camera (bigger y = nearer) */
-  const nearR=S.shR[1]>=S.shL[1],nearRleg=S.hipR[1]>=S.hipL[1];const facing=S.Fs[1]>.15;
+  if(ghostK)g.globalAlpha=.84;const nearR=S.shR[1]>=S.shL[1],nearRleg=S.hipR[1]>=S.hipL[1];const facing=S.Fs[1]>.15;
   const drawLeg=(hip,kn,ft,side)=>{seg(hip,kn,.44*K,p.skin);seg(kn,ft,.36*K,p.skin);seg(mid(kn,ft,.62),ft,.38*K,'#f4f6fb');
     const heel=v3a(ft,v3m(S.F,-.22*K)),toe=v3a(v3a(ft,v3m(S.F,.42*K)),[0,0,-.05]);seg(heel,toe,.3*K,'#f4f6fb');seg(mid(heel,toe,.35),mid(heel,toe,.85),.12*K,c1)};
   const drawArm=(sh,el,wr,hd,side,isR)=>{seg(sh,el,.32*K,p.skin);seg(el,wr,.27*K,p.skin);if(isR&&p.band)seg(mid(el,wr,.75),wr,.31*K,c1);
@@ -6518,14 +6531,14 @@ function stDrawPlayer(g,p,P_,sc){const s=ST;const dt=Math.min(.05,s.dtLast||1/60
     g.fillStyle=c2;g.beginPath();g.moveTo(A[0],A[1]);g.quadraticCurveTo(N[0],N[1]+sc*.25,B[0],B[1]);g.lineTo(C[0],C[1]);g.lineTo(D[0],D[1]);g.closePath();g.fill();
     g.strokeStyle=c1;g.lineWidth=Math.max(1,sc*.16*K);g.beginPath();g.moveTo(A[0],A[1]+sc*.15);g.lineTo(D[0],D[1]);g.moveTo(B[0],B[1]+sc*.15);g.lineTo(C[0],C[1]);g.stroke();
     g.strokeStyle='rgba(255,255,255,.6)';g.lineWidth=1.2;g.beginPath();g.moveTo(A[0],A[1]);g.quadraticCurveTo(N[0],N[1]+sc*.35,B[0],B[1]);g.stroke();
-    const M=pr(mid(S.pelvis,S.chest,.58));const wd=Math.abs(B[0]-A[0]);if(wd>sc*.35){g.fillStyle='rgba(255,255,255,.95)';g.font=`800 ${Math.round(sc*(facing?.62:.8)*K)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillText(String(p.num),M[0],M[1]+(facing?-sc*.15:0));g.textBaseline='alphabetic'}}
+    const M=pr(mid(S.pelvis,S.chest,.58));const wd=Math.abs(B[0]-A[0]);if(wd>sc*.35){g.fillStyle=(tk&&tk[5])||'rgba(255,255,255,.95)';g.font=`800 ${Math.round(sc*(facing?.62:.8)*K)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.textBaseline='middle';g.fillText(String(p.num),M[0],M[1]+(facing?-sc*.15:0));g.textBaseline='alphabetic'}}
   /* head, hair, headband */{const[hx,hy]=pr(S.headC);const r=STK.head*K*sc*.98;g.fillStyle=p.skin;g.beginPath();g.arc(hx,hy,r,0,7);g.fill();
     const fx=S.Fs[0]*r*.35;g.fillStyle=p.hair;g.beginPath();g.arc(hx-fx*.4,hy-r*.12,r*1.02,Math.PI*1.02,Math.PI*1.98);g.fill();if(!facing){g.beginPath();g.arc(hx,hy-r*.05,r*.98,Math.PI*.85,Math.PI*2.15);g.fill()}
     if(p.band){g.fillStyle=c1;g.fillRect(hx-r,hy-r*.42,r*2,r*.3)}
-    if(facing){g.fillStyle='rgba(0,0,0,.55)';g.fillRect(hx+fx-r*.35,hy-r*.08,r*.16,r*.16);g.fillRect(hx+fx+r*.18,hy-r*.08,r*.16,r*.16)}
+    if(facing){if(p.zombie){g.save();g.shadowColor='#9dff6b';g.shadowBlur=sc*.6;g.fillStyle='#c8ff7a'}else g.fillStyle='rgba(0,0,0,.55)';g.fillRect(hx+fx-r*.35,hy-r*.08,r*.16,r*.16);g.fillRect(hx+fx+r*.18,hy-r*.08,r*.16,r*.16);if(p.zombie)g.restore()}if(p.zombie){g.strokeStyle='rgba(40,60,30,.6)';g.lineWidth=1;g.beginPath();g.moveTo(hx-r*.6,hy+r*.3);g.lineTo(hx-r*.2,hy+r*.55);g.stroke()}
     if(p.stun>0){g.font=`${Math.round(sc*.9)}px serif`;g.textAlign='center';g.fillText('💫',hx+Math.sin(s.t*8)*sc*.5,hy-r*2.2)}}
   drawArm(...nearArm);
-  /* name */g.font=`700 ${Math.round(sc*.6)}px Barlow,sans-serif`;g.textAlign='center';g.fillStyle=p.team==='A'?'rgba(220,240,255,.95)':'rgba(255,220,220,.95)';g.lineWidth=3;g.strokeStyle='rgba(0,0,0,.5)';const nm=stLoc(p)?'YOU':last(p.name).toUpperCase();g.strokeText(nm,gx,topY-sc*.35);g.fillText(nm,gx,topY-sc*.35);g.lineCap='butt'}
+  g.globalAlpha=1;/* name */g.font=`700 ${Math.round(sc*.6)}px Barlow,sans-serif`;g.textAlign='center';g.fillStyle=p.team==='A'?'rgba(220,240,255,.95)':'rgba(255,220,220,.95)';g.lineWidth=3;g.strokeStyle='rgba(0,0,0,.5)';const nm=stLoc(p)?'YOU':last(p.name).toUpperCase();g.strokeText(nm,gx,topY-sc*.35);g.fillText(nm,gx,topY-sc*.35);g.lineCap='butt'}
 /* the ball follows the hands: dribbles switch hands on moves, shots rise to the set point, dunks follow their style */
 function stPlaceBall(){const s=ST,b=s.ball,h=b.holder;if(!h)return;const sk=stScale(h);
   let F=[Math.cos(h.face),Math.sin(h.face)],R=[-Math.sin(h.face),Math.cos(h.face)];if(h.shoot&&h.shoot.dunk&&!h.shoot.done&&/360|Reverse/.test(h.shoot.dk||'')){const u=Math.min(1,h.shoot.t/h.shoot.T);const y=h.face+(h.shoot.dk==='360'?u*Math.PI*2*(h.dunkDir||1):u*Math.PI);F=[Math.cos(y),Math.sin(y)];R=[-Math.sin(y),Math.cos(y)]}
@@ -6571,8 +6584,8 @@ function stKotcHTML(){const K=stSave().kotc;if(!K)return '<p class="hint">Eight 
   return `<div class="kobr">${col('Quarterfinals',qf,0)}${col('Semifinals',sf,1)}${col('Final',fi,2)}</div><p class="hint">${KOTC_R[r]} next: <b>${esc(stKotcOpp()||'')}</b> (${stOvr(stKotcOpp())} OVR). One loss and you're out.</p>`}
 function stRepCard(){const S2=stSave();const rep=S2.rep||0;const ti=stTier(rep);const nx=ST_TIERS[ti+1];const pct=nx?Math.round((rep-ST_TIERS[ti][0])/(nx[0]-ST_TIERS[ti][0])*100):100;
   const nextU=nx?[...Object.values(ST_COURTS).filter(c=>c[2]===nx[0]).map(c=>c[0]+' court'),...Object.values(ST_KITS).filter(k=>k[4]===nx[0]).map(k=>k[0]+' kit')]:[];const st=stSet();
-  const courts=Object.entries(ST_COURTS).map(([k,c])=>{const lock=rep<c[2];return `<button class="stcourt ${k} ${S2.court===k?'on':''} ${lock?'lock':''}" data-stc="${k}" ${lock?'disabled':''}><i></i><b>${c[0]}</b><small>${lock?'🔒 '+fmtN(c[2])+' rep':c[1]}</small></button>`}).join('');
-  const kits=Object.entries(ST_KITS).map(([k,c])=>{const lock=rep<c[4];return `<button class="stkit ${S2.kit===k?'on':''} ${lock?'lock':''}" data-stkit="${k}" ${lock?'disabled':''} title="${c[0]}${lock?' · '+fmtN(c[4])+' rep':''}"><span style="background:linear-gradient(135deg,${c[1]},${c[2]})">${lock?'🔒':''}</span><small>${c[0]}</small></button>`}).join('');
+  const courts=Object.entries(ST_COURTS).filter(([k])=>k!=='haunted'||stCourtOK(k,rep)).map(([k,c])=>{const lock=!stCourtOK(k,rep);return `<button class="stcourt ${k} ${S2.court===k?'on':''} ${lock?'lock':''}" data-stc="${k}" ${lock?'disabled':''}><i></i><b>${c[0]}</b><small>${lock?'🔒 '+fmtN(c[2])+' rep':c[1]}</small></button>`}).join('');
+  const kits=Object.entries(ST_KITS).filter(([k])=>k!=='ghoul'&&(k!=='ghost'||hwOn()||hwKeeps())).map(([k,c])=>{const lock=!stKitOK(k,rep);return `<button class="stkit ${S2.kit===k?'on':''} ${lock?'lock':''}" data-stkit="${k}" ${lock?'disabled':''} title="${c[0]}${lock?(k==='ghost'?' · beat the Haunted Ladder':' · '+fmtN(c[4])+' rep'):''}"><span style="background:linear-gradient(135deg,${c[1]},${c[2]})">${lock?'🔒':''}</span><small>${c[0]}</small></button>`}).join('');
   return `<div class="card strep"><div class="strephd"><div class="streptier t${ti}"><span>${ti+1}</span></div><div style="flex:1;min-width:0"><span class="label">Street Rep</span><h3>${ST_TIERS[ti][1]} <small>${fmtN(rep)} rep</small></h3><div class="xpbar"><i style="width:${pct}%"></i></div>
     <p class="hint">${nx?`${fmtN(nx[0]-rep)} rep to <b>${nx[1]}</b>${nextU.length?' · unlocks '+nextU.join(', '):''}`:'Top tier. You run these streets.'}</p></div></div>
     <span class="label">Court</span><div class="stcourts">${courts}</div><span class="label" style="margin-top:12px;display:block">Your team's kit</span><div class="stkits">${kits}</div>
@@ -6589,7 +6602,7 @@ function stHub(){goTo('sthub');if(!canPlay('full'))return;
     <div class="sthero card"><div><span class="label">Your baller</span><h3>${esc(me.name)} <small>#${me.num} · ${me.rise?'from The Rise':'default ratings'}</small></h3><div class="strates">${[['Speed','spd'],['Shooting','sht'],['Finishing','fin'],['Defense','def'],['Handles','hand'],['Athleticism','ath']].map(([n,k])=>`<div><small>${n}</small><b>${Math.round(me.r[k])}</b><i><s style="width:${me.r[k]}%"></s></i></div>`).join('')}</div>
       <p class="hint">${me.rise?'Your MyPlayer\'s ratings carry over. Upgrade them in The Rise.':'Create a player in The Rise and Street will use your MyPlayer\'s ratings.'}</p></div>
       <div class="strecord"><div><small>Record</small><b>${S2.w}–${S2.l}</b></div><div><small>Points</small><b>${fmtN(S2.pts)}</b></div><div><small>Ladder</small><b>${lad}/10</b></div></div></div>
-    ${stRepCard()}<div class="stmodes st5 st6">${[['online','Online','Play your friends live: 1-on-1 or 3-on-3 with a room code.','M12 22a10 10 0 100-20 10 10 0 000 20zM2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20'],['1v1','1-on-1','Just you and a legend. Pure skill.','M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1'],['3v3','3-on-3','You and two legends against three. Pass, cut, alley-oop.','M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8'],['ladder','The Ladder','Ten legends, each better than the last. Beat all ten.','M8 2v20M16 2v20M8 6h8M8 11h8M8 16h8'],['kotc','King of the Court',stSave().kotc?KOTC_R[stSave().kotc.w.length]+' is up next':'Eight hoopers, one crown. Win three straight.','M3 18h18l-2-10-4 4-3-6-3 6-4-4z'],['practice','Shootaround',P.streetTut?'No defense. Find your sweet spots.':'Start here: a quick hands-on tutorial.','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z']].map(([k,n,d,ic])=>`<button class="stmode ${STO.mode===k?'on':''}" data-stm="${k}"><span class="glyph">${icon(ic,22)}</span><b>${n}</b><small>${d}</small></button>`).join('')}</div>
+    ${hwHubHTML()}${stRepCard()}<div class="stmodes st5 st6">${[['online','Online','Play your friends live: 1-on-1 or 3-on-3 with a room code.','M12 22a10 10 0 100-20 10 10 0 000 20zM2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20'],['1v1','1-on-1','Just you and a legend. Pure skill.','M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1'],['3v3','3-on-3','You and two legends against three. Pass, cut, alley-oop.','M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8'],['ladder','The Ladder','Ten legends, each better than the last. Beat all ten.','M8 2v20M16 2v20M8 6h8M8 11h8M8 16h8'],['kotc','King of the Court',stSave().kotc?KOTC_R[stSave().kotc.w.length]+' is up next':'Eight hoopers, one crown. Win three straight.','M3 18h18l-2-10-4 4-3-6-3 6-4-4z'],['practice','Shootaround',P.streetTut?'No defense. Find your sweet spots.':'Start here: a quick hands-on tutorial.','M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z']].map(([k,n,d,ic])=>`<button class="stmode ${STO.mode===k?'on':''}" data-stm="${k}"><span class="glyph">${icon(ic,22)}</span><b>${n}</b><small>${d}</small></button>`).join('')}</div>
     ${STO.mode==='ladder'?`<div class="card stset"><span class="label">The Ladder · rung ${Math.min(10,lad+1)} of 10</span><div class="stladder">${lad10}</div><p class="hint">${lad>=10?'You beat the whole Ladder. Run it again for fun, or try 3-on-3 on Legend.':`Next opponent is about ${ST_LADDER[lad]} overall. Win to climb. Beat all ten for the <b>Street King</b> title.`}</p></div>`:''}
     ${STO.mode==='kotc'?`<div class="card stset"><span class="label">King of the Court</span>${stKotcHTML()}</div>`:''}
     ${STO.mode==='1v1'||STO.mode==='3v3'?`<div class="card stset"><div class="setrow"><span class="label">Opponent level</span>${lgChips('data-std',Object.entries(ST_DIFF).map(([k,d])=>[k,d.n]),STO.diff)}</div>
@@ -6606,6 +6619,7 @@ function stHub(){goTo('sthub');if(!canPlay('full'))return;
   $$('[data-std]').forEach(b=>b.onclick=()=>{STO.diff=b.dataset.v;stHub()});$$('[data-stt]').forEach(b=>b.onclick=()=>{STO.to=+b.dataset.v;stHub()});$$('[data-stk]').forEach(b=>b.onclick=()=>{STO.makeIt=b.dataset.v==='1';stHub()});
   $$('[data-stc]').forEach(b=>b.onclick=()=>{S2.court=b.dataset.stc;saveP();sfx('click');stHub()});$$('[data-stkit]').forEach(b=>b.onclick=()=>{S2.kit=b.dataset.stkit;saveP();sfx('click');stHub()});
   $$('[data-stset]').forEach(b=>b.onclick=()=>{const st=stSet();st[b.dataset.stset]=st[b.dataset.stset]?0:1;saveP();sfx('click');stHub()});
+  const hwg=$('#hwGo');if(hwg)hwg.onclick=()=>hwPlay();if(STO.mode==='haunt'){STO.mode='1v1';setTimeout(()=>{const c=$('.hwcard');if(c)c.scrollIntoView({behavior:'smooth',block:'center'})},50)}
   const hb=$('#stnHostB');if(hb){hb.onclick=()=>stnHost();const ji=$('#stnCodeI'),jb=$('#stnJoinB');const go=()=>{const c=(ji.value||'').trim().toUpperCase();if(c.length<4)return toastLite('Enter the room code');stnJoin(c)};jb.onclick=go;ji.onkeydown=e=>{if(e.key==='Enter')go()}}
   $('#stGo').onclick=()=>{if(STO.mode==='online')return;if(STO.mode==='kotc'){if(!S2.kotc)stKotcNew();const r=S2.kotc.w.length;return stStart({mode:'kotc',diff:r===2?'legend':'normal',to:7,makeIt:false,opp:stKotcOpp()})}const lad=Math.min(9,S2.ladder);const o=STO.mode==='ladder'?{mode:'ladder',diff:lad<3?'easy':lad<7?'normal':'legend',to:11,makeIt:false}:{...STO,to:STO.to||(STO.mode==='3v3'?21:11)};stStart(o)}}
 function stControlsHTML(){const K=a=>ctlK('st',a);return `<div class="stkeys"><div><b>Keyboard</b><ul>
@@ -6623,7 +6637,7 @@ function stStart(opt){ctlApply();const s=stNew(opt);P.streetSeen=1;saveP();STBG.
   const vs=(t)=>s.teams[t].map(p=>`<div class="stivp"><b>${p.me?esc(p.name):esc(p.name)}</b><small>${p.legend?p.legend.ovr+' OVR · '+ERAS[p.legend.era].full:'You'}</small></div>`).join('');
   $('#app').innerHTML=`<section class="view stview"><div class="wrap"><div class="stbar"><button class="btn btn-ghost" id="stQuit">${icon('M19 12H5M11 18l-6-6 6-6')} Leave</button><div class="stvs">${opt.mode==='practice'?'<b>Shootaround</b>':`<b>${esc(s.teams.A.map(p=>stLoc(p)?'You':last(p.name)).join(', '))}</b><span>vs</span><b>${esc(s.teams.B.map(p=>last(p.name)).join(', '))}</b>`}</div><span class="stbarr">${gameFsBtn()}${opt.online?gameCtlBtn('st'):`<button class="btn btn-ghost" id="stPz">${icon('M10 4H6v16h4zM18 4h-4v16h4z',16)} Pause</button>`}</span></div>
     <div id="stHud" class="sthud"></div><div class="stwrap"><canvas id="stCanvas" tabindex="0" aria-label="Street court"></canvas>
-     ${opt.mode!=='practice'?`<div id="stIntro" class="stintro"><div class="stiside a">${vs('A')}</div><div class="stivs">VS</div><div class="stiside b">${vs('B')}</div><div class="stisub">${opt.mode==='ladder'?'The Ladder · rung '+(Math.min(9,stSave().ladder)+1):opt.mode==='kotc'?'King of the Court · '+KOTC_R[(stSave().kotc||{w:[]}).w.length]:opt.online?'Online · room '+esc(STN.code):s.d.n} · ${ST_COURTS[s.court][0]} · first to ${s.to}</div></div>`:''}
+     ${opt.mode!=='practice'?`<div id="stIntro" class="stintro"><div class="stiside a">${vs('A')}</div><div class="stivs">VS</div><div class="stiside b">${vs('B')}</div><div class="stisub">${opt.mode==='ladder'?'The Ladder · rung '+(Math.min(9,stSave().ladder)+1):opt.mode==='kotc'?'King of the Court · '+KOTC_R[(stSave().kotc||{w:[]}).w.length]:opt.online?'Online · room '+esc(STN.code):opt.mode==='haunt'?'Haunted Ladder · zombie '+(Math.min(4,hwSave().rung)+1)+' of 5':s.d.n} · ${ST_COURTS[s.court][0]} · first to ${s.to}</div></div>`:''}
      <div id="stTut" class="sttut" hidden></div><div id="stCom" class="stcom" aria-live="polite"></div>
      <div id="stPause" class="stpause" hidden><div class="card"><h3>Paused</h3>${stControlsHTML()}<div class="actrow" style="justify-content:center">${gameCtlBtn('st')}<button class="btn btn-go" id="stRes">Resume</button><button class="btn btn-ghost" id="stQuit2">Leave game</button></div></div></div>
      <div class="sttouch" id="stTouch"><div class="stjoy" id="stJoy"><i></i></div><div class="stbtns"><button data-stb="pass">${opt.mode==='3v3'?'Pass':'—'}</button><button data-stb="move">Move</button><button data-stb="sprint">Sprint</button><button data-stb="shoot" class="big">Shoot</button></div></div></div>
@@ -6652,23 +6666,24 @@ function stEnd(winner,forfeit){const s=ST;if(!s)return;gameFsLeave();if(s.opt.on
       else{S2.kotc=null;S2.kotcW=(S2.kotcW||0)+1;S2.rep+=300;kotcMsg='KING OF THE COURT 👑 +300 rep';const u=unlocks();if(!u.title.includes('King of the Court'))u.title.push('King of the Court')}}}
   const t0=stTier(rep0),t1=stTier(S2.rep);let tierMsg='';if(t1>t0){const nu=[...Object.values(ST_COURTS).filter(c=>c[2]>rep0&&c[2]<=S2.rep).map(c=>c[0]+' court'),...Object.values(ST_KITS).filter(k=>k[4]>rep0&&k[4]<=S2.rep).map(k=>k[0]+' kit')];tierMsg=`New tier: ${ST_TIERS[t1][1]}!${nu.length?' Unlocked '+nu.join(', ')+'.':''}`}
   /* learn from this game: results, margin and how cleanly you shot */
-  if(!forfeit&&s.opt.mode!=='practice'){const k=s.opt.mode==='ladder'?null:s.opt.diff;const margin=(s.score.A-s.score.B)/s.to;const perfR=s.mine.shots?s.mine.perf/s.mine.shots:0;
+  if(!forfeit&&s.opt.mode!=='practice'){const k=['ladder','haunt','story'].includes(s.opt.mode)?null:s.opt.diff;const margin=(s.score.A-s.score.B)/s.to;const perfR=s.mine.shots?s.mine.perf/s.mine.shots:0;
     if(k&&s.opt.mode!=='kotc'){S2.skill[k]=stClamp((S2.skill[k]||0)+(won?.12:-.16)+margin*.12+(perfR>.4?.04:perfR<.15?-.03:0),-1,1)}}
   let ladMsg='';if(s.opt.mode==='ladder'&&won&&!forfeit){S2.ladder=Math.min(10,S2.ladder+1);ladMsg=S2.ladder>=10?'You beat the whole Ladder: Street King!':`Climbed to rung ${S2.ladder+1}.`;if(S2.ladder>=10){const u=unlocks();if(!u.title.includes('Street King'))u.title.push('Street King')}}
+  const mx=stExtraAfter(s,won,forfeit);
   const xp=forfeit?5:(won?70:30)+me.st.pts*2+(s.opt.diff==='legend'?40:s.opt.diff==='normal'?15:0)+(s.opt.mode==='3v3'?15:0)+(s.opt.mode==='ladder'&&won?40+S2.ladder*8:0);gainXP(xp);
   const got=[];const award=(id)=>{if(!P.ach.includes(id)){P.ach.push(id);got.push(id)}};if(won&&!forfeit){award('streetw');if(s.opt.diff==='legend')award('streetl');if(s.score.B===0)award('streetsh')}
   saveP();try{dbEvent('street',{mode:s.opt.mode,diff:s.opt.diff,won,a:s.score.A,b:s.score.B})}catch(e){}
   if(won&&!forfeit){confetti();sfx('win')}else sfx('lose');
   const row=p=>`<tr class="${p.team==='A'?'me':''}"><td>${p.me?'<b>You</b>':esc(p.name)}</td><td class="n">${p.st.pts}</td><td class="n">${p.st.fgm}/${p.st.fga}</td><td class="n">${p.st.tpm}/${p.st.tpa}</td><td class="n">${p.st.reb}</td><td class="n">${p.st.ast}</td><td class="n">${p.st.stl}</td><td class="n">${p.st.blk}</td><td class="n">${p.st.ankles}</td></tr>`;
   const mvp=s.all.slice().sort((a,b)=>b.st.pts+b.st.stl*2+b.st.blk*2-(a.st.pts+a.st.stl*2+a.st.blk*2))[0];
-  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="card stend ${won?'won':''}"><span class="label">Street · ${({'3v3':'3-on-3','1v1':'1-on-1',ladder:'The Ladder',kotc:'King of the Court'})[s.opt.mode]||''} · ${ST_COURTS[s.court][0]}</span><h1>${forfeit?'Forfeit':won?'You win':'You lose'}</h1>
+  $('#app').innerHTML=`<section class="view"><div class="wrap"><div class="card stend ${won?'won':''}"><span class="label">Street · ${({'3v3':'3-on-3','2v2':'2-on-2','1v1':'1-on-1',ladder:'The Ladder',kotc:'King of the Court',haunt:'Haunted Ladder',story:'Street Story'})[s.opt.mode]||''} · ${ST_COURTS[s.court][0]}</span><h1>${forfeit?'Forfeit':won?'You win':'You lose'}</h1>
     <div class="stfinal"><div><small>${s.opt.mode==='3v3'?'Your team':'You'}</small><b>${s.score.A}</b></div><span>–</span><div><small>${s.opt.mode==='3v3'?'Them':esc(s.teams.B[0].name)}</small><b>${s.score.B}</b></div></div>
-    ${ladMsg?`<p class="stlad">${esc(ladMsg)}</p>`:''}${kotcMsg?`<p class="stlad">${esc(kotcMsg)}</p>`:''}${tierMsg?`<p class="stlad tier">${esc(tierMsg)}</p>`:''}<p class="hint">+${xp} XP · +${repG} Street Rep · Player of the game: <b>${mvp.me?'You':esc(mvp.name)}</b>${got.length?' · '+got.map(id=>{const a=ACH.find(x=>x[0]===id);return a?'Achievement: '+a[1]:''}).join(', '):''}</p>
-    ${s.opt.mode!=='ladder'&&s.opt.mode!=='kotc'?`<p class="hint">Next time on ${s.d.n}: <b>${stTuneLabel(S2.skill[s.opt.diff]||0)}</b></p>`:''}
+    ${ladMsg?`<p class="stlad">${esc(ladMsg)}</p>`:''}${kotcMsg?`<p class="stlad">${esc(kotcMsg)}</p>`:''}${mx&&mx.msg?`<p class="stlad">${esc(mx.msg)}</p>`:''}${tierMsg?`<p class="stlad tier">${esc(tierMsg)}</p>`:''}<p class="hint">+${xp} XP · +${repG} Street Rep · Player of the game: <b>${mvp.me?'You':esc(mvp.name)}</b>${got.length?' · '+got.map(id=>{const a=ACH.find(x=>x[0]===id);return a?'Achievement: '+a[1]:''}).join(', '):''}</p>
+    ${s.opt.mode!=='ladder'&&s.opt.mode!=='kotc'&&!mx?`<p class="hint">Next time on ${s.d.n}: <b>${stTuneLabel(S2.skill[s.opt.diff]||0)}</b></p>`:''}
     <div class="tbl-wrap"><table><tr><th>Player</th><th class="n">PTS</th><th class="n">FG</th><th class="n">3PT</th><th class="n">REB</th><th class="n">AST</th><th class="n">STL</th><th class="n">BLK</th><th class="n">Ankles</th></tr>${s.all.map(row).join('')}</table></div>
-    <div class="actrow" style="justify-content:center;margin-top:14px"><button class="btn btn-go btn-big" id="stAgain">${s.opt.mode==='ladder'&&won&&S2.ladder<10?'Next rung':s.opt.mode==='kotc'?(S2.kotc?'Play the '+KOTC_R[S2.kotc.w.length].toLowerCase():'Enter again'):'Run it back'}</button><button class="btn btn-ghost" id="stShare">Share</button><button class="btn btn-ghost" onclick="ST=null;stHub()">Street menu</button><button class="btn btn-ghost" onclick="ST=null;go('home')">Home</button></div></div></div></section>`;
-  {const sv=s;$('#stShare').onclick=()=>openShare({k:'street',kicker:`Street · ${({'3v3':'3-on-3','1v1':'1-on-1',ladder:'The Ladder',kotc:'King of the Court'})[sv.opt.mode]||''}`,title:forfeit?'Forfeit':won?(kotcMsg.startsWith('KING')?'King of the Court':'Street win'):'Tough loss',sub:`${sv.score.A}–${sv.score.B} vs ${sv.opt.mode==='3v3'?'three legends':sv.teams.B[0].name}`,accent:won?'#4fd18b':'#ff8a8a',lines:[['Points',me.st.pts],['FG',me.st.fgm+'/'+me.st.fga],['Ankles broken',me.st.ankles],['Dunks',me.st.dnk],['Street Rep',fmtN(S2.rep)]],challenge:won&&((LIVE.feed.cfg||{}).street==='all')?{t:'street',a:sv.score.A,b:sv.score.B,df:sv.opt.diff,n:P.name||'A friend'}:null})}
-  const opt=s.opt;ST=null;$('#stAgain').onclick=()=>{if(opt.mode==='kotc'){const S3=stSave();if(!S3.kotc)stKotcNew();const r=S3.kotc.w.length;return stStart({mode:'kotc',diff:r===2?'legend':'normal',to:7,makeIt:false,opp:stKotcOpp()})}if(opt.mode==='ladder'){const lad=Math.min(9,stSave().ladder);stStart({mode:'ladder',diff:lad<3?'easy':lad<7?'normal':'legend',to:11})}else stStart(opt)};refreshNav()}
+    <div class="actrow" style="justify-content:center;margin-top:14px"><button class="btn btn-go btn-big" id="stAgain">${mx&&mx.lbl?esc(mx.lbl):s.opt.mode==='ladder'&&won&&S2.ladder<10?'Next rung':s.opt.mode==='kotc'?(S2.kotc?'Play the '+KOTC_R[S2.kotc.w.length].toLowerCase():'Enter again'):'Run it back'}</button><button class="btn btn-ghost" id="stShare">Share</button><button class="btn btn-ghost" onclick="ST=null;stHub()">Street menu</button><button class="btn btn-ghost" onclick="ST=null;go('home')">Home</button></div></div></div></section>`;
+  {const sv=s;$('#stShare').onclick=()=>openShare({k:'street',kicker:`Street · ${({'3v3':'3-on-3','2v2':'2-on-2','1v1':'1-on-1',ladder:'The Ladder',kotc:'King of the Court',haunt:'Haunted Ladder',story:'Street Story'})[sv.opt.mode]||''}`,title:forfeit?'Forfeit':won?(kotcMsg.startsWith('KING')?'King of the Court':'Street win'):'Tough loss',sub:`${sv.score.A}–${sv.score.B} vs ${sv.opt.mode==='3v3'?'three legends':sv.teams.B[0].name}`,accent:won?'#4fd18b':'#ff8a8a',lines:[['Points',me.st.pts],['FG',me.st.fgm+'/'+me.st.fga],['Ankles broken',me.st.ankles],['Dunks',me.st.dnk],['Street Rep',fmtN(S2.rep)]],challenge:won&&((LIVE.feed.cfg||{}).street==='all')?{t:'street',a:sv.score.A,b:sv.score.B,df:sv.opt.diff,n:P.name||'A friend'}:null})}
+  const opt=s.opt;ST=null;$('#stAgain').onclick=()=>{if(mx&&mx.again)return mx.again();if(opt.mode==='kotc'){const S3=stSave();if(!S3.kotc)stKotcNew();const r=S3.kotc.w.length;return stStart({mode:'kotc',diff:r===2?'legend':'normal',to:7,makeIt:false,opp:stKotcOpp()})}if(opt.mode==='ladder'){const lad=Math.min(9,stSave().ladder);stStart({mode:'ladder',diff:lad<3?'easy':lad<7?'normal':'legend',to:11})}else stStart(opt)};refreshNav()}
 
 /* ---------- control room: Street beta access ---------- */
 function adminTabsStreet(){const c=LIVE.feed.cfg||{};const m=c.street||'invite';const names=c.betaNames||[];
@@ -8048,7 +8063,7 @@ const stnSend=(ev,p)=>{if(STN.ch)sbSend(STN.ch,ev,p)};
 async function stnHost(){if(!stnCan())return;const code=Array.from({length:5},()=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.random()*32|0]).join('');
   try{await stnOpen(code,true)}catch(e){toast('Could not open a room','Check the connection and try again.','M12 9v4M12 17h.01');return}
   const me=stnMyProf();STN.seats=[STN.uid,null,null,null,null,null];STN.names={[STN.uid]:me.name};STN.prof={[STN.uid]:me};STN.hostUid=STN.uid;STN.mode=STN.mode||'1v1';STN.to=STN.mode==='3v3'?21:11;
-  const S2=stSave();STN.court=ST_COURTS[S2.court]&&(S2.rep||0)>=ST_COURTS[S2.court][2]?S2.court:'arena';stnRoom()}
+  const S2=stSave();STN.court=stCourtOK(S2.court,S2.rep)?S2.court:'arena';stnRoom()}
 async function stnJoin(code){if(!stnCan())return;try{await stnOpen(code,false)}catch(e){toast('Could not join','Check the code and the connection.','M12 9v4M12 17h.01');return}
   const st=STN.ch.presenceState?STN.ch.presenceState():{};for(const k in st){const m=st[k][0];if(m&&m.host)STN.hostUid=m.uid}
   STN.seats=[null,null,null,null,null,null];stnSend('seat',{uid:STN.uid,i:-1,prof:stnMyProf()});stnRoom();
@@ -8066,7 +8081,7 @@ function stnRoom(){goTo('stroom');const H=STN.host;const S2=stSave();
     <div id="stnSeats" class="stnseats"></div>
     ${H?`<div class="setrow"><span class="label">Game</span>${lgChips('data-stnm',[['1v1','1-on-1'],['3v3','3-on-3']],STN.mode)}</div>
       <div class="setrow"><span class="label">Play to</span>${lgChips('data-stnt',(STN.mode==='3v3'?[15,21]:[7,11,15]).map(v=>[v,v+' pts']),STN.to)}</div>
-      <div class="setrow"><span class="label">Court</span>${lgChips('data-stnc',Object.entries(ST_COURTS).filter(([k,c])=>(S2.rep||0)>=c[2]).map(([k,c])=>[k,c[0]]),STN.court)}</div>
+      <div class="setrow"><span class="label">Court</span>${lgChips('data-stnc',Object.entries(ST_COURTS).filter(([k,c])=>stCourtOK(k,S2.rep)).map(([k,c])=>[k,c[0]]),STN.court)}</div>
       <button class="btn btn-go btn-big" id="stnGo" style="width:100%">Tip off ${icon('M5 12h14M13 6l6 6-6 6',18)}</button>`
      :`<p class="hint" id="stnWait">Waiting for the host to start…</p><div id="stnSet" class="hint"></div>`}</div>
    <p class="hint">Play fair: the community rules apply online. Report anyone from the Rules page.</p></div></section>`;
@@ -8222,6 +8237,58 @@ function openVoice(){const V=voxSet();if(!voxOK()){toastLite('This browser canno
   const sel=$('#voxV');if(sel)sel.onchange=()=>{V.voice=sel.value;sv();voxStop();voxSay(VOX_TESTS[0],{pri:3})};
   [['voxVol','vol'],['voxRate','rate'],['voxPitch','pitch']].forEach(([id,k])=>{const r=$('#'+id);r.oninput=()=>{V[k]=+r.value;$('#'+id+'V').textContent=Math.round(V[k]*100)+'%'};r.onchange=()=>{sv();voxStop();voxSay('How does this sound?',{pri:3})}});
   $('#voxTest').onclick=()=>{const was=V.on;V.on=1;voxStop();voxSay(VOX_TESTS[Math.random()*VOX_TESTS.length|0],{pri:3});V.on=was}}
+
+/* ============ HALLOWEEN HOOPS (limited-time event, Oct 20 – Nov 2 every year) ============ */
+function hwYear(){return new Date().getFullYear()}
+function hwOn(){try{if(P.hwForce)return true;const d=new Date(),m=d.getMonth(),day=d.getDate();return (m===9&&day>=20)||(m===10&&day<=2)}catch(e){return false}}
+function hwEndsTxt(){const d=new Date(),m=d.getMonth(),day=d.getDate();const left=m===9?31-day+2:2-day;return left<=0?'Last day!':left===1?'Ends tomorrow':`Ends in ${left} days`}
+function hwSave(){const S2=stSave();const y=hwYear();if(!S2.hw||S2.hw.y!==y)S2.hw={y,rung:0,best:0,won:false};return S2.hw}
+/* you keep the ghost kit and the court once you've beaten the Haunted Ladder in any year */
+function hwKeeps(){const S2=stSave();return !!(S2.hwWins&&S2.hwWins.length)}
+function stCourtOK(k,rep){const c=ST_COURTS[k];if(!c)return false;if(k==='haunted')return hwOn()||hwKeeps();return (rep||0)>=c[2]}
+function stKitOK(k,rep){const c=ST_KITS[k];if(!c)return false;if(k==='ghost')return hwKeeps();if(k==='ghoul')return false;return (rep||0)>=c[4]}
+const HW_Q=[82,85,88,91,95];const HW_TO=[7,9,11,11,11];
+const HW_LINES={hstart:['The dead have come to hoop. Ball is checked.','Midnight in the graveyard. First to {to}. Don\'t blink.','Something is moving in the fog... it\'s a crossover.'],
+  hdunk:['{n} just woke the dead with that {d}!','That {d} rattled every tombstone out here!'],hblock:['{n} sends it back to the grave!'],hthree:['{n} from the crypt... SPLASH!','Bang. Even the ghosts are cheering.']};
+function hwPlay(){const H=hwSave();const r=Math.min(4,H.rung);stStart({mode:'haunt',diff:r<2?'normal':'legend',to:HW_TO[r],makeIt:false,court:'haunted'})}
+/* called from stNew: turn the other team into zombies */
+function hwZombify(s){s.court='haunted';s.kit.B=ST_KITS.ghoul;s.teams.B.forEach(p=>{p.zombie=1;p.skin=['#8fa58a','#7f9a86','#9aab84'][strHash(p.name)%3];p.hair='#1e2a1c';p.name='Zombie '+last(p.name);p.band=false})}
+function hwHubHTML(){if(!hwOn())return '';const H=hwSave();const done=H.won;
+  return `<div class="card hwcard"><div class="hwbats" aria-hidden="true">🦇 🦇 🦇</div><div class="hwrow"><div class="hwicon">🎃</div><div style="flex:1;min-width:0"><span class="label">Halloween Hoops · ${hwEndsTxt()}</span><h3>The Haunted Ladder</h3>
+    <p class="hint">Five zombie legends rise from the graveyard court. Beat all five for the <b>Ghost kit</b> (yours to keep), the <b>Haunted Hooper ${H.y}</b> title and a badge you can only get this week.</p>
+    <div class="hwrungs">${HW_Q.map((q,i)=>`<div class="hwr ${i<H.rung?'done':i===H.rung&&!done?'now':''}"><b>${i<H.rung?'💀':i+1}</b><small>${q}</small></div>`).join('')}</div></div></div>
+    <div class="actrow"><button class="btn btn-go" id="hwGo">${done?'Run it again 🎃':H.rung?`Face zombie ${H.rung+1} of 5`:'Enter the graveyard'} ${icon('M5 12h14M13 6l6 6-6 6',16)}</button><span class="hint">The Haunted Court is open to everyone this week.</span></div></div>`}
+/* after a game: called from stEnd */
+function stExtraAfter(s,won,forfeit){const m=s.opt.mode;if(m==='story'&&typeof storyAfter==='function')return storyAfter(s,won,forfeit);if(m!=='haunt')return null;const H=hwSave();const S2=stSave();let msg='';
+  if(won&&!forfeit){if(!H.won){H.rung++;S2.rep=(S2.rep||0)+60+H.rung*30;msg=H.rung>=5?'You beat the Haunted Ladder!':`Zombie down. ${5-H.rung} to go.`;
+      if(H.rung>=5){H.won=true;H.rung=5;S2.hwWins=S2.hwWins||[];if(!S2.hwWins.includes(H.y))S2.hwWins.push(H.y);const id='hw'+H.y;if(!P.ach.includes(id))P.ach.push(id);const u=unlocks();const t='Haunted Hooper '+H.y;if(!u.title.includes(t))u.title.push(t);
+        msg='HAUNTED HOOPER '+H.y+' 🎃 Ghost kit unlocked, title and badge earned!';setTimeout(()=>{try{toast('Halloween badge earned','Haunted Hooper '+H.y+'. The Ghost kit is yours to keep.','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z')}catch(e){}},600)}}
+    else msg='The graveyard is yours. Play again any time this week.'}
+  else msg=forfeit?'':'The zombie wins this one. Try again.';saveP();
+  return{msg,lbl:H.won?'Play again':won?'Next zombie':'Try again',again:()=>hwPlay(),name:'Haunted Ladder'}}
+/* moving fog, bats and flickering pumpkins on the haunted court */
+function stHauntFx(g,W,H,P_,sc,s){const t=s.t;const[,cy0]=P_(0,0);
+  for(let i=0;i<5;i++){const bx=((t*(18+i*7)+i*190)%(W+200))-100,by=cy0*(.2+.12*i)+Math.sin(t*3+i)*sc*.6;const f=Math.sin(t*22+i)*sc*.35;g.fillStyle='rgba(10,6,16,.85)';g.beginPath();g.moveTo(bx,by);g.quadraticCurveTo(bx-sc*.5,by-f,bx-sc*.9,by+sc*.1);g.quadraticCurveTo(bx-sc*.45,by+sc*.05,bx,by+sc*.15);g.quadraticCurveTo(bx+sc*.45,by+sc*.05,bx+sc*.9,by+sc*.1);g.quadraticCurveTo(bx+sc*.5,by-f,bx,by);g.fill()}
+  for(let i=0;i<4;i++){const[fx,fy]=P_(((t*1.5+i*14)%70)-10,10+i*9,0);const r=sc*(5+i);const fg=g.createRadialGradient(fx,fy,0,fx,fy,r);fg.addColorStop(0,'rgba(200,230,215,.10)');fg.addColorStop(1,'rgba(200,230,215,0)');g.fillStyle=fg;g.fillRect(fx-r,fy-r,r*2,r*2)}
+  const fl=.5+Math.sin(t*9)*.15+Math.sin(t*23)*.1;[[-.5,2],[50.5,2],[-.5,30],[50.5,30]].forEach(([x,y])=>{const[a,b]=P_(x,y,0);const r=sc*2.2;const gg=g.createRadialGradient(a,b-sc*.3,0,a,b-sc*.3,r);gg.addColorStop(0,`rgba(255,150,40,${.35*fl})`);gg.addColorStop(1,'rgba(255,120,20,0)');g.fillStyle=gg;g.fillRect(a-r,b-r,r*2,r*2)})}
+/* the court art */
+function hwArenaBack(g,W,H,P_,sc,cy0,rng){const sky=g.createLinearGradient(0,0,0,cy0);sky.addColorStop(0,'#05030c');sky.addColorStop(.6,'#1d0f33');sky.addColorStop(1,'#3a1a3e');g.fillStyle=sky;g.fillRect(0,0,W,cy0+2);
+  for(let i=0;i<90;i++){g.fillStyle=`rgba(255,255,255,${rng()*.7})`;g.fillRect(rng()*W,rng()*cy0*.55,1.3,1.3)}
+  const mx=W*.78,my=cy0*.26;const mg=g.createRadialGradient(mx,my,0,mx,my,sc*5);mg.addColorStop(0,'rgba(255,245,210,.45)');mg.addColorStop(1,'rgba(255,245,210,0)');g.fillStyle=mg;g.fillRect(0,0,W,cy0);g.fillStyle='#f3ead0';g.beginPath();g.arc(mx,my,sc*1.6,0,7);g.fill();g.fillStyle='rgba(180,170,140,.35)';[[.4,.3,.3],[-.5,.2,.22],[.1,-.6,.18]].forEach(([dx,dy,r])=>{g.beginPath();g.arc(mx+dx*sc*1.6,my+dy*sc*1.6,r*sc*1.6,0,7);g.fill()});
+  /* hills, dead trees, a crooked fence */g.fillStyle='#120a1c';g.beginPath();g.moveTo(0,cy0);for(let x=0;x<=W;x+=W/10)g.lineTo(x,cy0-sc*(1.6+Math.sin(x/W*7)*1.1+rng()*.6));g.lineTo(W,cy0);g.fill();
+  const tree=(x,h)=>{g.strokeStyle='#0b0612';g.lineCap='round';const br=(x1,y1,a,l,w,d)=>{if(d>4||l<sc*.3)return;const x2=x1+Math.cos(a)*l,y2=y1+Math.sin(a)*l;g.lineWidth=w;g.beginPath();g.moveTo(x1,y1);g.lineTo(x2,y2);g.stroke();br(x2,y2,a-.45-rng()*.3,l*.68,w*.65,d+1);br(x2,y2,a+.4+rng()*.3,l*.62,w*.65,d+1)};br(x,cy0-sc*.5,-Math.PI/2,h,sc*.45,0)};tree(W*.07,sc*3.2);tree(W*.27,sc*2.4);tree(W*.93,sc*3);g.lineCap='butt';
+  /* gravestones */for(let i=0;i<9;i++){const x=W*(.12+i*.1)+rng()*sc,w=sc*(.7+rng()*.4),h=sc*(.9+rng()*.6),y=cy0-sc*.55;g.fillStyle='#3b3a4a';g.beginPath();g.moveTo(x,y);g.lineTo(x,y-h+w/2);g.arc(x+w/2,y-h+w/2,w/2,Math.PI,0);g.lineTo(x+w,y);g.fill();g.fillStyle='rgba(0,0,0,.35)';g.fillRect(x+w*.3,y-h*.55,w*.4,sc*.08);if(i%3===0){g.fillRect(x+w*.47,y-h*.75,w*.06,h*.35);g.fillRect(x+w*.3,y-h*.65,w*.4,w*.06)}}
+  /* jack-o'-lanterns */const jack=(x,y,r)=>{g.fillStyle='#e8711c';g.beginPath();g.ellipse(x,y,r*1.2,r,0,0,7);g.fill();g.strokeStyle='#b34f0e';g.lineWidth=1;for(const k of [-.5,0,.5]){g.beginPath();g.ellipse(x+k*r,y,r*.45,r*.95,0,0,7);g.stroke()}g.fillStyle='#ffd86b';g.beginPath();g.moveTo(x-r*.6,y-r*.2);g.lineTo(x-r*.3,y-r*.5);g.lineTo(x-r*.15,y-r*.15);g.fill();g.beginPath();g.moveTo(x+r*.6,y-r*.2);g.lineTo(x+r*.3,y-r*.5);g.lineTo(x+r*.15,y-r*.15);g.fill();g.beginPath();g.moveTo(x-r*.6,y+r*.2);for(let i=0;i<=6;i++)g.lineTo(x-r*.6+i*r*.2,y+r*(i%2?.5:.25));g.lineTo(x+r*.6,y+r*.2);g.fill();g.fillStyle='#2f5a1c';g.fillRect(x-r*.1,y-r*1.25,r*.2,r*.35)};
+  jack(W*.04,cy0-sc*.6,sc*.55);jack(W*.2,cy0-sc*.5,sc*.4);jack(W*.82,cy0-sc*.55,sc*.5);jack(W*.97,cy0-sc*.5,sc*.42);
+  g.fillStyle='#16101f';g.fillRect(0,cy0-sc*.65,W,sc*.7);g.strokeStyle='#2a2238';g.lineWidth=sc*.14;for(let x=sc*.2;x<W;x+=sc*.75){const lean=(rng()-.5)*sc*.25;g.beginPath();g.moveTo(x,cy0-sc*.1);g.lineTo(x+lean,cy0-sc*1.4);g.stroke();g.beginPath();g.moveTo(x+lean-sc*.12,cy0-sc*1.4);g.lineTo(x+lean,cy0-sc*1.6);g.lineTo(x+lean+sc*.12,cy0-sc*1.4);g.stroke()}g.lineWidth=sc*.1;g.beginPath();g.moveTo(0,cy0-sc*1.05);g.lineTo(W,cy0-sc*1.05);g.stroke()}
+function hwArenaFloor(g,W,H,P_,sc,x0,y0,x1,y1,rng){g.fillStyle='#14111c';g.fillRect(0,y0,W,H-y0);const fl=g.createLinearGradient(0,y0,0,y1);fl.addColorStop(0,'#2a2333');fl.addColorStop(1,'#3a3045');g.fillStyle=fl;g.fillRect(x0,y0,x1-x0,y1-y0);
+  for(let i=-1.5;i<51.5;i+=1.25){const[a]=P_(i,0);g.fillStyle=`rgba(0,0,0,${.06+((i*13)%5)/60})`;g.fillRect(a,y0,sc*1.2,y1-y0)}
+  for(let i=0;i<40;i++){g.fillStyle=`rgba(${rng()<.5?'120,60,150':'40,90,60'},${rng()*.12})`;g.beginPath();g.ellipse(x0+rng()*(x1-x0),y0+rng()*(y1-y0),sc*(.5+rng()*2),sc*(.2+rng()*.6),0,0,7);g.fill()}
+  /* glowing cracks */g.strokeStyle='rgba(140,255,170,.18)';g.lineWidth=1.3;for(let i=0;i<6;i++){let x=x0+rng()*(x1-x0),y=y0+rng()*(y1-y0);g.beginPath();g.moveTo(x,y);for(let k=0;k<5;k++){x+=(rng()-.5)*sc*2;y+=(rng()-.4)*sc;g.lineTo(x,y)}g.stroke()}
+  const mist=g.createLinearGradient(0,y0,0,H);mist.addColorStop(0,'rgba(170,200,190,.10)');mist.addColorStop(.4,'rgba(170,200,190,0)');mist.addColorStop(1,'rgba(120,80,160,.12)');g.fillStyle=mist;g.fillRect(0,y0,W,H-y0)}
+/* home screen banner while the event runs */
+function hwHomeHTML(){if(!hwOn()||typeof stAccess!=='function'||!stAccess())return '';const H=hwSave();
+  return `<div class="card hwhome" onclick="STO.mode='haunt';stHub()" role="button" tabindex="0"><span class="hwicon">🎃</span><div style="flex:1;min-width:0"><span class="label">Limited time · ${hwEndsTxt()}</span><b>Halloween Hoops</b><small>${H.won?'You beat the Haunted Ladder. Run it again on the Haunted Court.':`Beat 5 zombie legends for the Ghost kit and a one-week-only badge. ${H.rung}/5 done.`}</small></div><span class="btn btn-go">Play</span></div>`}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
