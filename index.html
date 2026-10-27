@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793073548">
+<meta name="hp-build" content="1793105620">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -2533,12 +2533,29 @@ function showResults(ctx){
 }
 
 /* ============ FX ============ */
-function confetti(){if(RM)return;const c=$('#fx'),x=c.getContext('2d');const dpr=devicePixelRatio||1;c.width=innerWidth*dpr;c.height=innerHeight*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-  const cols=['#ffb547','#fff3d0','#9cc2ff','#ff5fae','#45e3d3','#b493ff'];const ps=Array.from({length:220},()=>({x:innerWidth/2+gauss()*80,y:innerHeight*.35,vx:gauss()*7,vy:-Math.random()*15-4,r:Math.random()*6+3,c:cols[Math.random()*cols.length|0],a:Math.random()*6,va:gauss()*.3}));
-  let f=0;const step=()=>{x.clearRect(0,0,innerWidth,innerHeight);ps.forEach(p=>{p.vy+=.32;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore()});if(++f<240)requestAnimationFrame(step);else x.clearRect(0,0,innerWidth,innerHeight)};step()}
-function burst(cx,cy,cols){if(RM)return;const c=$('#fx'),x=c.getContext('2d');const dpr=devicePixelRatio||1;c.width=innerWidth*dpr;c.height=innerHeight*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-  const ps=Array.from({length:70},(_,i)=>{const a=i/70*Math.PI*2,s=3+Math.random()*5;return{x:cx,y:cy,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,c:cols[i%cols.length]}});
-  const step=()=>{x.clearRect(0,0,innerWidth,innerHeight);let alive=false;ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vx*=.95;p.vy*=.95;p.l-=.02;if(p.l>0){alive=true;x.globalAlpha=p.l;x.fillStyle=p.c;x.beginPath();x.arc(p.x,p.y,3,0,7);x.fill()}});x.globalAlpha=1;if(alive)requestAnimationFrame(step);else x.clearRect(0,0,innerWidth,innerHeight)};step()}
+/* one shared effects layer: confetti and bursts run in a single loop, the whole canvas is wiped every frame,
+   and it is resized/cleared whenever the window changes (leaving full screen used to leave a strip of confetti behind) */
+const FX={ps:[],raf:0,w:0,h:0};
+function fxCanvas(){const c=$('#fx');if(!c)return null;const dpr=devicePixelRatio||1,w=innerWidth,h=innerHeight;
+  if(FX.w!==w||FX.h!==h||c.width!==Math.round(w*dpr)){c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);FX.w=w;FX.h=h}return c}
+function fxWipe(){const c=$('#fx');if(!c)return;const x=c.getContext('2d');x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,c.width,c.height)}
+function fxStop(){FX.ps=[];cancelAnimationFrame(FX.raf);FX.raf=0;fxWipe()}
+function fxLoop(){FX.raf=0;const c=fxCanvas();if(!c){FX.ps=[];return}const x=c.getContext('2d'),dpr=devicePixelRatio||1;fxWipe();x.setTransform(dpr,0,0,dpr,0,0);
+  const H=FX.h;FX.ps=FX.ps.filter(p=>{p.t++;
+    if(p.k==='c'){p.vy+=.32;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;const fade=p.t>200?1-(p.t-200)/40:1;if(p.t>=240||p.y>H+30&&p.vy>0)return false;
+      x.globalAlpha=Math.max(0,fade);x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore();return true}
+    p.x+=p.vx;p.y+=p.vy;p.vx*=.95;p.vy*=.95;p.l-=.02;if(p.l<=0)return false;x.globalAlpha=p.l;x.fillStyle=p.c;x.beginPath();x.arc(p.x,p.y,3,0,7);x.fill();return true});
+  x.globalAlpha=1;if(FX.ps.length&&!document.hidden)FX.raf=requestAnimationFrame(fxLoop);else fxStop()}
+function fxGo(){if(!FX.raf)FX.raf=requestAnimationFrame(fxLoop)}
+function confetti(){if(RM)return;if(!fxCanvas())return;const W=FX.w,H=FX.h;
+  const cols=['#ffb547','#fff3d0','#9cc2ff','#ff5fae','#45e3d3','#b493ff'];
+  for(let i=0;i<220;i++)FX.ps.push({k:'c',t:0,x:W/2+gauss()*80,y:H*.35,vx:gauss()*7,vy:-Math.random()*15-4,r:Math.random()*6+3,c:cols[Math.random()*cols.length|0],a:Math.random()*6,va:gauss()*.3});
+  if(FX.ps.length>900)FX.ps=FX.ps.slice(-900);fxGo()}
+function burst(cx,cy,cols){if(RM)return;if(!fxCanvas())return;
+  for(let i=0;i<70;i++){const a=i/70*Math.PI*2,s=3+Math.random()*5;FX.ps.push({k:'b',t:0,x:cx,y:cy,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,c:cols[i%cols.length]})}fxGo()}
+['resize','fullscreenchange','webkitfullscreenchange','orientationchange'].forEach(ev=>addEventListener(ev,()=>{fxCanvas();fxWipe()}));
+document.addEventListener('fullscreenchange',()=>{fxCanvas();fxWipe()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)fxStop()});
 function toast(t,s,ic){const el=document.createElement('div');el.className='toast';el.innerHTML=`<span class="ic">${icon(ic)}</span><div><b>${esc(t)}</b><small>${esc(s)}</small></div>`;$('#toasts').appendChild(el);setTimeout(()=>{el.classList.add('out');setTimeout(()=>el.remove(),400)},3600)}
 function levelUp(l){P.tix=(P.tix||0)+100;saveP();setTimeout(()=>toastLite('+100 🎟 level-up bonus'),1800);const el=document.createElement('div');el.className='levelup';el.innerHTML=`<div><span>Level up</span><b>${l}</b><span style="font-size:18px;color:var(--amber)">${rankName(l)}</span></div>`;document.body.appendChild(el);burst(innerWidth/2,innerHeight/2,['#ffb547','#fff3d0','#ff5fae']);setTimeout(()=>el.remove(),2500)}
 
@@ -4514,7 +4531,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
- {v:'9.9',d:'2026-10-26',t:'Drag songs into the admin panel',b:'Admins can now drop a song file into Admin > Music to upload it and add it to the radio in one step. The game also has a proper tab icon now, and a cleaner, regrouped top bar.'},{v:'9.8',d:'2026-10-26',t:'Music that just works',b:'Three Hall Pass Originals now play right inside the game with no download: Blacktop Lo-fi, Night Run and Boardwalk. Each one is a little different every time you hear it. Like them, skip them, and set their volume in the Music menu. Admins can still add licensed songs in the Control Room.'},
+ {v:'9.9',d:'2026-10-26',t:'Drag songs into the admin panel',b:'Admins can now drop a song file into Admin > Music to upload it and add it to the radio in one step. The game also has a proper tab icon now, and a cleaner, regrouped top bar. Fixed confetti getting stuck at the bottom of the screen after a game.'},{v:'9.8',d:'2026-10-26',t:'Music that just works',b:'Three Hall Pass Originals now play right inside the game with no download: Blacktop Lo-fi, Night Run and Boardwalk. Each one is a little different every time you hear it. Like them, skip them, and set their volume in the Music menu. Admins can still add licensed songs in the Control Room.'},
  {v:'9.8',d:'2026-10-26',t:'Real music',b:'Five lo-fi / chill tracks by Retro Indie Josh (Arkeia) are now in the Music menu, used under Creative Commons Attribution 4.0: Communis Umbra, Light Through the Storm, Radio On, Rendezvous and Star Reaction. Plus three Hall Pass Originals that the game plays itself: Blacktop Lo-fi, Night Run and Boardwalk. Like songs, build a Liked playlist, shuffle, and set the volume.'},
  {v:'9.7',d:'2026-10-26',t:'Friends, crews and cups',b:'New Friends button: swap friend codes, see which friends are online and what they\'re playing, invite them straight into a Street game, or tap Watch to jump into their game. Start or join a crew (up to 25 people, with your own tag, emoji and color) and climb the weekly crew board. Cups: start an 8 or 16 player knockout bracket where every match is a live 1-on-1. Win one on a weekend for the Weekend Cup Champion badge. You can also block players.'},
  {v:'9.6',d:'2026-10-26',t:'Street gets deep',b:'Street Story: twelve chapters from the neighborhood park to the big arena, with a mentor, new teammates and a rival who remembers every time you beat him. The Locker: change your hair, shoes, socks, sleeves, headband, goggles and celebration, pick your jump shot style and dunk package, and equip badges like Sniper, Ankle Breaker and Rim Protector. Highlights: your best plays are saved every game. Watch them back in slow motion and save them as a video to post. Plus 2-on-2 (offline and online), and you can now watch online games, even ones that already started.'},
@@ -6075,7 +6092,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793073548';
+const BUILD='1793105620';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
