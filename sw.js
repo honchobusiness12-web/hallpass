@@ -1,6 +1,6 @@
 /* Hall Pass offline support. The game page always comes fresh from the network (so updates show up right away);
    the saved copy is only used when there is no connection. */
-const C='hallpass-v50';const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
+const C='hallpass-v51';const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE.map(u=>new Request(u,{cache:'reload'})))).catch(()=>{}).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('message',e=>{if(e.data==='skip')self.skipWaiting()});

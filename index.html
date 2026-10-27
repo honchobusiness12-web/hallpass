@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793127214">
+<meta name="hp-build" content="1793128255">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -2070,6 +2070,7 @@ html[data-theme2="finals"] .hbill,html[data-theme2="gold"] .hbill{border-color:r
 html[data-theme2="finals"] body::after,html[data-theme2="gold"] body::after,html[data-theme2="allstar"] body::after,html[data-theme2="playoffs"] body::after{animation:none!important}
 html[data-theme2="summer"] body::after{animation:none!important}
 @media (prefers-reduced-motion:reduce){.hf,.hf:hover{transition:none;transform:none}}
+.mklive{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc84;margin-right:6px;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:mklive 2s infinite}@keyframes mklive{70%{box-shadow:0 0 0 7px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}@media (prefers-reduced-motion:reduce){.mklive{animation:none}}
 </style>
 
 </head>
@@ -6716,7 +6717,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793127214';
+const BUILD='1793128255';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -10594,7 +10595,7 @@ function homeFeatHTML(){const ar='M5 12h14M13 6l6 6-6 6';
   /* Stock market */
   const mv=mkTopMovers(3);const top=mv[0];const hasM=P.mkt&&P.mkt.hold;let worth=0;try{worth=hasM?mkWorth():0}catch(e){}
   const mkt=`<article class="hf hf-mk" id="featMkt" style="--hc:#3ddc84"><div class="hfart mkart">${top?`<div class="mkh"><b>${esc(top.s.sym)}</b><span>${esc(top.s.p.name)}</span><em class="${top.c>=0?'up':'dn'}">${top.c>=0?'▲':'▼'} ${(Math.abs(top.c)*100).toFixed(1)}%</em></div>${mkSpark(top.s.id,300,90,1)}`:''}
-    <div class="mktape">${mv.map(m=>`<span class="${m.c>=0?'up':'dn'}">${esc(m.s.sym)} ${m.c>=0?'+':''}${(m.c*100).toFixed(1)}%</span>`).join('')}</div><span class="hfbadge">New</span></div>
+    <div class="mktape">${mv.map(m=>`<span class="${m.c>=0?'up':'dn'}">${esc(m.s.sym)} ${m.c>=0?'+':''}${(m.c*100).toFixed(1)}%</span>`).join('')}</div><span class="hfbadge"><i class="mklive"></i>Live · 24h</span></div>
     <div class="hfbody"><span class="label">Practice money · learn to invest</span><h3>Stock market</h3><p>Buy and sell shares of NBA players. Prices move every hour with ratings and hype.</p>
     <div class="hfstats">${hasM?`<span><b>$${fmtN(Math.round(worth))}</b><small>Net worth</small></span><span><b>${Object.keys(P.mkt.hold).length}</b><small>Holdings</small></span>`:`<span><b>$10K</b><small>To start</small></span><span><b>${typeof mkStocks==='function'?mkStocks().length:''}</b><small>Players</small></span>`}</div>${accTag('market')?'<p class="acchead">'+accTag('market')+'</p>':''}
     <button class="btn btn-go hfgo" id="mMkt">${hasM?'Open your portfolio':'Open the market'} ${icon(ar,16)}</button></div></article>`;
@@ -10645,6 +10646,10 @@ function homeHTML(w,done,winp,tick){const li=levelInfo(P.xp);const T=TPACKS[THEM
      <div class="card"><span class="label">Recent seasons</span>${P.history.length?`<ul class="hist">${P.history.slice(0,3).map(histRow).join('')}</ul>`:`<p style="color:var(--mute);margin:10px 0 0">No seasons yet. Your last three runs will show here with their record and finish.</p>`}</div>
    </div>`)}
    </div></section>`}
+/* the market card on the home page keeps itself up to date every 30 seconds */
+function mkFeatTick(){const card=$('#featMkt');if(!card||document.hidden)return;mkTopMovers.k=0;const t=document.createElement('div');HTML_D.set.call(t,homeFeatHTML());const n=t.querySelector('#featMkt');if(!n)return;
+  ['.hfart','.hfstats'].forEach(q=>{const a=card.querySelector(q),b=n.querySelector(q);if(a&&b&&a.innerHTML!==b.innerHTML)a.replaceWith(b)})}
+setInterval(()=>{try{mkFeatTick()}catch(e){}},30000);
 function homeBind(){$$('#app [data-jump]').forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.jump);if(!t)return;const d=t.nextElementSibling;if(d&&d.tagName==='DETAILS'&&!d.open)d.open=true;
     const y=t.getBoundingClientRect().top+scrollY-84;window.scrollTo({top:y,behavior:RM?'auto':'smooth'})});
   const r=$('#featRiseGo');if(r)r.onclick=()=>{const c=CAR();if(c&&c.stage!=='retired')return crResume();if(typeof accGate==='function'&&!accGate('rise'))return;crCreateScreen()};
