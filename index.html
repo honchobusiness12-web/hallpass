@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793122919">
+<meta name="hp-build" content="1793127214">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -1958,6 +1958,118 @@ body.cb-rg{--win:#3fa9ff;--loss:#ffb000}body.cb-by{--amber:#ff6fd8}
 .shrow{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line,rgba(255,255,255,.08))}
 .shrow:last-child{border-bottom:0}.shrow small{display:block;opacity:.65;font-size:12px}.shrow .lksw.sm{width:44px;height:44px;display:grid;place-items:center;overflow:hidden;border-radius:10px}
 .shrow .lksw.sm>*{transform:scale(.6)}.shrow .actrow{margin:0;gap:6px;flex-wrap:nowrap}
+/* ===== HOME 3 ===== */
+.home3{padding-top:18px}
+/* billboard hero */
+.hbill{display:block;position:relative;isolation:isolate;overflow:hidden;border-radius:28px;min-height:330px;margin-bottom:14px;border:1px solid color-mix(in srgb,var(--amber) 30%,var(--line));background:var(--ink-2);box-shadow:0 30px 80px -40px color-mix(in srgb,var(--amber) 60%,transparent)}
+.hbill::before,.hbill::after{display:none!important}
+.hbill .hscene{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+.hbill::selection{background:none}
+.hbtxt{position:relative;padding:34px 36px 30px;max-width:640px}
+.hbill .hbtxt::before{content:"";position:absolute;inset:0 -260px 0 0;z-index:-1;background:linear-gradient(90deg,rgba(7,10,22,.94) 0%,rgba(7,10,22,.82) 55%,transparent 100%)}
+.hbtop{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:12px}
+.hbtheme{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);background:color-mix(in srgb,var(--amber) 14%,transparent);border:1px solid color-mix(in srgb,var(--amber) 45%,transparent)}
+.hbill h1{font-size:clamp(40px,6vw,74px);line-height:.9;margin:0}
+.hbill h1 em{animation:none!important}
+.hbill p{font-size:16px;max-width:46ch;margin:14px 0 0;color:color-mix(in srgb,var(--text) 78%,transparent)}
+.hbcta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:20px}
+.hbcta .wnbtn{margin:0}
+@media (max-width:760px){.hbill{min-height:0}.hbill .hscene{height:230px;bottom:auto}.hbtxt{padding:150px 20px 22px}.hbill .hbtxt::before{inset:0;background:linear-gradient(180deg,transparent 0,rgba(7,10,22,.7) 130px,rgba(7,10,22,.96) 230px)}.hbill h1{font-size:44px}}
+/* player strip */
+.hstrip{display:grid;grid-template-columns:minmax(200px,1fr) minmax(220px,1fr) minmax(300px,1.4fr);gap:10px;margin-bottom:14px}
+.hstrip>*{margin:0!important;min-height:64px}
+.hme{display:flex;align-items:center;gap:12px;text-align:left;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:var(--ink-2);color:var(--text);cursor:pointer;transition:border-color .2s}
+.hme:hover{border-color:var(--amber)}.hme>div{flex:1;min-width:0}.hme b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hme .label{font-size:10px}.hlv{display:block;height:5px;border-radius:9px;background:rgba(255,255,255,.08);margin-top:5px;overflow:hidden}.hlv s{display:block;height:100%;background:linear-gradient(90deg,var(--amber),var(--accent2));border-radius:9px}
+.hstrip .quick{border-radius:14px}.hstrip .quick div{padding:10px 12px}.hstrip .quick b{font-size:22px}
+@media (max-width:900px){.hstrip{grid-template-columns:1fr 1fr}.hstrip .quick{grid-column:1/-1}}
+@media (max-width:520px){.hstrip{grid-template-columns:1fr}}
+/* jump chips */
+.hjump{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 4px;margin-bottom:6px;mask:linear-gradient(90deg,#000 92%,transparent);-webkit-mask:linear-gradient(90deg,#000 92%,transparent)}
+.hjump::-webkit-scrollbar{display:none}
+.hjump button{flex:none;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--ink-2);color:var(--mute);font-weight:700;font-size:13px;cursor:pointer;transition:color .2s,border-color .2s}
+.hjump button:hover{color:var(--text);border-color:var(--amber)}
+/* section heads */
+.hsec2{margin-top:26px}
+.hhd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.hhd h2{font-size:30px;margin:0;line-height:1}.hhd .label{display:block;margin-top:3px}
+.hhi{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;color:var(--amber);background:color-mix(in srgb,var(--amber) 12%,var(--ink-2));border:1px solid color-mix(in srgb,var(--amber) 35%,var(--line))}
+details.hsec>summary h2{display:flex;align-items:center;gap:10px}
+details.hsec>summary h2::before{content:"";width:6px;height:24px;border-radius:4px;background:linear-gradient(var(--amber),var(--accent2))}
+/* headliners */
+.hfeat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hf{--hc:var(--amber);position:relative;display:flex;flex-direction:column;border-radius:22px;overflow:hidden;border:1px solid color-mix(in srgb,var(--hc) 38%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,var(--hc) 10%,var(--ink-2)),var(--ink-2) 55%);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s}
+.hf:hover{transform:translateY(-4px);border-color:var(--hc);box-shadow:0 26px 50px -28px var(--hc)}
+.hfart{position:relative;height:170px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0,color-mix(in srgb,var(--hc) 30%,#0b1020),#0a0e1c 70%)}
+.hfart .sthart{position:absolute;inset:0;height:auto;border-radius:0;background:radial-gradient(120% 90% at 50% 0,color-mix(in srgb,var(--hc) 26%,#0d1226),#0a0e1c 70%)}
+.hfbadge{position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(5,8,18,.6);border:1px solid rgba(255,255,255,.18)}
+.hfbadge .betatag{margin:0 4px 0 -4px;padding:1px 6px}
+.hfbody{display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;flex:1}
+.hfbody h3{font-family:var(--f-display);font-size:40px;font-weight:900;text-transform:uppercase;line-height:.95;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hfbody p{color:var(--mute);margin:0;font-size:14px;line-height:1.45}
+.hfbody .acchead{margin:0}
+.hfstats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:6px}
+.hfstats span{display:flex;flex-direction:column;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.hfstats b{font-family:var(--f-display);font-size:24px;line-height:1;color:var(--hc)}.hfstats small{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.hfgo{width:100%;justify-content:center;margin-top:4px}
+html .hf .btn-go.hfgo{background-size:100% 100%;background:linear-gradient(120deg,var(--hc),color-mix(in srgb,var(--hc) 70%,#fff));color:#0b0f1c;box-shadow:0 10px 24px -12px var(--hc)}
+/* MyPlayer art */
+.mpart{display:grid;place-items:center}
+.mpnum{position:absolute;right:10px;bottom:-26px;font-family:var(--f-display);font-weight:900;font-size:150px;line-height:1;color:rgba(255,255,255,.05)}
+.mpart .av.big{width:104px;height:104px;font-size:42px}
+.mpovr{position:absolute;right:16px;top:14px;display:flex;flex-direction:column;align-items:center;padding:6px 10px;border-radius:12px;background:rgba(5,8,18,.6);border:1px solid color-mix(in srgb,var(--hc) 60%,transparent)}
+.mpovr b{font-family:var(--f-display);font-size:30px;line-height:1;color:var(--hc)}.mpovr small{font-size:10px;letter-spacing:.1em;color:var(--mute)}
+.mpghost{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;color:color-mix(in srgb,var(--hc) 80%,#fff);background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--hc) 40%,#1a1f38),#141a30);border:2px dashed color-mix(in srgb,var(--hc) 60%,transparent)}
+/* market art */
+.mkart{display:flex;flex-direction:column;justify-content:flex-end;padding:0 14px 10px}
+.mkart .mkspark{width:100%;height:84px;display:block}
+.mkh{position:absolute;right:14px;top:12px;text-align:right;display:flex;flex-direction:column;line-height:1.15}
+.mkh b{font-family:var(--f-mono);font-size:15px;color:#fff}.mkh span{font-size:11px;color:var(--mute);max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mkh em{font-style:normal;font-weight:800;font-size:13px}
+.mkh .up,.mktape .up{color:#3ddc84}.mkh .dn,.mktape .dn{color:#ff6b6b}
+.mktape{display:flex;gap:12px;font-family:var(--f-mono);font-size:11px;white-space:nowrap;overflow:hidden;padding-top:6px;border-top:1px solid rgba(255,255,255,.08)}
+@media (max-width:1000px){.hfeat{grid-template-columns:1fr 1fr}.hf-mk{grid-column:1/-1}.hf-mk{display:grid;grid-template-columns:1fr 1fr}.hf-mk .hfart{height:auto;min-height:170px}}
+@media (max-width:640px){.hfeat{grid-template-columns:1fr}.hf-mk{display:flex}.hfbody h3{font-size:34px}.hfart{height:150px}}
+/* happening now */
+#hs-now .hwhome{margin-bottom:12px}#hs-now .growrow{margin:0}
+#hs-now:has(.growrow:only-child) .hhd{margin-bottom:12px}
+/* quick play: tighter tiles */
+.modes.qp{grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:6px}
+.modes.qp .mode{padding:16px;gap:10px}
+.modes.qp .mode h3{font-size:26px}
+.modes.qp .mode p{font-size:13.5px}
+@media (max-width:900px){.modes.qp{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.modes.qp{grid-template-columns:1fr}}
+.home3 .marquee{margin:22px 0 0}
+.home3 details.hsec{margin-top:18px}
+.home3 .lgcard{margin-bottom:6px}
+
+/* ===== THEMES 3: richer and lighter ===== */
+/* no more always-repainting effects: the gradient title is still, lights pulse with opacity only */
+html:not([data-theme2="classic"]) .hero h1 em{animation:none}
+html[data-theme2="holiday"] .topbar::after,html[data-theme2="newyear"] .topbar::after{animation:tlight 2.4s steps(2) infinite!important;filter:none!important}
+@keyframes tlight{50%{opacity:.55}}
+/* a full-screen canvas under a blurred top bar makes the blur redraw every frame: use a solid bar while particles run */
+html.tfx .topbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:color-mix(in srgb,var(--ink) 96%,var(--amber))}
+#themefx{contain:strict}
+#themeDecor span{animation-duration:9s}
+html.tfx-lite #themeDecor span,html.tfx-lite .sthcourt *{animation:none!important}
+/* every theme gets its own card and heading treatment */
+html:not([data-theme2="classic"]) .hf,html:not([data-theme2="classic"]) .mode,html:not([data-theme2="classic"]) .card{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--amber) 16%,transparent)}
+html:not([data-theme2="classic"]) .hhd h2,html:not([data-theme2="classic"]) details.hsec>summary h2{text-shadow:0 0 22px color-mix(in srgb,var(--amber) 30%,transparent)}
+html[data-theme2="neon"] .hbill{box-shadow:0 0 0 1px var(--amber),0 0 40px -10px var(--amber),0 0 80px -30px var(--accent2)}
+html[data-theme2="neon"] .hbill h1{text-shadow:0 0 14px var(--amber),0 0 34px var(--accent2)}
+html[data-theme2="retro"] body::after{content:"";position:fixed;inset:auto 0 0;height:40vh;pointer-events:none;z-index:-1;background:linear-gradient(transparent,rgba(255,43,214,.10)),repeating-linear-gradient(90deg,rgba(255,43,214,.10) 0 1px,transparent 1px 60px)}
+html[data-theme2="retro"] .hbill h1{font-style:italic;text-shadow:3px 3px 0 #ff2bd6,6px 6px 0 rgba(43,214,255,.6)}
+html[data-theme2="aurora"] body::after{content:"";position:fixed;inset:0 0 auto;height:60vh;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 70% 60% at 30% 0,rgba(57,255,159,.12),transparent 70%),radial-gradient(ellipse 60% 50% at 80% 0,rgba(181,123,255,.12),transparent 70%)}
+html[data-theme2="tipoff"] body::after,html[data-theme2="draft"] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 40% 60% at 20% -10%,color-mix(in srgb,var(--amber) 14%,transparent),transparent 70%),radial-gradient(ellipse 40% 60% at 80% -10%,color-mix(in srgb,var(--accent2) 12%,transparent),transparent 70%)}
+html[data-theme2="newyear"] body::after,html[data-theme2="march"] body::after,html[data-theme2="thanks"] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 60% 40% at 50% 0,color-mix(in srgb,var(--amber) 14%,transparent),transparent 70%),radial-gradient(ellipse 50% 40% at 100% 100%,color-mix(in srgb,var(--accent2) 10%,transparent),transparent 70%)}
+html[data-theme2="halloween"] .hbill{border-color:rgba(255,122,26,.45)}
+html[data-theme2="winter"] .hbill,html[data-theme2="holiday"] .hbill{border-color:rgba(200,235,255,.4)}
+html[data-theme2="finals"] .hbill,html[data-theme2="gold"] .hbill{border-color:rgba(232,195,90,.6);box-shadow:0 30px 80px -40px rgba(232,195,90,.8)}
+/* the full-screen spotlight no longer swings (it was a huge layer moving all the time) */
+html[data-theme2="finals"] body::after,html[data-theme2="gold"] body::after,html[data-theme2="allstar"] body::after,html[data-theme2="playoffs"] body::after{animation:none!important}
+html[data-theme2="summer"] body::after{animation:none!important}
+@media (prefers-reduced-motion:reduce){.hf,.hf:hover{transition:none;transform:none}}
 </style>
 
 </head>
@@ -2684,56 +2796,15 @@ function renderHome(){
   const w=thisWeekly(), done=P.weekly.includes(weekIdx());
   const winp=P.w+P.l?(P.w/(P.w+P.l)*100):0;
   const tick=PLAYERS.filter(p=>p.ovr>=95).map(p=>`<span><b>${ERAS[p.era].n}</b> ${esc(p.name)} · ${p.ovr}</span>`).join('');
-  $('#app').innerHTML=`<section class="view"><div class="wrap">
-   <div class="hero">
-     <div><div class="label">Fan-made basketball sim · ${PLAYERS.length} players · 8 decades</div>${wnHTML()}
-       <h1 style="margin-top:10px">Draft the <em>past.</em><br>Win the season.</h1>
-       <p>Pick a decade, draft eight players, hire a coach, then watch 82 games and four playoff rounds play out. Every run earns XP, cards and achievements on your profile.</p></div>
-     <div><button class="passbar" id="passBar">${(()=>{const ps=passState(),t=passTier(),into=ps.xp-t*PASS_XP;return `<span class="label">Season pass · ${monthName()}</span><b>Tier ${t}<small>/${PASS_N}</small></b><i><s style="width:${t>=PASS_N?100:into/PASS_XP*100}%"></s></i>`})()}</button>
-     <div class="quick" aria-label="Your record">
-       <div><span class="label">Seasons</span><b data-c="${P.seasons}">0</b></div>
-       <div><span class="label">Titles</span><b data-c="${P.titles}">0</b></div>
-       <div><span class="label">Win %</span><b data-c="${winp}" data-f="1">0</b></div>
-       <div><span class="label">Level</span><b data-c="${levelInfo(P.xp).lvl}">0</b></div>
-     </div></div>
-   </div>
-   ${hwHomeHTML()}${growHomeHTML()}
-   ${hsec('car','Your careers','The Rise and your leagues',`${accTag('rise')?'<p class="acchead">The Rise: '+accTag('rise')+'</p>':''}${crHomeCard()}${lgHomeCard()}`)}
-   ${isAdminDevice()?hsec('volley','Volleyball · admins only','Only visible on your admin devices',vbHomeCard()):''}
-   ${hsec('street','Street · beta','Play it yourself: real-time basketball',(accTag('street')?'<p class="acchead">'+accTag('street')+'</p>':'')+stHomeCard())}
-   ${hsec('modes','Game modes','Solo, online, daily and more',`<div class="modes">
-     <div class="mode"><span class="glyph">${icon('M3 3v18h18M7 15l4-4 3 3 6-6',22)}</span><div><span class="label">Solo</span><h3>Season mode${accTag('season')}</h3><p>Draft eight, play 82 games against 29 teams, chase a title.</p></div><button class="btn btn-ghost" id="mSeason">Pick an era ${icon('M12 5v14M5 12l7 7 7-7',16)}</button></div>
-     <div class="mode"><span class="glyph">${icon('M4 8h16v12H4zM9 13h.01M15 13h.01M12 2v6',22)}</span><div><span class="label">Solo</span><h3>Quick vs bots${accTag('bots')}</h3><p>A fast snake draft against one to three bots, settled in best-of-seven series.</p></div><button class="btn btn-go" id="mBot">Play bots</button></div>
-     <div class="mode hot"><span class="glyph">${icon('M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20',22)}</span><div><span class="label">2–4 players</span><h3>Quick showdown${accTag('showdown')}</h3><p>Host a room, share the code, draft live and play best-of-sevens against friends.</p></div><div class="mode-row"><button class="btn btn-go" id="mHost">Host game</button><button class="btn btn-ghost" id="mJoin">Join with code</button></div></div>
-     ${(()=>{const c=dailyCfg(),D=dailyState();const done=D.last===c.key;return `<div class="mode daily"><span class="glyph">${icon('M3 4h18v18H3zM16 2v4M8 2v4M3 10h18',22)}</span><div><span class="label">Daily challenge · ${done?(D.won===c.key?'beaten today':'come back tomorrow'):'new today'} · streak ${D.streak}</span><h3>Beat ${esc(c.boss)}${accTag('daily')}</h3><p>Everyone gets the same ${c.era==='mix'?'all-time':ERAS[c.era].full} draft today with ${c.rr} reroll${c.rr===1?'':'s'}. Win a best-of-seven against a ${c.rating} boss.</p></div><button class="btn ${done?'btn-ghost':'btn-go'}" id="mDaily">${done?'Practice run':'Take the challenge'}</button></div>`})()}
-     <div class="mode"><span class="glyph">${icon('M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z',22)}</span><div><span class="label">Solo · best run ${P.gauntlet||0}/8</span><h3>The Gauntlet${accTag('gauntlet')}</h3><p>Draft once, then beat the all-star team of every decade in a row. Lose one series and the run is over.</p></div><button class="btn btn-ghost" id="mGaunt">Enter the Gauntlet</button></div>
-     <div class="mode"><span class="glyph">${icon('M6 12h4M8 10v4M15 13h.01M18 11h.01M17.3 5H6.7a4 4 0 0 0-4 3.6L2 15a3 3 0 0 0 5.1 2.1L9 15h6l1.9 2.1A3 3 0 0 0 22 15l-.7-6.4a4 4 0 0 0-4-3.6z',22)}</span><div><span class="label">60-second games</span><h3>Mini-games${accTag('mini')}</h3><p>Seven quick games: Buzzer Beater, Who Am I?, Rank 'em, Lightning round, Higher or lower and more.</p></div><button class="btn btn-ghost" id="mMini">Play mini-games</button></div>
-     <div class="mode mkmode"><span class="glyph">${icon('M3 3v18h18M7 15l4-4 3 3 6-6',22)}</span><div><span class="label">Practice money · learn to invest</span><h3>Stock market${accTag('market')}</h3><p>Buy and sell shares in NBA players with practice cash. Prices move every hour. Climb the net worth leaderboard.</p></div><button class="btn btn-go" id="mMkt" onclick="mkOpen()">Open the market</button></div>
-   </div>`)}
-   <div class="marquee" aria-hidden="true"><div>${tick}${tick}</div></div>
-   ${hsec('draft','Classic draft','Pick an era, draft eight, play a full season',`<div class="section-h" id="eraHead" style="margin-top:0"><h2>Choose your era</h2><span class="label">Each decade plays at its own pace</span></div>
-   <div class="eras" id="eras">${Object.entries(ERAS).map(([k,e],i)=>`<button class="era ${S.era===k?'sel':''}" data-era="${k}" data-num="${e.n}" style="--c1:${e.c1};--c2:${e.c2};animation:deal .5s ${i*40}ms both">
-     <span class="check">${icon('M5 12l5 5L20 7',14)}</span><span class="yrs">${e.yrs}</span><h3>${e.full}</h3><small>${e.tag}</small></button>`).join('')}</div>
-   <div class="setup">
-     <div><span class="label">Draft mode</span><div class="seg" id="segMode">${Object.entries(MODES).map(([k,m])=>`<button data-v="${k}" class="${S.mode===k?'on':''}">${m.n}</button>`).join('')}<span class="pill"></span></div><div class="hint" id="modeHint">${MODES[S.mode].h}</div></div>
-     <div><span class="label">League strength</span><div class="seg" id="segDiff">${Object.entries(DIFF).map(([k,d])=>`<button data-v="${k}" class="${S.diff===k?'on':''}">${d.n}</button>`).join('')}<span class="pill"></span></div><div class="hint">Opponents average ${DIFF[S.diff].m} overall</div></div>
-     <button class="btn btn-go btn-big" id="startBtn">Start draft ${icon('M5 12h14M13 6l6 6-6 6')}</button>
-   </div>`)}
-   ${hsec('more','Challenges and history','Weekly challenge and your recent seasons',`<div class="side-grid">
-     <div class="card weekly"><span class="label">Weekly challenge · resets Monday</span><h3>${esc(w.t)}</h3>
-       <div class="row"><span class="tag">${ERAS[w.era].full}</span><span class="tag">${MODES[w.mode].n}</span><span class="tag">${DIFF[w.diff].n}</span>${done?`<span class="tag done">${icon('M5 12l5 5L20 7',12)} Completed</span>`:''}</div>
-       <div class="row"><button class="btn btn-go" id="weeklyBtn">Play challenge</button></div></div>
-     <div class="card"><span class="label">Recent seasons</span>${P.history.length?`<ul class="hist">${P.history.slice(0,3).map(histRow).join('')}</ul>`:`<p style="color:var(--mute);margin:10px 0 0">No seasons yet. Your last three runs will show here with their record and finish.</p>`}</div>
-   </div>`)}
-   </div></section>`;
+  $('#app').innerHTML=homeHTML(w,done,winp,tick);
   $$('.quick b').forEach(b=>countUp(b,+b.dataset.c,1000,v=>b.dataset.f?v.toFixed(1):Math.round(v)));
   $$('.era').forEach(b=>b.onclick=()=>{S.era=b.dataset.era;store.set('hp_era',S.era);$$('.era').forEach(x=>x.classList.toggle('sel',x===b))});
   setupSeg('#segMode',v=>{S.mode=v;$('#modeHint').textContent=MODES[v].h});
   setupSeg('#segDiff',v=>{S.diff=v;$('#segDiff').parentElement.querySelector('.hint').textContent=`Opponents average ${DIFF[v].m} overall`});
   $('#startBtn').onclick=()=>{S.challenge=null;S.daily=null;S.gauntlet=false;startDraft()};
-  hsecBind();{const sg=$('#stHomeGo');if(sg)sg.onclick=()=>stHub()}liveBind();$('#mDaily').onclick=()=>startDaily();$('#mGaunt').onclick=()=>startGauntlet();$('#mMini').onclick=()=>renderMini();{const ml=$('#mLocker');if(ml)ml.onclick=()=>openLocker('shop')}lockerAuto();
+  hsecBind();homeBind();{const sg=$('#stHomeGo');if(sg)sg.onclick=()=>stHub()}liveBind();$('#mDaily').onclick=()=>startDaily();$('#mGaunt').onclick=()=>startGauntlet();$('#mMini').onclick=()=>renderMini();{const ml=$('#mLocker');if(ml)ml.onclick=()=>openLocker('shop')}lockerAuto();
   {const pb=$('#passBar');if(pb)pb.onclick=()=>openPass()}
-  if(P.signed&&!store.get('hp_tour',0)&&!LUI.toured&&termsOK()){LUI.toured=1;setTimeout(()=>{if($('.hero'))startTour(0)},900)}
+  if(P.signed&&store.get('hp_tour',0)<2&&!LUI.toured&&termsOK()){LUI.toured=1;setTimeout(()=>{if($('.hero'))startTour(0)},900)}
   if(!P.signed&&!LUI.walled&&!location.hash){LUI.walled=1;setTimeout(()=>{if($('.hero')&&!$('#modal.on')&&!$('#popBig'))openSignIn()},1100)}
   $('#mSeason').onclick=()=>!canPlay('full')?0:$('#eraHead').scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});
   $('#mBot').onclick=()=>{if(canPlay('full'))hostStart(myName(),true)};
@@ -3170,7 +3241,7 @@ function openSignIn(why){
     const c=COS();if(mode==='jersey')c.mode='jersey';else if(c.mode==='jersey')c.mode='init';
     P.signed=true;if(!P.born)P.born=Date.now();saveP();refreshNav();
     const r=$('#pav').getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,GRADS[grad]);$('.su').classList.add('sudone');sfx('win');
-    setTimeout(()=>{closeAll();if(isNew){try{growSignup()}catch(e){}toast(`Welcome, ${n}`,'Your profile is live. Every game now counts.','M5 12l5 5L20 7');renderHome();if(!store.get('hp_tour',0)&&termsOK())setTimeout(()=>startTour(0),700)}},650)};
+    setTimeout(()=>{closeAll();if(isNew){try{growSignup()}catch(e){}toast(`Welcome, ${n}`,'Your profile is live. Every game now counts.','M5 12l5 5L20 7');renderHome();if(store.get('hp_tour',0)<2&&termsOK())setTimeout(()=>startTour(0),700)}},650)};
   $('#mx').onclick=closeAll;$('#modal').classList.remove('wide');$('#modal').classList.add('on');$('#scrim').classList.add('on');setTimeout(()=>$('#nm').focus({preventScroll:true}),350)}
 
 /* ---------- sign-up is required: guests get one free mini-game ---------- */
@@ -4602,24 +4673,27 @@ function soundToggle(){SND.on=!SND.on;store.set('hp_sound',SND.on);const b=$('#s
 
 /* ---------- first-visit tour ---------- */
 const TOUR=[
-  ['.hero h1','Welcome to Hall Pass','Draft legends from every decade since the 1950s, then play them through full seasons, leagues, careers and challenges. This quick tour shows you where everything is. You can skip it any time.'],
-  ['#wnBtn','What\'s new','New features, events and messages from the developer show up here. When there\'s something you haven\'t read, it lights up.'],
-  ['#passBar','Season pass','Every game you play earns XP. XP fills the monthly season pass and unlocks colors, titles and rewards. It resets each month.'],
-  ['.crhome','The Rise: your own player','Create a player, pick a position, play style and height, get drafted and play the big moments yourself. Earn badges, rings and a spot in the Hall of Fame.'],
+  ['.hbill h1','Welcome to Hall Pass','Draft legends from every decade, play them yourself on the street, build your own MyPlayer and invest in today\'s stars. This quick tour shows you where everything is. You can skip it any time.'],
+  ['.hstrip','Your progress','Your level, the monthly season pass and your record live here. Tap your name any time for your profile, cards, achievements and the Locker.'],
+  ['.hjump','Jump around','The home page is split into sections. Tap a chip to jump straight to one.'],
+  ['#featStreet','Street','Real-time basketball where you control the player. Cross people up, shoot with a meter, block and steal, 1-on-1 or 3-on-3.'],
+  ['#featRise','MyPlayer','Create your own player, get drafted and play full 5v5 games. Earn badges, rings and a spot in the Hall of Fame.'],
+  ['#featMkt','Stock market','Invest practice money in NBA players. Prices move every hour. Do the lessons for bonus cash and climb the net worth leaderboard.'],
+  ['#hs-now','Happening now','Limited-time events, the Daily Five puzzle and invite rewards show up here.'],
+  ['.modes','Quick play','Shorter sessions: quick games against bots, online showdowns, the daily challenge, the Gauntlet and seven mini-games.'],
   ['.lgcard','The League','Run a franchise for a whole season: schedule, game plans, trades, injuries and playoffs. Play solo against bot GMs or online with friends.'],
-  ['.modes','Game modes','Shorter sessions live here: quick games against bots, online showdowns, the daily challenge, the Gauntlet and seven mini-games.'],
-  ['#onlineNav','Play online','Quick match drops you into a live draft with real players in seconds. You can also browse open games or host a private room with a code.'],
-  ['#eras','Classic draft','Pick a decade, draft eight players, hire a coach and play an 82-game season plus the playoffs. Change the draft mode and league strength right below.'],
-  ['#acctBtn','Your profile','Tap your name for your level, tickets, cards, achievements and the Locker, where you customize your picture, frame, banner and name style. Make a profile so your progress saves to the cloud.'],
-  ['.hero','You\'re ready','Tip: every section on this page folds up with the arrow on its right, so you can keep only what you play. Have fun!']];
+  ['#eras','Classic draft','Pick a decade, draft eight players, hire a coach and play an 82-game season plus the playoffs.'],
+  ['#chatBtn','Chat','Talk with everyone in Global chat or message your friends. Be kind: AutoMod and moderators keep it safe.'],
+  ['#acctBtn','Your profile','Your level, tickets, cards, achievements and the Locker, where you customize your picture, frame, banner and name style. Make a profile so your progress saves to the cloud.'],
+  ['.hbill','You\'re ready','Tip: the lower sections fold up with the arrow on their right, so you can keep only what you play. Have fun!']];
 let TOURK=0;
 function tourLock(on){const de=document.documentElement;if(de&&de.classList)de.classList.toggle('tourlock',on);const stop=e=>{if(e.target.closest&&e.target.closest('.tour-tip'))return;e.preventDefault()};
   if(on){if(!tourLock.f){tourLock.f=stop;addEventListener('wheel',stop,{passive:false});addEventListener('touchmove',stop,{passive:false});addEventListener('keydown',tourKeys)}}
   else if(tourLock.f){removeEventListener('wheel',tourLock.f);removeEventListener('touchmove',tourLock.f);removeEventListener('keydown',tourKeys);tourLock.f=null}}
 function tourKeys(e){if(!$('.tour'))return;if(['ArrowDown','ArrowUp','PageDown','PageUp',' ','Home','End'].includes(e.key)&&!e.target.closest('input,textarea'))e.preventDefault();
   if(e.key==='ArrowRight'||e.key==='Enter')startTour(TOURK+1);if(e.key==='ArrowLeft'&&TOURK>0)startTour(TOURK-1,-1);if(e.key==='Escape')tourEnd()}
-function tourEnd(){$$('.tour').forEach(x=>x.remove());store.set('hp_tour',1);tourLock(false)}
-function startTour(k=0,dir=1){$$('.tour').forEach(x=>x.remove());TOURK=k;const st=TOUR[k];if(!st){const shown=TOURK>0&&$('.tour-tip')!==null||startTour.shown;tourEnd();if(shown)toast('Tour done','Tap Play online, The Rise or Start draft to jump in.','M5 12l5 5L20 7');return}
+function tourEnd(){$$('.tour').forEach(x=>x.remove());store.set('hp_tour',2);tourLock(false)}
+function startTour(k=0,dir=1){$$('.tour').forEach(x=>x.remove());TOURK=k;const st=TOUR[k];if(!st){const shown=TOURK>0&&$('.tour-tip')!==null||startTour.shown;tourEnd();if(shown)toast('Tour done','Tap Street, MyPlayer or the Stock market to jump in.','M5 12l5 5L20 7');return}
   let el=$(st[0]);if(el){const d=el.closest('details.hsec');if(d&&!d.open)d.open=true}
   if(!el||!el.getClientRects().length)return startTour(k+dir,dir);
   tourLock(true);startTour.shown=1;
@@ -6401,9 +6475,13 @@ const TPACKS={
   july4:['Fourth of July','#ff4d5e','#4f8cff','rgba(255,77,94,.16)','rgba(79,140,255,.16)','fireworks','Happy Fourth','07-01..07-05'],
   school:['Back to School','#ffb547','#57c7ff','rgba(255,181,71,.14)','rgba(87,199,255,.12)','none','New semester, new season','08-21..09-21'],
   neon:['Neon Night','#39ff9f','#ff2bd6','rgba(57,255,159,.16)','rgba(255,43,214,.14)','sparks','',''],
-  gold:['Gold Rush','#ffd25a','#ffb547','rgba(255,210,90,.18)','rgba(255,181,71,.10)','gold','','']};
+  gold:['Gold Rush','#ffd25a','#ffb547','rgba(255,210,90,.18)','rgba(255,181,71,.10)','gold','',''],
+  tipoff:['Opening Night','#ff8a3d','#57c7ff','rgba(255,138,61,.18)','rgba(87,199,255,.14)','confetti','A new season tips off',''],
+  draft:['Draft Night','#57c7ff','#ffd25a','rgba(87,199,255,.18)','rgba(255,210,90,.12)','stars','The future is on the clock','06-24..06-27'],
+  retro:['Retro Wave','#ff2bd6','#2bd6ff','rgba(255,43,214,.18)','rgba(43,214,255,.14)','sparks','Totally radical hoops',''],
+  aurora:['Northern Lights','#39ff9f','#b57bff','rgba(57,255,159,.14)','rgba(181,123,255,.14)','stars','Lights over the arena','']};
 /* emoji that drift with each theme, plus a big hero decoration */
-const TEMO={halloween:['🎃','👻','🦇','🕸️','🍬'],fall:['🍂','🍁','🍂'],thanks:['🦃','🍂','🥧','🌽'],winter:['❄️','⛄','❄️'],holiday:['🎄','🎁','❄️','⭐'],newyear:['🎆','🥂','✨','🎉'],lunar:['🏮','🧧','🐉'],valentine:['💘','💖','🌹','💌'],allstar:['⭐','🌟','🏀'],march:['🏀','🔥','🏆'],stpat:['☘️','🍀','🌈'],spring:['🌸','🌷','🦋'],playoffs:['🏆','🔥','🏀'],finals:['🏆','💍','🥇'],summer:['☀️','🌴','🏀'],july4:['🎆','🇺🇸','🎇'],school:['📚','✏️','🎒'],neon:['⚡','💜'],gold:['💰','🏆','✨']};
+const TEMO={halloween:['🎃','👻','🦇','🕸️','🍬'],fall:['🍂','🍁','🍂'],thanks:['🦃','🍂','🥧','🌽'],winter:['❄️','⛄','❄️'],holiday:['🎄','🎁','❄️','⭐'],newyear:['🎆','🥂','✨','🎉'],lunar:['🏮','🧧','🐉'],valentine:['💘','💖','🌹','💌'],allstar:['⭐','🌟','🏀'],march:['🏀','🔥','🏆'],stpat:['☘️','🍀','🌈'],spring:['🌸','🌷','🦋'],playoffs:['🏆','🔥','🏀'],finals:['🏆','💍','🥇'],summer:['☀️','🌴','🏀'],july4:['🎆','🇺🇸','🎇'],school:['📚','✏️','🎒'],neon:['⚡','💜'],gold:['💰','🏆','✨'],tipoff:['🏀','🎟️','🔥'],draft:['🧢','🤝','⭐'],retro:['📼','🕹️','✨'],aurora:['✨','❄️','🌌']};
 const THEME_FX={none:0,bats:1,leaves:1,snow:1,fireworks:1,lanterns:1,hearts:1,stars:1,confetti:1,clovers:1,petals:1,sparks:1,gold:1,sun:1};
 const md=(d=new Date())=>String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 function inRange(r,today){if(!r)return false;const[a,b]=r.split('..');return a<=b?today>=a&&today<=b:today>=a||today<=b}
@@ -6416,41 +6494,61 @@ let THEME_CUR='';
 function liveTheme(){const id=themeNow();const T=TPACKS[id]||TPACKS.classic;const r=document.documentElement;if(!r||!r.style||!r.style.removeProperty)return;
   const set=(k,v)=>v?r.style.setProperty(k,v):r.style.removeProperty(k);
   set('--amber',T[1]);set('--accent2',T[2]);set('--glow1',T[3]);set('--glow2',T[4]);r.dataset.theme2=id;r.dataset.event=id;const em=TEMO[id];set('--temoji',em?'"'+em[0]+'"':'');set('--temoji2',em&&em[1]?'"'+em[1]+'"':'');
-  if(id!==THEME_CUR){THEME_CUR=id;themeFx(T[5]);themeDecor(id);const tg=$('#themeTag');if(tg){tg.textContent=T[6]||'';tg.hidden=!T[6]}}}
+  if(id!==THEME_CUR){THEME_CUR=id;themeFx(T[5]);themeDecor(id);{const hb=document.querySelector&&$('.hbill');if(hb&&hb.dataset.scene!==id&&typeof renderHome==='function'&&(CURV===''||CURV==='home'))renderHome()}const tg=$('#themeTag');if(tg){tg.textContent=T[6]||'';tg.hidden=!T[6]}}}
 /* gentle falling or floating particles for the theme. Off for reduced motion or when the player turns effects off. */
 let TFX={raf:0,parts:[],type:'none'};
 /* draw each emoji once into a small image, then reuse it every frame (text drawing is slow) */
 const EMOS={};function emoSprite(e){let c=EMOS[e];if(c)return c;c=document.createElement('canvas');c.width=c.height=48;const g=c.getContext('2d');if(g){g.font='38px serif';g.textAlign='center';g.textBaseline='middle';g.fillText(e,24,27)}return EMOS[e]=c}
 const fxOn=()=>!RM&&store.get('hp_fx',1)!==0;
-function themeFx(type){cancelAnimationFrame(TFX.raf);TFX.type=type;let cv=$('#themefx');if(!THEME_FX[type]||!fxOn()){if(cv)cv.remove();return}
-  if(!cv){cv=document.createElement('canvas');cv.id='themefx';document.body.prepend(cv)}const x=cv.getContext('2d');if(!x)return;
-  const fit=()=>{const d=1;cv.width=innerWidth*d;cv.height=innerHeight*d;x.setTransform(d,0,0,d,0,0)};fit();if(TFX.fit)removeEventListener('resize',TFX.fit);TFX.fit=fit;addEventListener('resize',fit);
-  const small=innerWidth<700||(navigator.hardwareConcurrency||8)<=4;const N=Math.round((type==='fireworks'?(TEMO[THEME_CUR]?8:0):type==='gold'||type==='sparks'?20:type==='sun'?10:26)*(small?.6:1));const W=()=>innerWidth,H=()=>innerHeight;
-  const cs=getComputedStyle(document.documentElement);const a1=(cs.getPropertyValue('--amber')||'#ffb547').trim(),a2=(cs.getPropertyValue('--accent2')||'#ffffff').trim()||'#fff';
-  const EM=TEMO[THEME_CUR]||null;const rnd=(a,b)=>a+Math.random()*(b-a);const mk=(y)=>({x:rnd(0,W()),y:y??rnd(-H(),0),s:rnd(.6,1.4),vx:rnd(-.3,.3),vy:rnd(.25,.9),r:rnd(0,6.28),vr:rnd(-.02,.02),c:Math.random()<.5?a1:a2,ph:rnd(0,6.28),e:EM&&Math.random()<.42?EM[Math.floor(Math.random()*EM.length)]:''});
+function themeFx(type){cancelAnimationFrame(TFX.raf);clearTimeout(TFX.to);TFX.type=type;let cv=$('#themefx');const de=document.documentElement;
+  if(!THEME_FX[type]||!fxOn()){if(cv)cv.remove();if(de&&de.classList)de.classList.remove('tfx','tfx-lite');return}
+  if(!cv){cv=document.createElement('canvas');cv.id='themefx';document.body.prepend(cv)}const x=cv.getContext('2d');if(!x)return;if(de&&de.classList)de.classList.add('tfx');
+  const dpr=Math.min(1.5,window.devicePixelRatio||1);
+  const fit=()=>{cv.width=Math.round(innerWidth*dpr);cv.height=Math.round(innerHeight*dpr)};fit();if(TFX.fit)removeEventListener('resize',TFX.fit);TFX.fit=fit;addEventListener('resize',fit);
+  /* quality remembered per device: slow devices get fewer particles next time too */
+  let Q=+store.get('hp_fxq',1)||1;if(Q<1&&de.classList)de.classList.add('tfx-lite');
+  const small=innerWidth<700||(navigator.hardwareConcurrency||8)<=4;const base=type==='fireworks'?(TEMO[THEME_CUR]?8:0):type==='gold'||type==='sparks'?20:type==='sun'?8:24;
+  let N=Math.max(4,Math.round(base*(small?.6:1)*Q));const W=()=>innerWidth,H=()=>innerHeight;
+  const cs=getComputedStyle(document.documentElement);const a1=(cs.getPropertyValue('--amber')||'#ffb547').trim()||'#ffb547',a2=(cs.getPropertyValue('--accent2')||'#ffffff').trim()||'#fff';
+  /* every particle is drawn once into a small image; each frame only copies images (no path building) */
+  const SPR={};const spr=(k,c,f)=>{const id=k+c;if(SPR[id])return SPR[id];const s=document.createElement('canvas');s.width=s.height=64;const g=s.getContext('2d');if(g){g.translate(32,32);g.fillStyle=c;g.strokeStyle=c;f(g)}return SPR[id]=s};
+  const shape=(c,flap)=>spr(type+(flap?1:0),c,g=>{const s=2.6;switch(type){
+    case'snow':g.fillStyle='#fff';g.shadowColor='#fff';g.shadowBlur=6;g.beginPath();g.arc(0,0,2.6*s,0,7);g.fill();break;
+    case'leaves':g.beginPath();g.ellipse(0,0,7*s,3.6*s,0,0,7);g.fill();g.globalAlpha=.4;g.fillStyle='#000';g.fillRect(-7*s,-.6,14*s,1.2);break;
+    case'hearts':{g.beginPath();const h=5*s;g.moveTo(0,h*.6);g.bezierCurveTo(-h*1.6,-h*.6,-h*.4,-h*1.6,0,-h*.5);g.bezierCurveTo(h*.4,-h*1.6,h*1.6,-h*.6,0,h*.6);g.fill();break}
+    case'bats':{g.fillStyle='#120a1e';g.beginPath();const b=4.6*s,f=flap?-4:4;g.moveTo(0,0);g.quadraticCurveTo(-b,-b-f,-b*2,f);g.quadraticCurveTo(-b,-1,0,2);g.quadraticCurveTo(b,-1,b*2,f);g.quadraticCurveTo(b,-b-f,0,0);g.fill();break}
+    case'clovers':for(let k=0;k<3;k++){g.rotate(2.09);g.beginPath();g.arc(0,-3.4*s,3*s,0,7);g.fill()}break;
+    case'petals':g.beginPath();g.ellipse(0,0,5*s,2.6*s,.6,0,7);g.fill();break;
+    case'lanterns':g.fillStyle='#ff3b3b';g.shadowColor='#ff8a3b';g.shadowBlur=10;g.beginPath();g.ellipse(0,0,6*s,8*s,0,0,7);g.fill();g.shadowBlur=0;g.fillStyle='#ffcc4d';g.fillRect(-3*s,-9*s,6*s,2*s);g.fillRect(-3*s,7*s,6*s,2*s);break;
+    case'stars':g.beginPath();for(let k=0;k<5;k++){g.lineTo(Math.cos(k*1.256-1.57)*5*s,Math.sin(k*1.256-1.57)*5*s);g.lineTo(Math.cos(k*1.256-.94)*2*s,Math.sin(k*1.256-.94)*2*s)}g.fill();break;
+    case'confetti':g.fillRect(-3*s,-1.5*s,6*s,3*s);break;
+    case'gold':case'sparks':{const r=g.createRadialGradient(0,0,0,0,0,10);r.addColorStop(0,'#fff');r.addColorStop(.3,c);r.addColorStop(1,'transparent');g.fillStyle=r;g.beginPath();g.arc(0,0,10,0,7);g.fill();break}
+    case'sun':{const r=g.createRadialGradient(0,0,0,0,0,32);r.addColorStop(0,c);r.addColorStop(1,'transparent');g.fillStyle=r;g.globalAlpha=.5;g.fillRect(-32,-32,64,64);break}
+    default:g.beginPath();g.arc(0,0,4,0,7);g.fill()}});
+  const EM=TEMO[THEME_CUR]||null;const rnd=(a,b)=>a+Math.random()*(b-a);
+  const mk=(y)=>({x:rnd(0,W()),y:y??rnd(-H(),0),s:rnd(.6,1.4),vx:rnd(-.3,.3),vy:rnd(.25,.9),r:rnd(0,6.28),vr:rnd(-.02,.02),c:Math.random()<.5?a1:a2,ph:rnd(0,6.28),e:EM&&type!=='fireworks'&&Math.random()<.4?EM[Math.floor(Math.random()*EM.length)]:''});
   TFX.parts=Array.from({length:N},()=>mk(rnd(0,H())));let boom=[],t0=0;
-  const draw=(p)=>{x.save();x.translate(p.x,p.y);x.rotate(p.r);x.globalAlpha=.55;x.fillStyle=p.c;x.strokeStyle=p.c;const s=p.s;
-    if(p.e){x.rotate(-p.r*.7);x.globalAlpha=.8;const sp=emoSprite(p.e);const z=(16+s*10)/48;x.drawImage(sp,-24*z,-24*z,48*z,48*z);x.restore();return}
-    switch(type){
-      case'snow':x.globalAlpha=.75;x.fillStyle='#fff';x.beginPath();x.arc(0,0,2.2*s,0,7);x.fill();break;
-      case'leaves':x.beginPath();x.ellipse(0,0,7*s,3.6*s,0,0,7);x.fill();x.globalAlpha=.4;x.fillRect(-7*s,-.4,14*s,.8);break;
-      case'hearts':x.beginPath();const h=5*s;x.moveTo(0,h*.6);x.bezierCurveTo(-h*1.6,-h*.6,-h*.4,-h*1.6,0,-h*.5);x.bezierCurveTo(h*.4,-h*1.6,h*1.6,-h*.6,0,h*.6);x.fill();break;
-      case'bats':x.globalAlpha=.5;x.fillStyle='#120a1e';x.beginPath();const b=6*s,f=Math.sin(p.ph)*2;x.moveTo(0,0);x.quadraticCurveTo(-b,-b-f,-b*2,f);x.quadraticCurveTo(-b,-1,0,2);x.quadraticCurveTo(b,-1,b*2,f);x.quadraticCurveTo(b,-b-f,0,0);x.fill();break;
-      case'clovers':for(let k=0;k<3;k++){x.rotate(2.09);x.beginPath();x.arc(0,-3.4*s,3*s,0,7);x.fill()}break;
-      case'petals':x.beginPath();x.ellipse(0,0,5*s,2.6*s,.6,0,7);x.fill();break;
-      case'lanterns':x.globalAlpha=.6;x.fillStyle='#ff3b3b';x.beginPath();x.ellipse(0,0,6*s,8*s,0,0,7);x.fill();x.fillStyle='#ffcc4d';x.fillRect(-3*s,-9*s,6*s,2*s);x.fillRect(-3*s,7*s,6*s,2*s);break;
-      case'stars':x.beginPath();for(let k=0;k<5;k++){x.lineTo(Math.cos(k*1.256-1.57)*5*s,Math.sin(k*1.256-1.57)*5*s);x.lineTo(Math.cos(k*1.256-.94)*2*s,Math.sin(k*1.256-.94)*2*s)}x.fill();break;
-      case'confetti':x.fillRect(-3*s,-1.5*s,6*s,3*s);break;
-      case'gold':case'sparks':x.globalAlpha=.35+.35*Math.sin(p.ph);x.beginPath();x.arc(0,0,1.6*s,0,7);x.fill();break;
-      case'sun':x.globalAlpha=.08;x.beginPath();x.arc(0,0,40*s,0,7);x.fill();break}
-    x.restore()};
-  let last=0;const step=t=>{if(!$('#themefx'))return;if(t-last<30){TFX.raf=requestAnimationFrame(step);return}last=t;x.clearRect(0,0,W(),H());
-    if(type==='fireworks'){if(t-t0>1400){t0=t;const cx=rnd(W()*.15,W()*.85),cy=rnd(H()*.08,H()*.4),c=Math.random()<.5?a1:a2;for(let k=0;k<46;k++){const a=k/46*6.28,v=rnd(1.2,2.6);boom.push({x:cx,y:cy,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c})}}
-      boom=boom.filter(b=>b.l>0);boom.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.vy+=.025;b.vx*=.985;b.l-=.012;x.globalAlpha=Math.max(0,b.l)*.7;x.fillStyle=b.c;x.fillRect(b.x,b.y,2,2)})}
-    if(type==='fireworks')TFX.parts.forEach(p=>{p.ph+=.05;p.y+=p.vy*.6;p.x+=Math.sin(p.ph)*.3;if(p.y>H()+20)Object.assign(p,mk(-10));if(!p.e)p.e=(TEMO[THEME_CUR]||['✨'])[0];draw(p)});
+  const put=(img,px,py,z,rot,al)=>{const c=Math.cos(rot)*z*dpr,s=Math.sin(rot)*z*dpr;x.setTransform(c,s,-s,c,px*dpr,py*dpr);x.globalAlpha=al;x.drawImage(img,-img.width/2,-img.height/2)};
+  const draw=p=>{if(p.e){put(emoSprite(p.e),p.x,p.y,(16+p.s*10)/48,p.r*.3,.8);return}
+    const flap=type==='bats'&&Math.sin(p.ph*3)>0;const sc=type==='sun'?p.s*2.6:type==='gold'||type==='sparks'?p.s*.5:p.s*.42;
+    const al=type==='gold'||type==='sparks'?.4+.4*Math.sin(p.ph):type==='bats'?.55:type==='snow'?.8:.6;put(shape(p.c,flap),p.x,p.y,sc,type==='bats'?0:p.r,al)};
+  /* only animate where it's cheap and wanted: the home page, a visible tab, no game running */
+  const active=()=>!document.hidden&&(CURV===''||CURV==='home')&&!document.body.classList.contains('stplaying');
+  let last=0,slow=0,frames=0,idle=false;
+  const step=t=>{if(!$('#themefx'))return;
+    if(!active()){if(!idle){x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,cv.width,cv.height);idle=true}TFX.to=setTimeout(()=>{TFX.raf=requestAnimationFrame(step)},700);return}
+    if(idle){idle=false;last=t}
+    const dt=t-last;if(dt<32){TFX.raf=requestAnimationFrame(step);return}last=t;
+    /* watchdog: if frames keep coming late, this device is struggling: halve the particles and remember it */
+    frames++;if(dt>70&&dt<1000)slow++;if(frames>=90){if(slow>25&&N>4){N=Math.max(4,Math.round(N/2));TFX.parts.length=Math.min(TFX.parts.length,N);Q=Math.max(.25,Q/2);store.set('hp_fxq',Q);de.classList.add('tfx-lite')}frames=0;slow=0}
+    x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,cv.width,cv.height);
+    if(type==='fireworks'){if(t-t0>1500){t0=t;const cx=rnd(W()*.15,W()*.85),cy=rnd(H()*.08,H()*.4),c=Math.random()<.5?a1:a2;for(let k=0;k<40;k++){const a=k/40*6.28,v=rnd(1.2,2.6);boom.push({x:cx,y:cy,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c})}}
+      boom=boom.filter(b=>b.l>0);x.setTransform(dpr,0,0,dpr,0,0);boom.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.vy+=.025;b.vx*=.985;b.l-=.014;x.globalAlpha=Math.max(0,b.l)*.75;x.fillStyle=b.c;x.fillRect(b.x,b.y,2.2,2.2)});
+      TFX.parts.forEach(p=>{p.ph+=.05;p.y+=p.vy*.6;p.x+=Math.sin(p.ph)*.3;if(p.y>H()+20)Object.assign(p,mk(-10));if(!p.e)p.e=(TEMO[THEME_CUR]||['✨'])[0];draw(p)})}
     else TFX.parts.forEach(p=>{p.ph+=.05;const up=type==='lanterns'||type==='sparks'||type==='gold';p.y+=up?-p.vy*.6:p.vy;p.x+=p.vx+Math.sin(p.ph)*.3;p.r+=p.vr;
       if(type==='bats'){p.y-=p.vy*1.2;p.x+=1.2*p.s}if(p.y>H()+20||p.y<-30||p.x>W()+30||p.x<-30)Object.assign(p,mk(up?H()+10:-10),type==='bats'?{x:-20,y:rnd(0,H()*.6)}:{});draw(p)});
-    TFX.raf=requestAnimationFrame(step)};TFX.raf=requestAnimationFrame(step)}
+    x.globalAlpha=1;TFX.raf=requestAnimationFrame(step)};
+  TFX.raf=requestAnimationFrame(step)}
 function themeDecor(id){let d=$('#themeDecor');const em=TEMO[id];if(!em||id==='classic'){if(d)d.remove();return}
   if(!d){d=document.createElement('div');d.id='themeDecor';d.setAttribute('aria-hidden','true');document.body.prepend(d)}
   d.innerHTML=em.slice(0,4).map((e,i)=>`<span style="--i:${i}">${e}</span>`).join('')}
@@ -6618,7 +6716,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793122919';
+const BUILD='1793127214';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -8413,7 +8511,7 @@ function termsGate(){if(termsOK()){const g=$('#termsGate');if(g)g.remove();docum
   body.addEventListener('scroll',upd,{passive:true});A.onchange=B.onchange=upd;setTimeout(upd,60);
   $('#tgNo').onclick=()=>{$('#tgMsg').innerHTML='You need to accept the rules to play Hall Pass. If you don\'t agree, you can close this tab. Nothing is saved until you accept.';sfx('click')};
   go.onclick=()=>{if(go.disabled)return;P.terms={v:termsV(),t:Date.now(),age:1};saveP();sfx('chime');dbTermsAccept();dbEvent('terms_accept',{v:termsV()});el.classList.add('out');document.documentElement.classList.remove('tgate');setTimeout(()=>{el.remove();termsAfter()},350)}}
-function termsAfter(){if(GROW.ch)return setTimeout(challengeOpen,300);if(P.mustRename)return renamePrompt();if(P.signed&&!store.get('hp_tour',0)&&$('.hero'))setTimeout(()=>startTour(0),500)}
+function termsAfter(){if(GROW.ch)return setTimeout(challengeOpen,300);if(P.mustRename)return renamePrompt();if(P.signed&&store.get('hp_tour',0)<2&&$('.hero'))setTimeout(()=>startTour(0),500)}
 async function dbTermsAccept(){if(!DB.ok)return;try{await DB.c.rpc('accept_terms',{p_v:termsV()})}catch(e){}}
 function termsBlock(){/* used by the tour and anything that would start on top of the gate */return !termsOK()}
 
@@ -10406,6 +10504,151 @@ function adminShopBind(){if(ADM.tab!=='shopadm')return;const pub=fn=>admPub(cf=>
   $('#shQG').onclick=()=>{SHA.q=$('#shQ').value.trim();renderAdmin()};$('#shQ').onkeydown=e=>{if(e.key==='Enter'){SHA.q=e.target.value.trim();renderAdmin()}};
   $$('[data-shf]').forEach(b=>b.onclick=()=>pub(s=>{const f=new Set(s.feat||[]);f.has(b.dataset.shf)?f.delete(b.dataset.shf):f.add(b.dataset.shf);s.feat=[...f].slice(0,12)}));
   $$('[data-shh]').forEach(b=>b.onclick=()=>pub(s=>{const f=new Set(s.hide||[]);f.has(b.dataset.shh)?f.delete(b.dataset.shh):f.add(b.dataset.shh);s.hide=[...f]}))}
+
+/* ======================= HOME 3: billboard hero, three headliners (Street, MyPlayer, Stock market), then everything else in tidy sections ======================= */
+/* a static scene for the hero, drawn once per theme. No animation, so it costs nothing while you scroll */
+const TSCENE={
+  classic:{sky:['#0f1630','#1b2448'],orb:'ball',land:'city',props:[]},
+  halloween:{sky:['#1a0b2e','#2b1240'],orb:'moon',land:'haunt',props:[['🎃',.70,.86,58],['🎃',.92,.9,40],['🦇',.58,.2,30],['🦇',.66,.12,22],['🕸️',.97,.08,46],['👻',.83,.42,44]]},
+  fall:{sky:['#2a160c','#4a2512'],orb:'sun',land:'trees',props:[['🍂',.62,.3,28],['🍁',.9,.5,34],['🍂',.78,.2,22]]},
+  thanks:{sky:['#2a1a0c','#4a2c12'],orb:'sun',land:'trees',props:[['🦃',.7,.84,52],['🥧',.9,.88,36],['🍂',.6,.25,26]]},
+  winter:{sky:['#0b1a2e','#16324f'],orb:'moon',land:'snowcity',props:[['⛄',.86,.84,56],['❄️',.62,.22,26],['❄️',.78,.12,20],['❄️',.94,.3,30]]},
+  holiday:{sky:['#0a1a14','#132a22'],orb:'moon',land:'snowcity',props:[['🎄',.84,.8,70],['🎁',.68,.9,36],['⭐',.6,.16,28],['🎁',.95,.9,30]],lights:1},
+  newyear:{sky:['#120c2a','#21153f'],orb:'none',land:'city',props:[['🥂',.86,.84,48],['🎉',.66,.86,36]],fire:1},
+  lunar:{sky:['#2a0a0a','#401214'],orb:'moon',land:'pagoda',props:[['🏮',.62,.18,40],['🏮',.76,.1,32],['🏮',.9,.2,36],['🐉',.84,.5,50]]},
+  valentine:{sky:['#2a0b1c','#40122a'],orb:'heart',land:'city',props:[['💘',.66,.25,34],['💖',.9,.35,28],['🌹',.84,.86,40]]},
+  allstar:{sky:['#0c1030','#1a1f50'],orb:'spot',land:'arena',props:[['⭐',.62,.2,30],['🌟',.92,.16,36]]},
+  march:{sky:['#0c1828','#16304a'],orb:'spot',land:'arena',props:[['🏆',.86,.8,52],['🔥',.64,.2,28]]},
+  stpat:{sky:['#0a2014','#123a22'],orb:'sun',land:'hills',props:[['🌈',.8,.34,70],['🍀',.66,.84,34],['☘️',.92,.86,30]]},
+  spring:{sky:['#16203a','#2a3a5a'],orb:'sun',land:'hills',props:[['🌸',.64,.2,30],['🌷',.7,.88,36],['🦋',.88,.3,30],['🌸',.94,.12,24]]},
+  playoffs:{sky:['#22100c','#3a1a14'],orb:'spot',land:'arena',props:[['🏆',.86,.8,56],['🔥',.66,.2,30]]},
+  finals:{sky:['#1a1508','#2e2510'],orb:'trophy',land:'arena',props:[['💍',.66,.2,30],['🥇',.94,.24,30]]},
+  summer:{sky:['#0e2a40','#1d4a66'],orb:'sun',land:'beach',props:[['🌴',.9,.72,74],['🏖️',.66,.88,38]]},
+  july4:{sky:['#0a1028','#141c40'],orb:'none',land:'city',props:[['🇺🇸',.88,.84,44]],fire:1},
+  school:{sky:['#101a2e','#1c2c48'],orb:'sun',land:'school',props:[['🎒',.86,.86,44],['✏️',.66,.22,28],['📚',.72,.88,32]]},
+  neon:{sky:['#07120f','#120a20'],orb:'ring',land:'city',props:[['⚡',.66,.2,30]]},
+  gold:{sky:['#1a1406','#2a210a'],orb:'trophy',land:'arena',props:[['💰',.66,.86,40],['✨',.92,.2,30]]},
+  tipoff:{sky:['#0c1226','#1a2244'],orb:'spot',land:'arena',props:[['🏀',.66,.2,30],['🎟️',.9,.86,36]]},
+  draft:{sky:['#0a0f22','#151c3a'],orb:'spot',land:'stage',props:[['🧢',.68,.84,40],['🤝',.9,.86,38]]},
+  retro:{sky:['#1a0630','#3a0a4a'],orb:'retrosun',land:'grid',props:[['📼',.9,.86,34]]},
+  aurora:{sky:['#03121a','#0a2230'],orb:'aurora',land:'snowhills',props:[['✨',.7,.2,24],['❄️',.92,.16,24]]}};
+function themeScene(id){const S=TSCENE[id]||TSCENE.classic;const W=640,H=320;const a='var(--amber)',b='var(--accent2)';let g='';
+  const r=k=>{let x=strHash(id+k)>>>0;return()=>((x=Math.imul(x^x>>>15,2246822519)>>>0)%1000)/1000};const R=r('s');
+  /* sky stars */
+  for(let i=0;i<34;i++)g+=`<circle cx="${(R()*W).toFixed(0)}" cy="${(R()*H*.6).toFixed(0)}" r="${(R()*1.3+.3).toFixed(1)}" fill="#fff" opacity="${(R()*.6+.15).toFixed(2)}"/>`;
+  if(S.orb==='aurora')g+=`<path d="M0 90 C120 30 220 140 340 70 S560 40 640 90 L640 0 L0 0Z" fill="url(#au1)" opacity=".55"/><path d="M0 130 C160 70 260 170 400 100 S580 80 640 120 L640 40 C540 90 420 20 300 80 S100 40 0 90Z" fill="url(#au2)" opacity=".4"/>`;
+  /* the big thing in the sky */
+  const ox=470,oy=96;
+  g+=({moon:`<circle cx="${ox}" cy="${oy}" r="74" fill="${a}" opacity=".12"/><circle cx="${ox}" cy="${oy}" r="52" fill="#fff4dc"/><circle cx="${ox-16}" cy="${oy-10}" r="8" fill="#e8d9b8"/><circle cx="${ox+14}" cy="${oy+14}" r="11" fill="#e8d9b8"/><circle cx="${ox+20}" cy="${oy-20}" r="5" fill="#e8d9b8"/>`,
+    sun:`<circle cx="${ox}" cy="${oy}" r="90" fill="${a}" opacity=".14"/><circle cx="${ox}" cy="${oy}" r="56" fill="${a}" opacity=".9"/>`,
+    retrosun:`<defs><linearGradient id="rs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd25a"/><stop offset="1" stop-color="#ff2bd6"/></linearGradient></defs><circle cx="${ox}" cy="${oy+40}" r="80" fill="url(#rs)"/>${[0,1,2,3,4].map(i=>`<rect x="${ox-90}" y="${oy+52+i*13}" width="180" height="${3+i*1.4}" fill="${S.sky[1]}"/>`).join('')}`,
+    ball:`<circle cx="${ox}" cy="${oy}" r="86" fill="${a}" opacity=".12"/><circle cx="${ox}" cy="${oy}" r="54" fill="#e2701c"/><g fill="none" stroke="#3a1a06" stroke-width="3"><path d="M${ox-54} ${oy}H${ox+54}M${ox} ${oy-54}V${oy+54}"/><path d="M${ox-38} ${oy-38}Q${ox-14} ${oy} ${ox-38} ${oy+38}M${ox+38} ${oy-38}Q${ox+14} ${oy} ${ox+38} ${oy+38}"/></g>`,
+    heart:`<path transform="translate(${ox} ${oy}) scale(3.2)" d="M0 12C-14 2-14-10-6-12-2-13 0-9 0-7 0-9 2-13 6-12 14-10 14 2 0 12Z" fill="${a}" opacity=".85"/>`,
+    spot:`<path d="M170 0 L60 320 L260 320Z" fill="${a}" opacity=".10"/><path d="M520 0 L380 320 L600 320Z" fill="${b}" opacity=".10"/><path d="M360 0 L290 320 L430 320Z" fill="#fff" opacity=".05"/>`,
+    trophy:`<circle cx="${ox}" cy="${oy}" r="90" fill="${a}" opacity=".16"/><g transform="translate(${ox-34} ${oy-48})" fill="${a}"><path d="M8 0H60V20C60 40 48 52 34 54 20 52 8 40 8 20Z"/><rect x="28" y="54" width="12" height="18"/><rect x="16" y="72" width="36" height="10" rx="2"/><path d="M8 6H0V16C0 26 6 30 10 30M60 6H68V16C68 26 62 30 58 30" fill="none" stroke="${a}" stroke-width="4"/></g>`,
+    ring:`<circle cx="${ox}" cy="${oy}" r="60" fill="none" stroke="${a}" stroke-width="5" opacity=".9"/><circle cx="${ox}" cy="${oy}" r="74" fill="none" stroke="${b}" stroke-width="2" opacity=".6"/>`,
+    aurora:'',none:''})[S.orb]||'';
+  if(S.fire){const F=r('f');for(let k=0;k<3;k++){const cx=330+F()*280,cy=50+F()*90,c=k%2?b:a;for(let i=0;i<14;i++){const an=i/14*6.283;g+=`<path d="M${cx} ${cy}L${(cx+Math.cos(an)*(30+F()*12)).toFixed(0)} ${(cy+Math.sin(an)*(30+F()*12)).toFixed(0)}" stroke="${c}" stroke-width="2" stroke-linecap="round" opacity=".8"/>`}g+=`<circle cx="${cx}" cy="${cy}" r="4" fill="#fff"/>`}}
+  /* the ground */
+  const L=r('l');const dark='rgba(6,8,18,.92)';
+  const city=(snow)=>{let x=200,s='';while(x<W){const w=26+L()*36,h=60+L()*110;s+=`<rect x="${x.toFixed(0)}" y="${(H-h).toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}" fill="${dark}"/>`;
+      for(let wy=H-h+10;wy<H-12;wy+=14)for(let wx=x+6;wx<x+w-6;wx+=10)if(L()<.32)s+=`<rect x="${wx.toFixed(0)}" y="${wy.toFixed(0)}" width="4" height="6" fill="${L()<.5?a:'#ffe9b0'}" opacity=".7"/>`;
+      if(snow)s+=`<rect x="${(x-1).toFixed(0)}" y="${(H-h-4).toFixed(0)}" width="${(w+2).toFixed(0)}" height="6" rx="3" fill="#eaf6ff"/>`;x+=w+2}return s};
+  g+=({city:city(0),snowcity:city(1)+`<path d="M180 ${H} Q360 ${H-30} ${W} ${H-14} V${H}Z" fill="#eaf6ff" opacity=".9"/>`,
+    haunt:`<path d="M180 ${H} C300 ${H-90} 460 ${H-110} ${W} ${H-60} V${H}Z" fill="${dark}"/><g stroke="${dark}" stroke-width="7" stroke-linecap="round" fill="none"><path d="M560 ${H-70} V${H-170} M560 ${H-140} L520 ${H-180} M560 ${H-120} L604 ${H-170} M520 ${H-180} L500 ${H-186} M604 ${H-170} L618 ${H-196}"/></g><g fill="${dark}"><rect x="300" y="${H-60}" width="22" height="34" rx="11"/><rect x="340" y="${H-74}" width="26" height="40" rx="13"/><rect x="410" y="${H-86}" width="22" height="34" rx="11"/></g><path d="M440 ${H-150} l14-40 14 40Z M436 ${H-150} h50 v60 h-50Z" fill="${dark}"/><rect x="452" y="${H-136}" width="8" height="10" fill="${a}"/>`,
+    trees:`<path d="M180 ${H} C320 ${H-60} 480 ${H-70} ${W} ${H-40} V${H}Z" fill="${dark}"/>${[250,330,420,520,600].map((x,i)=>`<rect x="${x-3}" y="${H-90-i%2*20}" width="6" height="40" fill="${dark}"/><circle cx="${x}" cy="${H-100-i%2*20}" r="${24+i%3*6}" fill="${i%2?a:b}" opacity=".75"/>`).join('')}`,
+    hills:`<path d="M160 ${H} C280 ${H-110} 420 ${H-40} ${W} ${H-110} V${H}Z" fill="${a}" opacity=".35"/><path d="M200 ${H} C360 ${H-70} 500 ${H-30} ${W} ${H-50} V${H}Z" fill="${dark}"/>`,
+    snowhills:`<path d="M160 ${H} C300 ${H-120} 440 ${H-50} ${W} ${H-120} V${H}Z" fill="#cfe8f5" opacity=".25"/><path d="M200 ${H} C360 ${H-70} 500 ${H-30} ${W} ${H-50} V${H}Z" fill="#eaf6ff" opacity=".85"/>`,
+    beach:`<path d="M180 ${H-60} H${W} V${H}H180Z" fill="${b}" opacity=".35"/><path d="M180 ${H-60} Q400 ${H-74} ${W} ${H-58}" stroke="#fff" stroke-opacity=".5" stroke-width="2" fill="none"/><path d="M200 ${H} C360 ${H-44} 520 ${H-36} ${W} ${H-40} V${H}Z" fill="#f2cf8a"/>`,
+    pagoda:city(0)+`<g fill="${dark}"><path d="M520 ${H-150} h80 l-14 16 h-52Z M530 ${H-134} h60 v30 h-60Z M510 ${H-104} h100 l-16 18 h-68Z M524 ${H-86} h72 v86 h-72Z"/></g>`,
+    arena:`<path d="M170 ${H} V${H-90} Q410 ${H-170} ${W} ${H-90} V${H}Z" fill="${dark}"/><path d="M200 ${H-96} Q410 ${H-164} ${W} ${H-96}" stroke="${a}" stroke-width="3" fill="none" opacity=".8"/>${[0,1,2,3,4,5,6,7,8,9].map(i=>`<rect x="${226+i*40}" y="${H-70}" width="18" height="10" rx="2" fill="${i%2?a:b}" opacity=".6"/>`).join('')}`,
+    stage:`<rect x="200" y="${H-70}" width="${W-200}" height="70" fill="${dark}"/><rect x="200" y="${H-74}" width="${W-200}" height="6" fill="${a}" opacity=".8"/><rect x="380" y="${H-120}" width="90" height="50" rx="4" fill="${dark}" stroke="${a}" stroke-opacity=".6"/>`,
+    grid:`<path d="M180 ${H-80} H${W} V${H} H180Z" fill="#1a0630"/>${[0,1,2,3,4,5].map(i=>`<path d="M180 ${H-80+i*i*2.6+i*2} H${W}" stroke="#ff2bd6" stroke-opacity=".6"/>`).join('')}${[0,1,2,3,4,5,6,7,8,9].map(i=>`<path d="M${410+(i-4.5)*20} ${H-80} L${410+(i-4.5)*90} ${H}" stroke="#ff2bd6" stroke-opacity=".5"/>`).join('')}`,
+    school:city(0)+`<g fill="${dark}"><rect x="470" y="${H-120}" width="150" height="120"/><path d="M460 ${H-120} L545 ${H-160} L630 ${H-120}Z"/></g><circle cx="545" cy="${H-130}" r="8" fill="${a}" opacity=".8"/>`})[S.land]||'';
+  if(S.lights){let s='';for(let i=0;i<16;i++){const x=200+i*28;s+=`<circle cx="${x}" cy="${18+Math.sin(i*.8)*6}" r="5" fill="${['#ff4d5e','#3ddc84','#ffd25a','#57c7ff'][i%4]}"/>`}g+=`<path d="M190 14 Q400 40 640 14" stroke="#203a2a" stroke-width="2" fill="none"/>${s}`}
+  /* a hoop on the left edge of the scene */
+  g+=`<g opacity=".95"><rect x="236" y="${H-200}" width="7" height="200" fill="#0a0d18"/><rect x="200" y="${H-232}" width="80" height="54" rx="4" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.55)" stroke-width="3"/><rect x="226" y="${H-206}" width="28" height="20" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"/><ellipse cx="240" cy="${H-180}" rx="22" ry="5" fill="none" stroke="${a}" stroke-width="4"/><path d="M219 ${H-179} L226 ${H-152} M240 ${H-175} L240 ${H-150} M261 ${H-179} L254 ${H-152} M226 ${H-152} H254" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/></g>`;
+  /* emoji props */
+  g+=(S.props||[]).map(([e,x,y,s])=>`<text x="${(x*W).toFixed(0)}" y="${(y*H).toFixed(0)}" font-size="${s}" text-anchor="middle" dominant-baseline="middle">${e}</text>`).join('');
+  return `<svg class="hscene" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"><defs><linearGradient id="hsk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${S.sky[0]}"/><stop offset="1" stop-color="${S.sky[1]}"/></linearGradient>
+    <linearGradient id="au1" x1="0" x2="1"><stop offset="0" stop-color="#39ff9f"/><stop offset=".6" stop-color="#57c7ff"/><stop offset="1" stop-color="#b57bff"/></linearGradient><linearGradient id="au2" x1="0" x2="1"><stop offset="0" stop-color="#57c7ff"/><stop offset="1" stop-color="#39ff9f"/></linearGradient></defs>
+    <rect width="${W}" height="${H}" fill="url(#hsk)"/>${g}</svg>`}
+
+/* ---------- the three headliners ---------- */
+function mkTopMovers(n){try{if(typeof mkStocks!=='function')return[];const k=Math.floor(Date.now()/6e4);if(mkTopMovers.k===k&&mkTopMovers.v)return mkTopMovers.v.slice(0,n);
+  const L=mkStocks().filter(s=>s.p.era==='2020s'||s.p.ovr>=92).sort((x,y)=>y.p.ovr-x.p.ovr).slice(0,40).map(s=>({s,c:mkChg(s.id,24),pr:mkPrice(s.id)}));
+  L.sort((x,y)=>Math.abs(y.c)-Math.abs(x.c));mkTopMovers.k=k;mkTopMovers.v=L;return L.slice(0,n)}catch(e){return[]}}
+function homeFeatHTML(){const ar='M5 12h14M13 6l6 6-6 6';
+  /* Street */
+  const sa=typeof stAccess==='function'&&stAccess()&&!stClosed();const S2=P.street||{w:0,l:0};
+  const street=`<article class="hf hf-st" id="featStreet" style="--hc:#ff8a3d"><div class="hfart"><div class="sthart"><div class="sthcourt"><i class="b1"></i><i class="b2"></i><span class="ball"></span><span class="hoop"></span></div></div><span class="hfbadge"><span class="betatag">Beta</span>Real-time</span></div>
+    <div class="hfbody"><span class="label">You control the player</span><h3>Street</h3><p>Cross people up, shoot with a meter, block and steal. 1-on-1 or 3-on-3 against legends.</p>
+    <div class="hfstats">${sa?`<span><b>${S2.w}–${S2.l}</b><small>Record</small></span><span><b>${(S2.w||0)+(S2.l||0)}</b><small>Games</small></span>`:`<span><b>1v1</b><small>or 3v3</small></span><span><b>4</b><small>Courts</small></span>`}</div>${accTag('street')?'<p class="acchead">'+accTag('street')+'</p>':''}
+    <button class="btn btn-go hfgo" id="stHomeGo">${sa?'Play Street':'Request beta access'} ${icon(ar,16)}</button></div></article>`;
+  /* MyPlayer (The Rise) */
+  const c=typeof CAR==='function'?CAR():null;const live=c&&c.stage!=='retired';
+  const rise=`<article class="hf hf-mp" id="featRise" style="--hc:#9b7bff"><div class="hfart mpart">${live?`<span class="mpnum">${c.num||0}</span>${avatarHTML({...P,signed:true,name:c.name,num:c.num},'big')}<span class="mpovr"><b>${crOvr(c)}</b><small>OVR</small></span>`:`<span class="mpnum">00</span><div class="mpghost">${icon('M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',56)}</div>`}<span class="hfbadge">Career mode</span></div>
+    <div class="hfbody"><span class="label">MyPlayer · The Rise</span><h3>${live?esc(c.name):'MyPlayer'}</h3><p>${live?`${c.pos} · ${CR_ARCH[c.arch]?CR_ARCH[c.arch].n:''} · ${esc(c.teamName||'Draft prospect')}. Season ${c.season}, age ${c.age}.`:'Create your player, get drafted, play full 5v5 games and chase rings and the Hall of Fame.'}</p>
+    <div class="hfstats">${live&&c.ss?`<span><b>${c.ss.w}–${c.ss.l}</b><small>Record</small></span><span><b>${crPer(c,'pts')}</b><small>PPG</small></span>`:`<span><b>5v5</b><small>Full games</small></span><span><b>∞</b><small>Seasons</small></span>`}</div>${accTag('rise')?'<p class="acchead">'+accTag('rise')+'</p>':''}
+    <button class="btn btn-go hfgo" id="featRiseGo">${live?'Continue your career':'Create your player'} ${icon(ar,16)}</button></div></article>`;
+  /* Stock market */
+  const mv=mkTopMovers(3);const top=mv[0];const hasM=P.mkt&&P.mkt.hold;let worth=0;try{worth=hasM?mkWorth():0}catch(e){}
+  const mkt=`<article class="hf hf-mk" id="featMkt" style="--hc:#3ddc84"><div class="hfart mkart">${top?`<div class="mkh"><b>${esc(top.s.sym)}</b><span>${esc(top.s.p.name)}</span><em class="${top.c>=0?'up':'dn'}">${top.c>=0?'▲':'▼'} ${(Math.abs(top.c)*100).toFixed(1)}%</em></div>${mkSpark(top.s.id,300,90,1)}`:''}
+    <div class="mktape">${mv.map(m=>`<span class="${m.c>=0?'up':'dn'}">${esc(m.s.sym)} ${m.c>=0?'+':''}${(m.c*100).toFixed(1)}%</span>`).join('')}</div><span class="hfbadge">New</span></div>
+    <div class="hfbody"><span class="label">Practice money · learn to invest</span><h3>Stock market</h3><p>Buy and sell shares of NBA players. Prices move every hour with ratings and hype.</p>
+    <div class="hfstats">${hasM?`<span><b>$${fmtN(Math.round(worth))}</b><small>Net worth</small></span><span><b>${Object.keys(P.mkt.hold).length}</b><small>Holdings</small></span>`:`<span><b>$10K</b><small>To start</small></span><span><b>${typeof mkStocks==='function'?mkStocks().length:''}</b><small>Players</small></span>`}</div>${accTag('market')?'<p class="acchead">'+accTag('market')+'</p>':''}
+    <button class="btn btn-go hfgo" id="mMkt">${hasM?'Open your portfolio':'Open the market'} ${icon(ar,16)}</button></div></article>`;
+  return `<div class="hfeat">${street}${rise}${mkt}</div>`}
+
+/* ---------- the whole page ---------- */
+const HJUMP=[['hs-feat','Featured'],['hs-now','Happening now'],['hs-modes','Quick play'],['hs-league','The League'],['hs-draft','Classic draft'],['hs-more','Challenges']];
+function homeHTML(w,done,winp,tick){const li=levelInfo(P.xp);const T=TPACKS[THEME_CUR||themeNow()]||TPACKS.classic;const tid=THEME_CUR||themeNow();
+  const ps=passState(),pt=passTier(),into=ps.xp-pt*PASS_XP;
+  const sec=(id,title,sub,ic,body)=>`<section class="hsec2" id="${id}"><div class="hhd"><span class="hhi">${icon(ic,18)}</span><div><h2>${title}</h2><span class="label">${sub}</span></div></div>${body}</section>`;
+  return `<section class="view home3"><div class="wrap">
+   <div class="hero hbill" data-scene="${tid}">${themeScene(tid)}<div class="hbtxt">
+     <div class="hbtop">${T[6]?`<span class="hbtheme">${(TEMO[tid]||[''])[0]} ${esc(T[6])}</span>`:''}<span class="label">${PLAYERS.length} players · 8 decades · fan-made</span></div>
+     <h1>Draft the <em>past.</em><br>Win the season.</h1>
+     <p>Draft legends from every decade, play them yourself on the street, build your own MyPlayer, or invest in today's stars.</p>
+     <div class="hbcta"><button class="btn btn-go" data-jump="hs-feat">Play now ${icon('M12 5v14M5 12l7 7 7-7',16)}</button>${wnHTML()}</div></div></div>
+   <div class="hstrip">
+     <button class="hme" onclick="openDrawer()">${avatarHTML(P)}<div><b class="${nameCls(P)}">${esc(P.signed?P.name:'Guest')}</b><span class="label">Level ${li.lvl}</span><i class="hlv"><s style="width:${(li.rem/li.need*100).toFixed(1)}%"></s></i></div></button>
+     <button class="passbar" id="passBar"><span class="label">Season pass · ${monthName()}</span><b>Tier ${pt}<small>/${PASS_N}</small></b><i><s style="width:${pt>=PASS_N?100:into/PASS_XP*100}%"></s></i></button>
+     <div class="quick" aria-label="Your record"><div><span class="label">Seasons</span><b data-c="${P.seasons}">0</b></div><div><span class="label">Titles</span><b data-c="${P.titles}">0</b></div><div><span class="label">Win %</span><b data-c="${winp}" data-f="1">0</b></div><div><span class="label">Tickets</span><b data-c="${tix()}">0</b></div></div>
+   </div>
+   <nav class="hjump" aria-label="Jump to">${HJUMP.map(([k,n])=>`<button data-jump="${k}">${n}</button>`).join('')}</nav>
+   ${sec('hs-feat','Featured','The big three','M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z',homeFeatHTML())}
+   ${sec('hs-now','Happening now','Events, daily puzzles and rewards','M13 2L3 14h9l-1 8 10-12h-9z',`${hwHomeHTML()}${growHomeHTML()}`)}
+   ${isAdminDevice()?hsec('volley','Volleyball · admins only','Only visible on your admin devices',vbHomeCard()):''}
+   <div id="hs-modes"></div>${hsec('modes','Quick play','Solo, online and daily games',`<div class="modes qp">
+     <div class="mode"><span class="glyph">${icon('M3 3v18h18M7 15l4-4 3 3 6-6',22)}</span><div><span class="label">Solo</span><h3>Season mode${accTag('season')}</h3><p>Draft eight, play 82 games against 29 teams, chase a title.</p></div><button class="btn btn-ghost" id="mSeason">Pick an era ${icon('M12 5v14M5 12l7 7 7-7',16)}</button></div>
+     <div class="mode"><span class="glyph">${icon('M4 8h16v12H4zM9 13h.01M15 13h.01M12 2v6',22)}</span><div><span class="label">Solo</span><h3>Quick vs bots${accTag('bots')}</h3><p>A fast snake draft against one to three bots, settled in best-of-seven series.</p></div><button class="btn btn-go" id="mBot">Play bots</button></div>
+     <div class="mode hot"><span class="glyph">${icon('M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20',22)}</span><div><span class="label">2–4 players</span><h3>Quick showdown${accTag('showdown')}</h3><p>Host a room, share the code, draft live and play best-of-sevens against friends.</p></div><div class="mode-row"><button class="btn btn-go" id="mHost">Host game</button><button class="btn btn-ghost" id="mJoin">Join with code</button></div></div>
+     ${(()=>{const c=dailyCfg(),D=dailyState();const dn=D.last===c.key;return `<div class="mode daily"><span class="glyph">${icon('M3 4h18v18H3zM16 2v4M8 2v4M3 10h18',22)}</span><div><span class="label">Daily challenge · ${dn?(D.won===c.key?'beaten today':'come back tomorrow'):'new today'} · streak ${D.streak}</span><h3>Beat ${esc(c.boss)}${accTag('daily')}</h3><p>Everyone gets the same ${c.era==='mix'?'all-time':ERAS[c.era].full} draft today with ${c.rr} reroll${c.rr===1?'':'s'}. Win a best-of-seven against a ${c.rating} boss.</p></div><button class="btn ${dn?'btn-ghost':'btn-go'}" id="mDaily">${dn?'Practice run':'Take the challenge'}</button></div>`})()}
+     <div class="mode"><span class="glyph">${icon('M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z',22)}</span><div><span class="label">Solo · best run ${P.gauntlet||0}/8</span><h3>The Gauntlet${accTag('gauntlet')}</h3><p>Draft once, then beat the all-star team of every decade in a row. Lose one series and the run is over.</p></div><button class="btn btn-ghost" id="mGaunt">Enter the Gauntlet</button></div>
+     <div class="mode"><span class="glyph">${icon('M6 12h4M8 10v4M15 13h.01M18 11h.01M17.3 5H6.7a4 4 0 0 0-4 3.6L2 15a3 3 0 0 0 5.1 2.1L9 15h6l1.9 2.1A3 3 0 0 0 22 15l-.7-6.4a4 4 0 0 0-4-3.6z',22)}</span><div><span class="label">60-second games</span><h3>Mini-games${accTag('mini')}</h3><p>Seven quick games: Buzzer Beater, Who Am I?, Rank 'em, Lightning round, Higher or lower and more.</p></div><button class="btn btn-ghost" id="mMini">Play mini-games</button></div>
+   </div>`)}
+   <div id="hs-league"></div>${hsec('car','The League','Run a franchise, solo or with friends',lgHomeCard())}
+   <div class="marquee" aria-hidden="true"><div>${tick}${tick}</div></div>
+   <div id="hs-draft"></div>${hsec('draft','Classic draft','Pick an era, draft eight, play a full season',`<div class="section-h" id="eraHead" style="margin-top:0"><h2>Choose your era</h2><span class="label">Each decade plays at its own pace</span></div>
+   <div class="eras" id="eras">${Object.entries(ERAS).map(([k,e],i)=>`<button class="era ${S.era===k?'sel':''}" data-era="${k}" data-num="${e.n}" style="--c1:${e.c1};--c2:${e.c2};animation:deal .5s ${i*40}ms both">
+     <span class="check">${icon('M5 12l5 5L20 7',14)}</span><span class="yrs">${e.yrs}</span><h3>${e.full}</h3><small>${e.tag}</small></button>`).join('')}</div>
+   <div class="setup">
+     <div><span class="label">Draft mode</span><div class="seg" id="segMode">${Object.entries(MODES).map(([k,m])=>`<button data-v="${k}" class="${S.mode===k?'on':''}">${m.n}</button>`).join('')}<span class="pill"></span></div><div class="hint" id="modeHint">${MODES[S.mode].h}</div></div>
+     <div><span class="label">League strength</span><div class="seg" id="segDiff">${Object.entries(DIFF).map(([k,d])=>`<button data-v="${k}" class="${S.diff===k?'on':''}">${d.n}</button>`).join('')}<span class="pill"></span></div><div class="hint">Opponents average ${DIFF[S.diff].m} overall</div></div>
+     <button class="btn btn-go btn-big" id="startBtn">Start draft ${icon('M5 12h14M13 6l6 6-6 6')}</button>
+   </div>`)}
+   <div id="hs-more"></div>${hsec('more','Challenges and history','Weekly challenge and your recent seasons',`<div class="side-grid">
+     <div class="card weekly"><span class="label">Weekly challenge · resets Monday</span><h3>${esc(w.t)}</h3>
+       <div class="row"><span class="tag">${ERAS[w.era].full}</span><span class="tag">${MODES[w.mode].n}</span><span class="tag">${DIFF[w.diff].n}</span>${done?`<span class="tag done">${icon('M5 12l5 5L20 7',12)} Completed</span>`:''}</div>
+       <div class="row"><button class="btn btn-go" id="weeklyBtn">Play challenge</button></div></div>
+     <div class="card"><span class="label">Recent seasons</span>${P.history.length?`<ul class="hist">${P.history.slice(0,3).map(histRow).join('')}</ul>`:`<p style="color:var(--mute);margin:10px 0 0">No seasons yet. Your last three runs will show here with their record and finish.</p>`}</div>
+   </div>`)}
+   </div></section>`}
+function homeBind(){$$('#app [data-jump]').forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.jump);if(!t)return;const d=t.nextElementSibling;if(d&&d.tagName==='DETAILS'&&!d.open)d.open=true;
+    const y=t.getBoundingClientRect().top+scrollY-84;window.scrollTo({top:y,behavior:RM?'auto':'smooth'})});
+  const r=$('#featRiseGo');if(r)r.onclick=()=>{const c=CAR();if(c&&c.stage!=='retired')return crResume();if(typeof accGate==='function'&&!accGate('rise'))return;crCreateScreen()};
+  const m=$('#mMkt');if(m)m.onclick=()=>mkOpen(P.mkt&&Object.keys((P.mkt||{}).hold||{}).length?'portfolio':null)}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
