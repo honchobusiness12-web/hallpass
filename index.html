@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793590187">
+<meta name="hp-build" content="1793627129">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -5180,7 +5180,7 @@ function lgCanSign(L,ti,i){const t=L.teams[ti];if(t.roster.length>=LG.MAX)return
 function lgCapTradeOk(L,ai,bi,ga,gb){if(!L.cap)return true;const A=L.teams[ai],B=L.teams[bi];const out=x=>x.reduce((s,i)=>s+lgSal(L,i),0);
   const pa=lgPayroll(L,A)-out(ga)+out(gb),pb=lgPayroll(L,B)-out(gb)+out(ga);
   if(pa>LG_CAP&&out(gb)>out(ga)*1.25+2)return false;if(pb>LG_CAP&&out(ga)>out(gb)*1.25+2)return false;return true}
-const money=v=>`$${Math.round(v)}M`;
+const money=v=>Math.abs(v)>=1000?(v<0?'-$':'$')+fmtN(Math.abs(v)*1e6):`$${Math.round(v)}M`;
 
 /* ---------- offseason: training points and re-signing ---------- */
 function lgOffseasonStart(L){L.phase='offseason';const tp={},exp=[];
@@ -7025,7 +7025,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793590187';
+const BUILD='1793627129';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -10621,7 +10621,7 @@ function mkPrice(id,t){const C=mkCfg();if(C.set[id]!=null)return Math.max(.01,+C
   const days=Math.max(0,hrs/24);const drift=Math.pow(1+(+C.drift||0)/100,days/30);
   return Math.max(.05,mkFair(p)*Math.exp(n*v)*ev*drift*(+C.adj[id]||1))}
 function mkEvMatch(e,p){const f=e.f||{};if(f.id&&f.id!==p.id)return false;if(f.era&&f.era!==p.era)return false;if(f.pos&&f.pos!==p.pos)return false;return true}
-const mk$=v=>'$'+(Math.abs(v)>=1e6?(v/1e6).toFixed(2)+'M':Math.abs(v)>=1e4?Math.round(v).toLocaleString():v.toFixed(2));
+const mk$=v=>{v=+v||0;const a=Math.abs(v);return(v<0?'-$':'$')+(a>=1e6?fmtN(a):a>=1e4?Math.round(a).toLocaleString():a.toFixed(2))};
 const mkPct=v=>(v>=0?'+':'')+(v*100).toFixed(2)+'%';
 function MKS(){const C=mkCfg();if(!P.mkt||P.mkt.season!==C.season){P.mkt={season:C.season,cash:+C.start||10000,hold:{},tx:[],worth:+C.start||10000,best:0,learn:[],watch:[],divDay:dayKey(),gifts:[]}}const m=P.mkt;m.hold=m.hold||{};m.tx=m.tx||[];m.learn=m.learn||[];m.watch=m.watch||[];m.gifts=m.gifts||[];return m}
 function mkWorth(){const m=MKS();let w=m.cash;for(const id in m.hold){const h=m.hold[id];if(h&&h.n>0)w+=h.n*mkPrice(id)}return w}
