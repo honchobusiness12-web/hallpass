@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793584570">
+<meta name="hp-build" content="1793590187">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -2208,6 +2208,175 @@ body.gamefs .fbgame .wrap{max-width:none;padding:0}body.gamefs .fbstage{border-r
 .fbonst .spin{width:22px;height:22px;border-radius:50%;border:3px solid rgba(255,255,255,.15);border-top-color:var(--amber,#ffd84a);animation:fbspin 1s linear infinite;flex:none;margin-top:2px}
 @keyframes fbspin{to{transform:rotate(360deg)}}
 .fbcode{font:900 40px/1 "Inter Display",Inter,sans-serif;letter-spacing:.25em;margin:4px 0 6px;color:var(--amber,#ffd84a)}
+/* ======================= staff consoles ======================= */
+body.cslon .foot{display:none}
+.csl{--ca:var(--amber);--cag:rgba(255,181,71,.16);padding:0!important;display:grid;grid-template-columns:256px minmax(0,1fr);min-height:calc(100vh - 64px);animation:none}
+.csl-mod{--ca:#6cb6ff;--cag:rgba(108,182,255,.16)}.csl-support{--ca:#4fd18b;--cag:rgba(79,209,139,.16)}
+.cslside{position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:16px 12px;border-right:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));scrollbar-width:thin}
+.cslbrand{display:flex;align-items:center;gap:10px;padding:4px 6px 8px}.cslbrand b{display:block;font-family:var(--f-display);font-size:19px;letter-spacing:.02em;line-height:1.1}.cslbrand small{color:var(--mute);font-size:12px}
+.cslmark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:var(--ca);background:var(--cag);border:1px solid color-mix(in srgb,var(--ca) 40%,transparent);flex:none}
+.cslsearch{display:flex;align-items:center;gap:8px;width:100%;padding:9px 10px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--mute);font:inherit;font-size:13.5px;cursor:pointer;text-align:left}
+.cslsearch span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cslsearch:hover{border-color:color-mix(in srgb,var(--ca) 50%,transparent);color:var(--text)}
+kbd{font-family:var(--f-mono);font-size:10.5px;padding:2px 6px;border-radius:6px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--mute)}
+.cslnav{display:flex;flex-direction:column;gap:2px;flex:1}.cslgrp{display:grid;gap:1px;margin-bottom:6px}
+.cslgl{display:block;padding:8px 10px 3px;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);opacity:.75}
+.cslnb{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border-radius:10px;border:1px solid transparent;background:none;color:var(--mute);font:inherit;font-size:14px;font-weight:600;text-align:left;cursor:pointer;transition:background .12s,color .12s}
+.cslnb span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cslnb svg{opacity:.75;flex:none}
+.cslnb:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.cslnb.on{color:var(--text);background:linear-gradient(90deg,var(--cag),transparent);border-color:color-mix(in srgb,var(--ca) 35%,transparent);box-shadow:inset 3px 0 0 var(--ca)}.cslnb.on svg{color:var(--ca);opacity:1}
+.cslbd{font-style:normal;font-size:11px;font-weight:800;min-width:20px;height:20px;padding:0 6px;border-radius:10px;display:grid;place-items:center;background:#ff5c5c;color:#fff}
+.cslswr{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:8px}
+.cslsw{padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:none;color:var(--text);font:inherit;font-size:13px;font-weight:600;text-align:left;cursor:pointer}.cslsw:hover{border-color:var(--mute)}
+.cslsw.admin{box-shadow:inset 3px 0 0 var(--amber)}.cslsw.mod{box-shadow:inset 3px 0 0 #6cb6ff}.cslsw.support{box-shadow:inset 3px 0 0 #4fd18b}
+.cslback{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:10px;border:none;background:rgba(255,255,255,.04);color:var(--mute);font:inherit;font-size:13px;font-weight:600;cursor:pointer}.cslback:hover{color:var(--text)}
+.cslmain{min-width:0;padding:18px clamp(14px,2.4vw,32px) 60px;display:flex;flex-direction:column;gap:14px}
+.cslhead{display:flex;align-items:flex-start;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.cslcrumb{flex:1;min-width:0}.cslcrumb small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ca)}
+.cslcrumb h1{font-family:var(--f-display);font-size:clamp(26px,3vw,34px);line-height:1.05;margin:2px 0 4px;letter-spacing:.01em}.cslcrumb p{margin:0;color:var(--mute);font-size:14px}
+.cslstat{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;padding-top:4px}
+.cslpill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:12px;font-weight:700;color:var(--mute)}
+.cslpill b{color:var(--text)}.cslpill i{width:7px;height:7px;border-radius:50%;background:var(--mute)}.cslpill.ok i{background:#4fd18b;box-shadow:0 0 8px #4fd18b}.cslpill.bad{color:#ff8a8a;border-color:rgba(255,92,92,.4)}.cslpill.bad i{background:#ff5c5c}.cslpill.amb{color:var(--amber);border-color:rgba(255,181,71,.45)}
+.cslmenu{display:none;width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);place-items:center;flex:none;cursor:pointer}
+.cslscrim{display:none}
+.csl .cslbody.admmain{padding:0}
+.csl .card{border-radius:16px}
+.csl .mtbar{margin:0}
+/* overview strip */
+.cslattn{column-span:all;display:grid;gap:12px;margin-bottom:14px;break-inside:avoid}
+.cslhi h2{font-family:var(--f-display);font-size:24px;margin:0}.cslhi p{margin:2px 0 0;color:var(--mute)}
+.cslattg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.cslatt{display:grid;text-align:left;gap:2px;padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--text);font:inherit;cursor:pointer;transition:transform .15s,border-color .15s}
+.cslatt b{font-family:var(--f-display);font-size:30px;line-height:1}.cslatt span{font-weight:700}.cslatt small{color:var(--mute);font-size:12px}
+.cslatt:hover{transform:translateY(-2px);border-color:var(--mute)}.cslatt.hot{border-color:rgba(255,92,92,.5);background:linear-gradient(160deg,rgba(255,92,92,.14),transparent)}.cslatt.hot b{color:#ff8a8a}
+/* pages */
+.cslpage{columns:auto!important;display:grid;gap:14px}
+.cslcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:14px;align-items:start}
+.cslkpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.cslkpi{display:grid;gap:2px;text-align:left;padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font:inherit;cursor:pointer}.cslkpi small{color:var(--mute);font-size:12px;font-weight:700}.cslkpi b{font-family:var(--f-display);font-size:30px}
+.cslkpi:hover{border-color:color-mix(in srgb,var(--ca) 50%,transparent)}
+.cslrow{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:14px;flex-wrap:nowrap;min-width:0}.cslrow:first-of-type{border-top:none}.cslrow.wrap{flex-wrap:wrap}
+.cslrow .hint{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}.cslrow.wrap .hint{white-space:normal}
+.cslra{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.cslkv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0}.cslkv>div{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line)}.cslkv small{display:block;color:var(--mute);font-size:11px}.cslkv b{font-size:15px}
+.warnc{color:#ff8a8a}
+.cslwar{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}.cslwar>span:last-child{text-align:right}
+/* player side panel */
+.cslpeek{position:fixed;top:64px;right:0;bottom:0;width:min(420px,100%);z-index:60;background:var(--ink,#0b1020);border-left:1px solid var(--line);box-shadow:-30px 0 60px -20px rgba(0,0,0,.7);transform:translateX(105%);transition:transform .22s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.cslpeek.on{transform:none}
+.cslpkh{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cslx{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:none;color:var(--text);display:grid;place-items:center;cursor:pointer}
+.cslpkb{padding:16px;overflow:auto;display:grid;gap:10px;align-content:start}
+.cslpkid{display:flex;gap:12px;align-items:center}.cslpkid b{font-size:20px}.cslpkid small{display:block;color:var(--mute)}
+.socav.big{width:52px;height:52px;font-size:22px}
+.cslwarn{margin:0;padding:8px 10px;border-radius:10px;background:rgba(255,92,92,.12);border:1px solid rgba(255,92,92,.35);color:#ffb0b0;font-weight:700;font-size:13px}
+.cslacts{display:flex;flex-wrap:wrap;gap:6px}
+.cslpkchat{display:grid;gap:4px;max-height:260px;overflow:auto;padding:8px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid var(--line);font-size:13px}
+.cslpkchat time{color:var(--mute);font-family:var(--f-mono);font-size:11px;margin-right:6px}.cslpkchat .del{opacity:.5;text-decoration:line-through}
+/* search palette */
+.cslpal{position:fixed;inset:0;z-index:300;background:rgba(5,8,18,.6);backdrop-filter:blur(3px);display:flex;justify-content:center;align-items:flex-start;padding:12vh 14px 14px;animation:fadeIn .12s both}
+.cslpalbox{width:min(620px,100%);border-radius:18px;background:var(--ink-2,#121a33);border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px -20px rgba(0,0,0,.8);overflow:hidden}
+.cslpalin{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);color:var(--mute)}
+.cslpalin input{flex:1;background:none;border:none;outline:none;color:var(--text);font:inherit;font-size:17px;padding:0}
+.cslpalres{max-height:min(420px,56vh);overflow:auto;padding:6px}
+.cslpalg{display:block;padding:8px 10px 4px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cslpali{display:flex;align-items:center;gap:10px;width:100%;padding:9px 10px;border-radius:10px;border:none;background:none;color:var(--text);font:inherit;text-align:left;cursor:pointer}
+.cslpali b{display:block;font-size:14.5px}.cslpali small{color:var(--mute);font-size:12px}.cslpali svg{color:var(--mute)}
+.cslpali.on{background:rgba(255,255,255,.07)}.cslpali.on svg{color:var(--amber)}
+.cslpalft{display:flex;gap:14px;padding:8px 14px;border-top:1px solid var(--line);color:var(--mute);font-size:11.5px}
+/* support inbox */
+.cslbody.cslfill{min-height:0}
+.cslinbox{display:grid;grid-template-columns:minmax(260px,360px) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:calc(100vh - 230px);background:rgba(255,255,255,.015)}
+.cslil{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+.cslilf{display:grid;gap:6px;padding:10px;border-bottom:1px solid var(--line)}.cslilf input{width:100%;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font:inherit;font-size:13.5px}
+.cslill{overflow:auto;flex:1;max-height:calc(100vh - 330px)}
+.cslti{display:flex;gap:10px;align-items:flex-start;width:100%;padding:11px 12px;border:none;border-bottom:1px solid var(--line);background:none;color:var(--text);font:inherit;text-align:left;cursor:pointer}
+.cslti:hover{background:rgba(255,255,255,.03)}.cslti.on{background:var(--cag);box-shadow:inset 3px 0 0 var(--ca)}
+.csltk{font-size:16px;line-height:1.3}.csltt{flex:1;min-width:0;display:grid;gap:1px}.csltt b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.csltt small{color:var(--mute);font-size:12px}
+.csltt em{font-style:normal;color:var(--mute);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cslti .fbst{font-style:normal;font-size:10px}
+.cslir{min-width:0;overflow:auto;max-height:calc(100vh - 230px)}
+.csltr{padding:18px 20px;display:grid;gap:12px}.csltr h2{margin:0;font-size:22px}
+.cslth{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.cslwho{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.cslwho .hint{margin:0}
+.cslmsg{padding:12px 14px;border-radius:14px;white-space:pre-wrap;line-height:1.5;font-size:14.5px;max-width:720px}
+.cslmsg.them{background:rgba(255,255,255,.05);border:1px solid var(--line);border-top-left-radius:4px}
+.cslmsg.us{background:color-mix(in srgb,var(--ca) 12%,transparent);border:1px solid color-mix(in srgb,var(--ca) 35%,transparent);border-top-right-radius:4px;justify-self:end}
+.cslmsg small{display:block;color:var(--mute);font-size:11.5px;margin-bottom:4px}
+.cslnote{padding:10px 12px;border-radius:12px;border:1px dashed rgba(255,181,71,.4);background:rgba(255,181,71,.05)}.cslnote textarea{margin:6px 0}
+.cslcomp{display:grid;gap:8px;padding-top:6px;border-top:1px solid var(--line)}
+.cslcan{display:flex;gap:6px;flex-wrap:wrap}
+.cslempty{display:grid;place-items:center;align-content:center;gap:8px;height:100%;min-height:300px;color:var(--mute)}
+.cslcanrow{display:flex;gap:8px;align-items:flex-start;margin:6px 0}.cslcanrow textarea{flex:1}
+/* bracket */
+.fnlbr{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px}
+.fnlrd{display:flex;flex-direction:column;justify-content:space-around;gap:10px;min-width:190px}
+.fnlm{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.03)}
+.fnlm>div:not(.fnlma){display:flex;justify-content:space-between;gap:8px;padding:7px 10px;font-size:13.5px}.fnlm>div+div:not(.fnlma){border-top:1px solid var(--line)}
+.fnlm .w{background:rgba(79,209,139,.12);font-weight:800}.fnlm .w b{color:#4fd18b}
+.fnlm.st-live{border-color:rgba(255,92,92,.55);box-shadow:0 0 0 1px rgba(255,92,92,.25)}.fnlm.st-dispute{border-color:var(--amber)}
+.fnlma{display:flex;gap:4px;padding:6px;border-top:1px solid var(--line);flex-wrap:wrap}
+@media (max-width:1100px){.csl{grid-template-columns:220px minmax(0,1fr)}}
+@media (max-width:900px){
+  .csl{grid-template-columns:minmax(0,1fr)}
+  .cslside{position:fixed;top:0;left:0;bottom:0;height:auto;width:min(290px,86vw);z-index:70;background:var(--ink,#0b1020);transform:translateX(-102%);transition:transform .22s;box-shadow:30px 0 60px -20px rgba(0,0,0,.7);padding-top:max(16px,env(safe-area-inset-top))}
+  .csl.navopen .cslside{transform:none}.csl.navopen .cslscrim{display:block;position:fixed;inset:0;z-index:65;background:rgba(0,0,0,.5)}
+  .cslmenu{display:grid}.cslstat{display:none}
+  .cslinbox{grid-template-columns:minmax(0,1fr)}.cslil{border-right:none}.cslill{max-height:280px}.cslir{max-height:none;border-top:1px solid var(--line)}
+  .cslpeek{top:0}
+}
+/* ======================= Live: Game Night, Friday Night Live, crew wars, room chat ======================= */
+.lvdot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 0 0 rgba(255,77,77,.6);animation:lvpulse 1.6s infinite;vertical-align:middle;margin-right:4px}
+@keyframes lvpulse{70%{box-shadow:0 0 0 8px rgba(255,77,77,0)}100%{box-shadow:0 0 0 0 rgba(255,77,77,0)}}
+.lvhrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px;margin-bottom:14px}
+.lvh{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(120deg,rgba(255,255,255,.05),rgba(255,255,255,.01));color:var(--text);font:inherit;text-align:left;cursor:pointer;transition:transform .15s,border-color .15s}
+.lvh:hover{transform:translateY(-2px);border-color:var(--mute)}.lvh small{display:block;color:var(--mute);font-size:12px;font-weight:700}.lvh b{font-size:16px}
+.lvh.fnl{background:linear-gradient(120deg,rgba(255,77,77,.16),rgba(255,181,71,.06));border-color:rgba(255,77,77,.35)}.lvh.fnl.live{border-color:#ff4d4d;box-shadow:0 0 24px -8px rgba(255,77,77,.6)}
+.lvh.gn{background:linear-gradient(120deg,rgba(63,169,255,.14),rgba(255,255,255,.02));border-color:rgba(63,169,255,.35)}
+.lvhic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:rgba(0,0,0,.25);flex:none}
+.hfnote.cwnote{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:1px solid rgba(155,140,255,.4);background:linear-gradient(120deg,rgba(155,140,255,.16),rgba(255,255,255,.02));color:var(--text);font:inherit;cursor:pointer;text-align:left}.hfnote.cwnote span{color:var(--mute);font-size:13px}
+/* game night */
+.gnbar{display:grid;gap:6px;margin-bottom:6px}.gnbar .hint{margin:0}
+.gnsec{font-family:var(--f-display);font-size:20px;margin:18px 0 8px;display:flex;align-items:center;gap:6px}
+.gngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
+.gncard{display:grid;gap:8px;align-content:start}.gncard.st-in{border-color:rgba(255,77,77,.4)}
+.gnhd{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px}
+.gnst{font-weight:800;color:var(--mute);letter-spacing:.04em}.gnst.in{color:#ff6b6b}.gnst i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff4d4d;margin-right:5px;animation:lvpulse 1.6s infinite}
+.gntv{color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%}
+.gnt{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;background:linear-gradient(90deg,color-mix(in srgb,var(--tc) 22%,transparent),transparent 70%);border-left:3px solid var(--tc)}
+.gnt img{width:34px;height:34px;object-fit:contain}.gnt i{width:34px;text-align:center;font-style:normal;font-weight:900;font-size:12px}
+.gnt span{flex:1;min-width:0}.gnt b{display:block;font-size:15px}.gnt small{color:var(--mute);font-size:11.5px}.gnt em{font-style:normal;font-family:var(--f-display);font-size:26px;min-width:44px;text-align:right}
+.gnt.lead em{color:#fff}.gnt.lost{opacity:.6}
+.gnlast{margin:0;font-size:13px;color:var(--mute);padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.04)}
+.gnpick .label{display:block;margin-bottom:6px}.gnpb{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.gnpb button{padding:9px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);font:inherit;font-weight:800;cursor:pointer}.gnpb button.on{border-color:var(--amber);background:rgba(255,181,71,.16);color:var(--amber)}
+.gnsplit{height:6px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden;margin:8px 0 2px}.gnsplit i{display:block;height:100%;background:var(--amber)}
+.gnmine{margin:0;font-size:13px;color:var(--mute)}.gnmine.won b{color:#4fd18b}.gnmine.won::after{content:' ✓ +150 🎟'}.gnmine.lost{opacity:.7}
+.gnroom{justify-self:start}
+.gnroomg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px;margin-top:10px;align-items:start}
+.gnbig{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;padding:6px 0 10px}
+.gnbs{display:grid;justify-items:center;gap:2px;text-align:center}.gnbs img{width:60px;height:60px;object-fit:contain}.gnbs b{font-size:15px}.gnbs em{font-style:normal;font-family:var(--f-display);font-size:44px;line-height:1}
+.gnbm{display:grid;justify-items:center;gap:2px;text-align:center}.gnbm b{font-size:14px}.gnbm small{color:var(--mute);font-size:12px}
+.gnplays{display:grid;gap:4px;margin-top:10px;max-height:340px;overflow:auto}.gnplays>div{display:flex;gap:8px;font-size:13px;padding:5px 8px;border-radius:8px;background:rgba(255,255,255,.03)}
+.gnplays time{color:var(--mute);font-family:var(--f-mono);font-size:11px;white-space:nowrap;min-width:58px}.gnplays .sc{background:rgba(255,181,71,.1);border-left:3px solid var(--amber)}
+/* room chat */
+.rc{display:grid;gap:8px}.rcfeed{height:260px;overflow:auto;display:grid;align-content:start;gap:3px;padding:8px;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid var(--line)}.rc.tall .rcfeed{height:380px}
+.rcm{font-size:14px;line-height:1.4;padding:3px 4px;border-radius:6px}.rcm.me{background:rgba(255,181,71,.07)}.rcm time{float:right;color:var(--mute);font-size:10.5px;font-family:var(--f-mono)}.rcm .cmn{font-weight:800}
+.rcin{display:flex;gap:6px}.rcin input{flex:1;min-width:0;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font:inherit}
+/* crew wars */
+.cwcard{background:radial-gradient(ellipse at 0 0,rgba(155,140,255,.18),transparent 60%),var(--panel,rgba(255,255,255,.03))}
+.cwvs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin:8px 0}.cwside{display:grid;gap:2px;text-align:center}.cwside b{font-family:var(--f-display);font-size:40px;line-height:1}.cwside small{color:var(--mute);font-size:12.5px}.cwside i{font-style:normal;opacity:.7}
+.cwside.me b{color:var(--cc,#ffb547)}.cwside:not(.me) b{color:var(--oc,#fff)}.cwv{font-weight:900;color:var(--mute)}
+.cwbar{height:10px;border-radius:5px;background:rgba(255,255,255,.12);overflow:hidden}.cwbar i{display:block;height:100%;background:linear-gradient(90deg,var(--cc,#ffb547),#ffd99a);transition:width .6s}
+.cwlead{margin:8px 0 0;font-size:13px;color:var(--mute)}.cwlead.up::first-letter{color:#4fd18b}
+.cwlast{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:13.5px}.cwlast.won span{color:#ffd84a;font-weight:800}
+/* friday night live */
+.fnlhero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;background:radial-gradient(ellipse at 100% 0,rgba(255,77,77,.25),transparent 55%),radial-gradient(ellipse at 0 100%,rgba(255,181,71,.14),transparent 55%),var(--panel,rgba(255,255,255,.03));border-color:rgba(255,77,77,.35)}
+.fnlhero h2{font-family:var(--f-display);font-size:clamp(30px,4vw,44px);margin:2px 0 6px;text-transform:uppercase;letter-spacing:.02em}.fnlhero p{margin:0;color:var(--mute);max-width:560px}
+.fnlch{color:#ffd84a;font-size:20px}
+.fnlcd{display:grid;justify-items:center;gap:6px;text-align:center}.fnlcd b{font-family:var(--f-display);font-size:40px;line-height:1}.fnlcd small{color:var(--mute);font-size:12px}
+.fnlmy{border-color:var(--amber);background:linear-gradient(120deg,rgba(255,181,71,.16),rgba(255,255,255,.02))}.fnlmy h3{margin:2px 0 8px;font-size:24px}
+.fnlm.mine{box-shadow:0 0 0 2px var(--amber)}
+.fnlnames{display:flex;flex-wrap:wrap;gap:6px}.fnlnames span{padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.06);font-size:13px}
+@media (max-width:760px){.gnroomg{grid-template-columns:minmax(0,1fr)}.fnlhero{grid-template-columns:minmax(0,1fr)}.gnbs em{font-size:34px}.gnbs img{width:44px;height:44px}}
 </style>
 
 </head>
@@ -6856,7 +7025,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793584570';
+const BUILD='1793590187';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -10753,7 +10922,7 @@ function homeHTML(w,done,winp,tick){const li=levelInfo(P.xp);const T=TPACKS[THEM
    </div>
    <nav class="hjump" aria-label="Jump to">${HJUMP.map(([k,n])=>`<button data-jump="${k}">${n}</button>`).join('')}</nav>
    ${sec('hs-feat','Featured','The big three','M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z',homeFeatHTML())}
-   ${sec('hs-now','Happening now','Quests, events, daily puzzles and rewards','M13 2L3 14h9l-1 8 10-12h-9z',`${qCardHTML()}${hwHomeHTML()}${growHomeHTML()}`)}
+   ${sec('hs-now','Happening now','Quests, events, daily puzzles and rewards','M13 2L3 14h9l-1 8 10-12h-9z',`${typeof liveHomeHTML==='function'?liveHomeHTML():''}${qCardHTML()}${hwHomeHTML()}${growHomeHTML()}`)}
    ${isAdminDevice()?hsec('volley','Volleyball · admins only','Only visible on your admin devices',vbHomeCard()):''}
    <div id="hs-modes"></div>${hsec('modes','Quick play','Football, solo, online and daily games',`${fbHomeBanner()}<div class="modes qp">
      <div class="mode"><span class="glyph">${icon('M3 3v18h18M7 15l4-4 3 3 6-6',22)}</span><div><span class="label">Solo</span><h3>Season mode${accTag('season')}</h3><p>Draft eight, play 82 games against 29 teams, chase a title.</p></div><button class="btn btn-ghost" id="mSeason">Pick an era ${icon('M12 5v14M5 12l7 7 7-7',16)}</button></div>
@@ -11838,6 +12007,364 @@ setInterval(()=>{try{chatPrune()}catch(e){}},30000);
 async function admBetaList(){const el=$('#adxBl');if(!el)return;const r=await admRpc('admin_beta_list');if(!$('#adxBl'))return;const L=r.data||[];
   el.innerHTML=L.length?L.map(s=>`<div class="socrow"><span class="socav ${s.online?'on':''}">${esc((s.name||'?')[0])}</span><div class="socn"><b><button class="cmn" data-prof="${s.pid}">${esc(s.name)}</button> ${roleBadge('beta',true)}</b><small>ID ${s.user_no||'–'} · since ${new Date(s.created_at).toLocaleDateString()}</small></div><button class="mini warn" data-adxbrm="${s.pid}">Remove</button></div>`).join(''):'<p class="hint">No beta testers yet.</p>';
   el.querySelectorAll('[data-prof]').forEach(b=>b.onclick=()=>openProfile({pid:b.dataset.prof}));el.querySelectorAll('[data-adxbrm]').forEach(b=>b.onclick=async()=>{await admRpc('admin_set_beta',{p_pid:b.dataset.adxbrm,p_on:false});admBetaList()})}
+
+/* ======================= STAFF CONSOLES: one look for the Control Room, the mod panel and Support =======================
+   A full-height console: a left rail with grouped pages and live counts, a search box that finds any page,
+   action or player (Ctrl/⌘ K), a header that says where you are and what's live, and a player side panel. */
+const CSL={counts:null,countsAt:0,iv:0,pal:null,peek:null};
+const CSL_IC={inbox:'M22 12h-6l-2 3h-4l-2-3H2M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z',
+  crews:'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
+  fnl:'M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z',gn:'M2 7h20v13H2zM17 2l-5 5-5-5',home:'M3 12l9-9 9 9M5 10v10h14V10',
+  search:'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3',menu:'M3 6h18M3 12h18M3 18h18',x:'M18 6L6 18M6 6l12 12'};
+/* the Control Room, reorganized: every existing page keeps working, it just lives somewhere that makes sense */
+const CSL_ADM_GROUPS=[['Home',['overview','inbox']],['People',['players','online','staff','supporters','codes','me']],['Community',['chatadm','safety','anticheat','tickets','crews']],
+  ['Content',['post','events','fnl','gamenight','themes','music','sharecfg']],['Game',['access','quests','ranked','street','boards','market','shopadm','volley']],['Insights',['growth','activity','db']],['System',['tools','device']]];
+const CSL_DESC={overview:'What needs you right now, and how the game is doing.',inbox:'Reports, tickets, anti-cheat flags and bracket disputes, all in one place.',players:'Find anyone, edit their profile, message or gift them.',online:'Everyone with the game open right now.',
+  staff:'Moderators, support team and beta testers.',supporters:'Memberships and gifts.',codes:'Promo codes for XP, titles and more.',me:'Your own profile and MyPlayer.',chatadm:'Global chat, AutoMod and moderation.',safety:'Rules, bans and timeouts.',
+  anticheat:'Scores the game flagged as suspicious.',tickets:'Ideas, questions and bug reports from players.',crews:'Every crew, this week\'s Crew Wars and renames.',post:'Updates and posts that pop up for everyone.',events:'XP events, the message of the day and the daily boss.',
+  fnl:'The weekly live Street bracket: schedule, bracket and disputes.',gamenight:'Picks on real NBA and NFL games.',themes:'Seasonal looks for the whole site.',music:'The soundtrack.',sharecfg:'How share cards look.',access:'Who can play each mode.',quests:'Daily and weekly quests.',
+  ranked:'Street ranked seasons and rewards.',street:'Street settings.',boards:'Leaderboards, clearing and removing scores.',market:'The stock market.',shopadm:'Shop sales, featured and hidden items.',volley:'Volleyball (owners only).',growth:'Invites and new players.',activity:'Everything happening, live.',db:'Totals and charts.',
+  tools:'Shortcuts for testing on this device.',device:'This device\'s admin key.',home:'Open reports, muted players and what chat looks like right now.',live:'Global chat as it happens. Click a name to see their history.',reports:'Player reports and AutoMod catches.',muted:'Who is muted and for how long.',lookup:'Look anyone up by name or ID.',settings:'Pause, slow mode and banned words.',log:'Every moderator action.',canned:'Your quick replies.'};
+function cslKind(){const s=$('#app > section.csl');return s?s.dataset.kind:null}
+function cslCan(k){return k==='admin'?!!(ME&&ME.admin):k==='mod'?isModMe():k==='support'?isSupportMe():false}
+/* ---------- the shell ---------- */
+function cslShell(o){const kind=o.kind;const nav=o.groups.map(([g,items])=>`<div class="cslgrp"><span class="cslgl">${esc(g)}</span>${items.map(([k,n,ic,bd])=>`<button ${o.attr}="${k}" class="cslnb ${o.cur===k?'on':''}">${icon(ic||CSL_IC.home,16)}<span>${esc(n)}</span>${bd?`<i class="cslbd">${bd>99?'99+':bd}</i>`:''}</button>`).join('')}</div>`).join('');
+  const sw=[['admin','Control Room','#admin'],['mod','Mod panel','mod'],['support','Support','support']].filter(([k])=>k!==kind&&cslCan(k)).map(([k,n])=>`<button class="cslsw ${k}" data-cslsw="${k}">${esc(n)}</button>`).join('');
+  return `<section class="view csl csl-${kind}" data-kind="${kind}"><aside class="cslside" id="cslSide"><div class="cslbrand"><span class="cslmark">${icon(kind==='admin'?'M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z':kind==='mod'?'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z':'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z',18)}</span><div><b>${esc(o.title)}</b><small>${esc(o.sub)}</small></div></div>
+    <button class="cslsearch" data-cslk>${icon(CSL_IC.search,15)}<span>Search pages, players…</span><kbd>${/Mac|iP/.test(navigator.platform)?'⌘':'Ctrl'} K</kbd></button>
+    <nav class="cslnav">${nav}</nav>${sw?`<div class="cslswr"><span class="cslgl">Switch to</span>${sw}</div>`:''}<button class="cslback" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6',15)} Back to the game</button></aside>
+    <div class="cslscrim" data-cslclose></div>
+    <main class="cslmain"><header class="cslhead"><button class="cslmenu" data-cslmenu aria-label="Menu">${icon(CSL_IC.menu,18)}</button><div class="cslcrumb"><small>${esc(o.group||o.title)}</small><h1>${esc(o.page||'')}</h1>${o.desc?`<p>${esc(o.desc)}</p>`:''}</div><div class="cslstat" id="cslStat">${cslStatHTML(kind)}</div></header>
+    ${o.top||''}<div class="${o.bodyCls||'cslbody'}" ${o.bodyId?`id="${o.bodyId}"`:''}>${o.body||''}</div></main><div class="cslpeek" id="cslPeek"></div></section>`}
+function cslStatHTML(kind){const c=(LIVE.feed||{}).cfg||{};const n=CSL.counts||{};const pills=[];
+  pills.push(`<span class="cslpill ${DB.ok?'ok':'bad'}"><i></i>${DB.ok?'Live':'Offline'}</span>`);
+  if(n.online!=null)pills.push(`<span class="cslpill"><b>${n.online}</b> online</span>`);
+  if(kind==='admin'&&c.maint&&c.maint.on)pills.push(`<span class="cslpill bad"><i></i>Maintenance on</span>`);
+  if(kind==='admin'&&c.xp>1&&Date.now()<c.xpUntil)pills.push(`<span class="cslpill amb">${c.xp}× XP</span>`);
+  if(kind!=='admin'&&CSL.chat&&CSL.chat.paused)pills.push(`<span class="cslpill bad"><i></i>Chat paused</span>`);
+  return pills.join('')}
+function cslBind(){$$('[data-cslk]').forEach(b=>b.onclick=()=>cslPalette());$$('[data-cslmenu]').forEach(b=>b.onclick=()=>$('#app > .csl').classList.toggle('navopen'));$$('[data-cslclose]').forEach(b=>b.onclick=()=>$('#app > .csl').classList.remove('navopen'));
+  $$('[data-cslsw]').forEach(b=>b.onclick=()=>cslSwitch(b.dataset.cslsw));document.body.classList.add('cslon');cslCountsSoon()}
+function cslSwitch(k){if(k==='admin'){ADM.seenOv=1;if(location.hash!=='#admin')location.hash='#admin';else openAdmin()}else if(k==='mod')openModPanel();else openSupport()}
+/* the footer and wide margins go away while a console is open */
+{const _g=goTo;goTo=function(id){document.body.classList.remove('cslon');cslPeekClose();return _g.apply(this,arguments)}}
+/* ---------- live counts for the badges ---------- */
+async function cslCounts(){if(!DB.ok||!isSupportMe())return;const r=await socRpc('staff_counts');if(r.error||!r.data)return;CSL.counts=r.data;CSL.countsAt=Date.now();cslPaintCounts()}
+function cslCountsSoon(){if(Date.now()-CSL.countsAt>25000)cslCounts();else cslPaintCounts();clearInterval(CSL.iv);CSL.iv=setInterval(()=>{if(!$('#app > .csl'))return clearInterval(CSL.iv);cslCounts()},30000)}
+function cslBadges(){const n=CSL.counts||{};return{inbox:(n.reports||0)+(n.tickets||0)+(n.flags||0)+(n.disputes||0),chatadm:n.reports,reports:n.reports,tickets:n.tickets,anticheat:n.flags,fnl:n.disputes,muted:n.muted,home:n.reports}}
+function cslPaintCounts(){const B=cslBadges();$$('#cslSide .cslnb').forEach(b=>{const k=b.getAttribute('data-cslgo')||b.getAttribute('data-stt');let i=b.querySelector('.cslbd');const v=B[k];if(v){if(!i){i=document.createElement('i');i.className='cslbd';b.appendChild(i)}i.textContent=v>99?'99+':v}else if(i)i.remove()});const st=$('#cslStat');if(st)st.innerHTML=cslStatHTML(cslKind())}
+/* ---------- the Control Room in the new shell ---------- */
+function cslAdmGroups(){const all=ADM_NAV.flatMap(g=>g[1]);const seen=new Set();const B=cslBadges();
+  const out=CSL_ADM_GROUPS.map(([g,keys])=>[g,keys.map(k=>{const t=all.find(x=>x[0]===k);if(!t)return null;seen.add(k);return[k,t[1],t[2],B[k]]}).filter(Boolean)]).filter(g=>g[1].length);
+  const rest=all.filter(t=>!seen.has(t[0])).map(t=>[t[0],t[1],t[2],B[t[0]]]);if(rest.length)out.push(['More',rest]);return out}
+function cslAdminWrap(){const sec=$('#app > section.adm');if(!sec||sec.classList.contains('csl'))return;const side=sec.querySelector('.admside'),main=sec.querySelector('.admmain');if(!side||!main)return;
+  const mt=sec.querySelector('.mtbar');const hd=main.querySelector('.admhead');if(hd)hd.remove();const nodes=[...main.childNodes].filter(n=>!(n.nodeType===3&&/^\s*undefined\s*$/.test(n.textContent)));
+  const t=ADM.meSel?'me':ADM.tab;const grp=CSL_ADM_GROUPS.find(g=>g[1].includes(t));const cur=ADM_NAV.flatMap(g=>g[1]).find(x=>x[0]===t)||['','Control Room'];
+  const wrap=document.createElement('div');wrap.innerHTML=cslShell({kind:'admin',title:'Control Room',sub:'Admin · only on your devices',groups:cslAdmGroups(),cur:t,attr:'data-cslgo',group:grp?grp[0]:'Control Room',page:cur[1],desc:CSL_DESC[t],bodyCls:'admmain cslbody',top:mt?'<div id="cslMt"></div>':''});
+  const ns=wrap.firstElementChild;ns.classList.add('adm');const body=ns.querySelector('.cslbody');nodes.forEach(n=>body.appendChild(n));if(mt)ns.querySelector('#cslMt').replaceWith(mt);
+  const hold=document.createElement('div');hold.hidden=true;hold.className='cslhold';hold.appendChild(side);ns.appendChild(hold);sec.replaceWith(ns);
+  $$('[data-cslgo]').forEach(b=>b.onclick=()=>{const k=b.dataset.cslgo;const o=hold.querySelector(`[data-atab="${k}"]`);if(o)o.click();else{ADM.tab=k;renderAdmin()}window.scrollTo({top:0})});
+  cslBind();if(CSL_ADM_PAGES[t]){body.classList.add('cslpage');body.innerHTML=CSL_ADM_PAGES[t].html();CSL_ADM_PAGES[t].bind&&CSL_ADM_PAGES[t].bind(body)}
+  if(t==='overview')cslOverviewTop(body)}
+{const _ra=renderAdmin;renderAdmin=function(){const r=_ra.apply(this,arguments);try{cslAdminWrap()}catch(e){console.error('console',e)}return r}}
+/* new Control Room pages */
+const CSL_ADM_PAGES={};
+ADM_NAV.push(['New',[['inbox','Needs attention',CSL_IC.inbox],['crews','Crews & Crew Wars',CSL_IC.crews],['fnl','Friday Night Live',CSL_IC.fnl],['gamenight','Game Night',CSL_IC.gn]]]);
+/* ---------- the overview gets a "needs you" strip on top ---------- */
+function cslOverviewTop(body){const n=CSL.counts||{};const h=new Date().getHours();const hi=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+  const cards=[['inbox','reports','Reports','Player reports and AutoMod',n.reports],['tickets','tickets','Tickets','Ideas, questions and bugs',n.tickets],['anticheat','flags','Anti-cheat','Flagged scores',n.flags],['fnl','disputes','Bracket disputes','Friday Night Live',n.disputes]];
+  const el=document.createElement('div');el.className='cslattn';el.innerHTML=`<div class="cslhi"><h2>${hi}${P.name?', '+esc(P.name):''}.</h2><p>${CSL.counts?((n.reports||0)+(n.tickets||0)+(n.flags||0)+(n.disputes||0)?'A few things need you.':'Nothing needs you right now. 🎉'):'Checking what needs you…'}</p></div>
+    <div class="cslattg">${cards.map(([go,k,t,s,v])=>`<button class="cslatt ${v?'hot':''}" data-cslgo2="${go}"><b>${v==null?'–':v}</b><span>${t}</span><small>${s}</small></button>`).join('')}</div>`;
+  body.prepend(el);el.querySelectorAll('[data-cslgo2]').forEach(b=>b.onclick=()=>{ADM.tab=b.dataset.cslgo2;ADM.meSel=0;renderAdmin()});if(!CSL.counts&&!CSL.ovTry){CSL.ovTry=1;cslCounts().then(()=>{if(CSL.counts&&ADM.tab==='overview'&&$('.cslattn')){$('.cslattn').remove();cslOverviewTop($('.cslbody'))}})}}
+/* ---------- search everything: Ctrl/⌘ K ---------- */
+function cslPalItems(){const I=[];const add=(n,sub,run,ic)=>I.push({n,sub,run,ic});
+  if(cslCan('admin'))ADM_NAV.flatMap(g=>g[1].map(t=>[g[0],t])).forEach(([g,t])=>add(t[1],'Control Room',()=>cslAdmGo(t[0]),t[2]));
+  if(cslCan('mod'))MP_NAV.forEach(t=>add(t[1],'Mod panel',()=>openModPanel(t[0]),t[2]));
+  if(cslCan('support'))SUPT_NAV.forEach(t=>add(t[1],'Support',()=>openSupport(t[0]),t[2]));
+  if(cslCan('mod'))add('Pause or resume global chat','Action',async()=>{const s=await socRpc('chat_state');await socRpc('mod_chat_cfg',{p_cfg:{paused:!(s.data||{}).paused},p_words:null});toastLite((s.data||{}).paused?'Chat resumed':'Chat paused')},'M10 9v6M14 9v6');
+  if(cslCan('admin')){add('Post an update','Action',()=>{ADM.tab='post';renderAdmin()},'M4 4h16v12H5.2L4 17.2z');add('Start Friday Night Live now','Action',()=>{ADM.tab='fnl';renderAdmin()},CSL_IC.fnl)}
+  add('Back to the game','Action',()=>go('home'),'M19 12H5M11 18l-6-6 6-6');return I}
+function cslPalette(){if($('#cslPal'))return;const el=document.createElement('div');el.id='cslPal';el.className='cslpal';el.innerHTML=`<div class="cslpalbox" role="dialog" aria-label="Search"><div class="cslpalin">${icon(CSL_IC.search,18)}<input id="cslPalQ" placeholder="Search pages, actions, or a player's name or #ID" autocomplete="off"><kbd>Esc</kbd></div><div class="cslpalres" id="cslPalR"></div><div class="cslpalft"><span>↑↓ to move</span><span>Enter to open</span></div></div>`;
+  document.body.appendChild(el);const q=$('#cslPalQ');const items=cslPalItems();let sel=0,res=[],players=[];
+  const score=(it,v)=>{const n=it.n.toLowerCase();if(!v)return 1;if(n.startsWith(v))return 3;if(n.includes(v))return 2;return v.split(' ').every(w=>n.includes(w)||it.sub.toLowerCase().includes(w))?1:0};
+  const paint=()=>{const v=q.value.trim().toLowerCase();res=items.map(it=>[score(it,v),it]).filter(x=>x[0]).sort((a,b)=>b[0]-a[0]).map(x=>x[1]).slice(0,v?9:12);const all=[...players,...res];if(sel>=all.length)sel=Math.max(0,all.length-1);
+    $('#cslPalR').innerHTML=(players.length?`<span class="cslpalg">Players</span>`+players.map((p,i)=>`<button class="cslpali ${i===sel?'on':''}" data-pi="${i}"><span class="socav ${p.online?'on':''}">${esc((p.name||'?')[0])}</span><span><b>${esc(p.name)}</b><small>ID ${p.no||'–'}${p.online?' · online':''}</small></span></button>`).join(''):'')
+      +(res.length?`<span class="cslpalg">${v?'Pages and actions':'Jump to'}</span>`+res.map((it,j)=>{const i=j+players.length;return `<button class="cslpali ${i===sel?'on':''}" data-pi="${i}">${icon(it.ic||CSL_IC.home,16)}<span><b>${esc(it.n)}</b><small>${esc(it.sub)}</small></span></button>`}).join(''):'')||'<p class="hint" style="padding:14px">Nothing matches.</p>';
+    $$('#cslPalR [data-pi]').forEach(b=>{b.onclick=()=>run(+b.dataset.pi);b.onmousemove=()=>{if(sel!==+b.dataset.pi){sel=+b.dataset.pi;$$('#cslPalR .cslpali').forEach(x=>x.classList.toggle('on',+x.dataset.pi===sel))}}})};
+  const run=i=>{const all=[...players.map(p=>({run:()=>cslOpenPlayer(p)})),...res];const it=all[i];cslPalClose();if(it)it.run()};
+  q.oninput=()=>{sel=0;paint();clearTimeout(q.t);const v=q.value.trim();if(v.length<2&&!/^#?\d+$/.test(v)){players=[];return}q.t=setTimeout(async()=>{const r=await socRpc('search_players',{p_q:v});if(q.value.trim()!==v)return;players=(r.data||[]).slice(0,5);paint()},220)};
+  q.onkeydown=e=>{const n=players.length+res.length;if(e.key==='ArrowDown'){e.preventDefault();sel=(sel+1)%Math.max(1,n);paint()}else if(e.key==='ArrowUp'){e.preventDefault();sel=(sel-1+n)%Math.max(1,n);paint()}else if(e.key==='Enter'){e.preventDefault();run(sel)}else if(e.key==='Escape')cslPalClose()};
+  el.onclick=e=>{if(e.target===el)cslPalClose()};paint();setTimeout(()=>q.focus(),20)}
+function cslAdmGo(k){ADM.seenOv=1;const go=()=>{const o=document.querySelector(`.cslhold [data-atab="${k}"]`);if(o)o.click();else{ADM.meSel=0;ADM.tab=k;renderAdmin()}};if($('.csl-admin'))go();else{location.hash='#admin';let n=0;const w=()=>{if($('.csl-admin'))go();else if(n++<40)setTimeout(w,100)};setTimeout(()=>{if(!$('.csl-admin'))openAdmin();w()},60)}}
+function cslPalClose(){const e=$('#cslPal');if(e)e.remove()}
+function cslOpenPlayer(p){const k=cslKind();if(k==='admin'||(!k&&cslCan('admin'))){ADM.tab='players';ADM.sel=p.pid;ADM.meSel=0;ADM.seenOv=1;if($('.csl-admin'))renderAdmin();else openAdmin();return}if(k)return cslPeekOpen(p.pid);if(cslCan('mod'))return openModPanel('lookup','#'+(p.no||p.name));openSupport('lookup')}
+addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K')&&(cslKind()||isSupportMe&&isSupportMe()&&location.hash==='#admin')){e.preventDefault();$('#cslPal')?cslPalClose():cslPalette()}});
+/* ---------- the player side panel ---------- */
+async function cslPeekOpen(q){const el=$('#cslPeek');if(!el)return openProfile({pid:q});el.classList.add('on');el.innerHTML=`<div class="cslpkh"><span class="label">Player</span><button class="cslx" data-cslpx aria-label="Close">${icon(CSL_IC.x,16)}</button></div><div class="cslpkb"><span class="spin" style="color:var(--amber)"></span></div>`;
+  el.querySelector('[data-cslpx]').onclick=cslPeekClose;const r=await socRpc('mod_player',{p_q:q});const x=r.data;const B=el.querySelector('.cslpkb');if(!B)return;
+  if(!x){B.innerHTML=`<p class="hint">${r.error?esc(r.error.message):'No player found.'}</p>`;return}const mm=x.moderation||{};const mu=Math.max(0,(+mm.mute_until||0)-Date.now());const mod=isModMe();
+  B.innerHTML=`<div class="cslpkid"><span class="socav big ${x.seen_at&&Date.now()-new Date(x.seen_at)<100e3?'on':''}">${esc((x.name||'?')[0])}</span><div><b>${esc(x.name)}</b> ${x.owner?ownerBadge(true):''}${x.role?roleBadge(x.role,true):''}<small>ID ${x.no||'–'} · level ${levelInfo(+x.xp||0).lvl}</small></div></div>
+    <div class="cslkv"><div><small>Joined</small><b>${new Date(x.created_at).toLocaleDateString()}</b></div><div><small>Last seen</small><b>${x.seen_at?cmAgo(x.seen_at)+' ago':'never'}</b></div><div><small>Reports</small><b class="${x.reports?'warnc':''}">${x.reports}</b></div><div><small>Strikes (7d)</small><b>${(mm.strikes||[]).length}</b></div></div>
+    ${mu?`<p class="cslwarn">Muted for ${modMins(mu)}</p>`:''}${x.banned?'<p class="cslwarn">Banned from leaderboards</p>':''}
+    ${mod?`<span class="label">Actions</span><div class="cslacts">${[['warn','Warn'],['mute10','Mute 10m'],['mute60','Mute 1h'],['mute1440','Mute 24h'],['chatban','Chat ban 7d'],['unmute','Unmute'],['purge','Delete their chat (24h)'],['clear','Clear strikes']].map(([k,n])=>`<button class="mini ${['warn','unmute','clear'].includes(k)?'':'warn'}" data-cslpa="${k}">${n}</button>`).join('')}</div>`:''}
+    ${x.msgs?`<span class="label">Recent chat</span><div class="cslpkchat">${x.msgs.slice(0,25).map(m=>`<div class="${m.deleted?'del':''}"><time>${cmAgo(m.created_at)}</time>${m.deleted?'<i>deleted</i> ':''}${esc(m.body)}</div>`).join('')||'<p class="hint">No messages.</p>'}</div>`:''}
+    ${x.tickets?`<span class="label">Tickets</span>${x.tickets.map(t=>`<p class="hint">${({idea:'💡',question:'❓',bug:'🐞',other:'•'})[t.kind]||'•'} ${esc(t.subject||'(no subject)')} · ${t.status}</p>`).join('')||'<p class="hint">None.</p>'}`:''}
+    <div class="actrow"><button class="btn btn-ghost sm" data-cslpp>Open full profile</button>${cslCan('admin')?'<button class="btn btn-ghost sm" data-cslpe>Edit in Control Room</button>':''}</div>`;
+  B.querySelectorAll('[data-cslpa]').forEach(b=>b.onclick=async()=>{const k=b.dataset.cslpa;const act=k.startsWith('mute')?'mute':k;const mins=k.startsWith('mute')?+k.slice(4):60;b.disabled=true;
+    const r2=await socRpc('mod_act',{p_pid:x.pid,p_action:act,p_minutes:mins,p_msg:act==='warn'?'A moderator has warned you. Please follow the Community Rules.':'',p_report:null});toastLite(r2.error?r2.error.message:'Done');sfx('click');cslPeekOpen(x.pid)});
+  const pp=B.querySelector('[data-cslpp]');if(pp)pp.onclick=()=>openProfile({pid:x.pid});const pe=B.querySelector('[data-cslpe]');if(pe)pe.onclick=()=>{cslPeekClose();ADM.tab='players';ADM.sel=x.pid;ADM.meSel=0;ADM.seenOv=1;if($('.csl-admin'))renderAdmin();else openAdmin()}}
+function cslPeekClose(){const el=$('#cslPeek');if(el){el.classList.remove('on');el.innerHTML=''}}
+addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#cslPeek.on')&&!$('#cslPal'))cslPeekClose()});
+/* ---------- mod panel and Support use the same shell ---------- */
+MP_NAV.unshift(['home','Dashboard',CSL_IC.home]);if(MP.tab==='live')MP.tab='home';
+SUPT_NAV[0][1]='Inbox';
+staffShell=function(title,label,nav,cur,body,cls){const kind=title.startsWith('Mod')?'mod':'support';const B=cslBadges();const it=nav.find(n=>n[0]===cur)||nav[0];
+  setTimeout(cslBind,0);return cslShell({kind,title:kind==='mod'?'Mod panel':'Support',sub:kind==='mod'?'Keep it safe and friendly':'Help players out',groups:[[kind==='mod'?'Moderation':'Support',nav.map(n=>[n[0],n[1],n[2],B[n[0]]])]],cur,attr:'data-stt',group:kind==='mod'?'Mod panel':'Support',page:it[1],desc:CSL_DESC[cur]||'',bodyId:'stBody',body})};
+/* mod dashboard */
+{const _om=openModPanel;openModPanel=async function(tab,q){if(tab)MP.tab=tab;if(MP.tab!=='home')return _om(tab,q);if(!isModMe()){toastLite('Moderators only');return}goTo('modpanel');clearInterval(MP.iv);
+  $('#app').innerHTML=staffShell('Moderator panel','',MP_NAV,'home','<span class="spin" style="color:var(--amber)"></span>');$$('[data-stt]').forEach(b=>b.onclick=()=>openModPanel(b.dataset.stt));await cslModHome($('#stBody'))}}
+async function cslModHome(B){const [c,rep,s,log]=await Promise.all([socRpc('staff_counts'),socRpc('mod_reports',{p_status:'open',p_limit:6}),socRpc('chat_state'),socRpc('mod_log',{p_limit:8})]);if(!B.isConnected)return;
+  if(c.data){CSL.counts=c.data;CSL.countsAt=Date.now();cslPaintCounts()}const n=c.data||{};const cfg=s.data||{};CSL.chat=cfg;const R=rep.data||[];
+  B.innerHTML=`<div class="cslkpis">${[['Open reports',n.reports,'reports'],['Muted now',n.muted,'muted'],['Online',n.online,'online'],['Handled today',n.actions_today,'log']].map(([t,v,go])=>`<button class="cslkpi" data-stt="${go}"><small>${t}</small><b>${v==null?'–':v}</b></button>`).join('')}</div>
+    <div class="cslcols"><div class="card"><div class="mphd"><span class="label">Oldest open reports</span><button class="linkbtn" data-stt="reports">See all</button></div>${R.length?R.map(x=>`<div class="cslrow"><span class="tag ${x.kind==='automod'?'':'bad'}">${x.kind==='automod'?'AutoMod':'Report'}</span><button class="cmn" data-cslpeek="${x.target_pid||''}">${esc(x.target_name||'Unknown')}</button><span class="hint">${esc(x.reason)} · ${cmAgo(x.created_at)} ago</span></div>`).join(''):'<p class="hint">No open reports. 🎉</p>'}</div>
+      <div class="card"><span class="label">Global chat</span><div class="cslkv"><div><small>State</small><b class="${cfg.paused?'warnc':''}">${cfg.paused?'Paused':'Open'}</b></div><div><small>Slow mode</small><b>${cfg.slow?cfg.slow+'s':'Off'}</b></div><div><small>New accounts wait</small><b>${cfg.minAgeMin!=null?cfg.minAgeMin+' min':'–'}</b></div><div><small>Messages last</small><b>${(+cfg.keepMin||20)} min</b></div></div>
+        <div class="actrow"><button class="btn ${cfg.paused?'btn-go':'btn-ghost'} sm" id="cslPause">${cfg.paused?'Resume chat':'Pause chat'}</button>${lgChips('data-cslslow',[[0,'Slow off'],[10,'10s'],[30,'30s']],+cfg.slow||0,false,true)}<button class="btn btn-ghost sm" data-stt="live">Open live chat</button></div></div>
+      <div class="card"><div class="mphd"><span class="label">Latest actions</span><button class="linkbtn" data-stt="log">Full log</button></div>${(log.data||[]).map(x=>`<div class="cslrow"><b>${esc(x.by_name||'')}</b><span>${esc((x.meta||{}).action||'')}</span><span class="hint">${esc(x.target_name||'')} · ${cmAgo(x.created_at)} ago</span></div>`).join('')||'<p class="hint">Nothing yet.</p>'}</div></div>`;
+  $$('#stBody [data-stt]').forEach(b=>b.onclick=()=>openModPanel(b.dataset.stt));$$('[data-cslpeek]').forEach(b=>b.onclick=()=>b.dataset.cslpeek&&cslPeekOpen(b.dataset.cslpeek));
+  $('#cslPause').onclick=async()=>{await socRpc('mod_chat_cfg',{p_cfg:{paused:!cfg.paused},p_words:null});sfx('click');cslModHome(B)};$$('[data-cslslow]').forEach(b=>b.onclick=async()=>{await socRpc('mod_chat_cfg',{p_cfg:{slow:+b.dataset.v},p_words:null});sfx('click');cslModHome(B)})}
+/* names in the live chat, reports and lookups open the side panel instead of leaving the page */
+{const _mb=mpBind;mpBind=function(){_mb.apply(this,arguments);$$('#mpFeed [data-prof]').forEach(b=>b.onclick=()=>cslPeekOpen(b.dataset.prof))}}
+{const _om2=openModPanel;openModPanel=async function(tab,q){const r=await _om2(tab,q);if(MP.tab==='reports'||MP.tab==='muted')$$('#stBody [data-prof]').forEach(b=>b.onclick=()=>b.dataset.prof&&cslPeekOpen(b.dataset.prof));cslPaintCounts();return r}}
+/* ---------- Support: a two-pane inbox ---------- */
+const SUPI={sel:null,list:[],mine:false,q:''};
+const cslCanned=()=>{try{const v=JSON.parse(localStorage.getItem('hp_canned')||'null');if(Array.isArray(v)&&v.length)return v}catch(e){}return SUPT_CANNED.slice()};
+{const _sb=supportBody;supportBody=async function(B,T){if(T==='tickets')return cslSupInbox(B);if(T==='canned')return cslSupCanned(B);return _sb(B,T)}}
+async function cslSupInbox(B){const r=await socRpc('support_tickets',{p_status:SUPT.st,p_kind:SUPT.k});if(!B.isConnected)return;SUPI.list=r.data||[];
+  B.classList.add('cslfill');B.innerHTML=`<div class="cslinbox"><div class="cslil"><div class="cslilf"><div class="chips">${[['open','Open'],['answered','Answered'],['closed','Closed'],['all','All']].map(([k,n])=>`<button class="cbtn sm ${SUPT.st===k?'on':''}" data-sps="${k}">${n}</button>`).join('')}</div>
+      <div class="chips">${[['all','All'],['idea','💡'],['question','❓'],['bug','🐞'],['other','Other']].map(([k,n])=>`<button class="cbtn sm ${SUPT.k===k?'on':''}" data-spk="${k}" title="${k}">${n}</button>`).join('')}<button class="cbtn sm ${SUPI.mine?'on':''}" id="spMine">Mine</button></div>
+      <input id="spFind" placeholder="Filter by name or words" value="${esc(SUPI.q)}"></div><div class="cslill" id="spList"></div></div><div class="cslir" id="spRead"></div></div>`;
+  const paint=()=>{const q=SUPI.q.toLowerCase();const L=SUPI.list.filter(t=>(!SUPI.mine||t.assigned_me)&&(!q||(t.name||'').toLowerCase().includes(q)||(t.subject||'').toLowerCase().includes(q)||(t.body||'').toLowerCase().includes(q)));
+    $('#spList').innerHTML=r.error?`<p class="mutep">${esc(r.error.message)}</p>`:L.length?L.map(t=>`<button class="cslti ${SUPI.sel===t.id?'on':''} st-${t.status}" data-spsel="${t.id}"><span class="csltk">${({idea:'💡',question:'❓',bug:'🐞',other:'•'})[t.kind]||'•'}</span><span class="csltt"><b>${esc(t.subject||'(no subject)')}</b><small>${esc(t.name||'Player')} · ${cmAgo(t.created_at)} ago${t.assigned_name?' · '+esc(t.assigned_name):''}</small><em>${esc((t.body||'').slice(0,90))}</em></span><i class="fbst st-${t.status}">${t.status}</i></button>`).join(''):'<p class="hint" style="padding:12px">Nothing here. 🎉</p>';
+    $$('[data-spsel]').forEach(b=>b.onclick=()=>{SUPI.sel=+b.dataset.spsel;paint();cslSupRead(B)})};
+  $$('[data-sps]').forEach(b=>b.onclick=()=>{SUPT.st=b.dataset.sps;SUPI.sel=null;cslSupInbox(B)});$$('[data-spk]').forEach(b=>b.onclick=()=>{SUPT.k=b.dataset.spk;SUPI.sel=null;cslSupInbox(B)});
+  $('#spMine').onclick=()=>{SUPI.mine=!SUPI.mine;$('#spMine').classList.toggle('on',SUPI.mine);paint()};$('#spFind').oninput=e=>{SUPI.q=e.target.value;paint()};
+  if(SUPI.sel==null||!SUPI.list.some(t=>t.id===SUPI.sel))SUPI.sel=(SUPI.list[0]||{}).id||null;paint();cslSupRead(B)}
+function cslSupRead(B){const t=SUPI.list.find(x=>x.id===SUPI.sel);const R=$('#spRead');if(!R)return;if(!t){R.innerHTML='<div class="cslempty">'+icon(CSL_IC.inbox,28)+'<p>Pick a ticket on the left.</p></div>';return}
+  const can=cslCanned();
+  R.innerHTML=`<div class="csltr"><div class="cslth"><span class="tag">${({idea:'💡 Idea',question:'❓ Question',bug:'🐞 Bug',other:'Other'})[t.kind]}</span><span class="fbst st-${t.status}">${t.status}</span><span class="hint">#${t.id} · ${new Date(t.created_at).toLocaleString()}</span></div>
+    <h2>${esc(t.subject||'(no subject)')}</h2><div class="cslwho"><button class="cmn" data-cslpeek="${t.pid}">${esc(t.name||'Player')}</button><span class="hint">ID ${t.user_no||'–'} · joined ${t.joined_at?new Date(t.joined_at).toLocaleDateString():'–'} · ${t.seen_at?'seen '+cmAgo(t.seen_at)+' ago':'never online'} · ${t.their_total||1} ticket${(t.their_total||1)>1?'s':''}</span></div>
+    <div class="cslmsg them">${esc(t.body)}</div>${t.reply?`<div class="cslmsg us"><small>${esc(t.replied_name||'Staff')} replied${t.replied_at?' · '+cmAgo(t.replied_at)+' ago':''}</small>${esc(t.reply)}</div>`:''}
+    <div class="cslnote"><span class="label">Team note (players never see this)</span><textarea id="spNote" rows="2" maxlength="1000" placeholder="Context for the rest of the team">${esc(t.staff_note||'')}</textarea><div class="actrow"><button class="mini" id="spNoteS">Save note</button><button class="mini" id="spAsg">${t.assigned_me?'Unassign me':t.assigned_name?'Take it from '+esc(t.assigned_name):'Assign to me'}</button></div></div>
+    ${t.status!=='closed'?`<div class="cslcomp"><div class="cslcan">${can.map((c,i)=>`<button class="cbtn sm" data-spcan="${i}" title="${esc(c)}">${esc(c.length>34?c.slice(0,32)+'…':c)}</button>`).join('')}</div><textarea id="spRep" rows="4" maxlength="2000" placeholder="Write a reply. It goes to their inbox."></textarea>
+      <div class="actrow"><button class="btn btn-go" id="spSend">Send reply</button><button class="btn btn-ghost" id="spSendC">Send and close</button><button class="btn btn-ghost" id="spClose">Close without reply</button></div></div>`:`<div class="actrow"><button class="btn btn-ghost" id="spReopen">Reopen</button></div>`}</div>`;
+  R.querySelectorAll('[data-cslpeek]').forEach(b=>b.onclick=()=>cslPeekOpen(b.dataset.cslpeek));
+  R.querySelectorAll('[data-spcan]').forEach(b=>b.onclick=()=>{const a=$('#spRep');a.value=(a.value?a.value+'\n\n':'')+can[+b.dataset.spcan];a.focus()});
+  const upd=async(o,msg)=>{const r=await socRpc('support_ticket_update',Object.assign({p_id:t.id,p_note:null,p_assign:null,p_status:null},o));toastLite(r.error?r.error.message:msg);cslSupInbox(B)};
+  $('#spNoteS').onclick=()=>upd({p_note:$('#spNote').value},'Note saved');$('#spAsg').onclick=()=>upd({p_assign:t.assigned_me?'none':'me'},t.assigned_me?'Unassigned':'Assigned to you');
+  const send=async close=>{const v=($('#spRep')||{}).value||'';if(!v.trim()&&!close){toastLite('Write a reply first');return}const r=await socRpc('support_reply',{p_id:t.id,p_reply:v.trim(),p_close:!!close});toastLite(r.error?r.error.message:v.trim()?'Reply sent':'Closed');sfx('chime');
+    const i=SUPI.list.findIndex(x=>x.id===t.id);const nx=SUPI.list[i+1];SUPI.sel=nx?nx.id:null;cslSupInbox(B);cslCounts()};
+  const sd=$('#spSend');if(sd){sd.onclick=()=>send(false);$('#spSendC').onclick=()=>send(true);$('#spClose').onclick=async()=>{await socRpc('support_reply',{p_id:t.id,p_reply:'',p_close:true});toastLite('Closed');SUPI.sel=null;cslSupInbox(B);cslCounts()};
+    $('#spRep').onkeydown=e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey))send(false)}}
+  const ro=$('#spReopen');if(ro)ro.onclick=()=>upd({p_status:'open'},'Reopened')}
+function cslSupCanned(B){const L=cslCanned();B.innerHTML=`<div class="card"><span class="label">Your quick replies</span><p class="hint">These show as buttons above every reply box. They're saved on this device.</p><div id="spCanL">${L.map((c,i)=>`<div class="cslcanrow"><textarea rows="2" data-spcv="${i}">${esc(c)}</textarea><button class="mini warn" data-spcd="${i}">Remove</button></div>`).join('')}</div>
+  <div class="actrow"><button class="btn btn-ghost" id="spCanA">Add one</button><button class="btn btn-go" id="spCanS">Save</button><button class="btn btn-ghost" id="spCanR">Reset to the defaults</button></div></div>`;
+  const save=list=>{try{localStorage.setItem('hp_canned',JSON.stringify(list.filter(x=>x.trim()).slice(0,20)))}catch(e){}};const cur=()=>$$('[data-spcv]').map(a=>a.value);
+  $$('[data-spcd]').forEach(b=>b.onclick=()=>{const l=cur();l.splice(+b.dataset.spcd,1);save(l);cslSupCanned(B)});$('#spCanA').onclick=()=>{const l=cur();l.push('New reply');save(l);cslSupCanned(B)};
+  $('#spCanS').onclick=()=>{save(cur());toastLite('Saved')};$('#spCanR').onclick=()=>{try{localStorage.removeItem('hp_canned')}catch(e){}cslSupCanned(B)}}
+/* ---------- Control Room: Needs attention ---------- */
+CSL_ADM_PAGES.inbox={html:()=>`<div class="cslcols"><div class="card" id="ciRep"><span class="label">Reports</span><span class="spin" style="color:var(--amber)"></span></div><div class="card" id="ciTk"><span class="label">Tickets</span><span class="spin" style="color:var(--amber)"></span></div><div class="card" id="ciAc"><span class="label">Anti-cheat</span><span class="spin" style="color:var(--amber)"></span></div><div class="card" id="ciFn"><span class="label">Bracket disputes</span><span class="spin" style="color:var(--amber)"></span></div></div>`,
+  bind:async body=>{const [rep,tk,ac,fn]=await Promise.all([socRpc('mod_reports',{p_status:'open',p_limit:10}),socRpc('support_tickets',{p_status:'open',p_kind:'all'}),admRpc('admin_ac',{p_status:'open'}),socRpc('fnl_state',{p_event:null})]);if(!body.isConnected)return;cslCounts();
+    const R=rep.data||[];$('#ciRep').innerHTML=`<div class="mphd"><span class="label">Reports · ${R.length}</span><button class="linkbtn" data-cig="chatadm">Moderation</button></div>${R.length?R.map(x=>`<div class="cslrow wrap"><span class="tag ${x.kind==='automod'?'':'bad'}">${x.kind==='automod'?'AutoMod':'Report'}</span><button class="cmn" data-cslpeek="${x.target_pid||''}">${esc(x.target_name||'Unknown')}</button><span class="hint">${esc(x.reason)}${x.note?' · '+esc(x.note.slice(0,60)):''} · ${cmAgo(x.created_at)} ago</span><span class="cslra">${[['warn','Warn'],['mute60','Mute 1h'],['dismiss','Dismiss']].map(([k,n])=>`<button class="mini ${k==='dismiss'?'':'warn'}" data-ciact="${k}" data-rid="${x.id}" data-pid="${x.target_pid||''}">${n}</button>`).join('')}</span></div>`).join(''):'<p class="hint">No open reports. 🎉</p>'}`;
+    const T=(tk.data||[]).slice(0,8);$('#ciTk').innerHTML=`<div class="mphd"><span class="label">Open tickets · ${(tk.data||[]).length}</span><button class="linkbtn" data-cisup>Open Support inbox</button></div>${T.length?T.map(t=>`<div class="cslrow"><span>${({idea:'💡',question:'❓',bug:'🐞',other:'•'})[t.kind]||'•'}</span><b>${esc(t.subject||'(no subject)')}</b><span class="hint">${esc(t.name||'')} · ${cmAgo(t.created_at)} ago</span></div>`).join(''):'<p class="hint">Inbox zero. 🎉</p>'}`;
+    const A=(ac.data||[]).slice(0,8);$('#ciAc').innerHTML=`<div class="mphd"><span class="label">Anti-cheat flags · ${(ac.data||[]).length}</span><button class="linkbtn" data-cig="anticheat">All flags</button></div>${A.length?A.map(f=>`<div class="cslrow wrap"><button class="cmn" data-cslpeek="${f.pid||''}">${esc(f.name||'Unknown')}</button><span class="hint">${esc(f.kind)} · ${esc(JSON.stringify(f.detail||{}).slice(0,70))}</span><span class="cslra"><button class="mini" data-ciac="${f.id}" data-s="ok">Looks fine</button><button class="mini warn" data-ciac="${f.id}" data-s="cheat">Cheating</button></span></div>`).join(''):'<p class="hint">Nothing flagged.</p>'}`;
+    const F=fn.data;const D=F&&F.matches?F.matches.filter(m=>m.st==='dispute'):[];$('#ciFn').innerHTML=`<div class="mphd"><span class="label">Friday Night Live disputes · ${D.length}</span><button class="linkbtn" data-cig="fnl">Bracket</button></div>${D.length?D.map(m=>`<div class="cslrow wrap"><b>${esc(m.a||'?')}</b> vs <b>${esc(m.b||'?')}</b><span class="hint">reported ${m.as}–${m.bs}</span><span class="cslra"><button class="mini" data-cifw="${m.id}" data-w="a">${esc(m.a||'A')} won</button><button class="mini" data-cifw="${m.id}" data-w="b">${esc(m.b||'B')} won</button></span></div>`).join(''):'<p class="hint">No disputes.</p>'}`;
+    body.querySelectorAll('[data-cslpeek]').forEach(b=>b.onclick=()=>b.dataset.cslpeek&&cslPeekOpen(b.dataset.cslpeek));body.querySelectorAll('[data-cig]').forEach(b=>b.onclick=()=>{ADM.tab=b.dataset.cig;renderAdmin()});body.querySelectorAll('[data-cisup]').forEach(b=>b.onclick=()=>openSupport('tickets'));
+    body.querySelectorAll('[data-ciact]').forEach(b=>b.onclick=async()=>{const k=b.dataset.ciact;const act=k.startsWith('mute')?'mute':k;const r2=await socRpc('mod_act',{p_pid:b.dataset.pid||null,p_action:act,p_minutes:60,p_msg:act==='warn'?'Please keep it friendly and follow the Community Rules.':'',p_report:+b.dataset.rid});toastLite(r2.error?r2.error.message:'Done');renderAdmin()});
+    body.querySelectorAll('[data-ciac]').forEach(b=>b.onclick=async()=>{await admRpc('admin_ac_resolve',{p_id:+b.dataset.ciac,p_status:b.dataset.s});renderAdmin()});
+    body.querySelectorAll('[data-cifw]').forEach(b=>b.onclick=async()=>{await admRpc('admin_fnl',{p_action:'winner',p_event:null,p_match:+b.dataset.cifw,p_winner:b.dataset.w,p_cfg:null,p_at:null});toastLite('Winner set');renderAdmin()})}};
+/* ---------- Control Room: Crews ---------- */
+let CSLCR={q:''};
+CSL_ADM_PAGES.crews={html:()=>`<div class="card"><div class="mphd"><span class="label">Crews</span><input id="ccQ" placeholder="Search crews" value="${esc(CSLCR.q)}" style="max-width:240px"><button class="btn btn-ghost sm" id="ccRedo">Redo this week's Crew War matchups</button></div><div id="ccL"><span class="spin" style="color:var(--amber)"></span></div></div><div class="card"><span class="label">This week's Crew Wars</span><div id="ccW"><span class="spin" style="color:var(--amber)"></span></div><p class="hint">Crews with 2+ members are paired every Monday by last week's points. Each game a member plays earns a point (20 a day max). The winning crew gets a trophy, and every member collects 500 tickets and 300 XP.</p></div>`,
+  bind:async body=>{const load=async()=>{const [r,w]=await Promise.all([admRpc('admin_crews',{p_q:CSLCR.q}),socRpc('crew_war_board')]);const el=$('#ccL');if(!el)return;const L=r.data||[];
+      el.innerHTML=L.length?`<div class="tbl-wrap"><table><tr><th>Crew</th><th>Owner</th><th class="n">Members</th><th class="n">This week</th><th class="n">🏆</th><th class="n">W–L</th><th></th></tr>${L.map(c=>`<tr><td><span style="color:${esc(c.color)}">${esc(c.emoji)}</span> <b>${esc(c.name)}</b> <small class="hint">[${esc(c.tag)}]</small>${c.open?'':' <small class="hint">friends only</small>'}</td><td>${esc(c.owner_name||'')}</td><td class="n">${c.members}</td><td class="n">${fmtN(c.points)}</td><td class="n">${c.trophies}</td><td class="n">${c.wars_won}–${c.wars_lost}</td><td class="onla"><button class="mini" data-ccren="${c.id}" data-n="${esc(c.name)}" data-t="${esc(c.tag)}">Rename</button><button class="mini warn" data-ccdel="${c.id}">Delete</button></td></tr>`).join('')}</table></div>`:'<p class="hint">No crews yet.</p>';
+      const W=w.data||[];$('#ccW').innerHTML=W.length?W.map(x=>`<div class="cslwar"><span><b style="color:${esc(x.a_color)}">${esc(x.a_emoji)} ${esc(x.a_name)}</b></span><b class="mono">${x.a_pts} – ${x.b_pts}</b><span>${x.b_name?`<b style="color:${esc(x.b_color)}">${esc(x.b_emoji)} ${esc(x.b_name)}</b>`:'<i class="hint">bye (wins automatically)</i>'}</span></div>`).join(''):'<p class="hint">No wars this week yet. Crews need 2 members.</p>';
+      el.querySelectorAll('[data-ccdel]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Tap again';return}await admRpc('admin_crew_delete',{p_crew:+b.dataset.ccdel});load()});
+      el.querySelectorAll('[data-ccren]').forEach(b=>b.onclick=async()=>{const n=prompt('New crew name',b.dataset.n);if(n==null)return;const t=prompt('New tag (2–4 letters)',b.dataset.t);if(t==null)return;const r2=await admRpc('admin_crew_rename',{p_crew:+b.dataset.ccren,p_name:n,p_tag:t});toastLite(r2.data&&r2.data.ok?'Renamed':(r2.data&&r2.data.why)||'Could not rename');load()})};
+    $('#ccQ').oninput=e=>{CSLCR.q=e.target.value;clearTimeout(e.target.t);e.target.t=setTimeout(load,300)};$('#ccRedo').onclick=async b=>{const el=$('#ccRedo');if(!el.dataset.arm){el.dataset.arm=1;el.textContent='Tap again: this re-pairs every crew';return}await admRpc('admin_crew_war_redo');toastLite('Re-paired');load()};load()}};
+/* ---------- Control Room: Friday Night Live ---------- */
+CSL_ADM_PAGES.fnl={html:()=>`<div class="cslcols"><div class="card" id="cfCfg"><span class="label">Schedule</span><span class="spin" style="color:var(--amber)"></span></div><div class="card" id="cfNow"><span class="label">This week</span><span class="spin" style="color:var(--amber)"></span></div></div><div class="card"><span class="label">Bracket</span><div id="cfBr"></div></div>`,
+  bind:async body=>{const load=async(act,extra)=>{const r=await admRpc('admin_fnl',Object.assign({p_action:act||'list',p_event:null,p_match:null,p_winner:null,p_cfg:null,p_at:null},extra||{}));const s=await socRpc('fnl_state',{p_event:null});if(!$('#cfCfg'))return;const cfg=(r.data||{}).cfg||{};const E=s.data;
+      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      $('#cfCfg').innerHTML=`<span class="label">Schedule (Central time)</span><label class="tgl"><input type="checkbox" id="cfAuto" ${cfg.auto===false?'':'checked'}><span>Run it every week automatically</span></label>
+        <div class="setrow"><span class="label">Day</span>${lgChips('data-cfd',days.map((d,i)=>[i,d.slice(0,3)]),cfg.dow!=null?cfg.dow:5,false,true)}</div><div class="setrow"><span class="label">Start time</span>${lgChips('data-cfh',[[17,'5pm'],[18,'6pm'],[19,'7pm'],[20,'8pm'],[21,'9pm']],cfg.hour!=null?cfg.hour:19,false,true)}</div>
+        <div class="setrow"><span class="label">Games to</span>${lgChips('data-cft',[[7,'7'],[11,'11'],[15,'15']],cfg.to||11,false,true)}</div><div class="setrow"><span class="label">Bracket size</span>${lgChips('data-cfm',[[8,'8'],[16,'16'],[32,'32'],[64,'64']],cfg.max||32,false,true)}</div><p class="hint">Changes apply to the next one that gets scheduled. Players who signed up and are online at the start time get a spot.</p>`;
+      $('#cfNow').innerHTML=E?`<span class="label">${esc(E.title)} · ${E.status}</span><h3>${new Date(E.starts_at).toLocaleString(undefined,{weekday:'long',hour:'numeric',minute:'2-digit'})}</h3><p class="hint">${E.entries} signed up${E.champ?' · champion: <b>'+esc(E.champ)+'</b>':''}</p>
+        <div class="actrow">${E.status==='signup'?`<button class="btn btn-go sm" id="cfStart">Start it now</button><input type="datetime-local" id="cfAt" style="max-width:220px"><button class="btn btn-ghost sm" id="cfMove">Move to this time</button>`:''}${E.status!=='done'&&E.status!=='cancelled'?'<button class="btn btn-ghost sm warn" id="cfCancel">Cancel it</button>':'<button class="btn btn-ghost sm" id="cfNew">Schedule an extra one in 1 hour</button>'}</div>`:'<p class="hint">Nothing scheduled. Turn on weekly runs, or add one.</p><button class="btn btn-ghost sm" id="cfNew">Schedule one in 1 hour</button>';
+      const M=E&&E.matches||[];const R=[...new Set(M.map(m=>m.r))];
+      $('#cfBr').innerHTML=M.length?`<div class="fnlbr">${R.map(r=>`<div class="fnlrd"><span class="label">${r===R.length?'Final':r===R.length-1?'Semifinals':'Round '+r}</span>${M.filter(m=>m.r===r).map(m=>`<div class="fnlm st-${m.st}"><div class="${m.w==='a'?'w':''}"><span>${esc(m.a||'—')}</span><b>${m.as!=null?m.as:''}</b></div><div class="${m.w==='b'?'w':''}"><span>${esc(m.b||'—')}</span><b>${m.bs!=null?m.bs:''}</b></div>${(m.st==='live'||m.st==='dispute')&&m.a&&m.b?`<div class="fnlma"><button class="mini" data-cfw="${m.id}" data-w="a">${esc(m.a)} wins</button><button class="mini" data-cfw="${m.id}" data-w="b">${esc(m.b)} wins</button></div>`:''}</div>`).join('')}</div>`).join('')}</div>`:'<p class="hint">The bracket appears when it starts.</p>';
+      const cf=v=>load('cfg',{p_cfg:v});$('#cfAuto').onchange=e=>cf({auto:e.target.checked});$$('[data-cfd]').forEach(b=>b.onclick=()=>cf({dow:+b.dataset.v}));$$('[data-cfh]').forEach(b=>b.onclick=()=>cf({hour:+b.dataset.v}));$$('[data-cft]').forEach(b=>b.onclick=()=>cf({to:+b.dataset.v}));$$('[data-cfm]').forEach(b=>b.onclick=()=>cf({max:+b.dataset.v}));
+      const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};on('#cfStart',()=>load('start',{p_event:E.id}));on('#cfCancel',()=>{const e=$('#cfCancel');if(!e.dataset.arm){e.dataset.arm=1;e.textContent='Tap again to cancel';return}load('cancel',{p_event:E.id})});on('#cfNew',()=>load('new',{p_at:new Date(Date.now()+36e5).toISOString()}));
+      on('#cfMove',()=>{const v=$('#cfAt').value;if(!v)return toastLite('Pick a date and time');load('time',{p_event:E.id,p_at:new Date(v).toISOString()})});$$('[data-cfw]').forEach(b=>b.onclick=()=>load('winner',{p_match:+b.dataset.cfw,p_winner:b.dataset.w}))};load()}};
+/* ---------- Control Room: Game Night ---------- */
+CSL_ADM_PAGES.gamenight={html:()=>`<div class="card"><span class="label">Games with picks</span><div id="cgL"><span class="spin" style="color:var(--amber)"></span></div><p class="hint">Scores come from the public ESPN scoreboard. When a game ends, the first two players whose game reports the same winner settle it, and right picks earn 150 tickets and 100 XP. You can settle or void any game here.</p></div>
+  <div class="card"><span class="label">Score source</span><p class="hint">Players' browsers load scores straight from ESPN. If that is ever blocked, deploy the <b>scores</b> Edge Function (in the delivery) and the game switches to it automatically.</p><label class="tgl"><input type="checkbox" id="cgOn" ${((LIVE.feed||{}).cfg||{}).gnOff?'':'checked'}><span>Show Game Night to players</span></label></div>`,
+  bind:async body=>{const load=async(a,g,w)=>{const r=await admRpc('admin_gn',{p_action:a||'list',p_game:g||null,p_winner:w||null});const el=$('#cgL');if(!el)return;const L=r.data||[];
+      el.innerHTML=L.length?`<div class="tbl-wrap"><table><tr><th>Game</th><th>Start</th><th class="n">Picks</th><th>Result</th><th></th></tr>${L.map(x=>`<tr><td><b>${esc(x.away)} @ ${esc(x.home)}</b> <small class="hint">${esc(x.league.toUpperCase())}</small></td><td>${new Date(x.starts_at).toLocaleString(undefined,{weekday:'short',hour:'numeric',minute:'2-digit'})}</td><td class="n">${x.picks}</td><td>${x.settled?'<b>'+esc(x.winner)+'</b> won':'<span class="hint">open</span>'}</td><td class="onla">${x.settled?'':`<button class="mini" data-cgs="${esc(x.id)}" data-w="${esc(x.away)}">${esc(x.away)} won</button><button class="mini" data-cgs="${esc(x.id)}" data-w="${esc(x.home)}">${esc(x.home)} won</button>`}<button class="mini warn" data-cgv="${esc(x.id)}">Void</button></td></tr>`).join('')}</table></div>`:'<p class="hint">No picks yet. They show up once players pick a game.</p>';
+      el.querySelectorAll('[data-cgs]').forEach(b=>b.onclick=()=>load('settle',b.dataset.cgs,b.dataset.w));el.querySelectorAll('[data-cgv]').forEach(b=>b.onclick=()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Tap again';return}load('void',b.dataset.cgv)})};
+    $('#cgOn').onchange=e=>admPub(c=>{c.gnOff=!e.target.checked});load()}};
+
+/* ======================= ROOM CHAT (crews, Game Night, Friday Night Live) and CREW WARS ======================= */
+const RC={rooms:{}};
+/* a small live chat for one room: loads the latest messages, then listens for new ones */
+async function rcMount(el,room,o){o=o||{};if(!el)return;rcUnmount(room);const R={room,el,msgs:[],ch:null};RC.rooms[room]=R;
+  el.innerHTML=`<div class="rc ${o.cls||''}"><div class="rcfeed" data-rcf="${esc(room)}"><p class="hint">Loading chat…</p></div>${P.signed?`<form class="rcin" data-rcform="${esc(room)}"><input maxlength="200" placeholder="${esc(o.ph||'Say something…')}" autocomplete="off"><button class="btn btn-go sm" type="submit">Send</button></form>`:'<p class="hint">Make a profile to chat.</p>'}</div>`;
+  const r=await socRpc('chat_room_recent',{p_room:room,p_limit:60});if(RC.rooms[room]!==R)return;R.msgs=(r.data||[]).filter(m=>!(CHAT.blocked&&CHAT.blocked.has(m.pid)));rcPaint(R,true);
+  const f=el.querySelector('[data-rcform]');if(f)f.onsubmit=async e=>{e.preventDefault();const i=f.querySelector('input');const t=i.value.trim();if(!t)return;i.value='';const s=await socRpc('chat_send_room',{p_room:room,p_body:t});
+    if(s.error||!s.data||!s.data.ok){toastLite((s.data&&s.data.why)||'Could not send');i.value=t;return}rcAdd(R,s.data.msg)};
+  try{if(DB.ok&&DB.c)R.ch=DB.c.channel('hp-rc-'+room+'-'+(DB.pid||'x')).on('postgres_changes',{event:'INSERT',schema:'public',table:'chat_msgs',filter:'room=eq.'+room},p=>rcAdd(R,p.new))
+    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'chat_msgs',filter:'room=eq.'+room},p=>{const n=p.new||{};if(n.deleted){R.msgs=R.msgs.filter(m=>m.id!==n.id);rcPaint(R)}}).subscribe()}catch(e){}
+  /* stop listening once the room is gone from the page */
+  const watch=setInterval(()=>{if(!el.isConnected||RC.rooms[room]!==R){clearInterval(watch);rcUnmount(room,R)}},4000)}
+function rcUnmount(room,only){const R=RC.rooms[room];if(!R||(only&&R!==only))return;try{if(R.ch&&DB.c)DB.c.removeChannel(R.ch)}catch(e){}delete RC.rooms[room]}
+function rcAdd(R,m){if(!m||m.deleted||R.msgs.some(x=>x.id===m.id)||(CHAT.blocked&&CHAT.blocked.has(m.pid)))return;R.msgs.push(m);if(R.msgs.length>120)R.msgs.shift();rcPaint(R)}
+function rcPaint(R,first){const f=R.el.querySelector('[data-rcf]');if(!f)return;const end=first||f.scrollHeight-f.scrollTop-f.clientHeight<60;
+  f.innerHTML=R.msgs.length?R.msgs.map(m=>`<div class="rcm ${m.pid===DB.pid?'me':''}"><button class="cmn" data-prof2="${m.pid}">${esc(m.name||'Player')}</button>${roleBadge(m.badge,true)} <span>${esc(m.body)}</span><time>${cmAgo(m.created_at)}</time></div>`).join(''):'<p class="hint">No messages yet. Say hi!</p>';if(end)f.scrollTop=f.scrollHeight}
+/* ---------- Crew Wars on the crew tab ---------- */
+const CW={data:null};
+function cwCardHTML(d){if(!d)return'';const w=d.war,l=d.last;const left=Math.max(0,new Date(d.ends)-Date.now());const days=Math.floor(left/864e5),hrs=Math.floor(left%864e5/36e5);
+  let war='';if(!w)war='<p class="hint">Your crew needs 2 members to be paired. New matchups start every Monday.</p>';
+  else if(!w.opp)war=`<div class="cwvs"><div class="cwside me"><b>${fmtN(w.mine)}</b><small>your crew</small></div><span class="cwv">vs</span><div class="cwside"><b>—</b><small>no opponent this week: you win if you play</small></div></div>`;
+  else{const tot=Math.max(1,w.mine+w.theirs);const pct=Math.round(w.mine/tot*100);const lead=w.mine>w.theirs?'You\'re ahead':w.mine<w.theirs?'You\'re behind':'Dead even';
+    war=`<div class="cwvs"><div class="cwside me"><b>${fmtN(w.mine)}</b><small>your crew</small></div><span class="cwv">vs</span><div class="cwside" style="--oc:${esc(w.opp.color)}"><b>${fmtN(w.theirs)}</b><small>${esc(w.opp.emoji)} ${esc(w.opp.name)} <i>[${esc(w.opp.tag)}]</i></small></div></div>
+      <div class="cwbar"><i style="width:${pct}%"></i></div><p class="cwlead ${w.mine>=w.theirs?'up':'down'}">${lead}${w.theirs!==w.mine?' by '+fmtN(Math.abs(w.mine-w.theirs)):''}. Every game anyone in your crew plays is a point (20 a day each).</p>`}
+  const last=l?`<div class="cwlast ${l.won?'won':''}"><span>Last week: ${l.tie?'Tie':l.won?'🏆 Won':'Lost'} ${l.mine}–${l.theirs}${l.opp?' vs '+esc(l.opp):''}</span>${l.claimable?`<button class="btn btn-go sm" id="cwClaim" data-w="${l.id}">Collect 500 🎟 + 300 XP</button>`:''}</div>`:'';
+  return `<div class="card cwcard"><div class="mphd"><span class="label">Crew War · this week</span><span class="hint">${days}d ${hrs}h left</span></div>${war}${last}</div>`}
+async function cwLoad(){const r=await socRpc('crew_war_mine');CW.data=r.data||null;return CW.data}
+{const _sr=socRender;socRender=function(){_sr.apply(this,arguments);try{if(SOC.tab==='crew'&&SOC.crew)cwInject()}catch(e){console.error(e)}}}
+async function cwInject(){const card=$('.crewcard');if(!card||$('#cwSlot'))return;const slot=document.createElement('div');slot.id='cwSlot';slot.innerHTML=CW.data?cwCardHTML(CW.data):'';card.after(slot);
+  const chat=document.createElement('div');chat.className='card';chat.innerHTML=`<span class="label">Crew chat · only your crew sees this</span><div id="cwChat"></div>`;slot.after(chat);rcMount($('#cwChat'),'crew:'+SOC.crew.id,{ph:'Message your crew…',cls:'tall'});
+  const d=await cwLoad();if(!$('#cwSlot'))return;$('#cwSlot').innerHTML=cwCardHTML(d);const b=$('#cwClaim');if(b)b.onclick=async()=>{b.disabled=true;const r=await socRpc('crew_war_claim',{p_war:+b.dataset.w});if(r.data&&r.data.ok){addTix(500,'Crew War win');gainXP(300);try{confetti()}catch(e){}sfx('win');saveP()}else toastLite((r.data&&r.data.why)||'Could not collect');await cwLoad();$('#cwSlot').innerHTML=cwCardHTML(CW.data)}}
+/* a nudge on the home page while your crew is in a close war */
+function cwHomeHTML(){const d=CW.data;if(!d||!d.war||!d.war.opp)return'';const w=d.war;const diff=w.mine-w.theirs;
+  return `<button class="hfnote cwnote" onclick="openSocial('crew')"><b>⚔️ Crew War</b><span>${diff>=0?'Ahead':'Behind'} ${fmtN(w.mine)}–${fmtN(w.theirs)} vs ${esc(w.opp.name)}</span></button>`}
+
+/* ======================= LIVE: Game Night (real NBA and NFL games), Friday Night Live, and watching games ======================= */
+const LV={tab:'tonight',lg:'nba',gn:{},split:{},room:null,iv:0};
+const GN_LG={nba:['NBA','basketball/nba'],nfl:['NFL','football/nfl']};
+const gnOn=()=>!(((LIVE.feed||{}).cfg||{}).gnOff);
+/* scores: straight from ESPN's public scoreboard, or through our own "scores" function if the browser can't reach it */
+async function gnFetch(lg,kind,ev){const path=GN_LG[lg][1];const direct=`https://site.api.espn.com/apis/site/v2/sports/${path}/${kind||'scoreboard'}${ev?'?event='+ev:''}`;
+  const via=`${SB_URL}/functions/v1/scores?league=${lg}${kind==='summary'?'&kind=summary&event='+ev:''}`;const order=LV.useFn?[via,direct]:[direct,via];
+  for(const u of order){try{const r=await fetch(u,{cache:'no-store'});if(r.ok){const j=await r.json();if(u===via)LV.useFn=true;return j}}catch(e){}}return null}
+function gnParse(lg,j){return((j&&j.events)||[]).map(e=>{const c=(e.competitions||[])[0]||{};const st=e.status||c.status||{};const T=st.type||{};
+  const side=h=>{const x=(c.competitors||[]).find(k=>k.homeAway===h)||{};const t=x.team||{};return{abbr:t.abbreviation||'?',name:t.shortDisplayName||t.displayName||t.name||'?',full:t.displayName||'',color:t.color?'#'+t.color:'#556',alt:t.alternateColor?'#'+t.alternateColor:'#fff',logo:t.logo||'',score:x.score!=null?+x.score:null,rec:((x.records||[])[0]||{}).summary||'',id:t.id,win:x.winner}};
+  const tv=[...new Set([...(c.broadcasts||[]).flatMap(b=>b.names||[]),...(c.geoBroadcasts||[]).map(b=>(b.media||{}).shortName).filter(Boolean)])].slice(0,4);
+  const sit=c.situation||{};return{id:lg+':'+e.id,ev:e.id,lg,start:e.date,state:T.state||'pre',done:!!T.completed,detail:T.shortDetail||T.detail||'',clock:st.displayClock,period:st.period,home:side('home'),away:side('away'),tv,
+    last:(sit.lastPlay||{}).text||'',down:sit.shortDownDistanceText||sit.downDistanceText||'',poss:sit.possession||null}})}
+async function gnLoad(lg,force){const cur=LV.gn[lg];if(cur&&!force&&Date.now()-cur.at<20000)return cur.list;const j=await gnFetch(lg);const list=gnParse(lg,j);LV.gn[lg]={at:Date.now(),list,ok:!!j};
+  if(list.length&&DB.ok){const s=await socRpc('gn_split',{p_games:list.map(g=>g.id)});if(s.data)Object.assign(LV.split,s.data)}gnSettle(list);return list}
+/* finished games: report the winner (two players agreeing settles it), then collect any right picks */
+async function gnSettle(list){if(!DB.ok||!P.signed)return;let did=false;const seen=JSON.parse(sessionStorage.getItem('hp_gnrep')||'[]');
+  for(const g of list){if(!g.done||seen.includes(g.id)||!LV.split[g.id])continue;const w=g.home.win?g.home.abbr:g.away.win?g.away.abbr:g.home.score>g.away.score?g.home.abbr:g.away.score>g.home.score?g.away.abbr:null;if(!w)continue;
+    await socRpc('gn_report',{p_game:g.id,p_winner:w});seen.push(g.id);did=true}
+  try{sessionStorage.setItem('hp_gnrep',JSON.stringify(seen.slice(-80)))}catch(e){}
+  const u=await socRpc('gn_unclaimed');for(const x of (u.data||[])){const c=await socRpc('gn_claim',{p_game:x.game});if(c.data&&c.data.ok){addTix(150,`Called it: ${x.pick} won`);gainXP(100);try{qEvent('gn_win')}catch(e){}did=true}}if(did)saveP()}
+function gnWhen(g){const d=new Date(g.start);const today=new Date().toDateString()===d.toDateString();return(today?'':d.toLocaleDateString(undefined,{weekday:'short'})+' ')+d.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}
+function gnTeamHTML(t,g,isHome){const lead=g.state!=='pre'&&t.score!=null&&t.score>(isHome?g.away:g.home).score;return `<div class="gnt ${lead?'lead':''} ${g.done&&!lead?'lost':''}" style="--tc:${esc(t.color)}">${t.logo?`<img src="${esc(t.logo)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:`<i>${esc(t.abbr)}</i>`}<span><b>${esc(t.name)}</b><small>${esc(t.rec)}</small></span><em>${g.state==='pre'?'':t.score}</em></div>`}
+function gnPickHTML(g){const S=LV.split[g.id]||{};const h=+S.h||0,a=+S.a||0,n=h+a;const mine=S.mine;const pa=n?Math.round(a/n*100):50;
+  if(g.state==='pre')return `<div class="gnpick"><span class="label">Who wins? Right picks earn 150 🎟</span><div class="gnpb"><button class="${mine===g.away.abbr?'on':''}" data-gnp="${g.id}" data-t="${esc(g.away.abbr)}">${esc(g.away.abbr)}</button><button class="${mine===g.home.abbr?'on':''}" data-gnp="${g.id}" data-t="${esc(g.home.abbr)}">${esc(g.home.abbr)}</button></div>${n?`<div class="gnsplit"><i style="width:${pa}%"></i></div><small class="hint">${pa}% ${esc(g.away.abbr)} · ${100-pa}% ${esc(g.home.abbr)} · ${n} pick${n>1?'s':''}</small>`:''}</div>`;
+  return mine?`<p class="gnmine ${g.done?(S.winner===mine||((g.home.win&&mine===g.home.abbr)||(g.away.win&&mine===g.away.abbr))?'won':'lost'):''}">Your pick: <b>${esc(mine)}</b>${n?` · ${pa}% picked ${esc(g.away.abbr)}`:''}</p>`:''}
+function gnCardHTML(g){return `<div class="card gncard st-${g.state}"><div class="gnhd"><span class="gnst ${g.state}">${g.state==='in'?'<i></i>LIVE · ':''}${esc(g.state==='pre'?gnWhen(g):g.detail)}</span>${g.tv.length?`<span class="gntv" title="Where to watch">📺 ${esc(g.tv.join(' · '))}</span>`:''}</div>
+  ${gnTeamHTML(g.away,g,false)}${gnTeamHTML(g.home,g,true)}${g.state==='in'&&(g.down||g.last)?`<p class="gnlast">${g.down?'<b>'+esc(g.down)+'</b> ':''}${esc(g.last)}</p>`:''}${gnPickHTML(g)}
+  <button class="btn btn-ghost sm gnroom" data-gnroom="${g.id}">${icon('M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z',14)} ${g.state==='in'?'Join the live room':g.state==='pre'?'Game room':'Recap and chat'}</button></div>`}
+/* ---------- the Live page ---------- */
+async function liveHub(tab){if(tab)LV.tab=tab;goTo('live');if(!canPlay('full'))return;LV.room=null;clearInterval(LV.iv);const T=LV.tab;
+  const tabs=[['tonight','🏀 Game Night'],['fnl','🔴 Friday Night Live'],['watch','👀 Watch']].filter(t=>t[0]!=='tonight'||gnOn());if(!tabs.some(t=>t[0]===T))LV.tab=tabs[0][0];
+  $('#app').innerHTML=`<section class="view lvv"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6')} Home</button><div><span class="label">Watch and play together</span><h2>Live</h2></div></div>
+    <div class="chips soctabs">${tabs.map(([k,n])=>`<button class="cbtn ${LV.tab===k?'on':''}" data-lvt="${k}">${n}</button>`).join('')}</div><div id="lvBody" style="margin-top:14px"><span class="spin" style="color:var(--amber)"></span></div></div></section>`;
+  $$('[data-lvt]').forEach(b=>b.onclick=()=>liveHub(b.dataset.lvt));const B=$('#lvBody');
+  if(LV.tab==='tonight')await lvTonight(B);else if(LV.tab==='fnl')await fnlBody(B);else await lvWatch(B)}
+async function lvTonight(B){const paint=async force=>{const list=await gnLoad(LV.lg,force);if(!B.isConnected||LV.room)return;const ok=(LV.gn[LV.lg]||{}).ok;
+    const live=list.filter(g=>g.state==='in'),pre=list.filter(g=>g.state==='pre'),post=list.filter(g=>g.state==='post');
+    B.innerHTML=`<div class="gnbar"><div class="chips">${Object.entries(GN_LG).map(([k,v])=>`<button class="cbtn ${LV.lg===k?'on':''}" data-gnlg="${k}">${v[0]}</button>`).join('')}</div><p class="hint">Watch on your own TV or app (channels are listed on each game), and hang out here: live scores, a chat room for every game, and picks that earn tickets.</p></div>
+      ${!ok?`<div class="card"><p class="mutep">Scores aren't loading right now. Try again in a minute.</p></div>`:!list.length?`<div class="card"><p class="mutep">No ${GN_LG[LV.lg][0]} games today.</p></div>`:''}
+      ${live.length?`<h3 class="gnsec"><i class="lvdot"></i>Live now</h3><div class="gngrid">${live.map(gnCardHTML).join('')}</div>`:''}${pre.length?`<h3 class="gnsec">Coming up</h3><div class="gngrid">${pre.map(gnCardHTML).join('')}</div>`:''}${post.length?`<h3 class="gnsec">Final</h3><div class="gngrid">${post.map(gnCardHTML).join('')}</div>`:''}`;
+    $$('[data-gnlg]').forEach(b=>b.onclick=()=>{LV.lg=b.dataset.gnlg;B.innerHTML='<span class="spin" style="color:var(--amber)"></span>';paint(true)});gnBind(B,list)};
+  await paint();LV.iv=setInterval(()=>{if(!B.isConnected){clearInterval(LV.iv);return}if(!LV.room)paint(true)},25000)}
+function gnBind(B,list){B.querySelectorAll('[data-gnp]').forEach(b=>b.onclick=async()=>{if(!P.signed){toastLite('Make a profile to pick');return}const g=list.find(x=>x.id===b.dataset.gnp);if(!g)return;
+    const r=await socRpc('gn_pick',{p_game:g.id,p_league:g.lg,p_starts:g.start,p_home:g.home.abbr,p_away:g.away.abbr,p_pick:b.dataset.t});if(r.error||!r.data||!r.data.ok){toastLite((r.data&&r.data.why)||'Could not save your pick');return}
+    sfx('click');const S=LV.split[g.id]=LV.split[g.id]||{h:0,a:0};if(!S.mine){if(b.dataset.t===g.home.abbr)S.h=(+S.h||0)+1;else S.a=(+S.a||0)+1}else if(S.mine!==b.dataset.t){if(b.dataset.t===g.home.abbr){S.h++;S.a--}else{S.a++;S.h--}}S.mine=b.dataset.t;
+    const card=b.closest('.gncard');if(card){const p=card.querySelector('.gnpick');if(p){p.outerHTML=gnPickHTML(g);gnBind(card,list)}}try{qEvent('gn_pick')}catch(e){}});
+  B.querySelectorAll('[data-gnroom]').forEach(b=>b.onclick=()=>gnRoom(b.dataset.gnroom))}
+/* one game: big scoreboard, the last plays, picks and its own chat room */
+async function gnRoom(id){const B=$('#lvBody');if(!B)return;LV.room=id;const lg=id.split(':')[0];
+  const paint=async()=>{const list=await gnLoad(lg,true);const g=list.find(x=>x.id===id);if(!$('#lvBody')||LV.room!==id)return;if(!g){B.innerHTML='<div class="card"><p class="mutep">That game isn\'t on today\'s board anymore.</p></div>';return}
+    const sum=await gnFetch(lg,'summary',g.ev);const plays=gnPlays(sum).slice(-12).reverse();const room=$('#gnRoomTop');
+    const top=`<div class="gnbig" style="--ac:${esc(g.away.color)};--hc:${esc(g.home.color)}"><div class="gnbs">${g.away.logo?`<img src="${esc(g.away.logo)}" alt="" referrerpolicy="no-referrer">`:''}<b>${esc(g.away.name)}</b><em>${g.state==='pre'?'':g.away.score}</em></div><div class="gnbm"><span class="gnst ${g.state}">${g.state==='in'?'<i></i>LIVE':''}</span><b>${esc(g.state==='pre'?gnWhen(g):g.detail)}</b>${g.tv.length?`<small>📺 ${esc(g.tv.join(' · '))}</small>`:''}</div><div class="gnbs">${g.home.logo?`<img src="${esc(g.home.logo)}" alt="" referrerpolicy="no-referrer">`:''}<b>${esc(g.home.name)}</b><em>${g.state==='pre'?'':g.home.score}</em></div></div>
+      ${gnPickHTML(g)}${plays.length?`<div class="gnplays"><span class="label">Latest plays</span>${plays.map(p=>`<div class="${p.score?'sc':''}"><time>${esc(p.when)}</time><span>${esc(p.text)}</span></div>`).join('')}</div>`:g.last?`<p class="gnlast">${esc(g.last)}</p>`:''}`;
+    if(room){room.innerHTML=top;gnBind(room,list);return}
+    B.innerHTML=`<button class="btn btn-ghost sm" id="gnBack">${icon('M19 12H5M11 18l-6-6 6-6',14)} All games</button><div class="gnroomg"><div class="card" id="gnRoomTop">${top}</div><div class="card"><span class="label">${esc(g.away.abbr)} @ ${esc(g.home.abbr)} · game room chat</span><div id="gnChat"></div></div></div>`;
+    $('#gnBack').onclick=()=>{LV.room=null;rcUnmount('gn:'+id);liveHub('tonight')};gnBind($('#gnRoomTop'),list);rcMount($('#gnChat'),'gn:'+id,{ph:'Talk about the game…',cls:'tall'})};
+  B.innerHTML='<span class="spin" style="color:var(--amber)"></span>';await paint();clearInterval(LV.iv);LV.iv=setInterval(()=>{if(!$('#lvBody')||LV.room!==id){clearInterval(LV.iv);return}paint()},20000)}
+function gnPlays(s){if(!s)return[];let P2=[];if(Array.isArray(s.plays))P2=s.plays;else if(s.drives){const d=[...((s.drives.previous)||[]),...(s.drives.current?[s.drives.current]:[])];P2=d.flatMap(x=>x.plays||[])}
+  return P2.filter(p=>p&&p.text).map(p=>({text:p.text,score:!!p.scoringPlay,when:`${p.period&&p.period.number?'Q'+p.period.number+' ':''}${(p.clock||{}).displayValue||''}`}))}
+/* ---------- watching Hall Pass games ---------- */
+async function lvWatch(B){const [s,f]=await Promise.all([socRpc('fnl_state',{p_event:null}),socRpc('friend_list')]);if(!B.isConnected)return;const E=s.data;const live=E&&E.status==='live'?E.matches.filter(m=>m.st==='live'&&m.a&&m.b):[];const fr=(f.data||[]).filter(x=>x.status==='accepted'&&x.online&&x.room);
+  B.innerHTML=`<div class="card"><span class="label">🔴 Friday Night Live matches</span>${live.length?live.map(m=>`<div class="socrow"><span class="lvdot"></span><div class="socn"><b>${esc(m.a)} vs ${esc(m.b)}</b><small>${fnlRoundName(m.r,E)}</small></div><button class="btn btn-go sm" data-lvw="${fnlCode(m.id)}">👀 Watch</button></div>`).join(''):`<p class="hint">${E&&E.status==='signup'?`The next Friday Night Live starts ${fnlWhen(E)}.`:'No bracket games going right now.'}</p>`}</div>
+    <div class="card"><span class="label">Friends playing now</span>${fr.length?fr.map(x=>`<div class="socrow"><span class="socav on">${esc((x.name||'?')[0])}</span><div class="socn"><b>${esc(x.name)}</b><small>${esc(x.doing||'Playing')}</small></div><button class="btn btn-ghost sm" data-lvw="${esc(x.room)}">👀 Watch</button></div>`).join(''):'<p class="hint">None of your friends are in an online game right now.</p>'}</div>`;
+  B.querySelectorAll('[data-lvw]').forEach(b=>b.onclick=()=>{STO.mode='online';stnJoin(b.dataset.lvw,true)})}
+/* ---------- Friday Night Live ---------- */
+const FNL={st:null,at:0,live:null,poll:0,told:{}};
+const fnlCode=id=>'F'+(+id).toString(36).toUpperCase();
+function fnlWhen(E){const d=new Date(E.starts_at);const ms=d-Date.now();if(ms<=0)return'now';if(ms<36e5)return'in '+Math.ceil(ms/6e4)+' min';if(ms<864e5)return'today at '+d.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});return d.toLocaleDateString(undefined,{weekday:'long'})+' at '+d.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}
+function fnlRoundName(r,E){const last=Math.max(...E.matches.map(m=>m.r));return r===last?'Final':r===last-1?'Semifinal':r===last-2?'Quarterfinal':'Round '+r}
+async function fnlLoad(){if(!DB.ok)return null;const r=await socRpc('fnl_state',{p_event:null});FNL.st=r.data||null;FNL.at=Date.now();fnlWatch();return FNL.st}
+function fnlCount(E){const ms=Math.max(0,new Date(E.starts_at)-Date.now());const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);return d?`${d}d ${h}h ${m}m`:h?`${h}h ${m}m`:`${m}:${String(s).padStart(2,'0')}`}
+async function fnlBody(B){const E=await fnlLoad();if(!B.isConnected)return;if(!E){B.innerHTML='<div class="card"><p class="mutep">Friday Night Live isn\'t scheduled right now. Check back soon.</p></div>';return}
+  const champ=E.status==='done'&&E.champ;const my=E.my;
+  B.innerHTML=`<div class="card fnlhero st-${E.status}"><div><span class="label">${E.status==='live'?'<i class="lvdot"></i> Live now':E.status==='done'?'Final':E.status==='cancelled'?'Cancelled':'Every Friday night'}</span><h2>${esc(E.title)}</h2>
+      <p>${E.status==='signup'?`A live 1-on-1 Street bracket for everyone. First to ${E.to}. Sign up any time, then be online when it starts. The champion's name goes on the home page all week, plus 2,000 🎟 and the Friday Night Champion title.`:E.status==='live'?`${E.entries} players. First to ${E.to}. Lose once and you're out.`:champ?`<b class="fnlch">🏆 ${esc(E.champ)}</b> is this week's champion.`:'Not enough players were online this time. See you next week.'}</p></div>
+    ${E.status==='signup'?`<div class="fnlcd"><small>Starts ${esc(fnlWhen(E))}</small><b id="fnlCd">${fnlCount(E)}</b><button class="btn ${E.joined?'btn-ghost':'btn-go'} btn-big" id="fnlJoin">${E.joined?'You\'re in ✓ (tap to drop out)':'Sign me up'}</button><small>${E.entries} signed up</small></div>`:''}</div>
+    ${my?`<div class="card fnlmy"><span class="label">Your ${fnlRoundName(my.round,E).toLowerCase()} match is ready</span><h3>vs ${esc(my.opp||'?')}</h3><div class="actrow"><button class="btn btn-go btn-big" id="fnlPlay">Play now</button></div><p class="hint">If your opponent doesn't show up within 2 minutes, you go through.</p></div>`:''}
+    ${E.champ_me&&!(P.fnlWon||[]).includes(E.id)?`<div class="card fnlmy"><h3>🏆 You won Friday Night Live!</h3><button class="btn btn-go" id="fnlClaim">Collect 2,000 🎟 and your title</button></div>`:''}
+    ${E.matches&&E.matches.length?`<div class="card"><span class="label">Bracket</span>${fnlBracketHTML(E)}</div>`:E.names&&E.names.length?`<div class="card"><span class="label">Signed up</span><div class="fnlnames">${E.names.map(n=>`<span>${esc(n)}</span>`).join('')}</div></div>`:''}
+    <div class="card"><span class="label">Friday Night Live chat</span><div id="fnlChat"></div></div>`;
+  const j=$('#fnlJoin');if(j)j.onclick=async()=>{if(!P.signed){toastLite('Make a profile first');return}if(typeof stnCan==='function'&&!stnCan())return;const r=await socRpc('fnl_join',{p_event:E.id,p_on:!E.joined});if(r.data&&r.data.ok){sfx(E.joined?'click':'chime');if(!E.joined)toastLite('You\'re in! Be online when it starts.')}else toastLite((r.data&&r.data.why)||'Could not sign up');fnlBody(B)};
+  const pl=$('#fnlPlay');if(pl)pl.onclick=()=>fnlPlay(my);const cl=$('#fnlClaim');if(cl)cl.onclick=()=>{P.fnlWon=[...(P.fnlWon||[]),E.id];addTix(2000,'Friday Night Live champion');gainXP(1000);const u=unlocks();const t='Friday Night Champion';if(!u.title.includes(t))u.title.push(t);saveP();try{confetti()}catch(e){}sfx('win');fnlBody(B)};
+  B.querySelectorAll('[data-lvw]').forEach(b=>b.onclick=()=>{STO.mode='online';stnJoin(b.dataset.lvw,true)});rcMount($('#fnlChat'),'fnl:'+E.id,{ph:'Hype it up…'});
+  clearInterval(LV.iv);LV.iv=setInterval(async()=>{if(!B.isConnected){clearInterval(LV.iv);return}const cd=$('#fnlCd');if(cd)cd.textContent=fnlCount(E);
+    if(Date.now()-FNL.at>(E.status==='live'||new Date(E.starts_at)-Date.now()<6e4?5000:30000)){const old=JSON.stringify([E.status,E.matches,E.my,E.entries]);const n=await fnlLoad();if(n&&JSON.stringify([n.status,n.matches,n.my,n.entries])!==old&&B.isConnected){const keep=$('#fnlChat');fnlBody(B)}}},1000)}
+function fnlBracketHTML(E){const M=E.matches;const R=[...new Set(M.map(m=>m.r))];
+  return `<div class="fnlbr">${R.map(r=>`<div class="fnlrd"><span class="label">${fnlRoundName(r,E)}</span>${M.filter(m=>m.r===r).map(m=>`<div class="fnlm st-${m.st} ${m.me?'mine':''}"><div class="${m.w==='a'?'w':''}"><span>${esc(m.a||(m.st==='done'?'bye':'—'))}</span><b>${m.as!=null?m.as:''}</b></div><div class="${m.w==='b'?'w':''}"><span>${esc(m.b||(m.st==='done'?'bye':'—'))}</span><b>${m.bs!=null?m.bs:''}</b></div>${m.st==='live'&&m.a&&m.b&&!m.me?`<div class="fnlma"><button class="mini" data-lvw="${fnlCode(m.id)}">👀 Watch</button></div>`:''}</div>`).join('')}</div>`).join('')}</div>`}
+/* your match: the higher seed hosts the room, the other joins; it starts by itself when both are in */
+async function fnlPlay(my){const E=FNL.st;if(!my||!E)return;const code=fnlCode(my.id);FNL.live={code,mid:my.id,done:false,opp:my.opp};STO.mode='online';
+  if(my.host){if(STN.alive)stnLeave();try{await stnOpen(code,true)}catch(e){toastLite('Couldn\'t open the match room.');return}const me=stnMyProf();STN.mode='1v1';STN.to=+E.to||11;STN.court='arena';STN.seats=[STN.uid,null,null,null,null,null];STN.names={[STN.uid]:me.name};STN.prof={[STN.uid]:me};STN.hostUid=STN.uid;
+    STN.cup={code,t0:Date.now(),fnl:my.id};stnRoom()}
+  else{for(let i=0;i<6;i++){if(STN.alive)stnLeave();await stnJoin(code);STN.cup={code,guest:1,fnl:my.id};await new Promise(r=>setTimeout(r,2500));if(STN.seats.includes(STN.uid))return}stnLeave();toastLite('Couldn\'t reach your opponent yet. Try again in a moment.');liveHub('fnl')}}
+{const _se=stnEnd;stnEnd=function(w){const s=ST;const L=FNL.live;const mine=L&&!L.done&&STN.code===L.code;const r=_se.apply(this,arguments);if(mine&&s){L.done=true;const me=s.all.find(p=>p.loc)||s.teams.A[0];const my=me.team==='A'?s.score.A:s.score.B,their=me.team==='A'?s.score.B:s.score.A;
+    socRpc('fnl_report',{p_match:L.mid,p_my_score:my,p_their_score:their}).then(x=>{if(x.data&&x.data.dispute)toastLite('The scores you two reported don\'t match. An admin will sort it out.')});
+    setTimeout(()=>{const b=$('#stnCupB');if(b){b.textContent=my>their?'On to the next round 🔥':'Back to Friday Night Live';b.onclick=()=>{stnLeave();FNL.live=null;liveHub('fnl')}}const h=$('.stend .label');if(h)h.textContent='Friday Night Live · vs '+(L.opp||'opponent')},30)}return r}}
+/* keep an eye on the bracket while you're signed up, and tell you when your match is ready */
+function fnlWatch(){clearTimeout(FNL.poll);const E=FNL.st;if(!E||!P.signed)return;const soon=new Date(E.starts_at)-Date.now();const wait=E.status==='live'&&(E.my||!E.out)?8000:E.status==='signup'&&E.joined&&soon<20*6e4?15000:E.status==='signup'&&E.joined?Math.min(soon-19*6e4,30*6e4):0;
+  if(E.my&&!FNL.told[E.my.id]&&!(ST&&ST.opt&&ST.opt.online)&&CURV!=='live'){FNL.told[E.my.id]=1;sfx('chime');toast('Your Friday Night Live match is ready',`vs ${E.my.opp||'your opponent'} · open Live to play`,'M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z');try{vib([60,40,60])}catch(e){}}
+  if(E.status==='signup'&&E.joined&&soon<5*6e4&&soon>0&&!FNL.told['s'+E.id]){FNL.told['s'+E.id]=1;toast('Friday Night Live starts in 5 minutes','Stay online to get your spot in the bracket.','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z')}
+  if(wait>0)FNL.poll=setTimeout(()=>{if(!(ST&&ST.opt&&ST.opt.online))fnlLoad();else fnlWatch()},Math.max(5000,wait))}
+/* ---------- home: what's live ---------- */
+function liveHomeHTML(){const E=FNL.st;const items=[];
+  if(E&&E.status==='done'&&E.champ)items.push(`<button class="lvh fnl" onclick="liveHub('fnl')"><span class="lvhic">🏆</span><span><small>Friday Night Live champion</small><b>${esc(E.champ)}</b></span></button>`);
+  else if(E&&E.status==='live')items.push(`<button class="lvh fnl live" onclick="liveHub('fnl')"><span class="lvhic"><i class="lvdot"></i></span><span><small>Friday Night Live is on</small><b>${E.my?'Your match is ready':'Watch the bracket'}</b></span></button>`);
+  else if(E&&E.status==='signup')items.push(`<button class="lvh fnl" onclick="liveHub('fnl')"><span class="lvhic">🔴</span><span><small>Friday Night Live · ${esc(fnlWhen(E))}</small><b>${E.joined?'You\'re signed up ✓':'Sign up for the bracket'}</b></span></button>`);
+  if(gnOn()){const L=(LV.gn.nba||{}).list||[];const lv=L.filter(g=>g.state==='in').length;items.push(`<button class="lvh gn" onclick="liveHub('tonight')"><span class="lvhic">🏀</span><span><small>Game Night</small><b>${lv?lv+' NBA game'+(lv>1?'s':'')+' live now':L.length?L.length+' NBA game'+(L.length>1?'s':'')+' today':'Real NBA and NFL games'}</b></span></button>`)}
+  try{const cw=cwHomeHTML();if(cw)items.push(cw)}catch(e){}
+  return items.length?`<div class="lvhrow">${items.join('')}</div>`:''}
+/* load what the home page needs once the database is up */
+setTimeout(async function lvBoot(){if(!DB.ok){if((lvBoot.n=(lvBoot.n||0)+1)<30)setTimeout(lvBoot,2000);return}try{await fnlLoad()}catch(e){}try{if(gnOn())await gnLoad('nba')}catch(e){}try{if(P.signed)await cwLoad()}catch(e){}
+  lvHomePaint()},3000);
+function lvHomePaint(){if(CURV!=='home'||!$('#hs-now .hhd'))return;const old=$('.lvhrow');const d=document.createElement('div');d.innerHTML=liveHomeHTML();const n=d.firstElementChild;if(old){if(n)old.replaceWith(n);else old.remove()}else if(n)$('#hs-now .hhd').after(n)}
+/* quests for the new things */
+Object.assign(QEV,{gn_pick:'Game Night picks',gn_win:'Right Game Night picks',fnl_play:'Friday Night Live matches'});
+Object.assign(QPOOL,{d_gnpick:['d','gn_pick',1,90,90,'Make a Game Night pick'],w_gnwin:['w','gn_win',2,600,600,'Call 2 Game Night winners']});
+{const _fp=fnlPlay;fnlPlay=function(my){try{qEvent('fnl_play')}catch(e){}return _fp.apply(this,arguments)}}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
