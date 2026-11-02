@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793628985">
+<meta name="hp-build" content="1793634609">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -2577,6 +2577,115 @@ html.lite .scrim,html.lite .popbg{background:rgba(5,8,18,.84)}
 html.lite .mx.fire,html.lite .mxhlp.q .mxhlv,html.lite .mxslots span.cur,html.lite .mxst b.low{animation:none}
 /* the lower home sections only lay out when they get near the screen */
 #hs-league,#hs-draft,#hs-more{content-visibility:auto;contain-intrinsic-size:auto 640px}
+/* ===== Stock market 2.0 ===== */
+#mk2 .mktick span.up{color:#3ddc84}#mk2 .mktick span.dn{color:#ff6b6b}
+.mklive{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:mkpulse 1.8s infinite;vertical-align:middle}
+@keyframes mkpulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.55)}70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+.mk2hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,1.4fr);gap:12px;align-items:stretch;margin:12px 0;padding:16px;border-radius:20px;background:linear-gradient(135deg,rgba(61,220,132,.08),rgba(255,181,71,.05) 60%,transparent),var(--panel);border:1px solid var(--line)}
+.mk2nw small,.mk2sum small{display:block;color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.mk2nw b{display:block;font-family:var(--f-display);font-size:clamp(30px,4.4vw,44px);line-height:1.05;font-variant-numeric:tabular-nums;border-radius:8px}
+.mk2nw em{display:block;font-style:normal;font-size:13px;font-family:var(--f-mono)}
+.mk2nwc{display:flex;align-items:center}.mk2nwc .mkspark{width:100%;height:64px}
+.mk2sum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.mk2sum>div{padding:8px 10px;border-radius:12px;background:rgba(0,0,0,.18);border:1px solid var(--line);min-width:0}.mk2sum b{font-family:var(--f-mono);font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.mk2tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 8px;margin-bottom:6px;-webkit-overflow-scrolling:touch}.mk2tabs::-webkit-scrollbar{display:none}.mk2tabs .cbtn{flex:0 0 auto;white-space:nowrap}
+.mk2n{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--amber);color:#1a1200;font-style:normal;font-size:11px;font-weight:800;margin-left:4px}.mk2n.dot{min-width:8px;width:8px;height:8px;padding:0;vertical-align:top}
+.mk2grid.has{grid-template-columns:minmax(0,1.25fr) minmax(340px,1fr)}
+.mk2main{min-width:0}.mk2main>*+*{margin-top:12px}
+.mk2row{grid-template-columns:62px minmax(0,1fr) 74px 96px 30px;cursor:pointer;transition:border-color .15s,transform .15s}.mk2row:active{transform:scale(.995)}
+.mk2row:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.mk2row .own{font-style:normal;color:var(--amber)}
+.mk2star{background:none;border:0;color:var(--mute);font-size:18px;line-height:1;padding:4px;border-radius:8px;cursor:pointer}.mk2star:hover{color:var(--text);background:rgba(255,255,255,.06)}.mk2star.on{color:#ffd166}.mk2star.big{font-size:20px}
+.tku{animation:mktku .9s ease-out}.tkd{animation:mktkd .9s ease-out}
+@keyframes mktku{0%{background:rgba(61,220,132,.35)}100%{background:transparent}}@keyframes mktkd{0%{background:rgba(255,107,107,.35)}100%{background:transparent}}
+[data-lpx]{border-radius:5px;font-variant-numeric:tabular-nums}
+/* charts */
+.mk2ch{position:relative;border-radius:14px;background:rgba(0,0,0,.22);border:1px solid var(--line);overflow:hidden;touch-action:pan-y;cursor:crosshair;margin:6px 0}
+.mk2ch svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mk2ch.empty{display:grid;place-items:center;height:120px;cursor:default}
+.mk2x{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.35);opacity:0;pointer-events:none}
+.mk2dot{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--cc);box-shadow:0 0 0 3px rgba(0,0,0,.4),0 0 12px var(--cc);opacity:0;pointer-events:none}
+.mk2tip{position:absolute;top:6px;transform:translateX(-50%);padding:5px 9px;border-radius:9px;background:rgba(11,16,32,.92);border:1px solid var(--line);font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;display:flex;gap:8px;align-items:baseline}.mk2tip b{font-family:var(--f-mono)}.mk2tip small{font-family:var(--f-mono);color:var(--mute)}
+.mk2ch.hov .mk2x,.mk2ch.hov .mk2dot,.mk2ch.hov .mk2tip{opacity:1}.mk2ch.hov .mk2hi,.mk2ch.hov .mk2lo{opacity:0}
+.mk2hi,.mk2lo{position:absolute;right:8px;font-family:var(--f-mono);font-size:10px;color:var(--mute);pointer-events:none;transition:opacity .15s}.mk2hi{top:6px}.mk2lo{bottom:6px}
+.mk2ref{position:absolute;left:0;right:0;border-top:1px dashed rgba(255,181,71,.6);pointer-events:none}.mk2ref span{position:absolute;left:8px;top:-17px;font-size:10px;font-family:var(--f-mono);color:var(--amber);background:rgba(11,16,32,.75);padding:0 4px;border-radius:4px}
+.mk2mark{position:absolute;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;border:2px solid #0b1020;pointer-events:none}.mk2mark.buy{background:#3ddc84}.mk2mark.sell{background:#ff6b6b}
+.mk2rng{margin:4px 0 10px}.mk2rng .cbtn{min-width:40px}
+/* overview */
+.mk2over>*+*{margin-top:12px}
+.mk2idxh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}.mk2iv{display:block;font-family:var(--f-display);font-size:30px;font-variant-numeric:tabular-nums}.mk2idxh em{font-style:normal;font-family:var(--f-mono);font-size:13px}
+.mk2idxg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.mk2ix{display:grid;grid-template-columns:1fr auto;gap:0 6px;align-items:baseline;text-align:left;padding:10px 12px;border-radius:14px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--c1);color:var(--text);cursor:pointer;min-width:0}
+.mk2ix:hover{border-color:var(--c1)}.mk2ix small{color:var(--mute);font-size:11px;grid-column:1/-1}.mk2ix b{font-family:var(--f-mono);font-size:18px}.mk2ix em{font-style:normal;font-family:var(--f-mono);font-size:12px}.mk2ix .mkspark{grid-column:1/-1;width:100%;height:24px;margin-top:4px}
+.mk2heat{display:grid;gap:4px;margin-top:8px;align-items:center}.mk2heat>i{font-style:normal;font-size:11px;color:var(--mute);text-align:center;font-family:var(--f-mono)}.mk2heat>i:nth-child(6n+1){text-align:left}
+.mk2hc{border:0;border-radius:8px;padding:9px 2px;font-family:var(--f-mono);font-size:11px;font-weight:700;color:#fff;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,.5);transition:transform .12s}.mk2hc:hover{transform:scale(1.06);position:relative;z-index:1}.mk2hc.none{background:rgba(255,255,255,.03);color:var(--mute);text-align:center;cursor:default}
+.mk2three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.mk2two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.mk2mvr{display:grid;grid-template-columns:58px minmax(0,1fr) auto;grid-template-rows:auto auto;gap:0 8px;align-items:center;width:100%;padding:7px 4px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--text);text-align:left;cursor:pointer;border-radius:8px}
+.mk2mvr:hover{background:rgba(255,255,255,.04)}.mk2mvr:last-of-type{border-bottom:0}.mk2mvr .mksym{grid-row:1/3}.mk2mvr>span:nth-child(2){font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mk2mvr b{font-family:var(--f-mono);font-size:13px;text-align:right}.mk2mvr small{grid-column:2/4;font-family:var(--f-mono);font-size:11px}
+.mk2bz{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:8px;align-items:baseline;width:100%;padding:8px 2px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--text);text-align:left;font-size:14px}button.mk2bz{cursor:pointer}button.mk2bz:hover span{text-decoration:underline}
+.mk2bz i{font-style:normal;font-size:11px}.mk2bz small{color:var(--mute);font-size:11px;white-space:nowrap}
+.mk2callp p{margin:6px 0}
+/* market list */
+.mk2quick{margin:-2px 0 10px}
+/* portfolio */
+.mk2lab{display:block;margin:4px 0 8px}
+.mk2alloc .mk2allocb{display:flex;gap:16px;align-items:center;margin:8px 0}.mk2donut{flex:0 0 auto;transform:rotate(0)}
+.mk2leg{display:grid;gap:4px;font-size:13px;min-width:0;flex:1}.mk2leg span{display:flex;align-items:center;gap:6px}.mk2leg i{width:10px;height:10px;border-radius:3px;flex:0 0 auto}.mk2leg b{margin-left:auto;font-family:var(--f-mono)}
+.mk2hold{grid-template-columns:62px minmax(0,1fr) 74px 120px auto}
+.mk2wt{display:block;height:4px;border-radius:2px;background:rgba(255,255,255,.06);margin-top:5px;overflow:hidden}.mk2wt i{display:block;height:100%;background:var(--amber);border-radius:2px}
+.mk2hold small em{font-style:normal}
+.mk2txh{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.mktx .cmn{font:inherit}
+/* orders, call */
+.mk2ord{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}.mk2ord:last-child{border-bottom:0}.mk2ord small{display:block}.mk2ord .cmn{font:inherit;font-weight:800}
+.mk2callh{display:flex;align-items:center;gap:12px;margin:8px 0}.mk2callh>div:nth-child(2){flex:1;min-width:0}.mk2callh small{display:block;color:var(--mute)}.mk2callh .portrait,.mk2callh svg:first-child{flex:0 0 auto}
+.mk2callb{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}.mk2callb .btn{justify-content:center;padding:14px}
+.mk2lock{padding:12px 14px;border-radius:14px;background:rgba(255,181,71,.08);border:1px solid rgba(255,181,71,.35);margin:8px 0}.mk2lock small{display:block;color:var(--mute);font-family:var(--f-mono)}.mk2lock.win{background:rgba(61,220,132,.1);border-color:rgba(61,220,132,.45)}.mk2lock.loss{background:rgba(255,107,107,.08);border-color:rgba(255,107,107,.4)}
+/* learn, badges */
+.mk2quiz .mk2qa{display:grid;gap:8px;margin:10px 0}.mk2qa .btn{justify-content:flex-start;text-align:left}.mk2qa .btn.right{border-color:#3ddc84;background:rgba(61,220,132,.14)}.mk2qa .btn.wrong{border-color:#ff6b6b;background:rgba(255,107,107,.12)}
+.mk2badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.mk2bdg{display:grid;gap:4px;padding:14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);opacity:.62}.mk2bdg.on{opacity:1;border-color:rgba(255,181,71,.5);background:linear-gradient(160deg,rgba(255,181,71,.12),transparent 70%),var(--panel)}
+.mk2bdg i{font-style:normal;font-size:26px}.mk2bdg small{color:var(--mute);font-size:12px}.mk2bdg .tag{justify-self:start}
+/* detail and trade ticket */
+.mk2det{max-height:calc(100vh - 100px);overflow:auto;scrollbar-width:thin}
+.mk2det .mkdh .mksym{vertical-align:middle;margin-left:4px}.mk2det .mkdh>div{min-width:0;flex:1}.mk2det .mkdh .chatx{margin-left:0}
+.mk2det.flash{animation:mkflash .6s}@keyframes mkflash{0%{box-shadow:0 0 0 2px rgba(61,220,132,.7)}100%{box-shadow:0 0 0 2px transparent}}
+.mk2facts{grid-template-columns:repeat(4,minmax(0,1fr))}.mk2facts b{font-size:13px;font-family:var(--f-mono)}.mk2det .mk2facts{grid-template-columns:repeat(3,minmax(0,1fr))}.mk2det .mk2facts b{font-size:12px;white-space:nowrap}
+.mk2alert{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:8px 10px;border-radius:12px;background:rgba(255,181,71,.07);border:1px solid rgba(255,181,71,.3);margin-bottom:8px;font-size:13px}.mk2alert input{width:100px}.mk2alert small{flex-basis:100%}
+.mk2ticket{display:grid;gap:10px;padding:12px;border-radius:16px;background:var(--ink-2);border:1px solid var(--line);margin:10px 0}.mk2ticket.sell{border-color:rgba(255,107,107,.35)}.mk2ticket.buy{border-color:rgba(61,220,132,.3)}
+.mk2ticket.shake{animation:mkshake .4s}@keyframes mkshake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+.mk2seg{display:grid;grid-template-columns:1fr 1fr;padding:3px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid var(--line)}
+.mk2seg button{border:0;padding:9px;border-radius:9px;background:none;color:var(--mute);font-weight:800;cursor:pointer}.mk2seg button:disabled{opacity:.4;cursor:default}
+.mk2seg button.on[data-mkside="buy"]{background:#3ddc84;color:#062312}.mk2seg button.on[data-mkside="sell"]{background:#ff6b6b;color:#2a0606}
+.mk2ticket .chips{margin:0}.mk2pct{gap:6px}
+.mk2limf{margin:0}.mk2limf .mkqty input{width:110px}
+.mk2cur{font-family:var(--f-mono);font-weight:800;color:var(--mute)}
+.mk2prev{display:grid;grid-template-columns:1fr auto;gap:3px 10px;font-size:13px;padding:8px 10px;border-radius:10px;background:rgba(0,0,0,.2)}.mk2prev span{color:var(--mute)}.mk2prev b{font-family:var(--f-mono);text-align:right}
+.mk2go{width:100%;justify-content:center;padding:13px;font-size:15px}
+.btn-sell{background:#ff6b6b;color:#2a0606;border-color:#ff6b6b}.btn-sell:hover{filter:brightness(1.08)}
+.mk2rel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:6px}.mk2rel button{display:grid;grid-template-columns:auto 1fr;gap:2px 6px;align-items:baseline;padding:8px;border-radius:12px;background:var(--panel);border:1px solid var(--line);color:var(--text);text-align:left;cursor:pointer;min-width:0}
+.mk2rel small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--mute);font-size:11px}.mk2rel b{font-family:var(--f-mono);font-size:13px}.mk2rel em{font-style:normal;font-family:var(--f-mono);font-size:11px;text-align:right}
+.mk2side{min-width:0}.mk2scrim{display:none}
+@media (max-width:1100px){.mk2three{grid-template-columns:1fr 1fr}.mk2three>:last-child{grid-column:1/-1}.mk2idxg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){
+  .mk2hero{grid-template-columns:1fr auto;padding:14px}.mk2nwc{width:120px}.mk2sum{grid-column:1/-1;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mk2grid.has{grid-template-columns:1fr}
+  .mk2side{position:fixed;inset:0;z-index:70;display:flex;flex-direction:column;justify-content:flex-end}
+  .mk2scrim{display:block;position:absolute;inset:0;z-index:0;background:rgba(5,8,18,.6)}
+  .mk2side .mk2det{position:relative;z-index:1;max-height:92vh;margin:0;border-radius:22px 22px 0 0;padding-bottom:calc(16px + env(safe-area-inset-bottom));animation:mkup .25s cubic-bezier(.2,.8,.2,1);background:var(--ink-2)}
+  @keyframes mkup{from{transform:translateY(40px);opacity:.4}}
+  .mk2two,.mk2three{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .mk2sum{grid-template-columns:repeat(2,minmax(0,1fr))}.mk2nwc{width:90px}
+  .mk2row{grid-template-columns:52px minmax(0,1fr) 84px 26px}.mk2row .mkspark{display:none}
+  .mk2hold{grid-template-columns:52px minmax(0,1fr) 92px}.mk2hold .mini{display:none}
+  .mk2facts,.mk2det .mk2facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mk2heat{gap:3px}.mk2hc{padding:8px 0;font-size:10px}.mk2heat{grid-template-columns:38px repeat(5,minmax(0,1fr))!important}
+  .mk2alloc .mk2allocb{flex-direction:column;align-items:stretch}.mk2donut{align-self:center}
+}
+@media (prefers-reduced-motion:reduce){.tku,.tkd,.mklive,.mk2side .mk2det,.mk2ticket.shake{animation:none}}
+html.lite .mk2hero{background:var(--panel)}
 </style>
 
 </head>
@@ -7225,7 +7334,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793628985';
+const BUILD='1793634609';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -12945,6 +13054,304 @@ function smoothProbe(){if(store.get('hp_slow',null)!=null&&Math.random()>.15)ret
   const f=t=>{if(document.hidden){last=0;return setTimeout(()=>requestAnimationFrame(f),3000)}if(last)ts.push(t-last);last=t;if(ts.length<120)return requestAnimationFrame(f);
     ts.sort((a,b)=>a-b);const slow=ts[60]>24||ts[108]>45;store.set('hp_slow',slow?1:0);smoothApply()};setTimeout(()=>requestAnimationFrame(f),3500)}
 try{smoothApply();smoothProbe()}catch(e){}
+
+/* ============ STOCK MARKET 2.0: live prices, pro charts, limit and stop orders, watchlist, alerts, indexes,
+   a heat map, market buzz, a daily up-or-down call, badges, more lessons and a quiz.
+   Prices use exactly the same formula as before, so every saved portfolio keeps its value. ============ */
+Object.assign(MK_DEF,{orders:true,call:true,callAmt:1000});
+/* ---------- faster prices: same math, cached settings and lookups ---------- */
+const _mkCfg0=mkCfg;let _mkCfgM={raw:undefined,at:0,v:null};
+mkCfg=function(){const raw=((LIVE.feed||{}).cfg||{}).mkt;const now=Date.now();if(_mkCfgM.v&&_mkCfgM.raw===raw&&now-_mkCfgM.at<1500)return _mkCfgM.v;const v=_mkCfg0();_mkCfgM={raw,at:now,v};return v};
+let _mkMap=null,_mkMapSrc=null;
+function mkS(id){if(!MK_STOCKS)mkStocks();if(_mkMapSrc!==MK_STOCKS){_mkMap=new Map(MK_STOCKS.map(s=>[s.id,s]));_mkMapSrc=MK_STOCKS}return _mkMap.get(id)}
+const _mkPrice0=mkPrice;
+mkPrice=function(id,t){const C=mkCfg();if(C.set[id]!=null)return Math.max(.01,+C.set[id]);const s=mkS(id);if(!s)return 0;const p=s.p;t=t||Date.now();const hrs=(t-MK_EPOCH)/36e5;const seed=s._seed!=null?s._seed:(s._seed=strHash(id)>>>0);
+  const v=(s._vp||(s._vp=mkVolP(p)))*(+C.vol||1);let n=mkNoise(seed,hrs/3)*.025+mkNoise(seed+1,hrs/14)*.05+mkNoise(seed+2,hrs/60)*.09+mkNoise(seed+3,hrs/260)*.14;
+  let ev=1;for(const e of C.events){if(!mkEvMatch(e,p))continue;const a=+e.at,b=+e.until||a+1;if(t<=a)continue;const k=t>=b?1:(t-a)/(b-a);ev*=1+(+e.pct/100)*k}
+  const days=Math.max(0,hrs/24);const drift=Math.pow(1+(+C.drift||0)/100,days/30);
+  return Math.max(.05,(s._fair||(s._fair=mkFair(p)))*Math.exp(n*v)*ev*drift*(+C.adj[id]||1))};
+const mkStk=id=>mkS(id)||mkStock(id);
+const mkFv=s=>s._fair||(s._fair=mkFair(s.p));
+const mks=(n,a)=>{try{if(typeof mxs==='function')mxs(n,a);else sfx(n==='bad'?'lose':'chime')}catch(e){}};
+const mkAbbr=v=>{v=+v||0;const a=Math.abs(v);return(v<0?'-$':'$')+(a>=1e4?fmtN(a):a>=100?Math.round(a).toLocaleString():a.toFixed(2))};
+const mkSgn$=v=>(v>=0?'+':'-')+mk$(Math.abs(v)).replace('-','');
+/* short-lived cache for heavy numbers */
+const MKC=new Map();function mkMemo(k,ttl,fn){const c=MKC.get(k);const now=Date.now();if(c&&now-c.t<ttl)return c.v;const v=fn();MKC.set(k,{t:now,v});if(MKC.size>900){for(const kk of [...MKC.keys()].slice(0,300))MKC.delete(kk)}return v}
+
+/* ---------- saved state: everything new is added on top of the old save ---------- */
+function MK2(){const m=MKS();m.orders=m.orders||[];m.hist=m.hist||[];m.ach=m.ach||[];m.calls=m.calls||[];m.alerts=m.alerts||[];m.flags=m.flags||{};m.real=+m.real||0;if(m.ntx==null)m.ntx=m.tx.length;m.cs=m.cs||{w:0,l:0,st:0,bst:0};
+  if(!m.hist.length){const st=+mkCfg().start||10000;const t0=m.tx.length?m.tx[m.tx.length-1].t-6e4:Date.now()-6e4;m.hist.push([t0,st])}return m}
+function mkHist(m,w){const now=Date.now();const H=m.hist;const last=H[H.length-1];if(last&&now-last[0]<30*6e4&&H.length>1)last[1]=w,last[0]=now;else H.push([now,w]);
+  if(H.length>260){const keep=[H[0]];for(let i=1;i<H.length-100;i+=2)keep.push(H[i]);m.hist=keep.concat(H.slice(H.length-100))}}
+function mkHoldList(){const m=MKS();return Object.entries(m.hold).filter(([id,h])=>h&&h.n>0&&mkStk(id))}
+function mkDayChg(){let d=0;const t=Date.now()-864e5;for(const [id,h] of mkHoldList())d+=h.n*(mkPrice(id)-mkPrice(id,t));return d}
+
+/* ---------- trading (market orders go through the original mkTrade so quests and checks still work) ---------- */
+function mk2Trade(id,side,n){const m=MK2();const C=mkCfg();n=Math.floor(n);const h=m.hold[id];const avg=h&&h.n?h.cost/h.n:0;const tail=m.tx.slice(59);const px=mkPrice(id);
+  const e=mkTrade(id,side,n);if(e)return e;
+  if(m.tx.length&&tail.length)m.tx=m.tx.concat(tail).slice(0,200);m.ntx++;
+  if(side==='sell'){m.real+=n*px*(1-(+C.fee||0)/100)-avg*n;if(avg&&px/avg-1>=.5)m.flags.big=1}
+  mkHist(m,mkWorth());mkAch();saveP();return''}
+function mkFill(o,px,t){const C=mkCfg();const m=MK2();const fee=(+C.fee||0)/100;const s=mkStk(o.id);if(!s)return'gone';const h=m.hold[o.id]=m.hold[o.id]||{n:0,cost:0};let n=o.n;
+  if(o.side==='buy'){n=Math.min(n,Math.floor(m.cash/(px*(1+fee))));if(+C.maxShare>0)n=Math.min(n,+C.maxShare-h.n);if(!(n>0)){if(!h.n)delete m.hold[o.id];return'cash'}m.cash-=n*px*(1+fee);h.cost+=n*px;h.n+=n}
+  else{n=Math.min(n,h.n);if(!(n>0)){if(!h.n)delete m.hold[o.id];return'none'}const avg=h.n?h.cost/h.n:0;m.cash+=n*px*(1-fee);h.cost-=avg*n;h.n-=n;m.real+=n*px*(1-fee)-avg*n;if(avg&&px/avg-1>=.5)m.flags.big=1;if(h.n<=0)delete m.hold[o.id]}
+  m.tx.unshift({t:t||Date.now(),id:o.id,n,px,side:o.side,o:o.type});m.tx=m.tx.slice(0,200);m.ntx++;m.flags.ord=1;try{qEvent('mk_trade')}catch(e){}
+  return{n}}
+const MK_OT={lim:'Limit',stop:'Stop loss',tp:'Take profit'};
+const mkTrig=(o,p)=>o.side==='buy'?p<=o.px:o.type==='stop'?p<=o.px:p>=o.px;
+function mkOrders(){const C=mkCfg();const m=MK2();if(!m.orders.length||!C.open)return 0;const now=Date.now();let done=0;
+  for(const o of m.orders.slice()){if(C.delist.includes(o.id)||!mkStk(o.id)){mkOrdDrop(o,'That player was delisted.');done++;continue}
+    if(now>(o.exp||Infinity)){mkOrdDrop(o,'Expired after 30 days.');done++;continue}if(C.halt.includes(o.id)){o.chk=now;continue}
+    let hit=null;const from=Math.max(o.chk||o.t,now-30*864e5),step=9e5;for(let t=from+step;t<now;t+=step){const p=mkPrice(o.id,t);if(mkTrig(o,p)){hit=[t,p];break}}
+    if(!hit){const p=mkPrice(o.id,now);if(mkTrig(o,p))hit=[now,p]}o.chk=now;if(!hit)continue;
+    const r=mkFill(o,hit[1],hit[0]);m.orders=m.orders.filter(x=>x!==o);done++;const s=mkStk(o.id);
+    if(r&&r.n){toast(`${MK_OT[o.type]||'Order'} filled`,`${o.side==='buy'?'Bought':'Sold'} ${r.n} × ${s.sym} at ${mk$(hit[1])}${now-hit[0]>6e4?' · '+cmAgo(hit[0])+' ago':''}`,'M5 12l5 5L20 7');mks('ok',5)}
+    else toast('Order cancelled',`${s?s.sym:''}: ${r==='cash'?'not enough cash when it triggered':'you no longer own those shares'}.`,'M18 6L6 18M6 6l12 12')}
+  if(done){m.worth=mkWorth();m.best=Math.max(m.best||0,m.worth);mkHist(m,m.worth);mkAch();saveP();if(C.lb&&DB.ok)dbScore('mkt',Math.round(m.worth))}return done}
+function mkOrdDrop(o,why){const m=MK2();m.orders=m.orders.filter(x=>x!==o);const s=mkStk(o.id);toast('Order cancelled',`${s?s.sym+': ':''}${why}`,'M18 6L6 18M6 6l12 12')}
+function mkPlace(id,side,type,n,px){const C=mkCfg();const m=MK2();n=Math.floor(n);if(C.orders===false)return'Orders are turned off right now.';if(!(n>0))return'Pick how many shares.';if(!(px>0))return'Set a trigger price.';if(m.orders.length>=25)return'You can have up to 25 open orders.';
+  if(side==='sell'&&(m.hold[id]||{n:0}).n<n)return'You don\'t have that many shares.';
+  m.orders.push({oid:rid(),id,side,type,n,px:+(+px).toFixed(2),t:Date.now(),chk:Date.now(),exp:Date.now()+30*864e5});saveP();mkOrders();return''}
+function mkAlerts(){const m=MK2();if(!m.alerts.length)return;let hit=false;for(const a of m.alerts.slice()){const s=mkStk(a.id);if(!s){m.alerts=m.alerts.filter(x=>x!==a);continue}const p=mkPrice(a.id);if(a.up?p>=a.px:p<=a.px){m.alerts=m.alerts.filter(x=>x!==a);hit=true;toast(`🔔 ${s.sym} ${a.up?'hit':'fell to'} ${mk$(a.px)}`,`${s.p.name} is at ${mk$(p)} now. Tap to see it.`,'M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0');mks('pop')}}if(hit)saveP()}
+
+/* ---------- daily call: guess if today's pick is higher in 24 hours ---------- */
+function mkCallStock(d){const L=mkMemo('callpool',6e5,()=>mkStocks().slice().sort((a,b)=>b.p.ovr-a.p.ovr||(a.id<b.id?-1:1)).slice(0,150));return L.length?L[strHash((d||dayKey())+'mkcall')%L.length]:null}
+function mkCalls(){const m=MK2();const C=mkCfg();const now=Date.now();let any=false;for(const c of m.calls){if(c.res||now<c.t+864e5)continue;const s=mkStk(c.id);const p1=s?mkPrice(c.id,c.t+864e5):c.px;const win=c.dir==='up'?p1>c.px:p1<c.px;c.res=win?'w':'l';c.px1=p1;any=true;
+    if(win){m.cs.w++;m.cs.st++;m.cs.bst=Math.max(m.cs.bst,m.cs.st);const amt=+C.callAmt||1000;m.cash+=amt;c.amt=amt;gainXP(15);toast('Daily call: you were right!',`${s?s.sym:''} went ${c.dir==='up'?'up':'down'}. +${mk$(amt)} practice cash, +15 XP · streak ${m.cs.st}`,'M5 12l5 5L20 7');mks('fanfare')}
+    else{m.cs.l++;m.cs.st=0;toast('Daily call missed',`${s?s.sym:''} went the other way. New pick tomorrow.`,'M18 6L6 18M6 6l12 12')}}
+  m.calls=m.calls.slice(-30);if(any){mkAch();saveP()}}
+function mkCallMake(dir){const m=MK2();if(mkCfg().call===false)return;const d=dayKey();if(m.calls.some(c=>c.d===d))return;const s=mkCallStock(d);if(!s)return;m.calls.push({d,id:s.id,dir,t:Date.now(),px:mkPrice(s.id)});saveP();mks('stamp')}
+
+/* ---------- badges ---------- */
+const MK_ACH=[
+ ['first','First trade','Make your first trade',m=>m.ntx>0,10],
+ ['div5','Diversified','Own 5 different players at once',m=>mkHoldList().length>=5,20],
+ ['div10','Index fund energy','Own 10 different players at once',m=>mkHoldList().length>=10,30],
+ ['t25','Active trader','Make 25 trades',m=>m.ntx>=25,25],
+ ['ord','Set it and forget it','Have a limit or stop order fill',m=>!!m.flags.ord,20],
+ ['up10','In the green','Get your net worth 10% above starting cash',m=>m.worth>=(+mkCfg().start||1e4)*1.1,20],
+ ['dbl','Doubled up','Double your starting cash',m=>m.worth>=(+mkCfg().start||1e4)*2,50],
+ ['k100','Six figures','Reach a $100K net worth',m=>m.worth>=1e5,40],
+ ['m1','Millionaire','Reach a $1M net worth',m=>m.worth>=1e6,80],
+ ['b1','Billionaire','Reach a $1B net worth',m=>m.worth>=1e9,150],
+ ['big','Sold the top','Sell shares for 50% more than you paid',m=>!!m.flags.big,40],
+ ['call','Called it','Get a daily call right',m=>m.cs.w>=1,15],
+ ['call3','Market caller','Get 3 daily calls right in a row',m=>m.cs.bst>=3,40],
+ ['learn','Student of the game','Read every lesson',m=>m.learn.length>=MK_LESSONS.length,30],
+ ['quiz','Top of the class','Get every quiz question right',m=>!!m.flags.quiz,30],
+ ['watch','Scout','Add 5 players to your watchlist',m=>m.watch.length>=5,10]];
+function mkAch(){const m=MK2();for(const [k,n,d,f,xp] of MK_ACH){if(m.ach.includes(k))continue;let ok=false;try{ok=f(m)}catch(e){}if(!ok)continue;m.ach.push(k);gainXP(xp);setTimeout(()=>{toast('Market badge: '+n,`${d} · +${xp} XP`,'M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z');mks('fanfare')},300)}}
+
+/* ---------- more lessons and a quiz ---------- */
+MK_LESSONS.push(['Limit orders','A limit order waits for your price. "Buy at $40" only buys if the price drops to $40 or lower. You don\'t have to watch the screen, and it works while you\'re away.'],
+ ['Stop losses','A stop loss sells for you if the price falls to a level you pick. It caps how much you can lose on one bad pick. Pros use them so one mistake can\'t sink the whole portfolio.'],
+ ['Take profit','A take-profit order sells when the price climbs to your target. It locks in the win before the price can slide back down.'],
+ ['What is an index?','An index tracks a whole group of stocks at once, like our HP 100. If the index is up, most of that group is doing well. Comparing your return to an index shows if your picks beat the market.'],
+ ['Dollar-cost averaging','Instead of buying all at once, buy a little at a time on a schedule. You end up paying an average price and don\'t have to guess the perfect moment.'],
+ ['Compound growth','Gains build on gains. 10% on $10K is $1K, but 10% on $20K is $2K. Leaving winnings invested lets them grow faster over time.']);
+const MK_QUIZ=[['You buy at $50 and sell at $60. What happened?',['You made $10 per share','You lost $10 per share','Nothing, fees cancel it'],0],
+ ['Why spread money across many players?',['One bad drop can\'t wipe you out','It makes prices go up','It skips the fee'],0],
+ ['A stop loss at $30 does what?',['Sells if the price falls to $30','Buys at $30','Stops all trading'],0],
+ ['Which usually swings more here?',['Newer players (2020s)','1950s legends','Both exactly the same'],0],
+ ['Trading back and forth all day mostly…',['Racks up fees','Is free money','Raises your rating'],0],
+ ['"Undervalued" means…',['Price is below what the player is usually worth','The price will go up tomorrow','Nobody owns it'],0]];
+
+/* ---------- indexes, heat map, movers, buzz ---------- */
+const MK_ERAK=()=>Object.keys(ERAS).filter(k=>k!=='mix');
+function mkIdxMembers(k){return mkMemo('idxm'+k,6e5,()=>k==='hp'?mkStocks().slice().sort((a,b)=>b.p.ovr-a.p.ovr).slice(0,100):mkStocks().filter(s=>s.p.era===k))}
+function mkIdxAt(k,t){const M=mkIdxMembers(k);if(!M.length)return 1000;let s=0;for(const x of M)s+=mkPrice(x.id,t)/(x._fair||(x._fair=mkFair(x.p)));return 1000*s/M.length}
+function mkIdxSeries(k,ms,n){return mkMemo('idx'+k+ms+n,6e4,()=>{const now=Date.now();const out=[];for(let i=0;i<=n;i++){const t=now-ms+ms*i/n;out.push([t,mkIdxAt(k,t)])}return out})}
+const MK_IDXN=k=>k==='hp'?'HP 100':(ERAS[k]?ERAS[k].full:k)+' index';
+function mkMovers(){return mkMemo('movers',2e4,()=>mkStocks().map(s=>{const px=mkPrice(s.id);return{s,px,ch:px/mkPrice(s.id,Date.now()-864e5)-1,h1:px/mkPrice(s.id,Date.now()-36e5)-1}}))}
+function mkHeat(){return mkMemo('heat',3e4,()=>{const L=mkMovers();const G={};for(const x of L){const k=x.s.p.era+'|'+x.s.p.pos;(G[k]=G[k]||[]).push(x.ch)}const o={};for(const k in G)o[k]=G[k].reduce((a,b)=>a+b,0)/G[k].length;return o})}
+const MK_UP=['Buyers pile into {s}','{s} rips {p} as traders chase the move','Bulls run {s} up {p}','{n} stock is on fire, {p} today','{s} breaks out, up {p}','Everyone wants {s}: {p}'];
+const MK_DN=['Sellers hit {s} hard, {p}','{s} slides {p} in a rough session','Traders dump {s}, {p}','{n} stock cools off, {p}','{s} gives back gains, {p}','Red day for {s}: {p}'];
+function mkBuzz(){return mkMemo('buzz',6e4,()=>{const C=mkCfg();const L=mkMovers().slice().sort((a,b)=>Math.abs(b.ch)-Math.abs(a.ch)).slice(0,7);const d=dayKey();
+  const out=C.events.filter(e=>e.title&&Date.now()-(+e.at)<3*864e5).slice(-3).reverse().map(e=>({k:'ev',t:+e.at,txt:e.title,up:+e.pct>=0}));
+  for(const x of L){const T=x.ch>=0?MK_UP:MK_DN;const tpl=T[strHash(x.s.id+d)%T.length];out.push({k:'mv',id:x.s.id,up:x.ch>=0,txt:tpl.replace('{s}',x.s.sym).replace('{n}',x.s.p.name.split(' ').slice(-1)[0]).replace('{p}',mkPct(x.ch)),t:Date.now()-(strHash(x.s.id+d+'t')%300)*6e4})}
+  const ix=MK_ERAK().map(k=>({k,c:mkIdxAt(k,Date.now())/mkIdxAt(k,Date.now()-864e5)-1})).sort((a,b)=>b.c-a.c);if(ix[0])out.push({k:'ix',up:ix[0].c>=0,txt:`${ERAS[ix[0].k].full} stocks lead the market, ${mkPct(ix[0].c)}`,t:Date.now()-42*6e4});
+  if(ix.length>1){const w=ix[ix.length-1];out.push({k:'ix',up:w.c>=0,txt:`${ERAS[w.k].full} stocks lag behind, ${mkPct(w.c)}`,t:Date.now()-97*6e4})}
+  return out})}
+
+/* ---------- charts with hover and touch ---------- */
+const MK_R=[['1h','1H',36e5,60],['1d','1D',864e5,96],['1w','1W',6048e5,112],['1m','1M',2592e6,120],['3m','3M',7776e6,120],['1y','1Y',31536e6,140]];
+const MKCH={};
+function mkSeries(id,rk){const R=MK_R.find(r=>r[0]===rk)||MK_R[1];return mkMemo('ser'+id+rk,rk==='1h'?2e3:rk==='1d'?1e4:6e4,()=>{const now=Date.now();const out=[];for(let i=0;i<=R[3];i++){const t=now-R[2]+R[2]*i/R[3];out.push([t,mkPrice(id,t)])}return out})}
+function mkChart(key,pts,o={}){if(!pts||pts.length<2)return`<div class="mk2ch empty"><p class="hint">${o.empty||'Not enough history yet.'}</p></div>`;const W=600,H=o.h||200;let lo=Infinity,hi=-Infinity;for(const [,v] of pts){if(v<lo)lo=v;if(v>hi)hi=v}if(o.ref!=null&&o.showRef){lo=Math.min(lo,o.ref);hi=Math.max(hi,o.ref)}const pad=(hi-lo)*.08||hi*.02||1;lo-=pad;hi+=pad;
+  const t0=pts[0][0],t1=pts[pts.length-1][0]||t0+1;const X=t=>(t-t0)/((t1-t0)||1)*W,Y=v=>H-(v-lo)/(hi-lo)*H;const up=pts[pts.length-1][1]>=(o.base!=null?o.base:pts[0][1]);const col=up?'#3ddc84':'#ff6b6b';
+  const d=pts.map(([t,v],i)=>(i?'L':'M')+X(t).toFixed(1)+','+Y(v).toFixed(1)).join('');MKCH[key]={pts,t0,t1,lo,hi,fmt:o.fmt||mk$,base:o.base!=null?o.base:pts[0][1]};
+  const gid='mkg'+key.replace(/\W/g,'');const mk=(o.marks||[]).filter(x=>x.t>=t0&&x.t<=t1).slice(0,30).map(x=>`<b class="mk2mark ${x.side}" style="left:${(X(x.t)/W*100).toFixed(2)}%;top:${(Y(x.v)/H*100).toFixed(2)}%" title="${x.side==='buy'?'Bought':'Sold'} at ${mk$(x.v)}"></b>`).join('');
+  const ref=o.ref!=null&&o.ref>lo&&o.ref<hi?`<i class="mk2ref" style="top:${(Y(o.ref)/H*100).toFixed(2)}%"><span>${esc(o.refL||'')} ${mk$(o.ref)}</span></i>`:'';
+  return `<div class="mk2ch ${o.cls||''}" data-mkch="${key}" style="--cc:${col};height:${o.hpx||H}px"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".32"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>
+    <path d="${d}L${W},${H}L0,${H}Z" fill="url(#${gid})"/><path d="${d}" fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>${ref}${mk}<i class="mk2x"></i><i class="mk2dot"></i><div class="mk2tip"></div>
+    ${o.axis===false?'':`<span class="mk2hi">${(o.fmt||mk$)(hi-pad)}</span><span class="mk2lo">${(o.fmt||mk$)(lo+pad)}</span>`}</div>`}
+function mkChartBind(){$$('[data-mkch]').forEach(el=>{if(el._b)return;el._b=1;
+  const mv=e=>{const D=MKCH[el.dataset.mkch];const tip=el.querySelector('.mk2tip'),x=el.querySelector('.mk2x'),dot=el.querySelector('.mk2dot');if(!tip||!x||!dot)return;if(!D)return;const r=el.getBoundingClientRect();const cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left;const f=Math.max(0,Math.min(1,cx/r.width));const t=D.t0+f*(D.t1-D.t0);
+    let a=0,b=D.pts.length-1;while(b-a>1){const m=(a+b)>>1;if(D.pts[m][0]<t)a=m;else b=m}const p=Math.abs(D.pts[a][0]-t)<Math.abs(D.pts[b][0]-t)?D.pts[a]:D.pts[b];
+    const px=(p[0]-D.t0)/((D.t1-D.t0)||1)*100,py=(D.hi-p[1])/(D.hi-D.lo)*100;el.classList.add('hov');x.style.left=dot.style.left=px+'%';dot.style.top=py+'%';
+    const ch=D.base?p[1]/D.base-1:0;const dt=new Date(p[0]);const span=D.t1-D.t0;
+    tip.innerHTML=`<b>${D.fmt(p[1])}</b><small class="${ch>=0?'up':'dn'}">${mkPct(ch)}</small><small>${span<=2*864e5?dt.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):dt.toLocaleDateString([],{month:'short',day:'numeric'})+(span<=8*864e5?' '+dt.toLocaleTimeString([],{hour:'numeric'}):'')}</small>`;
+    tip.style.left=Math.max(12,Math.min(88,px))+'%'};
+  el.addEventListener('pointermove',mv);el.addEventListener('touchmove',e=>{mv(e)},{passive:true});el.addEventListener('pointerleave',()=>el.classList.remove('hov'));el.addEventListener('touchend',()=>setTimeout(()=>el.classList.remove('hov'),900))})}
+function mkSpark2(id,w,h,rk){const pts=mkSeries(id,rk||'1d');let lo=Infinity,hi=-Infinity;for(const [,v] of pts){lo=Math.min(lo,v);hi=Math.max(hi,v)}const r=hi-lo||1;const t0=pts[0][0],t1=pts[pts.length-1][0];const up=pts[pts.length-1][1]>=pts[0][1];
+  return `<svg class="mkspark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><path d="${pts.map(([t,v],i)=>(i?'L':'M')+((t-t0)/(t1-t0)*w).toFixed(1)+','+(h-2-(v-lo)/r*(h-4)).toFixed(1)).join('')}" fill="none" stroke="${up?'#3ddc84':'#ff6b6b'}" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>`}
+function mkDonut(parts,size){const tot=parts.reduce((a,p)=>a+p.v,0)||1;let acc=0;const R=15.915;return `<svg class="mk2donut" viewBox="0 0 42 42" width="${size}" height="${size}"><circle cx="21" cy="21" r="${R}" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="6"/>${parts.map(p=>{const f=p.v/tot*100;const s=`<circle cx="21" cy="21" r="${R}" fill="none" stroke="${p.c}" stroke-width="6" stroke-dasharray="${Math.max(0,f-.6).toFixed(2)} ${(100-Math.max(0,f-.6)).toFixed(2)}" stroke-dashoffset="${(25-acc).toFixed(2)}"/>`;acc+=f;return s}).join('')}</svg>`}
+
+/* ---------- the page ---------- */
+Object.assign(MK,{tab:'over',side:'buy',mode:'sh',ot:'mkt',usd:1000,lim:0,rng:'1d',more:80,quick:'all',pr:'1m',qz:null});
+const MK_TABS=[['over','Overview'],['market','Market'],['port','Portfolio'],['orders','Orders'],['call','Daily call'],['learn','Learn'],['badges','Badges'],['lb','Leaderboard']];
+function mkRowHTML(s,px,ch,extra){const C=mkCfg();const m=MKS();const w=m.watch.includes(s.id);const own=(m.hold[s.id]||{}).n||0;
+  return `<div class="mkrow mk2row ${MK.sel===s.id?'on':''}" data-mks="${s.id}" role="button" tabindex="0"><span class="mksym">${s.sym}</span><span class="mknm"><b>${esc(s.p.name)}</b><small>${ERAS[s.p.era].full} · ${s.p.pos} · ${s.p.ovr} OVR${own?` · <em class="own">own ${own}</em>`:''}${C.halt.includes(s.id)?' · ⏸ halted':''}${extra||''}</small></span>${mkSpark2(s.id,70,26,'1d')}<span class="mkpx"><b data-lpx="${s.id}">${mk$(px)}</b><small data-lch="${s.id}" class="${ch>=0?'up':'dn'}">${mkPct(ch)}</small></span><button class="mk2star ${w?'on':''}" data-mkw="${s.id}" aria-label="${w?'Remove from':'Add to'} watchlist">${w?'★':'☆'}</button></div>`}
+function mkOverHTML(){const C=mkCfg();const m=MK2();const L=mkMovers();const g=L.slice().sort((a,b)=>b.ch-a.ch);const hot=L.slice().sort((a,b)=>Math.abs(b.h1)-Math.abs(a.h1));
+  const idx=['hp',...MK_ERAK()].map(k=>{const s=mkIdxSeries(k,864e5,48);const v=s[s.length-1][1],c=v/s[0][1]-1;return{k,v,c,s}});const hp=idx[0];
+  const heat=mkHeat();const eras=MK_ERAK(),pos=['PG','SG','SF','PF','C'];const cell=c=>{const a=Math.min(1,Math.abs(c)/.05);return c>=0?`rgba(61,220,132,${(.12+a*.6).toFixed(2)})`:`rgba(255,107,107,${(.12+a*.6).toFixed(2)})`};
+  const mini=(arr,lab,key)=>`<div class="card mk2mv"><span class="label">${lab}</span>${arr.slice(0,5).map(x=>`<button class="mk2mvr" data-mks="${x.s.id}"><span class="mksym">${x.s.sym}</span><span>${esc(x.s.p.name)}</span><b data-lpx="${x.s.id}">${mk$(x.px)}</b><small class="${x[key]>=0?'up':'dn'}">${mkPct(x[key])}</small></button>`).join('')}</div>`;
+  const cs=mkCallStock();const today=m.calls.find(c=>c.d===dayKey());
+  const ideas=L.filter(x=>x.s.p.ovr>=84&&mkFv(x.s)/x.px>1.12).sort((a,b)=>(mkFv(b.s)/b.px)-(mkFv(a.s)/a.px)).slice(0,5);
+  return `<div class="mk2over"><div class="card mk2idx"><div class="mk2idxh"><div><span class="label">HP 100 · the top 100 players</span><b class="mk2iv">${hp.v.toFixed(2)}</b><em class="${hp.c>=0?'up':'dn'}">${mkPct(hp.c)} today</em></div><div class="chips sm">${[['1d','1D'],['1w','1W'],['1m','1M'],['1y','1Y']].map(([k,n])=>`<button class="cbtn sm ${MK.ir===k||(!MK.ir&&k==='1d')?'on':''}" data-mkir="${k}">${n}</button>`).join('')}</div></div>
+      ${(()=>{const R=MK_R.find(r=>r[0]===(MK.ir||'1d'));const s=mkIdxSeries('hp',R[2],R[0]==='1d'?48:90);return mkChart('idxhp',s,{h:150,fmt:v=>v.toFixed(2),axis:false})})()}<p class="hint">1,000 means the top 100 players are priced right at their usual value on average.</p></div>
+    <div class="mk2idxg">${idx.slice(1).map(x=>`<button class="mk2ix" data-mkera="${x.k}" style="--c1:${ERAS[x.k].c1}"><small>${ERAS[x.k].full}</small><b>${x.v.toFixed(0)}</b><em class="${x.c>=0?'up':'dn'}">${mkPct(x.c)}</em>${mkChartMini(x.s)}</button>`).join('')}</div>
+    <div class="card"><span class="label">Heat map · today, by era and position</span><div class="mk2heat" style="grid-template-columns:54px repeat(${pos.length},minmax(0,1fr))"><i></i>${pos.map(p=>`<i>${p}</i>`).join('')}${eras.map(e=>`<i>${ERAS[e].n}</i>${pos.map(p=>{const c=heat[e+'|'+p];return c==null?'<span class="mk2hc none">–</span>':`<button class="mk2hc" data-mkheat="${e}|${p}" style="background:${cell(c)}">${mkPct(c).replace(/(\.\d)\d%/,'$1%')}</button>`}).join('')}`).join('')}</div><p class="hint">Tap a square to see those players.</p></div>
+    <div class="mk2three">${mini(g,'📈 Top gainers today','ch')}${mini(g.slice().reverse(),'📉 Top losers today','ch')}${mini(hot,'⚡ Moving right now · 1 hour','h1')}</div>
+    <div class="mk2two"><div class="card mk2buzz"><span class="label">Market buzz</span>${mkBuzz().slice(0,8).map(b=>`<${b.id?'button data-mks="'+b.id+'"':'div'} class="mk2bz"><i class="${b.up?'up':'dn'}">${b.up?'▲':'▼'}</i><span>${esc(b.txt)}</span><small>${cmAgo(b.t)} ago</small></${b.id?'button':'div'}>`).join('')}<p class="hint">Headlines are made up from the price moves, just for fun.</p></div>
+      <div class="stack">${C.call===false?'':`<div class="card mk2callp"><span class="label">🎯 Daily call</span>${cs?(today?`<p>You called <b>${today.dir==='up'?'📈 up':'📉 down'}</b> on ${esc(mkStk(today.id).p.name)}. ${today.res?(today.res==='w'?'You were right!':'Missed it.'):'Result in '+mkLeft(today.t+864e5)+'.'}</p>`:`<p>Will <b>${esc(cs.p.name)}</b> (${cs.sym}) be higher in 24 hours?</p><div class="actrow"><button class="btn btn-go sm" data-mkcall="up">📈 Up</button><button class="btn btn-ghost sm" data-mkcall="dn">📉 Down</button></div>`):''}<p class="hint">Right answers earn ${mk$(+C.callAmt||1000)} practice cash and XP.</p></div>`}
+      <div class="card mk2mv"><span class="label">💡 Undervalued ideas</span>${ideas.length?ideas.map(x=>`<button class="mk2mvr" data-mks="${x.s.id}"><span class="mksym">${x.s.sym}</span><span>${esc(x.s.p.name)}</span><b data-lpx="${x.s.id}">${mk$(x.px)}</b><small class="up">${Math.round(((x.s._fair||mkFair(x.s.p))/x.px-1)*100)}% below value</small></button>`).join(''):'<p class="hint">Nothing looks cheap right now.</p>'}<p class="hint">Cheap isn't a promise. It's a clue.</p></div></div></div></div>`}
+function mkChartMini(s){let lo=Infinity,hi=-Infinity;for(const [,v] of s){lo=Math.min(lo,v);hi=Math.max(hi,v)}const r=hi-lo||1;const t0=s[0][0],t1=s[s.length-1][0];const up=s[s.length-1][1]>=s[0][1];return `<svg class="mkspark" viewBox="0 0 100 24" preserveAspectRatio="none"><path d="${s.map(([t,v],i)=>(i?'L':'M')+((t-t0)/(t1-t0)*100).toFixed(1)+','+(22-(v-lo)/r*20).toFixed(1)).join('')}" fill="none" stroke="${up?'#3ddc84':'#ff6b6b'}" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`}
+const mkLeft=t=>{const s=Math.max(0,t-Date.now())/1e3;const h=Math.floor(s/3600),mi=Math.floor(s%3600/60);return h?`${h}h ${mi}m`:`${mi}m`};
+function mkMarketHTML(){const C=mkCfg();const m=MKS();const q=MK.q.toLowerCase();let L=mkMovers().filter(x=>{const s=x.s;if(MK.era!=='all'&&s.p.era!==MK.era)return false;if(MK.pos!=='all'&&s.p.pos!==MK.pos)return false;if(q&&!s.p.name.toLowerCase().includes(q)&&!s.sym.toLowerCase().includes(q))return false;
+    if(MK.quick==='watch'&&!m.watch.includes(s.id))return false;if(MK.quick==='own'&&!((m.hold[s.id]||{}).n>0))return false;if(MK.quick==='cheap'&&!((s._fair||mkFair(s.p))/x.px>1.12))return false;return true});
+  const srt={move:(a,b)=>Math.abs(b.ch)-Math.abs(a.ch),up:(a,b)=>b.ch-a.ch,down:(a,b)=>a.ch-b.ch,price:(a,b)=>b.px-a.px,cheap:(a,b)=>a.px-b.px,ovr:(a,b)=>b.s.p.ovr-a.s.p.ovr,value:(a,b)=>(mkFv(b.s)/b.px)-(mkFv(a.s)/a.px),hot:(a,b)=>Math.abs(b.h1)-Math.abs(a.h1)}[MK.sort]||((a,b)=>0);L=L.slice().sort(srt);
+  return `<div class="mkfil"><input id="mkQ" placeholder="Search players or symbols  ( / )" value="${esc(MK.q)}" autocomplete="off"><label class="lksel"><select id="mkEra"><option value="all">All eras</option>${MK_ERAK().map(k=>`<option value="${k}" ${MK.era===k?'selected':''}>${ERAS[k].full}</option>`).join('')}</select>${icon('M6 9l6 6 6-6',14)}</label>
+      <label class="lksel"><select id="mkPos"><option value="all">All positions</option>${['PG','SG','SF','PF','C'].map(k=>`<option ${MK.pos===k?'selected':''}>${k}</option>`).join('')}</select>${icon('M6 9l6 6 6-6',14)}</label>
+      <label class="lksel"><select id="mkSort">${[['move','Biggest movers'],['hot','Moving right now'],['up','Top gainers'],['down','Top losers'],['value','Best value'],['ovr','Highest rated'],['price','Highest price'],['cheap','Lowest price']].map(([k,n])=>`<option value="${k}" ${MK.sort===k?'selected':''}>${n}</option>`).join('')}</select>${icon('M6 9l6 6 6-6',14)}</label></div>
+    <div class="chips sm mk2quick">${[['all','All'],['watch',`★ Watchlist (${m.watch.length})`],['own','I own'],['cheap','Undervalued']].map(([k,n])=>`<button class="cbtn sm ${MK.quick===k?'on':''}" data-mkqk="${k}">${n}</button>`).join('')}</div>
+    <div class="mklist">${L.slice(0,MK.more).map(x=>mkRowHTML(x.s,x.px,x.ch)).join('')||`<p class="hint">${MK.quick==='watch'?'Your watchlist is empty. Tap ☆ on any player to follow them.':'No players match.'}</p>`}${L.length>MK.more?`<button class="btn btn-ghost" id="mkMore">Show more (${L.length-MK.more} left)</button>`:''}</div>`}
+function mkPortHTML(){const C=mkCfg();const m=MK2();const w=mkWorth();const st=+C.start||10000;const H=mkHoldList().map(([id,h])=>{const s=mkStk(id);const px=mkPrice(id);const p0=mkPrice(id,Date.now()-864e5);return{id,s,h,px,val:h.n*px,gain:h.n*px-h.cost,gp:h.cost?(h.n*px)/h.cost-1:0,day:h.n*(px-p0),dc:px/p0-1}}).sort((a,b)=>b.val-a.val);
+  const inv=H.reduce((a,x)=>a+x.val,0);const unr=H.reduce((a,x)=>a+x.gain,0);const day=H.reduce((a,x)=>a+x.day,0);
+  const byEra={};H.forEach(x=>byEra[x.s.p.era]=(byEra[x.s.p.era]||0)+x.val);const parts=[...Object.entries(byEra).map(([k,v])=>({l:ERAS[k].full,v,c:ERAS[k].c1})),{l:'Cash',v:Math.max(0,m.cash),c:'#8f9abb'}].filter(p=>p.v>0);
+  const top=H[0]&&inv?H[0].val/w:0;const div=H.length>=8&&top<.25?['Well spread','up']:H.length>=4&&top<.45?['Getting there','']:H.length?['One basket','dn']:['No holdings yet',''];
+  const hist=m.hist.concat([[Date.now(),w]]);const best=H.slice().sort((a,b)=>b.gp-a.gp)[0],worst=H.slice().sort((a,b)=>a.gp-b.gp)[0];
+  const tx=m.tx.filter(t=>MK.txf==='buy'?t.side==='buy':MK.txf==='sell'?t.side==='sell':MK.txf==='ord'?!!t.o:true);
+  return `<div class="mk2port"><div class="mk2two"><div class="card"><div class="mk2idxh"><div><span class="label">Your net worth over time</span><b class="mk2iv">${mk$(w)}</b><em class="${w>=st?'up':'dn'}">${mkSgn$(w-st)} (${mkPct(w/st-1)}) since you started</em></div><button class="btn btn-ghost sm" id="mkShareB">📸 Share</button></div>
+      ${mkChart('worth',hist,{h:170,ref:st,refL:'Start',showRef:true,base:st,empty:'Your chart fills in as you trade and check back.'})}</div>
+      <div class="card mk2alloc"><span class="label">Where your money is</span><div class="mk2allocb">${mkDonut(parts,128)}<div class="mk2leg">${parts.map(p=>`<span><i style="background:${p.c}"></i>${esc(p.l)}<b>${Math.round(p.v/(w||1)*100)}%</b></span>`).join('')}</div></div>
+        <div class="mkfacts mk2facts"><div><small>Today</small><b class="${day>=0?'up':'dn'}">${mkSgn$(day)}</b></div><div><small>Open gain</small><b class="${unr>=0?'up':'dn'}">${mkSgn$(unr)}</b></div><div><small>Sold gain</small><b class="${m.real>=0?'up':'dn'}">${mkSgn$(m.real)}</b></div><div><small>Spread</small><b class="${div[1]}">${div[0]}</b></div></div>
+        ${best&&H.length>1?`<p class="hint">Best: <b>${best.s.sym}</b> <span class="up">${mkPct(best.gp)}</span> · Worst: <b>${worst.s.sym}</b> <span class="${worst.gp>=0?'up':'dn'}">${mkPct(worst.gp)}</span></p>`:''}</div></div>
+    <span class="label mk2lab">Holdings · ${H.length}</span><div class="mkhold">${H.length?H.map(x=>`<div class="mkrow mk2row mk2hold" data-mks="${x.id}" role="button" tabindex="0"><span class="mksym">${x.s.sym}</span><span class="mknm"><b>${esc(x.s.p.name)}</b><small>${x.h.n} share${x.h.n>1?'s':''} · avg ${mk$(x.h.cost/x.h.n)} · today <em class="${x.dc>=0?'up':'dn'}">${mkPct(x.dc)}</em></small><i class="mk2wt"><i style="width:${Math.max(2,Math.round(x.val/(w||1)*100))}%"></i></i></span>${mkSpark2(x.id,70,26,'1w')}<span class="mkpx"><b>${mk$(x.val)}</b><small class="${x.gain>=0?'up':'dn'}">${mkSgn$(x.gain)} · ${mkPct(x.gp)}</small></span><button class="mini" data-mkqs="${x.id}">Sell</button></div>`).join(''):'<p class="hint">You don\'t own any shares yet. Check the Overview for ideas, or search the Market tab.</p>'}</div>
+    <div class="mk2txh"><span class="label mk2lab">Trade history · ${m.ntx} trade${m.ntx===1?'':'s'}</span><div class="chips sm">${[['all','All'],['buy','Buys'],['sell','Sells'],['ord','Orders']].map(([k,n])=>`<button class="cbtn sm ${(MK.txf||'all')===k?'on':''}" data-mktf="${k}">${n}</button>`).join('')}</div></div>
+    <div class="mktx">${tx.slice(0,MK.txn||25).map(t=>{const s=mkStk(t.id);return `<div><span class="tag ${t.side==='buy'?'':'bad'}">${t.side==='buy'?'Bought':'Sold'}</span> ${t.n} × <button class="cmn" data-mks="${t.id}">${esc(s?s.p.name:t.id)}</button> at ${mk$(t.px)}${t.o?` <span class="tag">${MK_OT[t.o]||'order'}</span>`:''} <small class="hint">${cmAgo(t.t)} ago</small></div>`}).join('')||'<p class="hint">No trades yet.</p>'}${tx.length>(MK.txn||25)?`<button class="btn btn-ghost sm" id="mkTxMore">Show more</button>`:''}</div></div>`}
+function mkOrdersHTML(){const C=mkCfg();const m=MK2();return `<div class="mk2two"><div class="card"><span class="label">Open orders · ${m.orders.length}/25</span>${m.orders.length?m.orders.map(o=>{const s=mkStk(o.id);const px=s?mkPrice(o.id):0;const gap=px?o.px/px-1:0;return `<div class="mk2ord"><span class="tag ${o.side==='buy'?'':'bad'}">${o.side==='buy'?'Buy':'Sell'}</span><div><b>${o.n} × <button class="cmn" data-mks="${o.id}">${s?s.sym:o.id}</button> · ${MK_OT[o.type]}</b><small class="hint">${o.side==='buy'?'when it drops to':o.type==='stop'?'if it falls to':'when it climbs to'} ${mk$(o.px)} · now <span data-lpx="${o.id}">${mk$(px)}</span> (${mkPct(gap)} away) · ends in ${mkLeft(o.exp)}</small></div><button class="mini warn" data-mkoc="${o.oid}">Cancel</button></div>`}).join(''):'<p class="hint">No open orders. Open any player and pick Limit, Stop loss or Take profit to set one.</p>'}
+      ${C.orders===false?'<p class="chatnote warn">New orders are turned off right now.</p>':''}<p class="hint">Orders work while you're away. They're checked every 15 minutes of price history when you come back, and fill at the price they hit.</p></div>
+    <div class="card"><span class="label">Price alerts · ${m.alerts.length}</span>${m.alerts.length?m.alerts.map(a=>{const s=mkStk(a.id);return `<div class="mk2ord"><span class="tag">🔔</span><div><b><button class="cmn" data-mks="${a.id}">${s?s.sym:a.id}</button> ${a.up?'rises to':'falls to'} ${mk$(a.px)}</b><small class="hint">now <span data-lpx="${a.id}">${s?mk$(mkPrice(a.id)):''}</span></small></div><button class="mini" data-mkac="${a.aid}">Remove</button></div>`}).join(''):'<p class="hint">No alerts. Open a player and tap 🔔 to get pinged when a price is hit.</p>'}</div></div>`}
+function mkCallHTML(){const C=mkCfg();const m=MK2();if(C.call===false)return'<div class="card"><p class="hint">The daily call is turned off right now.</p></div>';const d=dayKey();const cs=mkCallStock(d);const today=m.calls.find(c=>c.d===d);if(!cs)return'';const s=today?mkStk(today.id)||cs:cs;const px=mkPrice(s.id);
+  return `<div class="mk2two"><div class="card mk2call"><span class="label">🎯 Today's call · new pick every day</span><div class="mk2callh">${portrait(s.p,'sm')}<div><b>${esc(s.p.name)}</b><small>${s.sym} · ${ERAS[s.p.era].full} · ${s.p.pos}</small></div><div class="mkpx"><b data-lpx="${s.id}">${mk$(px)}</b><small data-lch="${s.id}" class="${mkChg(s.id,24)>=0?'up':'dn'}">${mkPct(mkChg(s.id,24))}</small></div></div>
+      ${mkChart('call',mkSeries(s.id,'1d'),{h:140,ref:today?today.px:null,refL:'Your call',marks:[]})}
+      ${today?`<div class="mk2lock ${today.res?(today.res==='w'?'win':'loss'):''}"><b>${today.res?(today.res==='w'?'✓ You were right':'✗ Not this time'):'Locked in: '+(today.dir==='up'?'📈 Up':'📉 Down')}</b><small>Called at ${mk$(today.px)} · ${today.res?'closed at '+mk$(today.px1):'now '+mkPct(px/today.px-1)+' · result in '+mkLeft(today.t+864e5)}</small></div>`
+        :`<p>Will this stock be <b>higher</b> or <b>lower</b> 24 hours from now?</p><div class="mk2callb"><button class="btn btn-go" data-mkcall="up">📈 Higher</button><button class="btn btn-ghost" data-mkcall="dn">📉 Lower</button></div>`}
+      <p class="hint">Right answers pay ${mk$(+C.callAmt||1000)} practice cash and 15 XP. Results show up the next time you open the market.</p></div>
+    <div class="card"><span class="label">Your record</span><div class="mkfacts"><div><small>Right</small><b class="up">${m.cs.w}</b></div><div><small>Wrong</small><b class="dn">${m.cs.l}</b></div><div><small>Streak</small><b>${m.cs.st}🔥</b></div><div><small>Best streak</small><b>${m.cs.bst}</b></div></div>
+      ${m.calls.slice().reverse().slice(0,10).map(c=>{const x=mkStk(c.id);return `<div class="mk2ord"><span class="tag ${c.res==='l'?'bad':''}">${c.res==='w'?'✓':c.res==='l'?'✗':'…'}</span><div><b>${x?x.sym:c.id} ${c.dir==='up'?'📈':'📉'}</b><small class="hint">${c.d} · called at ${mk$(c.px)}${c.px1?' → '+mk$(c.px1):''}</small></div>${c.amt?`<small class="up">+${mkAbbr(c.amt)}</small>`:''}</div>`}).join('')}</div></div>`}
+function mkLearnHTML(){const m=MK2();const Q=MK.qz;
+  const quiz=Q?(Q.i<MK_QUIZ.length?(()=>{const [q,a]=MK_QUIZ[Q.i];const ord=Q.ord[Q.i];return `<div class="card mk2quiz"><span class="label">Question ${Q.i+1} of ${MK_QUIZ.length} · score ${Q.s}</span><p><b>${esc(q)}</b></p><div class="mk2qa">${ord.map(j=>`<button class="btn btn-ghost ${Q.pick!=null?(j===MK_QUIZ[Q.i][2]?'right':j===Q.pick?'wrong':''):''}" data-mkqa="${j}" ${Q.pick!=null?'disabled':''}>${esc(a[j])}</button>`).join('')}</div>${Q.pick!=null?`<button class="btn btn-go" id="mkQn">${Q.i+1<MK_QUIZ.length?'Next':'See score'}</button>`:''}</div>`})()
+    :`<div class="card mk2quiz"><span class="label">Quiz done</span><p><b>${Q.s} / ${MK_QUIZ.length}</b> ${Q.s===MK_QUIZ.length?'Perfect!':'Try again for a perfect score.'}</p>${Q.paid?`<p class="up">+${mk$(2500)} practice cash for the perfect score.</p>`:''}<button class="btn btn-ghost" id="mkQz">Take it again</button></div>`)
+    :`<div class="card mk2quiz"><span class="label">Market quiz · ${MK_QUIZ.length} questions</span><p>Read the lessons, then test yourself. A perfect score pays ${mk$(2500)} practice cash once per season.</p><button class="btn btn-go" id="mkQz">${m.flags.quiz?'Take it again':'Start the quiz'}</button></div>`;
+  return `${quiz}<div class="mklearn">${MK_LESSONS.map(([t,b],i)=>`<details class="card mkles"><summary><b>${i+1}. ${esc(t)}</b>${m.learn.includes(i)?'<span class="tag">✓ Read</span>':'<span class="tag">+$500 practice cash</span>'}</summary><p>${esc(b)}</p>${m.learn.includes(i)?'':`<button class="btn btn-ghost sm" data-mkl="${i}">Got it</button>`}</details>`).join('')}</div><p class="hint">This is practice money for learning. It can't be bought, sold or turned into anything real.</p>`}
+function mkBadgesHTML(){const m=MK2();return `<p class="hint">${m.ach.length} of ${MK_ACH.length} this season. Each badge pays XP once per season.</p><div class="mk2badges">${MK_ACH.map(([k,n,d,,xp])=>{const on=m.ach.includes(k);return `<div class="mk2bdg ${on?'on':''}"><i>${on?'🏅':'🔒'}</i><b>${esc(n)}</b><small>${esc(d)}</small><span class="tag">${on?'Earned':'+'+xp+' XP'}</span></div>`}).join('')}</div>`}
+function mkDetailHTML(sel){const C=mkCfg();const m=MK2();const px=mkPrice(sel.id);const h=m.hold[sel.id]||{n:0,cost:0};const ch=mkChg(sel.id,24),ch7=mkChg(sel.id,168);const fair=sel._fair||mkFair(sel.p);const val=fair/px;const vlab=val>1.12?['Undervalued','up']:val<.88?['Overvalued','dn']:['Fair value',''];
+  const fee=(+C.fee||0)/100;const halted=C.halt.includes(sel.id);const vol=mkVolP(sel.p)*(+C.vol||1);const R=MK_R.find(r=>r[0]===MK.rng)||MK_R[1];const ser=mkSeries(sel.id,R[0]);
+  const d1=mkSeries(sel.id,'1d').map(x=>x[1]),m1=mkSeries(sel.id,'1m').map(x=>x[1]);const avg=h.n?h.cost/h.n:null;const w=mkWorth();const watch=m.watch.includes(sel.id);
+  const marks=m.tx.filter(t=>t.id===sel.id).map(t=>({t:t.t,v:t.px,side:t.side}));const cap=+C.maxShare>0?Math.max(0,+C.maxShare-h.n):Infinity;
+  const pxT=MK.ot==='mkt'?px:(+MK.lim||px);const nFromUsd=Math.floor((+MK.usd||0)/(pxT*(1+fee)));let n=MK.mode==='usd'&&MK.side==='buy'?nFromUsd:Math.max(1,Math.floor(MK.n||1));if(MK.side==='sell')n=Math.min(n,h.n);if(MK.side==='buy')n=Math.min(n,cap);
+  const tot=n*pxT,fees=tot*fee;const maxBuy=Math.max(0,Math.min(cap,Math.floor(m.cash/(pxT*(1+fee)))));const ots=MK.side==='buy'?[['mkt','Market'],['lim','Limit']]:[['mkt','Market'],['tp','Take profit'],['stop','Stop loss']];if(!ots.some(o=>o[0]===MK.ot))MK.ot='mkt';
+  const st=CAREER[sel.p.name];const rel=mkStocks().filter(s=>s.id!==sel.id&&s.p.era===sel.p.era&&s.p.pos===sel.p.pos).sort((a,b)=>Math.abs(a.p.ovr-sel.p.ovr)-Math.abs(b.p.ovr-sel.p.ovr)).slice(0,4);
+  const myOrd=m.orders.filter(o=>o.id===sel.id);
+  return `<div class="card mkdet mk2det"><div class="mkdh">${portrait(sel.p,'sm')}<div><b>${esc(sel.p.name)} <span class="mksym">${sel.sym}</span></b><small>${ERAS[sel.p.era].full} · ${sel.p.pos} · ${sel.p.ovr} OVR${st?` · ${st[0]} pts, ${st[1]} reb, ${st[2]} ast`:''}</small></div>
+      <button class="mk2star big ${watch?'on':''}" data-mkw="${sel.id}" aria-label="Watchlist">${watch?'★':'☆'}</button><button class="mk2star big" id="mkAlB" aria-label="Price alert">🔔</button><button class="chatx" id="mkX" aria-label="Close">${icon('M18 6L6 18M6 6l12 12',14)}</button></div>
+    <div class="mkbig"><b data-lpx="${sel.id}" data-big="1">${mk$(px)}</b><span data-lch="${sel.id}" class="${ch>=0?'up':'dn'}">${mkPct(ch)} today</span><span class="${ch7>=0?'up':'dn'}">${mkPct(ch7)} this week</span></div>
+    ${mkChart('det',ser,{h:190,ref:avg,refL:'Your avg',marks})}
+    <div class="chips sm mk2rng">${MK_R.map(([k,l])=>`<button class="cbtn sm ${MK.rng===k?'on':''}" data-mkr="${k}">${l}</button>`).join('')}</div>
+    ${MK.alert?`<div class="mk2alert"><span>🔔 Ping me when the price reaches $</span><input id="mkAlP" type="number" step=".01" value="${(+MK.alert).toFixed(2)}"><button class="mini" id="mkAlGo">Set alert</button><small class="hint">Above ${mk$(px)} pings on the way up, below pings on the way down.</small></div>`:''}
+    <div class="mkfacts mk2facts"><div><small>Day range</small><b>${mkAbbr(Math.min(...d1))} – ${mkAbbr(Math.max(...d1))}</b></div><div><small>Month range</small><b>${mkAbbr(Math.min(...m1))} – ${mkAbbr(Math.max(...m1))}</b></div><div><small>Value</small><b class="${vlab[1]}">${vlab[0]}</b></div><div><small>Usual value</small><b>${mk$(fair)}</b></div><div><small>Risk</small><b>${vol>1.4?'High':vol>1?'Medium':'Low'}</b></div><div><small>You own</small><b>${h.n}${h.n&&w?` · ${Math.round(h.n*px/w*100)}%`:''}</b></div>${h.n?`<div><small>Avg cost</small><b>${mk$(avg)}</b></div><div><small>Gain / loss</small><b class="${h.n*px-h.cost>=0?'up':'dn'}">${mkSgn$(h.n*px-h.cost)} · ${mkPct(h.n*px/h.cost-1)}</b></div>`:''}</div>
+    ${halted?'<p class="chatnote warn">⏸ Trading in this stock is paused.</p>':!C.open?'<p class="chatnote warn">The market is closed.</p>':`<div class="mk2ticket ${MK.side}"><div class="mk2seg"><button class="${MK.side==='buy'?'on':''}" data-mkside="buy">Buy</button><button class="${MK.side==='sell'?'on':''}" data-mkside="sell" ${h.n?'':'disabled'}>Sell</button></div>
+      <div class="chips sm">${ots.map(([k,l])=>`<button class="cbtn sm ${MK.ot===k?'on':''}" data-mkot="${k}" ${k!=='mkt'&&C.orders===false?'disabled':''}>${l}</button>`).join('')}</div>
+      ${MK.ot!=='mkt'?`<div class="field mk2limf"><label class="label" for="mkLim">${MK.side==='buy'?'Buy when the price drops to':MK.ot==='stop'?'Sell if the price falls to':'Sell when the price climbs to'}</label><div class="mkqty"><button class="stpm" data-mklq="-1">−</button><input id="mkLim" type="number" step=".01" min=".01" value="${(+MK.lim||px).toFixed(2)}"><button class="stpm" data-mklq="1">+</button><small class="hint">${mkPct((+MK.lim||px)/px-1)} from now</small></div></div>`:''}
+      ${MK.side==='buy'?`<div class="chips sm">${[['sh','Shares'],['usd','Dollars']].map(([k,l])=>`<button class="cbtn sm ${MK.mode===k?'on':''}" data-mkmode="${k}">${l}</button>`).join('')}</div>`:''}
+      ${MK.mode==='usd'&&MK.side==='buy'?`<div class="mkqty"><span class="mk2cur">$</span><input id="mkUsd" type="number" min="1" value="${Math.round(+MK.usd||0)}"><small class="hint">≈ ${n} share${n===1?'':'s'}</small></div>`:`<div class="mkqty"><button class="stpm" data-mkq="-1">−</button><input id="mkN" type="number" min="1" value="${n}"><button class="stpm" data-mkq="1">+</button></div>`}
+      <div class="chips sm mk2pct">${MK.side==='buy'?[[.1,'10%'],[.25,'25%'],[.5,'50%'],[1,'Max']].map(([f,l])=>`<button class="mini" data-mkpc="${f}">${l}</button>`).join(''):[[.25,'25%'],[.5,'Half'],[1,'All']].map(([f,l])=>`<button class="mini" data-mkpc="${f}">${l}</button>`).join('')}</div>
+      <div class="mk2prev"><span>${n} × ${mk$(pxT)}</span><b>${mk$(tot)}</b><span>Fee ${C.fee}%</span><b>${mk$(fees)}</b><span>Cash after</span><b class="${MK.side==='buy'&&tot+fees>m.cash?'dn':''}">${mk$(MK.side==='buy'?m.cash-tot-fees:m.cash+tot-fees)}</b></div>
+      <button class="btn ${MK.side==='buy'?'btn-go':'btn-sell'} mk2go" id="mkGo" ${n>0?'':'disabled'}>${MK.ot==='mkt'?(MK.side==='buy'?'Buy':'Sell')+` ${n} share${n===1?'':'s'}`:`Place ${MK_OT[MK.ot].toLowerCase()} order`}</button><p class="hint" id="mkMsg">${MK.side==='buy'?`You can afford ${maxBuy} at this price.`:''}</p></div>`}
+    ${myOrd.length?`<span class="label">Your orders on ${sel.sym}</span>${myOrd.map(o=>`<div class="mk2ord"><span class="tag ${o.side==='buy'?'':'bad'}">${MK_OT[o.type]}</span><div><b>${o.side==='buy'?'Buy':'Sell'} ${o.n} at ${mk$(o.px)}</b></div><button class="mini warn" data-mkoc="${o.oid}">Cancel</button></div>`).join('')}`:''}
+    ${rel.length?`<span class="label">Similar players</span><div class="mk2rel">${rel.map(s=>{const p=mkPrice(s.id);const c=mkChg(s.id,24);return `<button data-mks="${s.id}"><span class="mksym">${s.sym}</span><small>${esc(s.p.name)}</small><b>${mk$(p)}</b><em class="${c>=0?'up':'dn'}">${mkPct(c)}</em></button>`}).join('')}</div>`:''}</div>`}
+mkRender=function(){const C=mkCfg();const m=MK2();if(MK.tab==='portfolio')MK.tab='port';if(!MK_TABS.some(t=>t[0]===MK.tab))MK.tab='over';mkCalls();mkOrders();mkAlerts();
+  const w=mkWorth();const st=+C.start||10000;m.worth=w;m.best=Math.max(m.best||0,w);mkHist(m,w);mkAch();const day=mkDayChg();
+  const sel=MK.sel&&mkStk(MK.sel);if(MK.sel&&!sel)MK.sel=null;
+  const body={over:mkOverHTML,market:mkMarketHTML,port:mkPortHTML,orders:mkOrdersHTML,call:mkCallHTML,learn:mkLearnHTML,badges:mkBadgesHTML,lb:()=>`<div id="mkLb"><span class="spin" style="color:var(--amber)"></span></div>`}[MK.tab]();
+  const L=mkMovers();const g=L.slice().sort((a,b)=>b.ch-a.ch);const tick=[C.ticker,`HP 100 ${mkIdxAt('hp',Date.now()).toFixed(2)}`,...g.slice(0,4).map(x=>`▲ ${x.s.sym} ${mkPct(x.ch)}`),...g.slice(-4).reverse().map(x=>`▼ ${x.s.sym} ${mkPct(x.ch)}`),...C.events.filter(e=>Date.now()<+e.until&&e.title).map(e=>'📰 '+e.title)].filter(Boolean);
+  const hs=m.hist.slice(-40).concat([[Date.now(),w]]);const callDue=!m.calls.some(c=>c.d===dayKey())&&C.call!==false;
+  $('#app').innerHTML=`<section class="view mkview" id="mk2"><div class="wrap"><div class="draft-top"><button class="btn btn-ghost" onclick="go('home')">${icon('M19 12H5M11 18l-6-6 6-6')} Home</button><div><span class="label">Practice money · learn to invest · season ${C.season}</span><h2>Stock market</h2></div><div class="meta">${C.open?'<span class="tag done"><i class="mklive"></i> Market open · live</span>':'<span class="tag bad">Market closed</span>'}</div></div>
+    <div class="mktick"><div>${tick.map(t=>`<span class="${/^▲/.test(t)?'up':/^▼/.test(t)?'dn':''}">${esc(t)}</span>`).join('')}${tick.map(t=>`<span class="${/^▲/.test(t)?'up':/^▼/.test(t)?'dn':''}">${esc(t)}</span>`).join('')}</div></div>
+    <div class="mk2hero"><div class="mk2nw"><small>Net worth</small><b id="mkW">${mk$(w)}</b><em class="${w>=st?'up':'dn'}">${mkSgn$(w-st)} · ${mkPct(w/st-1)} all time</em><em id="mkDay" class="${day>=0?'up':'dn'}">${mkSgn$(day)} today</em></div><div class="mk2nwc">${hs.length>2?mkChartMini(hs):''}</div>
+      <div class="mk2sum"><div><small>Cash</small><b id="mkCash">${mk$(m.cash)}</b></div><div><small>Invested</small><b id="mkInv">${mk$(w-m.cash)}</b></div><div><small>Best ever</small><b>${mk$(m.best)}</b></div><div><small>Badges</small><b>${m.ach.length}/${MK_ACH.length}</b></div></div></div>
+    <div class="mk2tabs" role="tablist">${MK_TABS.map(([k,n])=>`<button class="cbtn ${MK.tab===k?'on':''}" data-mkt="${k}" role="tab">${n}${k==='orders'&&m.orders.length?` <i class="mk2n">${m.orders.length}</i>`:''}${k==='call'&&callDue?' <i class="mk2n dot"></i>':''}</button>`).join('')}</div>
+    <div class="mkgrid mk2grid ${sel?'has':''}"><div class="mk2main">${body}</div>${sel?`<div class="mk2side"><div class="mk2scrim" id="mkScrim"></div>${mkDetailHTML(sel)}</div>`:''}</div></div></section>`;
+  mkBind();mkLive()};
+function mkBind(){const re=()=>mkRender();const m=MK2();const C=mkCfg();const on=(id,f,ev)=>{const e=$('#'+id);if(e)e[ev||'onclick']=f};
+  $$('[data-mkt]').forEach(b=>b.onclick=()=>{MK.tab=b.dataset.mkt;MK.qz=MK.tab==='learn'?MK.qz:null;re();mks('flip')});
+  $$('[data-mks]').forEach(b=>b.onclick=e=>{if(e.target.closest('[data-mkw],[data-mkqs]'))return;if(MK.sel!==b.dataset.mks){MK.sel=b.dataset.mks;MK.n=1;MK.side='buy';MK.ot='mkt';MK.lim=0;MK.alert=null}re();mks('pop');if(innerWidth>860){const d=$('.mk2det');d&&d.scrollIntoView({block:'nearest'})}});
+  $$('.mk2row[data-mks]').forEach(b=>b.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();b.click()}});
+  $$('[data-mkw]').forEach(b=>b.onclick=e=>{e.stopPropagation();const id=b.dataset.mkw;const i=m.watch.indexOf(id);if(i>=0)m.watch.splice(i,1);else{m.watch.push(id);toastLite('★ Added to your watchlist')}saveP();mkAch();re()});
+  $$('[data-mkqs]').forEach(b=>b.onclick=e=>{e.stopPropagation();MK.sel=b.dataset.mkqs;MK.side='sell';MK.ot='mkt';MK.n=(m.hold[MK.sel]||{n:1}).n;re()});
+  const q=$('#mkQ');if(q){q.oninput=()=>{clearTimeout(MK.qt);MK.qt=setTimeout(()=>{MK.q=q.value;MK.more=80;re();const q2=$('#mkQ');if(q2){q2.focus();q2.setSelectionRange(q2.value.length,q2.value.length)}},220)}}
+  [['mkEra','era'],['mkPos','pos'],['mkSort','sort']].forEach(([id,k])=>{const e=$('#'+id);if(e)e.onchange=()=>{MK[k]=e.value;MK.more=80;re()}});
+  $$('[data-mkqk]').forEach(b=>b.onclick=()=>{MK.quick=b.dataset.mkqk;MK.more=80;re()});on('mkMore',()=>{MK.more+=80;re()});
+  $$('[data-mkera]').forEach(b=>b.onclick=()=>{MK.tab='market';MK.era=b.dataset.mkera;MK.pos='all';MK.quick='all';re()});
+  $$('[data-mkheat]').forEach(b=>b.onclick=()=>{const [e,p]=b.dataset.mkheat.split('|');MK.tab='market';MK.era=e;MK.pos=p;MK.quick='all';MK.sort='move';re()});
+  $$('[data-mkir]').forEach(b=>b.onclick=()=>{MK.ir=b.dataset.mkir;re()});$$('[data-mkr]').forEach(b=>b.onclick=()=>{MK.rng=b.dataset.mkr;re()});
+  $$('[data-mkcall]').forEach(b=>b.onclick=()=>{mkCallMake(b.dataset.mkcall);re()});
+  $$('[data-mkoc]').forEach(b=>b.onclick=()=>{m.orders=m.orders.filter(o=>o.oid!==b.dataset.mkoc);saveP();toastLite('Order cancelled');re()});
+  $$('[data-mkac]').forEach(b=>b.onclick=()=>{m.alerts=m.alerts.filter(a=>a.aid!==b.dataset.mkac);saveP();re()});
+  $$('[data-mktf]').forEach(b=>b.onclick=()=>{MK.txf=b.dataset.mktf;MK.txn=25;re()});on('mkTxMore',()=>{MK.txn=(MK.txn||25)+50;re()});
+  $$('[data-mkl]').forEach(b=>b.onclick=()=>{const i=+b.dataset.mkl;if(!m.learn.includes(i)){m.learn.push(i);m.cash+=500;saveP();try{qEvent('mk_learn')}catch(e){}toastLite('+$500 practice cash for learning');mks('ok',4)}re()});
+  on('mkQz',()=>{MK.qz={i:0,s:0,pick:null,ord:MK_QUIZ.map(([,a])=>a.map((_,j)=>j).sort(()=>Math.random()-.5))};re()});
+  $$('[data-mkqa]').forEach(b=>b.onclick=()=>{const Q=MK.qz;if(!Q||Q.pick!=null)return;Q.pick=+b.dataset.mkqa;if(Q.pick===MK_QUIZ[Q.i][2]){Q.s++;mks('ok',Q.s)}else mks('bad');re()});
+  on('mkQn',()=>{const Q=MK.qz;Q.i++;Q.pick=null;if(Q.i>=MK_QUIZ.length&&Q.s===MK_QUIZ.length&&!m.flags.quiz){m.flags.quiz=1;m.cash+=2500;Q.paid=1;saveP();mkAch();confetti()}re()});
+  on('mkShareB',()=>{const w=mkWorth();const st=+C.start||10000;const pct=(w/st-1)*100;const H=mkHoldList().map(([id,x])=>({s:mkStk(id),g:x.n*mkPrice(id)-x.cost})).sort((a,b)=>b.g-a.g);
+    openShare({k:'market',kicker:'Stock market · practice money',title:mk$(w),sub:`Net worth ${pct>=0?'up':'down'} ${Math.abs(pct).toFixed(1)}% this season.`,lines:[['Holdings',H.length],['Trades',m.ntx],...(H[0]?[['Best stock',H[0].s.sym+' '+(H[0].g>=0?'+':'')+mk$(H[0].g)]]:[]),['Best net worth',mk$(Math.max(m.best||0,w))]]})});
+  /* detail and ticket */
+  const close=()=>{MK.sel=null;MK.alert=null;re()};on('mkX',close);on('mkScrim',close);
+  on('mkAlB',()=>{MK.alert=MK.alert?null:+(mkPrice(MK.sel)*1.05).toFixed(2);re()});
+  on('mkAlGo',()=>{const v=+$('#mkAlP').value;if(!(v>0))return;if(m.alerts.length>=20){toastLite('Up to 20 alerts');return}const now=mkPrice(MK.sel);if(Math.abs(v/now-1)<.001){toastLite('Pick a price above or below where it is now');return}m.alerts.push({aid:rid(),id:MK.sel,px:v,up:v>now});MK.alert=null;saveP();toastLite('🔔 Alert set');re()});
+  $$('[data-mkside]').forEach(b=>b.onclick=()=>{MK.side=b.dataset.mkside;MK.ot='mkt';MK.lim=0;if(MK.side==='sell')MK.n=Math.min(Math.max(1,MK.n),(m.hold[MK.sel]||{n:1}).n);re()});
+  $$('[data-mkot]').forEach(b=>b.onclick=()=>{MK.ot=b.dataset.mkot;const px=mkPrice(MK.sel);MK.lim=+(px*(MK.ot==='lim'?.95:MK.ot==='stop'?.9:1.1)).toFixed(2);re()});
+  $$('[data-mkmode]').forEach(b=>b.onclick=()=>{MK.mode=b.dataset.mkmode;re()});
+  const nI=$('#mkN');if(nI)nI.onchange=()=>{MK.n=Math.max(1,Math.floor(+nI.value||1));re()};const uI=$('#mkUsd');if(uI)uI.onchange=()=>{MK.usd=Math.max(0,+uI.value||0);re()};const lI=$('#mkLim');if(lI)lI.onchange=()=>{MK.lim=Math.max(.01,+lI.value||0);re()};
+  $$('[data-mkq]').forEach(b=>b.onclick=()=>{MK.n=Math.max(1,(+($('#mkN')||{}).value||MK.n)+(+b.dataset.mkq));re()});
+  $$('[data-mklq]').forEach(b=>b.onclick=()=>{const v=+($('#mkLim')||{}).value||MK.lim;MK.lim=Math.max(.01,+(v*(1+(+b.dataset.mklq)*.01)).toFixed(2));re()});
+  $$('[data-mkpc]').forEach(b=>b.onclick=()=>{const f=+b.dataset.mkpc;const h=m.hold[MK.sel]||{n:0};const fee=(+C.fee||0)/100;const px=MK.ot==='mkt'?mkPrice(MK.sel):(+MK.lim||mkPrice(MK.sel));
+    if(MK.side==='sell')MK.n=Math.max(1,Math.floor(h.n*f));else if(MK.mode==='usd')MK.usd=Math.floor(m.cash*f);else{const cap=+C.maxShare>0?Math.max(0,+C.maxShare-h.n):Infinity;MK.n=Math.max(1,Math.min(cap,Math.floor(m.cash*f/(px*(1+fee)))))}re()});
+  on('mkGo',()=>{const sel=mkStk(MK.sel);if(!sel)return;const nI2=$('#mkN'),uI2=$('#mkUsd'),lI2=$('#mkLim');if(nI2)MK.n=Math.max(1,Math.floor(+nI2.value||1));if(uI2)MK.usd=+uI2.value||0;if(lI2)MK.lim=+lI2.value||MK.lim;
+    const fee=(+C.fee||0)/100;const h=m.hold[sel.id]||{n:0};const pxT=MK.ot==='mkt'?mkPrice(sel.id):+MK.lim;let n=MK.mode==='usd'&&MK.side==='buy'?Math.floor(MK.usd/(pxT*(1+fee))):MK.n;if(MK.side==='sell')n=Math.min(n,h.n);
+    const err=MK.ot==='mkt'?mk2Trade(sel.id,MK.side,n):mkPlace(sel.id,MK.side,MK.ot,n,MK.lim);const M=$('#mkMsg');
+    if(err){if(M){M.textContent=err;M.classList.add('dn')}mks('bad');const t=$('.mk2ticket');if(t){t.classList.remove('shake');void t.offsetWidth;t.classList.add('shake')}return}
+    if(MK.ot==='mkt'){toast(`${MK.side==='buy'?'Bought':'Sold'} ${n} × ${sel.sym}`,`at ${mk$(pxT)} · cash now ${mk$(m.cash)}`,'M5 12l5 5L20 7');mks(MK.side==='buy'?'ok':'swish',5);if(MK.side==='sell'&&!(m.hold[sel.id]||{}).n)MK.side='buy'}
+    else if(MK2().orders.some(o=>o.id===sel.id))toastLite(`${MK_OT[MK.ot]} order placed`);mks('stamp');MK.n=1;re();const d=$('.mk2det');if(d){d.classList.add('flash');setTimeout(()=>d.classList.remove('flash'),600)}});
+  if(MK.tab==='lb')mkLb();mkChartBind()}
+/* ---------- live prices: numbers tick in place every 2 seconds while the market is open on screen ---------- */
+let MKT=0;function mkLive(){clearInterval(MKT);MKT=setInterval(()=>{if(!document.getElementById('mk2')||document.hidden){if(!document.getElementById('mk2'))clearInterval(MKT);return}try{mkTick()}catch(e){}},2000)}
+function mkTick(){const now=Date.now();const seen={};$$('[data-lpx]').forEach(el=>{const id=el.dataset.lpx;const p=seen[id]!=null?seen[id]:(seen[id]=mkPrice(id,now));const prev=+el.dataset.v||p;el.dataset.v=p;const t=mk$(p);if(el.textContent!==t){el.textContent=t;el.classList.remove('tku','tkd');void el.offsetWidth;el.classList.add(p>=prev?'tku':'tkd')}});
+  $$('[data-lch]').forEach(el=>{const id=el.dataset.lch;const c=(seen[id]||mkPrice(id,now))/mkPrice(id,now-864e5)-1;const t=mkPct(c)+(el.textContent.includes('today')?' today':'');if(el.textContent!==t){el.textContent=t;el.className=c>=0?'up':'dn'}});
+  const m=MK2();const w=mkWorth();const W=$('#mkW');if(W&&W.textContent!==mk$(w)){const up=w>=(+W.dataset.v||w);W.dataset.v=w;W.textContent=mk$(w);W.classList.remove('tku','tkd');void W.offsetWidth;W.classList.add(up?'tku':'tkd')}
+  const I=$('#mkInv');if(I)I.textContent=mk$(w-m.cash);const D=$('#mkDay');if(D){const d=mkDayChg();D.textContent=mkSgn$(d)+' today';D.className=d>=0?'up':'dn'}
+  const n0=m.orders.length+m.alerts.length;const filled=mkOrders();mkAlerts();if(filled||m.orders.length+m.alerts.length!==n0){mkRender();return}
+  mkTick.k=(mkTick.k||0)+1;if(mkTick.k%15===0){m.worth=w;m.best=Math.max(m.best||0,w);mkHist(m,w);mkCalls();saveP()}
+  if(MK.sel&&MK.rng==='1h'&&(mkTick.k%3===0)){const el=$('[data-mkch="det"]');if(el&&!el.classList.contains('hov')){const tmp=document.createElement('div');const R=MK_R[0];const sel=mkStk(MK.sel);const h=m.hold[MK.sel];tmp.innerHTML=mkChart('det',mkSeries(MK.sel,'1h'),{h:190,ref:h&&h.n?h.cost/h.n:null,refL:'Your avg',marks:m.tx.filter(t=>t.id===MK.sel).map(t=>({t:t.t,v:t.px,side:t.side}))});const nn=tmp.firstElementChild;el.replaceWith(nn);mkChartBind()}}}
+document.addEventListener('keydown',e=>{if(!document.getElementById('mk2'))return;const tg=(e.target.tagName||'').toLowerCase();if(e.key==='/'&&tg!=='input'&&tg!=='textarea'&&tg!=='select'){const q=$('#mkQ');e.preventDefault();if(q)q.focus();else{MK.tab='market';mkRender();setTimeout(()=>{const q2=$('#mkQ');q2&&q2.focus()},30)}}else if(e.key==='Escape'&&MK.sel&&tg!=='input'){MK.sel=null;mkRender()}});
+/* leaderboard with returns */
+mkLb=async function(){const el=$('#mkLb');if(!el)return;if(!DB.ok){el.innerHTML='<p class="hint">The leaderboard needs an internet connection.</p>';return}const r=await DB.c.rpc('board_top',{p_board:'mkt',p_limit:50});if(!$('#mkLb'))return;const rows=r.data||[];const st=+mkCfg().start||10000;const me=rows.findIndex(x=>x.uid===DB.uid);
+  el.innerHTML=`${me<0?`<p class="hint">You're not in the top 50 yet. Your net worth: <b>${mk$(mkWorth())}</b>.</p>`:`<p class="hint">You're <b>#${me+1}</b> of the top 50.</p>`}`+(rows.length?`<div class="tbl-wrap"><table><tr><th>#</th><th>Investor</th><th class="n">Net worth</th><th class="n">Return</th></tr>${rows.map((x,i)=>`<tr class="${x.uid===DB.uid?'me':''}"><td>${i<3?['🥇','🥈','🥉'][i]:i+1}</td><td><button class="cmn" data-profn="${esc(x.name)}">${esc(x.name)}</button>${x.owner?' '+ownerBadge(true):''}${x.tier?' '+supBadge(x.tier,true):''}</td><td class="n"><b>${mk$(+x.value)}</b></td><td class="n ${+x.value>=st?'up':'dn'}">${mkPct(+x.value/st-1)}</td></tr>`).join('')}</table></div>`:'<p class="hint">Nobody on the board yet. Make a trade to get on it.</p>')};
+/* owner switches for the new parts */
+const _amh2=adminMarketHTML;adminMarketHTML=function(){const C=mkCfg();return _amh2()+`<div class="card" style="margin-top:14px"><span class="label">Orders and daily call</span><label class="tgl"><input type="checkbox" id="maOrd" ${C.orders!==false?'checked':''}><span>Players can place limit, stop-loss and take-profit orders</span></label><label class="tgl"><input type="checkbox" id="maCall" ${C.call!==false?'checked':''}><span>Daily call is on</span></label><div class="apgrid"><div class="field"><label class="label" for="maCallAmt">Daily call reward ($)</label><input id="maCallAmt" type="number" step="100" value="${+C.callAmt||1000}"></div></div><div class="actrow"><button class="btn btn-go" id="maSave2">Save</button></div></div>`};
+const _amb2=adminMarketBind;adminMarketBind=function(){_amb2();if(ADM.tab!=='market')return;const b=$('#maSave2');if(b)b.onclick=()=>admPub(cf=>{cf.mkt=Object.assign({},MK_DEF,cf.mkt||{});cf.mkt.orders=$('#maOrd').checked;cf.mkt.call=$('#maCall').checked;cf.mkt.callAmt=Math.max(0,Math.min(1e6,+$('#maCallAmt').value||0))}).then(()=>{MK_STOCKS=null;renderAdmin()})};
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
