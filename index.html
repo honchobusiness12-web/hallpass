@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1793715036">
+<meta name="hp-build" content="1793726949">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -2688,7 +2688,7 @@ html.lite .mx.fire,html.lite .mxhlp.q .mxhlv,html.lite .mxslots span.cur,html.li
 html.lite .mk2hero{background:var(--panel)}
 /* ===== Football 3.0 ===== */
 .fb3 .fbstage{background:#05070f}
-.fb3booth{position:absolute;left:50%;bottom:84px;transform:translateX(-50%) translateY(8px);max-width:min(92%,640px);display:flex;gap:8px;align-items:center;padding:7px 14px;border-radius:12px;background:rgba(8,12,24,.78);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:2}
+.fb3booth{position:absolute;left:50%;top:64px;bottom:auto;transform:translateX(-50%) translateY(-8px);max-width:min(92%,640px);display:flex;gap:8px;align-items:center;padding:7px 14px;border-radius:12px;background:rgba(8,12,24,.78);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:2}
 .fb3booth.on{opacity:1;transform:translateX(-50%) translateY(0);animation:fb3fade 5.5s forwards}.fb3booth.hot{border-color:rgba(255,216,74,.7);background:rgba(40,28,6,.86);font-size:14px}
 .fb3booth b{font-size:14px}@keyframes fb3fade{0%,80%{opacity:1}100%{opacity:0}}
 .fb3pad{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:0 10px;z-index:3;pointer-events:none}
@@ -2725,6 +2725,8 @@ html.lite .mk2hero{background:var(--panel)}
 @media (max-width:600px){.fb3 .stbar{gap:6px}.fb3 .stbar>.btn{padding:8px 10px;font-size:0;gap:0;flex:0 0 auto}.fb3 .stbar>.btn svg{width:18px;height:18px}
   .fb3 .fbbug{flex:1;min-width:0}.fb3 .fbmid{min-width:0;padding:0 4px}.fb3 .fbmid b{font-size:12px;white-space:nowrap}.fb3 .fbmid small{font-size:10px;white-space:nowrap}.fb3 .fbt b{font-size:13px}.fb3 .fbt span{font-size:20px}
   .fb3booth{top:52px;bottom:auto;transform:translateX(-50%) translateY(-8px)}.fb3booth.on{transform:translateX(-50%) translateY(0)}}
+@media (max-width:600px){.fb3 .fb3pad{position:static;min-height:96px;align-content:center;padding:8px 6px;background:#0a0e1a;border-top:1px solid rgba(255,255,255,.08);opacity:1}
+  .fb3 .fb3pad button{flex:1 1 0;min-width:0;max-width:96px}.fb3 .fb3pad button.big{max-width:220px}.fb3 .fb3ph{color:rgba(255,255,255,.55);text-shadow:none}}
 </style>
 
 </head>
@@ -5772,6 +5774,8 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "11.7", "d": "2026-11-03", "t": "Faster updates", "b": "New versions of Hall Pass now reach you much faster: open games check for an update about every 45 seconds (and right away when you come back to the tab), and the check is tiny, so it doesn't slow anything down. When an update arrives you get a short countdown, your progress is saved, and the game reloads on the new version."},
+ {"v": "11.6", "d": "2026-11-03", "t": "Football: real players and a closer camera", "b": "Every football player is now a fully animated 3D athlete with knees, elbows and hands, seen correctly from any angle. Real run cycles that lean into cuts and jukes, three-point stances before the snap, linemen who actually block, quarterbacks who throw with a real release, receivers who reach for the ball, runners who tuck it and stiff-arm, and tackles where players really go down (often taking the tackler with them). The ball sits in players' hands, and the center snaps it back to the quarterback.\nPlayers can't run through each other any more, and after the whistle everyone slows to a stop instead of freezing mid-stride. The camera is much closer, like a console game, and follows the runner to the sideline. On phones the camera looks down from higher up so the play fills the screen, and the buttons sit below the field so they never cover your quarterback. The game also runs smoother on Chromebooks and older phones."},
  {"v": "11.5", "d": "2026-11-03", "t": "Force update", "b": "Check for updates is now Force update (at the bottom of your profile). It saves your progress, clears this device's old copy and reloads the newest version of Hall Pass right away. Handy if something looks out of date."},
  {"v": "11.4", "d": "2026-11-02", "t": "Football 3.0: a real broadcast, playable defense and a full playbook", "b": "Football (beta) is rebuilt from the ground up. A 3D TV-style camera sits behind your quarterback, in a lit stadium with a crowd that jumps on big plays, scoreboards at both ends, and day, sunset, night, rain or snow games. Players are bigger and fully animated.\nOffense: pick from a real playbook before every snap (route diagrams on every card), or let the coach pick. Each receiver gets a colored button (green means open): tap for a bullet, hold for a lob. Run with juke, spin, stiff arm, dive and sprint. Four straight completions put your QB on fire.\nDefense is now playable: call Cover 3, Cover 2, Man, Blitz or Cover 0, choose who you control, then move him anywhere, jump for passes and dive at the runner. Their offense learns your habits. Your tackles, sacks and picks go in the box score.\nPlus instant replays, slow motion on big moments, touchdown celebrations with fireworks, a booth that calls every play (with an optional voice), the two-minute warning, timeouts and spikes. Prefer the old pace? Turn off Play defense and their drives are simulated."},
  {"v": "11.3", "d": "2026-11-02", "t": "Stock Market 2.0", "b": "The market is live: prices tick every two seconds. New Overview with the HP 100 index, an index for every era, a heat map, top gainers and losers, what's moving right now, undervalued ideas and Market Buzz headlines. Charts you can drag across, from one hour to one year, with your buys, sells and average cost marked.\nNew order types: Limit, Take profit and Stop loss, and they work while you're away. Buy by shares or dollars, follow players on a watchlist, and set price alerts. Your portfolio now shows your net worth over time, where your money is, today's change and your full trade history.\nNew Daily Call (guess if today's pick is higher in 24 hours for practice cash and XP), 16 market badges, six new lessons and a quiz. Everything you already owned is exactly where you left it."},
@@ -7323,6 +7327,7 @@ function adminTabs3(){const c=LIVE.feed.cfg||{};const tn=themeNow();const T=TPAC
       <button data-qa="player">${icon('M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3',18)}<b>Find a player</b><small>Edit, message, gift</small></button>
       <button data-qa="code">${icon('M20 12v10H4V12M2 7h20v5H2zM12 22V7',18)}<b>Make a promo code</b><small>XP and titles</small></button>
       <button data-qa="preview">${icon('M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',18)}<b>Preview news</b><small>What players see</small></button>
+      <button data-qa="push">${icon('M12 19V5M5 12l7-7 7 7',18)}<b>Push update</b><small>Press right after uploading. Every game updates the moment it's live</small></button>
       <button data-qa="reset">${icon('M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5',18)}<b>Reset servers</b><small>Everyone sees "restarting" and reloads</small></button>
       <button data-qa="upd">${icon('M12 3v12M7 10l5 5 5-5M5 21h14',18)}<b>Force update</b><small>Reload the newest version on this device now</small></button></div>${admMsg()}<p class="hint">${esc(ADM.pubRes||'')}</p></div>
      <div class="stack"><div class="card"><span class="label">Live right now</span><div class="admlive">
@@ -7356,6 +7361,7 @@ function adminBind3(){const tab=ADM.tab;const on=(s,fn)=>$$(s).forEach(b=>b.oncl
       if(k==='xp')return admPub(cf=>{if(cf.xp>1&&Date.now()<cf.xpUntil){cf.xp=1;cf.xpUntil=0}else{cf.xp=2;cf.xpUntil=Date.now()+864e5}});
       if(k==='gift')return admPub(cf=>{cf.gift={id:rid(),at:Date.now(),xp:500,msg:'A gift from the developer',until:Date.now()+7*864e5}});
       if(k==='upd')return updManual();
+      if(k==='push'){toastLite('Update pushed. Open games will reload as soon as GitHub finishes deploying.');return admPub(cf=>{cf.push={ts:Date.now(),from:BUILD}})}
       if(k==='reset'){if(!b.dataset.arm){b.dataset.arm=1;b.querySelector('small').textContent='Tap again: every open game reloads';return}return admPub(cf=>{cf.reset={ts:Date.now(),msg:''}})}
       if(k==='maint'){if(c.maint&&c.maint.on)return maintOff();if(!b.dataset.arm){b.dataset.arm=1;b.querySelector('small').textContent='Tap again to lock the game';return}return admPub(cf=>{cf.maint={on:true,msg:'',until:0}})}})}
   if(tab==='themes'){
@@ -7385,7 +7391,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1793715036';
+const BUILD='1793726949';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -13446,21 +13452,21 @@ function fbCamDirect(g,dt){const c=FBCAM;const b=g.ball;const now=performance.no
   if(g.intro&&now<g.intro){const k=1-(g.intro-now)/2800;const e=k*k*(3-2*k);psi=fbBasePsi(g)+2.6*(1-e);back=38-23*e;h=24-15.5*e;tx=60;ty=FBW/2;c.psi=psi;c.back=back;c.h=h;c.tx=tx;c.ty=ty;fbCamPrep();return}
   if(g.cele&&g.cele.who){const w=g.cele.who;const t=(now-g.cele.at)/1000;psi=fbBasePsi(g)+.4+t*.9;back=8.5;h=4.2;tx=w.x;ty=w.y}
   else if(g.replay){const f=g.replay.cur;psi=fbBasePsi(g)+(g.replay.side||.85);back=14;h=7.5;tx=f?f.bx:c.tx;ty=f?f.by:c.ty}
-  else if(g.spect&&g.on){const LS=120-L;tx=b?Math.min(b.x+4,LS+4):LS+4;back=narrow?19:26;h=narrow?14:13;ty=b?b.y:FBW/2}
-  else if(g.side==='def'&&g.on){tx=b?Math.max(b.x-4,L-6):L-4;if(b&&b.st==='air')tx=Math.min(tx,b.lx-3);back=narrow?19:26;h=narrow?14:13;ty=b?b.y:FBW/2}
-  else if(g.on&&b){if(g.carrier)tx=g.carrier.x+6;else if(b.st==='air')tx=b.x+6;else tx=Math.max(L+6,b.x+9);back=narrow?17:24;h=narrow?13:12.5;if(b.st==='air'&&b.lx-b.sx>24){back+=3;h+=1.5}ty=b.y}
-  else if(g.spot!=null&&g.phase!=='kick'){tx=g.side==='def'?L-4:L+6;back=narrow?18:25;h=narrow?13.5:12.5;ty=FBW/2}else{tx=c.tx;ty=FBW/2}
-  ty=FBW/2+(ty-FBW/2)*(narrow?.7:.5);let k=Math.min(1,dt*(g.replay?5:3.6));const dp=((psi-c.psi+Math.PI*3)%(Math.PI*2))-Math.PI;if(Math.abs(dp)>1.2&&!g.cele&&!g.replay&&!(g.intro&&now<g.intro+400)){c.psi=psi;k=1}else c.psi+=dp*Math.min(1,dt*4);c.back+=(back-c.back)*k;c.h+=(h-c.h)*k;c.tx+=(tx-c.tx)*k;c.ty+=(ty-c.ty)*k;
+  else if(g.spect&&g.on){const LS=120-L;const bs=g.carrier?g.carrier.x:b?(b.st==='air'?b.lx:b.x):LS;tx=g.phase==='pre'?LS-(narrow?5:6):Math.min(LS-4,bs-(narrow?5:6));back=narrow?10:13;h=narrow?10.5:8;ty=b?b.y:FBW/2}
+  else if(g.side==='def'&&g.on){const bs=g.carrier?g.carrier.x:b?(b.st==='air'?b.lx:b.x):L;tx=g.phase==='pre'?L+(narrow?5:6):Math.max(L+4,bs+(narrow?5:6));back=narrow?10:13;h=narrow?10.5:8;ty=b?b.y:FBW/2}
+  else if(g.on&&b){if(g.carrier)tx=g.carrier.x+4.5;else if(b.st==='air')tx=b.x+4;else tx=Math.max(L,b.x+5);back=narrow?9.5:12.5;h=narrow?10:6.4;if(b.st==='air'&&b.lx-b.sx>24){back+=3;h+=1.6}ty=b.y}
+  else if(g.spot!=null&&g.phase!=='kick'){tx=g.side==='def'?L+(narrow?5:6):L;back=narrow?(g.side==='def'?10:9.5):(g.side==='def'?13:12.5);h=narrow?(g.side==='def'?10.5:10):(g.side==='def'?8:6.6);ty=FBW/2}else{tx=c.tx;ty=FBW/2}
+  ty=FBW/2+(ty-FBW/2)*(g.carrier?(narrow?.95:.85):(narrow?.7:.5));let k=Math.min(1,dt*(g.replay?5:3.6));const dp=((psi-c.psi+Math.PI*3)%(Math.PI*2))-Math.PI;if(Math.abs(dp)>1.2&&!g.cele&&!g.replay&&!(g.intro&&now<g.intro+400)){c.psi=psi;k=1}else c.psi+=dp*Math.min(1,dt*4);c.back+=(back-c.back)*k;c.h+=(h-c.h)*k;c.tx+=(tx-c.tx)*k;c.ty+=(ty-c.ty)*k;
   if(FBV.shake>0){c.ox=fbRn(-1,1)*FBV.shake;c.oy=fbRn(-1,1)*FBV.shake;FBV.shake*=.86;if(FBV.shake<.3)FBV.shake=0}else{c.ox=c.oy=0}
   fbCamPrep()}
 fbFit=function(){const cv=$('#fbCanvas');if(!cv)return;const wrap=cv.parentElement;const W=wrap.clientWidth;const full=document.body.classList.contains('gamefs');const narrow=W<600;
-  let H=full?innerHeight-8:narrow?Math.min(innerHeight-170,Math.round(W*1.35)):Math.min(Math.round(W*.6),innerHeight-180);H=Math.max(narrow?300:320,H);
-  const d=Math.min(2,devicePixelRatio||1);cv.width=W*d;cv.height=H*d;cv.style.height=H+'px';const x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);FBV.W=W;FBV.H=H;FBV.s=Math.max(8,W/60);FBV.top0=FBV.top=30;
-  FBCAM.F=narrow?W*.68:Math.min(W*.56,H*1.05);FBCAM.hz=narrow?.56:.6};
+  let H=full?innerHeight-(narrow?104:8):narrow?Math.min(innerHeight-270,Math.round(W*1.3)):Math.min(Math.round(W*.6),innerHeight-180);H=Math.max(narrow?300:320,H);
+  const d=(FBV.lowres||document.documentElement.classList.contains('lite'))?1:Math.min(2,devicePixelRatio||1);cv.width=W*d;cv.height=H*d;cv.style.height=H+'px';const x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);FBV.W=W;FBV.H=H;FBV.s=Math.max(8,W/60);FBV.top0=FBV.top=30;
+  FBCAM.F=narrow?W*.62:Math.min(W*.42,H*.85);FBCAM.hz=narrow?.7:.62};
 /* ---------- drawing the world ---------- */
 const fbTxtF=(w)=>`900 {s} "Inter Display",Inter,system-ui,sans-serif`;
 fbTeamCol=function(g,team){const off=g.side==='def'?g.oppT:g.me,def=g.side==='def'?g.me:g.oppT;return team==='me'?[off.c1,off.c2]:[def.c1,def.c2]};
-function fbDrawSky(x,g,W,H){const wx=FB_WX[fbWxPick(g)];const hy=FBV.H*FBCAM.hz-FBCAM.F*Math.tan(FBCAM.pitch)+FBCAM.oy;const gr=x.createLinearGradient(0,0,0,Math.max(40,hy));gr.addColorStop(0,wx.sky[0]);gr.addColorStop(1,wx.sky[1]);x.fillStyle=gr;x.fillRect(-20,-20,W+40,H+40);
+function fbDrawSky(x,g,W,H){const wx=FB_WX[fbWxPick(g)];const hy=FBV.H*FBCAM.hz-FBCAM.F*Math.tan(FBCAM.pitch)+FBCAM.oy;const gr=x.createLinearGradient(0,0,0,Math.max(40,hy));gr.addColorStop(0,wx.sky[0]);gr.addColorStop(1,wx.sky[1]);const cut=Math.max(0,Math.min(H+20,hy+40));x.fillStyle=gr;x.fillRect(-20,-20,W+40,cut+20);x.fillStyle=g.wx==='snow'?'#6f8a7c':'#1d5426';if(cut<H+20)x.fillRect(-20,cut,W+40,H+40-cut);
   if(g.wx==='night'){x.fillStyle='rgba(255,255,255,.55)';for(let i=0;i<50;i++)x.fillRect((i*137.5)%W,(i*61.3)%Math.max(10,hy-30),1.4,1.4)}}
 function fbDrawStands(x,g){const st=fbStadium(g);const top=st.top;const wx=FB_WX[g.wx];
   /* concrete bowl */const cc=g.wx==='day'?'#3a4152':'#1c2130',cc2=g.wx==='day'?'#2d3341':'#141824';
@@ -13516,7 +13522,7 @@ function fbDrawGuy(x,g,o,P){const k=P[2]*1.05;const sx=P[0],sy=P[1];if(k<1.2)ret
   x.fillStyle='rgba(255,255,255,.28)';x.beginPath();x.arc(sd*w*.06-hr*.35,hy-hr*.35,hr*.32,0,7);x.fill();
   x.restore();
   if(o.fire&&o===g.carrier){x.fillStyle=`rgba(255,${120+Math.random()*80|0},40,.5)`;x.beginPath();x.arc(sx+fbRn(-w,w)*.3,sy-h*.95-lift-fbRn(0,h*.4),fbRn(2,w*.35),0,7);x.fill()}}
-function fbDrawBall(x,g,b){const sh=fbProj(b.x,b.y,0);if(sh[3]<1)return;x.fillStyle='rgba(0,0,0,.3)';x.beginPath();x.ellipse(sh[0],sh[1],sh[2]*.32,sh[2]*.12,0,0,7);x.fill();const p=fbProj(b.x,b.y,b.z);const r=Math.max(2.6,p[2]*.38);
+function fbDrawBall(x,g,b){const sh=fbProj(b.x,b.y,0);if(sh[3]<1)return;x.fillStyle='rgba(0,0,0,.3)';x.beginPath();x.ellipse(sh[0],sh[1],sh[2]*.2,sh[2]*.08,0,0,7);x.fill();const p=fbProj(b.x,b.y,b.z);const r=Math.max(2.4,p[2]*.2);
   x.save();x.translate(p[0],p[1]);let ang=0;if(b.st==='air'){const a=fbProj(b.sx,b.sy,1.8),c2=fbProj(b.lx,b.ly,.8);ang=Math.atan2(c2[1]-a[1],c2[0]-a[0])}x.rotate(ang);const sq=b.st==='air'?.62+Math.sin((b.spin||0))*.08:.62;x.fillStyle='#8a4b22';x.beginPath();x.ellipse(0,0,r,r*sq,0,0,7);x.fill();
   x.strokeStyle='#fff';x.lineWidth=Math.max(1,r*.12);x.beginPath();x.moveTo(-r*.35,0);x.lineTo(r*.35,0);x.stroke();x.fillStyle='rgba(255,255,255,.22)';x.beginPath();x.ellipse(-r*.2,-r*.22,r*.45,r*.16,0,0,7);x.fill();x.restore()}
 /* ---------- route art before the snap, coverage art on defense ---------- */
@@ -13723,13 +13729,13 @@ const _fbRs3=fbResolve;fbResolve=function(g){const r=g.res;if(r&&g.on){try{fbCom
     if(comp){g.streak=(g.streak||0)+1;if(g.streak>=4&&!g.fire&&qb){g.fire=true;FB_BOOST.set(qb.p,{acc:.18,arm:.08,until:1e12});fbS('fire');setTimeout(()=>{if(FG===g){fbFlash(g,'ON FIRE 🔥');fbBooth(g,`${fbLN(qb.p)} is ON FIRE! ${g.streak} straight completions.`,1)}},700)}}
     else if(g.thrown||r.kind==='sack'||r.kind==='turnover'){if(g.fire&&qb){FB_BOOST.delete(qb.p);fbBooth(g,'The fire is out.')}g.fire=false;g.streak=0}}return _fbRs3(g)};
 /* ---------- replays, slow motion, celebrations ---------- */
-function fbRec(g){if(!g.on||!g.ball)return;const R=g.rec||(g.rec=[]);if(R.length>720)return;const n=g.on.length*5;const f=new Float32Array(n+4);g.on.forEach((o,i)=>{f[i*5]=o.x;f[i*5+1]=o.y;f[i*5+2]=o.face;f[i*5+3]=o.ph;f[i*5+4]=(o.down?1:0)+(o.dive?2:0)+(o.jump>0?4:0)});const b=g.ball;f[n]=b.x;f[n+1]=b.y;f[n+2]=b.z;f[n+3]=b.st==='air'?1:0;R.push(f)}
+function fbRec(g){if(!g.on||!g.ball)return;const R=g.rec||(g.rec=[]);if(R.length>720)return;const n=g.on.length*5;const f=new Float32Array(n+4);g.on.forEach((o,i)=>{f[i*5]=o.x;f[i*5+1]=o.y;f[i*5+2]=o.face;f[i*5+3]=o.ph;f[i*5+4]=(o.down?1:0)+(o.dive?2:0)+(o.jump>0?4:0)+(o.down2?8:0)});const b=g.ball;f[n]=b.x;f[n+1]=b.y;f[n+2]=b.z;f[n+3]=b.st==='air'?1:0;R.push(f)}
 function fbReplayWorthy(g){if(g.online||fbOpt().noreplay||g.replayed||!g.rec||g.rec.length<45)return false;const r=g.res;if(!r)return false;if(r.kind==='td'||r.kind==='turnover'||g.bighit)return true;if(r.kind==='down'&&r.x-FB_LOS(g.spot)>=25)return true;if(g.side==='def'&&r.kind==='sack')return true;return false}
 function fbStartReplay(g){const f0=g.rec[0],n=g.on.length*5;g.replay={i:0,frames:g.rec,side:fbR()<.5?.95:-.95,cur:{bx:f0[n],by:f0[n+1]},b0:{st:g.ball.st,by:g.ball.by}};FBCAM.tx=f0[n];FBCAM.ty=FBW/2+(f0[n+1]-FBW/2)*.5;FBCAM.psi=fbBasePsi(g)+g.replay.side;FBCAM.back=14;FBCAM.h=7.5;fbS('whoosh');g.flash=null}
 function fbReplayStep(g,dt){const R=g.replay;R.i+=dt*60*.55;const F=R.frames;const i=Math.min(F.length-1,Math.floor(R.i));const f=F[i],p=F[Math.max(0,i-1)];const n=g.on.length*5;
-  g.on.forEach((o,j)=>{o.vx=(f[j*5]-p[j*5])*60;o.vy=(f[j*5+1]-p[j*5+1])*60;o.x=f[j*5];o.y=f[j*5+1];o.face=f[j*5+2];o.ph=f[j*5+3];const fl=f[j*5+4];o.down=fl&1;o.dive=fl&2?.2:0;o.jump=fl&4?.3:0});
+  g.on.forEach((o,j)=>{o.vx=(f[j*5]-p[j*5])*60;o.vy=(f[j*5+1]-p[j*5+1])*60;o.x=f[j*5];o.y=f[j*5+1];o.face=f[j*5+2];o.ph=f[j*5+3];const fl=f[j*5+4];o.down=fl&1;o.down2=fl&8?1:0;o.dive=fl&2?.2:0;o.jump=fl&4?.3:0});
   const b=g.ball;b.x=f[n];b.y=f[n+1];b.z=f[n+2];R.cur={bx:b.x,by:b.y};
-  if(R.i>=F.length-1){const last=F[F.length-1];g.on.forEach((o,j)=>{o.vx=o.vy=0;o.down=last[j*5+4]&1;o.dive=0;o.jump=0});b.st=R.b0.st;g.replay=null;g.replayed=1;g.deadAt=performance.now()-450}}
+  if(R.i>=F.length-1){const last=F[F.length-1];g.on.forEach((o,j)=>{o.vx=o.vy=0;o.down=last[j*5+4]&1;o.down2=last[j*5+4]&8?1:0;o.dive=0;o.jump=0});b.st=R.b0.st;g.replay=null;g.replayed=1;g.deadAt=performance.now()-450}}
 function fbCeleStart(g,t){const who=g.carrier||(g.ball&&g.ball.by);if(g.online||!who){g.celeDone=1;return}who.cel=1;who.down=0;g.cele={who,at:t,until:t+(RM?600:2300)};g.hype=1;const mine=g.side!=='def';
   if(mine){const cols=[g.me.c1,g.me.c2,'#fff','#ffd84a'];fbBoom(g,114,FBW/2-10,cols);setTimeout(()=>{if(FG===g)fbBoom(g,114,FBW/2+10,cols)},350);setTimeout(()=>{if(FG===g)fbBoom(g,118,FBW/2,cols)},700);fbCrowd(.2,3)}}
 function fbCeleStep(g,dt){const w=g.cele.who;for(const o of g.on){if(o===w||o.team!==w.team)continue;const d=Math.hypot(o.x-w.x,o.y-w.y);if(d<32&&d>1.9){o.down=0;const k=Math.min(1,dt*1.6);o.vx=(w.x-o.x)*1.2;o.vy=(w.y-o.y)*1.2;o.x+=(w.x-o.x)*k*.5;o.y+=(w.y-o.y)*k*.5;o.ph+=dt*9;o.face=Math.atan2(w.y-o.y,w.x-o.x)}else{o.vx=o.vy=0}}w.face+=dt*4}
@@ -13792,7 +13798,7 @@ fbKey=function(e,down){const g=FG;if(!g||!$('#fbCanvas')||g.spect)return;const k
   if((k==='r'||k==='R')&&g.phase==='live'&&!g.thrown&&!g.carrier){const qb=g.on.find(o=>o.role==='qb');g.carrier=qb;g.ball.st='run'}if((k==='t'||k==='T')&&g.phase==='pre')fbTimeout(g)};
 function fbPadHTML(g,c){const B=(p,l,cls,x)=>`<button data-p="${p}" class="${cls||''}" ${x||''}>${l}</button>`;
   if(c.startsWith('pre'))return B('snap','Snap','big go')+(c.endsWith('t')?B('to',`Timeout (${g.to.me})`):'');
-  if(c.startsWith('qb')){const R=['wr1','wr2','wr3','te','rb'];return `<span class="fb3ph">Tap = bullet · hold = lob</span>`+R.map((r,i)=>B('r'+(i+1),`<b>${i+1}</b><small>${r==='te'?'TE':r==='rb'?'RB':'WR'}</small>`,'rcv',`data-role="${r}"`)).join('')+(c.endsWith('h')?B('hand','Hand off','go'):'')+B('scr','Scramble')}
+  if(c.startsWith('qb')){const R=['wr1','wr2','wr3','te','rb'];return `<span class="fb3ph">Tap = bullet · hold = lob</span>`+R.map((r,i)=>B('r'+(i+1),`<b>${i+1}</b><small>${r==='te'?'TE':r==='rb'?'RB':'WR'}</small>`,'rcv',`data-role="${r}"`)).join('')+(c.endsWith('h')?B('hand','Hand off','go'):'')+B('scr','QB run')}
   if(c==='run')return B('juke','Juke')+B('spin','Spin')+B('stiff','Stiff arm')+B('dive','Dive')+B('spr','Sprint<i></i>','spr');
   if(c==='dpre')return `<span class="fb3ph">Tap a defender to control him</span>`+B('ready','Ready','big go');
   if(c==='dlive')return B('sw','Switch')+B('jump','Jump')+B('tk','Tackle','go');return''}
@@ -13843,6 +13849,142 @@ async function updForce(){if(UPD.forcing)return;UPD.forcing=1;toastLite('Updatin
   try{await fetch(location.pathname,{cache:'reload'})}catch(e){}
   store.set('hp_updated',Date.now());location.replace(location.pathname+'?v='+Date.now()+(location.hash==='#admin'?'#admin':''))}
 updManual=updForce;
+
+/* =====================================================================
+   FOOTBALL 3.5: real 3D players. Every player is a skeleton (hips, knees,
+   feet, shoulders, elbows, hands, head) posed in field space and drawn
+   through the broadcast camera, so they look right from any angle.
+   Proper run cycles, stances before the snap, blocking, throwing, catching,
+   carrying the ball, stiff arms, dives, jumps and real falls on tackles.
+   Bodies can't walk through each other any more.
+   ===================================================================== */
+const FB_SKIN=['#8d5524','#c68642','#e0ac69','#5c3a21','#a0662e','#f1c27d','#7a4a2a','#b5763c'];
+const FB6={dt:.016,t:0};
+const fbA=a=>Math.atan2(Math.sin(a),Math.cos(a));
+const fbV3=(a,b,k)=>[a[0]+b[0]*k,a[1]+b[1]*k,a[2]+b[2]*k];
+const fbV3s=(...t)=>{const o=[0,0,0];for(let i=0;i<t.length;i+=2){o[0]+=t[i][0]*t[i+1];o[1]+=t[i][1]*t[i+1];o[2]+=t[i][2]*t[i+1]}return o};
+const fbVl=(a,b,k)=>[a[0]+(b[0]-a[0])*k,a[1]+(b[1]-a[1])*k,a[2]+(b[2]-a[2])*k];
+const FBZ=[0,0,1];
+/* two-bone reach: returns [joint, end] with the joint bending toward `bend` */
+function fbIK(A,B,L1,L2,bend){let dx=B[0]-A[0],dy=B[1]-A[1],dz=B[2]-A[2];let d=Math.hypot(dx,dy,dz)||1e-4;const mx=(L1+L2)*.995;if(d>mx){const k=mx/d;dx*=k;dy*=k;dz*=k;d=mx;B=[A[0]+dx,A[1]+dy,A[2]+dz]}
+  const a=(L1*L1-L2*L2+d*d)/(2*d);const h=Math.sqrt(Math.max(0,L1*L1-a*a));const ux=dx/d,uy=dy/d,uz=dz/d;let bx=bend[0],by=bend[1],bz=bend[2];const dp=bx*ux+by*uy+bz*uz;bx-=dp*ux;by-=dp*uy;bz-=dp*uz;const bl=Math.hypot(bx,by,bz)||1;
+  return[[A[0]+ux*a+bx/bl*h,A[1]+uy*a+by/bl*h,A[2]+uz*a+bz/bl*h],B]}
+const fbIsOff=(g,o)=>g.spect?o.team==='op':o.team==='me';
+const fbOffAng=g=>g.spect?Math.PI:0;
+/* ---------- the pose ---------- */
+function fbPose(g,o,dt){const sp=Math.hypot(o.vx||0,o.vy||0);const b=g.ball;const off=fbIsOff(g,o);const pre=g.phase==='pre';const live=g.phase==='live'||!!g.replay;
+  const isQBhold=off&&o.role==='qb'&&b&&b.by===o&&!g.thrown&&g.carrier!==o&&!pre;const isCar=o===g.carrier&&!isQBhold;
+  const engaged=live&&o.eng&&!o.free&&o.eng!==g.carrier&&o!==g.carrier&&!(o.down||o.down2)&&Math.hypot(o.eng.x-o.x,o.eng.y-o.y)<2;
+  /* where to face */let ft=o.face;
+  if(pre)ft=off?fbOffAng(g):fbOffAng(g)+Math.PI;else if(engaged)ft=Math.atan2(o.eng.y-o.y,o.eng.x-o.x);else if(isQBhold)ft=fbOffAng(g);
+  else if(!off&&live&&!g.carrier&&b&&b.st!=='air'&&sp<7.6&&!o.role.startsWith('dl')&&!o.userCtl){const away=Math.cos(Math.atan2(o.vy||0,o.vx||0)-fbOffAng(g))>.3;if(away&&sp>.5)ft=fbOffAng(g)+Math.PI}
+  if(o._vf==null)o._vf=ft;if(o.spin>0&&isCar)o._vf+=dt*15;else o._vf+=fbA(ft-o._vf)*Math.min(1,dt*(sp>5?9:13));
+  o._gp=(o._gp==null?(o.ph||0):o._gp)+sp*dt*2.45;
+  /* how low they sit */const role=o.role;let crT=0;if(pre){crT=role==='ol'||role.startsWith('dl')?1:role==='qb'?.2:.5}else if(engaged)crT=.42;else if(o.dive>0)crT=0;
+  o._cr=(o._cr==null?crT:o._cr+(crT-o._cr)*Math.min(1,dt*(pre?20:7)));const cr=o._cr;
+  const down=o.down||o.down2;o._fv=fbClamp((o._fv||0)+(down?1:-1.5)*dt/.38,0,1);if(down&&o._fd==null)o._fd=sp>1?Math.atan2(o.vy,o.vx):o._vf+Math.PI;if(!down&&o._fv<=0)o._fd=null;
+  if(o._lunge>0)o._lunge-=dt;if(o._thr>0)o._thr-=dt;
+  let lift=0;if(o.jump>0)lift=Math.sin((1-o.jump/.55)*Math.PI)*.55;if(o.cel)lift=Math.abs(Math.sin(FB6.t*9+(o.ph||0)))*.4;
+  const f=[Math.cos(o._vf),Math.sin(o._vf),0],s=[-f[1],f[0],0];const m=sp>.4?[(o.vx||0)/sp,(o.vy||0)/sp,0]:f;const run=Math.min(1,sp/7);const gp=o._gp;
+  const R=[o.x,o.y,lift];const bob=run*.07*(1-Math.cos(2*gp))/2;
+  let lean=.2*run+cr*(role==='ol'||role.startsWith('dl')?1.05:.6)+(o.dive>0?1.25:0)+(o._lunge>0?.7:0);if(o.cel)lean=-.12;
+  const lat=(m[0]*s[0]+m[1]*s[1])*run;o._tilt=(o._tilt||0)+(((o.jk>0?1.4:.45)*lat)-(o._tilt||0))*Math.min(1,dt*10);
+  const pel=fbV3s(R,1,FBZ,1.0-cr*.36+bob,f,-cr*.12);let td=[f[0]*Math.sin(lean)+s[0]*o._tilt*.45,f[1]*Math.sin(lean)+s[1]*o._tilt*.45,Math.cos(lean)];{const l=Math.hypot(...td);td=[td[0]/l,td[1]/l,td[2]/l]}
+  const neck=fbV3(pel,td,.64);const head=fbV3s(neck,1,td,.24,f,.02);const sb=fbV3(neck,td,-.07);const tw=Math.sin(gp)*.2*run;
+  const shL=fbV3s(sb,1,s,.27,f,-tw*.25),shR=fbV3s(sb,1,s,-.27,f,tw*.25);const hipL=fbV3(pel,s,.13),hipR=fbV3(pel,s,-.13);
+  const three=pre&&(role==='ol'||role.startsWith('dl'));
+  /* legs */const legs={};for(const sg of[1,-1]){const ph=gp+(sg>0?0:Math.PI);const sw=Math.sin(ph);const up=Math.max(0,Math.cos(ph))*.36*run;
+    let foot=fbV3s([o.x,o.y,0],1,m,sw*.55*run,s,sg*(.15+cr*.12),FBZ,up+.06+lift);if(three)foot=fbV3(foot,f,sg>0?-.05:-.32);else if(pre&&cr>.3)foot=fbV3(foot,f,sg>0?.05:-.2);
+    if(o.dive>0||o._lunge>0)foot=fbV3s([o.x,o.y,lift],1,f,-.55,s,sg*.14,FBZ,.25);
+    const hp=sg>0?hipL:hipR;const [kn,ft2]=fbIK(hp,foot,.5,.49,fbV3s(f,1,FBZ,.25));legs[sg]=[hp,kn,ft2]}
+  /* arms */const arms={};const handFor=(sg)=>{const S=sg>0?shL:shR;const ph=gp+(sg>0?Math.PI:0);const sw=Math.sin(ph);
+    if(o.jump>0||o.cel)return[fbV3s(S,1,FBZ,.56,f,.06,s,sg*.08),fbV3s(f,-.2,FBZ,-.4,s,sg)];
+    if(three)return sg<0?[fbV3s([o.x,o.y,0],1,f,.62,s,-.2,FBZ,.05),fbV3s(f,-.3,s,-1)]:[fbV3s(legs[1][1],1,FBZ,.06,f,.04),fbV3s(f,-1,s,.4)];
+    if(pre&&cr>.3&&!off)return[fbV3s(legs[sg][1],1,FBZ,.05,f,.05),fbV3s(f,-1,s,sg*.5)];
+    if(pre&&role==='qb')return[fbV3s(neck,1,f,.24,FBZ,-.3,s,sg*.07),fbV3s(f,-.3,FBZ,-1,s,sg)];
+    if(pre&&cr>.3)return[fbV3s(legs[sg][1],1,FBZ,.05,f,.05),fbV3s(f,-1,s,sg*.5)];
+    if(isQBhold){if(sg<0&&g.aim)return[fbV3s(shR,1,FBZ,.22,f,-.2,s,-.05),fbV3s(f,-.2,FBZ,-1,s,-1)];if(sg>0&&g.aim)return[fbV3s(shL,1,f,.42,FBZ,-.05,s,.05),fbV3s(FBZ,-1,s,1)];return[fbV3s(neck,1,f,.25,td,-.22,s,sg*.06),fbV3s(f,-.4,FBZ,-1,s,sg)]}
+    if(off&&o.role==='qb'&&o._thr>0&&sg<0){const k=1-o._thr/.38;const a=fbV3s(shR,1,FBZ,.22,f,-.2),z=fbV3s(shR,1,f,.5,s,.18,FBZ,-.38);return[fbVl(a,z,Math.min(1,k*1.4)),fbV3s(f,-.3,FBZ,-1,s,-1)]}
+    if(isCar&&sg<0)return[fbV3s(neck,1,f,.17,td,-.26,s,-.1),fbV3s(f,-.3,s,-1,FBZ,-.2)];
+    if(isCar&&o.sa>0&&sg>0)return[fbV3s(shL,1,f,.62,FBZ,.02,s,.06),fbV3s(FBZ,-1,s,1)];
+    if(o.dive>0||o._lunge>0)return[fbV3s(S,1,f,.6,FBZ,-.08,s,sg*.05),fbV3s(FBZ,-1,s,sg)];
+    if(b&&b.st==='air'&&(b.tgt===o||(o.team!==(b.tgt||{}).team&&Math.hypot(b.lx-o.x,b.ly-o.y)<2.5))&&b.T-b.t<.5){const tb=[b.x,b.y,b.z];const dir=fbV3s(tb,1,head,-1);const dl=Math.hypot(...dir)||1;return[fbV3s(head,1,dir,.4/dl,s,sg*.09,FBZ,.05),fbV3s(FBZ,-1,s,sg)]}
+    if(engaged)return[fbV3s(neck,1,f,.46,td,-.14,s,sg*.13),fbV3s(FBZ,-1,s,sg)];
+    return[fbV3s(S,1,f,.08+sw*.3*run,FBZ,-.44+run*.14,s,sg*.07),fbV3s(f,-.7,FBZ,-.3,s,sg*.45)]};
+  for(const sg of[1,-1]){const S=sg>0?shL:shR;const [tg,bend]=handFor(sg);const [el,hd]=fbIK(S,tg,.33,.32,bend);arms[sg]=[S,el,hd]}
+  const J={pel,neck,head,shL,shR,hipL,hipR,lk:legs[1][1],lf:legs[1][2],rk:legs[-1][1],rf:legs[-1][2],le:arms[1][1],lh:arms[1][2],re:arms[-1][1],rh:arms[-1][2],f,s};
+  /* falling: the whole body tips over around the feet */if(o._fv>0){const e=o._fv*o._fv*(3-2*o._fv);const th=e*1.5;const c=Math.cos(th),sn=Math.sin(th);const d=[Math.cos(o._fd),Math.sin(o._fd)];
+    for(const k in J){if(k==='f'||k==='s')continue;const p=J[k];const vx=p[0]-o.x,vy=p[1]-o.y,vz=p[2];const vd=vx*d[0]+vy*d[1];const px=vx-d[0]*vd,py=vy-d[1]*vd;const nd=vd*c+vz*sn,nz=-vd*sn+vz*c;J[k]=[o.x+px+d[0]*nd,o.y+py+d[1]*nd,Math.max(.09,nz)]}}
+  o._J=J;return J}
+/* ---------- drawing a player ---------- */
+const FB_NUMC=new Map();function fbNumImg(t,c,px){px=Math.max(6,Math.min(90,px));const k=t+'|'+c+'|'+px;let im=FB_NUMC.get(k);if(im)return im;const d=Math.min(2,devicePixelRatio||1);im=document.createElement('canvas');const w=Math.ceil(px*1.5+6),h=Math.ceil(px*1.2+4);im.width=w*d;im.height=h*d;im._d=d;
+  const x=im.getContext('2d');x.scale(d,d);x.font=`900 ${px}px "Inter Display",Inter,sans-serif`;x.textAlign='center';x.textBaseline='middle';x.lineWidth=Math.max(1,px*.12);x.strokeStyle='rgba(0,0,0,.35)';x.strokeText(t,w/2,h/2);x.fillStyle=c;x.fillText(t,w/2,h/2);if(FB_NUMC.size>400)FB_NUMC.clear();FB_NUMC.set(k,im);return im}
+const fbShade=(hex,k)=>{const n=parseInt(hex.slice(1),16);let r=n>>16,g2=n>>8&255,b=n&255;r=Math.round(r*k);g2=Math.round(g2*k);b=Math.round(b*k);return`rgb(${Math.min(255,r)},${Math.min(255,g2)},${Math.min(255,b)})`};
+fbDrawGuy=function(x,g,o,P){if(P[2]<1)return;const J=fbPose(g,o,FB6.dt);const pr={};for(const k in J){if(k==='f'||k==='s')continue;pr[k]=fbProj(J[k][0],J[k][1],J[k][2])}
+  const kk=pr.pel[2];if(kk<1.1)return;const col=fbTeamCol(g,o.team);const jer=col[0],hel=col[1];const off=fbIsOff(g,o);const pants=o.team==='me'?(g.side==='def'?'#ece6d6':'#f3f4f8'):(g.side==='def'?'#f3f4f8':'#ddd9cc');const sock=fbShade(jer,.72);
+  const skin=FB_SKIN[strHash(String(o.p.id||o.p.n||'x'))%FB_SKIN.length];
+  /* shadow */const sh=fbProj(o.x,o.y,0);const fs=Math.max(.32,Math.min(.6,FBCAM.sp*1.05));const sl=o._fv>.3?1.7:1;x.fillStyle='rgba(0,0,0,.3)';x.beginPath();x.ellipse(sh[0],sh[1],kk*.5*sl,kk*.5*fs,0,0,7);x.fill();
+  /* ring for the ball carrier or your defender */if(o===g.ctl&&g.side==='def'&&!o.down){x.strokeStyle='#ffd84a';x.lineWidth=3;x.beginPath();x.ellipse(sh[0],sh[1],kk*.85,kk*.85*fs,0,0,7);x.stroke();x.fillStyle='rgba(255,216,74,.16)';x.fill()}
+  else if((o===g.carrier||(g.ball&&g.ball.by===o&&g.phase==='live'))&&!o.down){x.strokeStyle=fbIsOff(g,o)&&g.side!=='def'&&!g.spect?'#ffd84a':'rgba(255,255,255,.8)';x.lineWidth=2;x.beginPath();x.ellipse(sh[0],sh[1],kk*.8,kk*.8*fs,0,0,7);x.stroke()}
+  x.lineCap='round';x.lineJoin='round';const L=(a,b,w,c)=>{x.strokeStyle=c;x.lineWidth=Math.max(1.3,w*kk);x.beginPath();x.moveTo(a[0],a[1]);x.lineTo(b[0],b[1]);x.stroke()};
+  const leftNear=pr.shL[3]<pr.shR[3];const legOf=sg=>sg>0?[pr.hipL,pr.lk,pr.lf]:[pr.hipR,pr.rk,pr.rf];const armOf=sg=>sg>0?[pr.shL,pr.le,pr.lh]:[pr.shR,pr.re,pr.rh];
+  const drawLeg=sg=>{const [h,k2,f2]=legOf(sg);L(h,k2,.25,pants);L(k2,f2,.17,sock);x.fillStyle='#16181f';x.beginPath();x.ellipse(f2[0],f2[1],Math.max(1.5,kk*.12),Math.max(1.1,kk*.08),0,0,7);x.fill()};
+  const drawArm=sg=>{const [s2,e,h]=armOf(sg);L(s2,e,.17,jer);L(e,h,.13,skin);if(kk>9){x.fillStyle=off?'#f2f2f2':'#2a2d36';x.beginPath();x.arc(h[0],h[1],Math.max(1.4,kk*.075),0,7);x.fill()}};
+  const far=leftNear?-1:1,near=-far;
+  drawLeg(far);drawArm(far);drawLeg(near);
+  /* torso with pads */x.fillStyle=jer;x.beginPath();x.moveTo(pr.shL[0],pr.shL[1]);x.lineTo(pr.shR[0],pr.shR[1]);x.lineTo(pr.hipR[0],pr.hipR[1]);x.lineTo(pr.hipL[0],pr.hipL[1]);x.closePath();x.fill();
+  x.strokeStyle=jer;x.lineWidth=Math.max(2,kk*.22);x.stroke();L(pr.shL,pr.shR,.26,jer);L(pr.shL,pr.shR,.08,'rgba(255,255,255,.18)');L(pr.hipL,pr.hipR,.2,pants);
+  /* number, front or back */const toCam=fbA(o._vf-FBCAM.psi);const fb=Math.abs(Math.cos(toCam));if(fb>.35&&o._fv<.4&&kk>7){const c=[(pr.shL[0]+pr.shR[0]+pr.hipL[0]+pr.hipR[0])/4,(pr.shL[1]+pr.shR[1]+pr.hipL[1]*1.15+pr.hipR[1]*1.15)/4.3];const num=String(o.p.num!=null?o.p.num:(strHash(o.p.id||o.p.n||'x')%89+1));const fz=Math.max(6,kk*.36);
+    x.globalAlpha=Math.min(1,(fb-.35)*3);const im=fbNumImg(num,hel,Math.round(fz));x.drawImage(im,c[0]-im.width/im._d/2,c[1]-im.height/im._d/2,im.width/im._d,im.height/im._d);x.globalAlpha=1}
+  /* helmet */const hr=Math.max(2.2,pr.head[2]*.19);const hx=pr.head[0],hy=pr.head[1];x.fillStyle=hel;x.beginPath();x.arc(hx,hy,hr,0,7);x.fill();const back=Math.cos(toCam);
+  if(kk<8){}else if(back>.35){x.strokeStyle=jer;x.lineWidth=Math.max(1,hr*.32);x.beginPath();x.moveTo(hx,hy-hr*.95);x.lineTo(hx,hy+hr*.6);x.stroke()}
+  else{const fp=fbProj(J.head[0]+J.f[0]*.2,J.head[1]+J.f[1]*.2,J.head[2]-.04);x.strokeStyle='rgba(222,226,234,.95)';x.lineWidth=Math.max(1,hr*.2);
+    if(back<-.35){x.beginPath();x.moveTo(hx-hr*.75,hy+hr*.2);x.lineTo(hx+hr*.75,hy+hr*.2);x.moveTo(hx-hr*.6,hy+hr*.55);x.lineTo(hx+hr*.6,hy+hr*.55);x.moveTo(hx,hy+hr*.05);x.lineTo(hx,hy+hr*.85);x.stroke()}
+    else{x.beginPath();x.moveTo(hx+(fp[0]-hx)*.35,hy+hr*.1);x.lineTo(fp[0],fp[1]+hr*.15);x.lineTo(fp[0]-(fp[0]-hx)*.1,hy+hr*.8);x.stroke();x.fillStyle='rgba(0,0,0,.35)';x.beginPath();x.arc(hx-(fp[0]-hx)*.25,hy+hr*.1,hr*.18,0,7);x.fill()}}
+  if(kk>9){x.fillStyle='rgba(255,255,255,.3)';x.beginPath();x.arc(hx-hr*.35,hy-hr*.4,hr*.3,0,7);x.fill()}
+  drawArm(near);
+  if(o.fire&&o===g.carrier){x.fillStyle=`rgba(255,${120+Math.random()*80|0},40,.55)`;for(let i=0;i<3;i++){x.beginPath();x.arc(hx+fbRn(-hr,hr),hy-hr-fbRn(0,hr*2.5),fbRn(1.5,hr*.7),0,7);x.fill()}}};
+/* ---------- the ball sits in hands now, and comes back on the snap ---------- */
+const _fbBall6=fbDrawBall;fbDrawBall=function(x,g,b){if(!g.on)return;let pos=null;
+  const ctr=g.on.filter(o=>o.role==='ol').sort((a,c)=>Math.abs(a.y-FBW/2)-Math.abs(c.y-FBW/2))[0];const qb=g.on.find(o=>o.role==='qb');const hands=o=>o&&o._J?fbVl(o._J.lh,o._J.rh,.5):null;
+  if(g.phase==='pre'&&ctr){const d=fbIsOff(g,ctr)?1:1;pos=[ctr.x+(g.spect?-.55:.55)*d,ctr.y,.12]}
+  else if(b.st==='held'||b.st==='run'){const h=b.by;if(h&&h._J){pos=h===qb&&!g.thrown&&g.carrier!==qb?hands(h):h._J.rh;
+      if(h===qb&&g.phase==='live'&&g.t<.3&&ctr&&!g.spect){const k=g.t/.3;const c0=[ctr.x+.55,ctr.y,.2];pos=fbVl(c0,pos,k);pos[2]+=Math.sin(k*Math.PI)*.6}}}
+  if(!pos)return _fbBall6(x,g,b);const sh=fbProj(pos[0],pos[1],0);x.fillStyle='rgba(0,0,0,.22)';x.beginPath();x.ellipse(sh[0],sh[1],sh[2]*.22,sh[2]*.09,0,0,7);x.fill();
+  const p=fbProj(pos[0],pos[1],pos[2]);const r=Math.max(2.4,p[2]*.21);x.save();x.translate(p[0],p[1]);x.rotate(-.5);x.fillStyle='#8a4b22';x.beginPath();x.ellipse(0,0,r,r*.62,0,0,7);x.fill();x.strokeStyle='#fff';x.lineWidth=Math.max(.8,r*.13);x.beginPath();x.moveTo(-r*.35,0);x.lineTo(r*.35,0);x.stroke();x.restore()};
+/* ---------- bodies don't overlap ---------- */
+function fbSep(g,R){const A=g.on;if(!A)return;const n=A.length;R=R||.8;for(let i=0;i<n;i++){const a=A[i];if(a.down||a.down2)continue;for(let j=i+1;j<n;j++){const c=A[j];if(c.down||c.down2)continue;let dx=c.x-a.x,dy=c.y-a.y;const d2=dx*dx+dy*dy;if(d2>=R*R)continue;let d=Math.sqrt(d2);if(d<1e-4){dx=fbRn(-1,1);dy=fbRn(-1,1);d=Math.hypot(dx,dy)}const p=R-d;dx/=d;dy/=d;
+  const wa=a===g.carrier?.2:a.role==='qb'?.3:.5,wc=c===g.carrier?.2:c.role==='qb'?.3:.5;const s=wa+wc;a.x-=dx*p*wa/s;a.y-=dy*p*wa/s;c.x+=dx*p*wc/s;c.y+=dy*p*wc/s}}}
+const _fbStep6=fbStep;fbStep=function(g,dt){_fbStep6(g,dt);if(!FB6.noSep&&g.on&&(g.phase==='live'||g.phase==='after'))fbSep(g)};
+/* after the whistle everyone slows to a stop instead of freezing mid-stride */
+function fbSettle(g,dt){if(!g.on)return;const k=Math.pow(.05,dt);for(const o of g.on){if(o.down||o.down2||o.cel){o.vx=o.vy=0;continue}if(g.cele&&o.team===g.cele.who.team)continue;o.vx*=k;o.vy*=k;o.x+=o.vx*dt;o.y+=o.vy*dt}fbSep(g,.75)}
+/* tacklers go to the ground with the runner, and the runner falls the way he was hit */
+const _fbDn6=fbDown;fbDown=function(g,c,why,oob,d,kind){if(g.phase!=='live')return;const vx=c.vx,vy=c.vy;_fbDn6(g,c,why,oob,d,kind);if(g.phase!=='dead')return;
+  if(oob&&!d){c.down=0;return}if(d){const a=Math.atan2(c.y-d.y,c.x-d.x);c._fd=Math.hypot(vx,vy)>2?Math.atan2(vy+(c.y-d.y)*3,vx+(c.x-d.x)*3):a;if(fbR()<.6){d.down2=1;d._fd=a;d._lunge=.3}}};
+const _fbTk6=fbTackleTry;fbTackleTry=function(g,d,c){if(c&&d&&Math.hypot(c.x-d.x,c.y-d.y)<1.6&&!((d.tcd||0)>g.t))d._lunge=.25;return _fbTk6(g,d,c)};
+const _fbTh6=fbThrow;fbThrow=function(g,lx,ly,assist,r){const was=g.thrown;_fbTh6(g,lx,ly,assist,r);if(!was&&g.thrown){const qb=g.on.find(o=>o.role==='qb');if(qb)qb._thr=.38}};
+/* the runner cuts sharper and responds faster */
+fbCarrierMove=function(g,c,dt){const o=fbOpt();const sy=FBK.y;let tx=c.x+(Math.abs(sy)>.5?4.5:8);if(FBK.x<0)tx=c.x-4;let ty=c.y+sy*8;
+  if(c.dive){c.dive-=dt;c.x+=c.vx*dt*.7;c.y+=c.vy*dt*.7;c.vx*=.9;c.vy*=.9;if(c.dive<=0)fbDown(g,c,'Dive');return}if(c.spin>0)c.spin-=dt;
+  fbMoveTo(c,tx,ty,dt,(c.spin>0?.8:1)*.95)};
+/* every frame: timing for the animation, settling after the play */
+const _fbDraw6=fbDraw;fbDraw=function(g){const now=performance.now();const dt=Math.min(.05,(now-(FB6.last||now))/1000)||.016;FB6.last=now;FB6.dt=dt;FB6.t+=dt;if(dt<.2){FB6.ema=FB6.ema==null?dt:FB6.ema*.95+dt*.05;FB6.n=(FB6.n||0)+1;if(FB6.n>90&&FB6.ema>.026&&!FBV.lowres&&(devicePixelRatio||1)>1){FBV.lowres=1;try{fbFit()}catch(e){}}}
+  if(g&&g.on&&!g.replay&&!g.spect&&(g.phase==='dead'||g.phase==='after'||g.phase==='choice'))fbSettle(g,dt);return _fbDraw6(g)};
+
+/* ======================= FAST UPDATES: a tiny version.json checked every 45 seconds, and a "Push update" the owner presses right after uploading ======================= */
+/* the live build number: version.json first (a few bytes), the top of the page as a fallback */
+async function updRemote(){try{const r=await fetch('version.json?t='+Date.now(),{cache:'no-store'});if(r.ok){const j=await r.json();if(j&&j.b)return String(j.b)}}catch(e){}
+  try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(r.ok){const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m)return m[1]}}catch(e){}return null}
+/* only ever move forward: an old version.json left behind can never cause a reload loop */
+function updNewer(b){return !!b&&/^\d+$/.test(BUILD)&&+b>+BUILD}
+function updGo(b,secs){if(UPD.shown)return;const tr=store.get('hp_upd_try',{});if(tr.b===b&&Date.now()-tr.t<300e3)return;UPD.want=b;updShow({kind:'new',secs:secs||8})}
+async function updQuick(){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol)||document.hidden)return;const b=await updRemote();if(updNewer(b))updGo(b,8)}
+/* the owner pushed: keep checking every few seconds until GitHub has the new version live, then update right away */
+function updPush(){const r=(LIVE.feed.cfg||{}).push;if(!r||!r.ts||BUILD.indexOf('__')===0)return;if(store.get('hp_push_seen',0)>=r.ts)return;store.set('hp_push_seen',r.ts);if(Date.now()-r.ts>15*60e3)return;if(r.from&&+BUILD>+r.from)return;
+  clearInterval(UPD.pw);const t0=Date.now();if(isAdminDevice())toastLite('Waiting for GitHub to finish… games update the moment it\'s live');
+  const tick=async()=>{if(UPD.shown||Date.now()-t0>15*60e3){clearInterval(UPD.pw);return}const b=await updRemote();if(updNewer(b)){clearInterval(UPD.pw);updGo(b,4)}};UPD.pw=setInterval(tick,4000);tick()}
+{const _r=updReset;updReset=function(){_r();try{updPush()}catch(e){}}}
+setInterval(updQuick,45e3);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&Date.now()-(UPD.lq||0)>15e3){UPD.lq=Date.now();updQuick()}});setTimeout(updQuick,8e3);
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
