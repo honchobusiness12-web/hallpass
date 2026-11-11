@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794254268">
+<meta name="hp-build" content="1794428058">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -3405,6 +3405,47 @@ html .hero.hfx h1.hfxh1 em.st{background-image:linear-gradient(90deg,#ff8a3d,#ff
   body .pc-sec .stats4{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}body .pc-sec .stats4>div{padding:8px 6px;min-width:0}body .pc-sec .stats4 b{font-size:17px}body .pc-sec .stats4 .label,body .pc-sec .stats4 small{font-size:8.5px}
   body .pc-sec .pc-minis{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}body .pc-sec .pc-minis>*{padding:8px;min-width:0}
 }
+/* ---------- day trading: the Real market tab ---------- */
+.dtrm{display:grid;gap:12px;min-width:0}
+.dtrm-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;min-width:0}
+.dtrm-syms{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px;min-width:0;max-width:100%}
+.dtrm-syms::-webkit-scrollbar{display:none}
+.dtrm-sym{flex:0 0 auto;display:grid;gap:1px;text-align:left;padding:7px 11px;border-radius:12px;background:rgba(8,12,28,.7);border:1px solid var(--nx-line);color:inherit;cursor:pointer;font:inherit}
+.dtrm-sym b{font-size:14px;letter-spacing:.04em}.dtrm-sym small{font-size:10.5px;opacity:.65;white-space:nowrap}
+.dtrm-sym.on{border-color:var(--nx-cy);box-shadow:0 0 0 1px var(--nx-cy) inset,0 0 18px rgba(57,213,255,.25)}
+.dtrm-ints{display:flex;gap:4px;flex:0 0 auto}
+.dtrm-int{padding:6px 10px;border-radius:10px;background:rgba(8,12,28,.7);border:1px solid var(--nx-line);color:inherit;font:inherit;font-size:12px;cursor:pointer}
+.dtrm-int.on{background:var(--nx-cy);color:#06101f;border-color:var(--nx-cy);font-weight:700}
+.dtrm-main{display:grid;gap:12px;grid-template-columns:minmax(0,1fr);min-width:0}
+.dtrm-chart{padding:12px;display:grid;gap:8px;min-width:0}
+.dtrm-cap{display:flex;justify-content:space-between;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.dtrm-cap b{display:block;font-size:17px}.dtrm-cap small{opacity:.7;max-width:460px;font-size:12px;line-height:1.35}
+.dtrm-box{position:relative;height:clamp(300px,56vh,600px);border-radius:14px;overflow:hidden;background:#0b1020;border:1px solid var(--nx-line)}
+.dtrm-tv{position:absolute;inset:0}
+.dtrm-msg{position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center;font-size:13px;opacity:.85}
+.dtrm-chart .hint{margin:0;font-size:11px}
+.dtrm-side{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;min-width:0;align-content:start}
+.dtrm-gchips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.dtrm-gc{padding:6px 10px;border-radius:999px;border:1px solid var(--nx-line);background:rgba(8,12,28,.6);color:inherit;font:inherit;font-size:12px;cursor:pointer}
+.dtrm-gc.on{border-color:var(--nx-gr);color:var(--nx-gr)}
+.dtrm-gv h4{margin:2px 0 4px;font-size:16px}.dtrm-gv p{margin:0 0 6px;font-size:13.5px;line-height:1.45}
+.dtrm-where{opacity:.8;font-style:italic}
+.dtrm-aih{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.dtrm-aih small{opacity:.6;font-size:11px}
+.dtrm-log{display:grid;gap:6px;max-height:240px;overflow-y:auto;margin:8px 0;padding-right:2px;scrollbar-width:thin}
+.dtrm-m{max-width:92%;padding:7px 10px;border-radius:12px;font-size:13px;line-height:1.4}
+.dtrm-m span{white-space:pre-wrap}
+.dtrm-m.bot{justify-self:start;background:rgba(57,213,255,.1);border:1px solid rgba(57,213,255,.25)}
+.dtrm-m.me{justify-self:end;background:rgba(139,92,255,.18);border:1px solid rgba(139,92,255,.35)}
+.dtrm-form{display:flex;gap:6px}
+.dtrm-form input{flex:1;min-width:0;padding:9px 11px;border-radius:12px;border:1px solid var(--nx-line);background:rgba(8,12,28,.8);color:inherit;font:inherit;font-size:14px}
+.dtrm-sugg{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.dtrm-sugg button{padding:5px 9px;border-radius:999px;border:1px solid var(--nx-line);background:transparent;color:inherit;font:inherit;font-size:11.5px;cursor:pointer;opacity:.85}
+@media (min-width:1060px){.dtrm-main{grid-template-columns:minmax(0,1fr) minmax(300px,360px)}.dtrm-box{height:clamp(420px,70vh,680px)}}
+@media (max-width:600px){.dtrm-box{height:clamp(280px,52vh,420px)}.dtrm-sym small{display:none}.dtrm-sym{padding:6px 10px}.dtrm-top{gap:8px}}
+/* five tabs: switch to the short labels (Floor, Real) sooner so Bank never gets cut off */
+.dttabs .dtlg{display:none}.dttabs .dtsm{display:inline}
+/* owner badge: just the crown on narrower screens, so the five tabs always fit */
+@media (max-width:1100px){.dtownh{font-size:0}.dtownh::before{content:"👑";font-size:12px}}
 </style>
 
 </head>
@@ -6452,6 +6493,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "12.2", "d": "2026-11-11", "t": "A real market view, a market helper, and fresh quizzes", "b": "Day trading has a new Real market tab. It shows real TradingView charts for Apple, Microsoft, NVIDIA, Tesla, Amazon, and the S&P 500 and Nasdaq-100 funds, on timeframes from 1 minute to daily. The charts are view only: you look and learn here, and you practice trades on the Trading floor. A guide explains the candles, volume, moving average, VWAP, timeframes and price scale, and tap any part to read about it. The Market helper answers questions about the market and the chart. It only answers market questions and won't tell you what to buy or sell. In the Academy, every lesson now has a bank of 10 quiz questions, and each try draws a fresh set of 4, so a retake tests what you learned, not the answers you remember."},
  {"v": "12.1", "d": "2026-11-09", "t": "Lessons you watch, sound that works, and less scrolling", "b": "Lessons: you can't skip ahead of the part you've watched, but you can always go back and then pick up where you left off, and chapters unlock as you reach them. Supporter+ members can skip anywhere. Lesson videos now have their own sound: game music pauses and game sounds go quiet while a lesson plays, then come back when you pause. The volume bar only changes the video and remembers your level, and if your browser starts a video muted, a sound button shows up so one tap turns it on.\nDay trading is more organized: the tabs sit in the header, and on computers and tablets the whole trading floor fits on your screen, with news, your positions and the order book scrolling inside their own panels. On phones, Trade, Positions, Book and News are tabs under the chart. On big screens the Academy shows the chapters right under the video, and the Bank and Journal use two columns.\nEvery screen fits better, with a lot less scrolling on phones: Street and the Market sit side by side on the home page, and featured cards, Quick play and the eras are more compact. The Market shows 30 players at a time on phones (tap Show more for the rest) and its overview is tighter. Street's modes are smaller, and the shop shows items in a grid again instead of one long column."},
  {"v": "12.0", "d": "2026-11-09", "t": "Day trading, and the Stock market goes neon", "b": "Hall Pass now has two faces: Street and the Stock market lead the home page side by side, with a coin flipping between them. The Stock market got a futuristic redesign: a live holographic background, a boot-up screen, glowing charts that draw themselves, a rolling net worth counter, sparks on every price tick and an \"order filled\" hologram on every trade. New: Day trading, with its own practice money. Start in the Academy with four recent YouTube lessons (day trading basics, reading candlestick charts, position sizing, and the opening range breakout with VWAP), played with Hall Pass's own controls: play and pause, skip 10 seconds, jump between chapters, speed, captions, volume and full screen. Every lesson has written notes and a quiz that pays practice cash. Then trade on the floor: a full market day squeezed into about 13 minutes, six moving stocks, 1- and 5-minute candles, VWAP, moving averages, the opening range, level 2, time and sales, market and limit orders, and stop losses and targets you can drag on the chart. There's a daily max loss, a full-screen mode, and a report card at the closing bell. Out of money? In the Bank you can ask the owner for up to $50,000, or file a Stress request for up to $5,000,000 that puts part of your stock market on the line."},
  {"v": "11.9", "d": "2026-11-06", "t": "Football looks like TV now", "b": "Quarterbacks now throw like quarterbacks: ball up by the ear, eyes on the read, a step into the throw, a whip of the arm and a follow-through, with a trail behind the ball in the air. Receivers reach for the ball with both hands, go up for high throws and tuck the ball in after the catch. Instant replays are new: a skycam view of the play, a team-color wipe, then a low sideline angle in super slow motion on the catch, pick or hit, with the playmaker highlighted. You can rewatch any play with Watch replay on the play-call screen. The field has a textured, lit surface, arrows by the yard numbers, orange pylons, the chain crew and down marker, both team benches and ribbon boards. Big moments get TV-style banners with the player's name, plus name plates over whoever made the play, sharper callouts, a broadcast lower third before every snap and a cleaner score bug. Also fixed: the game could freeze after a kneel-down."},
@@ -8073,7 +8115,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794254268';
+const BUILD='1794428058';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -15736,21 +15778,21 @@ function dtBadges(){const d=DTS();if(d.day&&d.day.tr.some(x=>x.sd==='S'&&x.pnl>0
 let DTU={tab:'floor',sel:0,pan:0,hov:null,drag:null,rev:0,tk:{sd:'B',ty:'mkt',q:100,lim:0,sl:0,tp:0,useSL:1,useTP:1,dirty:0,ldirty:0},riskOpen:0};
 let DTRAF=0;let DTL={t:0,lastI:0,ui:0,draw:0,bk:0,sv:0,sv2:0,dirty:0,fx:[],lines:[],yi:null};
 const DT_COL={up:'#19f5a6',dn:'#ff3d71',vw:'#ffc24b',e9:'#39d5ff',e20:'#d06bff',or:'#39d5ff'};
-const DT_TABS=[['floor','Trading floor','M3 3v18h18M7 14l3-3 3 3 5-6'],['learn','Academy','M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5'],['journal','Journal','M4 4h16v16H4zM8 8h8M8 12h8M8 16h5'],['bank','Bank','M3 10h18M5 10v10M19 10v10M9 10v10M15 10v10M12 3l9 5H3zM3 20h18']];
+const DT_TABS=[['floor','Trading floor','M3 3v18h18M7 14l3-3 3 3 5-6'],['market','Real market','M3 17l5-6 4 3 4-7 5 4M3 21h18'],['learn','Academy','M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5'],['journal','Journal','M4 4h16v16H4zM8 8h8M8 12h8M8 16h5'],['bank','Bank','M3 10h18M5 10v10M19 10v10M9 10v10M15 10v10M12 3l9 5H3zM3 20h18']];
 const dtLite=()=>document.documentElement.classList.contains('lite')||RM;
 function dtOpen(tab){if(typeof accGate==='function'&&!accGate('market'))return;const C=dtCfg();if(C.on===false&&!isAdminDevice()){toast('Day trading is closed','The owner turned it off for now. Check back soon.','M12 9v4M12 17h.01');return}
   goTo('daytrade');if(tab)DTU.tab=tab;DTS();try{dtSync()}catch(e){}dtRender()}
-function dtRender(){if(!['floor','learn','journal','bank'].includes(DTU.tab))DTU.tab='floor';try{if(DTU.tab!=='learn')dtPlayerKill()}catch(e){}DTU.isOwn=dtOwner();if(DTU.isOwn)dtOwnS();
-  const body={floor:dtFloorPage,learn:dtLearnPage,journal:dtJournalPage,bank:dtBankPage}[DTU.tab]();
+function dtRender(){if(!['floor','market','learn','journal','bank'].includes(DTU.tab))DTU.tab='floor';try{if(DTU.tab!=='learn')dtPlayerKill()}catch(e){}DTU.isOwn=dtOwner();if(DTU.isOwn)dtOwnS();
+  const body={floor:dtFloorPage,market:dtMarketPage,learn:dtLearnPage,journal:dtJournalPage,bank:dtBankPage}[DTU.tab]();
   const first=!$('#dt');$('#app').innerHTML=`<section class="view dtview ${first?'dtin':''}" id="dt"><div class="wrap dtwrap">${dtHeadHTML()}<div id="dtBody" class="dtbody dt-${DTU.tab}">${body}</div></div></section>`;
-  dtBindHead();({floor:dtBindFloor,learn:dtBindLearn,journal:dtBindJournal,bank:dtBindBank})[DTU.tab]();try{if(typeof mk3BgStart==='function')mk3BgStart()}catch(e){}try{dtFit()}catch(e){}if(first)setTimeout(()=>{try{dtFit()}catch(e){}},700)}
+  dtBindHead();({floor:dtBindFloor,market:dtBindMarket,learn:dtBindLearn,journal:dtBindJournal,bank:dtBindBank})[DTU.tab]();try{if(typeof mk3BgStart==='function')mk3BgStart()}catch(e){}try{dtFit()}catch(e){}if(first)setTimeout(()=>{try{dtFit()}catch(e){}},700)}
 function dtHeadHTML(){const d=DTS();const day=d.day;const live=day&&day.m>=0&&!day.done;const i=live?dtI(day):0;const eq=live?dtEquity(day,i):d.cash;const pnl=live?eq-day.eq0:0;
   return `<div class="dthead"><button class="btn btn-ghost dtbk" id="dtBack" aria-label="Back to the market">${icon('M19 12H5M11 18l-6-6 6-6')}<span>Market</span></button>
    <div class="dtttl"><h2 class="dth2" data-glitch="DAY TRADING">DAY TRADING</h2><span class="dtsub2">Practice money${DTU.isOwn?' · <b class="dtownh">👑 Owner perks on</b>':''}</span></div>
    ${dtTabsHTML()}
    <div class="dtacct"><div><small>Account</small><b id="dtEq">${dt$(eq)}</b></div><div><small>Today</small><b id="dtDay" class="${pnl>=0?'up':'dn'}">${dtS$(pnl)}</b></div><div class="dtbpw"><small>Buying power</small><b id="dtBpv">${dt$(live?dtBP(day,i):d.cash*(+d.set.lev||1))}</b></div></div>
    <button class="btn btn-ghost dtfsb" data-fsb onclick="gameFs()" aria-label="Full screen">${gameFsIcon()}</button></div>`}
-function dtTabsHTML(){const d=DTS();const pend=d.reqs.some(r=>r.st==='pend');const les=DT_LES.filter(l=>(d.learn[l.id]||{}).q>=3).length;const sh={floor:'Floor'};
+function dtTabsHTML(){const d=DTS();const pend=d.reqs.some(r=>r.st==='pend');const les=DT_LES.filter(l=>(d.learn[l.id]||{}).q>=3).length;const sh={floor:'Floor',market:'Real'};
   return `<nav class="dttabs" role="tablist">${DT_TABS.map(([k,n,ic])=>`<button class="dttab ${DTU.tab===k?'on':''}" data-dtt="${k}" role="tab" aria-selected="${DTU.tab===k}">${icon(ic,15)}${sh[k]?`<span class="dtlg">${n}</span><span class="dtsm">${sh[k]}</span>`:`<span>${n}</span>`}${k==='learn'?`<i class="dtpill">${les}/${DT_LES.length}</i>`:''}${k==='bank'&&pend?'<i class="dtpill amb">1<span class="dtlg"> pending</span></i>':''}</button>`).join('')}<i class="dttabind"></i></nav>`}
 function dtBindHead(){const b=$('#dtBack');if(b)b.onclick=()=>{dtSaveNow();gameFsLeave();mkOpen()};$$('[data-dtt]').forEach(x=>x.onclick=()=>{dtSaveNow();DTU.tab=x.dataset.dtt;dtRender();try{mks('flip')}catch(e){}});dtTabInd()}
 function dtTabInd(){const n=$('.dttabs'),on=$('.dttab.on');if(!n||!on)return;const set=()=>{n.style.setProperty('--tx',on.offsetLeft+'px');n.style.setProperty('--tw',on.offsetWidth+'px')};set();requestAnimationFrame(set)}
@@ -16011,7 +16053,7 @@ const DT_LES=[
    ['Your trading plan','Before every trade, know: what you\'re trading, your setup, your entry, your stop loss, your target, how many shares, and your max loss for the day. After the day, review every trade in your journal.'],
    ['Real talk','Most people who day trade with real money lose money, which is why you\'re practicing with fake money here. You have to be 18 to open your own brokerage account. In 2026 the US dropped the old rule that required $25,000 to day trade often, which makes it easier to start, not any safer.'],
    ['Try it','Start a trading day and just watch the first 15 minutes without trading. Notice which stock moves fastest and has the most volume.']],
-  quiz:[['What does a day trader do with open positions by the end of the day?',['Closes them all','Holds them for a week','Doubles them'],0],['When do stocks usually move the most?',['The first hour after the open','Lunchtime','After the market closes'],0],['Buying a stock after it already ran because you\'re scared to miss out is called…',['FOMO','A stop loss','VWAP'],0],['What should you decide before you enter a trade?',['Your entry, stop and target','Nothing, just react','How you\'ll spend the profit'],0]]},
+  quiz:[['What does a day trader do with open positions by the end of the day?',['Closes them all','Holds them for a week','Doubles them'],0],['When do stocks usually move the most?',['The first hour after the open','Lunchtime','After the market closes'],0],['Buying a stock after it already ran because you\'re scared to miss out is called…',['FOMO','A stop loss','VWAP'],0],['What should you decide before you enter a trade?',['Your entry, stop and target','Nothing, just react','How you\'ll spend the profit'],0],['What does ‘going long’ mean?',['Buying first, hoping to sell higher','Selling first, hoping to buy back lower','Holding for more than a year'],0],['Why is revenge trading a problem?',['It is a proven way to win back money quickly','It only happens in the premarket','It rushes you back in to win back a loss, usually with weak setups'],2],['Which stock makes the best day-trading candidate?',['One with high volume and big moves today','One that has not moved in months','One nobody has heard of with no volume'],0],['What is the main reason to practice with fake money first?',['The market is closed for practice','To learn your plan and habits without risking real cash','Because fake money has no rules'],1],['Power hour is…',['The last hour of trading, 3:00 to 4:00 Eastern','The first hour before the open','The lunch break'],0],['What is a watchlist for?',['Keeping track of the stocks you want to follow','Recording your bank balance','Listing the stocks you must trade every day'],0]]},
  {id:'l2',yt:'sdOG6ijNRTw',t:'Reading the chart',by:'StocksToTrade',dt:'Jan 30, 2026',full:'How To Read Stock Charts For Beginners (Candlestick Basics)',
   ch:[[0,'Why candlesticks matter'],[75,'What a candle represents'],[106,'Red candle breakdown'],[271,'Why line charts fall short'],[350,'Volume candles'],[421,'Using volume to stay safe']],
   notes:[['A candle is four prices','Each candle shows the <b>open</b>, <b>high</b>, <b>low</b> and <b>close</b> for one period. On a 1-minute chart, every candle is one minute of trading.'],
@@ -16021,7 +16063,7 @@ const DT_LES=[
    ['Support and resistance','Prices that stopped the stock before tend to matter again: the high and low of the day, yesterday\'s close, and round numbers like $20.00 and $20.50.'],
    ['Why candles beat lines','A line chart only connects the closes. Candles show the fight inside every minute, and that fight is what day traders read.'],
    ['Try it','On the trading floor, hover or tap any candle to see its open, high, low, close and volume at the top of the chart.']],
-  quiz:[['A green candle means…',['It closed higher than it opened','The stock is up for the year','Volume was high'],0],['A long wick on top of a candle shows…',['Sellers pushed the price back down','Buyers are fully in control','The market is closed'],0],['A breakout on very low volume…',['Often fails','Always works','Can\'t happen'],0],['On a 1-minute chart, one candle shows…',['One minute of trading','One whole day','One single trade'],0]]},
+  quiz:[['A green candle means…',['It closed higher than it opened','The stock is up for the year','Volume was high'],0],['A long wick on top of a candle shows…',['Sellers pushed the price back down','Buyers are fully in control','The market is closed'],0],['A breakout on very low volume…',['Often fails','Always works','Can\'t happen'],0],['On a 1-minute chart, one candle shows…',['One minute of trading','One whole day','One single trade'],0],['A red candle means…',['Volume was low','It closed lower than it opened','The stock fell for the year'],1],['A tiny body with the open and close almost equal is called…',['A breakout','A stop loss','A doji'],2],['Support is a price where…',['Buying has stopped the stock from falling before','Selling has stopped the stock from rising before','The day’s highest trade happened'],0],['Resistance is a price area where…',['The lowest trade of the day happened','Buyers always win','Selling has stopped rises before'],2],['The bars at the bottom of a chart show…',['How many shares traded in each period','The company’s profit','How many traders are online'],0],['In a healthy uptrend, volume usually…',['Shrinks on every push up','Grows on the pushes and shrinks on the pullbacks','Stays exactly the same'],1]]},
  {id:'l3',yt:'4G8c9Ydbwys',t:'Risk and position size',by:'StocksToTrade',dt:'Aug 28, 2026',full:'Position Sizing: How Much Should You Risk Per Trade?',
   ch:[[0,'The sizing mistake'],[37,'How most traders size'],[76,'Decide your max loss first'],[150,'Calculating share size'],[218,'Wider stops, smaller size'],[269,'When the 1% rule fails'],[349,'How much to risk'],[442,'Sizing and psychology']],
   notes:[['Max loss first','Before anything else, decide the most you\'ll lose on this trade. Many traders use 0.5% to 1% of their account. On $25,000, 1% is $250.'],
@@ -16031,7 +16073,7 @@ const DT_LES=[
    ['Daily max loss','Set a limit for the whole day (Hall Pass uses 5% unless you change it). When you hit it, you\'re done for the day. Bad days happen; this keeps one from wrecking your account.'],
    ['Size and feelings','Trade small enough that a loss doesn\'t upset you. Big size makes people freeze, move their stops and break their own rules.'],
    ['Try it','In the order ticket, open "Size by risk", type how much you\'ll risk and tap Use. The ticket shows your risk in dollars and your reward:risk before you trade.']],
-  quiz:[['Risk $200, entry $10.00, stop $9.80. How many shares?',['1,000','200','20'],0],['If your stop has to be farther away, you should…',['Buy fewer shares','Buy more shares','Skip the stop'],0],['With a 2:1 reward to risk, you can…',['Lose more trades than you win and still make money','Never lose','Ignore stop losses'],0],['Where does a stop loss for a long trade usually go?',['Just below support','Far above the price','Nowhere, stops are optional'],0]]},
+  quiz:[['Risk $200, entry $10.00, stop $9.80. How many shares?',['1,000','200','20'],0],['If your stop has to be farther away, you should…',['Buy fewer shares','Buy more shares','Skip the stop'],0],['With a 2:1 reward to risk, you can…',['Lose more trades than you win and still make money','Never lose','Ignore stop losses'],0],['Where does a stop loss for a long trade usually go?',['Just below support','Far above the price','Nowhere, stops are optional'],0],['Risk $250, entry $20.00, stop $19.50. How many shares?',['250','50','500'],2],['Risk $100, entry $5.00, stop $4.80. How many shares?',['50','500','5,000'],1],['A 1% rule on a $25,000 account risks…',['$2,500','$25','$250'],2],['The reward-to-risk ratio compares…',['Your possible gain to your possible loss','Your account size to your rent','Price to volume'],0],['A daily max loss is for…',['Setting how much you must make each day','Deciding which stocks to buy','Stopping for the day after a set loss, so one bad day can’t wreck your account'],2],['If your stop is much farther away, why shrink your size?',['Because far stops are free','So you can trade more often','So your dollar loss stays about the same'],2]]},
  {id:'l4',yt:'s6QO4ulCRTQ',t:'Your first setup: ORB + VWAP',by:'Chart Champions',dt:'Sep 10, 2025',full:'Opening Range Breakout + VWAP Strategy',
   ch:[[0,'Intro'],[61,'The opening range'],[315,'Why VWAP matters'],[366,'Live trade example'],[594,'Conclusion']],
   notes:[['The opening range','The high and low of the first 5 to 15 minutes. On the Hall Pass chart, the first 15 minutes are drawn as a blue box with "OR high" and "OR low" lines.'],
@@ -16041,7 +16083,7 @@ const DT_LES=[
    ['When to skip it','Price is chopping back and forth across VWAP, the range is so wide your stop would be too far, or the break happens on tiny volume. No setup means no trade.'],
    ['Managing the trade','Once you\'re up one times your risk (1R), many traders move the stop to break-even. On the floor you can drag the STOP line on the chart. Never move a stop farther away.'],
    ['Try it','Turn on Opening range and VWAP on the chart. Wait for 9:45, then trade only a clean break with a stop and a 2:1 target.']],
-  quiz:[['The opening range is…',['The high and low of the first minutes of the day','Yesterday\'s whole range','The price at 4:00'],0],['If price is above VWAP, who is usually in control?',['Buyers','Sellers','Nobody'],0],['A good opening-range long breaks the OR high…',['Above VWAP with rising volume','Below VWAP on tiny volume','Right at the closing bell'],0],['Once a trade is up 1R, a common move is to…',['Move the stop to break-even','Remove the stop','Add more shares with no stop'],0]]}];
+  quiz:[['The opening range is…',['The high and low of the first minutes of the day','Yesterday\'s whole range','The price at 4:00'],0],['If price is above VWAP, who is usually in control?',['Buyers','Sellers','Nobody'],0],['A good opening-range long breaks the OR high…',['Above VWAP with rising volume','Below VWAP on tiny volume','Right at the closing bell'],0],['Once a trade is up 1R, a common move is to…',['Move the stop to break-even','Remove the stop','Add more shares with no stop'],0],['On Hall Pass, the opening range is drawn as…',['A gold line only','A red circle','A blue box with OR high and OR low lines'],2],['VWAP stands for…',['Very wide average price','Verified weekly average profit','Volume-weighted average price'],2],['A short setup breaks…',['Above the OR high while above VWAP','Below the OR low while under VWAP, on rising volume','Above the day’s high at the close'],1],['When should you skip a setup?',['Whenever price moves at all','Never, always trade the open','When price chops across VWAP or the break happens on tiny volume'],2],['A target of 2× your risk means…',['Your gain is twice what you risk','You sell half your shares','The price must double'],0],['Which move is a mistake with a stop?',['Moving it to break-even once you’re up 1R','Keeping it where your plan put it','Moving it farther away from your entry'],2]]}];
 function dtVid(l){const v=(dtCfg().vids||{})[l.id];return v&&/^[\w-]{11}$/.test(v)?v:l.yt}
 const dtFmtT=s=>{s=Math.max(0,Math.floor(s||0));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return(h?h+':'+String(m).padStart(2,'0'):m)+':'+String(x).padStart(2,'0')};
 const DTV0=(()=>{try{return store.get('hp_vidvol',null)||{v:100,m:0}}catch(e){return{v:100,m:0}}})();
@@ -16078,20 +16120,22 @@ function dtChListHTML(L){const st=DTL_(L.id);const can=dtCanSkip();return L.ch.m
 function dtSubHTML(L){const st=DTL_(L.id);const can=dtCanSkip();if(DTP.sub==='ch'&&dtVid(L)===L.yt)return `<div class="dtchl">${dtChListHTML(L)}</div>${can?'':'<p class="hint">You can jump to any chapter you\'ve reached. Supporter+ members can skip anywhere.</p>'}`;
   if(DTP.sub==='quiz')return dtQuizHTML(L);
   return `<div class="dtnotes">${L.notes.map(([h,b],k)=>`<div class="dtnote" style="--i:${k}"><b>${esc(h)}</b><p>${b}</p></div>`).join('')}<p class="hint">These notes are written by Hall Pass to go with the video, so you can learn even if YouTube is blocked where you are.</p><button class="btn btn-go" data-dtsub="quiz">${st.q>=3?'Take the quiz again':'Take the quiz'} ${icon('M5 12h14M13 6l6 6-6 6',15)}</button></div>`}
+/* each try draws 4 of the bank and avoids the last try's questions, so a retake is a new set */
+function dtQPick(L){const st=DTL_(L.id);const last=new Set(st.qlast||[]);const all=L.quiz.map((_,i)=>i);let c=all.filter(i=>!last.has(i));if(c.length<4)c=all.slice();const pick=[];while(pick.length<4&&c.length)pick.push(c.splice(Math.floor(Math.random()*c.length),1)[0]);st.qlast=pick.slice();return pick.map(i=>L.quiz[i])}
 function dtQuizHTML(L){const st=DTL_(L.id);const Q=DTP.quiz&&DTP.quiz.id===L.id?DTP.quiz:null;
-  if(!Q)return `<div class="card dtquiz"><span class="label">${L.quiz.length} questions</span><p>${st.q>=3?`You passed with ${st.q}/${L.quiz.length}. Go again any time.`:`Get at least 3 right to pass. Your first pass pays <b>$2,500</b> practice cash and 40 XP.`}</p><button class="btn btn-go" id="dtQzGo">${st.q?'Try again':'Start'}</button></div>`;
-  if(Q.i>=L.quiz.length){const pass=Q.s>=3;return `<div class="card dtquiz ${pass?'pass':''}"><span class="label">Quiz done</span><div class="dtqsc"><b>${Q.s}/${L.quiz.length}</b><span>${pass?(Q.s===L.quiz.length?'Perfect!':'Passed!'):'Not yet. Read the notes and try again.'}</span></div>${Q.paid?`<p class="up">+$2,500 practice cash and 40 XP added to your account.</p>`:''}${Q.grad?`<p class="up">🎓 You passed every lesson: +$5,000 graduation bonus!</p>`:''}
+  if(!Q)return `<div class="card dtquiz"><span class="label">4 random questions · ${L.quiz.length} in the bank</span><p>${st.q>=3?`You passed with ${st.q}/4. Every try is a fresh set, so learn the idea, not the answer.`:`Get at least 3 of 4 right to pass. Your first pass pays <b>$2,500</b> practice cash and 40 XP.`}</p><button class="btn btn-go" id="dtQzGo">${st.q?'Try again':'Start'}</button></div>`;
+  if(Q.i>=Q.qs.length){const pass=Q.s>=3;return `<div class="card dtquiz ${pass?'pass':''}"><span class="label">Quiz done</span><div class="dtqsc"><b>${Q.s}/${Q.qs.length}</b><span>${pass?(Q.s===Q.qs.length?'Perfect!':'Passed!'):'Not yet. Read the notes and try again.'}</span></div>${Q.paid?`<p class="up">+$2,500 practice cash and 40 XP added to your account.</p>`:''}${Q.grad?`<p class="up">🎓 You passed every lesson: +$5,000 graduation bonus!</p>`:''}
     <div class="actrow"><button class="btn btn-ghost" id="dtQzGo">Try again</button>${(()=>{const n=DT_LES[DT_LES.indexOf(L)+1];return n?`<button class="btn btn-go" data-dtles="${n.id}">Next lesson ${icon('M5 12h14M13 6l6 6-6 6',15)}</button>`:`<button class="btn btn-go" data-dtt2="floor">Go trade ${icon('M5 12h14M13 6l6 6-6 6',15)}</button>`})()}</div></div>`}
-  const [q,a]=L.quiz[Q.i];const ord=Q.ord[Q.i];return `<div class="card dtquiz"><span class="label">Question ${Q.i+1} of ${L.quiz.length} · ${Q.s} right</span><p class="dtqq"><b>${esc(q)}</b></p><div class="dtqa">${ord.map(j=>`<button class="btn btn-ghost ${Q.pick!=null?(j===L.quiz[Q.i][2]?'right':j===Q.pick?'wrong':''):''}" data-dtqa="${j}" ${Q.pick!=null?'disabled':''}>${esc(a[j])}</button>`).join('')}</div>${Q.pick!=null?`<button class="btn btn-go" id="dtQzN">${Q.i+1<L.quiz.length?'Next':'See score'}</button>`:''}</div>`}
+  const [q,a]=Q.qs[Q.i];const ord=Q.ord[Q.i];return `<div class="card dtquiz"><span class="label">Question ${Q.i+1} of ${Q.qs.length} · ${Q.s} right</span><p class="dtqq"><b>${esc(q)}</b></p><div class="dtqa">${ord.map(j=>`<button class="btn btn-ghost ${Q.pick!=null?(j===Q.qs[Q.i][2]?'right':j===Q.pick?'wrong':''):''}" data-dtqa="${j}" ${Q.pick!=null?'disabled':''}>${esc(a[j])}</button>`).join('')}</div>${Q.pick!=null?`<button class="btn btn-go" id="dtQzN">${Q.i+1<Q.qs.length?'Next':'See score'}</button>`:''}</div>`}
 function dtBindLearn(){const d=DTS();const L=DT_LES.find(l=>l.id===DTU.les);const sub=()=>{const b=$('#dtSubB');if(b)b.innerHTML=dtSubHTML(L);$$('[data-dtsub]').forEach(x=>x.classList.toggle('on',x.dataset.dtsub===DTP.sub));dtBindSub()};
   $$('[data-dtles]').forEach(b=>b.onclick=()=>{if(b.dataset.dtles===DTU.les&&!b.closest('.dtquiz'))return;dtPlayerKill();DTU.les=b.dataset.dtles;DTP.sub='notes';DTP.quiz=null;dtRender();const m=$('.dtlesm');if(m&&innerWidth<900)m.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'})});
   $$('[data-dtt2]').forEach(b=>b.onclick=()=>{DTU.tab=b.dataset.dtt2;dtRender()});
   $$('.dtsub [data-dtsub]').forEach(b=>b.onclick=()=>{DTP.sub=b.dataset.dtsub;sub()});
   function dtBindSub(){$$('#dtSubB [data-dtsub]').forEach(b=>b.onclick=()=>{DTP.sub=b.dataset.dtsub;sub()});$$('#dtSubB [data-dtcs]').forEach(b=>b.onclick=()=>dtSeekTo(+b.dataset.dtcs,1));
     $$('#dtSubB [data-dtles]').forEach(b=>b.onclick=()=>{dtPlayerKill();DTU.les=b.dataset.dtles;DTP.sub='notes';DTP.quiz=null;dtRender()});$$('#dtSubB [data-dtt2]').forEach(b=>b.onclick=()=>{DTU.tab=b.dataset.dtt2;dtRender()});
-    const go=$('#dtQzGo');if(go)go.onclick=()=>{DTP.quiz={id:L.id,i:0,s:0,pick:null,ord:L.quiz.map(([,a])=>a.map((_,j)=>j).sort(()=>Math.random()-.5))};sub()};
-    $$('#dtSubB [data-dtqa]').forEach(b=>b.onclick=()=>{const Q=DTP.quiz;if(!Q||Q.pick!=null)return;Q.pick=+b.dataset.dtqa;if(Q.pick===L.quiz[Q.i][2]){Q.s++;try{mks('ok',Q.s)}catch(e){}}else try{mks('bad')}catch(e){}sub()});
-    const nx=$('#dtQzN');if(nx)nx.onclick=()=>{const Q=DTP.quiz;Q.i++;Q.pick=null;if(Q.i>=L.quiz.length){const st=DTL_(L.id);const first=st.q<3;st.q=Math.max(st.q,Q.s);if(Q.s>=3&&first){Q.paid=1;d.cash+=2500;d.led.unshift({t:Date.now(),k:'bonus',amt:2500,note:'Passed: '+L.t});try{gainXP(40)}catch(e){}confetti()}
+    const go=$('#dtQzGo');if(go)go.onclick=()=>{const qs=dtQPick(L);DTP.quiz={id:L.id,i:0,s:0,pick:null,qs,ord:qs.map(([,a])=>a.map((_,j)=>j).sort(()=>Math.random()-.5))};try{saveP()}catch(e){};sub()};
+    $$('#dtSubB [data-dtqa]').forEach(b=>b.onclick=()=>{const Q=DTP.quiz;if(!Q||Q.pick!=null)return;Q.pick=+b.dataset.dtqa;if(Q.pick===Q.qs[Q.i][2]){Q.s++;try{mks('ok',Q.s)}catch(e){}}else try{mks('bad')}catch(e){}sub()});
+    const nx=$('#dtQzN');if(nx)nx.onclick=()=>{const Q=DTP.quiz;Q.i++;Q.pick=null;if(Q.i>=Q.qs.length){const st=DTL_(L.id);const first=st.q<3;st.q=Math.max(st.q,Q.s);if(Q.s>=3&&first){Q.paid=1;d.cash+=2500;d.led.unshift({t:Date.now(),k:'bonus',amt:2500,note:'Passed: '+L.t});try{gainXP(40)}catch(e){}confetti()}
         if(Q.s>=3&&!d.learn.grad&&DT_LES.every(l=>(d.learn[l.id]||{}).q>=3)){d.learn.grad=1;Q.grad=1;d.cash+=5000;d.led.unshift({t:Date.now(),k:'bonus',amt:5000,note:'Licensed day trader'})}dtBadges();saveP();const h=$('#dtEq');if(h&&!(d.day&&d.day.m>=0&&!d.day.done))h.textContent=dt$(d.cash)}sub()}}
   dtBindSub();$$('#dtChBar [data-dtcs]').forEach(b=>b.onclick=()=>dtSeekTo(+b.dataset.dtcs,1));dtPlBind(L)}
 /* ---------- the player: YouTube's IFrame API with our own controls ---------- */
@@ -16493,6 +16537,119 @@ document.addEventListener('fullscreenchange',()=>{if(document.querySelector('.dt
 /* ===== Fit: show fewer market rows at first on small screens (Show more adds the rest) ===== */
 function fitRows(){const w=innerWidth;return w<=600?30:w<=1060?40:60}
 {const _r=mkRender;mkRender=function(){if(MK.more==null||MK.more===80)MK.more=fitRows();return _r.apply(this,arguments)}}
+
+/* ---------- day trading: the Real market tab. A real TradingView chart you can look at but not trade on, a guide to
+   what each part means, and a Market helper that answers only market questions from a built-in library.
+   It is not a live AI and gives no advice on what to buy or sell. ---------- */
+const DTRM={sym:'AAPL',int:'5',gen:0,gi:0,tag:null,script:0,log:[{who:'bot',t:'Hi! I answer questions about the stock market and this chart. What would you like to know?'}]};
+const DT_RM={
+ syms:[
+  ['AAPL','Apple','NASDAQ:AAPL','Makes the iPhone, Mac and iPad, and sells services like the App Store.'],
+  ['MSFT','Microsoft','NASDAQ:MSFT','Windows, Office software and the Azure cloud.'],
+  ['NVDA','NVIDIA','NASDAQ:NVDA','Chips that power AI data centers, and graphics cards for gaming.'],
+  ['TSLA','Tesla','NASDAQ:TSLA','Electric cars, batteries and energy products. Often moves a lot on news.'],
+  ['AMZN','Amazon','NASDAQ:AMZN','Online shopping plus Amazon Web Services (AWS), a large cloud business.'],
+  ['SPY','S&P 500 fund','AMEX:SPY','One fund that holds the 500 largest US companies. A quick read on the whole market.'],
+  ['QQQ','Nasdaq-100 fund','NASDAQ:QQQ','One fund that holds about 100 of the largest Nasdaq companies, mostly tech.']
+ ],
+ ints:[['1','1m'],['5','5m'],['15','15m'],['60','1h'],['D','1D']],
+ guide:[
+  ['Candles','Each candle is one slice of time, set by the timeframe buttons. The thick body runs from the open to the close: green means it closed higher, red means it closed lower. The thin wicks show how far price went before it was pushed back.','Look at the newest candles on the right side.'],
+  ['Volume','The bars along the bottom show how many shares traded in each candle. Big bars mean lots of people trading, so a move on big volume means more than the same move on small volume.','Compare a big candle with the bar under it.'],
+  ['Moving average','A smooth line that averages recent closing prices, so the zigzag disappears. Price above it leans up. Price below it leans down. Traders watch for price to bounce off it.','Find the smooth line running through the candles.'],
+  ['VWAP','The volume-weighted average price. On short timeframes it is the day’s fair price so far, and it restarts each morning. Buyers tend to be in control when price is above it.','Look for the VWAP line on the chart.'],
+  ['Timeframes','The buttons above the chart set how long each candle covers. Short timeframes (1m, 5m) are noisy and busy, and day traders use them. Daily (1D) shows the bigger trend over months.','Switch between 5m and 1D and watch the same stock change.'],
+  ['Price scale','The numbers on the right are prices. Scroll or pinch to zoom, and drag the chart sideways to see older candles. Hover a candle to see its open, high, low, close and volume.','Hover over any candle.'],
+  ['View only','This chart is for looking and learning. You can’t place orders here. To practice trading with fake money, use the Trading floor.','Ready to try? Tap Trading floor.']
+ ]
+};
+const DT_KB=[
+ {k:['candle','candles','candlestick','candlesticks'],a:'A candle shows four prices for one slice of time: open, high, low and close. The body runs from open to close. Green means it closed higher than it opened, and red means it closed lower. On a 5-minute chart, each candle is 5 minutes of trading.'},
+ {k:['wick','wicks','shadow','shadows','tail'],a:'A wick is the thin line above or below the body. It shows the furthest price reached before the candle closed. A long upper wick means sellers pushed the price back down. A long lower wick means buyers stepped in.'},
+ {k:['green','red','color','colour','colors','colours'],a:'Green means the candle closed higher than it opened, so buyers won that period. Red means it closed lower, so sellers won. The colors show who won the period. They don’t say whether the stock is a good buy.'},
+ {k:['doji'],a:'A doji is a candle whose open and close are almost equal, so its body is tiny. It shows buyers and sellers are tied. It sometimes shows up before a change in direction, but it isn’t a signal on its own.'},
+ {k:['volume'],a:'Volume is how many shares traded in a period. High volume means lots of activity, and a move on high volume is usually more meaningful. A breakout on very low volume often fails.'},
+ {k:['vwap'],a:'VWAP is the volume-weighted average price so far today. It restarts each morning. Price above VWAP usually means buyers are in control, and below it usually means sellers are.'},
+ {k:['moving average','moving averages','ma','sma','ema'],a:'A moving average smooths price by averaging recent closing prices. When price is above it, the recent trend leans up. When price is below it, the trend leans down. An EMA weights recent prices more than an SMA does.'},
+ {k:['rsi','relative strength'],a:'RSI (Relative Strength Index) measures recent momentum on a scale from 0 to 100, usually over 14 candles. Above 70 is often called overbought, and below 30 oversold. These are rules of thumb, not guarantees.'},
+ {k:['macd'],a:'MACD compares a fast moving average with a slow one. When the MACD line crosses above its signal line, momentum is turning up. When it crosses below, momentum is turning down. It is built from past prices, so it lags behind the price.'},
+ {k:['support'],a:'Support is a price where buyers have stepped in before and stopped a fall. Traders watch whether it holds. If it breaks, the price often keeps falling toward the next level down.'},
+ {k:['resistance'],a:'Resistance is a price where sellers have stopped rises before. If price breaks above it on strong volume, that old level can turn into support.'},
+ {k:['breakout','breakouts','break out'],a:'A breakout is when price moves above a resistance level (or below support) and keeps going. Breakouts on high volume are more reliable than breakouts on low volume.'},
+ {k:['gap','gaps','gap up','gap down'],a:'A gap is when a stock opens well above or below the previous close, with no trading in between. Gaps often come from news, earnings or overnight changes.'},
+ {k:['bid','ask','spread'],a:'The bid is the highest price a buyer will pay right now. The ask is the lowest price a seller will take. The spread is the gap between them. A tight spread usually means a busy, easy-to-trade stock.'},
+ {k:['market order','market orders'],a:'A market order buys or sells right away at the best available price. It fills fast, but the price can differ from what you saw on the chart, especially when the stock moves quickly.'},
+ {k:['limit order','limit orders','limit'],a:'A limit order sets the most you will pay, or the least you will accept. It fills only at that price or better, so it may never fill.'},
+ {k:['stop','stop loss','stop-loss','stops'],a:'A stop loss is a price where your position is closed to cap a loss. Traders set it before they enter, at the level where their idea is proven wrong.'},
+ {k:['premarket','pre-market','after hours','afterhours','extended hours'],a:'Premarket trading runs from 4:00 to 9:30 AM Eastern. After-hours trading runs from 4:00 to 8:00 PM Eastern. Fewer people trade then, so prices can jump more and spreads are wider.'},
+ {k:['market cap','market capitalization'],a:'Market cap is the share price times the number of shares a company has issued. It is a rough measure of company size: big companies are large cap, and small ones are small cap.'},
+ {k:['etf','etfs','index fund'],a:'An ETF (exchange-traded fund) holds a basket of stocks and trades like one stock. SPY and QQQ are two well-known examples.'},
+ {k:['s&p','s&p 500','sp500','s and p'],a:'The S&P 500 is an index of about 500 large US companies. Many people use it as a rough gauge of the whole US stock market.'},
+ {k:['nasdaq','nasdaq-100'],a:'Nasdaq is a US stock exchange. The Nasdaq-100 tracks about 100 of its largest non-financial companies. It is heavy on tech, so it often moves more than the S&P 500.'},
+ {k:['dividend','dividends'],a:'A dividend is a cash payment some companies make to shareholders, often every quarter. On the ex-dividend date the stock usually opens lower by about the payment amount.'},
+ {k:['earnings','earning','report','reports'],a:'Earnings are a company’s quarterly results, released on a set date. Stocks often move sharply around that report, so many traders watch the date closely.'},
+ {k:['short','shorting','short selling','short sell'],a:'Short selling means borrowing shares, selling them, and hoping to buy them back cheaper later. If the price rises instead, losses can keep growing, which is why stops matter so much.'},
+ {k:['bull','bull market','bear','bear market'],a:'A bull market is a period when prices are generally rising and sentiment is optimistic. A bear market is generally falling prices, often defined as a drop of 20% or more from a recent high.'},
+ {k:['timeframe','timeframes','interval','1m','5m','15m','1h','1d','daily'],a:'The timeframe is how long each candle covers. Short timeframes (1 to 15 minutes) show every small move, which is noisy but useful for day trading. Daily candles show the bigger trend.'},
+ {k:['hi','hello','hey','help'],a:'Hi! I answer questions about the stock market and this chart: candles, volume, indicators, orders and market terms. What would you like to know?'},
+ {k:['what am i looking at','what is this','how do i read','read the chart','read this chart'],a:'This chart shows one stock’s price over time as candles. Start with the candles (each one is a slice of time), then the volume bars underneath, then the moving average to see the trend. Tap a part in the guide to learn more.'}
+];
+const DT_ADV=/\b(should i (buy|sell|short)|what (should|to) (i )?(buy|sell)|tell me (what|which|a stock)|which stock (should|to)|best stock|guarantee|guaranteed|will .{0,25} (go up|go down|rise|fall|crash|moon|double)|is .{0,20} a good (buy|investment))\b/;
+const DT_OFF='I can only help with the stock market and this chart. Try asking what a candle is, what volume means, or what a stop loss does.';
+const DT_ADVA='I can’t tell you what to buy, sell or when, and nobody can promise where a price will go. I can explain how the chart works, what the indicators mean and how orders work, so you can judge for yourself.';
+/* answer from the built-in library only. Anything that isn't a market question gets the same polite refusal. */
+function dtMkAnswer(raw){
+  const s=(' '+String(raw||'').toLowerCase().replace(/[^a-z0-9&$%+.\- ]+/g,' ').replace(/\s+/g,' ').trim()+' ');
+  if(s.trim()==='')return 'Ask me something about the market or this chart.';
+  if(DT_ADV.test(s))return DT_ADVA;
+  let best=null,bs=0;
+  DT_KB.forEach(e=>{let n=0;e.k.forEach(k=>{if(s.includes(' '+k+' '))n+=k.split(' ').length});if(n>bs){bs=n;best=e}});
+  if(best&&bs>=1)return best.a;
+  const tk=DT_RM.syms.find(x=>s.includes(' '+x[0].toLowerCase()+' ')||s.includes(' '+x[1].toLowerCase()+' '));
+  if(tk)return `${tk[1]} (${tk[0]}). ${tk[3]} Tap ${tk[0]} above to see its real chart.`;
+  return DT_OFF;
+}
+function dtRmMsg(m){return `<div class="dtrm-m ${m.who}"><span>${esc(m.t)}</span></div>`}
+function dtRmGuide(g){return `<h4>${esc(g[0])}</h4><p>${esc(g[1])}</p><p class="dtrm-where">${esc(g[2])}</p>`}
+function dtMarketPage(){const S=DT_RM.syms.find(x=>x[0]===DTRM.sym)||DT_RM.syms[0];const g=DT_RM.guide[DTRM.gi]||DT_RM.guide[0];
+  return `<div class="dtrm">
+   <div class="dtrm-top"><div class="dtrm-syms" role="group" aria-label="Stocks">${DT_RM.syms.map(x=>`<button class="dtrm-sym ${x[0]===S[0]?'on':''}" data-rsym="${x[0]}" aria-pressed="${x[0]===S[0]}"><b>${x[0]}</b><small>${esc(x[1])}</small></button>`).join('')}</div>
+    <div class="dtrm-ints" role="group" aria-label="Timeframe">${DT_RM.ints.map(x=>`<button class="dtrm-int ${x[0]===DTRM.int?'on':''}" data-rint="${x[0]}" aria-pressed="${x[0]===DTRM.int}">${x[1]}</button>`).join('')}</div></div>
+   <div class="dtrm-main">
+    <div class="card dtrm-chart"><div class="dtrm-cap"><div><span class="label">Real chart · view only</span><b>${esc(S[1])} (${S[0]})</b></div><small>${esc(S[3])}</small></div>
+     <div class="dtrm-box" id="dtrmBox"><div class="dtrm-msg">Loading the real chart…</div></div>
+     <p class="hint">Chart and prices come from TradingView. Some free feeds are delayed, so check the time on the chart.</p></div>
+    <div class="dtrm-side">
+     <div class="card dtrm-guide"><span class="label">What you’re looking at</span>
+      <div class="dtrm-gchips" role="group" aria-label="Chart parts">${DT_RM.guide.map((x,k)=>`<button class="dtrm-gc ${k===DTRM.gi?'on':''}" data-rg="${k}" aria-pressed="${k===DTRM.gi}">${esc(x[0])}</button>`).join('')}</div>
+      <div class="dtrm-gv" id="dtrmGv">${dtRmGuide(g)}</div></div>
+     <div class="card dtrm-ai"><div class="dtrm-aih"><span class="label">Market helper</span><small>Market questions only</small></div>
+      <div class="dtrm-log" id="dtrmLog" aria-live="polite">${DTRM.log.map(dtRmMsg).join('')}</div>
+      <form class="dtrm-form" id="dtrmF"><input id="dtrmQ" maxlength="160" autocomplete="off" placeholder="Ask about candles, volume, orders…" aria-label="Ask a market question"><button class="btn btn-go sm" type="submit">Ask</button></form>
+      <div class="dtrm-sugg">${['What is a candle?','What does volume tell me?','What is VWAP?','What is a stop loss?'].map(q=>`<button type="button" data-rq="${esc(q)}">${esc(q)}</button>`).join('')}</div></div>
+    </div></div></div>`}
+function dtBindMarket(){
+  $$('[data-rsym]').forEach(b=>b.onclick=()=>{DTRM.sym=b.dataset.rsym;dtRender()});
+  $$('[data-rint]').forEach(b=>b.onclick=()=>{DTRM.int=b.dataset.rint;dtRender()});
+  $$('[data-rg]').forEach(b=>b.onclick=()=>{DTRM.gi=+b.dataset.rg;$$('[data-rg]').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});const v=$('#dtrmGv');if(v)v.innerHTML=dtRmGuide(DT_RM.guide[DTRM.gi])});
+  const send=q=>{q=String(q||'').trim().slice(0,160);if(!q)return;DTRM.log.push({who:'me',t:q},{who:'bot',t:dtMkAnswer(q)});if(DTRM.log.length>30)DTRM.log=DTRM.log.slice(-30);const L=$('#dtrmLog');if(L){L.insertAdjacentHTML('beforeend',dtRmMsg(DTRM.log[DTRM.log.length-2])+dtRmMsg(DTRM.log[DTRM.log.length-1]));L.scrollTop=L.scrollHeight}};
+  const f=$('#dtrmF');if(f)f.onsubmit=e=>{e.preventDefault();const i=$('#dtrmQ');send(i.value);if(i)i.value=''};
+  $$('[data-rq]').forEach(b=>b.onclick=()=>send(b.dataset.rq));
+  dtMkLoad();
+}
+/* the real chart: TradingView's free embed, view only. Loads on this tab only, and shows a note offline. */
+function dtMkLoad(){const box=$('#dtrmBox');if(!box)return;const my=++DTRM.gen;const S=DT_RM.syms.find(x=>x[0]===DTRM.sym)||DT_RM.syms[0];
+  const offline='The real chart needs an internet connection. Your lessons and practice trading still work without it.';
+  const msg=t=>{const b=$('#dtrmBox');if(b&&my===DTRM.gen)b.innerHTML=`<div class="dtrm-msg">${esc(t)}</div>`};
+  const go=()=>{const b=$('#dtrmBox');if(!b||my!==DTRM.gen)return;const id='dtrmTv'+my;b.innerHTML=`<div id="${id}" class="dtrm-tv"></div>`;
+    try{new window.TradingView.widget({autosize:true,symbol:S[2],interval:DTRM.int,timezone:'America/New_York',theme:'dark',style:'1',locale:'en',toolbar_bg:'#0b1020',container_id:id,enable_publishing:false,hide_side_toolbar:true,allow_symbol_change:false,save_image:false,show_popup_button:false,withdateranges:true,studies:['MASimple@tv-basicstudies','VWAP@tv-basicstudies','Volume@tv-basicstudies']})}
+    catch(e){msg('The chart could not start. Check your connection and try again.')}};
+  if(window.TradingView&&window.TradingView.widget)return go();
+  if(DTRM.script==='fail')return msg(offline);
+  if(!DTRM.tag){const t=document.createElement('script');t.src='https://s3.tradingview.com/tv.js';t.async=true;t.onerror=()=>{DTRM.script='fail';msg(offline)};document.head.appendChild(t);DTRM.tag=t}
+  const w=setInterval(()=>{if(window.TradingView&&window.TradingView.widget){clearInterval(w);go()}else if(DTRM.script==='fail')clearInterval(w)},200);
+  setTimeout(()=>clearInterval(w),20000);
+}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
