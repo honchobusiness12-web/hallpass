@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794493368">
+<meta name="hp-build" content="1794497938">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -3952,6 +3952,124 @@ html.lite .toast.nfy::after,html.lite .popc.nfy::after{display:none}
   #maintOv .popbox.mnbox{padding:30px 16px 18px}
   .mngears{width:128px;height:106px}
 }
+/* ===== Street 2K: broadcast scorebug, banners, lower thirds, phone layout ===== */
+/* scorebug */
+.s2bug{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;width:100%;max-width:560px;border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#0b1224,#060a16);border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 30px -12px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.08);position:relative}
+.s2bug::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.07) 50%,transparent 60%);transform:translateX(-120%);animation:s2sheen 6s ease-in-out infinite}
+@keyframes s2sheen{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.s2t{display:flex;align-items:center;gap:8px;padding:6px 12px;min-width:0;position:relative;background:linear-gradient(135deg,var(--k1),color-mix(in srgb,var(--k1) 55%,#000));transition:filter .25s}
+.s2t.b{flex-direction:row-reverse;text-align:right;background:linear-gradient(225deg,var(--k1),color-mix(in srgb,var(--k1) 55%,#000))}
+.s2t::before{content:"";position:absolute;top:0;bottom:0;width:4px;background:var(--k2);box-shadow:0 0 12px var(--k2)}.s2t.a::before{left:0}.s2t.b::before{right:0}
+.s2n .sh{display:none}.s2t .s2n{font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:.07em;text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+.s2t .s2s{font-family:var(--f-hero,var(--f-display));font-weight:900;font-size:34px;line-height:1;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.55);min-width:1.3ch;text-align:center;font-variant-numeric:tabular-nums}
+.s2t .s2s.pop{animation:s2pop .55s cubic-bezier(.2,1.6,.3,1)}
+@keyframes s2pop{0%{transform:scale(1.9);filter:brightness(2.2)}100%{transform:scale(1);filter:none}}
+.s2t:not(.on){filter:saturate(.7) brightness(.82)}
+.s2pt{width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent #fff;opacity:0;transition:opacity .2s;filter:drop-shadow(0 0 6px #fff)}.s2t.b .s2pt{border-width:5px 8px 5px 0;border-color:transparent #fff transparent transparent}
+.s2t.on .s2pt{opacity:1;animation:s2blink 1.2s ease-in-out infinite}
+@keyframes s2blink{50%{opacity:.35}}
+.s2t.lead .s2s{color:#ffe08a}
+.s2t.gp::after{content:"GAME POINT";position:absolute;bottom:1px;font-size:8px;font-weight:900;letter-spacing:.14em;color:#ffe08a;animation:s2blink .9s infinite}.s2t.a.gp::after{left:22px}.s2t.b.gp::after{right:22px}
+.s2mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 12px;background:#070b18;min-width:84px;border-inline:1px solid rgba(255,255,255,.08)}
+.s2mid small{font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+.s2clk{position:relative;width:38px;height:38px;display:grid;place-items:center}
+.s2clk svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}.s2clk circle{fill:none;stroke:rgba(255,255,255,.12);stroke-width:3}.s2clk .s2arc{stroke:#7cc4ff;stroke-linecap:round;stroke-dasharray:97.4;stroke-dashoffset:0;transition:stroke-dashoffset .25s linear,stroke .2s}
+.s2clk b{font-family:var(--f-mono);font-size:16px;font-weight:700;color:#fff;line-height:1}.s2clk.low .s2arc{stroke:#ff5d5d}.s2clk.low b{color:#ff8a8a;animation:s2blink .5s infinite}
+.s2sub{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:6px;min-height:22px}
+.s2chip{font-size:11px;font-weight:900;letter-spacing:.06em;padding:3px 10px;border-radius:999px;text-transform:uppercase;animation:s2in .3s both}
+@keyframes s2in{from{transform:translateY(-6px) scale(.85);opacity:0}to{transform:none;opacity:1}}
+.s2chip.clr{background:#ffcc4d;color:#2a1a00}.s2chip.chk{background:#9cc2ff;color:#0b1430}.s2chip.fire{background:linear-gradient(90deg,#ff7a1a,#ffcf4d);color:#2a1000;box-shadow:0 0 14px #ff8a2a}
+.s2heat{display:flex;gap:3px}.s2heat i{width:14px;height:6px;border-radius:3px;background:rgba(255,255,255,.14);transition:background .2s,box-shadow .2s}.s2heat i.on{background:linear-gradient(90deg,#ff8a2a,#ffd04d);box-shadow:0 0 8px #ff8a2a}
+.s2stam{width:74px;height:6px;border-radius:6px;background:rgba(255,255,255,.14);overflow:hidden}.s2stam i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#3ddc84,#b6ff6b);transition:width .2s,filter .2s}.s2stam.low i{background:#ff6b6b}
+.s2hype{position:relative;width:96px;height:8px;border-radius:8px;background:rgba(255,255,255,.12);overflow:hidden}.s2hype i{display:block;height:100%;width:0;background:linear-gradient(90deg,#7c5cff,#ff5ca8,#ffcf4d);transition:width .25s}.s2hype.hot i{animation:s2hot .5s infinite alternate}
+@keyframes s2hot{to{filter:brightness(1.5)}}
+.s2hype::before{content:"CROWD";position:absolute;inset:0;display:grid;place-items:center;font-size:6px;font-weight:900;letter-spacing:.2em;color:rgba(255,255,255,.7);mix-blend-mode:overlay}
+/* overlay layer inside the court wrapper */
+.s2layer{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+.s2fl{position:absolute;inset:0;opacity:0;border-radius:inherit;box-shadow:inset 0 0 0 4px var(--fc,#3ddc84),inset 0 0 90px 12px color-mix(in srgb,var(--fc,#3ddc84) 55%,transparent)}.s2fl.go{animation:s2fl .55s ease-out}
+@keyframes s2fl{0%{opacity:1}100%{opacity:0}}
+.s2ban{position:absolute;left:50%;top:22%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;animation:s2ban 1.5s cubic-bezier(.2,1,.3,1) both;white-space:nowrap;--bc:#ffd25e}
+.s2ban b{font-family:var(--f-hero,var(--f-display));font-weight:900;font-size:clamp(28px,6.4vw,58px);letter-spacing:.05em;text-transform:uppercase;line-height:1;color:#fff;text-shadow:0 0 22px var(--bc),0 4px 0 rgba(0,0,0,.55),0 0 2px #000;padding:2px 22px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--bc) 38%,transparent) 22%,color-mix(in srgb,var(--bc) 38%,transparent) 78%,transparent);transform:skewX(-8deg)}
+.s2ban small{font-weight:800;letter-spacing:.22em;font-size:clamp(10px,1.8vw,14px);color:var(--bc);text-transform:uppercase;text-shadow:0 1px 4px #000}
+.s2ban::before,.s2ban::after{content:"";position:absolute;left:-8%;right:-8%;height:2px;background:linear-gradient(90deg,transparent,var(--bc),transparent);transform:scaleX(0);animation:s2line 1.5s ease-out both}.s2ban::before{top:-6px}.s2ban::after{bottom:-4px}
+@keyframes s2line{0%{transform:scaleX(0)}25%{transform:scaleX(1)}85%{opacity:1}100%{transform:scaleX(1);opacity:0}}
+@keyframes s2ban{0%{opacity:0;transform:translateX(-50%) scale(1.9) rotate(-2deg);filter:blur(6px)}14%{opacity:1;transform:translateX(-50%) scale(.95);filter:none}22%{transform:translateX(-50%) scale(1.04)}30%{transform:translateX(-50%) scale(1)}84%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-14px) scale(.98)}}
+.s2ban.gold{--bc:#ffd25e}.s2ban.green{--bc:#3ddc84}.s2ban.cyan{--bc:#5fd3ff}.s2ban.red{--bc:#ff5d6c}.s2ban.fire{--bc:#ff8a2a}.s2ban.violet{--bc:#b48cff}
+.s2lt{position:absolute;left:10px;top:10px;display:flex;align-items:stretch;border-radius:10px;overflow:hidden;background:rgba(7,11,24,.9);border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 30px -12px #000;animation:s2lt 2.8s cubic-bezier(.2,1,.3,1) both;max-width:min(78%,360px);--lc:#3ddc84}
+.s2lt .no{display:grid;place-items:center;min-width:44px;padding:0 8px;background:var(--lc);color:#071018;font-family:var(--f-display);font-weight:900;font-size:24px}
+.s2lt .tx{display:flex;flex-direction:column;justify-content:center;padding:5px 12px;min-width:0}
+.s2lt .tx b{font-family:var(--f-display);font-weight:800;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s2lt .tx small{font-size:11px;font-weight:700;color:var(--lc);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}.s2lt .tx i{font-style:normal;font-size:11px;color:var(--mute);font-family:var(--f-mono);white-space:nowrap}
+@keyframes s2lt{0%{transform:translateX(-110%);opacity:0}9%{transform:translateX(0);opacity:1}88%{transform:translateX(0);opacity:1}100%{transform:translateX(-110%);opacity:0}}
+.s2lt.r{left:auto;right:10px}.s2lt.r{animation-name:s2ltr}@keyframes s2ltr{0%{transform:translateX(110%);opacity:0}9%{transform:none;opacity:1}88%{transform:none;opacity:1}100%{transform:translateX(110%);opacity:0}}
+/* crowd energy glow on the court frame */
+.stwrap.s2hot{box-shadow:0 0 0 1px rgba(255,180,80,.5),0 0 40px -6px rgba(255,150,60,.55)}
+.stwrap.s2fire{box-shadow:0 0 0 1px rgba(255,120,40,.7),0 0 56px -4px rgba(255,100,30,.7);animation:s2heatb 1.1s ease-in-out infinite alternate}
+@keyframes s2heatb{to{box-shadow:0 0 0 1px rgba(255,190,70,.8),0 0 72px 0 rgba(255,140,40,.8)}}
+/* grade chip */
+.s2grade{position:absolute;left:50%;bottom:30%;transform:translateX(-50%);font-family:var(--f-hero,var(--f-display));font-weight:900;font-size:clamp(22px,4.4vw,38px);letter-spacing:.12em;text-transform:uppercase;color:var(--gc,#3ddc84);text-shadow:0 0 18px var(--gc,#3ddc84),0 3px 0 rgba(0,0,0,.6);animation:s2grade .9s ease-out both}
+@keyframes s2grade{0%{opacity:0;transform:translateX(-50%) scale(1.6)}15%{opacity:1;transform:translateX(-50%) scale(1)}70%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-24px)}}
+/* intro cinematic polish */
+.stintro{backdrop-filter:blur(2px);background:radial-gradient(120% 100% at 50% 40%,rgba(8,12,26,.78),rgba(3,5,12,.94))}
+.stintro .stivs{font-family:var(--f-hero,var(--f-display));letter-spacing:.1em;text-shadow:0 0 30px var(--amber);animation:s2vs 1.1s cubic-bezier(.2,1.5,.3,1) both}
+@keyframes s2vs{0%{transform:scale(2.6);opacity:0}60%{transform:scale(.92);opacity:1}100%{transform:scale(1)}}
+.stintro .stiside.a .stivp{animation:s2inl .7s .1s cubic-bezier(.2,1,.3,1) both}.stintro .stiside.b .stivp{animation:s2inr .7s .1s cubic-bezier(.2,1,.3,1) both}
+@keyframes s2inl{from{transform:translateX(-60px);opacity:0}to{transform:none;opacity:1}}@keyframes s2inr{from{transform:translateX(60px);opacity:0}to{transform:none;opacity:1}}
+.stintro .stivp{border-left:3px solid var(--amber);background:linear-gradient(90deg,rgba(255,255,255,.08),transparent)}.stintro .stiside.b .stivp{border-left:0;border-right:3px solid #ff6b6b;background:linear-gradient(270deg,rgba(255,255,255,.08),transparent)}
+.stintro .stisub{letter-spacing:.14em;text-transform:uppercase;font-weight:800;font-size:12px;color:var(--amber)}
+/* top bar: keep the buttons in the corners even when the matchup text is hidden */
+.stbarr{margin-left:auto}
+@media (max-width:360px){body.stplaying .stbarr .btn,body.gamefs .stbarr .btn{font-size:0;gap:0;padding:6px 9px}body.stplaying .stbarr .btn svg,body.gamefs .stbarr .btn svg{margin:0}}
+@media (max-height:520px){body.stplaying .stbar .btn,body.gamefs .stbar .btn{font-size:0;gap:0;padding:6px 9px}body.stplaying .stbar .btn svg,body.gamefs .stbar .btn svg{margin:0}
+ body.stplaying .sthud{top:3px;transform:translateX(-50%) scale(.74)}.sttut{max-width:min(380px,calc(100% - 300px));bottom:8px}.s2lt{top:46px}}
+/* phones held upright: the court gets the width, the controls move below it so nothing is covered */
+@media (hover:none) and (pointer:coarse) and (orientation:portrait){
+ body.stplaying .stwrap{display:flex;flex-direction:column;border-radius:14px}
+ body.stplaying .stwrap>.sttouch{position:relative;inset:auto;z-index:5;padding:10px 14px 12px;background:linear-gradient(180deg,rgba(6,9,18,.2),rgba(6,9,18,.96));pointer-events:auto}
+ body.stplaying .stwrap>.sttut{bottom:calc(var(--s2ctl,150px) + 8px);top:auto;max-width:94%;padding:6px 12px}.sttut b{font-size:12.5px}.sttut .label{font-size:9px}
+ .s2lt{top:58px;max-width:68%}.s2lt .no{font-size:18px;min-width:34px}.s2lt .tx{padding:3px 9px}.s2lt .tx b{font-size:13px}.s2lt .tx small,.s2lt .tx i{font-size:9.5px}
+ body.stplaying .sthint{display:none}
+ .s2ban{top:14%}
+}
+@media (max-width:420px){.s2n .f{display:none}.s2n .sh{display:inline}.s2t{padding:5px 8px;gap:5px}.s2t .s2n{font-size:12px}.s2t .s2s{font-size:28px}.s2mid{min-width:70px;padding:4px 8px}.s2hype{width:70px}.s2stam{width:56px}}
+html.lite .s2bug::after,html.lite .s2ban::before,html.lite .s2ban::after{display:none}
+body.rm .s2bug::after,body.rm .stwrap.s2fire{animation:none}
+body.rm .s2ban{animation-duration:.01s;opacity:1}
+/* ===== post-game recap ===== */
+.s2rc{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin:14px 0 10px;padding:16px;border-radius:18px;background:radial-gradient(120% 140% at 0% 0%,color-mix(in srgb,var(--rc,#3ddc84) 26%,transparent),transparent 60%),linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid color-mix(in srgb,var(--rc,#3ddc84) 45%,rgba(255,255,255,.1));text-align:left;position:relative;overflow:hidden}
+.s2rc::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,color-mix(in srgb,var(--rc,#3ddc84) 18%,transparent),transparent 30%);animation:s2spin 7s linear infinite;pointer-events:none}
+@keyframes s2spin{to{transform:rotate(360deg)}}
+.s2gr{position:relative;display:grid;place-items:center;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--rc,#3ddc84) 60%,#fff),var(--rc,#3ddc84) 55%,color-mix(in srgb,var(--rc,#3ddc84) 50%,#000));box-shadow:0 0 0 4px rgba(0,0,0,.35),0 0 40px -4px var(--rc,#3ddc84);animation:s2gr .9s cubic-bezier(.2,1.6,.3,1) both}
+.s2gr b{font-family:var(--f-hero,var(--f-display));font-size:54px;font-weight:900;color:#07110b;line-height:1;text-shadow:0 2px 0 rgba(255,255,255,.35)}.s2gr small{position:absolute;bottom:9px;font-size:9px;font-weight:900;letter-spacing:.2em;color:rgba(7,17,11,.75)}
+@keyframes s2gr{0%{transform:scale(0) rotate(-120deg)}100%{transform:none}}
+.s2rb{position:relative;display:flex;flex-direction:column;gap:7px;min-width:0}
+.s2rb .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;color:var(--mute)}.s2rb .row b{color:#fff;font-family:var(--f-mono);font-size:15px}
+.s2rb .big{font-family:var(--f-display);font-weight:900;font-size:26px;letter-spacing:.04em;text-transform:uppercase;color:#fff;line-height:1.05}
+.s2rb .bar{height:10px;border-radius:10px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}.s2rb .bar i{display:block;height:100%;width:0;border-radius:10px;background:linear-gradient(90deg,var(--rc,#3ddc84),#ffe08a);box-shadow:0 0 14px var(--rc,#3ddc84);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.s2rb .tags{display:flex;gap:6px;flex-wrap:wrap}.s2rb .tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;letter-spacing:.04em}.s2rb .tag.hot{background:linear-gradient(90deg,#ff7a1a,#ffcf4d);color:#2a1000}.s2rb .tag.mvp{background:linear-gradient(90deg,#ffd25e,#ffefb0);color:#2a1a00}
+@media (max-width:520px){.s2rc{grid-template-columns:1fr;justify-items:center;text-align:center}.s2rb{width:100%}.s2rb .row{justify-content:space-between}}
+#stAgain.s2go{animation:s2goP 1.6s ease-in-out infinite}@keyframes s2goP{50%{transform:scale(1.045);box-shadow:0 0 0 6px color-mix(in srgb,var(--amber) 30%,transparent),0 12px 30px -8px var(--amber)}}
+
+/* the coach tip keeps its centring while it animates in */
+.sttut{width:max-content;animation:s2tip .4s both}@keyframes s2tip{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
+@media (hover:none) and (pointer:coarse){.sttut{max-width:min(420px,calc(100% - 290px));padding:6px 12px}.sttut b{font-size:12.5px}}
+@media (hover:none) and (pointer:coarse) and (orientation:portrait){body.stplaying .stwrap>.sttut{max-width:94%}}
+
+/* colour grade: richer contrast and saturation on the court (skipped on smooth mode) */
+html:not(.lite) body.stplaying #stCanvas{filter:contrast(1.05) saturate(1.1)}
+
+/* the broadcast caption: two voices, wraps instead of cutting off */
+.stcom{width:max-content;white-space:normal;max-width:min(620px,92%);border-radius:16px;padding:8px 16px;line-height:1.3;text-align:center;background:linear-gradient(180deg,rgba(8,12,26,.9),rgba(5,8,18,.9));border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 26px -10px #000;font-weight:700;font-size:13.5px;text-overflow:clip}
+.stcom .s2who{display:inline-block;margin-right:8px;padding:1px 8px;border-radius:999px;font-size:9.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;vertical-align:1px;background:var(--amber);color:#2a1700}.stcom .s2who.b{background:#7cc4ff;color:#06182e}
+@media (hover:none) and (pointer:coarse) and (orientation:portrait){.stcom{top:6px;font-size:12px;padding:6px 12px}}
+/* the top bar ran 18px past the screen on small landscape phones (561-640px wide) */
+@media (min-width:561px) and (max-width:640px){.topbar .nav{gap:2px}.topbar .nav .nb{padding:8px 8px}}
+/* the booth caption: bottom centre on desktop and tablets, clear of the touch controls on landscape phones, and above the coach tip while it shows */
+@media (pointer:coarse) and (orientation:landscape){.stcom{top:auto;bottom:10px;max-width:calc(100% - 310px)}}
+@media (pointer:fine),(orientation:landscape){.stwrap:has(#stTut:not([hidden])) .stcom{bottom:96px}}
+/* landscape phones: the scorebug moves to the top-left corner so it stops covering the rim; upright phones drop the long roster line so the court gets the room */
+@media (max-height:520px) and (orientation:landscape){body.stplaying .sthud,body.gamefs .sthud{left:56px;transform:scale(.74);transform-origin:top left}.s2lt{top:74px}}
+@media (hover:none) and (pointer:coarse) and (orientation:portrait){body.stplaying .stvs{display:none}}
 </style>
 
 </head>
@@ -6999,6 +7117,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "12.6", "d": "2026-11-12", "t": "Street feels like a broadcast: new look, live commentary, win streaks", "b": "Street basketball got a big glow-up. A new TV-style scoreboard shows the score, the shot clock, who is heating up and your stamina and crowd energy. Big plays get banners, player name cards and a camera punch-in, and dunks and blocks freeze for a split second so they hit harder. Every court is lit now, with light beams, street lamps, neon, a blurred background and a living crowd that cheers, jumps and flashes cameras. Defenders talk trash with pop-up bubbles. Commentary is totally new: two announcers, Marcus and Dee, trade lines with hundreds of different calls, talk up the best players on the floor by their rating, position and era, and react to comebacks, runs, blowouts and game point. They sound smoother and more natural, never cut each other off, and you can pick a co-commentator voice in the voice settings. If your device has no voice, you still get captions with a speaker tag. After every game you get a letter grade, an MVP tag, your Street Rep climbing live, and a win streak that adds bonus rep. Phones are better too: upright phones get a taller court with the buttons below it, and landscape phones keep the score out of the way of the rim."},
  {"v": "12.5", "d": "2026-11-12", "t": "Live alerts for updates and maintenance", "b": "Notifications are much better. Messages slide in with animation, are color-coded for done, warning, error, news and events, show a timer bar, and can be swiped away. The same message twice now counts up instead of stacking. When a new version goes live you get a live update screen that shows what changed, saves your progress, and waits for your game to finish before reloading. Maintenance now warns you first: a live countdown, a final 10-second countdown, an animated back soon screen with a clock, and a We are back celebration when it is over."},
  {"v": "12.4", "d": "2026-11-12", "t": "A sharper look and easier-to-read text", "b": "Hall Pass has a new look across the whole game. Text is easier to read: a clearer font for body text, a bolder sports-style font for headings, and bigger, brighter small labels and numbers that used to be tiny. Cards, buttons, tabs, menus, pop-ups and tables have more depth, with lit edges, raised buttons that press down when you tap them, and clearer highlights on whatever is selected. Home, Market, Day Trading and Street got extra polish, and the top bar now fits on the smallest phones."},
  {"v": "12.3", "d": "2026-11-12", "t": "A much smarter Market helper", "b": "The Market helper in Day Trading now knows far more. It has about 175 built-in topics on charts, indicators, chart patterns, order types, risk, trading psychology, how the market works, the economy, and how the Hall Pass floor works. It understands typos and different ways of asking, answers \"X vs Y\" questions with both sides, and has a Browse all topics list you can tap. It still only answers trading and market questions, won't tell you what to buy or sell, and says so when it doesn't have an answer."},
@@ -8629,7 +8748,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794493368';
+const BUILD='1794497938';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -8896,7 +9015,7 @@ function stDressAll(s){s.all.forEach(p=>{if(p.look)return;if(p.hum==='remote'||p
 function stStep(dt){const s=ST;if(s.paused||s.over&&s.state!=='score')return;s.t+=dt;s.dtLast=dt;if(!s.netClient&&s.opt.mode!=='practice'&&!s.auto)stHlTick(s,dt);try{brTick(dt)}catch(e){}s.ring=s.ring?(s.ring.t+=dt,s.ring.t<.6?s.ring:null):null;s.swipe=s.swipe?(s.swipe.t+=dt,s.swipe.t<.35?s.swipe:null):null;s.shake=Math.max(0,s.shake-dt);s.net=Math.max(0,s.net-dt);s.rim=Math.max(0,s.rim-dt);s.flash=Math.max(0,s.flash-dt);s.crowd=Math.max(0,(s.crowd||0)-dt);
   s.pops.forEach(p=>p.t+=dt);s.pops=s.pops.filter(p=>p.t<1.4);
   s.parts.forEach(q=>{q.t+=dt;q.x+=q.vx*dt;q.y+=q.vy*dt;q.z+=q.vz*dt;if(q.kind!=='fire')q.vz-=SC.G*.6*dt});s.parts=s.parts.filter(q=>q.t<q.life);
-  /* camera eases toward the action */const b=s.ball;const fx=b.holder?b.holder.x:b.x,fy=b.holder?b.holder.y:b.y;s.cam.x=stLerp(s.cam.x,stLerp(25,fx,.35),dt*2.5);s.cam.y=stLerp(s.cam.y,stLerp(22,fy,.3),dt*2.5);s.cam.z=stLerp(s.cam.z,(b.flight&&b.flight.dunk)?1.24:1.15,dt*3);
+  /* camera eases toward the action */const b=s.ball;const fx=b.holder?b.holder.x:b.x,fy=b.holder?b.holder.y:b.y;s.cam.x=stLerp(s.cam.x,stLerp(25,fx,s.camX||.35),dt*2.5);s.cam.y=stLerp(s.cam.y,stLerp(22,fy,s.camYk||.3),dt*2.5);s.cam.z=stLerp(s.cam.z,(b.flight&&b.flight.dunk)?1.24:1.15,dt*3);
   if(s.pro){proTick(dt);if(!ST||s.over||s.paused||s.state==='trans'||s.state==='ft')return}
   if(s.state==='intro'){s.stateT-=dt;stPlaceBall();if(s.stateT<=0){s.state='check';s.stateT=.9;stCom('start',null,0,1);const o=$('#stIntro');if(o){o.classList.add('out');setTimeout(()=>o.remove(),400)}}return}
   if(s.state==='check'){s.stateT-=dt;s.all.forEach(p=>{p.vx=p.vy=0;stFaceTick(p,dt);stAnimTick(p,dt)});stPlaceBall();if(s.stateT<=0){s.state='live';if(s.opt.mode!=='practice')stTone(1400,.08,'square',.02)}return}
@@ -9052,15 +9171,17 @@ function stArena(W,H){const court=(ST&&ST.court)||'arena';const key=W+'x'+H+cour
   /* center logo */const[lcx,lcy]=P_(25,47);g.save();g.globalAlpha=.22;g.fillStyle=ART.logoC;g.font=`900 ${Math.round(sc*2.4)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.fillText(ART.logo,lcx,lcy-sc*1.2);g.restore();
   /* stanchion and backboard (static) */const[a,b2]=P_(25,-1.5,0),[c,d2]=P_(25,-1.5,SC.RIM+1);g.strokeStyle=court==='park'?'#5b6470':'#2a3147';g.lineWidth=sc*.5;g.beginPath();g.moveTo(a,b2);g.lineTo(c,d2);g.stroke();
   g.fillStyle=court==='park'?'#47505c':'#1d2338';const[pa,pb]=P_(25,-1.5,0);g.fillRect(pa-sc*1.3,pb-sc*.6,sc*2.6,sc*.9);
+  try{st2ArenaPost(g,W,H,P_,sc,court,rng,x0,y0,x1,y1)}catch(e){}
   STBG={key,cv};return cv}
 function stDraw(cvArg){const s=ST,cv=cvArg||$('#stCanvas');if(!s||!cv)return;const g=cv.getContext('2d');const W=cv.clientWidth,H=cv.clientHeight;const dpr=Math.min(W>700?1.25:2,devicePixelRatio||1);
   if(cv.width!==Math.round(W*dpr)||cv.height!==Math.round(H*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr)}
   const bgc=stArena(W,H);g.setTransform(1,0,0,1,0,0);g.fillStyle='#05070f';g.fillRect(0,0,cv.width,cv.height);
-  /* camera: a gentle zoom that follows the ball */const z=s.cam.z;const[fx,fy]=stProjBase(W,s.cam.x,s.cam.y,0);const shk=s.shake>0&&(stSet().shake&&!RM)?stRnd(-1,1)*s.shake*16:0;
-  const tx=W/2-fx*z+(fx-W/2)*.0,ty=H*.52-fy*z;const ox=stClamp(tx,W-W*z,0)+shk,oy=stClamp(ty*.25,H-H*z,0)+shk*.6;
+  /* camera: a gentle zoom that follows the ball */const z=s.cam.z+(s.zOff||0)+(s.zBase||0);const[fx,fy]=stProjBase(W,s.cam.x,s.cam.y,0);const shk=s.shake>0&&(stSet().shake&&!RM)?stRnd(-1,1)*s.shake*16:0;
+  const tx=W/2-fx*z+(fx-W/2)*.0,ty=H*.52-fy*z;const ox=stClamp(tx,W-W*z,0)+shk,oy=stClamp(ty*(s.camY||.25),s.zBase?Math.min(0,Math.max(H-H*z,H-(W/54)*43.4*z)):H-H*z,0)+shk*.6;
   g.setTransform(dpr*z,0,0,dpr*z,ox*dpr,oy*dpr);g.drawImage(bgc,0,0,W,H);
   const P_=(x,y,zz)=>stProjBase(W,x,y,zz);const[,,sc]=P_(0,0,0);if(s.court==='haunted')stHauntFx(g,W,H,P_,sc,s);
   /* crowd reacts */if(s.crowd>0){g.fillStyle=`rgba(255,240,200,${Math.min(.12,s.crowd*.08)})`;const[,cy]=P_(0,0);g.fillRect(0,0,W,cy);for(let i=0;i<6;i++){const fx2=Math.random()*W,fy2=Math.random()*cy*.8;g.fillStyle='rgba(255,255,255,.8)';g.fillRect(fx2,fy2,2,2)}}
+  try{st2Under(g,W,H,P_,sc,s)}catch(e){}
   /* shadows */s.all.forEach(p=>{const[x,y]=P_(p.x,p.y,0);g.fillStyle=`rgba(0,0,0,${.32-Math.min(.15,p.z/40)})`;g.beginPath();g.ellipse(x,y,sc*1.15*(1-Math.min(.45,p.z/14)),sc*.44,0,0,7);g.fill()});
   {const b=s.ball;const[x,y]=P_(b.x,b.y,0);g.fillStyle=`rgba(0,0,0,${.3-Math.min(.2,b.z/50)})`;g.beginPath();g.ellipse(x,y,sc*.45,sc*.18,0,0,7);g.fill()}
   /* backboard (shudders on dunks and hard misses) */const bbs=s.rim>0?Math.sin(s.rim*55)*sc*.07*(s.rim>.35?2.2:1):0;const[bx,by0]=P_(25,4,SC.RIM+2.5);const by=by0+bbs;const bw=sc*6,bh=sc*3.4;g.fillStyle=`rgba(225,240,255,${.85+s.flash})`;g.fillRect(bx-bw/2,by-bh*.75,bw,bh);if(s.flash>0){g.fillStyle=`rgba(255,255,255,${s.flash*1.6})`;g.fillRect(bx-bw/2-4,by-bh*.75-4,bw+8,bh+8)}
@@ -9070,7 +9191,7 @@ function stDraw(cvArg){const s=ST,cv=cvArg||$('#stCanvas');if(!s||!cv)return;con
     if(front)stDrawNet(g,P_,sc,rx,ry,true)};
   drawRim(false);
   if(s.ring){const[rx,ry]=P_(SC.HX,SC.HY,SC.RIM);const u=s.ring.t/.6;g.strokeStyle=`rgba(255,214,90,${(1-u)*.85})`;g.lineWidth=Math.max(1.5,sc*.25*(1-u));g.beginPath();g.ellipse(rx,ry,sc*(1+u*5),sc*(.38+u*1.9),0,0,7);g.stroke();g.strokeStyle=`rgba(255,255,255,${(1-u)*.5})`;g.beginPath();g.ellipse(rx,ry,sc*(.8+u*3.2),sc*(.3+u*1.2),0,0,7);g.stroke()}
-  const ents=[...s.all.map(p=>({k:'p',p,y:p.y})),{k:'b',y:s.ball.y+.01}];ents.sort((a,b)=>a.y-b.y);let rimDone=false;const ballAbove=s.ball.z>SC.RIM;
+  try{st2Floor(g,W,H,P_,sc,s)}catch(e){}const ents=[...s.all.map(p=>({k:'p',p,y:p.y})),{k:'b',y:s.ball.y+.01}];ents.sort((a,b)=>a.y-b.y);let rimDone=false;const ballAbove=s.ball.z>SC.RIM;
   /* ball trail */if(s.ball.trail.length>1){s.ball.trail.forEach((t,i)=>{const[x,y]=P_(t[0],t[1],t[2]);g.globalAlpha=i/s.ball.trail.length*.35;g.fillStyle=s.ball.flight&&s.ball.flight.timing==='perfect'?cbc('#3ddc84'):'#ffb26b';g.beginPath();g.arc(x,y,sc*.3*(i/s.ball.trail.length+.3),0,7);g.fill()});g.globalAlpha=1}
   ents.forEach(e=>{if(!rimDone&&e.y>SC.HY+.3){if(!(e.k==='b'&&!ballAbove))drawRim(true),rimDone=true}if(e.k==='p')stDrawPlayer(g,e.p,P_,sc);else stDrawBall(g,P_,sc)});if(!rimDone)drawRim(true);
   if(s.swipe){const w=s.swipe;const[x,y]=P_(w.x,w.y,w.z);const u=w.t/.35;g.strokeStyle=`rgba(200,240,255,${1-u})`;g.lineCap='round';for(let i=0;i<3;i++){g.lineWidth=Math.max(1,sc*(.5-i*.14)*(1-u));g.beginPath();g.arc(x,y,sc*(1.6+i*.5+u*1.2),w.dir>0?Math.PI*1.05:-.35,w.dir>0?Math.PI*1.65+u:.25+u*.3);g.stroke()}g.lineCap='butt'}
@@ -9082,6 +9203,7 @@ function stDraw(cvArg){const s=ST,cv=cvArg||$('#stCanvas');if(!s||!cv)return;con
       g.strokeStyle=cbc('#3ddc84');g.beginPath();g.arc(cx,cy,R,A(gr.c-gr.w/2),A(gr.c+gr.w/2));g.stroke();if(a11y().cb!=='off'){g.lineCap='butt';g.strokeStyle='#fff';g.lineWidth=sc*.62;for(const e of [gr.c-gr.w/2,gr.c+gr.w/2]){g.beginPath();g.arc(cx,cy,R,A(e)-.02,A(e)+.02);g.stroke()}g.lineCap='round';g.lineWidth=sc*.42}
       g.strokeStyle=m>gr.c+gr.w/2?cbc('#ff6b6b'):'#ffffff';g.lineWidth=sc*.26;g.beginPath();g.arc(cx,cy,R,A(0),A(Math.min(1,m)));g.stroke();g.lineCap='butt';if(!p.shoot.close||gr.ct>=.3){const[lt,lc]=stCtLabel(gr.ct);g.font=`800 ${Math.round(sc*.62)}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.lineWidth=3;g.strokeStyle='rgba(0,0,0,.7)';g.strokeText(lt,cx,cy+R+sc*.95);g.fillStyle=cbc(lc);g.fillText(lt,cx,cy+R+sc*.95)}}});
   /* score pops */s.pops.forEach(p=>{const[x,y]=P_(p.x,p.y,8+p.t*5);const k=p.t<.15?p.t/.15:1;g.globalAlpha=Math.max(0,1-Math.max(0,p.t-.8)/.6);g.font=`900 ${Math.round(sc*(p.big?1.9:1.15)*(.6+.4*k))}px "Big Shoulders Display",Impact,sans-serif`;g.textAlign='center';g.lineWidth=5;g.strokeStyle='rgba(0,0,0,.65)';g.strokeText(p.text,x,y);g.fillStyle=p.col;g.fillText(p.text,x,y);g.globalAlpha=1});
+  try{st2Over(g,W,H,P_,sc,s,dpr,z)}catch(e){}
   stHud()}
 /* ---------- Street players: a 3D skeleton with knees, elbows and hands that reach for the ball ----------
    Every move has its own animation: dribbling, crossovers, spins, euro steps, step-backs, jump shots with a
@@ -9288,7 +9410,7 @@ function stHud(){const s=ST,el=$('#stHud');if(!el)return;const pr=s.opt.mode==='
 
 /* ---------- loop ---------- */
 let STRAF=0,STLAST=0;
-function stLoop(t){if(!ST||!$('#stCanvas')){STRAF=0;gameFsLeave();document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}return}let dt=Math.min(.05,(t-(STLAST||t))/1000);STLAST=t;if(ST.slow)dt*=.45;else if(ST.slowT>0){ST.slowT-=dt;dt*=.42}padPoll('st');if(ST.netClient)stnClientTick(dt);else{let acc=dt;while(acc>1e-6&&ST){const h=Math.min(1/60,acc);stStep(h);acc-=h}if(ST&&ST.opt.online&&STN.host)stnHostTick(dt)}if(!ST)return;stDraw();STRAF=requestAnimationFrame(stLoop)}
+function stLoop(t){if(!ST||!$('#stCanvas')){STRAF=0;gameFsLeave();document.body.classList.remove('stplaying');try{liveTheme()}catch(e){}return}let dt=Math.min(.05,(t-(STLAST||t))/1000);STLAST=t;if(ST.hitT>0){ST.hitT-=dt;dt*=.04}else if(ST.slow)dt*=.45;else if(ST.slowT>0){ST.slowT-=dt;dt*=.42}padPoll('st');if(ST.netClient)stnClientTick(dt);else{let acc=dt;while(acc>1e-6&&ST){const h=Math.min(1/60,acc);stStep(h);acc-=h}if(ST&&ST.opt.online&&STN.host)stnHostTick(dt)}if(!ST)return;stDraw();STRAF=requestAnimationFrame(stLoop)}
 function stPause(){const s=ST;voxStop();if(s.opt.online){toastLite('No pausing in online games');return}s.paused=!s.paused;const o=$('#stPause');if(o)o.hidden=!s.paused}
 
 /* ---------- screens ---------- */
@@ -9366,7 +9488,7 @@ function stStart(opt){ctlApply();const s=stNew(opt);P.streetSeen=1;saveP();STBG.
      <div id="stPause" class="stpause" hidden><div class="card"><h3>Paused</h3>${stControlsHTML()}<div class="actrow" style="justify-content:center">${gameCtlBtn('st')}<button class="btn btn-ghost" onclick="openMusic()">🎵 Music</button><button class="btn btn-go" id="stRes">Resume</button><button class="btn btn-ghost" id="stQuit2">Leave game</button></div></div></div>
      <div class="sttouch" id="stTouch"><div class="stjoy" id="stJoy"><i></i></div><div class="stbtns"><button data-stb="pass">${stTeamN(stModeOf(opt))>1?'Pass':'—'}</button><button data-stb="move">Move</button><button data-stb="sprint">Sprint</button><button data-stb="shoot" class="big">Shoot</button></div></div></div>
     <p class="hint sthint">${opt.mode==='practice'?'Hold Space (or Shoot) and let go in the green. Try from different spots.':'Tip: E with a direction crosses over; E alone steps back for space.'}</p></div></section>`;
-  document.body.classList.add('stplaying');try{cancelAnimationFrame(TFX.raf);const tf=$('#themefx');if(tf)tf.remove();THEME_CUR=''}catch(e){}const cv=$('#stCanvas');const AR=(12+42*.6+1)/54;const fit=()=>{if(!cv.isConnected){removeEventListener('resize',fit);document.body.classList.remove('stplaying');return}const pw=cv.parentElement.clientWidth;const hud=($('#stHud')||{}).offsetHeight||70;const fsm=gameFsOn();const short=innerHeight<520||fsm;const avail=short?innerHeight-(fsm?4:12):innerHeight-hud-(innerWidth<760?70:120);const w=Math.max(280,Math.min(fsm?innerWidth:pw,avail/AR));cv.style.width=w+'px';cv.style.height=Math.round(w*AR)+'px'};fit();setTimeout(fit,60);addEventListener('resize',fit);
+  document.body.classList.add('stplaying');try{cancelAnimationFrame(TFX.raf);const tf=$('#themefx');if(tf)tf.remove();THEME_CUR=''}catch(e){}const cv=$('#stCanvas');const fit=st2Fit(cv);fit();setTimeout(fit,60);addEventListener('resize',fit);
   cv.focus({preventScroll:true});window.scrollTo({top:0});stTutPaint();
   $('#stQuit').onclick=$('#stQuit2').onclick=()=>{if(opt.online){stnLeave();ST=null;stHub();return}if(!s.over&&opt.mode!=='practice'&&(s.score.A||s.score.B)){const b=$('#stQuit');if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Tap again: forfeit';return}stEnd('B',true);return}ST=null;stHub()};
   if($('#stPz'))$('#stPz').onclick=()=>stPause();$('#stRes').onclick=()=>stPause();
@@ -10889,7 +11011,7 @@ function stnClientTick(dt){const s=ST;s.t+=dt;s.dtLast=dt;const now=performance.
   /* ball */const b=s.ball,A=a.b,C=c.b;b.holder=C[3]>=0?s.all[C[3]]:null;b.flight=C[4]?{pass:C[4]===2,timing:C[5]?'perfect':'',dunk:!!C[6]}:null;
   if(b.holder)stPlaceBall();else{b.x=L(A[0],C[0]);b.y=L(A[1],C[1]);b.z=L(A[2],C[2])}b.spin+=dt*(b.flight?14:b.holder?6:4);
   if(b.flight&&!b.flight.pass){b.trail.push([b.x,b.y,b.z]);if(b.trail.length>9)b.trail.shift()}else b.trail=[];
-  /* camera */const fx=b.holder?b.holder.x:b.x,fy=b.holder?b.holder.y:b.y;s.cam.x=stLerp(s.cam.x,stLerp(25,fx,.35),dt*2.5);s.cam.y=stLerp(s.cam.y,stLerp(22,fy,.3),dt*2.5);s.cam.z=stLerp(s.cam.z,(b.flight&&b.flight.dunk)?1.24:1.15,dt*3)}
+  /* camera */const fx=b.holder?b.holder.x:b.x,fy=b.holder?b.holder.y:b.y;s.cam.x=stLerp(s.cam.x,stLerp(25,fx,s.camX||.35),dt*2.5);s.cam.y=stLerp(s.cam.y,stLerp(22,fy,s.camYk||.3),dt*2.5);s.cam.z=stLerp(s.cam.z,(b.flight&&b.flight.dunk)?1.24:1.15,dt*3)}
 function stnPredict(s,me,dt,c,now){const i=s.all.indexOf(me);const S=c.p[i];if(!S)return;let P=STN.pred;if(!P)P=STN.pred={x:me.x,y:me.y,vx:0,vy:0};
   const busy=me.shoot||me.stun>0||me.hang>0||me.z>.05||(me.mv&&me.mv.k!=='steal')||s.state!=='live';
   if(busy){const k=Math.min(1,dt*14);P.x+=(me.x-P.x)*k;P.y+=(me.y-P.y)*k;P.vx=me.vx;P.vy=me.vy}
@@ -17556,6 +17678,359 @@ function notifDemo(k){
     LIVE.feed.cfg=Object.assign({},LIVE.feed.cfg,{maint:{on:true,msg:'Demo: a short upgrade.',at,until:at+9*60e3}});liveMaint();
     setTimeout(()=>{LIVE.feed.cfg=Object.assign({},LIVE.feed.cfg,{maint:prev});MN.demo=0;MN.soon=false;mnFinalClear();mnChipClear();mnTimer()},at-Date.now()+900);return}
   if(k==='back'){const el=mnOverlay({msg:'',until:0},false);el._live=1;mnBack(el);return}}
+
+/* ===== Street 2K: broadcast presentation, cinematic camera, hit-stop, crowd bed, phone layout, post-game recap ===== */
+const ST2={n:0,cn:null};
+const st2Coarse=()=>{try{return matchMedia('(hover:none) and (pointer:coarse)').matches}catch(e){return false}};
+const st2Portrait=()=>st2Coarse()&&innerWidth<innerHeight&&innerWidth<820;
+const st2Live=s=>!!(s&&!s.auto&&!s.netClient&&s.opt&&s.opt.mode!=='practice');
+
+/* the court fits the screen: on a phone held upright it grows taller and the camera zooms in, the controls sit under it */
+function st2Fit(cv){const AR=(12+42*.6+1)/54;
+  const fit=()=>{if(!cv.isConnected){removeEventListener('resize',fit);document.body.classList.remove('stplaying');return}
+    const s=ST;const pw=cv.parentElement.clientWidth;const hud=($('#stHud')||{}).offsetHeight||70;const fsm=gameFsOn();const short=innerHeight<520||fsm;let w,h;
+    if(st2Portrait()&&!fsm){const bar=(($('.stbar')||{}).offsetHeight||48)+8;const ctl=(($('#stTouch')||{}).offsetHeight||150);const availH=innerHeight-bar-hud-ctl-26;
+      w=Math.max(280,Math.min(pw,innerWidth-4));h=Math.round(Math.max(w*AR,Math.min(availH,w*1.32)));
+      if(s){s.zBase=stClamp(h/(w*AR)-1,0,.55);s.camY=1;s.camX=.8;s.camYk=.7}const wr=cv.parentElement;if(wr)wr.style.setProperty('--s2ctl',ctl+'px')}
+    else{const avail=short?innerHeight-(fsm?4:12):innerHeight-hud-(innerWidth<760?70:120);w=Math.max(280,Math.min(fsm?innerWidth:pw,avail/AR));h=Math.round(w*AR);
+      if(s){s.zBase=0;s.camY=.25;s.camX=.35;s.camYk=.3}}
+    cv.style.width=w+'px';cv.style.height=h+'px'};
+  return fit}
+
+/* ---------- the overlay layer ---------- */
+function st2Layer(){const w=$('.stwrap');if(!w)return null;let L=$('#s2Layer');if(!L){L=document.createElement('div');L.id='s2Layer';L.className='s2layer';L.innerHTML='<div class="s2fl" id="s2Fl"></div>';w.appendChild(L)}return L}
+function st2Flash(col){if(RM)return;const L=st2Layer();if(!L)return;const f=$('#s2Fl');if(!f)return;f.style.setProperty('--fc',col||'#3ddc84');f.classList.remove('go');void f.offsetWidth;f.classList.add('go')}
+function st2Ban(t,sub,k){const s=ST;if(!s||s.auto)return;const L=st2Layer();if(!L)return;if(s.banT!=null&&s.t-s.banT<.7&&k!=='force')return;s.banT=s.t;L.querySelectorAll('.s2ban').forEach(e=>e.remove());
+  const b=document.createElement('div');b.className='s2ban '+(k&&k!=='force'?k:'gold');b.innerHTML=`<b>${esc(t)}</b>${sub?`<small>${esc(sub)}</small>`:''}`;L.appendChild(b);setTimeout(()=>b.remove(),1600)}
+function st2Lower(p,tag,col,right){const s=ST;if(!s||s.auto||!p)return;const L=st2Layer();if(!L)return;L.querySelectorAll('.s2lt').forEach(e=>e.remove());const st=p.st||{};
+  const bits=[st.pts+' PTS'];if(st.tpm)bits.push(st.tpm+' 3PM');if(st.ast)bits.push(st.ast+' AST');if(st.reb)bits.push(st.reb+' REB');if(st.stl)bits.push(st.stl+' STL');if(st.blk)bits.push(st.blk+' BLK');if(st.dnk)bits.push(st.dnk+' DNK');
+  const d=document.createElement('div');d.className='s2lt'+(right?' r':'');d.style.setProperty('--lc',col||'#3ddc84');
+  d.innerHTML=`<div class="no">${esc(String(p.num!=null?p.num:''))}</div><div class="tx"><small>${esc(tag||'')}</small><b>${esc(stLoc(p)&&!s.opt.online?'You':p.name)}</b><i>${esc(bits.slice(0,4).join(' · '))}</i></div>`;L.appendChild(d);setTimeout(()=>d.remove(),2900)}
+function st2Grade(t,col){const L=st2Layer();if(!L)return;L.querySelectorAll('.s2grade').forEach(e=>e.remove());const d=document.createElement('div');d.className='s2grade';d.style.setProperty('--gc',col);d.textContent=t;L.appendChild(d);setTimeout(()=>d.remove(),950)}
+
+/* ---------- feel: hit-stop, zoom punch, crowd energy ---------- */
+function st2Hit(ms){const s=ST;if(!s||s.opt.online||s.netClient||RM||!stSet().slow)return;s.hitT=Math.max(s.hitT||0,ms/1000)}
+function st2Punch(z){const s=ST;if(!s||RM||!stSet().shake)return;s.zOff=Math.max(s.zOff||0,z)}
+function st2Hype(n){const s=ST;if(!s)return;s.hype=Math.min(100,(s.hype||0)+n)}
+function st2Talk(p,kind){const s=ST;if(!s||s.auto||!p||RM)return;const L={ankles:['Sit down!','Call a doctor!','Too slow!','Ankles!','Who is that?'],block:['Not in my house!','Get that out!','Nope!','Stay home!','Denied!'],dunk:['Too easy!','Poster!','Say hi to the rim!','Look out below!'],three:['Cold!','Bang!','Ice in my veins!','From the parking lot!'],steal:['Mine!','Gimme that!','Pick pocket!','Too slow!'],fire:['I can\'t miss!','Heating up!'],miss:['Brick!','Not today!'],air:['Airball!','Get a ladder!']}[kind];if(!L)return;
+  s.talk=s.talk||[];if(s.talk.length>2||s.t-(s.talkT||-9)<1.1)return;s.talkT=s.t;s.talk.push({p,text:L[Math.random()*L.length|0],t:0})}
+
+/* ---------- broadcast scorebug ---------- */
+function st2HudBuild(s,el){const multi=stMulti(s);const on=s.opt.online;const o=s.teams.B[0];const kA=(s.kit&&s.kit.A)||['','#5ec8ff','#1f5fd6'],kB=(s.kit&&s.kit.B)||['','#ff6b6b','#9b1430'];
+  const nA=on?'Home':multi?'Your crew':'You',nB=on?'Away':o?(multi?last(o.name)+' & co':last(o.name)):'Them';
+  el.dataset.s2=String(s.id2);el.innerHTML=`<div class="s2bug"><div class="s2t a" style="--k1:${kA[2]};--k2:${kA[1]}"><i class="s2pt"></i><span class="s2n"><span class="f">${esc(nA)}</span><span class="sh">${esc(on?'Home':'You')}</span></span><b class="s2s">0</b></div>
+   <div class="s2mid"><small class="s2to">First to ${s.to}</small><div class="s2clk"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="s2arc" cx="18" cy="18" r="15.5"/></svg><b>12</b></div></div>
+   <div class="s2t b" style="--k1:${kB[2]};--k2:${kB[1]}"><i class="s2pt"></i><span class="s2n"><span class="f">${esc(nB)}</span><span class="sh">${esc(on?'Away':o?last(o.name):'Them')}</span></span><b class="s2s">0</b></div></div>
+   <div class="s2sub"><span class="s2chip clr" hidden></span><span class="s2chip chk" hidden>Check ball</span><span class="s2chip fire" hidden>🔥 On fire</span><div class="s2heat" title="Heat: three makes in a row"><i></i><i></i><i></i></div><span class="s2stam" title="Stamina"><i></i></span><span class="s2hype" title="Crowd energy"><i></i></span></div>`;
+  const q=c=>el.querySelector(c);el._r={ta:q('.s2t.a'),tb:q('.s2t.b'),A:q('.s2t.a .s2s'),B:q('.s2t.b .s2s'),clk:q('.s2clk'),cn:q('.s2clk b'),arc:q('.s2arc'),clr:q('.s2chip.clr'),chk:q('.s2chip.chk'),fire:q('.s2chip.fire'),heat:[...el.querySelectorAll('.s2heat i')],stam:q('.s2stam'),stI:q('.s2stam i'),hype:q('.s2hype'),hI:q('.s2hype i'),sa:-1,sb:-1,c:-1}}
+function st2Hud(s){const el=$('#stHud');if(!el)return;if(!s.id2)s.id2=++ST2.n;if(el.dataset.s2!==String(s.id2))st2HudBuild(s,el);const R=el._r,me=s.ctrl,sa=s.score.A,sb=s.score.B;
+  if(R.sa!==sa){R.sa=sa;R.A.textContent=sa;if(sa){R.A.classList.remove('pop');void R.A.offsetWidth;R.A.classList.add('pop')}}
+  if(R.sb!==sb){R.sb=sb;R.B.textContent=sb;if(sb){R.B.classList.remove('pop');void R.B.offsetWidth;R.B.classList.add('pop')}}
+  R.ta.classList.toggle('on',s.poss==='A');R.tb.classList.toggle('on',s.poss==='B');R.ta.classList.toggle('lead',sa>sb);R.tb.classList.toggle('lead',sb>sa);
+  const gp=s.to-(s.to>15?3:2);R.ta.classList.toggle('gp',sa>=gp&&!s.over);R.tb.classList.toggle('gp',sb>=gp&&!s.over);
+  const c=Math.max(0,Math.ceil(s.clock));if(R.c!==c){R.c=c;R.cn.textContent=c;R.clk.classList.toggle('low',c<=3);R.arc.style.strokeDashoffset=(97.4*(1-Math.max(0,Math.min(1,s.clock/12)))).toFixed(1)}
+  const mine=me?me.team:'A';const clr=!s.cleared;const ct=clr?(s.poss===mine?'Clear it: past the arc':'They must clear it'):'';if(R.clrT!==ct){R.clrT=ct;R.clr.hidden=!ct;R.clr.textContent=ct}
+  const ck=s.state==='check';if(R.ck!==ck){R.ck=ck;R.chk.hidden=!ck}
+  const fr=!!(me&&me.fire);if(R.fr!==fr){R.fr=fr;R.fire.hidden=!fr}
+  const ht=me?(fr?3:Math.min(3,me.heat||0)):0;if(R.ht!==ht){R.ht=ht;R.heat.forEach((i,k)=>i.classList.toggle('on',k<ht))}
+  const sm=me?Math.round(me.stam*50)/50:1;if(R.sm!==sm){R.sm=sm;R.stI.style.width=Math.round(sm*100)+'%';R.stam.classList.toggle('low',sm<.25)}
+  const hy=Math.round((s.hype||0)/4)*4;if(R.hy!==hy){R.hy=hy;R.hI.style.width=hy+'%';R.hype.classList.toggle('hot',hy>=80)}
+  const w=$('.stwrap');if(w){const hot=(s.hype||0)>=80,fire=fr;if(R.hot!==hot){R.hot=hot;w.classList.toggle('s2hot',hot)}if(R.fw!==fire){R.fw=fire;w.classList.toggle('s2fire',fire)}}}
+{const _h=stHud;stHud=function(){const s=ST;if(!s)return;if(s.pro||s.opt.mode==='practice'||s.opt.mode==='story')return _h.apply(this,arguments);try{st2Hud(s)}catch(e){return _h.apply(this,arguments)}}}
+
+/* ---------- events: banners, lower thirds, hit-stop, zoom punch ---------- */
+function st2Ev(kind,p,x){const s=ST;if(!st2Live(s))return;const mine=!p||(s.opt.online?false:p.team==='A');const nm=p?(stLoc(p)&&!s.opt.online?'You':last(p.name).toUpperCase()):'';const col=mine?null:'red';
+  switch(kind){
+    case'dunk':st2Ban(String(x&&x!=='jam'?x:'Slam').toUpperCase(),nm,col||'gold');st2Hit(120);st2Punch(.3);st2Flash(mine?'#ffd25e':'#ff5d6c');st2Hype(mine?26:14);st2Talk(p,'dunk');break;
+    case'three':st2Ban('From downtown',nm,col||'green');st2Hit(40);st2Punch(.13);st2Hype(mine?18:9);st2Talk(p,'three');break;
+    case'block':st2Ban('Rejected',nm,col||'cyan');st2Hit(90);st2Punch(.18);st2Flash('#5fd3ff');st2Hype(mine?22:10);st2Talk(p,'block');break;
+    case'ankles':st2Ban('Ankles broken',nm,col||'violet');st2Hit(80);st2Punch(.16);st2Flash('#b48cff');st2Hype(mine?24:12);st2Talk(p,'ankles');break;
+    case'steal':st2Lower(p,'Pick pocket',mine?'#3ddc84':'#ff5d6c',!mine);st2Hype(mine?10:5);st2Talk(p,'steal');break;
+    case'fire':st2Ban('On fire',nm,'fire');st2Punch(.1);st2Hype(14);break;
+    case'run':st2Ban((s.streak[mine?'A':'B']||3)+' straight','Momentum',col||'gold');st2Hype(10);break;
+    case'tie':st2Ban('All tied up','',col||'violet');break;
+    case'gp':st2Ban('Game point','','force');st2Punch(.08);st2Hype(12);break;
+    case'miss':st2Talk(p,'miss');break}}
+function st2Score(sh,pts,f){const s=ST;if(!st2Live(s)||!sh)return;const mine=!s.opt.online&&sh.team==='A';st2Hype(mine?9:5);
+  if(s.over){st2Ban(mine?'Game':'Game over',mine?(s.opt.online?'':'Winner stays'):'Run it back','force');st2Hit(170);st2Punch(.34);st2Flash(mine?'#ffd25e':'#ff5d6c');return}
+  const big=f&&(f.dunk||pts>=3||f.and1);const cd=s.lt2!=null&&s.t-s.lt2<4;if(big||(!cd&&sh.st.pts>=6&&Math.random()<.5)){s.lt2=s.t;st2Lower(sh,f&&f.dunk?'Dunk'+(f.dname?' · '+f.dname:''):f&&f.and1?'And one':pts>=3?'Three-pointer':f&&f.fade?'Fadeaway':f&&f.euro?'Euro step':'Bucket',mine?'#3ddc84':'#ff5d6c',!mine)}}
+{const _s=stScore;stScore=function(sh,pts,f){const r=_s.apply(this,arguments);try{st2Score(sh,pts,f)}catch(e){}return r}}
+/* shot grade: a flash around the court and a tone when you let go */
+{const _r=stShootRelease;stShootRelease=function(p){const sh=p&&p.shoot;const was=!!(sh&&!sh.done&&!sh.ft);const r=_r.apply(this,arguments);try{const s=ST;if(was&&s&&stLoc(p)&&!s.auto&&!s.netClient){const f=s.ball.flight;if(f&&f.shooter===p&&!f.pass&&f.timing){const t=f.timing;
+  if(t==='perfect'){st2Flash('#3ddc84');st2Hit(34);stTone(1320,.08,'sine',.04);setTimeout(()=>{try{stTone(1760,.1,'sine',.035)}catch(e){}},70);if(!p.shoot||!p.shoot.close)st2Grade('Excellent','#3ddc84')}
+  else if(t==='good'){st2Flash('#ffcc4d')}else{st2Flash('#ff6b6b')}}}}catch(e){}return r}}
+
+/* ---------- per-step upkeep ---------- */
+function st2Tick(s,dt){if(s.hype>0)s.hype=Math.max(0,s.hype-dt*3.2);if(s.zOff)s.zOff=Math.abs(s.zOff)<.002?0:s.zOff*(1-Math.min(1,dt*5));
+  if(s.talk&&s.talk.length){s.talk.forEach(t=>t.t+=dt);s.talk=s.talk.filter(t=>t.t<1.5)}
+  if(s.state==='live'&&!s.s2go&&st2Live(s)){s.s2go=1;st2Ban('First to '+s.to,((typeof ST_COURTS!=='undefined'&&ST_COURTS[s.court])||[''])[0],'gold')}
+  if(!s.auto)st2CrowdTick(s,dt)}
+{const _st=stStep;stStep=function(dt){const s=ST;const r=_st.apply(this,arguments);try{if(s&&ST===s)st2Tick(s,dt)}catch(e){}return r}}
+
+/* ---------- crowd bed: a murmur that swells with the game ---------- */
+function st2CrowdOn(){if(ST2.cn)return;const a=audioCtx();if(!a)return;try{const len=a.sampleRate*2;const buf=a.createBuffer(1,len,a.sampleRate);const d=buf.getChannelData(0);let b0=0,b1=0,b2=0;for(let i=0;i<len;i++){const w=Math.random()*2-1;b0=.99765*b0+w*.099;b1=.963*b1+w*.2965;b2=.57*b2+w*1.0526;d[i]=(b0+b1+b2+w*.1848)*.12}
+  const src=a.createBufferSource();src.buffer=buf;src.loop=true;const bp=a.createBiquadFilter();bp.type='bandpass';bp.frequency.value=650;bp.Q.value=.45;const g=a.createGain();g.gain.value=0;src.connect(bp);bp.connect(g);g.connect(a.destination);src.start();ST2.cn={a,src,bp,g}}catch(e){ST2.cn=null}}
+function st2CrowdTick(s,dt){if(!SND.on||s.opt.mode==='practice')return;if(!ST2.cn){if(s.state==='live'||s.state==='check')st2CrowdOn();return}const C=ST2.cn,h=(s.hype||0)/100;const base=.05+h*.16+(s.crowd>0?.07:0);try{C.g.gain.setTargetAtTime(base*(typeof sfxVol==='function'?sfxVol():1)*(s.paused?.2:1),C.a.currentTime,.25);C.bp.frequency.setTargetAtTime(560+h*520+(s.crowd>0?260:0),C.a.currentTime,.3)}catch(e){}}
+function st2CrowdOff(){const C=ST2.cn;if(!C)return;ST2.cn=null;try{C.g.gain.setTargetAtTime(0,C.a.currentTime,.12);setTimeout(()=>{try{C.src.stop()}catch(e){}},500)}catch(e){}}
+setInterval(()=>{if(ST2.cn&&(!ST||!$('#stCanvas')))st2CrowdOff()},700);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)st2CrowdOff()});
+
+/* ---------- new game: win streak on the intro ---------- */
+{const _ss=stStart;stStart=function(opt){const r=_ss.apply(this,arguments);try{const s=ST;if(s&&!s.auto&&opt&&opt.mode!=='practice'){const S2=stSave();s.hype=12;const o=$('#stIntro .stisub');if(o&&(S2.ws||0)>=2)o.insertAdjacentHTML('afterend',`<div class="stisub" style="color:#ffb347">🔥 ${S2.ws} win streak · +${Math.min(50,(S2.ws)*10)}% rep bonus</div>`)}}catch(e){}return r}}
+
+/* ---------- post-game recap: grade, animated rep, next unlock, win streak ---------- */
+function st2Grade2(me,s,won){const st=me.st||{};const r=(st.pts||0)*2+(st.reb||0)+(st.ast||0)*2+(st.stl||0)*3+(st.blk||0)*3+(st.ankles||0)*4+(st.dnk||0)*2+(st.tpm||0)*2+(won?10:0);const k=r/(s.to*3.1);
+  return k>1.15?['S','#ffd25e']:k>.95?['A+','#3ddc84']:k>.78?['A','#3ddc84']:k>.6?['B+','#8be08a']:k>.46?['B','#ffcc4d']:k>.32?['C','#ff9b4d']:['D','#ff6b6b']}
+function st2EndFx(pre,winner){const s=pre.s,me=pre.me,S2=stSave(),won=winner==='A';
+  S2.ws=won?(S2.ws||0)+1:0;S2.bws=Math.max(S2.bws||0,S2.ws);let repG=(S2.rep||0)-pre.rep0,bonus=0;
+  if(won&&S2.ws>=2&&repG>0){bonus=Math.round(repG*Math.min(.5,(S2.ws-1)*.1));S2.rep+=bonus;repG+=bonus}saveP();
+  const card=$('.stend');if(!card||$('.s2rc',card))return;const [gl,gc]=st2Grade2(me,s,won);
+  const t0=stTier(pre.rep0),t1=stTier(S2.rep),nx=ST_TIERS[t1+1];const pctOf=(rep,ti)=>{const n=ST_TIERS[ti+1];return n?Math.round((rep-ST_TIERS[ti][0])/(n[0]-ST_TIERS[ti][0])*100):100};
+  const mvp=s.all.slice().sort((a,b)=>b.st.pts+b.st.stl*2+b.st.blk*2-(a.st.pts+a.st.stl*2+a.st.blk*2))[0];const st=me.st;
+  const tags=[`<span class="tag">${st.pts} PTS</span>`];if(st.tpm)tags.push(`<span class="tag">${st.tpm} THREES</span>`);if(st.ast)tags.push(`<span class="tag">${st.ast} AST</span>`);if(st.ankles)tags.push(`<span class="tag">${st.ankles} ANKLES</span>`);if(st.dnk)tags.push(`<span class="tag">${st.dnk} DUNKS</span>`);if(st.blk)tags.push(`<span class="tag">${st.blk} BLOCKS</span>`);if(st.stl)tags.push(`<span class="tag">${st.stl} STEALS</span>`);
+  if(mvp===me||mvp.me)tags.unshift('<span class="tag mvp">MVP</span>');if(S2.ws>=2)tags.unshift(`<span class="tag hot">🔥 ${S2.ws} WIN STREAK${bonus?' +'+bonus+' REP':''}</span>`);if(t1>t0)tags.unshift(`<span class="tag mvp">TIER UP · ${esc(ST_TIERS[t1][1])}</span>`);
+  const nextTxt=nx?`${esc(nx[1])} · ${fmtN(nx[0]-S2.rep)} rep to go`:'Top tier. You run these streets.';
+  const h=`<div class="s2rc" style="--rc:${gc}"><div class="s2gr"><b>${gl}</b><small>GRADE</small></div><div class="s2rb"><div class="big">${won?(S2.ws>=3?'You are rolling':'Clean win'):'Run it back'}</div><div class="tags">${tags.join('')}</div>
+   <div class="row"><span>Street Rep</span><b id="s2rep">+0</b></div><div class="bar"><i id="s2bar" style="width:${pctOf(pre.rep0,t0)}%"></i></div><div class="row"><span>${nextTxt}</span><b>${esc(ST_TIERS[t1][1])}</b></div></div></div>`;
+  const anchor=card.querySelector('.stfinal');if(anchor)anchor.insertAdjacentHTML('afterend',h);else card.insertAdjacentHTML('afterbegin',h);
+  card.querySelectorAll('.hint').forEach(e=>{if(/Street Rep/.test(e.textContent))e.innerHTML=e.innerHTML.replace(/\+\d+ Street Rep/,'+'+repG+' Street Rep')});
+  const bar=$('#s2bar'),rp=$('#s2rep');setTimeout(()=>{if(bar)bar.style.width=(t1>t0?100:pctOf(S2.rep,t1))+'%'},120);
+  if(t1>t0)setTimeout(()=>{if(bar){bar.style.transition='none';bar.style.width='0%';void bar.offsetWidth;bar.style.transition='';bar.style.width=pctOf(S2.rep,t1)+'%'}},1700);
+  const t00=performance.now();const tick=()=>{if(!rp||!rp.isConnected)return;const u=Math.min(1,(performance.now()-t00)/1300);rp.textContent='+'+Math.round(repG*(1-Math.pow(1-u,3)));if(u<1)requestAnimationFrame(tick)};tick();
+  const ag=$('#stAgain');if(ag){ag.classList.add('s2go');try{ag.focus({preventScroll:true})}catch(e){}}}
+{const _e=stEnd;stEnd=function(w,f){const s=ST;let pre=null;try{if(s&&!s.opt.online&&!f&&s.opt.mode!=='practice'&&!s.auto)pre={s,me:s.teams.A[0],rep0:stSave().rep||0}}catch(e){}try{if(f&&s&&!s.auto&&!s.opt.online&&s.opt.mode!=='practice')stSave().ws=0}catch(e){}st2CrowdOff();const r=_e.apply(this,arguments);try{if(pre)st2EndFx(pre,w)}catch(e){console.warn(e)}return r}}
+
+/* ===== Street 2K: lighting, sideline crowd, ambient life, trash talk (canvas layers) ===== */
+const ST2AMB={};const ST2POST={};
+const ST2_HOOD=['#d94f4f','#3f6fd9','#e8b83a','#4fbf86','#8a5bd1','#e6e6e6','#262a36','#e07a2a','#2fb7c9','#c8486f'];
+const ST2_SKIN=['#f1c9a0','#d9a273','#b87b50','#8a5a3a','#5e3b25','#e8b894'];
+const st2Lite=()=>document.documentElement.classList.contains('lite');
+const st2Hash=n=>{n=Math.imul(n^n>>>15,2246822519);n=Math.imul(n^n>>>13,3266489917);return((n^n>>>16)>>>0)/4294967296};
+
+/* ---- the cached backdrop: one extra pass of light, wear and vignette over every court ---- */
+function st2ArenaPost(g,W,H,P_,sc,court,rng,x0,y0,x1,y1){const post=ST2POST[court];
+  /* a touch of depth of field: the backdrop softens so the court and players pop */
+  try{const cv=g.canvas,cw=cv.width,yb=Math.max(2,Math.round(y0*cw/W));g.save();g.setTransform(1,0,0,1,0,0);g.filter='blur(1.6px)';g.drawImage(cv,0,0,cw,yb,0,0,cw,yb);g.filter='none';g.restore()}catch(e){}
+  g.save();
+  const pool=(cx,cy,rx,ry,rgb,a)=>{g.save();g.translate(cx,cy);g.scale(1,ry/rx);const gr=g.createRadialGradient(0,0,0,0,0,rx);gr.addColorStop(0,`rgba(${rgb},${a})`);gr.addColorStop(1,`rgba(${rgb},0)`);g.fillStyle=gr;g.beginPath();g.arc(0,0,rx,0,7);g.fill();g.restore()};
+  g.globalCompositeOperation='lighter';
+  if(post)post(g,W,H,P_,sc,pool,x0,y0,x1,y1,rng);
+  else if(court==='arena'){const[a,b]=P_(25,10),[c,d]=P_(25,34);pool(a,b,sc*17,sc*17,'255,236,200',.17);pool(c,d,sc*17,sc*17,'255,236,200',.13);const[l1,l2]=P_(0,24),[r1]=P_(50,24);pool(l1,l2,sc*8,sc*8,'120,170,255',.07);pool(r1,l2,sc*8,sc*8,'255,150,120',.07)}
+  else if(court==='park'){/* low sun: long diagonal shafts across the asphalt */for(let i=0;i<4;i++){const sx=W*(.5+i*.14),w=sc*3.2;const gr=g.createLinearGradient(sx,y0,sx-W*.25,H);gr.addColorStop(0,'rgba(255,236,190,.16)');gr.addColorStop(1,'rgba(255,236,190,0)');g.fillStyle=gr;g.beginPath();g.moveTo(sx,y0);g.lineTo(sx+w,y0);g.lineTo(sx+w-W*.3,H);g.lineTo(sx-W*.3-w,H);g.closePath();g.fill()}
+    for(const lx of [-1.6,51.6]){const[px,py]=P_(lx,12,0),[,pt]=P_(lx,12,17);g.globalCompositeOperation='source-over';g.strokeStyle='#59616d';g.lineWidth=sc*.34;g.beginPath();g.moveTo(px,py);g.lineTo(px,pt);g.stroke();g.fillStyle='#454c57';g.fillRect(px-sc*.9*(lx<25?-.2:1),pt-sc*.25,sc*.9,sc*.3);g.globalCompositeOperation='lighter';pool(px+(lx<25?sc*.6:-sc*.6),pt,sc*3,sc*3,'255,224,150',.55);pool(px,py,sc*7,sc*3,'255,224,150',.1)}}
+  else if(court==='roof'){/* neon edge and a cool pool of light */g.globalCompositeOperation='lighter';g.lineWidth=sc*.2;for(const[c,off,al] of [['#00e0ff',0,.55],['#ff3df0',sc*.5,.32]]){g.strokeStyle=c;g.globalAlpha=al;g.shadowColor=c;g.shadowBlur=sc*1.6;g.strokeRect(x0-off,y0-off*.4,x1-x0+off*2,y1-y0+off*.8)}g.globalAlpha=1;g.shadowBlur=0;const[a,b]=P_(25,22);pool(a,b,sc*20,sc*20,'70,200,255',.11);pool(W*.08,y0+sc*2,sc*9,sc*9,'255,60,240',.07);pool(W*.92,y0+sc*2,sc*9,sc*9,'0,224,255',.07)}
+  else if(court==='beach'){const gr=g.createLinearGradient(x1,0,x0,0);gr.addColorStop(0,'rgba(255,190,110,.2)');gr.addColorStop(1,'rgba(255,190,110,0)');g.fillStyle=gr;g.fillRect(x0,y0,x1-x0,y1-y0);pool(W*.72,y0,sc*14,sc*6,'255,214,150',.14)}
+  g.restore();
+  /* vignette keeps the eye on the court */
+  const vg=g.createRadialGradient(W/2,H*.5,Math.min(W,H)*.35,W/2,H*.5,Math.max(W,H)*.78);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.42)');g.fillStyle=vg;g.fillRect(0,0,W,H);
+  /* floor wear: soft scuffs near the paint and the arc */
+  if(court!=='arena'){g.save();g.globalAlpha=.07;g.strokeStyle='#000';g.lineWidth=1;for(let i=0;i<22;i++){const[a,b]=P_(rng()*50,rng()*47);const l=sc*(.6+rng()*2.2),an=rng()*Math.PI;g.beginPath();g.moveTo(a,b);g.lineTo(a+Math.cos(an)*l,b+Math.sin(an)*l*.4);g.stroke()}g.restore()}}
+
+/* ---- crowd figures ---- */
+function st2Fig(g,x,y,u,col,skin,amp,arms,ph){const yy=y-amp;g.fillStyle='rgba(0,0,0,.25)';g.beginPath();g.ellipse(x,y,u*.55,u*.18,0,0,7);g.fill();
+  g.fillStyle='#262c3b';g.fillRect(x-u*.34,yy-u*.95,u*.26,u*.95);g.fillRect(x+u*.08,yy-u*.95,u*.26,u*.95);
+  g.fillStyle=col;g.beginPath();g.roundRect?g.roundRect(x-u*.46,yy-u*1.85,u*.92,u*1.05,u*.22):g.rect(x-u*.46,yy-u*1.85,u*.92,u*1.05);g.fill();
+  g.strokeStyle=skin;g.lineWidth=u*.22;g.lineCap='round';const up=arms>0?-u*(.95+Math.sin(ph*1.6)*.28):u*.55;
+  g.beginPath();g.moveTo(x-u*.44,yy-u*1.68);g.lineTo(x-u*.74,yy-u*1.68+up*.6);g.moveTo(x+u*.44,yy-u*1.68);g.lineTo(x+u*.74,yy-u*1.68+up*.6);g.stroke();
+  g.fillStyle=skin;g.beginPath();g.arc(x,yy-u*2.12,u*.36,0,7);g.fill();g.fillStyle='rgba(20,14,10,.8)';g.beginPath();g.arc(x,yy-u*2.22,u*.37,Math.PI,0);g.fill()}
+function st2Crowd(g,P_,sc,s,rows){const h=(s.hype||0)/100,cr=s.crowd>0?1:0;const amp=Math.min(1.5,h*1.2+cr);
+  rows.forEach(r=>{for(let i=0;i<r.n;i++){const wx=r.x!=null?r.x:r.x0+i*r.dx,wy=r.y!=null?r.y:r.y0+i*r.dy;const k=r.s+i*3+(r.x!=null?7:0);const[px,py]=P_(wx,wy,0);const u=sc*(r.u||1)*(.86+wy/47*.3);const ph=s.t*(4.5+h*6)+k*1.7;
+    const jump=amp>0?Math.abs(Math.sin(ph))*u*.7*amp:0;st2Fig(g,px,py-sc*(r.z||0),u,ST2_HOOD[(k*7)%ST2_HOOD.length],ST2_SKIN[(k*5)%ST2_SKIN.length],jump,amp>.35?1:0,ph)}})}
+const ST2ROWS={left:{x:-.7,y0:8,dy:6.4,n:6,s:1},right:{x:50.7,y0:9,dy:6.4,n:6,s:50},back:{y:-.9,x0:5,dx:5.6,n:8,s:100,u:.9},back2:{y:-1.9,x0:2.4,dx:5.6,n:9,s:140,u:.78}};
+/* each court can add its own ambient life */
+ST2AMB.arena=(g,W,H,P_,sc,s)=>{if(RM)return;g.save();g.globalCompositeOperation='lighter';const t=s.t;for(let i=0;i<2;i++){const a=Math.sin(t*.35+i*3.1)*.5,bx=W*(.3+i*.4),gr=g.createLinearGradient(bx,0,bx+a*W*.5,H*.65);gr.addColorStop(0,'rgba(255,240,205,.11)');gr.addColorStop(1,'rgba(255,240,205,0)');g.fillStyle=gr;g.beginPath();g.moveTo(bx-sc,0);g.lineTo(bx+sc,0);g.lineTo(bx+a*W*.5+sc*5,H*.65);g.lineTo(bx+a*W*.5-sc*5,H*.65);g.closePath();g.fill()}
+  if((s.hype||0)>45||s.crowd>0){g.fillStyle='rgba(255,255,255,.85)';for(let i=0;i<8;i++){const k=Math.floor(s.t*9)+i*13;if(st2Hash(k)<.4){g.fillRect(st2Hash(k+1)*W,st2Hash(k+2)*H*.2+H*.04,2.4,2.4)}}}g.restore()};
+ST2AMB.park=(g,W,H,P_,sc,s)=>{if(RM)return;g.save();g.fillStyle='rgba(255,246,214,.5)';for(let i=0;i<16;i++){const x=(i*173+s.t*(6+i%4*3))%(W+20)-10,y=H*.2+((i*97)%100)/100*H*.62+Math.sin(s.t*.8+i)*sc*.8;g.globalAlpha=.18+.16*Math.sin(s.t*1.4+i);g.beginPath();g.arc(x,y,1.1+i%3*.5,0,7);g.fill()}g.restore()};
+ST2AMB.roof=(g,W,H,P_,sc,s)=>{if(RM)return;g.save();g.globalCompositeOperation='lighter';const[,cy]=P_(0,0);for(let i=0;i<14;i++){const x=st2Hash(i*3)*W,y=cy*(.2+st2Hash(i*3+1)*.7);g.fillStyle=`rgba(255,${200+i*3},130,${.25+.35*Math.sin(s.t*2+i*1.9)})`;g.fillRect(x,y,sc*.24,sc*.3)}
+  const px=((s.t*26)%(W+80))-40;g.fillStyle=`rgba(255,80,80,${.5+.5*Math.sin(s.t*5)})`;g.fillRect(px,cy*.09,3,3);
+  const a=-.6+Math.sin(s.t*.4)*.5,bx=W*.14;const gr=g.createLinearGradient(bx,cy,bx+Math.sin(a)*W*.5,cy-Math.cos(a)*cy);gr.addColorStop(0,'rgba(190,230,255,.16)');gr.addColorStop(1,'rgba(190,230,255,0)');g.fillStyle=gr;g.beginPath();g.moveTo(bx-sc*.4,cy);g.lineTo(bx+sc*.4,cy);g.lineTo(bx+Math.sin(a)*W*.55+sc*3,cy-Math.cos(a)*cy*1.1);g.lineTo(bx+Math.sin(a)*W*.55-sc*3,cy-Math.cos(a)*cy*1.1);g.closePath();g.fill();g.restore()};
+ST2AMB.beach=(g,W,H,P_,sc,s)=>{if(RM)return;const[,cy]=P_(0,0);g.save();g.globalCompositeOperation='lighter';for(let i=0;i<26;i++){const x=W*.5+(st2Hash(i)-.5)*W*.8,y=cy-sc*(.7+st2Hash(i+50)*1.5);g.fillStyle=`rgba(255,236,190,${.1+.3*Math.max(0,Math.sin(s.t*3+i*2.2))})`;g.fillRect(x,y,sc*(.4+st2Hash(i+9)),1.6)}g.restore();
+  g.save();g.strokeStyle='rgba(30,20,30,.7)';g.lineWidth=1.6;g.lineCap='round';for(let k=0;k<2;k++){const x=((s.t*(18+k*7)+k*300)%(W+60))-30,y=cy*(.32+k*.14)+Math.sin(s.t*1.6+k)*sc*.3,f=Math.sin(s.t*7+k)*sc*.18;g.beginPath();g.moveTo(x-sc*.5,y+f);g.quadraticCurveTo(x-sc*.2,y-sc*.2,x,y);g.quadraticCurveTo(x+sc*.2,y-sc*.2,x+sc*.5,y+f);g.stroke()}g.restore()};
+function st2Under(g,W,H,P_,sc,s){const lite=st2Lite();if(!lite){const f=ST2AMB[s.court];if(f)f(g,W,H,P_,sc,s)}
+  if(s.court==='haunted')return;const rows=[ST2ROWS.left,ST2ROWS.right];if(!lite&&s.court!=='arena'){rows.push(ST2ROWS.back2);rows.push(ST2ROWS.back)}st2Crowd(g,P_,sc,s,rows)}
+
+/* ---- on the floor: soft light under the star, the hot hand and the ball ---- */
+function st2Floor(g,W,H,P_,sc,s){if(st2Lite())return;g.save();g.globalCompositeOperation='lighter';
+  const pool=(x,y,r,rgb,a)=>{const[px,py]=P_(x,y,0);g.save();g.translate(px,py);g.scale(1,.38);const gr=g.createRadialGradient(0,0,0,0,0,r);gr.addColorStop(0,`rgba(${rgb},${a})`);gr.addColorStop(1,`rgba(${rgb},0)`);g.fillStyle=gr;g.beginPath();g.arc(0,0,r,0,7);g.fill();g.restore()};
+  if(s.ctrl&&!s.auto&&!s.over)pool(s.ctrl.x,s.ctrl.y,sc*3.4,'61,220,132',.3);
+  s.all.forEach(p=>{if(p.fire)pool(p.x,p.y,sc*3.8,'255,140,40',.36+Math.sin(s.t*12+p.num)*.07)});
+  const b=s.ball,hb=b.holder,fl=b.flight;const fireBall=(hb&&hb.fire)||(fl&&!fl.pass&&fl.shooter&&fl.shooter.fire);const perfBall=fl&&!fl.pass&&fl.timing==='perfect';
+  if(fireBall||perfBall){const[x,y]=P_(b.x,b.y,b.z);const gr=g.createRadialGradient(x,y,0,x,y,sc*1.9);gr.addColorStop(0,perfBall&&!fireBall?'rgba(80,255,150,.55)':'rgba(255,150,50,.6)');gr.addColorStop(1,'rgba(255,120,30,0)');g.fillStyle=gr;g.beginPath();g.arc(x,y,sc*1.9,0,7);g.fill()}
+  if(s.net>0){const[x,y]=P_(SC.HX,SC.HY,SC.RIM-1);const a=Math.min(1,s.net/.6);const gr=g.createRadialGradient(x,y,0,x,y,sc*3.2);gr.addColorStop(0,`rgba(255,225,150,${.5*a})`);gr.addColorStop(1,'rgba(255,200,120,0)');g.fillStyle=gr;g.beginPath();g.arc(x,y,sc*3.2,0,7);g.fill()}
+  g.restore()}
+
+/* ---- on top: speech bubbles ---- */
+function st2Over(g,W,H,P_,sc,s,dpr,z){if(!s.talk||!s.talk.length)return;s.talk.forEach(t=>{const p=t.p;const[x,y0]=P_(p.x,p.y,p.z+10.4*stScale(p));const u=Math.min(1,t.t/.16),fade=t.t>1.15?Math.max(0,1-(t.t-1.15)/.35):1;const y=y0-t.t*sc*.5;const fs=Math.max(10,Math.round(sc*.82));
+    g.save();g.globalAlpha=fade;g.translate(x,y);const k=.55+.45*(1-Math.pow(1-u,3));g.scale(k,k);g.font=`800 ${fs}px "Barlow Condensed","Big Shoulders Display",Impact,sans-serif`;const w=g.measureText(t.text).width+fs*1.1,h=fs*1.55;
+    g.fillStyle='rgba(255,255,255,.97)';g.strokeStyle='rgba(0,0,0,.55)';g.lineWidth=2;g.beginPath();g.roundRect?g.roundRect(-w/2,-h,w,h,h*.45):g.rect(-w/2,-h,w,h);g.fill();g.stroke();g.beginPath();g.moveTo(-fs*.35,0);g.lineTo(0,fs*.55);g.lineTo(fs*.35,0);g.closePath();g.fill();
+    g.fillStyle=p.team==='A'?'#0b3a8a':'#8a1230';g.textAlign='center';g.textBaseline='middle';g.fillText(t.text,0,-h/2+1);g.restore()})}
+
+/* ===== Street broadcast booth: a play-by-play voice and a color voice, 400+ lines, real conversations ===== */
+const ST2_CAST={a:'Marcus Hale',b:'Dee Brooks'};
+/* single lines. {n} the player, {n's} his or your, {v:word} agrees with You, {o} the man guarding, {d} dunk, {sa} {sb} score, {to} target, {pts} points so far */
+const ST2L={
+ start:["Good evening and welcome to the blacktop. First to {to} takes it.","We are live. Ball is checked, first to {to}.","Packed along the fence tonight. Let's get this thing going.","The whole block came out for this one. First to {to}.","Nobody's leaving early tonight. Ball is live.","No refs, no problem. Just hoopers. First to {to}.","Tip is up, and this is street ball, so expect some highlights.","Winner stays on this court and everybody knows it. Here we go.","Sneakers squeaking, crowd buzzing. First to {to} it is.","Run it back time. First to {to} takes it all.","Settle in folks, this could be a good one.","Make it, take it. That's the only rule that matters out here.","The sun is setting, the lights are warm, and here we go.", "You can smell the popcorn out here. Let us play.", "Big crowd. Big stakes. First to {to}."],
+ bucket:["Bucket for {n}.","{n} {v:puts} it in.","Two for {n}, nice and smooth.","Easy finish by {n}.","{n} {v:gets} it to fall.","That's money from {n}.","Clean look, clean finish from {n}.","{n} {v:scores}. {sa} to {sb}.","Another one for {n}.","{n} {v:finds} the soft spot and scores.","Quietly efficient from {n}.","{n} {v:makes} it look routine.","Nothing fancy, just points from {n}.","{n} {v:takes} what the defense gives.","Right through the net, {n}.","{n} {v:hits} the mid-range jumper.","Short bank, and in it goes. {n}.","{n} {v:rolls} one in off the glass.","That one rattled around and dropped for {n}.","{n} {v:attacks} the paint and finishes strong.","Tough shot and {n} {v:makes} it anyway.","{n} {v:keeps} the pressure on. {sa} to {sb}.","Good move, good finish. {n}.","The ball just goes in for {n} tonight.","{n} {v:gets} a friendly roll on that one.","{n} {v:slides} through the lane and scores.", "Quick first step, quick finish. {n}.", "{n} {v:glides} in for the layup.", "Patient, calm, and effective. {n}."],
+ three:["{n} from deep, and it's good!","Splash! Three for {n}.","Bang! {n} {v:buries} the three.","From way downtown, {n}.","{n} {v:lets} it fly and it's nothing but net.","Cold-blooded three from {n}.","Ice in the veins. {n} {v:drains} it.","Three-ball is down. {n} {v:is} feeling it.","That's a dagger from {n}.","{n} {v:pulls} up, no hesitation, and it's good.","Catch, shoot, three for {n}.","The range on {n}. Unreal.","Pure. Not a hair on the rim.","{n} {v:hits} the long one. {sa} to {sb}.","Deep ball falls. {n} with the three.","Way beyond the arc and {n} doesn't care.","{n} {v:launches} it from the parking lot, and it goes.","That three came with a little extra something. {n}.","They had a hand up, and {n} {v:hits} it anyway.","Shooters shoot. {n} {v:proves} it.","Off the dribble, step back, three. Good.","Three points on the board for {n}.","{n} {v:stays} in rhythm and drops another three.","That one never had a chance of missing.","Sharpshooting from {n}. Another one from way out.", "{n} {v:rises} up, and it is dropped in. Smooth.", "Wide open, and {n} {v:does} not miss those.", "Corner three, and it goes in. {n}."],
+ dunk:["{n} {v:throws} it down!","Oh, {n} {v:hammers} that home!","Posterized! {n} with the {d}.","The rim is still shaking after that one from {n}.","Look out below. {n} {v:finishes} with the {d}.","{n} {v:rises} up and takes the rim off.","Are you kidding me, {n}!","That's disrespectful, {n}.","{n} {v:attacks} the rim and nobody is stopping that.","Throwdown from {n}, and the crowd goes crazy.","{n} {v:goes} up there with the {d}. Wow.","Somebody call the cops. That was a crime.","{n} {v:plays} above the rim tonight.","That one is going on the highlight tape.","{n} {v:comes} down the lane like a freight train and finishes.","The whole fence just erupted. {n}.","Oh my goodness, {n}!","{n} {v:makes} it look easy. The {d}.","{n} {v:sends} that thing into the next zip code.","The rim had no say in that one.","Rim rocker from {n}. Absolutely violent.","Nothing but air under {n} on that one.","That is why you stay home on defense.","What a finish. What a finish by {n}.","{n} {v:takes} flight, and the rim has no chance.", "The whole court felt that one. {n}.", "Highlight reel stuff from {n}.", "{n} {v:detonates} that thing."],
+ 'dunk:Tomahawk':["A tomahawk from {n}, all the way back and down.","{n} {v:winds} up and chops that tomahawk down."],
+ 'dunk:Windmill':["Windmill jam! {n} {v:spins} that arm like a helicopter.","Here comes the windmill, {n}, and it's a beauty."],
+ 'dunk:Reverse jam':["Reverse jam. {n} {v:goes} up and over and finishes backwards.","Behind the rim and down, a reverse from {n}."],
+ 'dunk:360':["Three sixty! Somebody get a ruler for that one, {n}.","{n} {v:spins} all the way around and still dunks it. Three sixty."],
+ 'dunk:Two-hand hammer':["Two-hand hammer from {n}. No doubt about it.","Both hands, full force, {n} with the hammer."],
+ 'dunk:Cock-back':["Cock-back and slam, {n}. That was nasty.","{n} {v:cocks} it back and throws it down."],
+ 'dunk:Double-clutch':["Double clutch, {n} {v:hangs} in the air forever and finishes.","{n} {v:double-clutches} and the defender is long gone. Beautiful."],
+ block:["Rejected! {n} {v:sends} it back.","Not in this park. {n} with the block.","{n} {v:says} no.","Get that out of here. {n}.","Swatted by {n}, and that one is gone.","Great recovery, and {n} {v:erases} the shot.","{n} {v:meets} it at the summit.","Stuffed. {n} with the rejection.","{n} {v:protects} the rim like it owes money.","Hand in the cookie jar. {n} {v:takes} it away.","Wow, {n} came out of nowhere on that one.","Denied! {n} {v:blocks} it.","Right in the face. {n} with the swat.","That shot never had a chance, {n} {v:was} waiting.","{n} {v:blocks} it and the crowd loves it.","Nice try, but {n} had other plans.","{n} {v:swats} it into the next court.", "Spiked by {n}. That is a statement.", "No layups. {n} {v:makes} sure of that."],
+ steal:["Picked clean by {n}!","Quick hands, {n}!","{n} {v:jumps} the passing lane.","That's a pocket pick from {n}.","{n} {v:strips} it and heads the other way.","Reached in and took it. {n}.","Turnover. {n} {v:has} it.","Hands like glue, {n}.","Pass was a little lazy and {n} {v:takes} advantage.","{n} {v:reads} that all the way.","Sloppy handle, and {n} {v:pounces}.","Stolen! {n} {v:is} off to the races.","Careless with the rock, and {n} {v:cashes} in.","Anticipation. {n} {v:was} reading the pass the whole way.", "Easy steal for {n}, and now it is a fast break.", "{n} {v:grabs} it out of the air. Incredible instincts.", "They tried to force that pass. {n} {v:punishes} it."],
+ ankles:["Ankles! {n} {v:breaks} somebody.","Crossover and {o} is on the floor.","Somebody call a doctor. {n}.","Oh, that handle. {n} just left {o} behind.","{n} {v:gives} {o} the shake and bake.","They'll show that one on replay for weeks.","{o} went left, {n} went right, and the court went wild.","Dribble move of the night, {n}.","{o} is looking for those ankles. Nobody saw where they went.","Left them standing. {n} with the handle.","The ball was on a string. {n}.","That was cold. {n} {v:breaks} {o} down.","Somebody check {o}'s ankles.","That crossover was a crime scene.", "Whoa, {o} is going to remember that one forever.", "Handle like that should come with a warning label.", "{n} {v:snaps} the defender in half. Breathtaking."],
+ fire:["{n} {v:is} on fire.","Somebody cool {n} down.","{n} {v:can't} miss right now.","Three straight for {n}, and the rim looks like an ocean.","Heating up. {n} {v:has} the hot hand.","{n} {v:is} in the zone, and everybody sees it.","Hands up in the air. {n} {v:is} feeling it.","The rim is a bucket for {n} right now.","{n} {v:is} locked in. Different gear.", "Can not stop {n} right now. Just can not.", "{n} {v:has} got the touch tonight. Everything goes.", "It does not matter who is guarding. {n} {v:scores}."],
+ run:["That's {streak} straight now.","Momentum is swinging hard.","Defense can't solve this right now.","They need a stop, and they need it now.","Nobody can slow this team down.","It's a full-blown run.","Timeout would be nice right about now.","The other side is on its heels.","That is a quick burst. They need to settle it down.", "Everything is clicking for one side.", "It is getting loud. They are feeding off that.", "Can this other side find an answer?"],
+ tie:["All tied up.","We're level. Anybody's game.","Tied at {sa}. Here we go.","Back to even, and the crowd is loving it.","Dead even. Next bucket matters.","Everything is even again.", "Tied game. This crowd is about to go crazy.", "Even at {sa}. Next one wins momentum."],
+ gp:["Game point.","One bucket away.","This could be it.","Everybody is on their feet. Game point.","One more bucket ends it.","Next score wins the whole thing.","Do or die from here.", "Next bucket wins it. Absolutely no pressure.", "Game point. You can hear a pin drop.", "Everything is on the line."],
+ fade:["Fadeaway, and it's good.","{n} {v:fades} away and nobody can touch that.","Fadeaway from {n}. Butter.","Leaning back, and in it goes. {n}.","Tough, contested, and it drops. Fadeaway.","That's a shot you can't really guard.","Falling away and it still goes. That is tough.", "Fadeaway jumper, and {n} {v:makes} it look easy.", "Contested, off balance, good. How?"],
+ euro:["Euro step and the finish.","{n} {v:glides} through with the euro.","Two steps, two directions, and two points. {n}.","Euro step, and the defender is stuck. {n}.","Smooth euro step from {n}.","{n} {v:slithers} past with the euro.","Euro step through traffic, and {n} {v:finishes} it.", "Two long strides and a soft finish. {n}.", "That euro step froze everybody. {n}."],
+ spin:["Spin move. {n} {v:is} gone.","{n} {v:spins} right past the defender.","Nice spin. {n} {v:finds} some space.","{n} {v:spins} out of trouble.","Spin cycle from {n}, and the defender has no answer.","Spin, spin, and {n} {v:has} the paint to a clear lane.", "{n} {v:spins} off the defender and gets a clean look.", "Spin move. Defender got turned around completely."],
+ miss:["Front rim. No good.","That one just wouldn't fall.","Off the iron.","Rattled in and out. So close.","Short. Left it on the court.","That's a miss, and the other side picks it up.","Nothing doing on that look.","Won't go down. Tough break.","Rim says no.", "Back iron. It looked good, though.", "Long rebound coming off.", "A little too strong on that one.", "Just missed. The rim was not in a giving mood.", "Off the glass and out."],
+ air:["Airball! Somebody get a ladder.","Didn't even touch the rim.","Airball. We've all been there.","Missed everything, and the crowd lets {n} hear it.","Whoa, that one never got close."],
+ clock:["Shot clock. That's a turnover.","They ran out of time on that possession.","Clock hits zero. Ball goes over.","Too much dribbling, not enough shooting. Shot clock violation.","Ran out the clock. Wasted possession.", "Shot clock buzzes. They stalled too long."],
+ oob:["Out of bounds. The other side takes it.","Stepped out. Ball goes the other way.","That one got away from {n}. Out of bounds.","Out of play. Wasted possession.","Off the foot, out of bounds.", "Tried to save it, no luck. Out of bounds."],
+ goaltend:["Goaltending. The basket counts.","Hand on the rim. Goaltend.","Touched it on the way down. Count it."],
+ oreb:["Offensive board. Second chance.","They got the rebound and they're staying put.","Crashing the glass and getting it. Second chance.","Keep it alive. Offensive rebound."],
+ reb:["Rebound.","Cleans the glass.","They get the board.","Rebound secured, and now the other way.","Strong rebound.", "Boxed out and secured.", "Corrals the board.", "That rebound is a possession saved."],
+ leadchange:["New leader. {sa} to {sb}.","That bucket gives them the lead.","The lead changes hands.","They take the lead, and the court gets loud.","Back in front, {sa} to {sb}."],
+ comeback:["Look at that comeback. We are right back in it.","They were down big, and now it's a game.","Don't count them out. {sa} to {sb}.","From way behind to within one possession. Wow.","That's a comeback in the making."],
+ blowout:["This one is getting out of hand.","{sa} to {sb}. Somebody is running away with it.","They have to figure something out, because this lead keeps growing.","Not much drama left in this one."],
+ close:["This one is going to the wire.","{sa} to {sb}. Next bucket could be big.","What a game. Nobody blinking.","Every possession matters now.","Tight, tight, tight."],
+ win:["That's the game. {sa} to {sb}.","Game over. {n} {v:finishes} it off.","And that's it. A great one.","Winner stays. That's how it works on this court.","Final score, {sa} to {sb}. What a game.","They get it done. Congratulations."],
+ loss:["That's the game, {sa} to {sb}. Tough one.","Not tonight. Run it back and try again.","They fought hard, but it wasn't enough.","Game over. Learn from it and come back stronger.","{sa} to {sb} and the other side takes the court."],
+ crowd:["The fence is shaking out here.","Kids on the fence going wild.","Whole block is on its feet.","You can hear this one from three blocks away.","Crowd is louder with every possession.","Somebody turn up the radio, the energy is something else.","A boombox in the corner is keeping the beat, and everybody's bouncing.","You can feel it out here. Electric.","Fans are chanting out here.", "You do not get energy like this in a gym.", "Everybody wants to see another highlight, and they keep getting them.", "Great atmosphere, a perfect night to play ball."],
+ pass:["Nice dime.","Ball movement, beautiful.","Good pass, great finish.","The extra pass pays off."],
+ assist:["Assist goes to {n}.","Great vision from {n}.","{n} {v:sets} it up perfectly."],
+ hype:["The crowd energy is through the roof.","This place is rocking.","You can feel the heat on this court.","Somebody pour some water on this court, it's on fire."]
+};
+/* conversations: a play-by-play line answered by the color analyst */
+const ST2X={
+ start:[["Welcome to the court, I'm Marcus Hale alongside Dee Brooks.","Glad to be here, Marcus. It feels like a good night for it."],["Beautiful night, a packed fence, and first to {to}. Dee, what are you watching?","Who wants it more. In a first-to-{to} game, the first few possessions set the tone."],["We're set to go. Dee, key to this one?","Transition defense and rebounding. Nobody wins out here by accident."],["Ball is about to go live. Anything we should watch?","Watch the spacing. The team that moves the ball usually gets the better looks."],["Street rules, no whistles, play till the end.","Which means every contact is a conversation. Be ready for some physical basketball."],["Marcus, it's all about who can finish.","Exactly. Pretty moves don't count if you can't finish at the rim."],["Everyone's stretched and ready. Dee?","This is where reputations get made. Let's see who shows up."],["First to {to}. Is that long enough for a comeback?","Plenty long. A ten-point run can come out of nowhere out here."]],
+ bucket:[["{n} with the score. Dee, that's smart basketball.","Right shot at the right time. That's patience, not luck."],["Two points for {n}.","And did you see the footwork? That's what separates good from great."],["{n} {v:makes} it.","Smooth. The defense just got a little tired of chasing."],["That's a clean finish.","Strong hands and good balance. You can't teach that."],["Another bucket for {n}.","They're finding their rhythm now, and that's dangerous."]],
+ three:[["{n} from deep. Dee, that's confidence.","If you've got the green light and you've got range, you take it. Simple."],["Splash! Three for {n}.","That's textbook. Feet set, hands up, follow through."],["That three came right off the dribble.","Not many players can create that kind of separation and still hit."],["Money from the outside.","The defense has to respect that range now. Watch the lanes open up."],["And that's a long one.","The whole shape of this game just changed. They can't sag off anymore."]],
+ dunk:[["{n} with the {d}!","That's the athleticism you can't coach, Marcus. Pure explosion."],["Oh my goodness!","The defender saw it coming and still couldn't do a thing about it."],["Posterized!","That's going to be on the group chat for a week."],["What a jam!","Listen to that crowd. That's worth a few extra points on its own."],["{n} throws it down.","And it changes the mood on the entire court."]],
+ block:[["Rejected by {n}.","That's timing, Marcus. You can't fake that kind of instinct."],["Blocked!","Waiting for it the whole way. Smart defender, bad shot selection."],["{n} with the swat.","Message sent. Nobody's coming near that rim for a while."],["What a rejection.","That kind of play flips momentum in a second."]],
+ steal:[["Picked off by {n}.","Reading the passing lane like a book."],["{n} with the steal.","That's anticipation. Watching eyes, not the ball."],["Turnover, and it's the other way.","Careless pass, and that'll cost them."]],
+ ankles:[["Ankles! {n} {v:breaks} {o}.","That crossover was filthy. Left and right, and the defender sat down."],["Oh, that handle!","That's not defense, that's an accident waiting to happen."],["{n} with the shake.","Dribble like that can end a defender's night."],["Somebody call a doctor.","You never forget being broken down like that. It's the stuff of nightmares."]],
+ fire:[["{n} {v:can't} miss.","The rim looks like a swimming pool to them right now."],["{n} {v:is} on fire.","When a shooter gets hot, you throw the game plan away and just guard them."],["Three in a row for {n}.","Rhythm. Pure rhythm. Don't break it."]],
+ run:[["That's a run.","Momentum in street ball is the whole game. Once it turns, it's hard to turn back."],["{streak} straight.","The defense is a step slow and the offense is smelling blood."]],
+ gp:[["Game point.","Pressure shots now. Whoever wants it most is going to take it."],["One bucket away.","Don't overthink it, just take a good shot and trust it."],["Game point, folks.","Everything slows down here. That's when champions show up."]],
+ leadchange:[["New leader.","And what a way to take it. That crowd is loud now."],["They take the lead.","The best thing a team can do is keep the pressure on after that."]],
+ comeback:[["Look at that comeback.","Never count out a team that keeps playing defense."],["Back within reach.","That's what happens when you stop worrying about the score and just play."]],
+ close:[["This one is tight.","Every possession from here is a possession for the whole game."],["Neck and neck.","You can see the nerves. It's a whole different game at the end."]],
+ miss:[["Misses it.","Rushed it. A little patience and that's a better shot."],["Off the rim.","Good look, bad bounce. Happens."]],
+ win:[["And that's the game.","What a performance. They never let go of the rope."],["Game over.","You could feel it turn right there. That's what great teams do."],["A win for the home squad.","Defense and rebounding, Marcus. It wins every time."]],
+ loss:[["That's the game.","Tough one to swallow, but there's always the next run."],["Game over.","Learn from it. The good ones always come back."]],
+ crowd:[["Listen to this crowd.","They can feel it. You can't fake energy like that."],["The fence is shaking.","Street ball at its best, Marcus."]]
+};
+/* what the color man says about a player, built from their real ratings */
+function st2Quality(p){const L=p.legend;if(!L)return null;const o=L.off||L.ovr,d=L.def||L.ovr,big=['C','PF'].includes(L.pos);const out=[];
+  if(L.ovr>=95)out.push('One of the greatest to ever play the game');else if(L.ovr>=91)out.push('A true superstar');else if(L.ovr>=87)out.push('An all-star caliber player');else out.push('A tough, hard-nosed competitor');
+  if(o>=94)out.push('and an elite scorer who can get a bucket from anywhere');else if(o>=88)out.push('with a real scoring touch');
+  if(d>=92)out.push('who makes everyone earn it on defense');else if(d>=86)out.push('who guards with real pride');
+  if(L.pos==='PG')out.push('a true floor general');else if(L.pos==='C')out.push('a monster in the paint');else if(L.pos==='PF')out.push('who does the dirty work inside');else if(L.pos==='SG')out.push('a natural shot maker');else if(L.pos==='SF')out.push('a versatile wing who does a little of everything');
+  return out}
+function st2Intro(p){const L=p.legend;if(!L)return null;const era=(typeof ERAS!=='undefined'&&ERAS[L.era])?ERAS[L.era].full:'';const q=st2Quality(p);if(!q)return null;
+  const T=[`{nf}, a ${L.ovr} overall ${L.pos} out of the ${era}.`,`Over here, {nf}. ${L.ovr} overall. A ${L.pos} from the ${era}.`,`{nf}, ${L.ovr} overall, from the ${era}.`];
+  const C=[`${q[0]}${q[1]?', '+q[1]:''}.`,`${q.slice(0,2).join(', ')}${q[2]?', '+q[2]:''}.`,`You don't see many like that. ${q[0]}.`,`${q[0]}. And ${q[q.length-1]}.`];return[T[Math.random()*T.length|0],C[Math.random()*C.length|0]]}
+/* mid-game remarks on a hot player */
+const ST2P={hot:["{nf} has {pts} points already.","{nf} is cooking. {pts} so far.","{pts} for {nf}, and still looking for more.","{nf} is carrying them right now."],
+ oldschool:["Classic {era} stuff from {nf}. Fundamentals never go out of style.","That's {era} basketball, and {nf} is a master of it.","{nf} would've been a star in any era, and tonight proves it."],
+ star:["That's what a {ovr} overall does, folks.","This is why {nf} is a legend. Moments like these.","{nf} lives for the spotlight."],
+ def:["{nf} is the best defender on this court, and it isn't close.","Nobody gets by {nf} without paying for it.","Great defense from {nf}. That's why {nf} is rated {def} on that end."],
+ big:["{nf} owns the paint. Nobody's scoring over that.","The big man is making a difference down low.","That's a {pos} doing {pos} things."],
+ guard:["{nf} runs this offense like a conductor.","Ball handling from {nf} is pure art right now.","Floor general {nf}, directing traffic."]};
+const ST2B={};/* shuffle bags so lines don't repeat until the pool is used up */
+function st2Pick(key,arr){if(!arr||!arr.length)return null;let b=ST2B[key];if(!b||!b.length){b=ST2B[key]=arr.map((_,i)=>i);for(let i=b.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[b[i],b[j]]=[b[j],b[i]]}}const i=b.pop();return arr[i]}
+const ST2_IRR={is:'are',has:'have',goes:'go',does:'do',was:'were','isn\'t':'aren\'t','doesn\'t':'don\'t','hasn\'t':'haven\'t'};
+function st2Fill(t,c){let out=st2Fill0(t,c).replace(/\b([Aa]) (8\d|11|18)(\b)/g,'$1n $2$3');return c.you?out.replace(/\bYou (is|was|has|doesn't|isn't)\b/g,(m,w)=>'You '+({is:'are',was:'were',has:'have',"doesn't":"don't","isn't":"aren't"})[w]):out}
+function st2Fill0(t,c){return t.replace(/\{v:([^}]+)\}/g,(m,w)=>{if(!c.you)return w;const l=w.toLowerCase();if(ST2_IRR[l])return ST2_IRR[l];if(/(?:sh|ch|ss|x|z)es$/.test(w))return w.slice(0,-2);if(/ies$/.test(w))return w.slice(0,-3)+'y';return w.replace(/s$/,'')})
+  .replace(/\{n's\}/g,c.you?'your':c.n+'\'s').replace(/\{nf\}/g,c.nf).replace(/\{n\}/g,c.n).replace(/\{o\}/g,c.o).replace(/\{d\}/g,c.d).replace(/\{sa\}/g,c.sa).replace(/\{sb\}/g,c.sb).replace(/\{to\}/g,c.to).replace(/\{pts\}/g,c.pts).replace(/\{streak\}/g,c.streak).replace(/\{era\}/g,c.era).replace(/\{ovr\}/g,c.ovr).replace(/\{def\}/g,c.def).replace(/\{pos\}/g,c.pos)}
+function st2Ctx(s,p,extra){const you=!!(p&&stLoc(p)&&!s.opt.online);const L=p&&p.legend;const op=p?stNearest(s.teams[stOpp(p.team)],p.x,p.y):null;const nm=p?(you?'You':last(p.name)):'';
+  const lead=s.score.A-s.score.B;const mine=!p||p.team==='A';
+  return{you,n:nm||'They',nf:p?(you?'You':p.name):'They',o:op?last(op.name):'the defender',d:(extra&&extra!=='jam'?extra:'dunk'),sa:Math.max(s.score.A,s.score.B),sb:Math.min(s.score.A,s.score.B),to:s.to,pts:p?(p.st.pts||0):0,streak:(p&&s.streak[p.team])||3,era:L&&typeof ERAS!=='undefined'&&ERAS[L.era]?ERAS[L.era].full:'',ovr:L?L.ovr:'',def:L?(L.def||''):'',pos:L?L.pos:'',lead,mine}}
+/* build what gets said: 'lines' is a list of {r:'a'|'b',t:text} */
+function st2Script(kind,p,extra){const s=ST;const c=st2Ctx(s,p,extra);const key=kind==='dunk'&&extra&&ST2L['dunk:'+extra]&&Math.random()<.45?'dunk:'+extra:kind;
+  const pool=ST2L[key]||ST2L[kind];if(!pool)return null;const ex=ST2X[kind];const r=Math.random();let lines;
+  const exch=ex&&r<({dunk:.4,ankles:.35,block:.3,three:.25,gp:.45,start:.7,win:.6,loss:.5,leadchange:.4,comeback:.5,close:.45,run:.35,fire:.4,crowd:.5}[kind]||.18);
+  if(exch){const e=st2Pick('x:'+kind,ex);lines=e.map((t,i)=>({r:i%2?'b':'a',t:st2Fill(t,c)}))}
+  else lines=[{r:'a',t:st2Fill(st2Pick('l:'+key,pool),c)}];
+  /* a legend gets a remark about how good they are, every so often */
+  if(p&&p.legend&&!c.you&&lines.length===1&&['bucket','three','dunk','fade','euro','block','steal','fire'].includes(kind)&&Math.random()<.22){const L=p.legend;const bag=[];if((p.st.pts||0)>=6)bag.push('hot');if(['90s','80s','70s','60s','50s'].includes(L.era))bag.push('oldschool');if(L.ovr>=90)bag.push('star');if((L.def||0)>=90&&['block','steal'].includes(kind))bag.push('def');if(['C','PF'].includes(L.pos))bag.push('big');if(['PG','SG'].includes(L.pos))bag.push('guard');
+    if(bag.length){const k=bag[Math.random()*bag.length|0];lines.push({r:'b',t:st2Fill(st2Pick('p:'+k,ST2P[k]),c)})}}
+  return lines}
+
+/* ===== Broadcast voice engine: two commentators, natural pacing, no hard cut-offs ===== */
+const SV={q:[],cur:null};
+const ST2_MALE=/\b(Guy|Davis|Andrew|Brian|Christopher|Eric|Roger|Steffan|Tony|Jason|Ryan|Daniel|Aaron|Evan|Nathan|Tom|Alex|Fred|Oliver|Arthur|George|James|Mark|David|Matthew|Gordon|Rishi|Male|Ralph|Reed|Liam|Thomas|Mike|Bruce|Rocko|Lee|Jacob|Noah)\b/i;
+const ST2_FEM=/\b(Aria|Jenny|Michelle|Ana|Emma|Sonia|Libby|Samantha|Ava|Allison|Zoe|Susan|Karen|Moira|Tessa|Serena|Kate|Female|Catherine|Nicole|Sara|Joanna|Salli|Kimberly|Amy|Ivy|Kendra|Jessica|Victoria|Fiona|Veena|Mia|Natasha|Clara)\b/i;
+/* rank: studio-quality neural voices first, then enhanced and premium, then the plain system voices */
+voxRank=function(v){const n=(v.name||'')+' '+(v.voiceURI||'');let s=0;if(/^en[-_]US/i.test(v.lang))s+=30;else if(/^en[-_](GB|AU|CA|IE|ZA|IN)/i.test(v.lang))s+=24;else if(/^en/i.test(v.lang))s+=18;else return -1;
+  if(/natural|neural/i.test(n))s+=70;else if(/online/i.test(n))s+=48;if(/premium|enhanced|siri/i.test(n))s+=44;if(/Google (US|UK) English/i.test(n))s+=34;
+  if(/Guy|Davis|Andrew|Brian|Christopher|Eric|Roger|Steffan|Tony|Jason|Ryan/i.test(n))s+=14;if(/Daniel|Aaron|Evan|Nathan|Tom|Alex/i.test(n))s+=10;if(/Aria|Jenny|Michelle|Ava|Allison|Zoe|Samantha|Emma|Sonia|Libby/i.test(n))s+=9;
+  if(/Zarvox|Trinoids|Whisper|Bells|Bubbles|Cellos|Bad News|Good News|Jester|Organ|Superstar|Wobble|Bahh|Boing|Albert|Hysterical|Junior|Ralph|Kathy|Grandma|Grandpa|eSpeak|compact|Fred|Princess|Agnes|Bruce|Vicki/i.test(n))s-=60;if(v.localService)s+=2;return s};
+try{voxLoad()}catch(e){}
+function st2Voices(){if(!VOX.voices.length)voxLoad();const V=voxSet(),vs=VOX.voices;if(!vs.length)return{a:null,b:null};const key=vs.length+'|'+V.voice+'|'+V.voice2;if(st2Voices.k===key)return st2Voices.v;
+  const by=w=>w&&vs.find(v=>v.voiceURI===w||v.name===w);const males=vs.filter(v=>ST2_MALE.test(v.name)&&!ST2_FEM.test(v.name)),fems=vs.filter(v=>ST2_FEM.test(v.name));
+  const a=by(V.voice)||males[0]||vs[0];const b=by(V.voice2)||(ST2_FEM.test(a.name)?males.find(v=>v!==a):fems.find(v=>v!==a))||vs.find(v=>v!==a&&v.lang===a.lang)||vs.find(v=>v!==a)||a;
+  st2Voices.k=key;st2Voices.v={a,b};return st2Voices.v}
+if(typeof speechSynthesis!=='undefined'){try{speechSynthesis.addEventListener('voiceschanged',()=>{st2Voices.k=''})}catch(e){}}
+/* shape the words so the engine reads them the way a broadcaster would */
+function st2Shape(t){return voxClean(t).replace(/\b([A-Z])([A-Z]{2,})\b/g,(m,a,b)=>a+b.toLowerCase()).replace(/\s*[—–]\s*/g,', ').replace(/!{2,}/g,'!').replace(/\.{3,}/g,'...')}
+function st2Utt(L){const V=voxSet(),vv=st2Voices(),voice=L.r==='b'?vv.b:vv.a;let u;try{u=new SpeechSynthesisUtterance(st2Shape(L.t))}catch(e){return null}
+  if(voice){try{u.voice=voice}catch(e){}u.lang=voice.lang||'en-US'}else u.lang='en-US';const h=L.h!=null?L.h:voxHype(L.t)*(V.hype?1:.3);const j=()=>1+(Math.random()-.5)*.06;const fem=voice&&ST2_FEM.test(voice.name),same=vv.a===vv.b;
+  /* the sliders still work: speed 1.05 (the old default) now lands at a relaxed 0.95 */
+  let rate=V.rate*(Math.abs(V.rate-1.05)<.001?.9:.97)*(L.r==='b'?.96:1)*(1+h*.05)*j();
+  let pitch=V.pitch*(fem?1:.96)*(same&&L.r==='b'?.86:1)*(1+h*.03)*j();
+  u.rate=Math.max(.7,Math.min(1.3,rate));u.pitch=Math.max(.7,Math.min(1.35,pitch));u.volume=Math.min(1,V.vol*(.9+h*.1));return u}
+const st2SpeakOn=()=>{const V=voxSet();return !!(V.on&&voxOK()&&!document.hidden&&!(SV&&SV.deaf>=2))};
+function st2Enq(lines,pri){if(!lines||!lines.length)return;const now=performance.now();const spoken=st2SpeakOn();
+  if(SV.cur){if(pri>SV.cur.pri&&now-SV.cur.t0<900){SV.q=[];st2Cut()}
+    else{SV.q=SV.q.filter(c=>c.pri>=pri||now-c.t<2600);if(SV.q.length>=2){if(pri<SV.q[SV.q.length-1].pri)return;SV.q.pop()}SV.q.push({lines,pri,t:now});return}}
+  st2Play({lines,pri,t:now})}
+function st2Cut(){const c=SV.cur;SV.cur=null;if(c)c.dead=1;try{if(voxOK())speechSynthesis.cancel()}catch(e){}}
+function st2Play(c){SV.cur=c;c.i=0;c.t0=performance.now();st2Next(c)}
+function st2Done(c){if(SV.cur!==c)return;SV.cur=null;try{musDuck(false)}catch(e){}const q=SV.q.shift();if(q)setTimeout(()=>{if(!SV.cur)st2Play(q)},200)}
+function st2Next(c){if(SV.cur!==c||c.dead)return;if(c.i>=c.lines.length)return st2Done(c);const L=c.lines[c.i++],last=c.i>=c.lines.length;const gap=last?0:(L.gap!=null?L.gap:360);let fin=false;
+  const go=()=>{if(fin)return;fin=true;clearTimeout(c.wd);setTimeout(()=>st2Next(c),gap)};
+  if(st2SpeakOn()){const u=st2Utt(L);if(u){let started=false;u.onstart=()=>{started=true;SV.deaf=0;clearTimeout(c.sw);if(L.cap)try{L.cap(L)}catch(e){}};u.onend=u.onerror=()=>{clearTimeout(c.sw);if(!started&&L.cap)try{L.cap(L)}catch(e){}go()};try{musDuck(true);speechSynthesis.speak(u)}catch(e){if(L.cap)try{L.cap(L)}catch(_){}c.wd=setTimeout(go,Math.max(1900,L.t.length*68));return}
+    /* a device can claim speech and never say a word: show the caption anyway and, after two misses, stay on captions */
+    c.sw=setTimeout(()=>{if(started||fin)return;clearTimeout(c.wd);SV.deaf=(SV.deaf||0)+1;try{speechSynthesis.cancel()}catch(e){}if(L.cap)try{L.cap(L)}catch(e){}c.wd=setTimeout(go,Math.max(1900,L.t.length*68))},2200);c.wd=setTimeout(()=>{try{speechSynthesis.cancel()}catch(e){}go()},13000);return}}
+  if(L.cap)try{L.cap(L)}catch(e){}c.wd=setTimeout(go,Math.max(1900,L.t.length*68))}
+/* single lines from the rest of the game (volleyball, football, online) go through the same booth */
+voxSay=function(text,o){o=o||{};const V=voxSet();if(!V.on||!voxOK()||document.hidden)return;const t=voxClean(text);if(!t)return;st2Enq([{r:o.role||'a',t,h:o.hype}],o.pri||1)};
+{const _vs=voxStop;voxStop=function(){SV.q=[];const c=SV.cur;SV.cur=null;if(c)c.dead=1;return _vs.apply(this,arguments)}}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){SV.q=[];st2Cut()}});
+
+/* ---------- the booth: captions, scripts, triggers ---------- */
+function st2CapS(L){const el=$('#stCom');const s=ST;if(s&&!s.netClient)try{stnEvPush(['com',L.t])}catch(e){}if(!el)return;const who=(L.r==='b'?ST2_CAST.b:ST2_CAST.a).split(' ')[0];el.innerHTML=`<small class="s2who ${L.r==='b'?'b':''}">${who}</small>${esc(L.t)}`;el.classList.remove('on');void el.offsetWidth;el.classList.add('on');clearTimeout(stCom.h);stCom.h=setTimeout(()=>{if(el.isConnected)el.classList.remove('on')},Math.max(2600,L.t.length*72))}
+function st2ScoreCtx(s,kind){/* upgrade a plain bucket line when the score tells a better story */
+  if(!['bucket','three','dunk','fade','euro'].includes(kind)||!s||s.opt.mode==='practice')return kind;const A=s.score.A,B=s.score.B,lead=A-B,prev=s.prevLead||0,mx=Math.max(A,B);const r=Math.random();
+  if(s.over)return kind;if(prev*lead<0&&r<.6)return'leadchange';
+  s.maxLeadAbs=Math.max(s.maxLeadAbs||0,Math.abs(prev));if(!s.cbDone&&s.maxLeadAbs>=7&&Math.abs(lead)<=2&&r<.7){s.cbDone=1;return'comeback'}
+  if(Math.abs(lead)>=9&&r<.25)return'blowout';if(mx>=s.to-5&&Math.abs(lead)<=2&&r<.4)return'close';if(r<.06)return'crowd';return kind}
+{const _c=stCom;stCom=function(kind,p,extra,pri){const s=ST;try{st2Ev(kind,p,extra)}catch(e){}
+  if(!s||s.auto||s.opt.mode==='practice'||!stSet().com)return;if(s.pro&&(kind==='start'||kind==='gp'))return;
+  if(s.court==='haunted'&&['start','dunk','block','three'].includes(kind)&&Math.random()<.75)return _c.apply(this,arguments);
+  if(!pri&&s.t-(s.comT==null?-9:s.comT)<2)return;let k=kind;try{k=st2ScoreCtx(s,kind)}catch(e){}
+  let lines=null;try{lines=st2Script(k,p,extra)}catch(e){console.warn('booth',e)}if(!lines)return _c.apply(this,arguments);
+  s.comT=s.t;lines.forEach(L=>{L.cap=st2CapS});st2Enq(lines,pri?3:1)}}
+{const _s=stScore;stScore=function(sh,pts,f){const s=ST;let astP=null;if(s){s.prevLead=s.score.A-s.score.B;try{const m=s.st2ast||(s.st2ast=new Map());s.all.forEach(q=>{const a=(q.st&&q.st.ast)||0;if(a>(m.get(q)||0)){if(q.team===sh.team&&q!==sh)astP=q;m.set(q,a)}})}catch(e){}}const r=_s.apply(this,arguments);
+  try{if(astP&&s&&!s.over&&st2Live(s)&&!f.dunk&&Math.random()<.42)setTimeout(()=>{try{if(ST===s&&!s.over)stCom('assist',astP,0,0)}catch(e){}},1500)}catch(e){}
+  try{if(s&&s.over&&st2Live(s)){const won=s.score.A>s.score.B;setTimeout(()=>{try{if(ST===s||s.over)stCom(won?'win':'loss',sh,0,1)}catch(e){}},500)}}catch(e){}return r}}
+/* pops that deserve a word from the booth */
+{const _p=stPop;stPop=function(x,y,text,col,big){const r=_p.apply(this,arguments);try{const s=ST;if(s&&!s.auto&&!s.netClient&&s.opt.mode!=='practice'){const k={'Shot clock':'clock','Out of bounds':'oob','GOALTENDING':'goaltend','Offensive board!':'oreb'}[text];if(k&&Math.random()<.8)stCom(k,s.ball.last?(s.ball.holder||null):null,0,0)}}catch(e){}return r}}
+/* when the game opens, the color man talks up the best player on the floor */
+{const _t=st2Tick;st2Tick=function(s,dt){const was=s.s2go;_t.apply(this,arguments);try{if(!was&&s.s2go&&st2Live(s)&&stSet().com){const star=s.all.filter(q=>q.legend).sort((a,b)=>b.legend.ovr-a.legend.ovr)[0];if(star){const ln=st2Intro(star);if(ln){const c=st2Ctx(s,star);const L=[{r:'a',t:st2Fill(ln[0],c)},{r:'b',t:st2Fill(ln[1],c)}];L.forEach(x=>x.cap=st2CapS);setTimeout(()=>{try{if(ST===s&&!s.over)st2Enq(L,1)}catch(e){}},3200)}}}}catch(e){}}}
+/* extra voice settings: the second commentator and a one-voice option */
+{const _o=openVoice;openVoice=function(){const r=_o.apply(this,arguments);try{const V=voxSet();const box=$('#modalBox');const first=$('#voxV');if(!box||!first)return r;const lab=first.closest('label');if(!lab)return r;
+  const opts=VOX.voices.slice(0,40).map(v=>`<option value="${esc(v.voiceURI)}" ${V.voice2&&v.voiceURI===V.voice2?'selected':''}>${esc(v.name.replace(/Microsoft |Google /,''))}${/natural|neural|online|enhanced|premium/i.test(v.name)?' ★':''} · ${esc(v.lang)}</option>`).join('');
+  lab.insertAdjacentHTML('afterend',`<label class="voxsl"><span>Co-commentator</span><select id="voxV2"><option value="">Pick automatically</option>${opts}</select></label>`);const s2=$('#voxV2');if(s2)s2.onchange=()=>{V.voice2=s2.value;saveP();voxStop();st2Voices.k='';st2Enq([{r:'a',t:'Welcome to the court, I am '+ST2_CAST.a+'.'},{r:'b',t:'And I am '+ST2_CAST.b+'. Let us get after it.'}],3)}}catch(e){}return r}}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
