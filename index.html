@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794590015">
+<meta name="hp-build" content="1794598194">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -7756,6 +7756,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "12.11", "d": "2026-11-13", "t": "Recess Rush comes alive: animated runners, tumbles and bounce pads", "b": "Recess Rush has far more animation and physics. Runners are fully animated now: arms pump and legs kick when they run, heads bobble and lean as they turn and stop, backpacks bounce, eyes blink and go wide in the air, and every runner wears a propeller cap that spins faster the faster they go. They reach up on a jump, windmill their arms on a long fall, stretch out flat on a dive, squash and spring back on landing, and stagger when someone bumps them. Getting hit sends a runner tumbling: they spin, bounce off the floor, see stars and push back up to their feet. Players shove each other now, and diving into someone knocks them over. A very long drop makes you stumble on landing. New pink bounce pads launch you into a front flip. There are effects everywhere: dust when you land and sprint, stars on big hits, doors and tiles that burst into pieces, confetti at the finish line, a camera shake on hits and a camera that pulls back at top speed. Qualified runners dance at the finish, and you can cheer any time with the Cheer button or the C key."},
  {"v": "12.10", "d": "2026-11-13", "t": "Recess Rush: a 24-player knockout game, plus tougher Street", "b": "New game: Recess Rush. 24 players start, and each round knocks some out until one player takes the trophy. There are six rounds to learn: three obstacle races (Door Dash-Out, Spin Cycle and Swing Shift) with breakable doors, spinning bars, wrecking balls, moving islands, pushers and conveyor belts, plus Floor Sweep, where you jump a spinning bar on a shrinking floor, Tile Drop, where the floor vanishes under your feet, and the Trophy Summit final, a climb past rolling balls. Run, jump and dive with the keyboard, a controller, or the on-screen stick and buttons on phones. You can practice any round, pick your runner's outfit and backpack colors, and earn XP for every round you clear and a big bonus for a win. Find it at the top of Quick play on the home page.\nStreet basketball is more competitive. Normal and Legend opponents shoot, steal, block and help on defense better, and there is a new top level, Hall of Fame, that pays bonus Street Rep. Your shot timing window is tighter against better defenders and shrinks when a hand is in your face, so open looks matter more. Opponents also dig in when you build a lead or a win streak, and after an easy win the game points you to the next level up."},
  {"v": "12.9", "d": "2026-11-12", "t": "A new Profile, Locker and Shop, plus name and logo fixes", "b": "Your profile no longer slides in from the side. It opens as a centered pop-up with your full banner on top, your level and XP, your stats, pinned badges, a summary of your look and your Locker progress, and tabs for Achievements, Cards, History and Account. The Locker was rebuilt like a dressing room: a live preview of your player card, a Wearing now list where one tap takes an item off, tabs for Inventory, Shop, Collection and Style, search and rarity filters, and cleaner item tiles and try-on previews that fit every screen size. The Shop has a Today's shop with a timer and the odds for each rarity, tidier sections, and long catalogues fold away so you can find things faster. Items no longer repeat between sections, and the shop no longer reshuffles after you buy something. Fixes: name styles are no longer squeezed or cut off, your name now shows clearly on every nameplate, the Mythic label on items reads properly, the Collection count matches the list, and the seasonal message under the HALLPASS logo is no longer clipped."},
  {"v": "12.8", "d": "2026-11-12", "t": "Top bar fix: clean profile button on every screen", "b": "The profile button at the top of the screen is cleaned up. Your picture frame, glow and crown badge now stay neatly around your avatar instead of spilling over it, your name can no longer slide underneath the picture, and the button is a perfect circle on phones. On mid-size phones and small tablets the top bar no longer runs off the edge: the sound and profile buttons stay on screen and the tabs scroll if they ever need more room."},
@@ -9396,7 +9397,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794590015';
+const BUILD='1794598194';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -19868,7 +19869,7 @@ function rcsDraw(g){const cv=$('#rcsCv');if(!cv)return;const x=cv.getContext('2d
   else if(W.kind==='sweep'){tx=f.x*.35;ty=11.5;tz=W.cz-15.5+(f.z-W.cz)*.3;tp=.7;if(ch>cw){ty+=5;tz-=5}}
   else{tx=f.x*.6;ty=f.y+15;tz=f.z-11.5;tp=.86;if(ch>cw){ty+=4;tz-=2.6}}
   if(g.phase==='intro'&&W.race){const k=rcsCl(g.pt/2.6,0,1);tz+=k*k*(W.len*.6);ty+=k*9}
-  const lk=g.camInit?.12:1;g.camInit=1;c.x+=(tx-c.x)*lk;c.y+=(ty-c.y)*lk;c.z+=(tz-c.z)*lk;c.p=tp;c.s=Math.sin(tp);c.c=Math.cos(tp);c.W=cw;c.H=ch;c.F=Math.min(ch*1.05,cw*1.25);c.hy=.42;
+  const lk=g.camInit?.12:1;g.camInit=1;c.x+=(tx-c.x)*lk;c.y+=(ty-c.y)*lk;c.z+=(tz-c.z)*lk;c.p=tp;c.s=Math.sin(tp);c.c=Math.cos(tp);c.W=cw;c.H=ch;c.F=Math.min(ch*1.05,cw*1.25);c.hy=.42;if(RCS.camHook)RCS.camHook(g,c);
   /* sky */
   const sk=x.createLinearGradient(0,0,0,ch);const SKY={doors:['#5ec8ff','#d9f4ff'],spin:['#7b8cff','#ffd6f0'],swing:['#ff9e7a','#ffe9b8'],sweep:['#3fc9c0','#e6fff6'],tiles:['#3a3f8f','#b08cff'],summit:['#ff7fa8','#ffe08a']}[W.kind];sk.addColorStop(0,SKY[0]);sk.addColorStop(1,SKY[1]);x.fillStyle=sk;x.fillRect(0,0,cw,ch);
   x.fillStyle='rgba(255,255,255,.55)';for(let i=0;i<7;i++){const px=((i*197+c.x*-6+c.z*-1.5*(i%3+1))%(cw+300)+cw+300)%(cw+300)-150,py=ch*(.06+(i*37%30)/100),r=30+i*9;x.beginPath();x.ellipse(px,py,r*1.8,r*.5,0,0,7);x.ellipse(px+r*.9,py-r*.25,r,r*.45,0,0,7);x.fill()}
@@ -19903,9 +19904,11 @@ function rcsDraw(g){const cv=$('#rcsCv');if(!cv)return;const x=cv.getContext('2d
       if(W.arch){const A=W.arch;rcsPart(F,c,-6,A.y,A.z,0,0,0,2.2,0,.25,2.2,.25,[255,95,120]);rcsPart(F,c,6,A.y,A.z,0,0,0,2.2,0,.25,2.2,.25,[255,95,120]);for(let i=0;i<8;i++)rcsPart(F,c,-5.25+i*1.5,A.y,A.z,0,0,0,4.75,0,.76,.38,.2,i%2?[32,38,60]:[255,255,255])}
       if(W.trophy){const T=W.trophy,bob=Math.sin(W.t*2.4)*.12,G=[255,205,70];rcsPart(F,c,T.x,T.y,T.z,0,0,0,.25,0,.8,.25,.8,[120,110,190]);rcsPart(F,c,T.x,T.y+bob,T.z,W.t*1.5,0,0,.75,0,.3,.08,.3,G);rcsPart(F,c,T.x,T.y+bob,T.z,W.t*1.5,0,0,1,0,.09,.22,.09,G);rcsPart(F,c,T.x,T.y+bob,T.z,W.t*1.5,0,0,1.55,0,.42,.36,.42,G);rcsPart(F,c,T.x,T.y+bob,T.z,W.t*1.5,0,0,1.6,0,.62,.08,.08,[255,230,130])}}
     for(const e of my){const q=rcsPt(c,e.x,e.y+.7,e.z);if(!q||q[3]>80)continue;rcsChar(F,c,e,q[3]>26)}
+    if(RCS.drawHook)RCS.drawHook(F,c,g,L);
     F.sort((a,b)=>b.d-a.d);for(const q of F){if(q.a){x.fillStyle=q.col;x.beginPath();x.moveTo(q.a[0],q.a[1]);for(let i=2;i<q.a.length;i+=2)x.lineTo(q.a[i],q.a[i+1]);x.closePath();x.fill();x.strokeStyle=q.col;x.lineWidth=.7;x.stroke()}
       else if(q.circ){const [px,py,r]=q.circ;const gr=x.createRadialGradient(px-r*.35,py-r*.4,r*.1,px,py,r);gr.addColorStop(0,rcsRGB(q.col,1.25));gr.addColorStop(1,rcsRGB(q.col,.6));x.fillStyle=gr;x.beginPath();x.arc(px,py,r,0,7);x.fill();if(q.rot!=null){x.strokeStyle='rgba(255,255,255,.5)';x.lineWidth=r*.14;x.beginPath();x.arc(px,py,r*.62,q.rot,q.rot+2.2);x.stroke()}}
       else if(q.line){x.strokeStyle='#4a5080';x.lineWidth=q.w;x.beginPath();x.moveTo(q.line[0],q.line[1]);x.lineTo(q.line[2],q.line[3]);x.stroke()}}}
+  if(RCS.fxHook)RCS.fxHook(x,c,g);
   /* you-are-here marker and names */
   const me=g.me;if(me.alive&&!me.out){const q=rcsPt(c,me.x,me.y+1.95*me.sc,me.z);if(q){const s=Math.max(7,q[2]*.2);x.fillStyle='#fff';x.strokeStyle='rgba(10,14,40,.7)';x.lineWidth=2;x.beginPath();x.moveTo(q[0]-s,q[1]-s*1.3);x.lineTo(q[0]+s,q[1]-s*1.3);x.lineTo(q[0],q[1]);x.closePath();x.stroke();x.fill()}}
   if(g.focus&&g.focus!==me){const q=rcsPt(c,g.focus.x,g.focus.y+2,g.focus.z);if(q){x.font='700 13px system-ui';x.textAlign='center';x.fillStyle='rgba(10,14,40,.7)';const w=x.measureText(g.focus.name).width+14;x.fillRect(q[0]-w/2,q[1]-20,w,20);x.fillStyle='#fff';x.fillText(g.focus.name,q[0],q[1]-6)}}}
@@ -20021,6 +20024,84 @@ ST_DIFF.hof={n:'Hall of Fame',perf:.76,react:.1,stl:.15,q:10,help:.93,spd:1.07,t
 {const _e=stEnd;stEnd=function(winner,forfeit){const s=ST;let info=null;try{if(s&&!s.opt.online&&!forfeit&&['1v1','2v2','3v3'].includes(s.opt.mode||'1v1'))info={won:winner==='A',m:s.score.A-s.score.B,diff:s.opt.hof?'hof':s.opt.diff,hof:!!s.opt.hof}}catch(e){}
   const r=_e.apply(this,arguments);try{if(info&&info.won){if(info.hof){stSave().rep=(stSave().rep||0)+50;gainXP(40);saveP();toastLite('Hall of Fame win: +50 Street Rep')}
     const order=['easy','normal','legend','hof'],i=order.indexOf(info.diff);if(i>=0&&i<3&&info.m>=4)setTimeout(()=>toast('Too easy?',`You won by ${info.m}. Try the ${ST_DIFF[order[i+1]].n} level for more Street Rep.`,'M13 2L4 14h7l-1 8 9-12h-7z'),1200)}}catch(e){}return r}}
+
+/* ============ RECESS RUSH 2: animated runners, tumble physics, effects ============ */
+RCS.fx=[];
+const rcsA=e=>e.A||(e.A={sq:0,sqv:0,hx:0,hxv:0,hz:0,hzv:0,lean:0,roll:0,rollv:0,pit:0,pg:true,air:0,flip:0,fl:0,cele:0,stag:0,pvx:0,pvz:0,bl:rcsR(1,4),prop:0,idle:rcsR(0,9),diz:0,emo:0});
+function rcsFx(k,x,y,z,n,col,sp){if(RCS.fx.length>260)return;for(let i=0;i<n;i++){const a=rcsR(0,6.283),v=rcsR(.4,1)*(sp||3);RCS.fx.push({k,x:x+rcsR(-.2,.2),y,z:z+rcsR(-.2,.2),vx:Math.cos(a)*v,vy:k==='dust'?rcsR(.3,1.4):rcsR(2,7),vz:Math.sin(a)*v,l:k==='dust'?rcsR(.3,.55):rcsR(.6,1.3),t:0,col:col||[255,255,255],s:rcsR(.08,.16)*(k==='chunk'?1.9:1),r:rcsR(0,6)})}}
+function rcsAnimTick(g,dt){const W=g.W;
+  for(const e of g.ents){if(!e.alive&&!e.out)continue;const A=rcsA(e),sp=Math.hypot(e.vx,e.vz);
+    if(e.gr&&!A.pg){const imp=Math.min(1,A.air*1.5);A.sqv-=5+imp*9;if(A.air>.22)rcsFx('dust',e.x,e.y+.05,e.z,3+imp*5|0,[235,240,255],2.2);if(e.st==='tumble')A.diz=1.5;A.flip=0;A.fl=0}
+    if(!e.gr&&A.pg&&e.vy>3)A.sqv+=7;A.air=e.gr?0:A.air+dt;A.pg=e.gr;
+    A.sqv+=(-A.sq*95-A.sqv*9)*dt;A.sq=rcsCl(A.sq+A.sqv*dt,-.32,.28);
+    const ax=rcsCl((e.vx-A.pvx)/dt,-80,80),az=rcsCl((e.vz-A.pvz)/dt,-80,80);A.pvx=e.vx;A.pvz=e.vz;const cy=Math.cos(e.yaw),sy=Math.sin(e.yaw),lf=ax*sy+az*cy,ls=ax*cy-az*sy;
+    A.hxv+=(-A.hx*75-A.hxv*6.5-lf*.9)*dt;A.hx=rcsCl(A.hx+A.hxv*dt,-.55,.55);A.hzv+=(-A.hz*75-A.hzv*6.5+ls*.9)*dt;A.hz=rcsCl(A.hz+A.hzv*dt,-.55,.55);
+    A.lean+=((e.st==='run'&&e.gr?Math.min(.34,sp*.05):0)-A.lean)*Math.min(1,dt*9);
+    if(e.st==='tumble'){A.pit=e.pit;A.roll+=A.rollv*dt;if(e.gr)A.rollv*=1-2.5*dt}
+    else{const tp=e.st==='dive'?1.25:0;A.pit=((A.pit+3.1416)%6.2832+6.2832)%6.2832-3.1416;A.pit+=(tp-A.pit)*Math.min(1,dt*11);A.roll=((A.roll+3.1416)%6.2832+6.2832)%6.2832-3.1416;A.roll+=(0-A.roll)*Math.min(1,dt*9);A.rollv=0}
+    if(A.flip&&!e.gr)A.fl+=dt*8.2;A.stag=Math.max(0,A.stag-dt);A.diz=Math.max(0,A.diz-dt);A.emo=Math.max(0,A.emo-dt);
+    if(e.fin)A.cele+=dt;else A.cele=0;A.idle+=dt;A.prop+=(1.5+sp*2.6+(e.gr?0:6))*dt;A.bl-=dt;if(A.bl<-.12)A.bl=rcsR(1.5,4.5);
+    if(e.gr&&e.st==='run'&&sp>5.8&&Math.random()<dt*7)rcsFx('dust',e.x,e.y+.04,e.z,1,[235,240,255],1.2)}
+  for(const D of W.doors)for(const s of D.slots)if(s.open&&!s.fxd){s.fxd=1;rcsFx('chunk',(s.x0+s.x1)/2,D.y+1.1,D.z,12,[255,190,100],6)}
+  if(W.kind==='tiles')for(const p of W.pl)if(p.gone&&!p.fxd){p.fxd=1;if(RCS.fx.length<160)rcsFx('chunk',(p.x0+p.x1)/2,p.y,(p.z0+p.z1)/2,3,p.col,2.5)}
+  for(const o of W.ob)if(o.k==='pad'&&o.t>0)o.t-=dt;
+  g.shake=Math.max(0,(g.shake||0)-dt)}
+
+/* one box of a runner: limb swing about its joint, then squash, body roll/pitch, facing, position */
+function rcsRigBox(out,c,T,lx,ly,lz,hx,hy,hz,col,J){const P_=[];let jx=0,jy=0,jz=0,crx=1,srx=0,crz=1,srz=0,cry=1,sry=0;
+  if(J){jx=J[0];jy=J[1];jz=J[2];if(J[3]){crx=Math.cos(J[3]);srx=Math.sin(J[3])}if(J[4]){crz=Math.cos(J[4]);srz=Math.sin(J[4])}if(J[5]){cry=Math.cos(J[5]);sry=Math.sin(J[5])}}
+  const tf=(x,y,z,vec)=>{if(J){if(!vec){x-=jx;y-=jy;z-=jz}let a=x*cry+z*sry,b=-x*sry+z*cry;x=a;z=b;a=y*crx-z*srx;b=y*srx+z*crx;y=a;z=b;a=x*crz-y*srz;b=x*srz+y*crz;x=a;y=b;if(!vec){x+=jx;y+=jy;z+=jz}}
+    if(!vec){y*=T.sy;x*=T.sx;z*=T.sx;y-=T.py}let a=x*T.cr-y*T.sr,b=x*T.sr+y*T.cr;x=a;y=b;a=y*T.cp-z*T.sp;b=y*T.sp+z*T.cp;y=a;z=b;if(!vec)y+=T.py;
+    return [(x*T.cy+z*T.sY)*T.sc,y*T.sc,(-x*T.sY+z*T.cy)*T.sc]};
+  for(let i=0;i<8;i++){const q=tf(lx+(i&1?hx:-hx),ly+(i&2?hy:-hy),lz+(i&4?hz:-hz));P_.push([T.x+q[0],T.y+q[1],T.z+q[2]])}
+  for(let f=0;f<6;f++){const n=tf(RCS_FN[f][0],RCS_FN[f][1],RCS_FN[f][2],1),I=RCS_FI[f],a=P_[I[0]],b=P_[I[2]];const mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,mz=(a[2]+b[2])/2;
+    if(n[0]*(c.x-mx)+n[1]*(c.y-my)+n[2]*(c.z-mz)<=0)continue;const pp=rcsPoly(c,[P_[I[0]],P_[I[1]],P_[I[2]],P_[I[3]]]);if(!pp)continue;const k=.58+.3*Math.max(0,n[1])+.16*Math.max(0,-n[2])+.06*Math.max(0,n[0]);out.push({d:pp.d,a:pp,col:rcsRGB(col,Math.min(1.12,k))})}}
+function rcsChar(out,c,e,far){const A=rcsA(e),sp=Math.hypot(e.vx,e.vz),t=e.an,s=Math.sin(t),air=!e.gr,skin=[255,214,170],dk=[40,46,70],sho=e.pk;
+  let la=0,ra=0,ll=0,rl=0,spr=.12,bob=0,nod=0,tw=0,yoff=0,yawx=0,pit=A.pit+A.lean+A.fl,roll=A.roll;
+  if(e.st==='tumble'){const f=A.idle*17;la=-2.2+Math.sin(f)*.7;ra=-2.2+Math.cos(f*1.1)*.7;spr=1.15;ll=Math.sin(f*.9)*.8;rl=-Math.sin(f*.9+1)*.8}
+  else if(e.st==='dive'){la=ra=-2.95;spr=.2;ll=.25;rl=-.1;nod=-.5}
+  else if(e.fin||A.emo>0){const k=(e.fin?A.cele:A.emo)*7.5;yoff=Math.abs(Math.sin(k))*.42;la=ra=-2.75+Math.sin(k*2)*.25;spr=.55;ll=Math.sin(k)*.5;rl=-ll;yawx=e.fin?A.cele*5:0;nod=Math.sin(k*2)*.2;tw=Math.sin(k)*.18}
+  else if(air){if(A.flip){la=ra=-.6;ll=rl=-1.3;spr=.3}else if(e.vy>1.5){la=-2.9;ra=-2.5;spr=.3;ll=.75;rl=-.35;nod=-.2}else{const f=A.air*15;la=-1.9+Math.sin(f)*1.2;ra=-1.9+Math.sin(f+3.14)*1.2;spr=.7;ll=Math.sin(f*1.1)*.7;rl=-ll;nod=.25}}
+  else if(sp>.6){const k=Math.min(1,sp/6);la=-s*1.25*k-.25;ra=s*1.25*k-.25;spr=.28;ll=s*1.05*k;rl=-ll;bob=Math.abs(Math.cos(t))*.07*k;tw=s*.12*k}
+  else{const f=A.idle*2.6;bob=Math.sin(f)*.025+.02;la=.08+Math.sin(f)*.06;ra=.08-Math.sin(f)*.06;nod=Math.sin(f*.5)*.07;tw=Math.sin(f*.37)*.25}
+  if(A.stag>0){const w=Math.sin(A.stag*26)*A.stag*1.3;roll+=w;spr=1.3;la=ra=-.4}
+  const yw=e.yaw+yawx,T={x:e.x,y:e.y+yoff,z:e.z,sc:e.sc,cy:Math.cos(yw),sY:Math.sin(yw),cp:Math.cos(pit),sp:Math.sin(pit),cr:Math.cos(roll),sr:Math.sin(roll),sy:1+A.sq,sx:1-A.sq*.45,py:.75};
+  const B=(lx,ly,lz,hx,hy,hz,col,J)=>rcsRigBox(out,c,T,lx,ly,lz,hx,hy,hz,col,J);const hy0=bob+A.sq*.04;
+  const HJ=[0,1,0,nod+A.hx,A.hz+(sp>.6&&!air?s*.09:0),tw];
+  if(far){B(0,.2,0,.24,.2,.12,dk);B(0,.7+bob,0,.33,.3,.22,e.col);B(0,.74+bob,-.32,.22,.22,.1,e.pk);B(0,1.26+hy0,0,.36,.27,.3,skin,HJ);B(0,1.56+hy0,0,.38,.045,.32,e.col,HJ);return}
+  const LL=[-.17,.44,0,ll,0,0],RL=[.17,.44,0,rl,0,0];B(-.17,.23,0,.11,.19,.12,dk,LL);B(.17,.23,0,.11,.19,.12,dk,RL);B(-.17,.05,.06,.135,.06,.2,sho,LL);B(.17,.05,.06,.135,.06,.2,sho,RL);
+  B(0,.7+bob,0,.33,.3,.22,e.col);B(0,.52+bob,0,.335,.05,.225,dk);B(0,.74+bob-A.sqv*.012,-.32,.22,.22,.1,e.pk);B(0,.92+bob-A.sqv*.012,-.36,.16,.035,.08,dk);
+  const LA=[-.43,.94+bob,0,la,-spr,0],RA=[.43,.94+bob,0,ra,spr,0];B(-.43,.74+bob,0,.09,.2,.1,e.col,LA);B(.43,.74+bob,0,.09,.2,.1,e.col,RA);B(-.43,.5+bob,0,.105,.075,.115,skin,LA);B(.43,.5+bob,0,.105,.075,.115,skin,RA);
+  B(0,1.26+hy0,0,.36,.27,.3,skin,HJ);B(0,1.28+hy0,.31,.27,.1,.015,dk,HJ);const wide=e.st==='tumble'||air&&!A.flip,eh=A.bl<0&&!wide?.008:wide?.072:.05;
+  B(-.12,1.29+hy0,.33,wide?.065:.05,eh,.012,[255,255,255],HJ);B(.12,1.29+hy0,.33,wide?.065:.05,eh,.012,[255,255,255],HJ);
+  B(0,1.56+hy0,0,.38,.045,.32,e.col,HJ);B(0,1.545+hy0,.4,.3,.03,.12,e.col,HJ);B(0,1.66+hy0,0,.03,.06,.03,dk,HJ);
+  const PJ=[0,1,0,nod+A.hx,A.hz,tw+A.prop];B(0,1.735+hy0,0,.3,.016,.055,[255,222,89],PJ);B(0,1.735+hy0,0,.055,.016,.3,[255,107,107],PJ)}
+
+RCS.camHook=function(g,c){const now=performance.now(),dt=Math.min(.05,(now-(RCS.at||now))/1000)||.016;RCS.at=now;try{rcsAnimTick(g,dt)}catch(e){}RCS.adt=dt;
+  const f=g.focus||g.me,sp=Math.hypot(f.vx,f.vz);g.fov=(g.fov||1)+((1-Math.min(.09,Math.max(0,sp-6.4)*.03))-(g.fov||1))*.08;c.F*=g.fov;
+  if(g.shake>0&&!RM){const k=g.shake*.5;c.x+=Math.sin(now*.09)*k;c.y+=Math.cos(now*.11)*k*.7}};
+RCS.drawHook=function(F,c,g,L){if(L!==null&&L!==0)return;for(const o of g.W.ob){if(o.k!=='pad'||o.z<c.z-2||o.z>c.z+75)continue;const sq=o.t>0?o.t*.5:0;rcsPart(F,c,o.x,o.y,o.z,0,0,0,.07,0,.95,.07,.95,[70,80,120]);rcsPart(F,c,o.x,o.y,o.z,0,0,0,.26-sq*.3,0,.8,.1,.8,[255,95,150]);rcsPart(F,c,o.x,o.y,o.z,0,0,0,.37-sq*.3,0,.5,.02,.5,[255,255,255])}};
+RCS.fxHook=function(x,c,g){const dt=RCS.adt||.016,fx=RCS.fx;for(let i=fx.length-1;i>=0;i--){const p=fx[i];p.t+=dt;if(p.t>p.l){fx.splice(i,1);continue}if(p.k!=='dust')p.vy-=16*dt;else{p.vx*=1-3*dt;p.vz*=1-3*dt}p.x+=p.vx*dt;p.y+=p.vy*dt;p.z+=p.vz*dt;p.r+=dt*8;
+    const q=rcsPt(c,p.x,p.y,p.z);if(!q)continue;const k=1-p.t/p.l,r=Math.max(1,p.s*q[2]*(p.k==='dust'?1.6+p.t*3:1));x.globalAlpha=p.k==='dust'?k*.55:Math.min(1,k*2.5);x.fillStyle=rcsRGB(p.col,1);
+    if(p.k==='dust'){x.beginPath();x.arc(q[0],q[1],r,0,7);x.fill()}else if(p.k==='star'){x.save();x.translate(q[0],q[1]);x.rotate(p.r);x.beginPath();for(let j=0;j<10;j++){const rr=j%2?r*.45:r*1.2,a=j*.6283;x.lineTo(Math.cos(a)*rr,Math.sin(a)*rr)}x.closePath();x.fill();x.restore()}
+    else{x.save();x.translate(q[0],q[1]);x.rotate(p.r);x.fillRect(-r,-r*.6,r*2,r*1.2);x.restore()}}x.globalAlpha=1;
+  for(const e of g.ents){const A=e.A;if(!A||A.diz<=0||!e.alive)continue;for(let j=0;j<3;j++){const a=A.idle*6+j*2.094,q=rcsPt(c,e.x+Math.cos(a)*.5*e.sc,e.y+1.95*e.sc,e.z+Math.sin(a)*.5*e.sc);if(!q)continue;const r=Math.max(2,q[2]*.1);x.globalAlpha=Math.min(1,A.diz*2);x.fillStyle='#ffe14d';x.save();x.translate(q[0],q[1]);x.rotate(a);x.beginPath();for(let m=0;m<10;m++){const rr=m%2?r*.45:r,b=m*.6283;x.lineTo(Math.cos(b)*rr,Math.sin(b)*rr)}x.closePath();x.fill();x.restore()}}x.globalAlpha=1};
+
+/* ---------- physics: ragdoll bounces, shoving, bounce pads ---------- */
+{const _k=rcsKnock;rcsKnock=function(e,vx,vy,vz,t){const was=e.st;_k.apply(this,arguments);if(e.st==='tumble'&&!(e.me&&RCS.pow.ghost)){const A=rcsA(e);A.rollv=rcsR(5,11)*(Math.random()<.5?-1:1);if(was!=='tumble'){rcsFx('star',e.x,e.y+1.2,e.z,5,[255,225,77],3.5);if(e.me&&RCS.g)RCS.g.shake=.4}}}}
+{const _m=rcsMove;rcsMove=function(g,e,inp,dt){const vy0=e.vy,wasGr=e.gr;_m.apply(this,arguments);const W=g.W;
+  if(e.st==='tumble'&&e.gr&&!wasGr&&vy0<-6.5&&!e._b){e.vy=-vy0*.42;e.gr=false;e._b=1;e.vx*=.8;e.vz*=.8;rcsFx('dust',e.x,e.y+.05,e.z,5,[235,240,255],3);if(e.me)sfx('bump')}else if(e.st!=='tumble')e._b=0;
+  if(e.gr&&!wasGr&&vy0<-17&&e.st==='run'){e.st='tumble';e.stT=.42;e.pit=.9;rcsA(e).rollv=0}
+  if(e.gr)for(const o of W.ob){if(o.k!=='pad')continue;const dx=e.x-o.x,dz=e.z-o.z;if(dx*dx+dz*dz<.95&&Math.abs(e.y-o.y)<.5){e.vy=13.2;e.vz+=1.5;e.gr=false;if(e.st!=='tumble'){const A=rcsA(e);A.flip=1;A.fl=0}o.t=.5;rcsFx('star',o.x,o.y+.3,o.z,4,[255,255,255],3);if(e.me)sfx('pop');break}}}}
+{const _s=rcsStep;rcsStep=function(g,dt){_s.apply(this,arguments);const E=g.ents;for(let i=0;i<E.length;i++){const a=E[i];if(!a.alive||a.fin||a.out)continue;for(let j=i+1;j<E.length;j++){const b=E[j];if(!b.alive||b.fin||b.out)continue;const dx=b.x-a.x,dz=b.z-a.z;if(dx>.95||dx<-.95||dz>.95||dz<-.95||Math.abs(a.y-b.y)>1.1)continue;const d=Math.hypot(dx,dz)||.01;if(d>.9)continue;
+      const nx=dx/d,nz=dz/d,rv=(a.vx-b.vx)*nx+(a.vz-b.vz)*nz;if(rv<3.2)continue;const k=rv*.42;
+      const hit=(p,q,sx,sz)=>{if(q.me&&RCS.pow.ghost)return;if(p.st==='dive'&&q.st==='run'){rcsKnock(q,sx*5.5,3.8,sz*5.5,.5)}else if(q.st==='run'){q.vx+=sx*k;q.vz+=sz*k;const A=rcsA(q);if(A.stag<.1)A.stag=.45}};
+      const fa=a.vx*nx+a.vz*nz,fb=-(b.vx*nx+b.vz*nz);if(fa>=fb)hit(a,b,nx,nz);else hit(b,a,-nx,-nz);if(a.st==='run'&&b.st==='run'){a.vx-=nx*k*.35;a.vz-=nz*k*.35}}}}}
+{const _w=rcsWorld;rcsWorld=function(kind,final){const W=_w.apply(this,arguments);RCS.fx.length=0;try{if(W.race)W.segs.forEach((s,i)=>{if(s.t==='push'||s.t==='conv'||(s.t==='spin'&&i%2)){const n=s.t==='spin'?1:2;for(let k=0;k<n;k++)W.ob.push({k:'pad',x:rcsR(-4,4),z:s.z0+(s.t==='spin'?19:6.5+k*5),y:s.y,t:0})}})}catch(e){}return W}}
+{const _f=rcsFinish;rcsFinish=function(g,e){_f.apply(this,arguments);const cols=[[255,107,107],[255,222,89],[94,214,130],[72,198,255],[196,120,255]];for(let i=0;i<(e.me?5:2);i++)rcsFx('chunk',e.x,e.y+1.6,e.z,4,cols[i%5],5);if(e.me&&g)g.shake=.25}}
+/* cheer button and key */
+{const _b=rcsBind;rcsBind=function(){_b.apply(this,arguments);const cheer=()=>{const g=RCS.g;if(g&&g.me.alive&&g.me.st==='run'&&g.me.gr){rcsA(g.me).emo=1.7;sfx('chime')}};const kd=e=>{if((e.key==='c'||e.key==='C'||e.key==='1')&&!e.repeat)cheer()};addEventListener('keydown',kd);const u=RCS.unbind;RCS.unbind=()=>{u&&u();removeEventListener('keydown',kd)};
+  const h=document.querySelector('.rcshud .rcssp');if(h&&!$('#rcsCh')){const bt=document.createElement('button');bt.className='rcsbtn';bt.id='rcsCh';bt.textContent='Cheer';bt.onclick=cheer;h.after(bt)}const k=document.querySelector('.rcskeys');if(k)k.innerHTML+=' · Cheer <kbd>C</kbd>'}}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
