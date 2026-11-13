@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794502211">
+<meta name="hp-build" content="1794520161">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -3793,8 +3793,8 @@ html.lite body{background-attachment:scroll}
 .nft{min-width:0;flex:1}
 .toast.nfy b{display:block;font-size:15px;font-weight:700;line-height:1.25}
 .toast.nfy small{display:block;margin-top:2px;color:color-mix(in srgb,var(--mute) 85%,var(--text));font-size:13px;line-height:1.35}
-.nfx{position:absolute;right:6px;top:6px;width:26px;height:26px;display:grid;place-items:center;border:0;border-radius:8px;background:transparent;color:var(--mute);opacity:.55;transition:opacity .15s,background .15s,color .15s;padding:0}
-.nfx:hover{opacity:1;background:rgba(255,255,255,.1);color:var(--text)}
+.nfclose{position:absolute;right:6px;top:6px;width:26px;height:26px;display:grid;place-items:center;border:0;border-radius:8px;background:transparent;color:var(--mute);opacity:.55;transition:opacity .15s,background .15s,color .15s;padding:0}
+.nfclose:hover{opacity:1;background:rgba(255,255,255,.1);color:var(--text)}
 .nfn{position:absolute;right:36px;top:9px;font-style:normal;font-size:12px;font-weight:800;padding:1px 7px;border-radius:99px;background:var(--nk);color:#10131f}
 .nfn.pulse{animation:nfPulse .35s ease-out}
 .nfbar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:linear-gradient(90deg,var(--nk),color-mix(in srgb,var(--nk) 40%,#fff));transform-origin:left;animation:nfBar var(--ms,3600ms) linear forwards;box-shadow:0 0 10px var(--nk)}
@@ -3803,7 +3803,7 @@ html.lite body{background-attachment:scroll}
 .toast.nfy.k-lite{padding:10px 18px;border-radius:99px;width:fit-content;max-width:100%;margin:0 auto;border-color:var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 14px 30px -12px rgba(0,0,0,.8)}
 .toast.nfy.k-lite::before,.toast.nfy.k-lite .nfbar{display:none}
 .toast.nfy.k-lite b{font-size:14px;font-weight:600}
-.toast.nfy.k-lite .nfx{display:none}
+.toast.nfy.k-lite .nfclose{display:none}
 .toast.nfy.k-lite{animation-name:nfIn}
 .toast.nfy.k-quest,.toast.nfy.k-maint{padding-right:38px}
 
@@ -4266,6 +4266,396 @@ html.lite .ps2t{animation:none}
 html.lite .hplive i,html.lite .hplive.bump b{animation:none}
 @media (prefers-reduced-motion:reduce){.hplive i,.hplive.bump b{animation:none}}
 .hplrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-bottom:2px}.hplrow .label{display:block}
+/* ===== Top bar 2: the bar always fits the screen, and the profile button stays clean ===== */
+/* bar: the wordmark steps aside on mid-size phones, the tabs scroll instead of pushing the profile off screen */
+.topbar .wrap{flex-wrap:nowrap}
+.nav{min-width:0}
+@media (max-width:640px){
+  .logo b{display:none}
+  .topbar .wrap{gap:8px}
+  .nav{gap:4px;flex:0 1 auto}
+  .navgrp{min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .navgrp::-webkit-scrollbar{display:none}
+  .navgrp .nb{flex:none}
+}
+
+/* profile button: one fixed avatar slot, a ring that stays inside the pill, and a name that can never sit under it */
+#acctBtn{--av:32px;gap:9px;padding:6px 14px 6px 6px;height:auto;min-height:46px;position:relative;isolation:isolate;overflow:visible}
+#acctBtn .av{width:var(--av);height:var(--av);min-width:var(--av);font-size:calc(var(--av)*.44);flex:none;margin:0;z-index:2}
+#acctBtn .an{position:relative;z-index:1;min-width:0;max-width:110px;margin:0;padding:0}
+@media (max-width:720px){
+  #acctBtn{padding:6px;aspect-ratio:1/1;gap:0;min-height:0;height:auto}
+  #acctBtn .an{display:none!important}
+}
+@media (max-width:360px){#acctBtn{--av:28px}}
+
+/* the frame ring sits just outside the picture, never wider than the pill allows */
+#acctBtn .av[class*="fr-"]::after{inset:-3px;--fw:3px!important}
+#acctBtn .av.av[class*="fr-"],#acctBtn .av.av[class*="aur-"]{animation:none;box-shadow:0 0 9px -1px var(--glow,rgba(255,204,77,.5))}
+#acctBtn .av.aur-gold{--glow:rgba(255,200,80,.7)}#acctBtn .av.aur-ice{--glow:rgba(127,224,255,.7)}#acctBtn .av.aur-rose{--glow:rgba(255,122,182,.7)}
+#acctBtn .av.aur-ember{--glow:rgba(255,138,48,.7)}#acctBtn .av.aur-toxic{--glow:rgba(157,255,58,.65)}#acctBtn .av.aur-violet{--glow:rgba(164,107,255,.7)}
+#acctBtn .av.aur-pulse{--glow:rgba(255,255,255,.55)}#acctBtn .av.aur-prism{--glow:rgba(255,154,213,.65)}#acctBtn .av.aur-storm{--glow:rgba(155,184,255,.7)}
+#acctBtn .av.aur-halo{--glow:rgba(255,243,176,.7)}#acctBtn .av.aur-eclipse{--glow:rgba(255,140,40,.7)}#acctBtn .av.aur-supernova{--glow:rgba(255,179,71,.7)}
+#acctBtn .av.aur-sup{--glow:rgba(61,220,132,.7)}#acctBtn .av.aur-staff{--glow:rgba(127,214,255,.7)}
+/* pictures and emblems stay centred and clipped to the circle */
+#acctBtn .av .ave{width:58%;height:58%}
+#acctBtn .av .avport,#acctBtn .av .avj{max-width:100%;max-height:100%}
+
+/* supporter / plus badge: a small chip on the avatar's top-right corner, clear of the emblem */
+#acctBtn[data-sup="sup"]::after,#acctBtn[data-sup="plus"]::after{box-sizing:border-box;top:1px;left:calc(var(--av)*.8 + 2px);right:auto;width:16px;height:16px;font-size:10px;line-height:1;z-index:5;border:2px solid var(--ink,#0b1020);pointer-events:none}
+/* the seasonal tag under the wordmark wraps onto a second line instead of being cut off.
+   width:0 + min-width:100% keeps it exactly as wide as the logo, so it never pushes the menu around */
+.brand .themetag{display:block;white-space:normal;overflow:visible;text-overflow:clip;max-width:none;width:0;min-width:100%;margin:4px 0 0;line-height:1.25;font-size:10.5px;letter-spacing:.08em;text-wrap:balance}
+.brand .themetag::before{display:inline;margin-right:5px;vertical-align:baseline;font-size:12px}
+@media (max-width:720px){.brand .themetag{display:none}}
+/* ===== Profile hub: a centered window, one tab bar, organized panes ===== */
+html .drawer{top:50%;left:50%;right:auto;bottom:auto;width:min(1080px,calc(100vw - 28px));height:min(88vh,860px);max-height:none;padding:0;overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--amber) 24%,var(--line));border-radius:26px;
+  transform:translate(-50%,-46%) scale(.94);opacity:0;visibility:hidden;pointer-events:none;
+  transition:transform .38s cubic-bezier(.2,.9,.25,1.08),opacity .24s ease,visibility 0s linear .38s;
+  box-shadow:0 40px 120px -30px rgba(0,0,0,.95),inset 0 1px 0 rgba(255,255,255,.06)}
+html .drawer.on{transform:translate(-50%,-50%) scale(1);opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
+html .drawer>.x{top:14px;right:14px;z-index:30}
+.pf2{display:grid;grid-template-columns:minmax(300px,350px) minmax(0,1fr);height:100%;min-height:0}
+.pf2-legacy{display:none!important}
+/* left column */
+.pf2-l{padding:22px 18px 22px 22px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 55%);min-height:0;scrollbar-width:thin}
+.pf2-l>*{margin:0!important;flex:none;width:100%}
+.pf2-l .pqs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pf2-l .pqs .pq{min-width:0;width:100%;flex-direction:column;gap:5px;padding:12px 6px}
+.pf2-l .pcard{width:100%}
+.pf2-l .pc-lvl{flex-wrap:wrap;gap:10px 12px}
+.pf2-l .pc-xp{flex:1 1 150px;min-width:0}
+.pf2-l .pc-xp .lvl-row{flex-wrap:wrap;gap:2px 8px}.pf2-l .pc-xp .mono{white-space:nowrap}
+.pf2-l .pc-lvl .tixc{margin-left:auto}
+.pf2-facts{display:grid;gap:0;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.pf2-facts .label{margin-bottom:6px}
+.pf2-facts>div{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid rgba(255,255,255,.06);font-size:13.5px}
+.pf2-facts>div span{color:var(--mute)}.pf2-facts>div b{text-align:right}
+/* right column + tabs */
+.pf2-r{display:flex;flex-direction:column;min-height:0;min-width:0}
+.pf2-top{padding:18px 66px 12px 22px;position:relative;z-index:5}
+.pf2-tabs{display:flex;gap:2px;padding:4px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.pf2-tabs::-webkit-scrollbar{display:none}
+.pf2-tabs button{flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;background:none;color:var(--mute);font:inherit;font-weight:700;font-size:13.5px;padding:9px 14px;border-radius:12px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.pf2-tabs button small{font-family:var(--f-mono,monospace);font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--mute)}
+.pf2-tabs button:hover{color:var(--text)}
+.pf2-tabs button.on{background:var(--amber);color:#140d00;box-shadow:0 6px 16px -8px var(--amber)}
+.pf2-tabs button.on small{background:rgba(0,0,0,.16);color:#140d00}
+.pf2-pane{display:none;flex:1;min-height:0;overflow-y:auto;padding:6px 22px 24px;scrollbar-width:thin}
+.pf2-pane.on{display:block;animation:rise .35s both}
+/* sections */
+.pf2-s{margin:0 0 22px}
+.pf2-s>header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.pf2-s>header h3{margin:0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:800}
+.pf2-lk{border:0;background:none;color:var(--amber);font:inherit;font-weight:700;font-size:13px;cursor:pointer;padding:4px 2px}
+.pf2-lk:hover{text-decoration:underline}
+/* kpis */
+.pf2-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 22px}
+.pf2-k{--k:var(--text);display:grid;grid-template-columns:auto 1fr;grid-template-areas:"i v" "i l";column-gap:12px;align-items:center;padding:14px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));min-width:0}
+.pf2-kic{grid-area:i;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--amber) 14%,transparent);color:var(--amber)}
+.pf2-k b{grid-area:v;font-family:var(--f-display);font-size:24px;line-height:1.1;color:var(--k);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pf2-k small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;grid-area:l;color:var(--mute);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+/* showcase */
+.pf2-show{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pf2-sh{display:grid;gap:3px;justify-items:center;text-align:center;padding:16px 10px;border-radius:16px;border:1px solid color-mix(in srgb,var(--amber) 40%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,var(--amber) 14%,transparent),rgba(255,255,255,.02))}
+.pf2-sh>span{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--amber);color:#140d00;margin-bottom:4px;box-shadow:0 8px 20px -8px var(--amber)}
+.pf2-sh b{font-size:14px}.pf2-sh small{color:var(--mute);font-size:12px;line-height:1.3}
+/* modes (the original tiles, tidied) */
+.pf2-pane .pc-minis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 22px}
+.pf2-pane .pc-minis>*{min-width:0;display:grid;gap:2px;align-content:start;text-align:left;padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));color:var(--text);font:inherit}
+.pf2-pane .pc-minis>*small{color:var(--mute);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.pf2-pane .pc-minis>* b{font-family:var(--f-display);font-size:20px;line-height:1.15}
+.pf2-pane .pc-minis>* em{font-style:normal;color:var(--mute);font-size:12.5px}
+.pf2-pane .pc-minis>button{cursor:pointer;transition:border-color .2s,transform .2s}
+.pf2-pane .pc-minis>button:hover{border-color:var(--amber);transform:translateY(-2px)}
+.pf2-modes .pc-minis{margin:0}
+/* your look */
+.pf2-wear{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.pf2-w{--rc:var(--amber);display:grid;padding:7px 12px 7px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);position:relative;min-width:0}
+.pf2-w::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--rc)}
+.pf2-w small{color:var(--mute);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}.pf2-w b{font-size:13.5px}
+.pf2-col{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;font-size:12.5px;color:var(--mute);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.pf2-bar{display:block;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.pf2-bar s{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--amber),#ffe9a8);text-decoration:none}
+.pf2-pane .hist,.pf2-hist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pf2-hist li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.pf2-hist .w{font-family:var(--f-display);font-size:20px}
+.pf2-empty{display:grid;gap:6px;justify-items:center;text-align:center;padding:26px 16px;border-radius:16px;border:1px dashed var(--line);color:var(--mute)}
+.pf2-empty.sm{padding:14px 16px;justify-items:start;text-align:left}.pf2-empty b{color:var(--text)}
+/* tabs with a header */
+.pf2-hd{display:flex;align-items:center;gap:16px;margin:0 0 16px;padding:16px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015))}
+.pf2-hd>div:last-child{flex:1;min-width:0}.pf2-hd h3{margin:0;font-size:20px;font-family:var(--f-display)}.pf2-hd p{margin:3px 0 10px;color:var(--mute);font-size:13.5px}.pf2-hd .pf2-bar{margin:0}
+.pf2-ring{--p:0;width:62px;height:62px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(var(--amber) calc(var(--p)*1%),rgba(255,255,255,.09) 0)}
+.pf2-ring b{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--ink-2);font-size:14px;font-family:var(--f-display)}
+.pf2-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.pf2-chips button{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--mute);font:inherit;font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer;transition:all .18s}
+.pf2-chips button:hover{color:var(--text);border-color:color-mix(in srgb,var(--amber) 50%,var(--line))}
+.pf2-chips button.on{background:color-mix(in srgb,var(--amber) 18%,transparent);border-color:var(--amber);color:var(--amber)}
+.pf2-chips button.clr{margin-left:auto}
+.pf2-hint{margin:0 0 12px;color:var(--mute);font-size:13px}
+/* achievements */
+.pf2-ag{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pf2-ag[data-af=got] .lock{display:none}.pf2-ag[data-af=lock] .got{display:none}
+.pf2-a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font:inherit;cursor:default;transition:transform .2s,border-color .2s,background .2s}
+.pf2-a.got{cursor:pointer;border-color:color-mix(in srgb,var(--amber) 38%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,var(--amber) 12%,transparent),rgba(255,255,255,.02))}
+.pf2-a.got:hover{transform:translateY(-2px);border-color:var(--amber)}
+.pf2-a.pinned{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber) inset,0 12px 26px -16px var(--amber)}
+.pf2-a.lock{opacity:.62}
+.pf2-aic{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.07);color:var(--mute)}
+.pf2-a.got .pf2-aic{background:var(--amber);color:#140d00}
+.pf2-at{min-width:0;display:grid;gap:2px}.pf2-at b{font-size:14.5px}.pf2-at small{color:var(--mute);font-size:12.5px;line-height:1.3}
+.pf2-ast{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:inline-flex;align-items:center;gap:5px}
+.pf2-a.got .pf2-ast{color:var(--amber)}
+/* cards */
+.pf2-era{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 14px}
+.pf2-era button{--c1:var(--amber);display:grid;gap:5px;text-align:left;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font:inherit;cursor:pointer;transition:all .18s}
+.pf2-era button:hover{border-color:var(--c1)}
+.pf2-era button.on{border-color:var(--c1);box-shadow:0 0 0 1px var(--c1) inset;background:color-mix(in srgb,var(--c1) 14%,transparent)}
+.pf2-era b{font-size:13.5px}.pf2-era small{color:var(--mute);font-size:11.5px;font-family:var(--f-mono,monospace)}
+.pf2-era i{display:block;height:5px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden}.pf2-era i s{display:block;height:100%;background:var(--c1);text-decoration:none}
+.pf2-coll[data-cf=got] .miss{display:none}.pf2-coll[data-cf=miss] .got{display:none}
+.pf2-coll .chip[hidden]{display:none}
+/* account */
+.pf2-rows{display:grid;gap:8px}
+.pf2-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;width:100%;text-align:left;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font:inherit;cursor:pointer;transition:border-color .2s,transform .2s,background .2s}
+.pf2-row:hover{border-color:color-mix(in srgb,var(--amber) 55%,var(--line));transform:translateX(2px);background:rgba(255,255,255,.05)}
+.pf2-ric{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--amber) 14%,transparent);color:var(--amber)}
+.pf2-rt{display:grid;gap:2px;min-width:0}.pf2-rt b{font-size:14.5px}.pf2-rt small{color:var(--mute);font-size:12.5px}
+.pf2-rgo{color:var(--mute);display:grid;place-items:center}
+.pf2-row.danger .pf2-ric{background:rgba(255,92,92,.14);color:#ff7a7a}.pf2-row.danger:hover{border-color:#ff7a7a}.pf2-row.danger .pf2-rt b{color:#ff9a9a}
+.pf2-tg{width:42px;height:24px;border-radius:99px;background:rgba(255,255,255,.14);position:relative;transition:background .2s}
+.pf2-tg::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s}
+.pf2-tg.on{background:var(--amber)}.pf2-tg.on::after{transform:translateX(18px)}
+.pf2-pane .pc-sec.stfcard{margin:0 0 22px}
+/* phones: one column, tab bar sticks */
+@media (max-width:860px){
+  html .drawer{width:calc(100vw - 16px);height:calc(100dvh - 16px);border-radius:22px}
+  .pf2{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .pf2-l{border-right:0;overflow:visible;padding:58px 14px 12px}
+  .pf2-r{display:block;min-height:0}
+  .pf2-top{position:sticky;top:0;padding:8px 14px;background:var(--ink-2);border-bottom:1px solid var(--line)}
+  .pf2-pane{overflow:visible;padding:14px 14px 24px}
+  .pf2-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pf2-pane .pc-minis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pf2-show{grid-template-columns:1fr}
+  .pf2-ag{grid-template-columns:1fr}
+  .pf2-era{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pf2-hd{padding:14px}
+  .pf2-facts{display:none}
+}
+html.lite .drawer{transition:none}html.lite .pf2-pane.on{animation:none}
+/* ===== The shared profile card: full banner strip + overlapping avatar ===== */
+.pcard{--g1:#ffb547;--g2:#ff5e7e;padding:0!important;position:relative;border-radius:22px;overflow:hidden;isolation:isolate;border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(170deg,color-mix(in srgb,var(--g1) 12%,var(--panel)),var(--ink-2) 78%);box-shadow:0 24px 50px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.06)}
+.pcard.sup-plus{border-color:rgba(255,204,77,.55);box-shadow:0 18px 50px -28px #ffcc4d}
+.pcard.sup-sup{border-color:rgba(61,220,132,.45)}
+/* the banner strip always keeps the artwork's own 3:1 shape, so nothing is cropped away */
+.pcard-ban{position:relative;aspect-ratio:3/1;width:100%;overflow:hidden;padding:0;border-radius:0;
+  background:radial-gradient(120% 150% at 88% -30%,color-mix(in srgb,var(--g2) 60%,transparent),transparent 62%),radial-gradient(100% 130% at 8% 130%,color-mix(in srgb,var(--g1) 50%,transparent),transparent 62%),linear-gradient(135deg,#0d1226,#171f3d)}
+.pcard-ban.ban,.pcard-ban.pcs{background-size:cover!important;background-position:center!important}
+.pcard-ban::after,.pcard-ban.ban::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(8,11,22,.34))}
+.pcard-ban .decal{top:8px;right:12px;font-size:30px}
+.pcard-av{position:relative;z-index:3;display:grid;place-items:center;margin-top:-34px;padding:0 0 2px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.45))}
+.pcard-av .av.big{width:100px;height:100px;font-size:40px}
+.pcard-av .av.xl{width:118px;height:118px}
+.pcard-av:has(.av.xl){margin-top:-40px}
+.pcard-body{position:relative;z-index:2;display:grid;gap:6px;justify-items:center;text-align:center;padding:8px 16px 18px}
+.pcard-body .pc-tags{justify-content:center}
+.pcard-name{margin:2px 0 0;font-size:28px;line-height:1.05;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;max-width:100%;overflow-wrap:anywhere}
+.pcard-rank{color:var(--mute);font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pcard .pc-lvl{width:100%;margin-top:10px;text-align:left}
+.pcard.pcs .pcard-rank{color:color-mix(in srgb,var(--mute) 60%,#fff)}
+@media (max-width:420px){.pcard-name{font-size:24px}.pcard-av .av.big{width:88px;height:88px;font-size:34px}.pcard-av,.pcard-av:has(.av.xl){margin-top:-30px}}
+/* one continuous frame over the banner and the card body */
+.pcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.pcard.pcs[class]{box-shadow:0 24px 50px -30px rgba(0,0,0,.9)!important}
+.pcard[class*="pcs-o_"]::after{box-shadow:inset 0 0 0 2px rgba(255,204,77,.55)}
+/* ===== The Locker, dressing-room edition ===== */
+.modal.wide .box:has(.lk4){width:min(1180px,100%);padding:0;overflow:hidden;max-height:calc(100% - 28px);transition:transform .4s cubic-bezier(.2,.9,.2,1),opacity .4s cubic-bezier(.2,.9,.2,1)}
+.lk4{display:grid;grid-template-columns:minmax(290px,330px) minmax(0,1fr);height:min(88vh,880px);min-height:0}
+.lk4-l{padding:20px 16px 20px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0) 60%);scrollbar-width:thin;min-height:0}
+.lk4-l>*{flex:none}
+.lk4-r{display:flex;flex-direction:column;min-width:0;min-height:0}
+.lk4-top{padding:18px 66px 12px 22px;display:grid;gap:14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.lk4-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.lk4-hd .mtitle{font-size:38px;line-height:1;margin:2px 0 0}
+.lk4-top .lk3nav{position:static;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:4px;gap:4px;border-radius:16px}
+.lk4-top .lk3nav button{flex-direction:row;justify-content:center;gap:8px;padding:10px 6px;border-radius:12px;font-size:14px}
+.lk4-top .lk3nav button small{font-size:11px;padding:1px 7px;border-radius:99px;background:rgba(255,255,255,.1);opacity:1}
+.lk4-top .lk3nav button.on small{background:rgba(0,0,0,.18)}
+.lk4 #lkBody{flex:1;min-height:0;overflow-y:auto;padding:16px 22px 28px;scrollbar-width:thin}
+@media (max-width:1100px){.lk4-top .lk3nav button{padding:10px 4px;gap:5px;font-size:13px}.lk4-top .lk3nav button small{font-size:10.5px;padding:1px 5px}}
+/* left: live card + what you are wearing */
+.lk4-l .pcard{width:100%}
+.lk4-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;margin-top:10px}
+.lk4-st>div{display:grid;gap:1px;padding:9px 6px;border-radius:14px;background:rgba(5,8,18,.5);border:1px solid rgba(255,255,255,.08)}
+.lk4-st b{font-family:var(--f-display);font-size:20px;line-height:1.1}
+.lk4-st small{color:var(--mute);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.lk4-bar{display:block;width:100%;height:7px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:4px}
+.lk4-bar s{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#3ddc84,#ffcc4d,#ff7a2a);text-decoration:none}
+.lk4-wear{padding:12px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.lk4-wh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.lk4-off{border:0;background:none;color:var(--amber);font:inherit;font-weight:700;font-size:12.5px;cursor:pointer;padding:2px}
+.lk4-off:hover{text-decoration:underline}
+.lk4-wl{display:grid;gap:5px}
+.lk4-w{--rc:var(--amber);display:grid;grid-template-columns:84px minmax(0,1fr) 14px;align-items:center;gap:8px;text-align:left;padding:7px 10px 7px 14px;min-height:36px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font:inherit;cursor:pointer;position:relative;min-width:0;transition:border-color .18s,background .18s}
+.lk4-w::before{content:"";position:absolute;left:0;top:7px;bottom:7px;width:3px;border-radius:3px;background:var(--rc);box-shadow:0 0 10px var(--rc)}
+.lk4-w small{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lk4-w b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.lk4-w i{opacity:.45;display:grid;place-items:center}
+.lk4-w:hover{border-color:#ff7a7a;background:rgba(255,92,92,.08)}.lk4-w:hover i{opacity:1;color:#ff9a9a}
+.lk4-none{margin:0;color:var(--mute);font-size:13px;line-height:1.45}
+/* filters */
+.lk4-f{display:grid;gap:10px;margin:0 0 16px}
+.lk4-q{display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--mute);transition:border-color .18s,box-shadow .18s}
+.lk4-q:focus-within{border-color:var(--amber);box-shadow:0 0 0 3px color-mix(in srgb,var(--amber) 22%,transparent);color:var(--amber)}
+.lk4-q input[type]{min-width:0;height:100%;background:none!important;border:0!important;outline:0!important;box-shadow:none!important;padding:0!important;margin:0;width:0;flex:1 1 0;border-radius:0;color:var(--text);font:inherit;font-size:14.5px}
+.lk4-q input::placeholder{color:var(--mute)}
+.lk4-chips{display:flex;flex-wrap:wrap;gap:6px;padding:1px 0 2px}
+.lk4-chips::-webkit-scrollbar{display:none}
+.lk4-chips button{flex:none;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--mute);font:inherit;font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.lk4-chips button small{font-family:var(--f-mono);font-size:11px;padding:1px 6px;border-radius:99px;background:rgba(255,255,255,.08)}
+.lk4-chips button:hover{color:var(--text);border-color:color-mix(in srgb,var(--rc,var(--amber)) 55%,var(--line))}
+.lk4-chips button.on{background:color-mix(in srgb,var(--rc,var(--amber)) 20%,transparent);border-color:var(--rc,var(--amber));color:var(--text)}
+.lk4-chips .dot{width:8px;height:8px;border-radius:50%;background:var(--rc);box-shadow:0 0 8px var(--rc)}
+.lk4-nomatch{display:grid;gap:4px;justify-items:center;text-align:center;padding:34px 16px;border:1px dashed var(--line);border-radius:18px;color:var(--mute)}.lk4-nomatch b{color:var(--text)}
+.lkit[hidden],details.lkgrp[hidden]{display:none!important}
+/* tiles */
+html .lk4 #lkBody .lkgrid:has(>.lkit){grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:14px;margin-top:8px}
+html .lk4 .lkbody .lkit .lksw{height:138px}
+.lk4 details.lkgrp{margin-top:14px;padding:6px 16px 16px;border-radius:20px;background:rgba(255,255,255,.02)}
+.lk4 details.lkgrp>summary{padding:10px 0}
+.lk4 details.lkgrp .lkit>small{display:none}
+.lk4 .lkit .lkst{border:1px solid color-mix(in srgb,var(--rc) 50%,var(--line));background:color-mix(in srgb,var(--rc) 12%,transparent);color:var(--text);font-weight:800;min-width:96px;justify-content:center;transition:background .18s,transform .18s}
+.lk4 .lkit.own:hover .lkst:not(.on){background:color-mix(in srgb,var(--rc) 30%,transparent)}
+.lk4 .lkit .lkst.on{background:var(--rc);border-color:var(--rc);color:#10131c}
+.lk4 .lkit .lksw .swn.npl{font-size:15px!important;padding:4px 12px;max-width:94%}
+/* shop */
+.lk4 .lkshop{gap:18px}
+.lk4-sh{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 24px;border-radius:22px;border:1px solid color-mix(in srgb,var(--amber) 38%,var(--line));background:radial-gradient(520px 220px at 0% 0%,color-mix(in srgb,var(--amber) 28%,transparent),transparent 70%),linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.01))}
+.lk4-sht h3{margin:2px 0;font-size:36px;font-family:var(--f-display);line-height:1}
+.lk4-sht p{margin:6px 0 0;color:var(--mute);font-size:14px;max-width:46ch;line-height:1.45}
+.lk4-shr{display:grid;gap:8px;justify-items:end}
+.lk4-timer{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:99px;background:rgba(0,0,0,.35);border:1px solid color-mix(in srgb,var(--amber) 45%,transparent);color:var(--amber);font-weight:800;font-size:13px}
+.lk4 .packcard{padding:20px 22px;border-radius:22px;gap:20px}
+.lk4 .packcard .pack{width:84px;height:112px}
+.lk4 .packcard h3{font-size:26px;font-family:var(--f-display)}
+.lk4-odds{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.lk4-odds span{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--rc) 14%,transparent);border:1px solid color-mix(in srgb,var(--rc) 45%,transparent)}
+.lk4-odds i{width:7px;height:7px;border-radius:50%;background:var(--rc);box-shadow:0 0 8px var(--rc)}
+.lk4-dup{margin:2px 0 12px!important}
+.lk4 .packcard .linkbtn{display:inline-block;margin-top:14px;padding:0;color:var(--amber);font-weight:700;text-wrap:balance}
+.lk4 .packcard .linkbtn:hover{text-decoration:underline}
+.lk4-sec{padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.lk4-sec>.lkshh{margin:0 0 12px}
+.lk4-sec>.lkshh .label{font-size:13px;letter-spacing:.12em;color:var(--text)}
+.lk4-sec .lkgrid{margin-top:0}
+.lk4-sec>.hint,.lk4 .lkshop .hint{line-height:1.45}
+/* phones: one scrolling column - title, live card, what you wear, then a sticky tab bar and the list */
+@media (max-width:900px){
+  .modal.wide .box:has(.lk4){overflow:auto;max-height:calc(100% - 16px);width:100%;border-radius:22px}
+  .lk4{display:flex;flex-direction:column;height:auto}
+  .lk4-l,.lk4-r,.lk4-top{display:contents}
+  #modalBox:has(.lk4)>.x{position:sticky!important;top:10px!important;right:auto!important;float:none;margin:10px 12px -46px auto;z-index:20}
+  .lk4-hd{order:1;padding:16px 64px 4px 16px}
+  .lk4-hd .label{display:none}
+  .lk4-hd .mtitle{font-size:28px}
+  .lk4-l>.pcard{order:2;margin:10px 14px 0;width:auto}
+  .lk4-l .lk4-st,.lk4-l .lk4-bar{display:none}
+  .lk4-wear{order:3;margin:10px 14px 0;padding:9px 12px}
+  .lk4-wl{display:flex;overflow-x:auto;scrollbar-width:none;gap:6px;padding-bottom:2px}.lk4-wl::-webkit-scrollbar{display:none}
+  .lk4-w{flex:none;max-width:230px;grid-template-columns:auto minmax(0,1fr) 14px}
+  .lk4-top .lk3nav{order:4;position:sticky;top:0;z-index:6;margin:12px 0 0;padding:6px 56px 6px 10px;gap:2px;display:flex;justify-content:space-between;border-radius:0;border-width:1px 0;background:var(--ink-2);box-shadow:0 10px 18px -14px rgba(0,0,0,.8)}
+  .lk4-top .lk3nav button{flex:none;padding:10px 8px;font-size:13.5px}.lk4-top .lk3nav button small{display:none}
+  .lk4 #lkBody{order:5;overflow:visible;padding:14px 14px 26px}
+  html .lk4 #lkBody .lkgrid:has(>.lkit){grid-template-columns:repeat(auto-fill,minmax(156px,1fr));gap:12px}
+  html .lk4 .lkbody .lkit .lksw{height:124px}
+  .lk4-sh{padding:16px}.lk4-sht h3{font-size:28px}.lk4-shr{justify-items:start}
+  .lk4 .packcard{flex-direction:column;text-align:center;align-items:center}
+  .lk4-odds{justify-content:center}
+  .lk4-sec{padding:12px}
+}
+@media (max-width:360px){html .lk4 #lkBody .lkgrid:has(>.lkit){gap:8px}.lk4-top .lk3nav button{font-size:12.5px;padding:10px 5px}.lk4-top .lk3nav{padding-left:4px}}
+@media (max-width:520px){
+  .lk4-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+  html .lk4 #lkBody .lkgrid:has(>.lkit){grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  html .lk4 .lkbody .lkit .lksw{height:118px}
+}
+@media (max-width:520px){details.lkgrp>summary{flex-wrap:wrap;row-gap:2px}details.lkgrp>summary b{flex:1 1 auto}details.lkgrp>summary small{order:5;flex:1 0 100%}.lk4 details.lkgrp{padding:4px 12px 12px}}
+
+/* mythic tiles: the rarity pill kept a transparent gradient text on a dark pill, so it read as an empty black capsule */
+html .lkbody .lkit.r-m .lkr{background:rgba(5,8,18,.78)!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#ff8fb3!important;border-color:rgba(255,61,127,.65)}
+/* shop grids: 3, 6 and 9 picks sit in rows of three, 4 and 8 in rows of four */
+@media (min-width:901px){
+  html .lk4 #lkBody .lk4-sec .lkgrid[data-n="3"],html .lk4 #lkBody .lk4-sec .lkgrid[data-n="6"],html .lk4 #lkBody .lk4-sec .lkgrid[data-n="9"]{grid-template-columns:repeat(3,minmax(0,1fr))}
+  html .lk4 #lkBody .lk4-sec .lkgrid[data-n="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* long item names wrap onto a second line instead of being cut (an older phone rule forced one clipped line) */
+html .lk4 #lkBody .lkit>b{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;font-size:15px;padding:0 8px;max-width:100%}
+@media (max-width:360px){html .lk4 #lkBody .lkit>b{font-size:14px;padding:0 4px}}
+/* try-on sheet: leave room for the close button and keep the card profile-shaped */
+.lkpv .lkpvhead{padding-right:46px}
+.lkpvcard2{width:100%;max-width:460px;margin-inline:auto}
+.lkpvcard2.pcard{border-color:color-mix(in srgb,var(--rc,var(--amber)) 55%,rgba(255,255,255,.12))}
+/* flair tiles: a long name wraps onto a second line instead of spilling out of the tile */
+html .lk4 .lksw .swnm{flex-wrap:wrap;justify-content:center;white-space:normal;overflow-wrap:anywhere;text-align:center;min-width:0;line-height:1.1;row-gap:2px}
+/* pop-ups fade and rise in without also animating their width and padding (wide ones used to grow from the small size) */
+.modal .box{transition:transform .4s cubic-bezier(.2,.9,.2,1),opacity .4s cubic-bezier(.2,.9,.2,1)}
+
+/* folded catalogues */
+.lk4-fold>summary{list-style:none;display:flex;align-items:center;gap:12px;cursor:pointer;border-radius:14px}
+.lk4-fold>summary::-webkit-details-marker{display:none}
+.lk4-fold>summary .lkshh{flex:1;min-width:0;margin:0;flex-wrap:wrap;row-gap:6px}
+.lk4-fn{color:var(--mute);font-size:12.5px;font-weight:800;white-space:nowrap}
+.lk4-fold .hchev{flex:none}
+.lk4-fold[open] .hchev{transform:rotate(180deg)}
+.lk4-fold[open]>summary{margin-bottom:14px}
+.lk4-fold>summary:focus-visible{outline:2px solid var(--amber);outline-offset:4px}
+.lk4-fold:not([open]):hover{border-color:color-mix(in srgb,var(--amber) 40%,var(--line))}
+/* ===== 12.9: a gradient name style worn with a nameplate =====
+   The gradient text is the element's own background, and the plate used to be a ::before painted over it, so the name vanished.
+   Now both are backgrounds of the same element: the letters on top, a (darkened where it is light) plate behind them. */
+.nfx-chrome{--nfxg:linear-gradient(180deg,#ffffff,#9aa4b8 55%,#e9edf5 60%,#7d879b);}
+.nfx-gold{--nfxg:linear-gradient(90deg,#fff3b0,#e0a12a,#fff8d2,#c98a12,#fff3b0);--nfxs:200% 100%;}
+.nfx-mvp{--nfxg:linear-gradient(90deg,#fff3b0,#e0a12a,#fff8d2,#c98a12,#fff3b0);--nfxs:200% 100%;}
+.nfx-ice{--nfxg:linear-gradient(90deg,#e6fbff,#62d6ff,#ffffff,#2fa8ff);--nfxs:200% 100%;}
+.nfx-fire{--nfxg:linear-gradient(0deg,#ff3d00,#ffb300 60%,#fff2a8);}
+.nfx-rainbow{--nfxg:linear-gradient(90deg,#ff5e5e,#ffb347,#fff275,#6cff8b,#5ec8ff,#b57bff,#ff5e5e);--nfxs:200% 100%;}
+.nfx-emerald{--nfxg:linear-gradient(90deg,#d6ffe8,#3ddc84,#b8ffd8,#1fa85c,#d6ffe8);--nfxs:200% 100%;}
+.nfx-prism{--nfxg:linear-gradient(90deg,#fff3b0,#ff9ad5,#9ad0ff,#b3ffd9,#ffcc4d,#fff3b0);--nfxs:300% 100%;}
+.nfx-sunset{--nfxg:linear-gradient(90deg,#ff7e5f,#feb47b,#ff5e7e);}
+.nfx-ocean{--nfxg:linear-gradient(90deg,#00c6ff,#0072ff,#00e0d3);}
+.nfx-mint{--nfxg:linear-gradient(90deg,#c9fff0,#3ddc84);}
+.nfx-candy{--nfxg:repeating-linear-gradient(110deg,#ff7ab6 0 8px,#fff 8px 16px,#7ad7ff 16px 24px);--nfxs:200% 100%;}
+.nfx-vapor{--nfxg:linear-gradient(90deg,#ff71ce,#01cdfe,#05ffa1,#b967ff,#fffb96);}
+.nfx-holo{--nfxg:linear-gradient(120deg,#ff9ad5,#9ad0ff,#b3ffd9,#fff6a8,#d5a8ff,#ff9ad5);--nfxs:300% 100%;}
+.nfx-plasma{--nfxg:linear-gradient(90deg,#00e1ff,#5b00ff,#ff00c8,#00e1ff);--nfxs:300% 100%;}
+.nfx-mythic{--nfxg:linear-gradient(90deg,#ff3d7f,#ffcc4d,#fff,#ff3d7f);--nfxs:300% 100%;}
+.nfx-supgold{--nfxg:linear-gradient(90deg,#fff3b0,#3ddc84,#ffcc4d,#fff3b0);--nfxs:200% 100%;}
+.nfx-owner{--nfxg:linear-gradient(90deg,#ffe28a,#f5a524,#ff7a1a,#ffe28a);--nfxs:250% 100%;}
+.npl-wood{--plb:linear-gradient(#a8733f,#7a4e24);--pls:inset 0 1px 0 rgba(255,255,255,.25);--pld:0.2;}
+.npl-silver{--plb:linear-gradient(#f4f7fc,#8892a6);--pls:inset 0 1px 0 #fff;--pld:0.66;}
+.npl-camo{--plb:radial-gradient(circle at 20% 40%,#4a5d23 25%,transparent 26%),radial-gradient(circle at 70% 60%,#2f3d16 25%,transparent 26%),linear-gradient(#556b2f,#556b2f);--pls:none;--pld:0.32;}
+.npl-ice{--plb:linear-gradient(135deg,rgba(220,245,255,.4),rgba(98,214,255,.25));--pls:inset 0 0 0 1px rgba(160,230,255,.6);--pld:0.3;}
+.npl-neon{--plb:linear-gradient(rgba(10,4,32,.8),rgba(10,4,32,.8));--pls:0 0 0 1px #ff00c8,0 0 12px rgba(255,0,200,.6);}
+.npl-pixel{--plb:linear-gradient(#0b1020,#0b1020);--pls:0 0 0 2px #3ddc84;--plr:0;}
+.npl-gold{--plb:linear-gradient(#fff3b0,#d19a22);--pls:inset 0 1px 0 #fff,0 0 12px -2px rgba(255,200,80,.6);--pld:0.68;}
+.npl-royal{--plb:linear-gradient(#7a0033,#3a0018);--pls:inset 0 0 0 1px #ffcc4d,0 0 14px -2px #ffcc4d;}
+.npl-mythic{--plb:linear-gradient(90deg,rgba(255,61,127,.35),rgba(255,204,77,.35),rgba(255,61,127,.35));--pls:0 0 0 1px rgba(255,61,127,.8),0 0 16px rgba(255,61,127,.5);--pld:0.25;}
+.npl-sup{--plb:linear-gradient(#1fa85c,#0c6b3a);--pls:inset 0 1px 0 rgba(255,255,255,.3);--pld:0.35;}
+.npl:is(.nfx-chrome,.nfx-gold,.nfx-mvp,.nfx-ice,.nfx-fire,.nfx-rainbow,.nfx-emerald,.nfx-prism,.nfx-sunset,.nfx-ocean,.nfx-mint,.nfx-candy,.nfx-vapor,.nfx-holo,.nfx-plasma,.nfx-mythic,.nfx-supgold,.nfx-owner){background-image:var(--nfxg),linear-gradient(rgba(6,8,18,var(--pld,0)),rgba(6,8,18,var(--pld,0))),var(--plb);background-size:var(--nfxs,100% 100%),100% 100%,100% 100%;background-repeat:repeat,no-repeat,no-repeat;background-origin:content-box,border-box,border-box;-webkit-background-clip:text,border-box,border-box;background-clip:text,border-box,border-box;box-shadow:var(--pls,none);border-radius:var(--plr,.4em);padding:.08em .45em .12em;margin:-.08em 0 -.12em}
+.npl:is(.nfx-chrome,.nfx-gold,.nfx-mvp,.nfx-ice,.nfx-fire,.nfx-rainbow,.nfx-emerald,.nfx-prism,.nfx-sunset,.nfx-ocean,.nfx-mint,.nfx-candy,.nfx-vapor,.nfx-holo,.nfx-plasma,.nfx-mythic,.nfx-supgold,.nfx-owner)::before{display:none}
+/* Shadow style: scale the stacked shadow with the text so it stays inside a nameplate at small sizes */
+html .nfx-shadow{text-shadow:.11em .11em 0 #ff5e7e,.22em .22em 0 rgba(94,200,255,.6)}
+/* modal titles scale down a little on phones so they stay clear of the close button */
+@media(max-width:520px){#modalBox>.mtitle,#modalBox .suphero .mtitle{font-size:clamp(24px,7.6vw,40px);line-height:1.05;overflow-wrap:anywhere}}
+@media(max-width:340px){#modalBox>.mtitle,#modalBox .suphero .mtitle{font-size:23px}}
+/* if any text would still sit under the close button, the content starts below it */
+#modalBox.mx-gut{padding-top:56px}
+/* form fields and tab bars never run wider than the pop-up on small phones */
+.field>input,.field>select,.field>textarea{max-width:100%;min-width:0}
+@media(max-width:380px){.otabs.three{grid-template-columns:repeat(3,minmax(0,1fr))}.otabs.three button{padding:10px 4px;font-size:13px}}
 </style>
 
 </head>
@@ -7313,6 +7703,8 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "12.9", "d": "2026-11-12", "t": "A new Profile, Locker and Shop, plus name and logo fixes", "b": "Your profile no longer slides in from the side. It opens as a centered pop-up with your full banner on top, your level and XP, your stats, pinned badges, a summary of your look and your Locker progress, and tabs for Achievements, Cards, History and Account. The Locker was rebuilt like a dressing room: a live preview of your player card, a Wearing now list where one tap takes an item off, tabs for Inventory, Shop, Collection and Style, search and rarity filters, and cleaner item tiles and try-on previews that fit every screen size. The Shop has a Today's shop with a timer and the odds for each rarity, tidier sections, and long catalogues fold away so you can find things faster. Items no longer repeat between sections, and the shop no longer reshuffles after you buy something. Fixes: name styles are no longer squeezed or cut off, your name now shows clearly on every nameplate, the Mythic label on items reads properly, the Collection count matches the list, and the seasonal message under the HALLPASS logo is no longer clipped."},
+ {"v": "12.8", "d": "2026-11-12", "t": "Top bar fix: clean profile button on every screen", "b": "The profile button at the top of the screen is cleaned up. Your picture frame, glow and crown badge now stay neatly around your avatar instead of spilling over it, your name can no longer slide underneath the picture, and the button is a perfect circle on phones. On mid-size phones and small tablets the top bar no longer runs off the edge: the sound and profile buttons stay on screen and the tabs scroll if they ever need more room."},
  {"v": "12.7", "d": "2026-11-12", "t": "Full Court, 15 Street courts, a 60-tier Season Pass and a locker glow-up", "b": "Street basketball just got a lot bigger. Full Court is here: pick Court size in the Street hub and play 1 on 1, 2 on 2 or 3 on 3 on a real 94-foot court, with a 24-second clock, a camera that follows the ball, both hoops, and fast breaks the whole way down. There are 15 courts now, from neon arenas to rooftops, with living backgrounds, light pools and crowds that match each one, plus 27 kits to wear on them. Career has new badges that level up as you play: Sharpshooter, Slam, Ankle Breaker, Lockdown and more, and every level you reach pays out Street Rep. The Season Pass grew to 60 tiers with a new theme every month, and every tier has a clearer reward tile that lines up on every screen size. Every item in the Locker was redrawn, with bigger previews, cleaner badges and frames and no more cramped icons. The home screen shows how many people are playing right now, up to 350+. Commentary is smoother and sounds more like a real broadcast. Marcus and Dee have over 500 conversations now, including Full Court calls where they break down how good a player is, fast breaks, backcourt steals and the 24-second clock. Animations got smoother across Street, the pass and the Locker."},
  {"v": "12.6", "d": "2026-11-12", "t": "Street feels like a broadcast: new look, live commentary, win streaks", "b": "Street basketball got a big glow-up. A new TV-style scoreboard shows the score, the shot clock, who is heating up and your stamina and crowd energy. Big plays get banners, player name cards and a camera punch-in, and dunks and blocks freeze for a split second so they hit harder. Every court is lit now, with light beams, street lamps, neon, a blurred background and a living crowd that cheers, jumps and flashes cameras. Defenders talk trash with pop-up bubbles. Commentary is totally new: two announcers, Marcus and Dee, trade lines with hundreds of different calls, talk up the best players on the floor by their rating, position and era, and react to comebacks, runs, blowouts and game point. They sound smoother and more natural, never cut each other off, and you can pick a co-commentator voice in the voice settings. If your device has no voice, you still get captions with a speaker tag. After every game you get a letter grade, an MVP tag, your Street Rep climbing live, and a win streak that adds bonus rep. Phones are better too: upright phones get a taller court with the buttons below it, and landscape phones keep the score out of the way of the rim."},
  {"v": "12.5", "d": "2026-11-12", "t": "Live alerts for updates and maintenance", "b": "Notifications are much better. Messages slide in with animation, are color-coded for done, warning, error, news and events, show a timer bar, and can be swiped away. The same message twice now counts up instead of stacking. When a new version goes live you get a live update screen that shows what changed, saves your progress, and waits for your game to finish before reloading. Maintenance now warns you first: a live countdown, a final 10-second countdown, an animated back soon screen with a clock, and a We are back celebration when it is over."},
@@ -8020,10 +8412,15 @@ function tixDaily(){if(P.tixDay===dayKey())return;const st=P.tixDay===dayKey(-1)
 function lockerAuto(){const got=[];ITEMS.forEach(i=>{if(i.x&&!owns(i.id)&&i.x[1]()){OWN().push(i.id);got.push(i)}});
   if(got.length){saveP();got.forEach((i,k)=>setTimeout(()=>toast('Locker item unlocked',`${i.n} (${RAR[i.r][0]}): ${i.x[0]}`,'M5 12l5 5L20 7'),600+k*900))}return got}
 /* the shop: six items a day, one on sale */
-function shopToday(){const r=mulberry32(strHash(dayKey()+'shop'));const pool=ITEMS.filter(i=>!i.x&&!i.sub&&itemLive(i)&&!owns(i.id));const out=[];
-  const lim=pool.filter(i=>i.lim);lim.slice(0,2).forEach(i=>out.push(i));
-  const rest=pool.filter(i=>!i.lim);while(out.length<6&&rest.length){out.push(rest.splice(Math.floor(r()*rest.length),1)[0])}
-  const deal=out.length?out[Math.floor(r()*out.length)].id:null;return{items:out,deal}}
+/* a day's stock is shuffled once, in an order that does not depend on what you own, and you are shown the first few you do not own yet.
+   Buying one item therefore never reshuffles the rest. */
+function stablePick(all,seed,n,skip){const r=mulberry32(strHash(seed));const a=all.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));const t=a[i];a[i]=a[j];a[j]=t}return a.filter(i=>!owns(i.id)&&!(skip&&skip.has(i.id))).slice(0,n)}
+function shopToday(){const all=ITEMS.filter(i=>!i.x&&!i.sub&&itemLive(i));const r=mulberry32(strHash(dayKey()+'shop'));
+  const lim=all.filter(i=>i.lim).slice(0,2);const rest=all.filter(i=>!i.lim);
+  for(let i=rest.length-1;i>0;i--){const j=Math.floor(r()*(i+1));const t=rest[i];rest[i]=rest[j];rest[j]=t}
+  const order=[...lim,...rest];const out=order.filter(i=>!owns(i.id)).slice(0,6);
+  const win=order.slice(0,6);const dl=win.length?win[Math.floor(r()*win.length)].id:null;
+  const deal=out.some(i=>i.id===dl)?dl:null;return{items:out,deal}}
 const dealPrice=i=>Math.round(price(i)*.6/10)*10;
 function buyItem(id,cost){const i=ITEM[id];if(!i||owns(id))return false;if(tix()<cost){sfx('lose');toastLite('Not enough tickets 🎟');return false}
   P.tix-=cost;OWN().push(id);saveP();sfx('chime');vib(25);return true}
@@ -8721,7 +9118,7 @@ let THEME_CUR='';
 function liveTheme(){const id=themeNow();const T=TPACKS[id]||TPACKS.classic;const r=document.documentElement;if(!r||!r.style||!r.style.removeProperty)return;
   const set=(k,v)=>v?r.style.setProperty(k,v):r.style.removeProperty(k);
   set('--amber',T[1]);set('--accent2',T[2]);set('--glow1',T[3]);set('--glow2',T[4]);r.dataset.theme2=id;r.dataset.event=id;const em=TEMO[id];set('--temoji',em?'"'+em[0]+'"':'');set('--temoji2',em&&em[1]?'"'+em[1]+'"':'');
-  if(id!==THEME_CUR){THEME_CUR=id;themeFx(T[5]);themeDecor(id);{const hb=document.querySelector&&$('.hbill');if(hb&&hb.dataset.scene!==id&&typeof renderHome==='function'&&(CURV===''||CURV==='home'))renderHome()}const tg=$('#themeTag');if(tg){tg.textContent=T[6]||'';tg.hidden=!T[6]}}}
+  if(id!==THEME_CUR){THEME_CUR=id;themeFx(T[5]);themeDecor(id);{const hb=document.querySelector&&$('.hbill');if(hb&&hb.dataset.scene!==id&&typeof renderHome==='function'&&(CURV===''||CURV==='home'))renderHome()}const tg=$('#themeTag');if(tg){tg.textContent=T[6]||'';tg.title=T[6]||'';tg.hidden=!T[6]}}}
 /* gentle falling or floating particles for the theme. Off for reduced motion or when the player turns effects off. */
 let TFX={raf:0,parts:[],type:'none'};
 /* draw each emoji once into a small image, then reuse it every frame (text drawing is slow) */
@@ -8945,7 +9342,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794502211';
+const BUILD='1794520161';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -12307,8 +12704,8 @@ CATS.push(['aur','Auras'],['pcs','Card skins'],['npl','Nameplates'],['dec','Deca
 const decalHTML=d=>{const c=(d||{}).cos||{};return c.dec?`<span class="decal" aria-hidden="true">${c.dec}</span>`:''};
 const pcsCls=d=>{const c=(d||{}).cos||{};return c.pcs?'pcs pcs-'+c.pcs:''};
 /* shop sections: the Mythic vault, today's decor, and the Supporter collection */
-function shopExtraHTML(tile){const wk=Math.floor(Date.now()/(7*864e5));const r=mulberry32(strHash('vault'+wk));const myth=ITEMS.filter(i=>i.r==='m'&&!i.x&&!i.sub&&itemLive(i)&&!owns(i.id));const vault=[];const pool=myth.slice();while(vault.length<3&&pool.length)vault.push(pool.splice(Math.floor(r()*pool.length),1)[0]);
-  const r2=mulberry32(strHash(dayKey()+'decor'));const dpool=ITEMS.filter(i=>['aur','pcs','npl','dec'].includes(i.cat)&&!i.x&&!i.sub&&i.r!=='m'&&itemLive(i)&&!owns(i.id));const decor=[];while(decor.length<6&&dpool.length)decor.push(dpool.splice(Math.floor(r2()*dpool.length),1)[0]);
+function shopExtraHTML(tile){const wk=Math.floor(Date.now()/(7*864e5));const today=new Set(shopToday().items.map(i=>i.id));const myth=ITEMS.filter(i=>i.r==='m'&&!i.x&&!i.sub&&itemLive(i));const vault=stablePick(myth,'vault'+wk,3,today);
+  const dpool=ITEMS.filter(i=>['aur','pcs','npl','dec'].includes(i.cat)&&!i.x&&!i.sub&&i.r!=='m'&&itemLive(i));const decor=stablePick(dpool,dayKey()+'decor',6,today);
   const sup=ITEMS.filter(i=>i.sub&&(itemLive(i)||owns(i.id)));const staff=ITEMS.filter(i=>i.x&&(i.x[0].includes('owners')||i.x[0].includes('staff')));
   return `<div class="lkvault"><div class="lkshh"><span class="label">✦ Mythic vault</span><span class="lkpill myth">New mythics every week</span></div><p class="hint">The rarest things in Hall Pass. Three show up each week.</p><div class="lkgrid">${vault.map(i=>tile(i,price(i))).join('')||'<p class="hint">You own every mythic in the vault this week. Legendary.</p>'}</div></div>
    <div><div class="lkshh"><span class="label">Decor of the day</span><span class="lkpill">Auras · card skins · nameplates · decals</span></div><div class="lkgrid">${decor.map(i=>tile(i,price(i))).join('')||'<p class="hint">You own all of today\'s decor.</p>'}</div></div>
@@ -17718,7 +18115,7 @@ function toast(t,s,ic,o){o=o||{};const T=$('#toasts');if(!T)return null;
   if(ex){ex._n=(ex._n||1)+1;const b=ex.querySelector('.nfn');if(b){b.hidden=false;b.textContent='×'+ex._n;b.classList.remove('pulse');void b.offsetWidth;b.classList.add('pulse')}ex._restart&&ex._restart();return ex}
   const el=document.createElement('div');el.className='toast nfy k-'+kind+(o.kind==='quest'?' qtoast':'');el._k=key;
   const spark=(kind==='ok'||kind==='star'||kind==='quest')?nfBurst(7,34):'';
-  el.innerHTML=(lite?'':`<span class="ic"><i class="nfring"></i>${nfIcon(ic,kind)}${spark}</span>`)+`<div class="nft"><b>${esc(t)}</b>${s?`<small>${esc(s)}</small>`:''}</div><em class="nfn" hidden>×2</em><button class="nfx" aria-label="Dismiss">${icon('M18 6L6 18M6 6l12 12',14)}</button><i class="nfbar"></i>`;
+  el.innerHTML=(lite?'':`<span class="ic"><i class="nfring"></i>${nfIcon(ic,kind)}${spark}</span>`)+`<div class="nft"><b>${esc(t)}</b>${s?`<small>${esc(s)}</small>`:''}</div><em class="nfn" hidden>×2</em><button class="nfclose" aria-label="Dismiss">${icon('M18 6L6 18M6 6l12 12',14)}</button><i class="nfbar"></i>`;
   const life=o.ms||(lite?2400:Math.min(7000,3400+(String(s||'').length+String(t).length)*26));
   el.style.setProperty('--ms',life+'ms');
   let rem=life,t0=0,tm=0;
@@ -17727,8 +18124,8 @@ function toast(t,s,ic,o){o=o||{};const T=$('#toasts');if(!T)return null;
   const stop=()=>{clearTimeout(tm);if(t0)rem=Math.max(500,rem-(Date.now()-t0));t0=0;el.classList.add('hold')};
   el._restart=()=>{rem=life;const bar=el.querySelector('.nfbar');if(bar){bar.style.animation='none';void bar.offsetWidth;bar.style.animation=''}el.classList.remove('hold');start()};
   el.addEventListener('pointerenter',stop);el.addEventListener('pointerleave',()=>{el.classList.remove('hold');start()});
-  el.querySelector('.nfx').onclick=e=>{e.stopPropagation();close()};
-  if(o.click){el.style.cursor='pointer';el.addEventListener('click',e=>{if(el._moved||e.target.closest('.nfx'))return;close();o.click()})}
+  el.querySelector('.nfclose').onclick=e=>{e.stopPropagation();close()};
+  if(o.click){el.style.cursor='pointer';el.addEventListener('click',e=>{if(el._moved||e.target.closest('.nfclose'))return;close();o.click()})}
   nfSwipe(el,close);
   T.appendChild(el);start();
   const live=[...T.children].filter(e=>!e._gone);if(live.length>NF.cap)live.slice(0,live.length-NF.cap).forEach(e=>e._close&&e._close());
@@ -19055,6 +19452,202 @@ function fcBooth(s,dt){if(s.auto||s.paused||s.over||!stSet().com||!st2Live(s))re
 }
 {const _s=stStep;stStep=function(dt){const s=ST;const r=_s.apply(this,arguments);if(s&&s.fc&&ST===s)try{fcBooth(s,dt)}catch(e){console.warn('fcbooth',e)}return r}}
 {const _c=stCheck;stCheck=function(team,first){const s=ST;const r=_c.apply(this,arguments);try{if(s&&s.fc&&s.fcB){s.fcB.deadStart=1;setTimeout(()=>{if(ST===s&&s.fcB)s.fcB.deadStart=0},1400)}}catch(e){}return r}}
+
+/* ============ 12.9: PROFILE HUB — a centered window, one clear tab bar ============ */
+const PF2={pane:'ov',af:'all',cf:'all',ce:'all'};
+const PF2_IC={cal:'M3 5h18v16H3zM3 10h18M8 3v4M16 3v4',cup:'M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3',up:'M3 17l6-6 4 4 8-8M15 7h6v6',star:'M12 2l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 15.6 6.6 18.5l1.2-6L3.3 8.3l6.1-.7z',lock:'M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z',chk:'M5 12l5 5L20 7',pin:'M12 17v5M9 3h6l-1 6 3 3v2H7v-2l3-3z',shirt:'M20.4 7.4L16 3l-4 2-4-2-4.4 4.4L6 11v10h12V11z',sync:'M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5',gift:'M20 12v10H4V12M2 7h20v5H2zM12 22V7',chat:'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z',inv:'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M22 11h-6',shield:'M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z',out:'M9 21H5V3h4M16 17l5-5-5-5M21 12H9',bolt:'M13 2L4 14h7l-1 8 9-12h-7z',refresh:'M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5'};
+const PF2_SLOTS=[['frm','Frame'],['aur','Aura'],['bg','Background'],['nfx','Name style'],['npl','Nameplate'],['ban','Banner'],['pcs','Card skin'],['dec','Decal'],['fl','Flair']];
+function pf2Look(){const c=COS();const out=[];
+  if(c.mode==='emb'&&c.emb){const it=ITEMS.find(i=>i.cat==='emb'&&i.v===c.emb);if(it)out.push(['Emblem',it])}
+  PF2_SLOTS.forEach(([k,n])=>{if(c[k]){const it=ITEMS.find(i=>i.cat===k&&i.v===c[k]);if(it)out.push([n,it])}});return out}
+function pf2Ach(){const list=achList(),own=new Set(P.ach||[]),pins=new Set(P.pins||[]);
+  const sorted=[...list].sort((a,b)=>(own.has(b[0])-own.has(a[0]))||(pins.has(b[0])-pins.has(a[0])));
+  const got=list.filter(a=>own.has(a[0])).length,pct=list.length?Math.round(got/list.length*100):0;
+  return `<div class="pf2-hd"><div class="pf2-ring" style="--p:${pct}"><b>${pct}%</b></div><div><h3>Achievements</h3><p>${got} of ${list.length} unlocked · ${pins.size}/3 pinned to your profile</p><i class="pf2-bar"><s style="width:${pct}%"></s></i></div></div>
+   <div class="pf2-chips" data-f="af">${[['all','All'],['got','Unlocked'],['lock','Locked']].map(([k,n])=>`<button data-v="${k}" class="${PF2.af===k?'on':''}">${n}</button>`).join('')}</div>
+   <p class="pf2-hint">Tap an unlocked badge to pin it to your profile card. You can pin up to three.</p>
+   <div class="pf2-ag" data-af="${PF2.af}">${sorted.map(([id,n,d,ic])=>{const g=own.has(id),p=pins.has(id);return `<button class="pf2-a ${g?'got':'lock'} ${p?'pinned':''}" data-pin="${id}" ${g?'':'disabled'}><span class="pf2-aic">${icon(ic,20)}</span><span class="pf2-at"><b>${esc(n)}</b><small>${esc(d)}</small></span><span class="pf2-ast">${p?icon(PF2_IC.pin,14)+' Pinned':g?icon(PF2_IC.chk,14):icon(PF2_IC.lock,13)}</span></button>`}).join('')}</div>`}
+function pf2Cards(){const eras=ERA_ORDER.filter(e=>PLAYERS.some(p=>p.era===e)),own=new Set(P.cards||[]);const got=PLAYERS.filter(p=>own.has(p.id)).length;
+  return `<div class="pf2-hd"><div class="pf2-ring" style="--p:${Math.round(got/PLAYERS.length*100)}"><b>${Math.round(got/PLAYERS.length*100)}%</b></div><div><h3>Player cards</h3><p>${got} of ${PLAYERS.length} collected. Draft players to find more.</p><i class="pf2-bar"><s style="width:${got/PLAYERS.length*100}%"></s></i></div></div>
+   <div class="pf2-era">${eras.map(e=>{const all=PLAYERS.filter(p=>p.era===e),g=all.filter(p=>own.has(p.id)).length;return `<button class="${PF2.ce===e?'on':''}" data-e="${e}" style="--c1:${ERAS[e].c1}"><b>${ERAS[e].n}</b><i><s style="width:${g/all.length*100}%"></s></i><small>${g}/${all.length}</small></button>`}).join('')}</div>
+   <div class="pf2-chips" data-f="cf">${[['all','All'],['got','Collected'],['miss','Missing']].map(([k,n])=>`<button data-v="${k}" class="${PF2.cf===k?'on':''}">${n}</button>`).join('')}${PF2.ce!=='all'?`<button data-e="all" class="clr">Clear era ✕</button>`:''}</div>
+   <div class="coll pf2-coll" data-cf="${PF2.cf}">${PLAYERS.map(p=>{const g=own.has(p.id),e=ERAS[p.era];return `<div class="chip ${g?'got':'miss'}" data-era="${p.era}" ${PF2.ce!=='all'&&PF2.ce!==p.era?'hidden':''} style="--c1:${e.c1};--c2:${e.c2}" title="${g?esc(p.name)+' · '+e.full:'Not collected yet'}"><b>${g?p.ovr:'?'}</b>${g?esc(last(p.name)):e.n}</div>`}).join('')}</div>`}
+function pf2Hist(){const h=P.history||[];const w=h.filter(x=>/Champion/.test(x.finish)).length;
+  return `<div class="pf2-hd"><div class="pf2-ring" style="--p:${h.length?Math.round(w/h.length*100):0}"><b>${h.length}</b></div><div><h3>Season history</h3><p>${h.length?`${h.length} season${h.length===1?'':'s'} played · ${w} title${w===1?'':'s'}`:'Nothing here yet'}</p></div></div>
+   ${h.length?`<ul class="hist pf2-hist">${h.slice(0,30).map(histRow).join('')}</ul>`:`<div class="pf2-empty"><b>No seasons yet</b><small>Finish a season and it shows up here.</small><button class="btn btn-go" onclick="closeAll()">Start a season</button></div>`}`}
+function pf2Build(){const dr=$('#drawer');if(!dr||dr.querySelector('.pf2'))return;
+  const kids=[...dr.children];const x=kids.find(k=>k.id==='dx');
+  const pfc=dr.querySelector(':scope>.pfc'),pqs=dr.querySelector(':scope>.pqs'),pass=dr.querySelector(':scope>#dPass2'),tabs=dr.querySelector(':scope>#dtabs'),tab=dr.querySelector(':scope>#dtab'),foot=dr.querySelector(':scope>.pc-foot');
+  const secs=[...dr.querySelectorAll(':scope>.pc-sec')];const career=secs.find(e=>/Career/i.test(e.textContent.slice(0,12))&&!e.classList.contains('stfcard'));const every=secs.find(e=>e.querySelector('.pc-minis'));const staff=secs.find(e=>e.classList.contains('stfcard'));
+  const known=new Set([x,pfc,pqs,pass,tabs,tab,foot,...secs]);
+  const rest=kids.filter(k=>!known.has(k)&&k.tagName!=='SCRIPT');
+  const supCard=rest.find(k=>k.querySelector&&/supporter/i.test(k.textContent||''));
+  const mk=(c,tag='div')=>{const e=document.createElement(tag);e.className=c;return e};
+  const wrap=mk('pf2'),L=mk('pf2-l'),R=mk('pf2-r'),top=mk('pf2-top'),seg=mk('pf2-tabs'),legacy=mk('pf2-legacy');
+  const own=(P.ach||[]).filter(id=>achList().some(a=>a[0]===id)).length;
+  const TABS=[['ov','Overview',''],['ach','Achievements',`${own}/${achList().length}`],['cards','Cards',`${(P.cards||[]).length}`],['hist','History',''],['acct','Account','']];
+  seg.setAttribute('role','tablist');seg.innerHTML=TABS.map(([k,n,c])=>`<button role="tab" data-p="${k}">${n}${c?`<small>${c}</small>`:''}</button>`).join('');top.appendChild(seg);
+  /* left column: who you are + the three things you do most */
+  {const tpl=document.createElement('template');tpl.innerHTML=pcardHTML(P,{lvl:'hub'});const hero=tpl.content.firstElementChild;if(hero){hero.classList.add('stag');L.appendChild(hero)}}
+  [pqs,pass].forEach(e=>e&&L.appendChild(e));
+  {const facts=mk('pf2-facts');const bn=+P.born,since=bn>1e11?new Date(bn).toLocaleDateString(undefined,{month:'short',year:'numeric'}):'';
+   const rowsF=[['Player ID',ME&&ME.no?'#'+ME.no:''],['Jersey','#'+(P.num||0)],['Playing since',since],['Favorite era',P.favEra&&ERAS[P.favEra]?ERAS[P.favEra].full:''],['Daily check-in',P.tixStreak?P.tixStreak+' day streak':'']].filter(r=>r[1]);
+   facts.innerHTML=`<span class="label">Player card</span>${rowsF.map(([k,v])=>`<div><span>${k}</span><b>${esc(v)}</b></div>`).join('')}`;L.appendChild(facts)}
+  const keep=['lockP','editP','dPass'];const moved={};if(pqs){[...pqs.children].forEach(b=>{if(!keep.includes(b.id)){moved[b.id]=b;b.remove()}});pqs.style.setProperty('--pc',3)}
+  /* panes */
+  const panes={};TABS.forEach(([k])=>{const p=mk('pf2-pane');p.dataset.p=k;p.setAttribute('role','tabpanel');panes[k]=p});
+  /* overview */
+  const winp=P.w+P.l?P.w/(P.w+P.l)*100:0;const S=(typeof stSave==='function')?stSave():null;
+  const kpi=(ic,v,l,col)=>`<div class="pf2-k" ${col?`style="--k:${col}"`:''}><span class="pf2-kic">${icon(ic,18)}</span><b>${v}</b><small>${l}</small></div>`;
+  const pins=(P.pins||[]).map(id=>ACH.find(a=>a[0]===id)).filter(Boolean);
+  const look=pf2Look();const owned=ITEMS.filter(i=>owns(i.id)).length;const ctot=collTotal(),lcol=Math.min(100,Math.round(owned/ctot*100));
+  const stTierName=S&&typeof stTier==='function'&&ST_TIERS[stTier(S.rep||0)]?ST_TIERS[stTier(S.rep||0)][1]:'';
+  panes.ov.innerHTML=`<div class="pf2-kpis">${kpi(PF2_IC.cal,fmtN(P.seasons||0),'Seasons')}${kpi(PF2_IC.cup,fmtN(P.titles||0),'Titles','var(--amber)')}${kpi(PF2_IC.up,winp.toFixed(1)+'%','Win rate')}${kpi(PF2_IC.star,P.best?P.best.w+'–'+P.best.l:'–','Best record')}</div>
+   <section class="pf2-s"><header><h3>Showcase</h3><button class="pf2-lk" data-go="ach">${pins.length?'Edit pins':'Pin badges'}</button></header>${pins.length?`<div class="pf2-show">${pins.map(a=>`<div class="pf2-sh"><span>${icon(a[3],22)}</span><b>${esc(a[1])}</b><small>${esc(a[2])}</small></div>`).join('')}</div>`:`<div class="pf2-empty sm"><small>Pin up to three achievements and they show on your profile card everywhere.</small></div>`}</section>
+   <section class="pf2-s pf2-modes"><header><h3>Across Hall Pass</h3></header><div class="pf2-mslot"></div></section>
+   <section class="pf2-s"><header><h3>Your look</h3><button class="pf2-lk" id="pf2Lk">Open the Locker</button></header>
+     ${look.length?`<div class="pf2-wear">${look.map(([n,it])=>`<span class="pf2-w" style="--rc:${RAR[it.r][1]}"><small>${n}</small><b>${esc(it.n)}</b></span>`).join('')}</div>`:`<div class="pf2-empty sm"><small>You are not wearing anything extra yet. Equip a frame, banner or name style in the Locker.</small></div>`}
+     <div class="pf2-col"><span>Collection</span><i class="pf2-bar"><s style="width:${lcol}%"></s></i><span>${owned} / ${ctot}</span></div></section>
+   <section class="pf2-s"><header><h3>Recent seasons</h3>${(P.history||[]).length?`<button class="pf2-lk" data-go="hist">See all</button>`:''}</header>${(P.history||[]).length?`<ul class="hist pf2-hist">${P.history.slice(0,3).map(histRow).join('')}</ul>`:`<div class="pf2-empty sm"><small>Finish a season and it shows up here.</small></div>`}</section>`;
+  const slot=panes.ov.querySelector('.pf2-mslot');
+  if(every){const minis=every.querySelector('.pc-minis');if(minis){if(S){const st=document.createElement('div');st.className='pf2-st';st.innerHTML=`<small>Street</small><b>${S.w||0}–${S.l||0}</b><em>${esc(stTierName||'Rookie')}</em>`;minis.prepend(st)}[...minis.children].forEach(t=>{const sm=t.querySelector('small');if(sm&&/^Locker$/i.test(sm.textContent.trim()))t.remove()});slot.replaceWith(minis)}}
+  else slot.remove();
+  if(supCard)panes.ov.appendChild(supCard);
+  panes.ach.innerHTML=pf2Ach();panes.cards.innerHTML=pf2Cards();panes.hist.innerHTML=pf2Hist();
+  /* account */
+  const rows=[['syncP','sync','Sync progress','Save to the cloud and pick up on another device'],['promoP','gift','Redeem a code','Promo codes for tickets and Locker items'],['fbP','chat','Send an idea','Tell the developer what to build next'],['invP','inv','Invite a friend','Share Hall Pass with someone'],['rulesP','shield','Rules and terms','The community rules everyone plays by']];
+  const acct=panes.acct;acct.innerHTML=`<section class="pf2-s"><header><h3>Account</h3></header><div class="pf2-rows"></div></section><section class="pf2-s"><header><h3>Settings</h3></header><div class="pf2-rows pf2-set"></div></section>${staff?'<section class="pf2-s pf2-staff"></section>':''}`;
+  const rw=acct.querySelector('.pf2-rows');rows.forEach(([id,ic,t,d])=>{const b=moved[id];if(!b)return;b.className='pf2-row';b.innerHTML=`<span class="pf2-ric">${icon(PF2_IC[ic],18)}</span><span class="pf2-rt"><b>${t}</b><small>${d}</small></span><span class="pf2-rgo">${icon('M9 6l6 6-6 6',16)}</span>`;rw.appendChild(b)});
+  const set=acct.querySelector('.pf2-set');
+  if(foot){const fx=foot.querySelector('#fxBtn'),up=[...foot.querySelectorAll('button')].find(b=>/Force update/i.test(b.textContent)),so=foot.querySelector('#signOut');
+    const row=(el,ic,t,d,cls='')=>{if(!el)return;el.className='pf2-row '+cls;el.dataset.t=t;el.innerHTML=`<span class="pf2-ric">${icon(PF2_IC[ic],18)}</span><span class="pf2-rt"><b class="${el.id==='fxBtn'?'pf2-fxl':''}">${t}</b><small>${d}</small></span><span class="pf2-rgo">${icon('M9 6l6 6-6 6',16)}</span>`;set.appendChild(el)};
+    if(fx){const lab=()=>fxOn()?'Seasonal effects: on':'Seasonal effects: off';const paint=()=>{fx.className='pf2-row';fx.innerHTML=`<span class="pf2-ric">${icon(PF2_IC.bolt,18)}</span><span class="pf2-rt"><b>${lab()}</b><small>Snow, leaves, fireworks and other seasonal touches</small></span><span class="pf2-tg ${fxOn()?'on':''}"></span>`};paint();set.appendChild(fx);fx.addEventListener('click',()=>setTimeout(paint,0))}
+    row(up,'refresh','Force update','Reload the newest version of Hall Pass');row(so,'out','Sign out on this device','Your stats stay saved on this device','danger')}
+  if(staff)acct.querySelector('.pf2-staff').replaceWith(staff);
+  /* hidden originals keep the old tab code happy */
+  [tabs,tab].forEach(e=>e&&legacy.appendChild(e));
+  [pfc,career,every,foot,...rest.filter(k=>k!==supCard)].forEach(e=>{if(e&&e.parentNode===dr)e.remove()});
+  R.append(top,...Object.values(panes));wrap.append(L,R,legacy);dr.appendChild(wrap);
+  /* behaviour */
+  const show=p=>{if(!panes[p])p='ov';PF2.pane=p;seg.querySelectorAll('button').forEach(b=>{const on=b.dataset.p===p;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});Object.entries(panes).forEach(([k,e])=>e.classList.toggle('on',k===p));R.dataset.p=p;
+    const bt=seg.querySelector('button.on');if(bt&&bt.scrollIntoView)try{bt.scrollIntoView({block:'nearest',inline:'center'})}catch(e){}};
+  seg.querySelectorAll('button').forEach(b=>b.onclick=()=>{sfx('click');show(b.dataset.p);const pn=panes[b.dataset.p];if(pn)pn.scrollTop=0});
+  dr.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{sfx('click');show(b.dataset.go)});
+  const lk=$('#pf2Lk');if(lk)lk.onclick=()=>{closeAll();setTimeout(()=>openLocker('inv'),250)};
+  panes.ach.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{if(b.disabled)return;togglePin(b.dataset.pin);openDrawer()});
+  panes.ach.querySelectorAll('.pf2-chips button').forEach(b=>b.onclick=()=>{PF2.af=b.dataset.v;panes.ach.querySelectorAll('.pf2-chips button').forEach(x=>x.classList.toggle('on',x===b));panes.ach.querySelector('.pf2-ag').dataset.af=PF2.af});
+  const cardUI=()=>{panes.cards.innerHTML=pf2Cards();bindCards()};
+  const bindCards=()=>{panes.cards.querySelectorAll('.pf2-chips [data-v]').forEach(b=>b.onclick=()=>{PF2.cf=b.dataset.v;cardUI()});
+    panes.cards.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{PF2.ce=PF2.ce===b.dataset.e?'all':b.dataset.e;cardUI()})};bindCards();
+  show(PF2.pane);
+  dr.setAttribute('role','dialog');dr.setAttribute('aria-modal','true');dr.setAttribute('aria-label','Your profile')}
+{const _od=openDrawer;openDrawer=function(){const was=$('#drawer')&&$('#drawer').classList.contains('on');if(!was){PF2.pane='ov';PF2.af='all';PF2.cf='all';PF2.ce='all'}const r=_od.apply(this,arguments);try{pf2Build()}catch(e){console.error(e)}return r}}
+
+/* ============ 12.9: ONE PROFILE CARD, EVERYWHERE — the whole banner on top, the avatar overlapping it ============ */
+/* the strip shows your banner in full; with no banner it shows your card skin; with neither, a colour wash from your badge colour */
+function pcardArt(d){const c=(d||{}).cos||{};if(c.ban)return 'ban ban-'+c.ban;if(c.pcs)return /^o_/.test(c.pcs)?'ban ban-'+c.pcs:'pcs pcs-'+c.pcs;return ''}
+function pcardTags(d){const t=SUP();return `${ME.owner?ownerBadge():''}${ME.no?`<span class="pctag pcid" title="Your player ID">ID ${ME.no}</span>`:''}<span class="pctag" title="Jersey number">#${(d&&d.num!=null)?d.num:P.num}</span>${t?`<span class="pctag sup ${t}">${supBadge(t,true)} ${SUP_NAME[t]}</span>`:''}${(P.ach||[]).length>=achList().length?'<span class="pctag gold">Completionist</span>':''}`}
+function pcardLvl(hub){const li=levelInfo(P.xp);return `<div class="pc-lvl"><div class="pc-lvlb"><b>${li.lvl}</b><small>Level</small></div><div class="pc-xp"><div class="lvl-row"><span class="mono">${fmtN(li.rem)} / ${fmtN(li.need)} XP</span><span>to level ${fmtN(li.lvl+1)}</span></div><div class="xpbar"><i ${hub?'id="dxp"':`style="width:${Math.min(100,li.rem/li.need*100)}%"`}></i></div></div>${tixHTML()}</div>`}
+function pcardHTML(d,o){o=o||{};d=d||{};const c=d.cos||{};const g=GRADS[d.grad]||GRADS[0];const li=levelInfo(P.xp);const sup=SUP();const nm=esc(d.signed&&d.name?d.name:'Guest');
+  return `<div class="pcard ${c.pcs?'pcs pcs-'+c.pcs:''} ${sup?'sup-'+sup:''} ${o.cls||''}" style="--g1:${g[0]};--g2:${g[1]}${o.rc?`;--rc:${o.rc}`:''}"><div class="pcard-ban ${pcardArt(d)}">${decalHTML(d)}</div><div class="pcard-av">${avatarHTML(d,o.av||'big')}</div><div class="pcard-body">${o.tags===false?'':`<div class="pc-tags">${pcardTags(d)}</div>`}<h2 class="pcard-name"><span class="${nameCls(d)}">${nm}</span>${flairHTML(d)}</h2><div class="pcard-rank">${esc(P.title||rankName(li.lvl))}${o.lvlText?` · Level ${li.lvl}`:''}</div>${o.lvl?pcardLvl(o.lvl==='hub'):''}${o.extra||''}</div></div>`}
+
+/* items a player can actually collect: everything on sale now, plus anything they already own */
+const collTotal=()=>ITEMS.filter(i=>itemLive(i)||owns(i.id)).length;
+
+/* ============ 12.9: THE LOCKER — a dressing room with a live card, chip filters and a proper shop ============ */
+const LK4={q:'',tab:'',fold:{},slots:[['emb','Emblem'],['frm','Frame'],['aur','Aura'],['bg','Background'],['nfx','Name style'],['npl','Nameplate'],['ban','Banner'],['pcs','Card skin'],['dec','Decal'],['fl','Flair']]};
+const LK4_IC={search:'M21 21l-4.3-4.3M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z',clock:'M12 7v5l3 2M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z',x:'M18 6L6 18M6 6l12 12'};
+function lk4Look(){const c=COS();const out=[];LK4.slots.forEach(([k,n])=>{let it=null;if(k==='emb'){if(c.mode==='emb'&&c.emb)it=ITEMS.find(i=>i.cat==='emb'&&i.v===c.emb)}else if(c[k])it=ITEMS.find(i=>i.cat===k&&i.v===c[k]);if(it)out.push([k,n,it])});return out}
+function lk4TakeOff(k){const c=COS();if(k==='all'){LK4.slots.forEach(([s])=>{if(s==='emb')c.mode='init';else c[s]=''})}else if(k==='emb')c.mode='init';else c[k]='';saveP();refreshNav();sfx('click');openLocker()}
+function lk4Filters(owned){const tab=LK2.tab;if(tab!=='inv'&&tab!=='all')return null;
+  const base=tab==='inv'?owned:ITEMS.filter(i=>itemLive(i)||owns(i.id));
+  const inCat=i=>LK2.cat==='all'||i.cat===LK2.cat;
+  const cats=[['all','All',base.length],...Object.entries(LK_CAT).map(([k,n])=>[k,n,base.filter(i=>i.cat===k).length]).filter(x=>x[2]>0||x[0]===LK2.cat)];
+  const rars=[['all','All rarities',base.filter(inCat).length],...Object.entries(RAR).map(([k,r])=>[k,r[0],base.filter(i=>inCat(i)&&i.r===k).length])];
+  const chip=(grp,v,n,c,cur)=>`<button type="button" data-lk4="${grp}" data-v="${v}" class="${cur===v?'on':''}"><span>${n}</span><small>${c}</small></button>`;
+  const rchip=(v,n,c)=>`<button type="button" data-lk4="rar" data-v="${v}" class="${LK2.rar===v?'on':''}" ${v!=='all'?`style="--rc:${RAR[v][1]}"`:''}>${v!=='all'?'<i class="dot"></i>':''}<span>${n}</span><small>${c}</small></button>`;
+  const show=tab==='all'?`<div class="lk4-chips" role="group" aria-label="Show">${[['all','Everything'],['own','Owned'],['not','Not owned']].map(([v,n])=>`<button type="button" data-lk4="show" data-v="${v}" class="${LK2.show===v?'on':''}"><span>${n}</span></button>`).join('')}</div>`:'';
+  return `<div class="lk4-f"><label class="lk4-q">${icon(LK4_IC.search,16)}<input id="lk4q" type="search" placeholder="Search ${tab==='inv'?'your items':'every item'}" value="${esc(LK4.q)}" autocomplete="off" aria-label="Search items"></label>
+    <div class="lk4-chips" role="group" aria-label="Type">${cats.map(([v,n,c])=>chip('cat',v,n,c,LK2.cat)).join('')}</div>
+    <div class="lk4-chips" role="group" aria-label="Rarity">${rars.map(([v,n,c])=>rchip(v,n,c)).join('')}</div>${show}</div>`}
+function lk4Shop(body){const shop=body.querySelector('.lkshop');if(!shop||shop.querySelector('.lk4-sh'))return;
+  const end=new Date();end.setHours(24,0,0,0);const ms=Math.max(0,end-Date.now()),h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4);
+  const hero=document.createElement('div');hero.className='lk4-sh';
+  hero.innerHTML=`<div class="lk4-sht"><span class="label">Fresh stock every day</span><h3>The Shop</h3><p>Six picks a day with one on sale. Mythic vault, decor and the Supporter collection rotate too.</p></div><div class="lk4-shr"><span class="lk4-timer">${icon(LK4_IC.clock,15)} New stock in ${h}h ${String(m).padStart(2,'0')}m</span></div>`;
+  shop.prepend(hero);
+  const pk=shop.querySelector('.packcard');if(pk){const hint=pk.querySelector('p.hint');if(hint)hint.outerHTML=`<div class="lk4-odds">${[['c',60],['r',28],['e',9.5],['l',2],['m',.5]].map(([k,p])=>`<span style="--rc:${RAR[k][1]}"><i></i>${RAR[k][0]} ${p}%</span>`).join('')}</div><p class="hint lk4-dup">Duplicates refund half their price.</p>`}
+  /* give every shop section a header with an accent */
+  shop.querySelectorAll(':scope>div:not(.lk4-sh):not(.packcard)').forEach(s=>{s.classList.add('lk4-sec');s.querySelectorAll('.lkgrid').forEach(g=>{g.dataset.n=g.querySelectorAll(':scope>.lkit').length});
+    /* big catalogues (Supporter collection, Staff exclusives) fold away so the shop stays short */
+    const n=s.querySelectorAll('.lkit').length,hd=s.querySelector(':scope>.lkshh');
+    if(n>9&&hd){const key=(hd.textContent||'').trim().slice(0,24);const d=document.createElement('details');d.className=s.className+' lk4-fold';d.open=!!LK4.fold[key];
+      const sm=document.createElement('summary');sm.append(hd);const cn=document.createElement('span');cn.className='lk4-fn';cn.textContent=n+' items';sm.append(cn);const ch=document.createElement('span');ch.className='hchev';ch.innerHTML=icon('M6 9l6 6 6-6',16);sm.append(ch);
+      d.append(sm);[...s.childNodes].forEach(c=>d.append(c));d.addEventListener('toggle',()=>{LK4.fold[key]=d.open});s.replaceWith(d)}})}
+/* name previews in the small tiles shrink a little, then shorten with an ellipsis, so a wide name is never cut off mid-letter */
+/* does the text run past the room inside its own box? (measured on the text itself: a plate's painted edge must not count) */
+function lk4Over(el){const rg=document.createRange();rg.selectNodeContents(el);const tw=rg.getBoundingClientRect().width,r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+  const sc=el.offsetWidth?r.width/el.offsetWidth:1;const inner=el.clientWidth-(parseFloat(cs.paddingLeft)||0)-(parseFloat(cs.paddingRight)||0);return tw/sc>inner+1.5}
+function lk4Fit(root){const all=[...(root||document).querySelectorAll('.lksw .swn')];
+  all.forEach(el=>{if(el.dataset.full===undefined){el.dataset.full=el.textContent;el.dataset.fs0=parseFloat(getComputedStyle(el).fontSize)||16}
+    else if(el.dataset.fit==='1'){el.style.setProperty('font-size',el.dataset.fs0+'px','important');el.style.removeProperty('padding');el.textContent=el.dataset.full;el.dataset.fit=''}});
+  all.forEach(el=>{const b=el.closest('.lksw');if(!b||!b.clientWidth||!lk4Over(el))return;
+    const full=el.dataset.full;let fs=+el.dataset.fs0,n=full.length,g=0,tight=!el.classList.contains('npl');el.dataset.fit='1';
+    while(lk4Over(el)&&g++<40){if(!tight){tight=true;el.style.setProperty('padding','4px 7px','important')}else if(fs>14)fs-=1;else if(n>2)n-=1;else break;
+      el.style.setProperty('font-size',fs+'px','important');el.textContent=n<full.length?full.slice(0,n).trimEnd()+'…':full}})}
+let _lk4rz;addEventListener('resize',()=>{clearTimeout(_lk4rz);_lk4rz=setTimeout(()=>{const b=document.querySelector('#modalBox .lk4 #lkBody');if(b)lk4Fit(b)},200)});
+function lk4Apply(body){const q=(LK4.q||'').trim().toLowerCase();let vis=0,tot=0;
+  body.querySelectorAll('.lkit').forEach(t=>{tot++;const nm=((t.querySelector(':scope>b')||{}).textContent||'').toLowerCase();const ok=!q||nm.includes(q);t.hidden=!ok;if(ok)vis++});
+  body.querySelectorAll('details.lkgrp').forEach(g=>{g.hidden=!!q&&!g.querySelector('.lkit:not([hidden])')});
+  let em=body.querySelector('.lk4-nomatch');if(q&&!vis&&tot){if(!em){em=document.createElement('div');em.className='lk4-nomatch';em.innerHTML='<b>No items match that search</b><small>Try a different word, or clear the search box.</small>';body.appendChild(em)}}else if(em)em.remove();
+  lk4Fit(body)}
+function lk4Build(){const box=$('#modalBox');if(!box)return;const body=box.querySelector('#lkBody');if(!body||box.querySelector('.lk4'))return;
+  const mk=(c,t='div')=>{const e=document.createElement(t);e.className=c;return e};
+  const nav=box.querySelector('.lk3nav'),head=box.querySelector('.lk3head'),title=box.querySelector('.mtitle'),lab=title&&title.previousElementSibling;
+  const c=COS(),d={name:P.name,signed:P.signed,grad:P.grad,num:P.num,cos:c};
+  const owned=ITEMS.filter(i=>owns(i.id));const eqN=lk4Look().length;const ctot=collTotal(),pct=Math.min(100,Math.round(owned.length/ctot*100));
+  const cb=nav&&nav.querySelector('[data-lkt="all"] small');if(cb)cb.textContent=ctot;
+  const wrap=mk('lk4'),L=mk('lk4-l'),R=mk('lk4-r');
+  const stats=`<div class="lk4-st"><div><b>${owned.length}</b><small>Owned</small></div><div><b>${eqN}</b><small>Wearing</small></div><div><b>${pct}%</b><small>Collected</small></div></div><i class="lk4-bar"><s style="width:${pct}%"></s></i>`;
+  const look=lk4Look();
+  L.innerHTML=`${pcardHTML(d,{tags:false,lvlText:true,extra:stats})}
+   <div class="lk4-wear"><div class="lk4-wh"><span class="label">Wearing now</span>${look.length?`<button type="button" class="lk4-off" data-off="all">Take all off</button>`:''}</div>${look.length?`<div class="lk4-wl">${look.map(([k,n,it])=>`<button type="button" class="lk4-w" data-off="${k}" style="--rc:${RAR[it.r][1]}" title="Take off ${esc(it.n)}"><small>${n}</small><b>${esc(it.n)}</b><i>${icon(LK4_IC.x,12)}</i></button>`).join('')}</div>`:`<p class="lk4-none">Nothing extra on yet. Tap any item you own to wear it, or use the eye on a tile to try it on first.</p>`}</div>`;
+  const hd=mk('lk4-hd');hd.innerHTML=`<div><span class="label">Customize your profile</span><h2 class="mtitle">The Locker</h2></div>${tixHTML()}`;
+  const filt=lk4Filters(owned);const fwrap=mk('lk4-fw');if(filt)fwrap.innerHTML=filt;
+  const top=mk('lk4-top');top.append(hd,nav);
+  const oldF=body.querySelector('.lkfil');if(oldF)oldF.remove();if(filt)body.prepend(fwrap);
+  R.append(top,body);wrap.append(L,R);
+  [head,title,lab].forEach(e=>{if(e&&e.parentNode===box)e.remove()});
+  box.appendChild(wrap);
+  /* behaviour */
+  L.querySelectorAll('[data-off]').forEach(b=>b.onclick=()=>lk4TakeOff(b.dataset.off));
+  box.querySelectorAll('[data-lk4]').forEach(b=>b.onclick=()=>{LK2[b.dataset.lk4]=b.dataset.v;LK2.arm=null;sfx('click');openLocker()});
+  const qi=box.querySelector('#lk4q');if(qi)qi.oninput=()=>{LK4.q=qi.value;lk4Apply(body)};
+  body.querySelectorAll('.lkst:not(.on)').forEach(e=>{if(/tap to equip/i.test(e.textContent))e.textContent='Equip'});
+  if(LK2.tab==='shop')lk4Shop(body);
+  body.addEventListener('toggle',e=>{if(e.target.open)lk4Fit(e.target)},true);
+  try{document.fonts&&document.fonts.ready.then(()=>{if(body.isConnected)lk4Fit(body)})}catch(e){}
+  lk4Apply(body)}
+{const _ol=openLocker;openLocker=function(){const box=$('#modalBox');const had=box&&box.querySelector('.lk4');const sc=had?(box.querySelector('#lkBody')||{}).scrollTop||0:0;
+  const r=_ol.apply(this,arguments);try{if(LK4.tab!==LK2.tab)LK4.q='';lk4Build();const b=$('#lkBody');if(b&&had&&LK4.tab===LK2.tab)b.scrollTop=sc;LK4.tab=LK2.tab}catch(e){console.error(e)}return r}}
+/* the try-on card gets the same full-banner card */
+{const _lp=lkPreview;lkPreview=function(id){const r=_lp.apply(this,arguments);try{const i=ITEM[id];const old=document.querySelector('#modalBox .lkpvcard');if(i&&old){const R=RAR[i.r],sub=i.sub&&!owns(id);const col=sub?(i.sub==='plus'?'#ffcc4d':'#3ddc84'):R[1];const t=document.createElement('template');t.innerHTML=pcardHTML(previewWith(i),{av:'xl',tags:false,lvlText:true,rc:col,cls:'lkpvcard2'});old.replaceWith(t.content.firstElementChild)}}catch(e){console.error(e)}return r}}
+
+
+
+/* the close button never sits on top of text: when a line would touch it, the content starts below it */
+function mxFix(){const m=document.getElementById('modal'),box=document.getElementById('modalBox');if(!box||!m||!m.classList.contains('on')||box.classList.contains('mx-gut')||box.querySelector('.lk4'))return;
+  const x=box.querySelector(':scope>.x');if(!x)return;const xr=x.getBoundingClientRect();if(!xr.width||!xr.height)return;
+  const w=document.createTreeWalker(box,NodeFilter.SHOW_TEXT);let n,k=0;
+  while((n=w.nextNode())&&k<80){if(!n.nodeValue.trim())continue;const p=n.parentElement;if(!p||x.contains(p))continue;k++;
+    const cs=getComputedStyle(p);if(cs.visibility==='hidden'||+cs.opacity===0)continue;
+    const rg=document.createRange();rg.selectNodeContents(n);
+    for(const r of rg.getClientRects()){if(r.bottom<xr.top+2||r.top>xr.bottom-2)continue;
+      if(r.left<xr.right-2&&r.right>xr.left+2){box.classList.add('mx-gut');return}}}}
+/* every modal fills #modalBox in its own way, so watch for a new close button arriving there */
+{const hook=()=>{const box=document.getElementById('modalBox');if(!box)return;
+  new MutationObserver(ms=>{if(!ms.some(m=>[...m.addedNodes].some(n=>n.nodeType===1&&n.classList.contains('x'))))return;
+    box.classList.remove('mx-gut');setTimeout(mxFix,0);setTimeout(mxFix,450);setTimeout(mxFix,1500)}).observe(box,{childList:true})};
+  if(document.getElementById('modalBox'))hook();else addEventListener('DOMContentLoaded',hook)}
 
 /* ============ ROUTING ============ */
 function go(v){SIM=null;RUN++;leaveOnline();CURV=v;if(v==='home')renderHome();window.scrollTo({top:0})}
