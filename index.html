@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794932517">
+<meta name="hp-build" content="1794933336">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -4809,6 +4809,47 @@ html.lite .rcshart i,html.lite .rcshart b,body.rm .rcshart i,body.rm .rcshart b{
 .ovstage{margin-top:12px}
 .ovhelp{margin:6px 0 10px;color:var(--mute);font-size:13px;line-height:1.45}
 .ovhud{position:absolute;left:50%;top:10px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:6px 14px;border-radius:99px;background:rgba(8,10,24,.8);color:#fff;font:800 12px system-ui;backdrop-filter:blur(6px)}.ovhud b{font:900 20px system-ui}.ovhud span{opacity:.7}
+.ovvid{display:none;width:100%;height:auto;background:#000}
+.ovscrbox.rtc .ovvid{display:block}.ovscrbox.rtc .ovimg{display:none}
+.ovscrbox .ovhud{z-index:2}
+/* ---- cockpit ---- */
+.ovw.ovwatch{grid-template-columns:1fr}.ovw.ovwatch>.ovl{display:none}
+.ovtop{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.ovback{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;padding:9px 12px;font:800 13px system-ui;cursor:pointer}
+.ovwho{flex:1;min-width:180px}.ovwho h3{margin:2px 0 0;font-size:24px}.ovwho small{color:var(--mute);font-size:13px}
+.ovsel{padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:700 13px system-ui}
+.ovcock{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:14px;align-items:start}
+.ovleft{min-width:0;position:sticky;top:76px}
+.ovleft .ovscrbox{max-height:calc(100vh - 260px)}
+.ovleft .ovstat{margin-top:10px;flex-direction:row;flex-wrap:wrap;gap:6px 18px}.ovleft .ovkv{gap:6px}
+.ovdock{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;display:flex;flex-direction:column;gap:10px;padding:12px;border-radius:18px;background:var(--ink-2);border:1px solid color-mix(in srgb,var(--amber) 30%,var(--line));box-shadow:0 18px 40px rgba(0,0,0,.3);scrollbar-width:thin}
+.ovquick{display:flex;gap:8px}.ovquick input{flex:1;min-width:0;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font:600 14px system-ui}
+.ovpre{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.ovpre button{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--mute);border-radius:99px;padding:6px 10px;font:700 12px system-ui;cursor:pointer}.ovpre button:hover{color:var(--text);border-color:var(--amber)}
+.ovtabs{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:4px;border-radius:14px;background:rgba(0,0,0,.25);position:sticky;top:-12px;z-index:2}
+.ovtabs button{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:none;color:var(--mute);border-radius:10px;padding:8px 2px;font:800 11px/1.1 system-ui;cursor:pointer;text-align:center}
+.ovtabs button.on{background:var(--amber);color:#1a1206}
+.ovnow{position:absolute;top:5px;right:8px;width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.25)}
+.ovph{display:flex;align-items:center;justify-content:space-between;gap:8px}.ovph b{font:900 18px system-ui}
+.ovin,.ovout{font:800 10px/1 system-ui;letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:99px}.ovin{background:rgba(61,220,132,.16);color:#3ddc84}.ovout{background:rgba(255,255,255,.07);color:var(--mute)}
+.ovgrp{margin-top:12px}.ovgrp .ovbtns{margin-top:6px}
+.ovk{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:11px;padding:9px 11px;font:800 13px/1 system-ui;cursor:pointer;transition:transform .12s,border-color .2s,background .2s}
+.ovk:hover{border-color:var(--amber)}.ovk:active{transform:scale(.95)}
+.ovk.go{background:var(--amber);color:#1a1206;border-color:transparent}.ovk.warn{border-color:rgba(255,95,120,.45);color:#ff8a9a}.ovk.up{background:rgba(61,220,132,.14);border-color:rgba(61,220,132,.5);color:#3ddc84}.ovk.down{background:rgba(255,95,120,.14);border-color:rgba(255,95,120,.5);color:#ff7088}
+.ovsm{display:flex;align-items:center;justify-content:space-between;margin-top:6px;font:700 13px system-ui;color:var(--mute)}
+.ovtk{display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.ovrow{display:grid;grid-template-columns:62px 72px 58px 1fr auto;align-items:center;gap:6px;padding:7px 8px;border-radius:11px;background:rgba(255,255,255,.035);border:1px solid transparent;font:700 13px system-ui}
+.ovrow b{color:#9fb0ff}.ovrow .px{font-variant-numeric:tabular-nums;border-radius:6px;padding:2px 4px;transition:background 1s}.ovrow .px.tu{animation:ovTu 1s}.ovrow .px.td{animation:ovTd 1s}
+@keyframes ovTu{from{background:rgba(61,220,132,.5)}}@keyframes ovTd{from{background:rgba(255,95,120,.5)}}
+.ovrow .ch.g{color:#3ddc84}.ovrow .ch.r{color:#ff6b80}.ovrow .hd{font-size:11px;color:var(--amber)}
+.ovrow.fu{animation:ovFu .8s}.ovrow.fd{animation:ovFd .8s}@keyframes ovFu{from{border-color:#3ddc84;background:rgba(61,220,132,.15)}}@keyframes ovFd{from{border-color:#ff5f78;background:rgba(255,95,120,.15)}}
+.ovud{display:flex;gap:3px}.ovud button{width:30px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--panel);font:900 10px system-ui;cursor:pointer;color:var(--text)}
+.ovud button[data-mv^="-"]{color:#ff7088}.ovud button:not([data-mv^="-"]){color:#3ddc84}.ovud button:hover{border-color:currentColor}
+.ovflash{height:0;overflow:hidden;font:800 12px system-ui;color:#3ddc84;opacity:0}.ovflash.on{animation:ovFl 2.2s}
+@keyframes ovFl{0%{height:18px;opacity:1}80%{height:18px;opacity:1}100%{height:0;opacity:0}}
+.ovlogw{margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}.ovlogw .ovlog{max-height:120px}
+@media (max-width:1100px){.ovcock{grid-template-columns:1fr}.ovleft,.ovdock{position:static;max-height:none}.ovleft .ovscrbox{max-height:none}}
+@media (max-width:1100px) and (min-width:700px){.ovcock{grid-template-columns:minmax(0,1fr) 340px}.ovleft,.ovdock{position:sticky}.ovdock{max-height:calc(100vh - 92px)}.ovrow{grid-template-columns:54px 64px 1fr auto}.ovrow .hd{display:none}}
+.ovdock>*{flex-shrink:0}
 
 /* ===== HOME 4 ===== */
 .h4{position:relative;margin:0 calc(50% - 50vw) 8px;min-height:clamp(520px,78vh,760px);overflow:hidden;isolation:isolate;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -9799,7 +9840,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794932517';
+const BUILD='1794933336';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -21080,12 +21121,12 @@ function ovSnap(){const o={n:(P.signed&&P.name)||'Player',m:ovMode(),xp:P.xp||0,
       e:g.ents.map(e=>[+e.x.toFixed(1),+e.z.toFixed(1),+e.y.toFixed(1),e.alive&&!e.out?(e.fin?2:1):0,((e.look||{}).col||0)])}}}catch(e){}
   try{if(o.m==='stgame'&&ST){const s=ST,b=s.ball;o.st={sc:[s.score.A,s.score.B],to:s.to,mode:s.opt.mode||'1v1',diff:s.opt.hof?'hof':s.opt.diff,clk:+(s.clock||0).toFixed(1),p:s.all.map(p=>[+p.x.toFixed(1),+p.y.toFixed(1),p.team==='A'?0:1,p.me?1:0,b.holder===p?1:0,p.fire?1:0]),b:[+b.x.toFixed(1),+b.y.toFixed(1),+(b.z||0).toFixed(1)]}}}catch(e){}
   try{const d=P.dt;if(d){const day=d.day;o.dt={cash:Math.round(d.cash),reqs:(d.reqs||[]).filter(r=>r.st==='pend').map(r=>({id:r.id,k:r.k,amt:r.amt,why:r.why||'',desc:r.desc||''})),lock:OV.dtLock>Date.now()?Math.ceil((OV.dtLock-Date.now())/1000):0};
-      if(day&&day.tk){const i=dtI(day),G=dtGen(day);o.dt.eq=Math.round(dtEquity(day,i));o.dt.prog=+Math.max(0,day.m).toFixed(3);o.dt.dl=day.lock?1:0;o.dt.tk=day.tk.map((t,k)=>[t.sym,+G[k].px[i].toFixed(2),+(((G[k].px[i]/G[k].px[0])-1)*100).toFixed(2)]);
+      if(day&&day.tk){const i=dtI(day),G=dtGen(day);o.dt.eq=Math.round(dtEquity(day,i));o.dt.prog=+Math.min(1,Math.max(0,day.m)/DT_MIN).toFixed(3);o.dt.dl=day.lock?1:0;o.dt.tk=day.tk.map((t,k)=>[t.sym,+G[k].px[i].toFixed(2),+(((G[k].px[i]/G[k].px[0])-1)*100).toFixed(2)]);
         o.dt.pos=Object.keys(day.pos).filter(s=>day.pos[s].q).map(s=>{const k=dtTkI(day,s);return [s,day.pos[s].q,+day.pos[s].avg.toFixed(2),k>=0?+G[k].px[i].toFixed(2):0]});o.dt.ord=day.ord.length}}}catch(e){}
   try{if(P.mkt)o.mk={cash:Math.round(P.mkt.cash),worth:Math.round(P.mkt.worth||0),n:Object.keys(P.mkt.hold||{}).length}}catch(e){}
   return o}
 function ovStream(){if(OV.watchUntil<Date.now()){ovStreamStop();return}if(!OV.wch)return;try{OV.wch.send({type:'broadcast',event:'s',payload:ovSnap()})}catch(e){}}
-function ovStreamStart(secs){OV.watchUntil=Date.now()+Math.min(300,secs||120)*1000;if(OV.wch)return;try{const ch=DB.c.channel('hp-ovw-'+DB.pid,{config:{broadcast:{self:false,ack:false}}});OV.wch=ch;ch.subscribe(s=>{if(s==='SUBSCRIBED'){clearInterval(OV.wt);OV.wt=setInterval(ovStream,250)}})}catch(e){}}
+function ovStreamStart(secs){OV.watchUntil=Date.now()+Math.min(300,secs||120)*1000;if(OV.wch)return;try{const ch=DB.c.channel('hp-ovw-'+DB.pid,{config:{broadcast:{self:false,ack:false}}});OV.wch=ch;ch.on('broadcast',{event:'rtc'},m=>{try{ovRtcIn(m.payload)}catch(e){}});ch.subscribe(s=>{if(s==='SUBSCRIBED'){clearInterval(OV.wt);OV.wt=setInterval(ovStream,250)}})}catch(e){}}
 function ovStreamStop(){clearInterval(OV.wt);OV.wt=0;try{if(OV.wch)DB.c.removeChannel(OV.wch)}catch(e){}OV.wch=null}
 
 /* commands from the owner */
@@ -21145,7 +21186,7 @@ function ovAdmList(){const L=$('#ovList');if(!L)return;const q=(OVA.q||'').toLow
   L.innerHTML=a.length?a.map(v=>`<button class="ovp ${OVA.sel===v.pid?'on':''}" data-ovp="${esc(v.pid)}"><i class="ovdot m-${esc(String(v.m).replace(/[^a-z]/g,''))}"></i><span><b>${esc(v.n||'Player')}</b><small>${esc(OV_MODE[v.m]||v.m||'Menu')} · LV ${v.lv||1}</small></span></button>`).join(''):'<p class="hint">Nobody is online right now.</p>';
   L.querySelectorAll('[data-ovp]').forEach(b=>b.onclick=()=>ovAdmWatch(b.dataset.ovp))}
 async function ovSend(pid,cmd){cmd.id=Date.now().toString(36)+Math.random().toString(36).slice(2,6);if(window.__ovTest)return window.__ovTest(pid,cmd);const r=await admRpc('admin_message',{p_pid:pid,p_title:'__hpcmd',p_body:JSON.stringify(cmd)});if(r&&r.error){OVA.log.unshift('✗ '+r.error.message);ovAdmLog()}return r}
-async function ovAdmWatch(pid){ovAdmStop(true);OVA.sel=pid;OVA.feed=null;if(typeof OVR!=='undefined'){OVR.frame=null;OVR.parts={}}OVA.log=[];ovAdmList();ovAdmPanel();try{const c=await sbClient();const ch=c.channel('hp-ovw-'+pid,{config:{broadcast:{self:false,ack:false}}});OVA.ch=ch;ch.on('broadcast',{event:'s'},m=>{OVA.feed=m.payload;OVA.ft=Date.now();ovAdmFeed()}).on('broadcast',{event:'v'},m=>{try{ovScrIn(m.payload)}catch(e){}}).subscribe()}catch(e){}
+async function ovAdmWatch(pid){ovAdmStop(true);OVA.sel=pid;OVA.feed=null;if(typeof OVR!=='undefined'){OVR.frame=null;OVR.parts={}}OVA.log=[];ovAdmList();ovAdmPanel();try{const c=await sbClient();const ch=c.channel('hp-ovw-'+pid,{config:{broadcast:{self:false,ack:false}}});OVA.ch=ch;ch.on('broadcast',{event:'s'},m=>{OVA.feed=m.payload;OVA.ft=Date.now();ovAdmFeed()}).on('broadcast',{event:'v'},m=>{try{ovScrIn(m.payload)}catch(e){}}).on('broadcast',{event:'rtc'},m=>{try{ovAdmRtcIn(m.payload)}catch(e){}}).subscribe()}catch(e){}
   ovSend(pid,{k:'watch',on:1,s:150});clearInterval(OVA.hb);OVA.hb=setInterval(()=>{if(OVA.sel===pid&&$('#ovW'))ovSend(pid,{k:'watch',on:1,s:150});else clearInterval(OVA.hb)},60000)}
 function ovAdmStop(keepList){clearInterval(OVA.hb);cancelAnimationFrame(OVA.raf);if(OVA.ch){try{DB.c&&DB.c.removeChannel(OVA.ch)}catch(e){}try{OVA.ch.unsubscribe()}catch(e){}}OVA.ch=null;if(OVA.sel&&!keepList&&!$('#ovW')){ovSend(OVA.sel,{k:'watch',on:0});OVA.sel=''}}
 const ovBtn=(a,label,cls)=>`<button class="btn btn-ghost sm ${cls||''}" data-ovc='${a}'>${label}</button>`;
@@ -21237,8 +21278,201 @@ function ovScrPaint(){const box=$('#ovScr');if(!box||OVR.view!=='screen')return;
   if(!fr){box.innerHTML='<iframe class="ovfr" sandbox="allow-same-origin" title="Their screen" tabindex="-1"></iframe>';fr=box.querySelector('iframe');fr.onload=()=>{fr.dataset.ok=1;apply()};fr.srcdoc=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${ovScrCss()}</head><body></body></html>`}
   fr.style.width=f.vw+'px';fr.style.height=Math.min(f.vh,1400)+'px';fr.style.transform=`scale(${sc})`;box.style.height=H+'px';if(fr.dataset.ok)apply()}
 function ovScrAge(){const a=$('#ovScrA');if(!a)return;if(!OVR.frame){a.textContent='connecting';a.className='ovage wait';return}const s=Math.round((Date.now()-OVR.ft)/1000);a.textContent=s<3?'live':`${s}s ago`;a.className='ovage '+(s<3?'on':s<15?'slow':'wait')}
-setInterval(ovScrAge,1000);
+setInterval(()=>ovScrAge(),1000);
 addEventListener('resize',()=>{try{ovScrPaint()}catch(e){}});
+
+/* ============ OWNER'S VIEW 3: smooth live mirror ============
+   games: a direct live video stream of their game canvas (WebRTC), pictures as a fallback
+   pages: only send when something changes, and patch the copy in place so nothing flashes */
+const OV_ICE={iceServers:[{urls:['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302']}]};
+/* ---------- player side ---------- */
+const OVRTC={pc:null,cv:null,sender:null,ok:false,t0:0};
+const OVD={mo:null,dirty:true,lastSend:0,cvLast:[],cvT:0,sy:-1};
+function ovSig(p){try{if(OV.wch)OV.wch.send({type:'broadcast',event:'rtc',payload:Object.assign({from:'p'},p)})}catch(e){}}
+function ovRtcStop(bye){try{if(OVRTC.pc)OVRTC.pc.close()}catch(e){}OVRTC.pc=null;OVRTC.cv=null;OVRTC.sender=null;OVRTC.ok=false;if(bye)ovSig({t:'bye'})}
+async function ovRtcStart(){ovRtcStop();const cv=ovGameCanvas();if(!cv||!cv.captureStream||typeof RTCPeerConnection==='undefined')return;
+  const pc=new RTCPeerConnection(OV_ICE);OVRTC.pc=pc;OVRTC.cv=cv;OVRTC.t0=Date.now();const st=cv.captureStream(24);const tr=st.getVideoTracks()[0];if(!tr)return ovRtcStop();
+  OVRTC.sender=pc.addTrack(tr,st);try{const p=OVRTC.sender.getParameters();p.encodings=p.encodings&&p.encodings.length?p.encodings:[{}];p.encodings[0].maxBitrate=900000;p.encodings[0].maxFramerate=24;OVRTC.sender.setParameters(p).catch(()=>{})}catch(e){}
+  pc.onicecandidate=e=>{if(e.candidate)ovSig({t:'ice',c:e.candidate.toJSON()})};
+  pc.onconnectionstatechange=()=>{if(OVRTC.pc!==pc)return;OVRTC.ok=pc.connectionState==='connected';if(pc.connectionState==='failed'||pc.connectionState==='closed')ovRtcStop()};
+  const o=await pc.createOffer();await pc.setLocalDescription(o);ovSig({t:'offer',sdp:pc.localDescription.toJSON()})}
+async function ovRtcIn(p){if(!p||p.from==='p'||OV.watchUntil<Date.now())return;
+  if(p.t==='hello'){if(ovGameCanvas()&&(!OVRTC.pc||(!OVRTC.ok&&Date.now()-OVRTC.t0>7000)))ovRtcStart();return}
+  if(p.t==='answer'&&OVRTC.pc&&OVRTC.pc.signalingState==='have-local-offer'){await OVRTC.pc.setRemoteDescription(p.sdp);return}
+  if(p.t==='ice'&&OVRTC.pc){try{await OVRTC.pc.addIceCandidate(p.c)}catch(e){}return}
+  if(p.t==='bye')ovRtcStop()}
+/* note page changes instead of copying the page on a timer */
+function ovDomWatch(on){if(!on){if(OVD.mo)OVD.mo.disconnect();OVD.mo=null;return}if(OVD.mo||typeof MutationObserver==='undefined')return;OVD.dirty=true;
+  OVD.mo=new MutationObserver(()=>{OVD.dirty=true});OVD.mo.observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true})}
+function ovChunkSend(p){const s=JSON.stringify(p);const id=(++OVS.seq).toString(36),N=110000,n=Math.ceil(s.length/N);if(n>12)return;for(let i=0;i<n;i++){try{OV.wch.send({type:'broadcast',event:'v',payload:{id,i,n,s:s.slice(i*N,(i+1)*N)}})}catch(e){}}}
+function ovMeta(p){return Object.assign(p,{m:ovMode(),vw:innerWidth,vh:innerHeight,sy:Math.round(scrollY),hc:document.documentElement.className,hs:document.documentElement.getAttribute('style')||'',bc:document.body.className})}
+function ovDomShot2(){const app=document.getElementById('app');if(!app)return null;const cl=app.cloneNode(true);
+  const oc=[...app.querySelectorAll('canvas')],cc=[...cl.querySelectorAll('canvas')];
+  cc.forEach((c,i)=>{const o=oc[i];const r=o?o.getBoundingClientRect():{width:0,height:0};const img=document.createElement('img');img.setAttribute('data-ovcv',i);img.className=c.className;img.setAttribute('style',(c.getAttribute('style')||'')+`;width:${Math.round(r.width)}px;height:${Math.round(r.height)}px;display:${r.width?'block':'none'};object-fit:fill`);c.replaceWith(img)});
+  cl.querySelectorAll('script,iframe,video,audio').forEach(e=>e.remove());
+  const oi=[...app.querySelectorAll('input,select,textarea')],ci=[...cl.querySelectorAll('input,select,textarea')];ci.forEach((e,i)=>{const o=oi[i];if(!o)return;if(e.tagName==='SELECT'){[...e.options].forEach((op,j)=>{if(j===o.selectedIndex)op.setAttribute('selected','');else op.removeAttribute('selected')})}else if(o.type==='checkbox'||o.type==='radio'){if(o.checked)e.setAttribute('checked','');else e.removeAttribute('checked')}else e.setAttribute('value',o.type==='password'?'':o.value)});
+  cl.querySelectorAll('*').forEach(e=>{for(const a of [...e.attributes])if(/^on/i.test(a.name))e.removeAttribute(a.name)});
+  let extra='';document.querySelectorAll('body > .modal-bg, body > .lgmodal, body > .sheet, body > [role="dialog"]').forEach(e=>{if(e.offsetParent!==null||getComputedStyle(e).position==='fixed'){const c=e.cloneNode(true);c.querySelectorAll('script').forEach(s=>s.remove());extra+=c.outerHTML}});
+  return {k:'dom',h:cl.outerHTML+extra}}
+function ovCanvasFrames(force){const app=document.getElementById('app');if(!app)return null;const a=[];[...app.querySelectorAll('canvas')].forEach((c,i)=>{const r=c.getBoundingClientRect();if(r.width<5||r.height<5||r.bottom<0||r.top>innerHeight)return;const d=ovShrink(c,Math.min(720,Math.round(r.width)),.62);if(d&&(force||OVD.cvLast[i]!==d)){OVD.cvLast[i]=d;a.push([i,d])}});return a.length?{k:'cv',a}:null}
+ovScreen=function(){if(!OV.wch||OV.watchUntil<Date.now()){if(OVRTC.pc)ovRtcStop(true);ovDomWatch(false);return}const now=Date.now();const cv=ovGameCanvas();
+  if(cv){ovDomWatch(false);if(OVRTC.pc&&OVRTC.cv!==cv){/* a new game canvas: swap the video over */try{const st=cv.captureStream(24);const tr=st.getVideoTracks()[0];if(tr&&OVRTC.sender){OVRTC.sender.replaceTrack(tr);OVRTC.cv=cv}}catch(e){ovRtcStop(true)}}
+    if(OVRTC.ok)return;/* the live video is running, no pictures needed */if(now-OVD.lastSend<300)return;OVD.lastSend=now;const d=ovShrink(cv,560,.5);if(d)ovChunkSend(ovMeta({k:'img',d}));return}
+  if(OVRTC.pc)ovRtcStop(true);ovDomWatch(true);
+  if(OVD.dirty&&now-OVD.lastSend>380){OVD.dirty=false;OVD.lastSend=now;const p=ovDomShot2();if(p){const s=JSON.stringify(p);if(s!==OVS.last||now-OVS.lastT>8000){OVS.last=s;OVS.lastT=now;OVD.cvLast=[];ovChunkSend(ovMeta(p))}}}
+  if(now-OVD.cvT>700){OVD.cvT=now;const f=ovCanvasFrames(false);if(f)ovChunkSend(f)}
+  const sy=Math.round(scrollY);if(sy!==OVD.sy){OVD.sy=sy;ovChunkSend({k:'sc',sy,vh:innerHeight,vw:innerWidth})}};
+{const _x=ovStreamStop;ovStreamStop=function(){ovRtcStop(true);ovDomWatch(false);return _x.apply(this,arguments)}}
+{const _s=ovStreamStart;ovStreamStart=function(){OVS.last='';OVD.dirty=true;OVD.cvLast=[];OVD.sy=-1;const r=_s.apply(this,arguments);clearInterval(OVS.t);OVS.t=setInterval(()=>{try{ovScreen()}catch(e){}},120);return r}}
+
+/* ---------- owner side ---------- */
+const OVAR={pc:null,t0:0,hello:0,stream:null,live:false};
+function ovAdmSig(p){try{if(OVA.ch)OVA.ch.send({type:'broadcast',event:'rtc',payload:Object.assign({from:'o'},p)})}catch(e){}}
+function ovAdmRtcStop(){try{if(OVAR.pc)OVAR.pc.close()}catch(e){}OVAR.pc=null;OVAR.stream=null;OVAR.live=false;const v=$('#ovScr video');if(v){v.srcObject=null;v.remove()}const b=$('#ovScr');if(b)b.classList.remove('rtc')}
+async function ovAdmRtcIn(p){if(!p||p.from==='o')return;
+  if(p.t==='offer'){ovAdmRtcStop();const pc=new RTCPeerConnection(OV_ICE);OVAR.pc=pc;OVAR.t0=Date.now();
+    pc.ontrack=e=>{OVAR.stream=e.streams[0]||new MediaStream([e.track]);ovVidShow()};
+    pc.onicecandidate=e=>{if(e.candidate)ovAdmSig({t:'ice',c:e.candidate.toJSON()})};
+    pc.onconnectionstatechange=()=>{if(OVAR.pc!==pc)return;if(pc.connectionState==='failed'||pc.connectionState==='closed')ovAdmRtcStop()};
+    await pc.setRemoteDescription(p.sdp);const a=await pc.createAnswer();await pc.setLocalDescription(a);ovAdmSig({t:'answer',sdp:pc.localDescription.toJSON()});return}
+  if(p.t==='ice'&&OVAR.pc){try{await OVAR.pc.addIceCandidate(p.c)}catch(e){}return}
+  if(p.t==='bye')ovAdmRtcStop()}
+function ovVidShow(){const box=$('#ovScr');if(!box||!OVAR.stream||OVR.view!=='screen')return;let v=box.querySelector('video');if(!v){v=document.createElement('video');v.className='ovvid';v.muted=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');box.append(v);
+    v.onplaying=()=>{OVAR.live=true;box.classList.add('rtc');ovScrAge()};v.onpause=()=>{}}
+  if(v.srcObject!==OVAR.stream)v.srcObject=OVAR.stream;const pl=v.play();if(pl&&pl.catch)pl.catch(()=>{})}
+/* keep asking for the live video while they are in a game */
+setInterval(()=>{if(!OVA.sel||!OVA.ch||!$('#ovScr'))return;const f=OVR.frame;const game=(f&&f.k==='img')||(OVA.feed&&/game$/.test(OVA.feed.m||''));
+  if(!game){if(OVAR.pc&&!OVAR.live)ovAdmRtcStop();return}
+  if(OVAR.pc&&!OVAR.live&&Date.now()-OVAR.t0>8000)ovAdmRtcStop();
+  if(!OVAR.pc||(!OVAR.live&&!OVAR.pc))ovAdmSig({t:'hello'})},2500);
+{const _st=ovAdmStop;ovAdmStop=function(){ovAdmRtcStop();return _st.apply(this,arguments)}}
+{const _w=ovAdmWatch;ovAdmWatch=async function(pid){ovAdmRtcStop();OVR.frame=null;OVR.parts={};const r=await _w.apply(this,arguments);setTimeout(()=>ovAdmSig({t:'hello'}),1200);return r}}
+
+/* put frames together and patch the copy in place */
+ovScrIn=function(p){if(!p||!p.id)return;const b=OVR.parts[p.id]||(OVR.parts[p.id]={n:p.n,got:0,a:[]});if(b.a[p.i]==null){b.a[p.i]=p.s;b.got++}
+  if(b.got<b.n)return;delete OVR.parts[p.id];for(const k in OVR.parts)if(parseInt(k,36)<parseInt(p.id,36)-8)delete OVR.parts[k];
+  let f;try{f=JSON.parse(b.a.join(''))}catch(e){return}OVR.ft=Date.now();
+  if(f.k==='cv'){OVR.cv=OVR.cv||{};f.a.forEach(([i,d])=>{OVR.cv[i]=d});ovCvPatch();return}
+  if(f.k==='sc'){if(OVR.frame&&OVR.frame.k==='dom'){OVR.frame.sy=f.sy;OVR.frame.vh=f.vh;OVR.frame.vw=f.vw;ovScrPaint(true)}return}
+  if(f.k==='dom'&&(!OVR.frame||OVR.frame.k!=='dom'))OVR.cv={};OVR.frame=f;ovScrPaint()};
+function ovCvPatch(){const fr=$('#ovScr iframe');const d=fr&&fr.contentDocument;if(!d||!OVR.cv)return;d.querySelectorAll('img[data-ovcv]').forEach(im=>{const s=OVR.cv[im.getAttribute('data-ovcv')];if(s&&im.getAttribute('src')!==s)im.setAttribute('src',s)})}
+function ovMorph(a,b){if(a.nodeType!==b.nodeType||a.nodeName!==b.nodeName){a.replaceWith(b);return}
+  if(a.nodeType===3||a.nodeType===8){if(a.nodeValue!==b.nodeValue)a.nodeValue=b.nodeValue;return}
+  if(a.nodeType!==1)return;const keepSrc=a.hasAttribute&&a.hasAttribute('data-ovcv');
+  for(const at of [...a.attributes])if(!b.hasAttribute(at.name)&&!(keepSrc&&at.name==='src'))a.removeAttribute(at.name);
+  for(const at of [...b.attributes])if(a.getAttribute(at.name)!==at.value)a.setAttribute(at.name,at.value);
+  const bc=[...b.childNodes];let ac=a.childNodes;for(let i=0;i<bc.length;i++){if(i<ac.length)ovMorph(ac[i],bc[i]);else a.appendChild(bc[i])}while(a.childNodes.length>bc.length)a.removeChild(a.lastChild)}
+ovScrPaint=function(scrollOnly){const box=$('#ovScr');if(!box||OVR.view!=='screen')return;const f=OVR.frame;
+  if(OVAR.stream&&!box.querySelector('video'))ovVidShow();
+  if(!f)return;const W=box.clientWidth||600;const sc=Math.min(1,W/f.vw);const H=Math.round(Math.min(f.vh,1400)*sc);
+  const tag=$('#ovScrT');if(tag)tag.textContent=`${OV_MODE[f.m]||f.m||'Their screen'} · their screen is ${f.vw}×${f.vh}${f.k==='img'?(OVAR.live?' · live video':' · game pictures'):' · page copy'}`;
+  const wait=box.querySelector('.ovscrwait');if(wait)wait.remove();
+  if(f.k==='img'){const fr=box.querySelector('iframe');if(fr)fr.remove();let im=box.querySelector('img.ovimg');if(!im){im=document.createElement('img');im.className='ovimg';im.alt='Their game screen';box.prepend(im)}box.style.height='';if(im.getAttribute('src')!==f.d)im.src=f.d;
+    let hud=box.querySelector('.ovhud');if(!hud){hud=document.createElement('div');hud.className='ovhud';box.append(hud)}const F=OVA.feed||{};hud.innerHTML=F.st?`<b>${F.st.sc[0]}</b><span>them · bots</span><b>${F.st.sc[1]}</b>`:F.rr?`<span>${esc(F.rr.nm)} · round ${F.rr.r}/${F.rr.R} · ${F.rr.e.filter(e=>e[3]).length} still in</span>`:'';hud.hidden=!hud.innerHTML;return}
+  if(OVAR.pc)ovAdmRtcStop();box.querySelectorAll('img.ovimg,.ovhud').forEach(e=>e.remove());
+  let fr=box.querySelector('iframe');
+  const size=()=>{fr.style.width=f.vw+'px';fr.style.height=Math.min(f.vh,1400)+'px';fr.style.transform=`scale(${sc})`;box.style.height=H+'px'};
+  const apply=()=>{const d=fr.contentDocument;if(!d||!d.body)return;try{
+      if(!scrollOnly){if(d.documentElement.className!==f.hc)d.documentElement.className=f.hc;if((d.documentElement.getAttribute('style')||'')!==f.hs){if(f.hs)d.documentElement.setAttribute('style',f.hs);else d.documentElement.removeAttribute('style')}if(d.body.className!==f.bc)d.body.className=f.bc;
+        const t=d.createElement('template');t.innerHTML=f.h;const nb=d.createElement('body');nb.append(t.content);ovMorph(d.body,(()=>{for(const a of [...d.body.attributes])nb.setAttribute(a.name,a.value);return nb})());ovCvPatch()}
+      if(Math.abs((fr.contentWindow.scrollY||0)-f.sy)>1)fr.contentWindow.scrollTo(0,f.sy)}catch(e){console.error(e)}};
+  if(!fr){fr=document.createElement('iframe');fr.className='ovfr';fr.setAttribute('sandbox','allow-same-origin');fr.title='Their screen';fr.tabIndex=-1;box.prepend(fr);fr.onload=()=>{fr.dataset.ok=1;size();apply()};fr.srcdoc=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${ovScrCss()}</head><body></body></html>`}
+  size();if(fr.dataset.ok)apply()};
+ovScrAge=function(){const a=$('#ovScrA');if(!a)return;if(OVAR.live){a.textContent='live video';a.className='ovage on';return}if(!OVR.frame){a.textContent='connecting';a.className='ovage wait';return}const s=Math.round((Date.now()-OVR.ft)/1000);const dom=OVR.frame.k==='dom';a.textContent=dom?(s<15?'live':`no changes for ${s}s`):(s<3?'live':`${s}s ago`);a.className='ovage '+(dom||s<3?'on':s<15?'slow':'wait')};
+
+/* ============ OWNER'S VIEW 4: cockpit layout, controls always in reach, more control ============ */
+/* ---------- new commands on the player side ---------- */
+function dtOwnerMove(day,k,pct,ramp){const G=dtGen(day),g=G[k];if(!g)return;const i=dtI(day),T=DT_T,N=DT_N,R=Math.max(1,ramp|0),q=pct/100;
+  for(let j=i;j<N;j++){const f=1+q*Math.min(1,(j-i+1)/R);g.px[j]=Math.max(.05,Math.round(g.px[j]*f*100)/100);if(j-i<R*2)g.vo[j]*=2.2}
+  for(let m=Math.floor(i/T);m<DT_MIN;m++){let hi=-1,lo=1e9;for(let j=m*T;j<m*T+T;j++){const p=g.px[j];if(p>hi)hi=p;if(p<lo)lo=p}g.O[m]=g.px[m*T];g.H[m]=hi;g.L[m]=lo;g.C[m]=g.px[m*T+T-1]}}
+const OV_GOTO={home:()=>go('home'),street:()=>stHub(),rr:()=>rcsHub(),dt:()=>dtOpen('floor'),market:()=>mkOpen(),mini:()=>renderMini(),locker:()=>openLocker()};
+{const _c=ovCmd;ovCmd=function(body,at){let c;try{c=typeof body==='string'?JSON.parse(body):body}catch(e){return}
+  const mine=c&&((c.k==='goto')||(c.k==='dt'&&(c.a==='move2'||c.a==='mkt'))||(c.k==='st'&&(c.a==='reset'||c.a==='unfire'))||(c.k==='rr'&&c.a==='unghost'));if(!mine)return _c.apply(this,arguments);
+  if(at&&Date.now()-new Date(at).getTime()>180000)return;if(c.id&&c.id===OV.lastId)return;OV.lastId=c.id;
+  try{
+   if(c.k==='goto'){const f=OV_GOTO[c.to];if(f){try{if(RCS.g)rcsStop()}catch(e){}f()}return}
+   if(c.k==='dt'){const d=P.dt,day=d&&d.day;if(!day)return;
+     if(c.a==='move2'){const k2=dtTkI(day,c.sym);if(k2>=0)dtOwnerMove(day,k2,+c.pct||0,c.ramp||20)}
+     if(c.a==='mkt')day.tk.forEach((t,k2)=>dtOwnerMove(day,k2,(+c.pct||0)*(.7+Math.random()*.6),c.ramp||28));
+     try{if(/^dt/.test(CURV)&&typeof dtTickUI==='function')dtTickUI(day,dtI(day))}catch(e){}return}
+   if(c.k==='st'){const s=typeof ST!=='undefined'?ST:null;if(!s||s.opt.online)return;if(c.a==='reset'){s.score.A=0;s.score.B=0}if(c.a==='unfire')s.teams.A.forEach(p=>{p.fire=false;p.heat=0});return}
+   if(c.k==='rr'){RCS.pow.ghost=false;return}
+  }catch(e){console.error(e)}}}
+/* the feed also sends the live price list every tick so the owner sees moves at once */
+
+/* ---------- owner side: a cockpit ---------- */
+const OVK={tab:'',auto:true,smooth:true,amt:1000,pick:0};
+const ovB=(cmd,label,cls,tip)=>`<button class="ovk ${cls||''}" data-ovc='${JSON.stringify(cmd).replace(/'/g,'&#39;')}' ${tip?`title="${esc(tip)}"`:''}>${label}</button>`;
+const OV_TABS=[['dt','Day trading','M3 3v18h18M7 14l3-3 3 3 5-6'],['st','Street','M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20'],['rr','Recess Rush','M5 3l14 9-14 9z'],['mk','Market','M3 17l6-6 4 4 8-8'],['acct','Player','M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8']];
+const ovTabFor=m=>m==='dt'?'dt':m==='stgame'||m==='sthub'?'st':m==='rcsgame'||m==='rcs'?'rr':m==='market'?'mk':'acct';
+ovAdmPanel=function(){const R=$('#ovR');if(!R)return;const v=OVA.list[OVA.sel]||{n:'Player'};const W=$('#ovW');if(W)W.classList.add('ovwatch');
+  if(!OVK.tab)OVK.tab=ovTabFor((OVA.feed&&OVA.feed.m)||v.m);
+  const others=Object.values(OVA.list).filter(x=>x.pid!==OVA.sel);
+  R.innerHTML=`<div class="ovtop"><button class="ovback" id="ovAll">${icon('M15 18l-6-6 6-6',16)} All players</button><div class="ovwho"><span class="label"><i class="ovlive"></i> Watching live · only you can see this</span><h3>${esc(v.n||'Player')}</h3><small id="ovMode">Waiting for their game…</small></div>
+     ${others.length?`<select id="ovSwitch" class="ovsel"><option value="">Switch player…</option>${others.map(o=>`<option value="${esc(o.pid)}">${esc(o.n||'Player')} · ${esc(OV_MODE[o.m]||o.m||'')}</option>`).join('')}</select>`:''}<button class="ovk warn" id="ovStop">Stop watching</button></div>
+   <div class="ovcock"><div class="ovleft">
+     <div class="ovscrh"><div><span class="label">What they see <b id="ovScrA" class="ovage wait">connecting</b></span><small class="hint" id="ovScrT">Their screen appears here in a few seconds.</small></div><div class="ovseg"><button data-ovsv="screen" class="${OVR.view==='screen'?'on':''}">Their screen</button><button data-ovsv="map" class="${OVR.view==='map'?'on':''}">Simple map</button></div></div>
+     <div class="ovscrbox" id="ovScr" ${OVR.view==='screen'?'':'hidden'}><div class="ovscrwait"><i class="ovspin"></i>Connecting to their screen…</div></div>
+     <div class="ovstage ${OVR.view==='map'?'':'nomap'}"><canvas id="ovCv"></canvas></div>
+     <div class="ovstat" id="ovStat"></div></div>
+    <aside class="ovdock" id="ovDock">
+     <div class="ovquick"><input id="ovNote" maxlength="300" placeholder="Send them a note…"><button class="ovk go" id="ovNoteGo">Send</button></div>
+     <div class="ovpre">${['Nice play! 🔥','Great job today 👏','Take a short break 🙂','Keep chat kind, please','Welcome to Hall Pass!'].map(t=>`<button data-ovpre="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+     <div class="ovtabs">${OV_TABS.map(([k,n,ic])=>`<button data-ovt="${k}" class="${OVK.tab===k?'on':''}">${icon(ic,15)}<span>${n}</span><i class="ovnow" hidden></i></button>`).join('')}</div>
+     <div class="ovpane" id="ovPane"></div>
+     <div class="ovlogw"><span class="label">What you sent</span><div id="ovLog" class="ovlog"></div></div></aside></div>
+   <select id="ovSym" hidden></select>`;
+  $('#ovAll').onclick=()=>{ovSend(OVA.sel,{k:'watch',on:0});ovAdmStop(true);OVA.sel='';OVK.tab='';if(W)W.classList.remove('ovwatch');ovAdmList();R.innerHTML='<div class="ovempty"><b>Pick a player</b></div>'};
+  $('#ovStop').onclick=$('#ovAll').onclick;const sw=$('#ovSwitch');if(sw)sw.onchange=()=>{if(sw.value){OVK.tab='';ovAdmWatch(sw.value)}};
+  $('#ovNoteGo').onclick=()=>{const t=$('#ovNote').value.trim();if(!t)return;ovDo({k:'note',txt:t},'Note: '+t);$('#ovNote').value=''};$('#ovNote').onkeydown=e=>{if(e.key==='Enter')$('#ovNoteGo').click()};
+  R.querySelectorAll('[data-ovpre]').forEach(b=>b.onclick=()=>ovDo({k:'note',txt:b.dataset.ovpre},'Note: '+b.dataset.ovpre));
+  R.querySelectorAll('[data-ovt]').forEach(b=>b.onclick=()=>{OVK.tab=b.dataset.ovt;OVK.auto=false;R.querySelectorAll('[data-ovt]').forEach(x=>x.classList.toggle('on',x===b));ovPane()});
+  R.querySelectorAll('[data-ovsv]').forEach(b=>b.onclick=()=>{OVR.view=b.dataset.ovsv;R.querySelectorAll('[data-ovsv]').forEach(x=>x.classList.toggle('on',x===b));$('#ovScr').hidden=OVR.view!=='screen';R.querySelector('.ovstage').classList.toggle('nomap',OVR.view!=='map');if(OVR.view==='screen'){ovScrPaint();ovVidShow()}});
+  ovPane();ovAdmLog();ovAdmFeed();ovAdmDraw();ovScrPaint()};
+function ovDo(cmd,label){ovSend(OVA.sel,cmd);OVA.log.unshift(`${new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit',second:'2-digit'})} · ${label}`);OVA.log=OVA.log.slice(0,30);ovAdmLog();try{sfx('click')}catch(e){}
+  const n=$('#ovFlash');if(n){n.textContent='✓ '+label;n.classList.remove('on');void n.offsetWidth;n.classList.add('on')}}
+function ovPane(){const P_=$('#ovPane');if(!P_)return;const T=OVK.tab||'acct';const f=OVA.feed||{};const live=ovTabFor(f.m||'')===T;
+  const head=(t,help)=>`<div class="ovph"><b>${t}</b>${live?'<span class="ovin">They are here now</span>':'<span class="ovout">Works once they open it</span>'}</div><p class="ovhelp">${help}</p><div id="ovFlash" class="ovflash"></div>`;
+  const grp=(t,inner)=>`<div class="ovgrp"><span class="label">${t}</span><div class="ovbtns">${inner}</div></div>`;
+  let h='';
+  if(T==='dt'){h=head('Day trading','Tap ▲ or ▼ next to a stock to push its price. You will see it move on their screen. Smooth moves glide over a few seconds, like a real run. Instant moves jump at once.')
+     +`<div class="ovsm"><span>Move style</span><div class="ovseg"><button data-ovsm="1" class="${OVK.smooth?'on':''}">Smooth</button><button data-ovsm="0" class="${OVK.smooth?'':'on'}">Instant</button></div></div>
+      <div class="ovtk" id="ovTk"><p class="hint">Prices show once they are on the trading floor.</p></div>`
+     +grp('Whole market',ovB({k:'dt',a:'mkt',pct:6},'📈 Rally every stock','up','All stocks climb about 6%')+ovB({k:'dt',a:'mkt',pct:-6},'📉 Crash every stock','down','All stocks fall about 6%'))
+     +grp('Their cash',ovB({k:'dt',a:'cash',v:1000},'+$1K')+ovB({k:'dt',a:'cash',v:10000},'+$10K')+ovB({k:'dt',a:'cash',v:100000},'+$100K')+ovB({k:'dt',a:'cash',v:-1000},'−$1K','warn')+ovB({k:'dt',a:'cash',v:-10000},'−$10K','warn'))
+     +grp('Their trades',ovB({k:'dt',a:'flat'},'Close all positions','','Sells or covers everything at the current price')+ovB({k:'dt',a:'cancel'},'Cancel all orders')+ovB({k:'dt',a:'lock',v:5,say:'The moderators paused your trading for 5 minutes.'},'Pause trading 5 min','warn')+ovB({k:'dt',a:'unlock'},'Unpause'))
+     +`<div id="ovReq"></div>`}
+  if(T==='st'){h=head('Street','"Them" is their team. "Bots" is the computer team. Ending the game counts as a real win or loss.')
+     +grp('Their score',ovB({k:'st',a:'ptsA',v:1},'+1')+ovB({k:'st',a:'ptsA',v:2},'+2')+ovB({k:'st',a:'ptsA',v:3},'+3')+ovB({k:'st',a:'ptsA',v:-2},'−2','warn'))
+     +grp('Bots’ score',ovB({k:'st',a:'ptsB',v:2},'+2')+ovB({k:'st',a:'ptsB',v:-2},'−2','warn')+ovB({k:'st',a:'reset'},'Reset to 0–0'))
+     +grp('Help them',ovB({k:'st',a:'ball'},'Give them the ball')+ovB({k:'st',a:'fire'},'🔥 On fire')+ovB({k:'st',a:'unfire'},'Cool off')+ovB({k:'st',a:'stun'},'Stun the bots 3s'))
+     +grp('Bot difficulty',ovB({k:'st',a:'easy'},'Easy bots')+ovB({k:'st',a:'hard'},'Hall of Fame bots','warn'))
+     +grp('End the game',ovB({k:'st',a:'win'},'They win','up')+ovB({k:'st',a:'lose'},'They lose','down'))}
+  if(T==='rr'){h=head('Recess Rush','Works during a round. A shield keeps them in a survival round even if they fall.')
+     +grp('Their round',ovB({k:'rr',a:'qual'},'✓ Qualify them','up')+ovB({k:'rr',a:'elim'},'✗ Eliminate','down')+ovB({k:'rr',a:'shield',on:1},'🛡 Shield on')+ovB({k:'rr',a:'shield',on:0},'Shield off'))
+     +grp('Their runner',ovB({k:'rr',a:'launch'},'🚀 Launch')+ovB({k:'rr',a:'knock'},'Knock over')+ovB({k:'rr',a:'fast',on:1},'⚡ Super speed')+ovB({k:'rr',a:'fast',on:0},'Normal speed')+ovB({k:'rr',a:'big',on:1},'Giant')+ovB({k:'rr',a:'big',on:0},'Normal size')+ovB({k:'rr',a:'ghost',on:1},'Nothing knocks them')+ovB({k:'rr',a:'unghost'},'Knockable again'))
+     +grp('The show',ovB({k:'rr',a:'freeze',on:1},'❄ Freeze bots')+ovB({k:'rr',a:'freeze',on:0},'Unfreeze')+ovB({k:'rr',a:'end'},'End this round')+ovB({k:'rr',a:'final'},'Skip to the final','warn'))
+     +grp('Rewards',ovB({k:'give',bells:500,say:'+500 bells'},'+500 bells')+ovB({k:'give',bells:500,fame:300,say:'+500 bells and +300 fame'},'+500 bells, +300 fame'))}
+  if(T==='mk'){h=head('Stock Market','Practice cash in their Stock Market account. This is separate from day trading.')
+     +grp('Market cash',ovB({k:'mk',a:'cash',v:5000},'+$5K')+ovB({k:'mk',a:'cash',v:50000},'+$50K')+ovB({k:'mk',a:'cash',v:-5000},'−$5K','warn'))}
+  if(T==='acct'){h=head('Player','Gifts land in their account right away and show a small “Gift from the owner” message.')
+     +grp('Gifts',ovB({k:'give',xp:1000,say:'+1,000 XP'},'+1,000 XP')+ovB({k:'give',xp:5000,say:'+5,000 XP'},'+5,000 XP')+ovB({k:'give',tix:500,say:'+500 tickets'},'+500 🎟')+ovB({k:'give',tix:2500,say:'+2,500 tickets'},'+2,500 🎟')+ovB({k:'give',bells:1000,say:'+1,000 bells'},'+1,000 bells')+ovB({k:'give',rep:200,say:'+200 Street Rep'},'+200 Street Rep'))
+     +grp('Take them somewhere',[['home','Home'],['rr','Recess Rush'],['street','Street'],['dt','Trading floor'],['market','Stock Market'],['mini','Mini-games'],['locker','Locker']].map(([k,n])=>ovB({k:'goto',to:k},n,'','Leaves whatever they are doing')).join(''))}
+  P_.innerHTML=h;P_.querySelectorAll('[data-ovc]').forEach(b=>b.onclick=()=>ovDo(JSON.parse(b.dataset.ovc),b.textContent.trim()));
+  P_.querySelectorAll('[data-ovsm]').forEach(b=>b.onclick=()=>{OVK.smooth=b.dataset.ovsm==='1';P_.querySelectorAll('[data-ovsm]').forEach(x=>x.classList.toggle('on',x===b))});
+  const rq=$('#ovReq');if(rq)rq.dataset.k='';ovTkPaint(true);ovAdmFeed()}
+/* the live price list with push buttons */
+function ovTkPaint(force){const box=$('#ovTk');if(!box)return;const d=OVA.feed&&OVA.feed.dt;const T=d&&d.tk;if(!T||!T.length)return;
+  const pos={};(d.pos||[]).forEach(p=>pos[p[0]]=p[1]);
+  if(force||box.dataset.n!==String(T.length)||!box.querySelector('.ovrow')){box.dataset.n=T.length;box.innerHTML=T.map(t=>`<div class="ovrow" data-s="${esc(t[0])}"><b>${esc(t[0])}</b><span class="px"></span><span class="ch"></span><span class="hd"></span><div class="ovud"><button data-mv="-5" title="Down 5%">▼▼</button><button data-mv="-2" title="Down 2%">▼</button><button data-mv="2" title="Up 2%">▲</button><button data-mv="5" title="Up 5%">▲▲</button></div></div>`).join('');
+    box.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{const s=b.closest('.ovrow').dataset.s,p=+b.dataset.mv;ovDo({k:'dt',a:'move2',sym:s,pct:p,ramp:OVK.smooth?24:1},`${s} ${p>0?'up':'down'} ${Math.abs(p)}%${OVK.smooth?'':' (instant)'}`);const r=b.closest('.ovrow');r.classList.remove('fu','fd');void r.offsetWidth;r.classList.add(p>0?'fu':'fd')})}
+  T.forEach(t=>{const r=box.querySelector(`.ovrow[data-s="${CSS.escape(t[0])}"]`);if(!r)return;const px=r.querySelector('.px'),ch=r.querySelector('.ch'),hd=r.querySelector('.hd');const nv='$'+(+t[1]).toFixed(2);
+    if(px.textContent!==nv){const up=parseFloat(px.textContent.slice(1))<+t[1];if(px.textContent){px.classList.remove('tu','td');void px.offsetWidth;px.classList.add(up?'tu':'td')}px.textContent=nv}
+    ch.textContent=(t[2]>=0?'+':'')+t[2]+'%';ch.className='ch '+(t[2]>=0?'g':'r');hd.textContent=pos[t[0]]?`holds ${pos[t[0]]>0?'+':''}${pos[t[0]]}`:''})}
+{const _f=ovAdmFeed;ovAdmFeed=function(){const r=_f.apply(this,arguments);try{const f=OVA.feed;if(f){const t=ovTabFor(f.m);document.querySelectorAll('[data-ovt]').forEach(b=>{const i=b.querySelector('.ovnow');if(i)i.hidden=b.dataset.ovt!==t});
+    if(OVK.auto&&OVK.tab!==t&&t!=='acct'){OVK.tab=t;document.querySelectorAll('[data-ovt]').forEach(b=>b.classList.toggle('on',b.dataset.ovt===t));ovPane();return r}
+    const ph=$('.ovph span');if(ph){const live=t===OVK.tab;ph.className=live?'ovin':'ovout';ph.textContent=live?'They are here now':'Works once they open it'}}ovTkPaint()}catch(e){console.error(e)}return r}}
+{const _w=ovAdmWatch;ovAdmWatch=function(pid){if(pid!==OVA.sel){OVK.tab='';OVK.auto=true}return _w.apply(this,arguments)}}
 
 /* ============ HOME 4: a living, themed stage and a new game grid ============ */
 /* four new themes */
