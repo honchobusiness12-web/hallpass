@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794931994">
+<meta name="hp-build" content="1794932517">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -4791,6 +4791,24 @@ html.lite .rcshart i,html.lite .rcshart b,body.rm .rcshart i,body.rm .rcshart b{
 
 #ovNoteOv{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top,0px));transform:translate(-50%,-140%);z-index:10050;display:flex;align-items:flex-start;gap:12px;width:min(460px,calc(100% - 24px));background:#fff;color:#1b2150;border:3px solid #1b2150;border-radius:18px;box-shadow:0 6px 0 #1b2150;padding:12px 12px 12px 14px;transition:transform .35s cubic-bezier(.2,1.3,.4,1);pointer-events:none}
 #ovNoteOv.on{transform:translate(-50%,0);pointer-events:auto}#ovNoteOv>span{flex:none;width:34px;height:34px;border-radius:50%;background:#ffd43b;display:grid;place-items:center}#ovNoteOv div{flex:1;min-width:0}#ovNoteOv b{font-size:13px;letter-spacing:.06em;text-transform:uppercase}#ovNoteOv p{margin:2px 0 0;font-size:15px;line-height:1.35;overflow-wrap:anywhere}#ovNoteOv button{background:none;border:0;color:#1b2150;padding:4px}
+.ovscr{margin-bottom:14px}
+.ovscrh{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.ovscrh .label{display:flex;align-items:center;gap:8px}.ovscrh small{display:block;margin-top:4px}
+.ovage{font:800 10px/1 system-ui;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:99px;background:rgba(255,255,255,.08);color:var(--mute)}
+.ovage.on{background:rgba(61,220,132,.18);color:#3ddc84}.ovage.slow{background:rgba(255,180,70,.18);color:#ffb347}
+.ovseg{display:inline-flex;padding:4px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.ovseg button{border:0;background:none;color:var(--mute);font:800 12px/1 system-ui;padding:8px 12px;border-radius:9px;cursor:pointer}.ovseg button.on{background:var(--amber);color:#1a1206}
+.ovscrbox{position:relative;overflow:hidden;border-radius:16px;border:2px solid color-mix(in srgb,var(--amber) 35%,var(--line));background:#070a18;min-height:220px;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.ovscrbox[hidden]{display:none}
+.ovfr{position:absolute;left:0;top:0;border:0;transform-origin:0 0;pointer-events:none;background:var(--ink,#0b0f22)}
+.ovimg{display:block;width:100%;height:auto}
+.ovscrwait{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;color:var(--mute);font:700 14px system-ui}
+.ovspin{width:28px;height:28px;border-radius:50%;border:3px solid rgba(255,255,255,.15);border-top-color:var(--amber);animation:h4spin 1s linear infinite}
+@keyframes h4spin{to{transform:rotate(360deg)}}
+.ovstage.nomap{grid-template-columns:1fr!important}.ovstage.nomap canvas{display:none}
+.ovstage{margin-top:12px}
+.ovhelp{margin:6px 0 10px;color:var(--mute);font-size:13px;line-height:1.45}
+.ovhud{position:absolute;left:50%;top:10px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:6px 14px;border-radius:99px;background:rgba(8,10,24,.8);color:#fff;font:800 12px system-ui;backdrop-filter:blur(6px)}.ovhud b{font:900 20px system-ui}.ovhud span{opacity:.7}
 
 /* ===== HOME 4 ===== */
 .h4{position:relative;margin:0 calc(50% - 50vw) 8px;min-height:clamp(520px,78vh,760px);overflow:hidden;isolation:isolate;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -5013,6 +5031,13 @@ body.stplaying .h4nav,body:not(:has(.h4on)) .h4nav{display:none}
 .h4on .hsb>.fbhome{display:none}
 @media (max-width:520px){.h4ppl{display:none}.h4five{opacity:.5}}
 .h4court i{height:8.33%!important;aspect-ratio:auto!important}
+/* eras: keep the big decade numbers inside the card, let only the timeline dot poke out the top */
+.h4on .h4tl .era{clip-path:inset(-34px -2px 0 -2px round 24px);border-width:2px;border-color:rgba(255,255,255,.08)}
+.h4on .h4tl .era.sel{box-shadow:none;border-color:var(--amber);background-image:linear-gradient(160deg,color-mix(in srgb,var(--amber) 18%,transparent),transparent 60%),linear-gradient(150deg,var(--c2) 0%,var(--ink-2) 85%)}
+.h4on .h4tl .era:hover,.h4on .h4tl .era.sel{transform:translateY(-6px)}
+.h4on .h4tl .era::after{bottom:-18px;font-size:96px}
+.h4on .h4tl .era{clip-path:inset(-48px -2px 0 -2px round 24px)}
+.h4on .h4tl .era.sel::before{box-shadow:0 0 10px var(--amber)}
 
 /* ===== THE RISE 2 ===== */
 .crbg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:18px;align-items:start}
@@ -8126,6 +8151,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "13.6", "d": "2026-11-17", "t": "Classic draft timeline fix", "b": "On the home page, the era cards in Classic draft now keep their big decade numbers inside the card instead of spilling out the bottom. The marker for the era you picked sits cleanly on the timeline with a soft glow."},
  {"v": "13.5", "d": "2026-11-17", "t": "Build your player, your way, and the rest of the home page", "b": "The Rise has a brand new player builder. Build your MyPlayer across six tabs: Identity, Body, Look, Gear, Skills and Signature. Pick a first and last name, a nickname, your hometown, your shooting hand, your path to the pros and your personality. Choose a build and wingspan, which nudge your ratings. Choose from 9 skin tones, 16 hairstyles, 12 hair colors, facial hair, eyes, brows, expressions and tattoos. Gear up with headbands, arm and leg sleeves, wristbands, goggles, shoes, socks, jersey cut and shorts length, all in your own colors. Spend 10 focus points to shape your ratings. Then pick your jump shot, dunk package, go-to move and celebration. A live preview dribbles, shoots and celebrates as you build, and you can spin it around to see your name on the back. Your career page now opens on a big header with your player in your team's colors, and Customize lets you change your look any time. The rest of the home page has been rebuilt too. Today's quests, Daily Five and Game Night sit together in one place. More ways to play is a swipeable row of animated cards. The League shows a live animated court, and Classic draft lays the eras out on a timeline. A floating menu at the bottom of the screen jumps between sections as you scroll."},
  {"v": "13.4", "d": "2026-11-17", "t": "A brand new home page and livelier themes", "b": "The home page has been rebuilt from the top. It opens on a live, animated court where plush runners hop, run and pass a ball under the sky of the current theme. Every theme now has its own scene: jack-o'-lanterns and bats for Halloween, snowy pines and an aurora for winter, fireworks for New Year, spotlights for the All-Star break, a sunset synth grid for Neon and Retro, and more. There are four new themes too: Galaxy Night, Candy Land, Ocean Breeze and Cherry Blossom. Below the scene, a new Pick a game grid puts every mode one tap away, with your progress shown on each tile. Your level and season pass sit right on the front page. If you have reduced motion turned on, the scene stays still."},
  {"v": "13.3", "d": "2026-11-16", "t": "Recess Rush gets its own music", "b": "Recess Rush has its own soundtrack now, made just for the game. The lobby plays a bouncy theme, Recess Bell. Races get Hop To It, survival rounds get Stay Standing, and the final gets Crown Rush, the fastest track of all. Music fades in and out as you move between the lobby and each round, and any Hall Pass music you were listening to picks back up when you leave. Turn it off any time with the music button in the lobby or during a match. It follows your music volume setting."},
@@ -9773,7 +9799,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794931994';
+const BUILD='1794932517';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -21119,28 +21145,32 @@ function ovAdmList(){const L=$('#ovList');if(!L)return;const q=(OVA.q||'').toLow
   L.innerHTML=a.length?a.map(v=>`<button class="ovp ${OVA.sel===v.pid?'on':''}" data-ovp="${esc(v.pid)}"><i class="ovdot m-${esc(String(v.m).replace(/[^a-z]/g,''))}"></i><span><b>${esc(v.n||'Player')}</b><small>${esc(OV_MODE[v.m]||v.m||'Menu')} · LV ${v.lv||1}</small></span></button>`).join(''):'<p class="hint">Nobody is online right now.</p>';
   L.querySelectorAll('[data-ovp]').forEach(b=>b.onclick=()=>ovAdmWatch(b.dataset.ovp))}
 async function ovSend(pid,cmd){cmd.id=Date.now().toString(36)+Math.random().toString(36).slice(2,6);if(window.__ovTest)return window.__ovTest(pid,cmd);const r=await admRpc('admin_message',{p_pid:pid,p_title:'__hpcmd',p_body:JSON.stringify(cmd)});if(r&&r.error){OVA.log.unshift('✗ '+r.error.message);ovAdmLog()}return r}
-async function ovAdmWatch(pid){ovAdmStop(true);OVA.sel=pid;OVA.feed=null;OVA.log=[];ovAdmList();ovAdmPanel();try{const c=await sbClient();const ch=c.channel('hp-ovw-'+pid,{config:{broadcast:{self:false,ack:false}}});OVA.ch=ch;ch.on('broadcast',{event:'s'},m=>{OVA.feed=m.payload;OVA.ft=Date.now();ovAdmFeed()}).subscribe()}catch(e){}
+async function ovAdmWatch(pid){ovAdmStop(true);OVA.sel=pid;OVA.feed=null;if(typeof OVR!=='undefined'){OVR.frame=null;OVR.parts={}}OVA.log=[];ovAdmList();ovAdmPanel();try{const c=await sbClient();const ch=c.channel('hp-ovw-'+pid,{config:{broadcast:{self:false,ack:false}}});OVA.ch=ch;ch.on('broadcast',{event:'s'},m=>{OVA.feed=m.payload;OVA.ft=Date.now();ovAdmFeed()}).on('broadcast',{event:'v'},m=>{try{ovScrIn(m.payload)}catch(e){}}).subscribe()}catch(e){}
   ovSend(pid,{k:'watch',on:1,s:150});clearInterval(OVA.hb);OVA.hb=setInterval(()=>{if(OVA.sel===pid&&$('#ovW'))ovSend(pid,{k:'watch',on:1,s:150});else clearInterval(OVA.hb)},60000)}
 function ovAdmStop(keepList){clearInterval(OVA.hb);cancelAnimationFrame(OVA.raf);if(OVA.ch){try{DB.c&&DB.c.removeChannel(OVA.ch)}catch(e){}try{OVA.ch.unsubscribe()}catch(e){}}OVA.ch=null;if(OVA.sel&&!keepList&&!$('#ovW')){ovSend(OVA.sel,{k:'watch',on:0});OVA.sel=''}}
 const ovBtn=(a,label,cls)=>`<button class="btn btn-ghost sm ${cls||''}" data-ovc='${a}'>${label}</button>`;
 function ovAdmPanel(){const R=$('#ovR');if(!R)return;const v=OVA.list[OVA.sel]||{n:'Player'};
   R.innerHTML=`<div class="ovhead"><div><span class="label"><i class="ovlive"></i> Live view · only you can see this</span><h3>${esc(v.n||'Player')}</h3><small class="hint" id="ovMode">Waiting for their game…</small></div><button class="btn btn-ghost sm" id="ovStop">Stop watching</button></div>
-   <div class="ovstage"><canvas id="ovCv"></canvas><div class="ovstat" id="ovStat"></div></div>
+   <div class="ovscr"><div class="ovscrh"><div><span class="label">What they see right now <b id="ovScrA" class="ovage wait">connecting</b></span><small class="hint" id="ovScrT">Their screen appears here a few seconds after you start watching.</small></div><div class="ovseg"><button data-ovsv="screen" class="${OVR.view==='screen'?'on':''}">Their screen</button><button data-ovsv="map" class="${OVR.view==='map'?'on':''}">Simple map</button></div></div>
+   <div class="ovscrbox" id="ovScr" ${OVR.view==='screen'?'':'hidden'}><div class="ovscrwait"><i class="ovspin"></i>Connecting to their screen…</div></div>
+   <div class="ovstage ${OVR.view==='map'?'':'nomap'}"><canvas id="ovCv"></canvas><div class="ovstat" id="ovStat"></div></div>
+   <p class="ovhelp">This is a copy of their screen, updated live. They can't see you watching. Anything you change below happens on their screen right away, and they won't know who did it unless you send a note.</p></div>
    <div class="ovgrid">
-    <div class="card"><span class="label">Send a note</span><div class="ovnote"><input id="ovNote" maxlength="300" placeholder="Pops up on their screen"><button class="btn btn-go sm" id="ovNoteGo">Send</button></div>
+    <div class="card"><span class="label">Send a note</span><p class="ovhelp">A message pops up in the middle of their screen, even during a game. Gifts land in their account right away.</p><div class="ovnote"><input id="ovNote" maxlength="300" placeholder="Pops up on their screen"><button class="btn btn-go sm" id="ovNoteGo">Send</button></div>
      <div class="ovbtns">${ovBtn('{"k":"give","xp":1000,"say":"+1,000 XP"}','+1,000 XP')}${ovBtn('{"k":"give","tix":500,"say":"+500 tickets"}','+500 🎟')}${ovBtn('{"k":"give","bells":1000,"say":"+1,000 bells"}','+1,000 bells')}${ovBtn('{"k":"give","rep":200,"say":"+200 Street Rep"}','+200 Street Rep')}${ovBtn('{"k":"home"}','Send them home','warn')}</div></div>
-    <div class="card" data-ovsec="rcsgame"><span class="label">Recess Rush</span><div class="ovbtns">${ovBtn('{"k":"rr","a":"qual"}','Qualify them')}${ovBtn('{"k":"rr","a":"shield","on":1}','Can\'t be eliminated')}${ovBtn('{"k":"rr","a":"shield","on":0}','Shield off')}${ovBtn('{"k":"rr","a":"elim"}','Eliminate','warn')}${ovBtn('{"k":"rr","a":"knock"}','Knock over')}${ovBtn('{"k":"rr","a":"launch"}','Launch them')}${ovBtn('{"k":"rr","a":"freeze","on":1}','Freeze bots')}${ovBtn('{"k":"rr","a":"freeze","on":0}','Unfreeze bots')}${ovBtn('{"k":"rr","a":"fast","on":1}','Super speed')}${ovBtn('{"k":"rr","a":"fast","on":0}','Normal speed')}${ovBtn('{"k":"rr","a":"ghost","on":1}','Nothing knocks them')}${ovBtn('{"k":"rr","a":"big","on":1}','Giant')}${ovBtn('{"k":"rr","a":"big","on":0}','Normal size')}${ovBtn('{"k":"rr","a":"end"}','End this round')}${ovBtn('{"k":"rr","a":"final"}','Skip to the final')}${ovBtn('{"k":"give","bells":500,"fame":300,"say":"+500 bells and +300 fame"}','+500 bells, +300 fame')}</div></div>
-    <div class="card" data-ovsec="stgame"><span class="label">Street</span><div class="ovbtns">${ovBtn('{"k":"st","a":"ptsA","v":2}','+2 for them')}${ovBtn('{"k":"st","a":"ptsA","v":-2}','-2 for them')}${ovBtn('{"k":"st","a":"ptsB","v":2}','+2 for the bots')}${ovBtn('{"k":"st","a":"ptsB","v":-2}','-2 for the bots')}${ovBtn('{"k":"st","a":"ball"}','Give them the ball')}${ovBtn('{"k":"st","a":"fire"}','Put them on fire')}${ovBtn('{"k":"st","a":"stun"}','Stun the bots')}${ovBtn('{"k":"st","a":"easy"}','Easy bots')}${ovBtn('{"k":"st","a":"hard"}','Hall of Fame bots')}${ovBtn('{"k":"st","a":"win"}','End: they win')}${ovBtn('{"k":"st","a":"lose"}','End: they lose','warn')}</div></div>
-    <div class="card" data-ovsec="dt"><span class="label">Day trading</span><div class="ovbtns">${ovBtn('{"k":"dt","a":"cash","v":10000}','+$10K')}${ovBtn('{"k":"dt","a":"cash","v":100000}','+$100K')}${ovBtn('{"k":"dt","a":"cash","v":-10000}','-$10K','warn')}${ovBtn('{"k":"dt","a":"flat"}','Close all positions')}${ovBtn('{"k":"dt","a":"cancel"}','Cancel all orders')}${ovBtn('{"k":"dt","a":"lock","v":5,"say":"The moderators paused your trading for 5 minutes."}','Pause trading 5 min','warn')}${ovBtn('{"k":"dt","a":"unlock"}','Unpause')}</div>
-     <div class="ovmove"><select id="ovSym"><option value="">Stock</option></select><button class="btn btn-ghost sm" data-ovmv="5">Pump +5%</button><button class="btn btn-ghost sm" data-ovmv="-5">Dump -5%</button><button class="btn btn-ghost sm" data-ovmv="15">+15%</button><button class="btn btn-ghost sm" data-ovmv="-15">-15%</button></div><p class="hint">Price moves only happen on their screen, silently.</p><div id="ovReq"></div></div>
-    <div class="card" data-ovsec="market"><span class="label">Stock market</span><div class="ovbtns">${ovBtn('{"k":"mk","a":"cash","v":5000}','+$5K market cash')}${ovBtn('{"k":"mk","a":"cash","v":50000}','+$50K')}${ovBtn('{"k":"mk","a":"cash","v":-5000}','-$5K','warn')}</div></div>
+    <div class="card" data-ovsec="rcsgame"><span class="label">Recess Rush</span><p class="ovhelp">Works while they are in a Recess Rush round. "Can't be eliminated" keeps them in even if they fall or finish late.</p><div class="ovbtns">${ovBtn('{"k":"rr","a":"qual"}','Qualify them')}${ovBtn('{"k":"rr","a":"shield","on":1}','Can\'t be eliminated')}${ovBtn('{"k":"rr","a":"shield","on":0}','Shield off')}${ovBtn('{"k":"rr","a":"elim"}','Eliminate','warn')}${ovBtn('{"k":"rr","a":"knock"}','Knock over')}${ovBtn('{"k":"rr","a":"launch"}','Launch them')}${ovBtn('{"k":"rr","a":"freeze","on":1}','Freeze bots')}${ovBtn('{"k":"rr","a":"freeze","on":0}','Unfreeze bots')}${ovBtn('{"k":"rr","a":"fast","on":1}','Super speed')}${ovBtn('{"k":"rr","a":"fast","on":0}','Normal speed')}${ovBtn('{"k":"rr","a":"ghost","on":1}','Nothing knocks them')}${ovBtn('{"k":"rr","a":"big","on":1}','Giant')}${ovBtn('{"k":"rr","a":"big","on":0}','Normal size')}${ovBtn('{"k":"rr","a":"end"}','End this round')}${ovBtn('{"k":"rr","a":"final"}','Skip to the final')}${ovBtn('{"k":"give","bells":500,"fame":300,"say":"+500 bells and +300 fame"}','+500 bells, +300 fame')}</div></div>
+    <div class="card" data-ovsec="stgame"><span class="label">Street</span><p class="ovhelp">Works while they are in a Street game. "Them" is their team and "the bots" is the computer team. Ending the game counts as a real win or loss.</p><div class="ovbtns">${ovBtn('{"k":"st","a":"ptsA","v":2}','+2 for them')}${ovBtn('{"k":"st","a":"ptsA","v":-2}','-2 for them')}${ovBtn('{"k":"st","a":"ptsB","v":2}','+2 for the bots')}${ovBtn('{"k":"st","a":"ptsB","v":-2}','-2 for the bots')}${ovBtn('{"k":"st","a":"ball"}','Give them the ball')}${ovBtn('{"k":"st","a":"fire"}','Put them on fire')}${ovBtn('{"k":"st","a":"stun"}','Stun the bots')}${ovBtn('{"k":"st","a":"easy"}','Easy bots')}${ovBtn('{"k":"st","a":"hard"}','Hall of Fame bots')}${ovBtn('{"k":"st","a":"win"}','End: they win')}${ovBtn('{"k":"st","a":"lose"}','End: they lose','warn')}</div></div>
+    <div class="card" data-ovsec="dt"><span class="label">Day trading</span><p class="ovhelp">Cash changes go into their trading account. "Close all positions" sells or covers everything they hold at the current price. Pausing blocks new orders until the timer ends.</p><div class="ovbtns">${ovBtn('{"k":"dt","a":"cash","v":10000}','+$10K')}${ovBtn('{"k":"dt","a":"cash","v":100000}','+$100K')}${ovBtn('{"k":"dt","a":"cash","v":-10000}','-$10K','warn')}${ovBtn('{"k":"dt","a":"flat"}','Close all positions')}${ovBtn('{"k":"dt","a":"cancel"}','Cancel all orders')}${ovBtn('{"k":"dt","a":"lock","v":5,"say":"The moderators paused your trading for 5 minutes."}','Pause trading 5 min','warn')}${ovBtn('{"k":"dt","a":"unlock"}','Unpause')}</div>
+     <div class="ovmove"><select id="ovSym"><option value="">Stock</option></select><button class="btn btn-ghost sm" data-ovmv="5">Pump +5%</button><button class="btn btn-ghost sm" data-ovmv="-5">Dump -5%</button><button class="btn btn-ghost sm" data-ovmv="15">+15%</button><button class="btn btn-ghost sm" data-ovmv="-15">-15%</button></div><p class="ovhelp">Pick a stock, then push its price up or down. The move happens only on their screen, so other players are not affected.</p><div id="ovReq"></div></div>
+    <div class="card" data-ovsec="market"><span class="label">Stock market</span><p class="ovhelp">Adds or removes practice cash in their Stock Market account (separate from day trading).</p><div class="ovbtns">${ovBtn('{"k":"mk","a":"cash","v":5000}','+$5K market cash')}${ovBtn('{"k":"mk","a":"cash","v":50000}','+$50K')}${ovBtn('{"k":"mk","a":"cash","v":-5000}','-$5K','warn')}</div></div>
     <div class="card ovlogc"><span class="label">What you sent</span><div id="ovLog" class="ovlog"></div></div></div>`;
   $('#ovStop').onclick=()=>{ovSend(OVA.sel,{k:'watch',on:0});ovAdmStop(true);OVA.sel='';ovAdmList();R.innerHTML='<div class="ovempty"><b>Pick a player</b></div>'};
   const send=(cmd,label)=>{ovSend(OVA.sel,cmd);OVA.log.unshift(`${new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit',second:'2-digit'})} · ${label}`);OVA.log=OVA.log.slice(0,12);ovAdmLog();sfx('click')};
   R.querySelectorAll('[data-ovc]').forEach(b=>b.onclick=()=>send(JSON.parse(b.dataset.ovc),b.textContent));
   $('#ovNoteGo').onclick=()=>{const t=$('#ovNote').value.trim();if(!t)return;send({k:'note',txt:t},'Note: '+t);$('#ovNote').value=''};$('#ovNote').onkeydown=e=>{if(e.key==='Enter')$('#ovNoteGo').click()};
   R.querySelectorAll('[data-ovmv]').forEach(b=>b.onclick=()=>{const s=$('#ovSym').value;if(!s)return toastLite('Pick a stock first');send({k:'dt',a:'move',sym:s,pct:+b.dataset.ovmv},`${s} ${b.textContent}`)});
-  ovAdmLog();ovAdmFeed();ovAdmDraw()}
+  R.querySelectorAll('[data-ovsv]').forEach(b=>b.onclick=()=>{OVR.view=b.dataset.ovsv;R.querySelectorAll('[data-ovsv]').forEach(x=>x.classList.toggle('on',x===b));$('#ovScr').hidden=OVR.view!=='screen';R.querySelector('.ovstage').classList.toggle('nomap',OVR.view!=='map');if(OVR.view==='screen')ovScrPaint()});
+  ovAdmLog();ovAdmFeed();ovAdmDraw();ovScrPaint()}
 function ovAdmLog(){const l=$('#ovLog');if(l)l.innerHTML=OVA.log.length?OVA.log.map(x=>`<div>${esc(x)}</div>`).join(''):'<p class="hint">Nothing yet.</p>'}
 const ov$=v=>(v<0?'-':'')+'$'+Math.abs(Math.round(v)).toLocaleString();
 function ovAdmFeed(){const f=OVA.feed,st=$('#ovStat'),md=$('#ovMode');if(!st)return;if(!f){st.innerHTML='<p class="hint">Asking their game to share its view. This takes a few seconds, and only works while they are online.</p>';return}
@@ -21154,7 +21184,7 @@ function ovAdmFeed(){const f=OVA.feed,st=$('#ovStat'),md=$('#ovMode');if(!st)ret
         el.querySelectorAll('[data-ovra]').forEach(b=>b.onclick=()=>go(true,+b.dataset.ovra));el.querySelector('[data-ovrd]').onclick=()=>go(false,0)})}}}
   if(f.mk)h+=`<div class="ovkv"><span>Stock market</span><b>${ov$(f.mk.cash)} cash · ${f.mk.n} holdings</b></div>`;
   h+=`<div class="ovkv"><span>Updated</span><b>${Math.max(0,Math.round((Date.now()-OVA.ft)/1000))}s ago</b></div>`;st.innerHTML=h}
-function ovAdmDraw(){cancelAnimationFrame(OVA.raf);const tick=()=>{const cv=$('#ovCv');if(!cv)return;OVA.raf=requestAnimationFrame(tick);const r=cv.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);if(cv.width!==(r.width*dpr|0)){cv.width=r.width*dpr|0;cv.height=r.height*dpr|0}const x=cv.getContext('2d'),W=r.width,H=r.height;x.setTransform(dpr,0,0,dpr,0,0);
+function ovAdmDraw(){cancelAnimationFrame(OVA.raf);const tick=()=>{const cv=$('#ovCv');if(!cv)return;OVA.raf=requestAnimationFrame(tick);const r=cv.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1);if(cv.width!==(r.width*dpr|0)){cv.width=r.width*dpr|0;cv.height=r.height*dpr|0}const x=cv.getContext('2d'),W=r.width,H=r.height;if(W<60||H<60)return;x.setTransform(dpr,0,0,dpr,0,0);
     const f=OVA.feed;x.fillStyle='#0d1328';x.fillRect(0,0,W,H);if(!f){x.fillStyle='#5a6296';x.font='600 14px system-ui';x.textAlign='center';x.fillText('Waiting for their game…',W/2,H/2);return}
     if(f.rr){const R=f.rr,me=R.e[R.me]||[0,0];x.fillStyle='#5ec8ff';x.fillRect(0,0,W,H);
       if(R.race){const len=Math.max(30,R.len),sx=(W-40)/len,cy=H/2;x.fillStyle='#ffd0e6';x.fillRect(20,cy-H*.2,len*sx,H*.4);x.fillStyle='#fff';x.fillRect(20+len*sx-8,cy-H*.2,8,H*.4);
@@ -21162,13 +21192,53 @@ function ovAdmDraw(){cancelAnimationFrame(OVA.raf);const tick=()=>{const cv=$('#
       else{const s=Math.min(W,H)/26,cx=W/2,cz=H/2;x.fillStyle='#bff3ee';x.fillRect(cx-11*s,cz-11*s,22*s,22*s);R.e.forEach((e,i)=>{if(!e[3]&&i!==R.me)return;x.fillStyle=rcsRGB(RR_COL[e[4]%RR_COL.length],1);x.globalAlpha=e[3]?1:.35;x.beginPath();x.arc(cx+e[0]*s,cz+(e[1]-10)*s,i===R.me?9:5,0,7);x.fill();x.globalAlpha=1;if(i===R.me){x.strokeStyle='#1b2150';x.lineWidth=3;x.stroke()}})}
       x.fillStyle='#1b2150';x.font='800 14px system-ui';x.textAlign='left';x.fillText(`${R.nm} · round ${R.r}/${R.R}`,12,22)}
     else if(f.st){const S=f.st;x.fillStyle='#c97a3c';x.fillRect(10,10,W-20,H-20);x.strokeStyle='rgba(255,255,255,.8)';x.lineWidth=2;x.strokeRect(10,10,W-20,H-20);const mx=v=>10+v/50*(W-20),my=v=>10+v/47*(H-20);x.beginPath();x.arc(mx(25),my(5),(W-20)*.12,0,3.14);x.stroke();
-      S.p.forEach(p=>{x.fillStyle=p[2]?'#ff5f78':'#3d7bff';x.beginPath();x.arc(mx(p[0]),my(p[1]),p[3]?9:7,0,7);x.fill();if(p[3]){x.strokeStyle='#fff';x.lineWidth=3;x.stroke()}if(p[5]){x.fillStyle='#ffb020';x.beginPath();x.arc(mx(p[0]),my(p[1])-12,4,0,7);x.fill()}});x.fillStyle='#ffde59';x.beginPath();x.arc(mx(S.b[0]),my(S.b[1]),5+S.b[2]*.3,0,7);x.fill();
+      S.p.forEach(p=>{x.fillStyle=p[2]?'#ff5f78':'#3d7bff';x.beginPath();x.arc(mx(p[0]),my(p[1]),p[3]?9:7,0,7);x.fill();if(p[3]){x.strokeStyle='#fff';x.lineWidth=3;x.stroke()}if(p[5]){x.fillStyle='#ffb020';x.beginPath();x.arc(mx(p[0]),my(p[1])-12,4,0,7);x.fill()}});x.fillStyle='#ffde59';x.beginPath();x.arc(mx(S.b[0]),my(S.b[1]),Math.max(2,5+S.b[2]*.3),0,7);x.fill();
       x.fillStyle='#fff';x.font='900 22px system-ui';x.textAlign='center';x.fillText(`${S.sc[0]} – ${S.sc[1]}`,W/2,36)}
     else if(f.dt&&f.dt.tk&&f.m==='dt'){const T=f.dt.tk;x.font='700 13px system-ui';x.textAlign='left';T.forEach((t,i)=>{const y=28+i*((H-30)/T.length);x.fillStyle='#9fb0ff';x.fillText(t[0],16,y);x.fillStyle='#fff';x.fillText('$'+t[1],90,y);x.fillStyle=t[2]>=0?'#3ddc84':'#ff6b6b';x.fillText((t[2]>=0?'+':'')+t[2]+'%',180,y);const w=Math.max(2,Math.min(W-280,Math.abs(t[2])*20));x.fillRect(260,y-10,w,10)})}
     else{x.fillStyle='#9fb0ff';x.font='700 16px system-ui';x.textAlign='center';x.fillText(OV_MODE[f.m]||f.m,W/2,H/2-6);x.fillStyle='#5a6296';x.font='600 13px system-ui';x.fillText('Live picture shows for Recess Rush, Street and day trading',W/2,H/2+16)}};tick()}
 
 /* a note that shows on top of anything, games included */
 function ovNote(t){let el=$('#ovNoteOv');if(!el){el=document.createElement('div');el.id='ovNoteOv';document.body.appendChild(el)}el.innerHTML=`<span>${icon('M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z',18)}</span><div><b>A note from the owner</b><p>${esc(t)}</p></div><button aria-label="Close">${icon('M18 6L6 18M6 6l12 12',16)}</button>`;el.className='on';el.querySelector('button').onclick=()=>el.className='';clearTimeout(OV.nt);OV.nt=setTimeout(()=>{el.className=''},Math.min(14000,4000+t.length*60))}
+
+/* ============ OWNER'S VIEW 2: a real mirror of the player's screen ============ */
+/* player side: while being watched, send what is on screen */
+const OVS={t:0,last:'',lastT:0,seq:0};
+function ovShrink(cv,maxW,q){try{if(!cv.width||!cv.height)return '';const w=Math.min(maxW,cv.width),h=Math.max(1,Math.round(cv.height*w/cv.width));const o=document.createElement('canvas');o.width=w;o.height=h;const x=o.getContext('2d');x.fillStyle='#0d1328';x.fillRect(0,0,w,h);x.drawImage(cv,0,0,w,h);return o.toDataURL('image/jpeg',q)}catch(e){return ''}}
+function ovGameCanvas(){const m=ovMode();const st=document.getElementById('stCanvas');if(m==='stgame'&&st)return st;if(m==='rcsgame'||m==='fbgame'||m==='vbgame'||m==='stgame'){let best=null,ba=0;document.querySelectorAll('canvas').forEach(c=>{const r=c.getBoundingClientRect();const a=r.width*r.height;if(a>ba&&r.width>200&&c.id!=='themefx'){ba=a;best=c}});return best}return null}
+function ovDomShot(){const app=document.getElementById('app');if(!app)return null;const cl=app.cloneNode(true);
+  const oc=[...app.querySelectorAll('canvas')],cc=[...cl.querySelectorAll('canvas')];
+  cc.forEach((c,i)=>{const o=oc[i];const r=o?o.getBoundingClientRect():{width:0,height:0};const img=document.createElement('img');const d=o&&r.width>4&&r.height>4?ovShrink(o,Math.min(720,Math.round(r.width)),.6):'';if(d)img.src=d;img.className=c.className;img.setAttribute('style',(c.getAttribute('style')||'')+`;width:${Math.round(r.width)}px;height:${Math.round(r.height)}px;display:${r.width?'block':'none'};object-fit:fill`);c.replaceWith(img)});
+  cl.querySelectorAll('script,iframe,video,audio').forEach(e=>e.remove());
+  const oi=[...app.querySelectorAll('input,select,textarea')],ci=[...cl.querySelectorAll('input,select,textarea')];ci.forEach((e,i)=>{const o=oi[i];if(!o)return;if(e.tagName==='SELECT'){[...e.options].forEach((op,j)=>{if(j===o.selectedIndex)op.setAttribute('selected','');else op.removeAttribute('selected')})}else if(o.type==='checkbox'||o.type==='radio'){if(o.checked)e.setAttribute('checked','');else e.removeAttribute('checked')}else if(o.type!=='password'){e.setAttribute('value',o.value)}else e.setAttribute('value','')});
+  cl.querySelectorAll('*').forEach(e=>{for(const a of [...e.attributes])if(/^on/i.test(a.name))e.removeAttribute(a.name)});
+  /* open pop-ups and sheets that live outside the page area */
+  let extra='';document.querySelectorAll('body > .modal-bg, body > .lgmodal, body > .sheet, body > [role="dialog"]').forEach(e=>{if(e.offsetParent!==null||getComputedStyle(e).position==='fixed'){const c=e.cloneNode(true);c.querySelectorAll('script').forEach(s=>s.remove());extra+=c.outerHTML}});
+  return {k:'dom',h:cl.outerHTML+extra}}
+function ovScreen(){if(!OV.wch||OV.watchUntil<Date.now())return;const cv=ovGameCanvas();let p;
+  if(cv){const d=ovShrink(cv,560,.5);if(!d)return;p={k:'img',d}}else{const now=Date.now();if(now-OVS.lastT<850)return;p=ovDomShot();if(!p)return}
+  Object.assign(p,{m:ovMode(),vw:innerWidth,vh:innerHeight,sy:Math.round(scrollY),hc:document.documentElement.className,hs:document.documentElement.getAttribute('style')||'',bc:document.body.className});
+  const s=JSON.stringify(p);if(p.k==='dom'){if(s===OVS.last&&Date.now()-OVS.lastT<4000)return;OVS.last=s;OVS.lastT=Date.now()}
+  const id=(++OVS.seq).toString(36),N=110000,n=Math.ceil(s.length/N);if(n>12)return;
+  for(let i=0;i<n;i++){try{OV.wch.send({type:'broadcast',event:'v',payload:{id,i,n,s:s.slice(i*N,(i+1)*N)}})}catch(e){}}}
+{const _s=ovStreamStart;ovStreamStart=function(){const r=_s.apply(this,arguments);clearInterval(OVS.t);OVS.last='';OVS.t=setInterval(()=>{try{ovScreen()}catch(e){}},320);return r}}
+{const _x=ovStreamStop;ovStreamStop=function(){clearInterval(OVS.t);OVS.t=0;return _x.apply(this,arguments)}}
+
+/* owner side: put their screen back together */
+const OVR={parts:{},frame:null,ft:0,view:'screen',css:''};
+function ovScrIn(p){if(!p||!p.id)return;const b=OVR.parts[p.id]||(OVR.parts[p.id]={n:p.n,got:0,a:[]});if(b.a[p.i]==null){b.a[p.i]=p.s;b.got++}
+  if(b.got<b.n)return;delete OVR.parts[p.id];for(const k in OVR.parts)if(parseInt(k,36)<parseInt(p.id,36)-6)delete OVR.parts[k];
+  let f;try{f=JSON.parse(b.a.join(''))}catch(e){return}OVR.frame=f;OVR.ft=Date.now();ovScrPaint()}
+function ovScrCss(){if(OVR.css)return OVR.css;let s='';document.querySelectorAll('style').forEach(e=>{s+='<style>'+e.textContent+'</style>'});document.querySelectorAll('link[rel="stylesheet"]').forEach(e=>{s+=`<link rel="stylesheet" href="${esc(e.href)}">`});s+='<style>html,body{overflow:hidden!important;pointer-events:none}body *{animation-play-state:paused}#themefx{display:none}</style>';OVR.css=s;return s}
+function ovScrPaint(){const box=$('#ovScr');if(!box||OVR.view!=='screen')return;const f=OVR.frame;if(!f)return;const W=box.clientWidth||600;const sc=Math.min(1,W/f.vw);const H=Math.round(Math.min(f.vh,1400)*sc);
+  const tag=$('#ovScrT');if(tag)tag.textContent=`${OV_MODE[f.m]||f.m} · their screen is ${f.vw}×${f.vh}${f.k==='img'?' · game view':''}`;
+  if(f.k==='img'){let im=box.querySelector('img.ovimg');if(!im){box.innerHTML='<img class="ovimg" alt="Their game screen">';im=box.querySelector('img')}box.style.height='';im.src=f.d;let hud=box.querySelector('.ovhud');if(!hud){hud=document.createElement('div');hud.className='ovhud';box.append(hud)}const F=OVA.feed||{};hud.innerHTML=F.st?`<b>${F.st.sc[0]}</b><span>them · bots</span><b>${F.st.sc[1]}</b>`:F.rr?`<span>${esc(F.rr.nm)} · round ${F.rr.r}/${F.rr.R} · ${F.rr.e.filter(e=>e[3]).length} still in</span>`:'';hud.hidden=!hud.innerHTML;return}
+  let fr=box.querySelector('iframe');
+  const apply=()=>{const d=fr.contentDocument;if(!d||!d.body)return;try{d.documentElement.className=f.hc;if(f.hs)d.documentElement.setAttribute('style',f.hs);else d.documentElement.removeAttribute('style');d.body.className=f.bc;d.body.innerHTML=f.h;fr.contentWindow.scrollTo(0,f.sy)}catch(e){}};
+  if(!fr){box.innerHTML='<iframe class="ovfr" sandbox="allow-same-origin" title="Their screen" tabindex="-1"></iframe>';fr=box.querySelector('iframe');fr.onload=()=>{fr.dataset.ok=1;apply()};fr.srcdoc=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${ovScrCss()}</head><body></body></html>`}
+  fr.style.width=f.vw+'px';fr.style.height=Math.min(f.vh,1400)+'px';fr.style.transform=`scale(${sc})`;box.style.height=H+'px';if(fr.dataset.ok)apply()}
+function ovScrAge(){const a=$('#ovScrA');if(!a)return;if(!OVR.frame){a.textContent='connecting';a.className='ovage wait';return}const s=Math.round((Date.now()-OVR.ft)/1000);a.textContent=s<3?'live':`${s}s ago`;a.className='ovage '+(s<3?'on':s<15?'slow':'wait')}
+setInterval(ovScrAge,1000);
+addEventListener('resize',()=>{try{ovScrPaint()}catch(e){}});
 
 /* ============ HOME 4: a living, themed stage and a new game grid ============ */
 /* four new themes */
