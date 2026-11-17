@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794937087">
+<meta name="hp-build" content="1794939569">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -8206,6 +8206,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "13.7", "d": "2026-11-17", "t": "Recess Rush music fix", "b": "Pausing Hall Pass radio no longer silences the music in Recess Rush. Recess Rush has its own music button in the lobby and during matches, so use that to mute it. New songs also start playing right away if you are already in the lobby, without needing to leave and come back."},
  {"v": "13.6", "d": "2026-11-17", "t": "Classic draft timeline fix", "b": "On the home page, the era cards in Classic draft now keep their big decade numbers inside the card instead of spilling out the bottom. The marker for the era you picked sits cleanly on the timeline with a soft glow."},
  {"v": "13.5", "d": "2026-11-17", "t": "Build your player, your way, and the rest of the home page", "b": "The Rise has a brand new player builder. Build your MyPlayer across six tabs: Identity, Body, Look, Gear, Skills and Signature. Pick a first and last name, a nickname, your hometown, your shooting hand, your path to the pros and your personality. Choose a build and wingspan, which nudge your ratings. Choose from 9 skin tones, 16 hairstyles, 12 hair colors, facial hair, eyes, brows, expressions and tattoos. Gear up with headbands, arm and leg sleeves, wristbands, goggles, shoes, socks, jersey cut and shorts length, all in your own colors. Spend 10 focus points to shape your ratings. Then pick your jump shot, dunk package, go-to move and celebration. A live preview dribbles, shoots and celebrates as you build, and you can spin it around to see your name on the back. Your career page now opens on a big header with your player in your team's colors, and Customize lets you change your look any time. The rest of the home page has been rebuilt too. Today's quests, Daily Five and Game Night sit together in one place. More ways to play is a swipeable row of animated cards. The League shows a live animated court, and Classic draft lays the eras out on a timeline. A floating menu at the bottom of the screen jumps between sections as you scroll."},
  {"v": "13.4", "d": "2026-11-17", "t": "A brand new home page and livelier themes", "b": "The home page has been rebuilt from the top. It opens on a live, animated court where plush runners hop, run and pass a ball under the sky of the current theme. Every theme now has its own scene: jack-o'-lanterns and bats for Halloween, snowy pines and an aurora for winter, fireworks for New Year, spotlights for the All-Star break, a sunset synth grid for Neon and Retro, and more. There are four new themes too: Galaxy Night, Candy Land, Ocean Breeze and Cherry Blossom. Below the scene, a new Pick a game grid puts every mode one tap away, with your progress shown on each tile. Your level and season pass sit right on the front page. If you have reduced motion turned on, the scene stays still."},
@@ -9854,7 +9855,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794937087';
+const BUILD='1794939569';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -21075,7 +21076,7 @@ const RRMS={
 const RRMU={on:false,k:'',ctx:null,out:null,step:0,next:0,timer:0,mel:{},resume:false};
 function rrMuCtx(){if(RRMU.ctx)return RRMU.ctx;const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;const c=RRMU.ctx=new C();RRMU.out=c.createGain();RRMU.out.gain.value=0;
   const comp=c.createDynamicsCompressor();comp.threshold.value=-12;comp.ratio.value=3.5;RRMU.out.connect(comp);comp.connect(c.destination);const n=c.sampleRate;const b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;RRMU.noise=b;return c}
-const rrMuOn=()=>{try{return SND.on&&musSet().on!==0&&!rrS().mute}catch(e){return true}};
+const rrMuOn=()=>{try{return SND.on&&!rrS().mute&&rrMuVol()>0}catch(e){return true}};
 const rrMuVol=()=>{try{return Math.max(0,Math.min(1,musSet().vol==null?.45:musSet().vol))*.55}catch(e){return .25}};
 /* each track always has the same tune: its melody is built from a fixed seed */
 function rrMelody(k){if(RRMU.mel[k])return RRMU.mel[k];const S=RRMS[k],r=mulberry32(strHash('rr-'+k)),sc=S.scale;
@@ -21125,8 +21126,8 @@ function rrMuBtn(){const p=document.querySelector('.rrpills');if(!p||$('#rrMu'))
 const RRP_SLOTS=[['lobby','Lobby','Plays while players wait and in the locker'],['race','Race rounds','Rounds where you run to the finish'],['survival','Survival rounds','Last-one-standing rounds'],['final','The final','The last round of the show']];
 const rrPL=k=>{const c=(LIVE.feed&&LIVE.feed.cfg)||{};const m=c.rrMusic||{};return Array.isArray(m[k])?m[k].filter(x=>x&&x.src):[]};
 const RRP={el:null,k:'',i:0,fade:0,want:0};
-function rrpEl(){if(RRP.el)return RRP.el;const a=new Audio();a.preload='auto';a.crossOrigin='anonymous';a.onended=()=>{const L=rrPL(RRP.k);if(!L.length)return;RRP.i=(RRP.i+1)%L.length;rrpLoad(L[RRP.i])};a.onerror=()=>{const L=rrPL(RRP.k);if(L.length>1){RRP.i=(RRP.i+1)%L.length;setTimeout(()=>rrpLoad(L[RRP.i]),400)}};RRP.el=a;return a}
-function rrpLoad(tr){const a=rrpEl();if(!tr)return;a.src=tr.src;a.currentTime=0;const p=a.play();if(p&&p.catch)p.catch(()=>{/* waits for the first tap */document.addEventListener('pointerdown',()=>{if(RRP.k)a.play().catch(()=>{})},{once:true})})}
+function rrpEl(){if(RRP.el)return RRP.el;const a=new Audio();a.preload='auto';a.onended=()=>{const L=rrPL(RRP.k);if(!L.length)return;RRP.i=(RRP.i+1)%L.length;rrpLoad(L[RRP.i])};a.onerror=()=>{const L=rrPL(RRP.k);if(L.length>1){RRP.i=(RRP.i+1)%L.length;setTimeout(()=>rrpLoad(L[RRP.i]),400)}};RRP.el=a;return a}
+function rrpLoad(tr){const a=rrpEl();if(!tr)return;if(a.src!==tr.src)a.src=tr.src;try{a.currentTime=0}catch(e){}const p=a.play();if(p&&p.catch)p.catch(()=>{/* waits for the first tap */document.addEventListener('pointerdown',()=>{if(RRP.k)a.play().catch(()=>{})},{once:true})})}
 function rrpFadeTo(v,ms,done){const a=rrpEl();clearInterval(RRP.fade);const v0=a.volume,t0=performance.now();RRP.fade=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);a.volume=Math.max(0,Math.min(1,v0+(v-v0)*k));if(k>=1){clearInterval(RRP.fade);if(done)done()}},30)}
 function rrpPlay(k){const L=rrPL(k);if(!L.length)return false;const a=rrpEl();if(RRP.k===k&&!a.paused)return true;RRP.k=k;RRP.i=0;a.volume=0;rrpLoad(L[0]);rrpFadeTo(rrMuVol()*1.6>1?1:rrMuVol()*1.6,900);return true}
 function rrpStop(){if(!RRP.k)return;RRP.k='';rrpFadeTo(0,350,()=>{try{RRP.el.pause()}catch(e){}})}
@@ -21190,6 +21191,11 @@ function rrpAdminBind(){if(ADM.tab!=='music'||!$('#rrpDrop'))return;const H=$('#
       toast('“'+t+'” added to the Recess Rush playlist');renderAdmin()}
     catch(e){H.textContent='Something went wrong: '+String(e&&e.message||e).slice(0,90);go.disabled=false}}}
 {const _b=musAdminBind;musAdminBind=function(){const r=_b.apply(this,arguments);try{rrpAdminBind()}catch(e){console.error(e)}return r}}
+
+/* if the playlist arrives (or changes) while someone is already in the lobby or a round, switch over without needing to leave */
+function rrpSlotNow(){if(RRP.k)return RRP.k;if(RRMU.on&&RRMU.k)return RRMU.k;if(typeof CURV==='string'&&(CURV==='rcs')&&!RCS.g)return 'lobby';return ''}
+setInterval(()=>{try{const k=rrpSlotNow();if(!k||!rrMuOn())return;const L=rrPL(k);if(L.length&&(!RRP.k||RRP.el.paused&&RRP.el.readyState>2&&!document.hidden)){if(!RRP.k)rrMusic(k);else RRP.el.play().catch(()=>{})}
+  else if(!L.length&&RRP.k===k){rrpStop();RRMU.k='';rrMusic(k)}}catch(e){}},2000);
 
 /* ============ OWNER'S VIEW: watch any player live and steer their game ============ */
 /* player side: a light "I'm here" beacon, a live feed while the owner watches, and owner commands.
