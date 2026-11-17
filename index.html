@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794933336">
+<meta name="hp-build" content="1794936202">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -4850,6 +4850,9 @@ html.lite .rcshart i,html.lite .rcshart b,body.rm .rcshart i,body.rm .rcshart b{
 @media (max-width:1100px){.ovcock{grid-template-columns:1fr}.ovleft,.ovdock{position:static;max-height:none}.ovleft .ovscrbox{max-height:none}}
 @media (max-width:1100px) and (min-width:700px){.ovcock{grid-template-columns:minmax(0,1fr) 340px}.ovleft,.ovdock{position:sticky}.ovdock{max-height:calc(100vh - 92px)}.ovrow{grid-template-columns:54px 64px 1fr auto}.ovrow .hd{display:none}}
 .ovdock>*{flex-shrink:0}
+.ovscrbox .ovvid.ovover{display:block;position:absolute;z-index:1;pointer-events:none;object-fit:fill;background:transparent;border-radius:4px}
+.ovscrbox.rtc .ovvid{display:block;width:100%;height:auto;max-height:calc(100vh - 260px);object-fit:contain}
+.ovnet{margin:-4px 0 12px;padding:14px;border-radius:14px;background:var(--ink-2);border:1px solid var(--line)}.ovnet textarea{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font:12px ui-monospace,monospace}.ovnet a{color:var(--amber)}
 
 /* ===== HOME 4 ===== */
 .h4{position:relative;margin:0 calc(50% - 50vw) 8px;min-height:clamp(520px,78vh,760px);overflow:hidden;isolation:isolate;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -9840,7 +9843,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794933336';
+const BUILD='1794936202';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -21281,30 +21284,45 @@ function ovScrAge(){const a=$('#ovScrA');if(!a)return;if(!OVR.frame){a.textConte
 setInterval(()=>ovScrAge(),1000);
 addEventListener('resize',()=>{try{ovScrPaint()}catch(e){}});
 
-/* ============ OWNER'S VIEW 3: smooth live mirror ============
-   games: a direct live video stream of their game canvas (WebRTC), pictures as a fallback
-   pages: only send when something changes, and patch the copy in place so nothing flashes */
-const OV_ICE={iceServers:[{urls:['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302']}]};
+/* ============ OWNER'S VIEW 3: high-quality live mirror ============
+   One direct connection (WebRTC) per watch session:
+   - a 60 fps video track of the main canvas (the game, or the price chart on a page)
+   - a data channel carrying compressed page copies, small canvases and scroll
+   Falls back to the server broadcast (pictures and page copies) when a direct link can't be made. */
+const ovIce=()=>({iceServers:[{urls:['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302','stun:stun.cloudflare.com:3478']}],bundlePolicy:'max-bundle'});
+const OV_HAS_GZ=typeof CompressionStream!=='undefined'&&typeof DecompressionStream!=='undefined';
+async function ovPack(obj){const s=JSON.stringify(obj);if(OV_HAS_GZ){try{const b=await new Response(new Blob([s]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer();const o=new Uint8Array(b.byteLength+1);o[0]=1;o.set(new Uint8Array(b),1);return o}catch(e){}}const t=new TextEncoder().encode(s);const o=new Uint8Array(t.length+1);o[0]=0;o.set(t,1);return o}
+async function ovUnpack(u8){const body=u8.subarray(1);let s;if(u8[0]===1)s=await new Response(new Blob([body]).stream().pipeThrough(new DecompressionStream('gzip'))).text();else s=new TextDecoder().decode(body);return JSON.parse(s)}
 /* ---------- player side ---------- */
-const OVRTC={pc:null,cv:null,sender:null,ok:false,t0:0};
-const OVD={mo:null,dirty:true,lastSend:0,cvLast:[],cvT:0,sy:-1};
+const OVRTC={pc:null,dc:null,tx:null,cv:null,main:null,ok:false,t0:0,attT:0,busy:false,mid:0};
+const OVD={mo:null,dirty:true,lastSend:0,cvLast:[],cvT:0,sy:-1,metaT:0};
 function ovSig(p){try{if(OV.wch)OV.wch.send({type:'broadcast',event:'rtc',payload:Object.assign({from:'p'},p)})}catch(e){}}
-function ovRtcStop(bye){try{if(OVRTC.pc)OVRTC.pc.close()}catch(e){}OVRTC.pc=null;OVRTC.cv=null;OVRTC.sender=null;OVRTC.ok=false;if(bye)ovSig({t:'bye'})}
-async function ovRtcStart(){ovRtcStop();const cv=ovGameCanvas();if(!cv||!cv.captureStream||typeof RTCPeerConnection==='undefined')return;
-  const pc=new RTCPeerConnection(OV_ICE);OVRTC.pc=pc;OVRTC.cv=cv;OVRTC.t0=Date.now();const st=cv.captureStream(24);const tr=st.getVideoTracks()[0];if(!tr)return ovRtcStop();
-  OVRTC.sender=pc.addTrack(tr,st);try{const p=OVRTC.sender.getParameters();p.encodings=p.encodings&&p.encodings.length?p.encodings:[{}];p.encodings[0].maxBitrate=900000;p.encodings[0].maxFramerate=24;OVRTC.sender.setParameters(p).catch(()=>{})}catch(e){}
+function ovDcOpen(){return OVRTC.dc&&OVRTC.dc.readyState==='open'}
+function ovRtcStop(bye){try{if(OVRTC.pc)OVRTC.pc.close()}catch(e){}Object.assign(OVRTC,{pc:null,dc:null,tx:null,cv:null,main:null,ok:false});if(bye)ovSig({t:'bye'})}
+function ovMainCanvas(){const g=ovGameCanvas();if(g)return{cv:g,full:true,i:-1};return null;const app=document.getElementById('app');if(!app)return null;let best=null,ba=40000,bi=-1;[...app.querySelectorAll('canvas')].forEach((c,i)=>{const r=c.getBoundingClientRect();const a=r.width*r.height;if(a>ba&&r.bottom>0&&r.top<innerHeight){ba=a;best=c;bi=i}});return best?{cv:best,full:false,i:bi}:null}
+function ovVidAttach(force){if(!OVRTC.tx)return;const m=ovMainCanvas();const cv=m?m.cv:null;const key=m?(m.full?'f':'c'+m.i):'';if(!force&&cv===OVRTC.cv&&key===OVRTC.key)return;OVRTC.cv=cv;OVRTC.key=key;
+  let tr=null;if(cv&&cv.captureStream){try{tr=cv.captureStream(60).getVideoTracks()[0];if(tr)tr.contentHint=m.full?'motion':'detail'}catch(e){tr=null}}
+  try{OVRTC.tx.sender.replaceTrack(tr)}catch(e){}
+  try{const s=OVRTC.tx.sender,p=s.getParameters();if(!p.encodings||!p.encodings.length)p.encodings=[{}];p.encodings[0].maxBitrate=m&&m.full?10000000:5000000;p.encodings[0].maxFramerate=60;p.encodings[0].scaleResolutionDownBy=1;p.degradationPreference=m&&m.full?'maintain-framerate':'maintain-resolution';s.setParameters(p).catch(()=>{})}catch(e){}
+  OVRTC.main=m&&tr?{full:m.full,i:m.i,w:cv.width,h:cv.height}:null;ovSendObj({k:'vid',v:OVRTC.main})}
+async function ovRtcStart(){ovRtcStop();if(typeof RTCPeerConnection==='undefined')return;const pc=new RTCPeerConnection(ovIce());OVRTC.pc=pc;OVRTC.t0=Date.now();
+  const dc=pc.createDataChannel('m',{ordered:true});dc.binaryType='arraybuffer';dc.bufferedAmountLowThreshold=1<<20;OVRTC.dc=dc;dc.onopen=()=>{OVD.dirty=true;OVS.last='';OVD.cvLast=[];OVD.sy=-1;ovVidAttach(true)};
+  OVRTC.tx=pc.addTransceiver('video',{direction:'sendonly',sendEncodings:[{maxBitrate:10000000,maxFramerate:60}]});
+  try{const caps=RTCRtpSender.getCapabilities&&RTCRtpSender.getCapabilities('video');if(caps&&OVRTC.tx.setCodecPreferences){const pref=['video/VP9','video/H264','video/AV1','video/VP8'];const rank=c=>{const i=pref.indexOf(c.mimeType);return i<0?9:i};OVRTC.tx.setCodecPreferences([...caps.codecs].sort((a,b)=>rank(a)-rank(b)))}}catch(e){}
   pc.onicecandidate=e=>{if(e.candidate)ovSig({t:'ice',c:e.candidate.toJSON()})};
   pc.onconnectionstatechange=()=>{if(OVRTC.pc!==pc)return;OVRTC.ok=pc.connectionState==='connected';if(pc.connectionState==='failed'||pc.connectionState==='closed')ovRtcStop()};
-  const o=await pc.createOffer();await pc.setLocalDescription(o);ovSig({t:'offer',sdp:pc.localDescription.toJSON()})}
+  ovVidAttach(true);const o=await pc.createOffer();await pc.setLocalDescription(o);ovSig({t:'offer',sdp:pc.localDescription.toJSON()})}
 async function ovRtcIn(p){if(!p||p.from==='p'||OV.watchUntil<Date.now())return;
-  if(p.t==='hello'){if(ovGameCanvas()&&(!OVRTC.pc||(!OVRTC.ok&&Date.now()-OVRTC.t0>7000)))ovRtcStart();return}
+  if(p.t==='hello'){if(!OVRTC.pc||(!OVRTC.ok&&Date.now()-OVRTC.t0>7000))ovRtcStart();else if(OVRTC.ok){OVD.dirty=true;OVS.last='';OVD.cvLast=[];ovVidAttach(true)}return}
   if(p.t==='answer'&&OVRTC.pc&&OVRTC.pc.signalingState==='have-local-offer'){await OVRTC.pc.setRemoteDescription(p.sdp);return}
   if(p.t==='ice'&&OVRTC.pc){try{await OVRTC.pc.addIceCandidate(p.c)}catch(e){}return}
   if(p.t==='bye')ovRtcStop()}
-/* note page changes instead of copying the page on a timer */
-function ovDomWatch(on){if(!on){if(OVD.mo)OVD.mo.disconnect();OVD.mo=null;return}if(OVD.mo||typeof MutationObserver==='undefined')return;OVD.dirty=true;
-  OVD.mo=new MutationObserver(()=>{OVD.dirty=true});OVD.mo.observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true})}
+/* send anything: straight down the direct link when it's open (compressed), else through the server */
 function ovChunkSend(p){const s=JSON.stringify(p);const id=(++OVS.seq).toString(36),N=110000,n=Math.ceil(s.length/N);if(n>12)return;for(let i=0;i<n;i++){try{OV.wch.send({type:'broadcast',event:'v',payload:{id,i,n,s:s.slice(i*N,(i+1)*N)}})}catch(e){}}}
+async function ovSendObj(obj){if(!ovDcOpen()){if(OV.wch&&obj.k!=='vid')ovChunkSend(obj);return}const dc=OVRTC.dc;if(dc.bufferedAmount>6e6&&obj.k!=='vid')return;/* their link is behind: drop this frame to stay live */
+  const u=await ovPack(obj);const id=(++OVRTC.mid)>>>0,C=60000,n=Math.max(1,Math.ceil(u.length/C));
+  for(let i=0;i<n;i++){const part=u.subarray(i*C,(i+1)*C);const b=new Uint8Array(8+part.length);const v=new DataView(b.buffer);v.setUint32(0,id);v.setUint16(4,i);v.setUint16(6,n);b.set(part,8);try{dc.send(b)}catch(e){return}}}
+function ovDomWatch(on){if(!on){if(OVD.mo)OVD.mo.disconnect();OVD.mo=null;return}if(OVD.mo||typeof MutationObserver==='undefined')return;OVD.dirty=true;OVD.mo=new MutationObserver(()=>{OVD.dirty=true});OVD.mo.observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true})}
 function ovMeta(p){return Object.assign(p,{m:ovMode(),vw:innerWidth,vh:innerHeight,sy:Math.round(scrollY),hc:document.documentElement.className,hs:document.documentElement.getAttribute('style')||'',bc:document.body.className})}
 function ovDomShot2(){const app=document.getElementById('app');if(!app)return null;const cl=app.cloneNode(true);
   const oc=[...app.querySelectorAll('canvas')],cc=[...cl.querySelectorAll('canvas')];
@@ -21314,71 +21332,91 @@ function ovDomShot2(){const app=document.getElementById('app');if(!app)return nu
   cl.querySelectorAll('*').forEach(e=>{for(const a of [...e.attributes])if(/^on/i.test(a.name))e.removeAttribute(a.name)});
   let extra='';document.querySelectorAll('body > .modal-bg, body > .lgmodal, body > .sheet, body > [role="dialog"]').forEach(e=>{if(e.offsetParent!==null||getComputedStyle(e).position==='fixed'){const c=e.cloneNode(true);c.querySelectorAll('script').forEach(s=>s.remove());extra+=c.outerHTML}});
   return {k:'dom',h:cl.outerHTML+extra}}
-function ovCanvasFrames(force){const app=document.getElementById('app');if(!app)return null;const a=[];[...app.querySelectorAll('canvas')].forEach((c,i)=>{const r=c.getBoundingClientRect();if(r.width<5||r.height<5||r.bottom<0||r.top>innerHeight)return;const d=ovShrink(c,Math.min(720,Math.round(r.width)),.62);if(d&&(force||OVD.cvLast[i]!==d)){OVD.cvLast[i]=d;a.push([i,d])}});return a.length?{k:'cv',a}:null}
-ovScreen=function(){if(!OV.wch||OV.watchUntil<Date.now()){if(OVRTC.pc)ovRtcStop(true);ovDomWatch(false);return}const now=Date.now();const cv=ovGameCanvas();
-  if(cv){ovDomWatch(false);if(OVRTC.pc&&OVRTC.cv!==cv){/* a new game canvas: swap the video over */try{const st=cv.captureStream(24);const tr=st.getVideoTracks()[0];if(tr&&OVRTC.sender){OVRTC.sender.replaceTrack(tr);OVRTC.cv=cv}}catch(e){ovRtcStop(true)}}
-    if(OVRTC.ok)return;/* the live video is running, no pictures needed */if(now-OVD.lastSend<300)return;OVD.lastSend=now;const d=ovShrink(cv,560,.5);if(d)ovChunkSend(ovMeta({k:'img',d}));return}
-  if(OVRTC.pc)ovRtcStop(true);ovDomWatch(true);
-  if(OVD.dirty&&now-OVD.lastSend>380){OVD.dirty=false;OVD.lastSend=now;const p=ovDomShot2();if(p){const s=JSON.stringify(p);if(s!==OVS.last||now-OVS.lastT>8000){OVS.last=s;OVS.lastT=now;OVD.cvLast=[];ovChunkSend(ovMeta(p))}}}
-  if(now-OVD.cvT>700){OVD.cvT=now;const f=ovCanvasFrames(false);if(f)ovChunkSend(f)}
-  const sy=Math.round(scrollY);if(sy!==OVD.sy){OVD.sy=sy;ovChunkSend({k:'sc',sy,vh:innerHeight,vw:innerWidth})}};
+function ovCanvasFrames(skip,maxW,q){const app=document.getElementById('app');if(!app)return null;const a=[];[...app.querySelectorAll('canvas')].forEach((c,i)=>{if(i===skip)return;const r=c.getBoundingClientRect();if(r.width<5||r.height<5||r.bottom<0||r.top>innerHeight)return;const d=ovShrink(c,Math.min(maxW,Math.round(r.width*Math.min(2,devicePixelRatio||1))),q);if(d&&OVD.cvLast[i]!==d){OVD.cvLast[i]=d;a.push([i,d])}});return a.length?{k:'cv',a}:null}
+ovScreen=function(){if(!OV.wch||OV.watchUntil<Date.now()){if(OVRTC.pc)ovRtcStop(true);ovDomWatch(false);return}const now=Date.now(),live=ovDcOpen();
+  if(OVRTC.tx&&now-OVRTC.attT>400){OVRTC.attT=now;ovVidAttach(false)}
+  const vidOk=OVRTC.ok&&OVRTC.main;const gcv=ovGameCanvas();
+  if(gcv){ovDomWatch(false);if(vidOk&&OVRTC.main.full){if(now-OVD.metaT>2000){OVD.metaT=now;ovSendObj(ovMeta({k:'img',d:''}))}return}
+    if(now-OVD.lastSend<(live?90:300))return;OVD.lastSend=now;const d=ovShrink(gcv,live?960:560,live?.72:.5);if(d)ovSendObj(ovMeta({k:'img',d}));return}
+  ovDomWatch(true);
+  if(OVD.dirty&&now-OVD.lastSend>(live?120:380)){OVD.dirty=false;OVD.lastSend=now;const p=ovDomShot2();if(p){const s=p.h;if(s!==OVS.last||now-OVS.lastT>8000){OVS.last=s;OVS.lastT=now;OVD.cvLast=[];ovSendObj(ovMeta(p))}}}
+  if(now-OVD.cvT>(live?90:700)){OVD.cvT=now;const f=ovCanvasFrames(-2,live?1400:720,live?.86:.62);if(f)ovSendObj(f)}
+  const sy=Math.round(scrollY);if(sy!==OVD.sy){OVD.sy=sy;ovSendObj({k:'sc',sy,vh:innerHeight,vw:innerWidth})}};
 {const _x=ovStreamStop;ovStreamStop=function(){ovRtcStop(true);ovDomWatch(false);return _x.apply(this,arguments)}}
-{const _s=ovStreamStart;ovStreamStart=function(){OVS.last='';OVD.dirty=true;OVD.cvLast=[];OVD.sy=-1;const r=_s.apply(this,arguments);clearInterval(OVS.t);OVS.t=setInterval(()=>{try{ovScreen()}catch(e){}},120);return r}}
+{const _s=ovStreamStart;ovStreamStart=function(){OVS.last='';OVD.dirty=true;OVD.cvLast=[];OVD.sy=-1;const r=_s.apply(this,arguments);clearInterval(OVS.t);OVS.t=setInterval(()=>{try{ovScreen()}catch(e){}},40);return r}}
 
 /* ---------- owner side ---------- */
-const OVAR={pc:null,t0:0,hello:0,stream:null,live:false};
+/* an optional relay (TURN) server, saved only on the owner's device. Paste the iceServers JSON or a credentials link from Metered or Cloudflare. */
+const OVT={c:null,t:0};
+function ovTurnRaw(){try{return localStorage.getItem('hp_ovturn')||''}catch(e){return ''}}
+async function ovIceOwner(){const base=ovIce();const raw=ovTurnRaw().trim();if(!raw)return base;let extra=null;
+  try{if(/^https:\/\//.test(raw)){if(OVT.c&&Date.now()-OVT.t<3e6)extra=OVT.c;else{const ac=new AbortController();const tm=setTimeout(()=>ac.abort(),2500);const r=await fetch(raw,{signal:ac.signal});clearTimeout(tm);extra=await r.json();OVT.c=extra;OVT.t=Date.now()}}else extra=JSON.parse(raw)}catch(e){extra=OVT.c}
+  if(extra){if(extra.iceServers)extra=extra.iceServers;if(!Array.isArray(extra))extra=[extra];base.iceServers=base.iceServers.concat(extra.filter(x=>x&&x.urls))}return base}
+const OVAR={pc:null,dc:null,t0:0,stream:null,live:false,main:null,parts:{},st:null,raf:0};
 function ovAdmSig(p){try{if(OVA.ch)OVA.ch.send({type:'broadcast',event:'rtc',payload:Object.assign({from:'o'},p)})}catch(e){}}
-function ovAdmRtcStop(){try{if(OVAR.pc)OVAR.pc.close()}catch(e){}OVAR.pc=null;OVAR.stream=null;OVAR.live=false;const v=$('#ovScr video');if(v){v.srcObject=null;v.remove()}const b=$('#ovScr');if(b)b.classList.remove('rtc')}
+function ovAdmRtcStop(){try{if(OVAR.pc)OVAR.pc.close()}catch(e){}Object.assign(OVAR,{pc:null,dc:null,stream:null,live:false,main:null,parts:{},st:null});cancelAnimationFrame(OVAR.raf);const v=$('#ovScr video');if(v){v.srcObject=null;v.remove()}const b=$('#ovScr');if(b)b.classList.remove('rtc')}
 async function ovAdmRtcIn(p){if(!p||p.from==='o')return;
-  if(p.t==='offer'){ovAdmRtcStop();const pc=new RTCPeerConnection(OV_ICE);OVAR.pc=pc;OVAR.t0=Date.now();
-    pc.ontrack=e=>{OVAR.stream=e.streams[0]||new MediaStream([e.track]);ovVidShow()};
+  if(p.t==='offer'){ovAdmRtcStop();OVAR.pend=[];OVAR.wait=true;const cfg=await ovIceOwner();OVAR.wait=false;const pc=new RTCPeerConnection(cfg);OVAR.pc=pc;OVAR.t0=Date.now();
+    pc.ontrack=e=>{try{e.receiver.playoutDelayHint=0}catch(x){}try{e.receiver.jitterBufferTarget=0}catch(x){}OVAR.stream=new MediaStream([e.track]);ovVidShow()};
+    pc.ondatachannel=e=>{const dc=e.channel;dc.binaryType='arraybuffer';OVAR.dc=dc;dc.onmessage=ev=>ovDcIn(ev.data)};
     pc.onicecandidate=e=>{if(e.candidate)ovAdmSig({t:'ice',c:e.candidate.toJSON()})};
     pc.onconnectionstatechange=()=>{if(OVAR.pc!==pc)return;if(pc.connectionState==='failed'||pc.connectionState==='closed')ovAdmRtcStop()};
-    await pc.setRemoteDescription(p.sdp);const a=await pc.createAnswer();await pc.setLocalDescription(a);ovAdmSig({t:'answer',sdp:pc.localDescription.toJSON()});return}
-  if(p.t==='ice'&&OVAR.pc){try{await OVAR.pc.addIceCandidate(p.c)}catch(e){}return}
+    await pc.setRemoteDescription(p.sdp);for(const c of OVAR.pend||[]){try{await pc.addIceCandidate(c)}catch(e){}}OVAR.pend=[];const a=await pc.createAnswer();await pc.setLocalDescription(a);ovAdmSig({t:'answer',sdp:pc.localDescription.toJSON()});return}
+  if(p.t==='ice'){if(!OVAR.pc||OVAR.wait||!OVAR.pc.remoteDescription){(OVAR.pend=OVAR.pend||[]).push(p.c);return}try{await OVAR.pc.addIceCandidate(p.c)}catch(e){}return}
   if(p.t==='bye')ovAdmRtcStop()}
-function ovVidShow(){const box=$('#ovScr');if(!box||!OVAR.stream||OVR.view!=='screen')return;let v=box.querySelector('video');if(!v){v=document.createElement('video');v.className='ovvid';v.muted=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');box.append(v);
-    v.onplaying=()=>{OVAR.live=true;box.classList.add('rtc');ovScrAge()};v.onpause=()=>{}}
-  if(v.srcObject!==OVAR.stream)v.srcObject=OVAR.stream;const pl=v.play();if(pl&&pl.catch)pl.catch(()=>{})}
-/* keep asking for the live video while they are in a game */
-setInterval(()=>{if(!OVA.sel||!OVA.ch||!$('#ovScr'))return;const f=OVR.frame;const game=(f&&f.k==='img')||(OVA.feed&&/game$/.test(OVA.feed.m||''));
-  if(!game){if(OVAR.pc&&!OVAR.live)ovAdmRtcStop();return}
-  if(OVAR.pc&&!OVAR.live&&Date.now()-OVAR.t0>8000)ovAdmRtcStop();
-  if(!OVAR.pc||(!OVAR.live&&!OVAR.pc))ovAdmSig({t:'hello'})},2500);
-{const _st=ovAdmStop;ovAdmStop=function(){ovAdmRtcStop();return _st.apply(this,arguments)}}
-{const _w=ovAdmWatch;ovAdmWatch=async function(pid){ovAdmRtcStop();OVR.frame=null;OVR.parts={};const r=await _w.apply(this,arguments);setTimeout(()=>ovAdmSig({t:'hello'}),1200);return r}}
-
-/* put frames together and patch the copy in place */
-ovScrIn=function(p){if(!p||!p.id)return;const b=OVR.parts[p.id]||(OVR.parts[p.id]={n:p.n,got:0,a:[]});if(b.a[p.i]==null){b.a[p.i]=p.s;b.got++}
-  if(b.got<b.n)return;delete OVR.parts[p.id];for(const k in OVR.parts)if(parseInt(k,36)<parseInt(p.id,36)-8)delete OVR.parts[k];
-  let f;try{f=JSON.parse(b.a.join(''))}catch(e){return}OVR.ft=Date.now();
+async function ovDcIn(buf){const u=new Uint8Array(buf);if(u.length<8)return;const v=new DataView(u.buffer,u.byteOffset);const id=v.getUint32(0),i=v.getUint16(4),n=v.getUint16(6);
+  let f;if(n===1){try{f=await ovUnpack(u.subarray(8))}catch(e){return}}
+  else{const b=OVAR.parts[id]||(OVAR.parts[id]={n,got:0,a:[]});if(!b.a[i]){b.a[i]=u.slice(8);b.got++}if(b.got<n)return;delete OVAR.parts[id];for(const k in OVAR.parts)if(+k<id-20)delete OVAR.parts[k];
+    let L=0;b.a.forEach(x=>L+=x.length);const all=new Uint8Array(L);let o=0;b.a.forEach(x=>{all.set(x,o);o+=x.length});try{f=await ovUnpack(all)}catch(e){return}}
+  ovFrameIn(f)}
+function ovFrameIn(f){if(!f)return;OVR.ft=Date.now();
+  if(f.k==='vid'){OVAR.main=f.v;ovVidShow();return}
   if(f.k==='cv'){OVR.cv=OVR.cv||{};f.a.forEach(([i,d])=>{OVR.cv[i]=d});ovCvPatch();return}
   if(f.k==='sc'){if(OVR.frame&&OVR.frame.k==='dom'){OVR.frame.sy=f.sy;OVR.frame.vh=f.vh;OVR.frame.vw=f.vw;ovScrPaint(true)}return}
-  if(f.k==='dom'&&(!OVR.frame||OVR.frame.k!=='dom'))OVR.cv={};OVR.frame=f;ovScrPaint()};
+  if(f.k==='img'&&!f.d&&OVR.frame&&OVR.frame.k==='img'){Object.assign(OVR.frame,f,{d:OVR.frame.d});ovScrPaint();return}
+  if(f.k==='dom'&&(!OVR.frame||OVR.frame.k!=='dom'))OVR.cv={};OVR.frame=f;ovScrPaint()}
+ovScrIn=function(p){if(!p||!p.id)return;const b=OVR.parts[p.id]||(OVR.parts[p.id]={n:p.n,got:0,a:[]});if(b.a[p.i]==null){b.a[p.i]=p.s;b.got++}
+  if(b.got<b.n)return;delete OVR.parts[p.id];for(const k in OVR.parts)if(parseInt(k,36)<parseInt(p.id,36)-8)delete OVR.parts[k];let f;try{f=JSON.parse(b.a.join(''))}catch(e){return}if(OVAR.dc&&OVAR.dc.readyState==='open')return;ovFrameIn(f)};
+/* the video: fills the box for games, sits exactly over the chart on pages */
+function ovVidShow(){const box=$('#ovScr');if(!box||!OVAR.stream||OVR.view!=='screen')return;let v=box.querySelector('video');if(!v){v=document.createElement('video');v.className='ovvid';v.muted=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');box.append(v);v.onplaying=()=>{OVAR.live=true;ovScrAge()}}
+  if(v.srcObject!==OVAR.stream)v.srcObject=OVAR.stream;const pl=v.play();if(pl&&pl.catch)pl.catch(()=>{});const full=!OVAR.main||OVAR.main.full;box.classList.toggle('rtc',!!(OVAR.main&&full));v.classList.toggle('ovover',!full);if(!OVAR.main)v.style.display='none';else v.style.display='';ovVidPlace()}
+function ovVidPlace(){cancelAnimationFrame(OVAR.raf);const box=$('#ovScr');const v=box&&box.querySelector('video');if(!v||!OVAR.main||OVAR.main.full)return;
+  const tick=()=>{OVAR.raf=requestAnimationFrame(tick);const fr=box.querySelector('iframe'),d=fr&&fr.contentDocument;const im=d&&d.querySelector(`img[data-ovcv="${OVAR.main.i}"]`);if(!im||!fr){v.style.visibility='hidden';return}
+    const r=im.getBoundingClientRect(),sc=parseFloat((fr.style.transform.match(/scale\(([\d.]+)/)||[0,1])[1])||1;if(!r.width){v.style.visibility='hidden';return}
+    v.style.visibility='visible';v.style.left=r.left*sc+'px';v.style.top=r.top*sc+'px';v.style.width=r.width*sc+'px';v.style.height=r.height*sc+'px'};tick()}
+/* keep the direct link alive while watching */
+setInterval(()=>{if(!OVA.sel||!OVA.ch||!$('#ovScr'))return;const st=OVAR.pc&&OVAR.pc.connectionState;if(OVAR.pc&&st!=='connected'&&Date.now()-OVAR.t0>9000)ovAdmRtcStop();if(!OVAR.pc)ovAdmSig({t:'hello'})},2000);
+/* how good the picture is right now */
+setInterval(async()=>{const pc=OVAR.pc;if(!pc||pc.connectionState!=='connected'){OVAR.st=null;return}try{const s=await pc.getStats();let o=null;s.forEach(r=>{if(r.type==='inbound-rtp'&&r.kind==='video')o=r});if(o){const prev=OVAR.st;const kbps=prev&&prev.b!=null?Math.round((o.bytesReceived-prev.b)*8/((o.timestamp-prev.ts)/1000)/1000):0;OVAR.st={fps:Math.round(o.framesPerSecond||0),w:o.frameWidth||0,h:o.frameHeight||0,kbps,b:o.bytesReceived,ts:o.timestamp}}}catch(e){}ovScrAge()},1000);
+{const _st=ovAdmStop;ovAdmStop=function(){ovAdmRtcStop();return _st.apply(this,arguments)}}
+{const _w=ovAdmWatch;ovAdmWatch=async function(pid){ovAdmRtcStop();OVR.frame=null;OVR.parts={};const r=await _w.apply(this,arguments);setTimeout(()=>ovAdmSig({t:'hello'}),900);return r}}
 function ovCvPatch(){const fr=$('#ovScr iframe');const d=fr&&fr.contentDocument;if(!d||!OVR.cv)return;d.querySelectorAll('img[data-ovcv]').forEach(im=>{const s=OVR.cv[im.getAttribute('data-ovcv')];if(s&&im.getAttribute('src')!==s)im.setAttribute('src',s)})}
 function ovMorph(a,b){if(a.nodeType!==b.nodeType||a.nodeName!==b.nodeName){a.replaceWith(b);return}
   if(a.nodeType===3||a.nodeType===8){if(a.nodeValue!==b.nodeValue)a.nodeValue=b.nodeValue;return}
-  if(a.nodeType!==1)return;const keepSrc=a.hasAttribute&&a.hasAttribute('data-ovcv');
+  if(a.nodeType!==1)return;const keepSrc=a.hasAttribute('data-ovcv');
   for(const at of [...a.attributes])if(!b.hasAttribute(at.name)&&!(keepSrc&&at.name==='src'))a.removeAttribute(at.name);
   for(const at of [...b.attributes])if(a.getAttribute(at.name)!==at.value)a.setAttribute(at.name,at.value);
-  const bc=[...b.childNodes];let ac=a.childNodes;for(let i=0;i<bc.length;i++){if(i<ac.length)ovMorph(ac[i],bc[i]);else a.appendChild(bc[i])}while(a.childNodes.length>bc.length)a.removeChild(a.lastChild)}
+  const bc=[...b.childNodes];for(let i=0;i<bc.length;i++){if(i<a.childNodes.length)ovMorph(a.childNodes[i],bc[i]);else a.appendChild(bc[i])}while(a.childNodes.length>bc.length)a.removeChild(a.lastChild)}
 ovScrPaint=function(scrollOnly){const box=$('#ovScr');if(!box||OVR.view!=='screen')return;const f=OVR.frame;
-  if(OVAR.stream&&!box.querySelector('video'))ovVidShow();
-  if(!f)return;const W=box.clientWidth||600;const sc=Math.min(1,W/f.vw);const H=Math.round(Math.min(f.vh,1400)*sc);
-  const tag=$('#ovScrT');if(tag)tag.textContent=`${OV_MODE[f.m]||f.m||'Their screen'} · their screen is ${f.vw}×${f.vh}${f.k==='img'?(OVAR.live?' · live video':' · game pictures'):' · page copy'}`;
+  if(OVAR.stream&&!box.querySelector('video'))ovVidShow();if(!f)return;const W=box.clientWidth||600;const sc=Math.min(1,W/f.vw);const H=Math.round(Math.min(f.vh,1400)*sc);
   const wait=box.querySelector('.ovscrwait');if(wait)wait.remove();
-  if(f.k==='img'){const fr=box.querySelector('iframe');if(fr)fr.remove();let im=box.querySelector('img.ovimg');if(!im){im=document.createElement('img');im.className='ovimg';im.alt='Their game screen';box.prepend(im)}box.style.height='';if(im.getAttribute('src')!==f.d)im.src=f.d;
-    let hud=box.querySelector('.ovhud');if(!hud){hud=document.createElement('div');hud.className='ovhud';box.append(hud)}const F=OVA.feed||{};hud.innerHTML=F.st?`<b>${F.st.sc[0]}</b><span>them · bots</span><b>${F.st.sc[1]}</b>`:F.rr?`<span>${esc(F.rr.nm)} · round ${F.rr.r}/${F.rr.R} · ${F.rr.e.filter(e=>e[3]).length} still in</span>`:'';hud.hidden=!hud.innerHTML;return}
-  if(OVAR.pc)ovAdmRtcStop();box.querySelectorAll('img.ovimg,.ovhud').forEach(e=>e.remove());
+  if(f.k==='img'){const fr=box.querySelector('iframe');if(fr)fr.remove();let im=box.querySelector('img.ovimg');if(!im){im=document.createElement('img');im.className='ovimg';im.alt='Their game screen';box.prepend(im)}box.style.height='';if(f.d&&im.getAttribute('src')!==f.d)im.src=f.d;
+    let hud=box.querySelector('.ovhud');if(!hud){hud=document.createElement('div');hud.className='ovhud';box.append(hud)}const F=OVA.feed||{};hud.innerHTML=F.st?`<b>${F.st.sc[0]}</b><span>them · bots</span><b>${F.st.sc[1]}</b>`:F.rr?`<span>${esc(F.rr.nm)} · round ${F.rr.r}/${F.rr.R} · ${F.rr.e.filter(e=>e[3]).length} still in</span>`:'';hud.hidden=!hud.innerHTML;ovScrAge();return}
+  box.querySelectorAll('img.ovimg,.ovhud').forEach(e=>e.remove());box.classList.remove('rtc');
   let fr=box.querySelector('iframe');
   const size=()=>{fr.style.width=f.vw+'px';fr.style.height=Math.min(f.vh,1400)+'px';fr.style.transform=`scale(${sc})`;box.style.height=H+'px'};
   const apply=()=>{const d=fr.contentDocument;if(!d||!d.body)return;try{
       if(!scrollOnly){if(d.documentElement.className!==f.hc)d.documentElement.className=f.hc;if((d.documentElement.getAttribute('style')||'')!==f.hs){if(f.hs)d.documentElement.setAttribute('style',f.hs);else d.documentElement.removeAttribute('style')}if(d.body.className!==f.bc)d.body.className=f.bc;
-        const t=d.createElement('template');t.innerHTML=f.h;const nb=d.createElement('body');nb.append(t.content);ovMorph(d.body,(()=>{for(const a of [...d.body.attributes])nb.setAttribute(a.name,a.value);return nb})());ovCvPatch()}
+        const t=d.createElement('template');t.innerHTML=f.h;const nb=d.createElement('body');for(const a of [...d.body.attributes])nb.setAttribute(a.name,a.value);nb.append(t.content);ovMorph(d.body,nb);ovCvPatch()}
       if(Math.abs((fr.contentWindow.scrollY||0)-f.sy)>1)fr.contentWindow.scrollTo(0,f.sy)}catch(e){console.error(e)}};
   if(!fr){fr=document.createElement('iframe');fr.className='ovfr';fr.setAttribute('sandbox','allow-same-origin');fr.title='Their screen';fr.tabIndex=-1;box.prepend(fr);fr.onload=()=>{fr.dataset.ok=1;size();apply()};fr.srcdoc=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${ovScrCss()}</head><body></body></html>`}
-  size();if(fr.dataset.ok)apply()};
-ovScrAge=function(){const a=$('#ovScrA');if(!a)return;if(OVAR.live){a.textContent='live video';a.className='ovage on';return}if(!OVR.frame){a.textContent='connecting';a.className='ovage wait';return}const s=Math.round((Date.now()-OVR.ft)/1000);const dom=OVR.frame.k==='dom';a.textContent=dom?(s<15?'live':`no changes for ${s}s`):(s<3?'live':`${s}s ago`);a.className='ovage '+(dom||s<3?'on':s<15?'slow':'wait')};
+  size();if(fr.dataset.ok)apply();if(OVAR.main&&!OVAR.main.full)ovVidPlace();ovScrAge()};
+ovScrAge=function(){const a=$('#ovScrA');if(!a)return;const S=OVAR.st;const direct=OVAR.pc&&OVAR.pc.connectionState==='connected';
+  const t=$('#ovScrT');const f=OVR.frame;
+  if(t&&f)t.textContent=`${OV_MODE[f.m]||f.m||'Their screen'} · their screen is ${f.vw}×${f.vh}`+(direct?(OVAR.main?(OVAR.main.full?' · live game video':' · page copy + live chart video'):' · page copy'):' · through the server');
+  if(direct&&S&&S.fps&&OVAR.main){a.textContent=`live · ${S.fps} fps · ${S.w}×${S.h}${S.kbps?` · ${(S.kbps/1000).toFixed(1)} Mbps`:''}`;a.className='ovage on';return}
+  if(direct){a.textContent='live · direct';a.className='ovage on';return}
+  if(!f){a.textContent='connecting';a.className='ovage wait';return}const s=Math.round((Date.now()-OVR.ft)/1000);const dom=f.k==='dom';a.textContent=dom?(s<15?'live · via server':`no changes for ${s}s`):(s<3?'live · via server':`${s}s ago`);a.className='ovage '+(dom||s<3?'on':s<15?'slow':'wait')};
 
 /* ============ OWNER'S VIEW 4: cockpit layout, controls always in reach, more control ============ */
 /* ---------- new commands on the player side ---------- */
@@ -21409,7 +21447,7 @@ ovAdmPanel=function(){const R=$('#ovR');if(!R)return;const v=OVA.list[OVA.sel]||
   if(!OVK.tab)OVK.tab=ovTabFor((OVA.feed&&OVA.feed.m)||v.m);
   const others=Object.values(OVA.list).filter(x=>x.pid!==OVA.sel);
   R.innerHTML=`<div class="ovtop"><button class="ovback" id="ovAll">${icon('M15 18l-6-6 6-6',16)} All players</button><div class="ovwho"><span class="label"><i class="ovlive"></i> Watching live · only you can see this</span><h3>${esc(v.n||'Player')}</h3><small id="ovMode">Waiting for their game…</small></div>
-     ${others.length?`<select id="ovSwitch" class="ovsel"><option value="">Switch player…</option>${others.map(o=>`<option value="${esc(o.pid)}">${esc(o.n||'Player')} · ${esc(OV_MODE[o.m]||o.m||'')}</option>`).join('')}</select>`:''}<button class="ovk warn" id="ovStop">Stop watching</button></div>
+     ${others.length?`<select id="ovSwitch" class="ovsel"><option value="">Switch player…</option>${others.map(o=>`<option value="${esc(o.pid)}">${esc(o.n||'Player')} · ${esc(OV_MODE[o.m]||o.m||'')}</option>`).join('')}</select>`:''}<button class="ovk" id="ovNet" title="Connection settings">⚙ Connection</button><button class="ovk warn" id="ovStop">Stop watching</button></div><div class="ovnet" id="ovNetBox" hidden><b>Relay server (optional)</b><p class="ovhelp">Most players connect to you directly. If someone's network blocks that, the view falls back to a slower copy through the server. A free relay (TURN) server fixes that. Paste the ICE servers JSON or the credentials link from <a href="https://www.metered.ca/tools/openrelay/" target="_blank" rel="noopener">Metered Open Relay</a> (20 GB a month free) or <a href="https://developers.cloudflare.com/realtime/turn/" target="_blank" rel="noopener">Cloudflare Realtime TURN</a> (1,000 GB free). It is saved on this device only, and players never see it.</p><textarea id="ovTurn" rows="3" placeholder='https://yourapp.metered.live/api/v1/turn/credentials?apiKey=… or [{"urls":"turn:…","username":"…","credential":"…"}]'></textarea><div class="ovbtns"><button class="ovk go" id="ovTurnSave">Save</button><button class="ovk" id="ovTurnClr">Clear</button><span class="ovhelp" id="ovTurnMsg"></span></div></div>
    <div class="ovcock"><div class="ovleft">
      <div class="ovscrh"><div><span class="label">What they see <b id="ovScrA" class="ovage wait">connecting</b></span><small class="hint" id="ovScrT">Their screen appears here in a few seconds.</small></div><div class="ovseg"><button data-ovsv="screen" class="${OVR.view==='screen'?'on':''}">Their screen</button><button data-ovsv="map" class="${OVR.view==='map'?'on':''}">Simple map</button></div></div>
      <div class="ovscrbox" id="ovScr" ${OVR.view==='screen'?'':'hidden'}><div class="ovscrwait"><i class="ovspin"></i>Connecting to their screen…</div></div>
@@ -21423,7 +21461,9 @@ ovAdmPanel=function(){const R=$('#ovR');if(!R)return;const v=OVA.list[OVA.sel]||
      <div class="ovlogw"><span class="label">What you sent</span><div id="ovLog" class="ovlog"></div></div></aside></div>
    <select id="ovSym" hidden></select>`;
   $('#ovAll').onclick=()=>{ovSend(OVA.sel,{k:'watch',on:0});ovAdmStop(true);OVA.sel='';OVK.tab='';if(W)W.classList.remove('ovwatch');ovAdmList();R.innerHTML='<div class="ovempty"><b>Pick a player</b></div>'};
-  $('#ovStop').onclick=$('#ovAll').onclick;const sw=$('#ovSwitch');if(sw)sw.onchange=()=>{if(sw.value){OVK.tab='';ovAdmWatch(sw.value)}};
+  $('#ovStop').onclick=$('#ovAll').onclick;$('#ovNet').onclick=()=>{const b=$('#ovNetBox');b.hidden=!b.hidden;$('#ovTurn').value=ovTurnRaw()};
+  $('#ovTurnSave').onclick=async()=>{const v=$('#ovTurn').value.trim();const m=$('#ovTurnMsg');if(v&&!/^https:\/\//.test(v)){try{JSON.parse(v)}catch(e){m.textContent='That is not a link or valid JSON.';return}}try{localStorage.setItem('hp_ovturn',v)}catch(e){}OVT.c=null;m.textContent='Checking…';const c=await ovIceOwner();const n=c.iceServers.filter(x=>/turns?:/.test(JSON.stringify(x.urls))).length;m.textContent=v?(n?`Saved. ${n} relay server${n>1?'s':''} ready. Reconnecting…`:'Saved, but no relay servers came back. Check the link.'):'Cleared.';ovAdmRtcStop()};
+  $('#ovTurnClr').onclick=()=>{try{localStorage.removeItem('hp_ovturn')}catch(e){}$('#ovTurn').value='';$('#ovTurnMsg').textContent='Cleared.';OVT.c=null};const sw=$('#ovSwitch');if(sw)sw.onchange=()=>{if(sw.value){OVK.tab='';ovAdmWatch(sw.value)}};
   $('#ovNoteGo').onclick=()=>{const t=$('#ovNote').value.trim();if(!t)return;ovDo({k:'note',txt:t},'Note: '+t);$('#ovNote').value=''};$('#ovNote').onkeydown=e=>{if(e.key==='Enter')$('#ovNoteGo').click()};
   R.querySelectorAll('[data-ovpre]').forEach(b=>b.onclick=()=>ovDo({k:'note',txt:b.dataset.ovpre},'Note: '+b.dataset.ovpre));
   R.querySelectorAll('[data-ovt]').forEach(b=>b.onclick=()=>{OVK.tab=b.dataset.ovt;OVK.auto=false;R.querySelectorAll('[data-ovt]').forEach(x=>x.classList.toggle('on',x===b));ovPane()});
