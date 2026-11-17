@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794936202">
+<meta name="hp-build" content="1794937087">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -5148,6 +5148,17 @@ body.stplaying .h4nav,body:not(:has(.h4on)) .h4nav{display:none}
 .crh2 .draft-top>:not(:first-child){display:none}
 .crh2 .crhead>:not(:first-child){display:none}
 
+.rrpslots{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:12px 0}
+.rrpslot{border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--ink-2);display:flex;flex-direction:column;gap:6px}
+.rrpsh b{display:block;font-size:15px}.rrpsh small{color:var(--mute);font-size:12px}
+.rrptr{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:10px;background:rgba(255,255,255,.04)}
+.rrppv{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--amber);cursor:pointer;font-size:11px}
+.rrptt{flex:1;min-width:0}.rrptt b,.rrptt small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rrptt b{font-size:13px}.rrptt small{font-size:11.5px;color:var(--mute)}
+.rrpbt{display:flex;gap:3px}.rrpbt button{min-width:24px;height:26px;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:10px;cursor:pointer;padding:0 5px}.rrpbt button:disabled{opacity:.3}.rrpbt .del{color:#ff7088}.rrpbt .sure{background:#ff5f78;color:#fff;font-weight:800}
+.rrpnone{margin:0;font-size:12.5px;color:var(--mute);font-style:italic}
+.rrpadm select{width:100%;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit}
+.rrpcred{margin:6px 0 10px;padding-top:6px;border-top:1px solid var(--line)}
+
 </style>
 
 </head>
@@ -9843,7 +9854,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794936202';
+const BUILD='1794937087';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -21106,6 +21117,79 @@ function rrMuBtn(){const p=document.querySelector('.rrpills');if(!p||$('#rrMu'))
 {const _b=rcsBind;rcsBind=function(){_b.apply(this,arguments);const h=$('#rcsCh');if(h&&!$('#rcsMuB')){const bt=document.createElement('button');bt.className='rcsbtn';bt.id='rcsMuB';const S=rrS();const draw=()=>{bt.innerHTML=S.mute?icon('M9 18V5l12-2v13M9 9l12-2M2 2l20 20',15):icon('M9 18V5l12-2v13M6 21a3 3 0 100-6 3 3 0 000 6zM18 19a3 3 0 100-6 3 3 0 000 6z',15)};draw();bt.onclick=()=>{S.mute=!S.mute;saveP();draw();if(S.mute)rrMusicStop();else{const W=RCS.g&&RCS.g.W;if(W)rrMusic(W.final?'final':W.race?'race':'survival')}};h.after(bt)}}}
 {const _lv=rrLeave;rrLeave=function(){const r=_lv.apply(this,arguments);try{rrMusicLeave()}catch(e){}return r}}
 {const _go=go;go=function(v){if(CURV==='rcs'||CURV==='rcsgame')try{rrMusicLeave()}catch(e){}return _go.apply(this,arguments)}}
+
+/* ============ RECESS RUSH: custom playlist uploaded by the owner ============
+   cfg.rrMusic = {lobby:[track], race:[], survival:[], final:[]}, track = {id,t,a,src,page,lic}
+   A slot with tracks plays them in order on a loop; an empty slot keeps the built-in original.
+   Players can only mute. No skip, no picking songs. */
+const RRP_SLOTS=[['lobby','Lobby','Plays while players wait and in the locker'],['race','Race rounds','Rounds where you run to the finish'],['survival','Survival rounds','Last-one-standing rounds'],['final','The final','The last round of the show']];
+const rrPL=k=>{const c=(LIVE.feed&&LIVE.feed.cfg)||{};const m=c.rrMusic||{};return Array.isArray(m[k])?m[k].filter(x=>x&&x.src):[]};
+const RRP={el:null,k:'',i:0,fade:0,want:0};
+function rrpEl(){if(RRP.el)return RRP.el;const a=new Audio();a.preload='auto';a.crossOrigin='anonymous';a.onended=()=>{const L=rrPL(RRP.k);if(!L.length)return;RRP.i=(RRP.i+1)%L.length;rrpLoad(L[RRP.i])};a.onerror=()=>{const L=rrPL(RRP.k);if(L.length>1){RRP.i=(RRP.i+1)%L.length;setTimeout(()=>rrpLoad(L[RRP.i]),400)}};RRP.el=a;return a}
+function rrpLoad(tr){const a=rrpEl();if(!tr)return;a.src=tr.src;a.currentTime=0;const p=a.play();if(p&&p.catch)p.catch(()=>{/* waits for the first tap */document.addEventListener('pointerdown',()=>{if(RRP.k)a.play().catch(()=>{})},{once:true})})}
+function rrpFadeTo(v,ms,done){const a=rrpEl();clearInterval(RRP.fade);const v0=a.volume,t0=performance.now();RRP.fade=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);a.volume=Math.max(0,Math.min(1,v0+(v-v0)*k));if(k>=1){clearInterval(RRP.fade);if(done)done()}},30)}
+function rrpPlay(k){const L=rrPL(k);if(!L.length)return false;const a=rrpEl();if(RRP.k===k&&!a.paused)return true;RRP.k=k;RRP.i=0;a.volume=0;rrpLoad(L[0]);rrpFadeTo(rrMuVol()*1.6>1?1:rrMuVol()*1.6,900);return true}
+function rrpStop(){if(!RRP.k)return;RRP.k='';rrpFadeTo(0,350,()=>{try{RRP.el.pause()}catch(e){}})}
+const rrpNow=()=>{const L=rrPL(RRP.k);const t=L[RRP.i];return t?`${t.t} by ${t.a}`:''};
+/* route the game's music calls: custom tracks first, the built-in original otherwise */
+{const _m=rrMusic;rrMusic=function(k){if(!k||!rrMuOn()){rrpStop();return _m.apply(this,arguments)}
+  if(rrPL(k).length){if(RRMU.on)_stopSynth();
+    try{if(typeof musPlaying==='function'&&musPlaying()){RRMU.resume=true;genStop();if(MUS.el)MUS.el.pause()}}catch(e){}
+    rrpPlay(k);return}
+  rrpStop();return _m.apply(this,arguments)}}
+const _stopSynth=rrMusicStop;
+{const _s=rrMusicStop;rrMusicStop=function(){rrpStop();return _s.apply(this,arguments)}}
+/* the mute buttons say what is playing */
+{const _t=toastLite;toastLite=function(m){if(typeof m==='string'&&/^Now playing: /.test(m)&&RRP.k){const n=rrpNow();if(n)m='Now playing: '+n}return _t.apply(this,arguments)}}
+/* music volume changes follow along */
+setInterval(()=>{if(RRP.k&&RRP.el&&!RRP.el.paused){const v=Math.min(1,rrMuVol()*1.6);if(Math.abs(RRP.el.volume-v)>.02&&!RRP.fade)RRP.el.volume=v;if(!rrMuOn())rrpStop()}},1000);
+document.addEventListener('visibilitychange',()=>{if(!RRP.el||!RRP.k)return;if(document.hidden)RRP.el.pause();else RRP.el.play().catch(()=>{})});
+
+/* credits: every custom track is listed in Music & credits */
+{const _o=openMusic;openMusic=function(){const r=_o.apply(this,arguments);try{const all=[];RRP_SLOTS.forEach(([k,n])=>rrPL(k).forEach(t=>all.push([n,t])));const box=document.querySelector('#musMenu .mucred');
+  if(box&&all.length&&!box.querySelector('.rrpcred')){const d=document.createElement('div');d.className='rrpcred';d.innerHTML=`<p><b>Recess Rush music</b></p>`+all.map(([n,t])=>`<p>“${esc(t.t)}” by ${esc(t.a)} · ${esc(n)}${t.page?` · <a href="${esc(t.page)}" target="_blank" rel="noopener">song page</a>`:''}${t.lic?` · ${/^https:/.test(t.lic)?`<a href="${esc(t.lic)}" target="_blank" rel="noopener">license</a>`:esc(t.lic)}`:''}</p>`).join('');box.insertBefore(d,box.querySelector('.hint'))}}catch(e){}return r}}
+
+/* ---------- control room: Recess Rush playlist ---------- */
+function rrpAdminHTML(){const prev=RRP.el&&!RRP.el.paused&&RRP.prev;return `<div class="card rrpadm" style="margin-top:14px"><span class="label">Recess Rush</span><h3>Recess Rush playlist</h3>
+  <p class="hint">Upload songs for each part of the show. A part with songs plays them in order on a loop. A part with no songs uses the built-in original track. Players can only mute the music: they can't skip or change songs. Every song you add is listed with its credits in Music & credits.</p>
+  <div class="rrpslots">${RRP_SLOTS.map(([k,n,d])=>{const L=rrPL(k);return `<div class="rrpslot"><div class="rrpsh"><b>${n}</b><small>${d}</small></div>
+    ${L.length?L.map((t,i)=>`<div class="rrptr"><button class="rrppv" data-rrpv="${k}:${i}" title="Preview">${prev===k+':'+i?'■':'▶'}</button><div class="rrptt"><b>${esc(t.t)}</b><small>${esc(t.a)}</small></div><div class="rrpbt"><button data-rrup="${k}:${i}" ${i?'':'disabled'} title="Play earlier">▲</button><button data-rrdn="${k}:${i}" ${i<L.length-1?'':'disabled'} title="Play later">▼</button><button data-rrdel="${k}:${i}" title="Remove" class="del">✕</button></div></div>`).join(''):`<p class="rrpnone">Built-in original: ${esc(RRMS[k].name)}</p>`}</div>`}).join('')}</div>
+  <label class="mudrop" id="rrpDrop" tabindex="0"><input type="file" id="rrpFile" accept="audio/*,.mp3,.m4a,.ogg,.wav" hidden><span class="mudi">♫</span><b id="rrpDropT">Drop an MP3 here</b><small id="rrpDropS">or click to pick one · MP3, M4A, OGG or WAV · up to 50 MB</small></label>
+  <div class="grid2" style="margin-top:12px">
+   <div class="field"><label class="label" for="rrpSlot">Plays during</label><select id="rrpSlot">${RRP_SLOTS.map(([k,n])=>`<option value="${k}">${n}</option>`).join('')}</select></div>
+   <div class="field"><label class="label" for="rrpT">Song title</label><input id="rrpT" maxlength="50" placeholder="Song name"></div>
+   <div class="field"><label class="label" for="rrpA">Artist or composer</label><input id="rrpA" maxlength="60" placeholder="Who made it"></div>
+   <div class="field"><label class="label" for="rrpP">Credit link (optional)</label><input id="rrpP" maxlength="200" placeholder="https://..."></div>
+   <div class="field"><label class="label" for="rrpL">License or permission (optional)</label><input id="rrpL" maxlength="120" placeholder="e.g. CC BY 4.0, or a link"></div></div>
+  <div class="actrow"><button class="btn btn-go" id="rrpGo">Add to playlist</button><span class="hint" id="rrpH"></span></div>
+  <p class="hint">Only upload music you have the rights to use.</p></div>`}
+{const _t=adminTabsMusic;adminTabsMusic=function(){const o=_t.apply(this,arguments);if(o&&typeof o.music==='string')o.music+=rrpAdminHTML();return o}}
+async function rrpPub(fn){await admPub(cf=>{const m=cf.rrMusic&&typeof cf.rrMusic==='object'?cf.rrMusic:{};RRP_SLOTS.forEach(([k])=>{if(!Array.isArray(m[k]))m[k]=[]});fn(m);cf.rrMusic=m})}
+function rrpAdminBind(){if(ADM.tab!=='music'||!$('#rrpDrop'))return;const H=$('#rrpH'),drop=$('#rrpDrop'),fin=$('#rrpFile');let file=null;
+  const ki=s=>{const [k,i]=s.split(':');return[k,+i]};
+  $$('[data-rrpv]').forEach(b=>b.onclick=()=>{const [k,i]=ki(b.dataset.rrpv);const t=rrPL(k)[i];if(!t)return;const a=rrpEl();if(RRP.prev===b.dataset.rrpv&&!a.paused){a.pause();RRP.prev='';b.textContent='▶';return}$$('[data-rrpv]').forEach(x=>x.textContent='▶');RRP.prev=b.dataset.rrpv;RRP.k='';clearInterval(RRP.fade);a.src=t.src;a.volume=.7;a.play().catch(()=>{H.textContent='That file will not play.'});b.textContent='■';a.onended=()=>{b.textContent='▶';RRP.prev=''}});
+  const mv=(s,d)=>async()=>{const [k,i]=ki(s);await rrpPub(m=>{const L=m[k];const j=i+d;if(j<0||j>=L.length)return;[L[i],L[j]]=[L[j],L[i]]});renderAdmin()};
+  $$('[data-rrup]').forEach(b=>b.onclick=mv(b.dataset.rrup,-1));$$('[data-rrdn]').forEach(b=>b.onclick=mv(b.dataset.rrdn,1));
+  $$('[data-rrdel]').forEach(b=>b.onclick=async()=>{const [k,i]=ki(b.dataset.rrdel);const t=rrPL(k)[i];if(!t)return;if(!b.dataset.sure){b.dataset.sure=1;b.textContent='Sure?';b.classList.add('sure');setTimeout(()=>{if(b.isConnected){delete b.dataset.sure;b.textContent='✕';b.classList.remove('sure')}},3000);return}b.disabled=true;await rrpPub(m=>{m[k]=m[k].filter((x,j)=>j!==i)});const still=RRP_SLOTS.some(([kk])=>rrPL(kk).some(x=>x.src===t.src));const path=!still&&muStorePath(t.src);if(path){try{const c=await sbClient();await c.storage.from(MU_BUCKET).remove([path])}catch(e){}}renderAdmin()});
+  const pick=async f=>{const bad=muFileOk(f);if(bad){H.textContent=bad;return}const d=await muDur(f);if(d<0){H.textContent='That file will not play. Try exporting it as an MP3.';return}
+    file=f;drop.classList.add('has');$('#rrpDropT').textContent=f.name;$('#rrpDropS').textContent=(f.size/1048576).toFixed(1)+' MB'+(d>0?' · '+Math.floor(d/60)+':'+String(Math.round(d%60)).padStart(2,'0'):'')+' · ready to add';if(!$('#rrpT').value)$('#rrpT').value=muTitleFromName(f.name);H.textContent=''};
+  fin.onchange=()=>pick(fin.files[0]);drop.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fin.click()}};
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
+  drop.addEventListener('drop',e=>{const f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)pick(f)});
+  $('#rrpGo').onclick=async()=>{const go=$('#rrpGo');const v=id=>(($('#'+id)||{}).value||'').trim();const k=v('rrpSlot'),t=v('rrpT'),a=v('rrpA'),page=v('rrpP'),lic=v('rrpL');
+    if(!file){H.textContent='Drop a song file in the box first.';return}if(!t||!a){H.textContent='Type the song title and the artist so they can be credited.';return}
+    if(page&&!/^https:\/\/\S+$/i.test(page)){H.textContent='The credit link must start with https://';return}
+    if(rrPL(k).length>=20){H.textContent='That part already has 20 songs.';return}
+    go.disabled=true;try{H.textContent='Uploading… keep this page open.';const id=('rr-'+t+'-'+a).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);
+      const ext=(file.name.match(/\.([a-z0-9]+)$/i)||[,'mp3'])[1].toLowerCase();const path='rr/'+id+'-'+Date.now().toString(36)+'.'+ext;
+      const types={mp3:'audio/mpeg',m4a:'audio/mp4',aac:'audio/aac',ogg:'audio/ogg',oga:'audio/ogg',wav:'audio/wav',webm:'audio/webm'};
+      const c=await sbClient();const {error}=await c.storage.from(MU_BUCKET).upload(path,file,{contentType:file.type||types[ext]||'audio/mpeg',cacheControl:'31536000',upsert:false});
+      if(error){const m=String(error.message||error);H.textContent=/bucket|not found/i.test(m)?'Music storage is not set up yet. Run database update 13 in Supabase first.':/policy|security|unauthor|403/i.test(m)?'Upload blocked: this account is not an admin in the database.':/size|large|413/i.test(m)?'That file is too big. Use an MP3.':'Upload failed: '+m.slice(0,90);go.disabled=false;return}
+      const src=muStoreUrl(path);H.textContent='Publishing…';
+      try{await rrpPub(m=>{m[k]=m[k].concat([{id:id+'-'+Date.now().toString(36),t,a,src,page,lic}]).slice(0,20)})}catch(e){try{await c.storage.from(MU_BUCKET).remove([path])}catch(_){}throw e}
+      toast('“'+t+'” added to the Recess Rush playlist');renderAdmin()}
+    catch(e){H.textContent='Something went wrong: '+String(e&&e.message||e).slice(0,90);go.disabled=false}}}
+{const _b=musAdminBind;musAdminBind=function(){const r=_b.apply(this,arguments);try{rrpAdminBind()}catch(e){console.error(e)}return r}}
 
 /* ============ OWNER'S VIEW: watch any player live and steer their game ============ */
 /* player side: a light "I'm here" beacon, a live feed while the owner watches, and owner commands.
