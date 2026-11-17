@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794945462">
+<meta name="hp-build" content="1794946220">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -4853,6 +4853,36 @@ html.lite .rcshart i,html.lite .rcshart b,body.rm .rcshart i,body.rm .rcshart b{
 .ovscrbox .ovvid.ovover{display:block;position:absolute;z-index:1;pointer-events:none;object-fit:fill;background:transparent;border-radius:4px}
 .ovscrbox.rtc .ovvid{display:block;width:100%;height:auto;max-height:calc(100vh - 260px);object-fit:contain}
 .ovnet{margin:-4px 0 12px;padding:14px;border-radius:14px;background:var(--ink-2);border:1px solid var(--line)}.ovnet textarea{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font:12px ui-monospace,monospace}.ovnet a{color:var(--amber)}
+/* ---- owner's view 5 ---- */
+.ovtabs{grid-template-columns:repeat(4,1fr)!important}
+.ovbad{position:absolute;top:3px;left:6px;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:#ff4d6d;color:#fff;font:900 10px/16px system-ui}
+.ovin2{width:100%;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font:600 13px system-ui;margin:4px 0}
+textarea.ovin2{resize:vertical}
+.ovsel2{padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:700 13px system-ui;max-width:100%}
+.ovrowf{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px}.ovrowf .ovin2{flex:1;min-width:80px;margin:0}
+.ovmore{margin-top:4px;padding-top:6px;border-top:1px dashed var(--line)}
+.ovachl{display:flex;flex-direction:column;gap:6px;max-height:300px;min-height:140px;overflow:auto;padding:10px;border-radius:12px;background:rgba(0,0,0,.22);margin:8px 0}
+.ovcm{max-width:85%;align-self:flex-start}.ovcm.me{align-self:flex-end;text-align:right}
+.ovcm p{margin:0;padding:8px 11px;border-radius:14px 14px 14px 4px;background:rgba(255,255,255,.08);font-size:14px;line-height:1.35;overflow-wrap:anywhere}.ovcm.me p{border-radius:14px 14px 4px 14px;background:var(--amber);color:#1a1206}
+.ovcm small{font-size:10.5px;color:var(--mute)}
+.ovchf{display:flex;gap:6px}.ovchf input{flex:1;min-width:0;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font:600 14px system-ui}
+/* player side */
+#ovChat{position:fixed;right:16px;bottom:16px;z-index:10060;width:min(340px,calc(100% - 24px));display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:20px;background:#fff;color:#1b2150;border:3px solid #1b2150;box-shadow:0 6px 0 #1b2150,0 20px 40px rgba(0,0,0,.35);transform:translateY(140%);transition:transform .4s cubic-bezier(.2,1.2,.4,1)}
+#ovChat.on{transform:none}
+.ovch{display:flex;align-items:center;gap:8px}.ovch b{flex:1;font:900 14px system-ui}.ovchi{width:30px;height:30px;border-radius:50%;background:#ffd43b;display:grid;place-items:center}.ovchx{border:0;background:none;color:#1b2150;font-size:16px;cursor:pointer}
+.ovchl{display:flex;flex-direction:column;gap:6px;max-height:220px;overflow:auto}
+#ovChat .ovcm p{background:#eef0f8;color:#1b2150}#ovChat .ovcm.me p{background:#1b2150;color:#fff}#ovChat .ovcm small{color:#6a7090}
+.ovchq{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none}.ovchq button{flex:none;border:2px solid #1b2150;background:#fff;color:#1b2150;border-radius:99px;padding:5px 10px;font:800 12px system-ui;cursor:pointer}
+#ovChat .ovchf input{background:#f4f5fa;color:#1b2150;border:2px solid #1b2150}
+#ovBig{position:fixed;inset:0;z-index:10070;display:grid;place-items:center;padding:20px;background:rgba(8,10,28,.72);backdrop-filter:blur(6px);animation:ovBigIn .35s both}
+@keyframes ovBigIn{from{opacity:0}}
+.ovbigc{max-width:520px;width:100%;text-align:center;padding:28px 24px;border-radius:26px;background:#fff;color:#1b2150;border:4px solid #1b2150;box-shadow:0 8px 0 #1b2150;animation:ovBigPop .5s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes ovBigPop{from{transform:scale(.6) rotate(-4deg)}}
+.ovbigc span{display:inline-flex;align-items:center;gap:6px;font:900 12px system-ui;letter-spacing:.1em;text-transform:uppercase;color:#ff7a1a}.ovbigc h2{font:900 clamp(26px,5vw,40px)/1.05 system-ui;margin:10px 0}.ovbigc p{font-size:16px;line-height:1.45;margin:0 0 16px}
+.ovrain{position:fixed;inset:0;pointer-events:none;z-index:10065;overflow:hidden}.ovrain i{position:absolute;top:-60px;font-style:normal;animation:ovRain 3.2s linear forwards}
+@keyframes ovRain{to{transform:translateY(calc(100vh + 80px)) rotate(240deg)}}
+.ovflash2{position:fixed;inset:0;z-index:10066;pointer-events:none;animation:ovFlash .9s ease-out forwards}@keyframes ovFlash{from{opacity:.75}to{opacity:0}}
+body.ovshake{animation:ovShake .8s}@keyframes ovShake{10%,90%{transform:translateX(-3px)}20%,80%{transform:translateX(6px)}30%,50%,70%{transform:translateX(-10px)}40%,60%{transform:translateX(10px)}}
 
 /* ===== HOME 4 ===== */
 .h4{position:relative;margin:0 calc(50% - 50vw) 8px;min-height:clamp(520px,78vh,760px);overflow:hidden;isolation:isolate;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -5153,6 +5183,12 @@ body.stplaying .h4nav,body:not(:has(.h4on)) .h4nav{display:none}
 .crpv{width:100%;height:78px;display:block;border-radius:10px;background:radial-gradient(70% 70% at 50% 35%,rgba(255,255,255,.12),transparent 70%),linear-gradient(180deg,#1d2452,#11152e)}
 .cropt.pv.on .crpv{box-shadow:inset 0 0 0 2px var(--amber)}
 .crswb.none{display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--mute);font:900 14px system-ui}
+.crsub{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:-4px 0 2px;padding:4px;border-radius:14px;background:rgba(0,0,0,.2);position:sticky;top:0;z-index:2;backdrop-filter:blur(8px)}
+.crsub button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;border:0;background:none;color:var(--mute);font:800 12.5px system-ui;padding:9px 10px;border-radius:10px;cursor:pointer}
+.crsub button.on{background:#fff;color:#141938}
+.crbody{max-height:calc(100vh - 290px);overflow:auto;scrollbar-width:thin}
+@media (max-width:900px){.crbody{max-height:none}}
+.crsub{top:-18px;background:rgba(18,22,46,.95)}
 
 .rrpslots{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:12px 0}
 .rrpslot{border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--ink-2);display:flex;flex-direction:column;gap:6px}
@@ -8212,6 +8248,7 @@ function mgBD(){const picks=[];const used=new Set();let left=60;const slots=SLOT
 /* ======================= ADMIN: signed live updates, events, players online, dev tools ======================= */
 const ADMIN_PUB={kty:'EC',crv:'P-256',x:'tVG6d5akcnAHILCjxiwmBvx2tFc72--kp5gIzrvEbHE',y:'DF84uVyfX4e_3Wdr1Yk8U9RCv4qLHEFGlPn4bFV9M9o'};
 const CHANGELOG=[
+ {"v": "13.9", "d": "2026-11-17", "t": "A tidier player builder", "b": "The Look and Gear tabs in The Rise player builder are now split into smaller sections, so you jump straight to what you want instead of scrolling. Look has Face, Hair, Facial hair and Tattoos. Gear has Head, Arms, Legs, Shoes and Uniform. The options panel also stays next to your player preview while you build."},
  {"v": "13.8", "d": "2026-11-17", "t": "MyPlayer gets a full art upgrade", "b": "Your MyPlayer in The Rise has been redrawn from scratch with shading, real muscle shapes, proper hands and detailed faces with eye colors, noses and lips. Every hairstyle was rebuilt with real texture and volume, and there are four new ones: Box braids, Ponytail, Taper sponge and Blowout. You can now add dyed tips in any color. Tattoos now look like real ink, with fine line work and shading. Pick roses, script, tribal, stars or a clock and roses piece, on one arm, both arms or as a full sleeve. New gear includes earrings, gold or silver chains, knee pads, finger tape and three jersey trim styles, and the shoes, socks, sleeves and wristbands are all more detailed. Every option in the builder now shows a small live preview of you wearing it."},
  {"v": "13.7", "d": "2026-11-17", "t": "Recess Rush music fix", "b": "Pausing Hall Pass radio no longer silences the music in Recess Rush. Recess Rush has its own music button in the lobby and during matches, so use that to mute it. New songs also start playing right away if you are already in the lobby, without needing to leave and come back."},
  {"v": "13.6", "d": "2026-11-17", "t": "Classic draft timeline fix", "b": "On the home page, the era cards in Classic draft now keep their big decade numbers inside the card instead of spilling out the bottom. The marker for the era you picked sits cleanly on the timeline with a soft glow."},
@@ -9862,7 +9899,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794945462';
+const BUILD='1794946220';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -21286,7 +21323,7 @@ function ovAdmList(){const L=$('#ovList');if(!L)return;const q=(OVA.q||'').toLow
   L.innerHTML=a.length?a.map(v=>`<button class="ovp ${OVA.sel===v.pid?'on':''}" data-ovp="${esc(v.pid)}"><i class="ovdot m-${esc(String(v.m).replace(/[^a-z]/g,''))}"></i><span><b>${esc(v.n||'Player')}</b><small>${esc(OV_MODE[v.m]||v.m||'Menu')} · LV ${v.lv||1}</small></span></button>`).join(''):'<p class="hint">Nobody is online right now.</p>';
   L.querySelectorAll('[data-ovp]').forEach(b=>b.onclick=()=>ovAdmWatch(b.dataset.ovp))}
 async function ovSend(pid,cmd){cmd.id=Date.now().toString(36)+Math.random().toString(36).slice(2,6);if(window.__ovTest)return window.__ovTest(pid,cmd);const r=await admRpc('admin_message',{p_pid:pid,p_title:'__hpcmd',p_body:JSON.stringify(cmd)});if(r&&r.error){OVA.log.unshift('✗ '+r.error.message);ovAdmLog()}return r}
-async function ovAdmWatch(pid){ovAdmStop(true);OVA.sel=pid;OVA.feed=null;if(typeof OVR!=='undefined'){OVR.frame=null;OVR.parts={}}OVA.log=[];ovAdmList();ovAdmPanel();try{const c=await sbClient();const ch=c.channel('hp-ovw-'+pid,{config:{broadcast:{self:false,ack:false}}});OVA.ch=ch;ch.on('broadcast',{event:'s'},m=>{OVA.feed=m.payload;OVA.ft=Date.now();ovAdmFeed()}).on('broadcast',{event:'v'},m=>{try{ovScrIn(m.payload)}catch(e){}}).on('broadcast',{event:'rtc'},m=>{try{ovAdmRtcIn(m.payload)}catch(e){}}).subscribe()}catch(e){}
+async function ovAdmWatch(pid){ovAdmStop(true);OVA.sel=pid;OVA.feed=null;if(typeof OVR!=='undefined'){OVR.frame=null;OVR.parts={}}OVA.log=[];ovAdmList();ovAdmPanel();try{const c=await sbClient();const ch=c.channel('hp-ovw-'+pid,{config:{broadcast:{self:false,ack:false}}});OVA.ch=ch;ch.on('broadcast',{event:'s'},m=>{OVA.feed=m.payload;OVA.ft=Date.now();ovAdmFeed()}).on('broadcast',{event:'v'},m=>{try{ovScrIn(m.payload)}catch(e){}}).on('broadcast',{event:'rtc'},m=>{try{ovAdmRtcIn(m.payload)}catch(e){}}).on('broadcast',{event:'chat'},m=>{try{ovChatIn(m.payload)}catch(e){}}).subscribe()}catch(e){}
   ovSend(pid,{k:'watch',on:1,s:150});clearInterval(OVA.hb);OVA.hb=setInterval(()=>{if(OVA.sel===pid&&$('#ovW'))ovSend(pid,{k:'watch',on:1,s:150});else clearInterval(OVA.hb)},60000)}
 function ovAdmStop(keepList){clearInterval(OVA.hb);cancelAnimationFrame(OVA.raf);if(OVA.ch){try{DB.c&&DB.c.removeChannel(OVA.ch)}catch(e){}try{OVA.ch.unsubscribe()}catch(e){}}OVA.ch=null;if(OVA.sel&&!keepList&&!$('#ovW')){ovSend(OVA.sel,{k:'watch',on:0});OVA.sel=''}}
 const ovBtn=(a,label,cls)=>`<button class="btn btn-ghost sm ${cls||''}" data-ovc='${a}'>${label}</button>`;
@@ -21610,6 +21647,104 @@ function ovTkPaint(force){const box=$('#ovTk');if(!box)return;const d=OVA.feed&&
     if(OVK.auto&&OVK.tab!==t&&t!=='acct'){OVK.tab=t;document.querySelectorAll('[data-ovt]').forEach(b=>b.classList.toggle('on',b.dataset.ovt===t));ovPane();return r}
     const ph=$('.ovph span');if(ph){const live=t===OVK.tab;ph.className=live?'ovin':'ovout';ph.textContent=live?'They are here now':'Works once they open it'}}ovTkPaint()}catch(e){console.error(e)}return r}}
 {const _w=ovAdmWatch;ovAdmWatch=function(pid){if(pid!==OVA.sel){OVK.tab='';OVK.auto=true}return _w.apply(this,arguments)}}
+
+/* ============ OWNER'S VIEW 5: a lot more control, screen effects and two-way chat ============ */
+/* ---------- player side ---------- */
+OV.rrSlow=1;OV.stSlow=1;
+{const _s=rcsStep;rcsStep=function(g,dt){return _s.call(this,g,dt*(OV.rrSlow||1))}}
+{const _s=stStep;stStep=function(dt){return _s.call(this,dt*(OV.stSlow||1))}}
+const OV_GO2={pass:()=>openPass(),rise:()=>crResume(),football:()=>fbHub()};
+function ovFx(kind,c){const host=document.body;
+  if(kind==='confetti'){for(let i=0;i<4;i++)setTimeout(()=>{try{confetti()}catch(e){}},i*350);return}
+  if(kind==='fireworks'){for(let i=0;i<10;i++)setTimeout(()=>{try{burst(innerWidth*(.15+Math.random()*.7),innerHeight*(.15+Math.random()*.4))}catch(e){}},i*260);try{sfx('cheer')}catch(e){}return}
+  if(kind==='shake'){host.classList.remove('ovshake');void host.offsetWidth;host.classList.add('ovshake');setTimeout(()=>host.classList.remove('ovshake'),900);return}
+  if(kind==='flash'){const d=document.createElement('div');d.className='ovflash2';d.style.background=c.col||'#ffd25a';host.append(d);setTimeout(()=>d.remove(),900);return}
+  if(kind==='rain'){const e=String(c.emo||'🏀').slice(0,4);const box=document.createElement('div');box.className='ovrain';for(let i=0;i<34;i++){const s=document.createElement('i');s.textContent=e;s.style.left=Math.random()*100+'%';s.style.animationDelay=(Math.random()*1.6)+'s';s.style.fontSize=(18+Math.random()*26)+'px';box.append(s)}host.append(box);setTimeout(()=>box.remove(),5200);return}
+  if(kind==='big'){let el=$('#ovBig');if(el)el.remove();el=document.createElement('div');el.id='ovBig';el.innerHTML=`<div class="ovbigc"><span>${icon('M3 11l18-5v12L3 14v-3zM11.6 16.8a3 3 0 11-5.8-1.6',22)} From Hall Pass</span><h2>${esc(String(c.title||'').slice(0,80))}</h2>${c.txt?`<p>${esc(String(c.txt).slice(0,400))}</p>`:''}<button class="btn btn-go">Got it</button></div>`;host.append(el);el.querySelector('button').onclick=()=>el.remove();try{sfx('chime')}catch(e){}return}
+  if(kind==='sound'){try{sfx(c.s||'chime')}catch(e){}return}}
+{const _c=ovCmd;ovCmd=function(body,at){let c;try{c=typeof body==='string'?JSON.parse(body):body}catch(e){return}
+  const K={fx:1,chat:1,reload:1,closepop:1,theme:1,music:1,take:1,pass:1,go2:1};const mine=c&&(K[c.k]||(c.k==='rr'&&['revive','hop','ahead','finish','slow','speedup'].includes(c.a))||(c.k==='st'&&['gp','slow','cold','poss','clock'].includes(c.a))||(c.k==='dt'&&['pause','resume','spd','end','news','halt','setcash','newday'].includes(c.a)));
+  if(!mine)return _c.apply(this,arguments);if(at&&Date.now()-new Date(at).getTime()>180000)return;if(c.id&&c.id===OV.lastId)return;OV.lastId=c.id;const a=c.a,v=+c.v||0;
+  try{
+   if(c.k==='fx')return ovFx(c.a,c);
+   if(c.k==='chat'){ovStreamStart(300);ovChatShow(String(c.txt||'').slice(0,400));return}
+   if(c.k==='reload'){setTimeout(()=>location.reload(),400);return}
+   if(c.k==='closepop'){try{closeAll()}catch(e){}$$('#ovBig,.ovrain').forEach(e=>e.remove());return}
+   if(c.k==='go2'){const f=OV_GO2[c.to];if(f){try{if(RCS.g)rcsStop()}catch(e){}f()}return}
+   if(c.k==='theme'){LIVE.feed.cfg=LIVE.feed.cfg||{};if(c.v&&TPACKS[c.v]){OV.themeWas=OV.themeWas===undefined?(LIVE.feed.cfg.theme||null):OV.themeWas;LIVE.feed.cfg.theme=c.v}else if(OV.themeWas!==undefined){LIVE.feed.cfg.theme=OV.themeWas||undefined;OV.themeWas=undefined}liveTheme();return}
+   if(c.k==='music'){if(a==='rrmute'){rrS().mute=true;saveP();rrMusicStop()}else if(a==='rron'){rrS().mute=false;saveP();if(RCS.g&&RCS.g.W){const W=RCS.g.W;rrMusic(W.final?'final':W.race?'race':'survival')}else if(CURV==='rcs')rrMusic('lobby')}else if(a==='radiooff'){musPause()}else if(a==='radioon'){const S=musSet();S.on=1;musSave();musPlay(S.cur)}else if(a==='sound'){SND.on=!!c.on;store.set('hp_sound',SND.on)}return}
+   if(c.k==='take'){if(c.tix)P.tix=Math.max(0,(P.tix||0)-Math.abs(+c.tix));if(c.xp)P.xp=Math.max(0,(P.xp||0)-Math.abs(+c.xp));saveP();try{refreshNav()}catch(e){}return}
+   if(c.k==='pass'){const ps=passState();ps.xp=Math.max(0,ps.xp+PASS_XP*(+c.n||1));saveP();toast('Gift from the owner',`+${c.n||1} season pass tier${(c.n||1)>1?'s':''}`,'M20 12v10H4V12M2 7h20v5H2zM12 22V7');return}
+   if(c.k==='rr'){const g=RCS.g;if(!g)return;const me=g.me,W=g.W;
+     if(a==='revive'){if(!me.alive||me.out){me.alive=true;me.out=0;me.fin=0;me.st='run';me.y=4;me.vy=0;if(W.cx!=null){me.x=W.cx;me.z=W.cz||10}rcsBanner('BACK IN!',1.6,'good')}}
+     else if(a==='hop'){me.vy=11;me.gr=false}
+     else if(a==='ahead'){me.z+=14;me.y+=2;me.vy=0}
+     else if(a==='finish'){if(W.race&&W.len){me.z=Math.max(me.z,W.len-4);me.x=0;me.y+=2}}
+     else if(a==='slow')OV.rrSlow=c.on?.5:1;else if(a==='speedup')OV.rrSlow=c.on?1.4:1;return}
+   if(c.k==='st'){const s=typeof ST!=='undefined'?ST:null;if(!s||s.opt.online)return;
+     if(a==='gp')s.score.A=Math.max(s.score.A,(s.to||11)-1);else if(a==='slow')OV.stSlow=c.on?.5:1;else if(a==='cold')s.teams.B.forEach(p=>{p.stun=Math.max(p.stun||0,8)});
+     else if(a==='poss'){const b=s.teams.B[0];if(b){s.ball.holder=b;s.ball.flight=null;s.poss='B'}}else if(a==='clock'){if(s.clock!=null)s.clock=Math.max(0,s.clock+v)}return}
+   if(c.k==='dt'){const d=P.dt,day=d&&d.day;if(!d)return;
+     if(a==='setcash'){d.cash=Math.max(0,v);saveP()}
+     else if(a==='newday'){dtNewDay();saveP()}
+     else if(day&&a==='pause')day.pz=1;else if(day&&a==='resume')day.pz=0;else if(a==='spd'){d.set=d.set||{};d.set.spd=Math.max(.5,Math.min(8,v||1));saveP()}
+     else if(day&&a==='end'){if(day.m>=0&&!day.done){dtCloseDay(day,true);saveP()}}
+     else if(day&&a==='news'){const k2=dtTkI(day,c.sym);if(k2<0)return;const up=(+c.pct||0)>=0;day.news=day.news||[];day.news.push({m:Math.max(0,day.m),s:day.tk[k2].sym,txt:String(c.txt||'').slice(0,120)||(up?'Big buyer spotted':'Heavy selling'),up});dtOwnerMove(day,k2,+c.pct||0,30);try{toastLite(`📰 ${day.tk[k2].sym}: ${String(c.txt||'').slice(0,60)}`)}catch(e){}}
+     else if(day&&a==='halt'){const k2=dtTkI(day,c.sym);if(k2<0)return;const G=dtGen(day),gg=G[k2],i=dtI(day),n=Math.min(DT_N-i,(+c.v||60)*4);const px=gg.px[i];for(let j=i;j<i+n;j++)gg.px[j]=px;dtOwnerMove(day,k2,0,1)}
+     try{if(/^dt/.test(CURV))dtRender()}catch(e){}return}
+  }catch(e){console.error(e)}}}
+/* ---------- two-way chat: player side ---------- */
+const OVC={log:[],q:[]};
+function ovChatSend(txt){const t=String(txt||'').trim().slice(0,300);if(!t)return;OVC.log.push({me:1,t,at:Date.now()});ovChatPaint();const go=()=>{try{if(OV.wch){OV.wch.send({type:'broadcast',event:'chat',payload:{txt:t,at:Date.now(),n:(P.signed&&P.name)||'Player'}});return true}}catch(e){}return false};if(!go()){OVC.q.push(t);const tm=setInterval(()=>{if(OV.wch){OVC.q.splice(0).forEach(x=>{try{OV.wch.send({type:'broadcast',event:'chat',payload:{txt:x,at:Date.now(),n:(P.signed&&P.name)||'Player'}})}catch(e){}});clearInterval(tm)}},500);setTimeout(()=>clearInterval(tm),15000)}}
+function ovChatShow(txt){OVC.log.push({me:0,t:txt,at:Date.now()});let el=$('#ovChat');if(!el){el=document.createElement('div');el.id='ovChat';el.innerHTML=`<div class="ovch"><span class="ovchi">${icon('M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z',16)}</span><b>Message from the owner</b><button class="ovchx" aria-label="Close">✕</button></div><div class="ovchl" id="ovChL"></div><div class="ovchq">${['👍','Thanks!','Sounds good','Got it','Can you help me?'].map(q=>`<button data-chq="${esc(q)}">${esc(q)}</button>`).join('')}</div><form class="ovchf" id="ovChF"><input id="ovChI" maxlength="300" placeholder="Reply to the owner…" autocomplete="off"><button class="btn btn-go">Send</button></form>`;document.body.append(el);
+    el.querySelector('.ovchx').onclick=()=>el.classList.remove('on');el.querySelector('#ovChF').onsubmit=e=>{e.preventDefault();const i=$('#ovChI');ovChatSend(i.value);i.value=''};el.querySelectorAll('[data-chq]').forEach(b=>b.onclick=()=>ovChatSend(b.dataset.chq))}
+  el.classList.add('on');ovChatPaint();try{sfx('chime')}catch(e){}}
+function ovChatPaint(){const l=$('#ovChL');if(!l)return;l.innerHTML=OVC.log.slice(-30).map(m=>`<div class="ovcm ${m.me?'me':''}"><p>${esc(m.t)}</p><small>${m.me?'You':'Owner'} · ${new Date(m.at).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}</small></div>`).join('');l.scrollTop=l.scrollHeight}
+/* ---------- owner side ---------- */
+const OVAC={log:{},unread:0};
+function ovChatIn(p){if(!p||!p.txt)return;const id=OVA.sel;(OVAC.log[id]=OVAC.log[id]||[]).push({me:0,t:String(p.txt).slice(0,300),at:p.at||Date.now()});if(OVK.tab!=='chat'){OVAC.unread++;ovChatBadge()}ovAdmChatPaint();try{sfx('pop')}catch(e){}}
+function ovChatBadge(){const b=document.querySelector('[data-ovt="chat"] .ovbad');if(b){b.textContent=OVAC.unread||'';b.hidden=!OVAC.unread}}
+function ovAdmChatPaint(){const l=$('#ovAChL');if(!l)return;const L=OVAC.log[OVA.sel]||[];l.innerHTML=L.length?L.map(m=>`<div class="ovcm ${m.me?'me':''}"><p>${esc(m.t)}</p><small>${m.me?'You':esc((OVA.list[OVA.sel]||{}).n||'Player')} · ${new Date(m.at).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}</small></div>`).join(''):'<p class="ovhelp">Start a conversation. A chat box pops up on their screen and they can reply. Replies show up here.</p>';l.scrollTop=l.scrollHeight}
+OV_TABS.unshift(['chat','Chat','M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z']);OV_TABS.splice(2,0,['fx','Screen','M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1']);
+{const _ap=ovAdmPanel;ovAdmPanel=function(){const r=_ap.apply(this,arguments);try{document.querySelectorAll('[data-ovt]').forEach(b=>{if(!b.querySelector('.ovbad')){const s=document.createElement('b');s.className='ovbad';s.hidden=true;b.append(s)}});ovChatBadge()}catch(e){}return r}}
+const ovIn=(id,ph,type,w)=>`<input class="ovin2" id="${id}" placeholder="${ph}" ${type?`type="${type}"`:''} ${w?`style="width:${w}"`:''}>`;
+{const _p=ovPane;ovPane=function(){const T=OVK.tab;const P_=$('#ovPane');if(T==='chat'||T==='fx'){if(!P_)return;if(T==='chat'){OVAC.unread=0;ovChatBadge()}P_.innerHTML=ovPaneExtra(T,true);ovBindExtra(P_);ovAdmChatPaint();return}
+  _p.apply(this,arguments);if(!P_)return;const ex=ovPaneExtra(T,false);if(ex){const box=document.createElement('div');box.className='ovmore';box.innerHTML=ex;const lg=P_.querySelector('#ovReq');if(lg)lg.before(box);else P_.append(box);ovBindExtra(box)}}}
+function ovPaneExtra(T,full){const grp=(t,inner,help)=>`<div class="ovgrp"><span class="label">${t}</span>${help?`<p class="ovhelp">${help}</p>`:''}<div class="ovbtns">${inner}</div></div>`;const tk=((OVA.feed&&OVA.feed.dt&&OVA.feed.dt.tk)||[]).map(t=>t[0]);const sel=id=>`<select class="ovsel2" id="${id}">${tk.length?tk.map(s=>`<option>${esc(s)}</option>`).join(''):'<option value="">Open the trading floor first</option>'}</select>`;
+  if(T==='chat')return `<div class="ovph"><b>Chat</b><span class="ovin">They can reply</span></div><div class="ovachl" id="ovAChL"></div><form class="ovchf" id="ovAChF"><input id="ovAChI" maxlength="400" placeholder="Message ${esc((OVA.list[OVA.sel]||{}).n||'them')}…" autocomplete="off"><button class="ovk go">Send</button></form><div class="ovpre">${['Hey! How is it going?','Need any help?','Nice game!','What do you think of the new update?','Please keep it friendly in chat'].map(t=>`<button data-ovcq="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
+  if(T==='fx')return `<div class="ovph"><b>Screen effects</b><span class="ovin">Shows on any page</span></div><p class="ovhelp">Effects play on their screen right away. Use them to celebrate a big moment or get their attention.</p>`
+    +grp('Celebrate',ovB({k:'fx',a:'confetti'},'🎉 Confetti')+ovB({k:'fx',a:'fireworks'},'🎆 Fireworks')+ovB({k:'fx',a:'rain',emo:'🏀'},'🏀 Ball rain')+ovB({k:'fx',a:'rain',emo:'🔥'},'🔥 Fire rain')+ovB({k:'fx',a:'rain',emo:'👑'},'👑 Crown rain')+ovB({k:'fx',a:'rain',emo:'💸'},'💸 Money rain'))
+    +`<div class="ovgrp"><span class="label">Rain anything</span><div class="ovrowf">${ovIn('ovEmo','Emoji, e.g. ⭐','', '90px')}<button class="ovk" id="ovEmoGo">Rain it</button></div></div>`
+    +grp('Get their attention',ovB({k:'fx',a:'shake'},'📳 Shake screen')+ovB({k:'fx',a:'flash',col:'#ffd25a'},'⚡ Flash gold')+ovB({k:'fx',a:'flash',col:'#ff4d6d'},'Flash red')+ovB({k:'fx',a:'sound',s:'whistle'},'🔊 Whistle')+ovB({k:'fx',a:'sound',s:'buzzer'},'🔊 Buzzer')+ovB({k:'fx',a:'sound',s:'cheer'},'🔊 Crowd cheer')+ovB({k:'fx',a:'sound',s:'gavel'},'🔊 Gavel'))
+    +`<div class="ovgrp"><span class="label">Full-screen announcement</span><p class="ovhelp">Covers their screen until they tap “Got it”.</p>${ovIn('ovBigT','Headline')}<textarea class="ovin2" id="ovBigX" rows="2" maxlength="400" placeholder="More details (optional)"></textarea><button class="ovk go" id="ovBigGo">Show it</button></div>`
+    +grp('Their theme',`<select class="ovsel2" id="ovTh">${Object.entries(TPACKS).map(([k,v])=>`<option value="${k}">${esc(v[0])}</option>`).join('')}</select><button class="ovk" id="ovThGo">Switch their theme</button>`+ovB({k:'theme',v:''},'Back to normal'),'Only changes their screen, until they reload.')
+    +grp('Sound and music',ovB({k:'music',a:'rrmute'},'Mute Recess Rush music')+ovB({k:'music',a:'rron'},'Unmute it')+ovB({k:'music',a:'radiooff'},'Pause their radio')+ovB({k:'music',a:'radioon'},'Play their radio')+ovB({k:'music',a:'sound',on:0},'All sound off','warn')+ovB({k:'music',a:'sound',on:1},'All sound on'))
+    +grp('Their screen',ovB({k:'closepop'},'Close pop-ups')+ovB({k:'reload'},'Reload their page','warn','Fixes a stuck screen. They lose anything unsaved.'));
+  if(T==='acct')return grp('Exact amounts',`<div class="ovrowf">${ovIn('ovXpN','XP','number','90px')}<button class="ovk" data-ovamt="xp">Give XP</button><button class="ovk warn" data-ovtake="xp">Take XP</button></div><div class="ovrowf">${ovIn('ovTxN','Tickets','number','90px')}<button class="ovk" data-ovamt="tix">Give 🎟</button><button class="ovk warn" data-ovtake="tix">Take 🎟</button></div>`)
+    +grp('Season pass',ovB({k:'pass',n:1},'+1 tier')+ovB({k:'pass',n:5},'+5 tiers')+ovB({k:'pass',n:10},'+10 tiers')+ovB({k:'pass',n:60},'Max it out'))
+    +grp('More places',ovB({k:'go2',to:'pass'},'Season pass')+ovB({k:'go2',to:'rise'},'The Rise')+ovB({k:'go2',to:'football'},'Football'));
+  if(T==='rr')return grp('More runner control',ovB({k:'rr',a:'revive'},'❤ Revive them','up','Brings them back if they were knocked out')+ovB({k:'rr',a:'hop'},'⤴ Big jump')+ovB({k:'rr',a:'ahead'},'⏩ Push ahead')+ovB({k:'rr',a:'finish'},'🏁 Put at the finish','up'))
+    +grp('Game speed',ovB({k:'rr',a:'slow',on:1},'🐢 Slow motion')+ovB({k:'rr',a:'speedup',on:1},'⚡ Fast forward')+ovB({k:'rr',a:'slow',on:0},'Normal speed'))
+    +grp('In the moment',ovB({k:'fx',a:'confetti'},'🎉 Confetti')+ovB({k:'fx',a:'rain',emo:'👑'},'👑 Crown rain'));
+  if(T==='st')return grp('More game control',ovB({k:'st',a:'gp'},'Game point for them','up')+ovB({k:'st',a:'ptsA',v:5},'+5 them')+ovB({k:'st',a:'ptsB',v:5},'+5 bots')+ovB({k:'st',a:'poss'},'Give bots the ball')+ovB({k:'st',a:'cold'},'Freeze bots 8s'))
+    +grp('Game speed',ovB({k:'st',a:'slow',on:1},'🐢 Slow motion')+ovB({k:'st',a:'slow',on:0},'Normal speed'));
+  if(T==='dt')return `<div class="ovgrp"><span class="label">Breaking news</span><p class="ovhelp">Posts a headline in their news feed and moves the stock with it.</p><div class="ovrowf">${sel('ovNwS')}<select class="ovsel2" id="ovNwP"><option value="12">Big jump +12%</option><option value="6">Up +6%</option><option value="-6">Down −6%</option><option value="-12">Crash −12%</option></select></div>${ovIn('ovNwT','Headline, e.g. Signs a huge contract')}<button class="ovk go" id="ovNwGo">Post the news</button></div>`
+    +`<div class="ovgrp"><span class="label">Halt a stock</span><p class="ovhelp">Freezes its price so it can't move for a while.</p><div class="ovrowf">${sel('ovHtS')}<button class="ovk" data-ovhalt="30">30 s</button><button class="ovk" data-ovhalt="90">90 s</button></div></div>`
+    +grp('Market clock',ovB({k:'dt',a:'pause'},'⏸ Pause their clock')+ovB({k:'dt',a:'resume'},'▶ Resume')+ovB({k:'dt',a:'spd',v:1},'1× speed')+ovB({k:'dt',a:'spd',v:2},'2×')+ovB({k:'dt',a:'spd',v:4},'4×')+ovB({k:'dt',a:'end'},'Ring the closing bell','warn','Ends their trading day now'))
+    +`<div class="ovgrp"><span class="label">Set their cash</span><div class="ovrowf">${ovIn('ovCashN','Amount, e.g. 25000','number','150px')}<button class="ovk" id="ovCashGo">Set cash</button></div></div>`
+    +grp('Start over',ovB({k:'dt',a:'newday'},'Start a fresh day','warn','Gives them a new premarket with new stocks'));
+  if(T==='mk')return '';return ''}
+function ovBindExtra(root){root.querySelectorAll('[data-ovc]').forEach(b=>b.onclick=()=>ovDo(JSON.parse(b.dataset.ovc),b.textContent.trim()));const v=id=>(root.querySelector('#'+id)||{}).value||'';const on=(id,fn)=>{const e=root.querySelector('#'+id);if(e)e.onclick=fn};
+  on('ovEmoGo',()=>{const e=v('ovEmo').trim();if(e)ovDo({k:'fx',a:'rain',emo:e},'Rain '+e)});
+  on('ovBigGo',()=>{const t=v('ovBigT').trim();if(!t)return toastLite('Add a headline');ovDo({k:'fx',a:'big',title:t,txt:v('ovBigX').trim()},'Announcement: '+t)});
+  on('ovThGo',()=>{const t=v('ovTh');ovDo({k:'theme',v:t},'Theme: '+((TPACKS[t]||[])[0]||t))});
+  root.querySelectorAll('[data-ovamt]').forEach(b=>b.onclick=()=>{const k=b.dataset.ovamt,n=Math.round(+v(k==='xp'?'ovXpN':'ovTxN'));if(!(n>0))return toastLite('Type an amount');ovDo(k==='xp'?{k:'give',xp:n,say:`+${fmtN(n)} XP`}:{k:'give',tix:n,say:`+${fmtN(n)} tickets`},`Give ${fmtN(n)} ${k==='xp'?'XP':'tickets'}`)});
+  root.querySelectorAll('[data-ovtake]').forEach(b=>b.onclick=()=>{const k=b.dataset.ovtake,n=Math.round(+v(k==='xp'?'ovXpN':'ovTxN'));if(!(n>0))return toastLite('Type an amount');ovDo({k:'take',[k]:n},`Take ${fmtN(n)} ${k==='xp'?'XP':'tickets'}`)});
+  on('ovNwGo',()=>{const s=v('ovNwS');if(!s)return toastLite('They need to be on the trading floor');ovDo({k:'dt',a:'news',sym:s,pct:+v('ovNwP'),txt:v('ovNwT').trim()},`News on ${s} (${v('ovNwP')}%)`)});
+  root.querySelectorAll('[data-ovhalt]').forEach(b=>b.onclick=()=>{const s=v('ovHtS');if(!s)return;ovDo({k:'dt',a:'halt',sym:s,v:+b.dataset.ovhalt},`Halt ${s} ${b.dataset.ovhalt}s`)});
+  on('ovCashGo',()=>{const n=Math.round(+v('ovCashN'));if(!(n>=0))return;ovDo({k:'dt',a:'setcash',v:n},`Cash set to $${fmtN(n)}`)});
+  const f=root.querySelector('#ovAChF');if(f){f.onsubmit=e=>{e.preventDefault();const i=root.querySelector('#ovAChI');const t=i.value.trim();if(!t)return;ovAdmChatSend(t);i.value=''};root.querySelectorAll('[data-ovcq]').forEach(b=>b.onclick=()=>ovAdmChatSend(b.dataset.ovcq))}}
+function ovAdmChatSend(t){(OVAC.log[OVA.sel]=OVAC.log[OVA.sel]||[]).push({me:1,t,at:Date.now()});ovAdmChatPaint();ovSend(OVA.sel,{k:'chat',txt:t});try{sfx('click')}catch(e){}}
 
 /* ============ HOME 4: a living, themed stage and a new game grid ============ */
 /* four new themes */
@@ -22027,18 +22162,20 @@ function crBuilder(edit){const c=edit?CAR():null;if(edit&&!c)return;goTo(edit?'c
     if(T==='body'){h=crRow('Position',`<div class="crseg wide">${Object.keys(CR_POS).map(k=>`<button data-pos="${k}" class="${CRN.pos===k?'on':''}">${k}</button>`).join('')}</div>`,CR_POS[CRN.pos])
       +crRow('Height',`<div class="crhts">${CR_HT[CRN.pos].map((v,i)=>`<button class="crht ${CRN.ht===i?'on':''}" data-ht="${i}"><b>${v}</b><small>${CR_HTN[i]}</small><i style="height:${24+i*12}px"></i></button>`).join('')}</div>`)
       +crRow('Build',crOpts('build',L.build,'build',3))+crRow('Wingspan',crOpts('wing',L.wing,'wing',3))}
-    if(T==='look'){h=crRow('Skin tone',crSw('skin',L.skin,'skin'))+crRow('Hairstyle',crOptsP('hair',L.hair,'hair','hair','head'))+crRow('Hair color',crSw('hairC',L.hairC,'hairc'))+crRow('Dyed tips',crTipSw(L.tip==null?-1:L.tip),'Colors the ends of twists, locs, braids, spikes and other longer styles.')
-      +crRow('Facial hair',crOptsP('beard',L.beard,'beard','beard','head'))+crRow('Eyes',crOptsP('eyes',L.eyes,'eyes','eyes','head'))+crRow('Eye color',crSw('eyeC',L.eyeC,'eyec'))+crRow('Brows',crOptsP('brow',L.brow,'brow','brow','head'))+crRow('Expression',crOptsP('mouth',L.mouth,'mouth','mouth','head'))
-      +crRow('Tattoos',crOptsP('ink',L.ink,'ink','ink','arms'))+(L.ink!=='none'?crRow('Tattoo design',crOptsP('inkS',L.inkS,'inks','inkS','arms')):'')}
-    if(T==='gear'){h=crRow('Accessory color',crSw('gearC',L.gearC,'gearc'),'Used for your headband, sleeves, wristbands, knee pads and mouthguard.')
-      +crRow('Headband',crOptsP('head',L.head,'head','head','head'))+crRow('Goggles',`<div class="crseg wide"><button data-gog="0" class="${L.gog?'':'on'}">Off</button><button data-gog="1" class="${L.gog?'on':''}">On</button></div>`)
-      +crRow('Earrings',crOptsP('ear',L.ear,'ear','ear','head'))+(L.ear!=='none'?crRow('Earring color',crSw('gearC',L.earC,'earc')):'')+crRow('Chain',crOptsP('chain',L.chain,'chain','chain','torso'))
-      +crRow('Arm sleeve',crOptsP('arm',L.sleeve,'sleeve','sleeve','arms'))+crRow('Wristbands',crOptsP('arm',L.wrist,'wrist','wrist','arms'))+crRow('Finger tape',crOptsP('arm',L.tape,'tape','tape','arms'))
-      +crRow('Leg sleeve',crOptsP('arm',L.legS,'legs','legS','leg'))+crRow('Knee pads',crOptsP('arm',L.knee,'knee','knee','leg'))
-      +crRow('Shoes',crOptsP('shoe',L.shoe,'shoe','shoe','feet'))+crRow('Shoe color',crSw('gearC',L.shoeC,'shoec'))+crRow('Sole and accent',crSw('gearC',L.shoeC2,'shoec2'))
-      +crRow('Socks',crOptsP('sock',L.sock,'sock','sock','leg'))+crRow('Sock color',crSw('gearC',L.sockC,'sockc'))
-      +crRow('Jersey cut',crOptsP('jstyle',L.jstyle,'jstyle','jstyle','torso'))+crRow('Jersey trim',crOptsP('jtrim',L.jtrim,'jtrim','jtrim','torso'))+crRow('Shorts length',crOptsP('shorts',L.shorts,'shorts','shorts','leg'))
-      +(edit&&c.teamName?`<p class="hint">You wear ${esc(c.teamName)} colors now.</p>`:crRow('Jersey color',crSw('jc',L.jc1,'jc1'))+crRow('Trim color',crSw('jc',L.jc2,'jc2'),'Prospect colors. You switch to your team’s colors on draft night.'))}
+    const SUBS={look:[['face','Face','M12 2a10 10 0 100 20 10 10 0 000-20zM9 9h.01M15 9h.01'],['hair','Hair','M4 14c0-6 4-10 8-10s8 4 8 10M7 9c2 2 8 2 10 0'],['beard','Facial hair','M6 12c0 5 3 8 6 8s6-3 6-8'],['ink','Tattoos','M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z']],gear:[['head','Head','M12 3a7 7 0 017 7H5a7 7 0 017-7zM4 12h16'],['arms','Arms','M8 3v10a4 4 0 008 0V3'],['legs','Legs','M9 2v20M15 2v20'],['shoes','Shoes','M3 16h18v3H3zM5 16l2-6h6l3 6'],['uni','Uniform','M8 3l4 3 4-3 4 4-3 3v11H7V10L4 7z']]};
+    CRN.sub=CRN.sub||{look:'face',gear:'head'};
+    const subBar=T2=>`<div class="crsub">${SUBS[T2].map(([k,n,ic])=>`<button data-crsub="${k}" class="${CRN.sub[T2]===k?'on':''}">${icon(ic,15)}<span>${n}</span></button>`).join('')}</div>`;
+    if(T==='look'){const sb=CRN.sub.look;h=subBar('look')+(
+      sb==='face'?crRow('Skin tone',crSw('skin',L.skin,'skin'))+crRow('Eyes',crOptsP('eyes',L.eyes,'eyes','eyes','head'))+crRow('Eye color',crSw('eyeC',L.eyeC,'eyec'))+crRow('Brows',crOptsP('brow',L.brow,'brow','brow','head'))+crRow('Expression',crOptsP('mouth',L.mouth,'mouth','mouth','head')):
+      sb==='hair'?crRow('Hairstyle',crOptsP('hair',L.hair,'hair','hair','head'))+crRow('Hair color',crSw('hairC',L.hairC,'hairc'))+crRow('Dyed tips',crTipSw(L.tip==null?-1:L.tip),'Colors the ends of twists, locs, braids, spikes and other longer styles.'):
+      sb==='beard'?crRow('Facial hair',crOptsP('beard',L.beard,'beard','beard','head'),'Facial hair uses your hair color.'):
+      crRow('Tattoos',crOptsP('ink',L.ink,'ink','ink','arms'))+(L.ink!=='none'?crRow('Tattoo design',crOptsP('inkS',L.inkS,'inks','inkS','arms')):''))}
+    if(T==='gear'){const sb=CRN.sub.gear;h=subBar('gear')+(
+      sb==='head'?crRow('Headband',crOptsP('head',L.head,'head','head','head'))+crRow('Goggles',`<div class="crseg wide"><button data-gog="0" class="${L.gog?'':'on'}">Off</button><button data-gog="1" class="${L.gog?'on':''}">On</button></div>`)+crRow('Earrings',crOptsP('ear',L.ear,'ear','ear','head'))+(L.ear!=='none'?crRow('Earring color',crSw('gearC',L.earC,'earc')):'')+crRow('Chain',crOptsP('chain',L.chain,'chain','chain','torso'))+crRow('Accessory color',crSw('gearC',L.gearC,'gearc'),'Used for headbands, sleeves, wristbands, knee pads and mouthguards.'):
+      sb==='arms'?crRow('Arm sleeve',crOptsP('arm',L.sleeve,'sleeve','sleeve','arms'))+crRow('Wristbands',crOptsP('arm',L.wrist,'wrist','wrist','arms'))+crRow('Finger tape',crOptsP('arm',L.tape,'tape','tape','arms'))+crRow('Accessory color',crSw('gearC',L.gearC,'gearc')):
+      sb==='legs'?crRow('Leg sleeve',crOptsP('arm',L.legS,'legs','legS','leg'))+crRow('Knee pads',crOptsP('arm',L.knee,'knee','knee','leg'))+crRow('Socks',crOptsP('sock',L.sock,'sock','sock','leg'))+crRow('Sock color',crSw('gearC',L.sockC,'sockc')):
+      sb==='shoes'?crRow('Shoes',crOptsP('shoe',L.shoe,'shoe','shoe','feet'))+crRow('Shoe color',crSw('gearC',L.shoeC,'shoec'))+crRow('Sole and accent',crSw('gearC',L.shoeC2,'shoec2')):
+      crRow('Jersey cut',crOptsP('jstyle',L.jstyle,'jstyle','jstyle','torso'))+crRow('Jersey trim',crOptsP('jtrim',L.jtrim,'jtrim','jtrim','torso'))+crRow('Shorts length',crOptsP('shorts',L.shorts,'shorts','shorts','leg'))+(edit&&c.teamName?`<p class="hint">You wear ${esc(c.teamName)} colors now.</p>`:crRow('Jersey color',crSw('jc',L.jc1,'jc1'))+crRow('Trim color',crSw('jc',L.jc2,'jc2'),'Prospect colors. You switch to your team’s colors on draft night.')))}
     if(T==='skills'){const archs=Object.entries(CR_ARCH).filter(([,a])=>a.pos.includes(CRN.pos));const base=CR_ARCH[CRN.arch].a,left=CR_FP-crFpUsed();
       h=crRow('Play style',`<div class="crarch">${archs.map(([k,a])=>`<button class="crar ${CRN.arch===k?'on':''}" data-arch="${k}"><b>${a.n}</b><small>${a.d}</small></button>`).join('')}</div>`)
        +`<div class="crrow"><div class="crfph"><span class="label">Focus points</span><b class="${left?'':'z'}">${left} left</b></div><p class="hint">Push the areas you care about. Take points out of one attribute to put them somewhere else. Up to +${CR_FPMAX} each.</p>
@@ -22050,7 +22187,7 @@ function crBuilder(edit){const c=edit?CAR():null;if(edit&&!c)return;goTo(edit?'c
     if(!edit){const i=CRTABS.findIndex(t=>t[0]===T);$('#crPrev').style.visibility=i?'visible':'hidden';$('#crNext').innerHTML=i<CRTABS.length-1?`Next: ${CRTABS[i+1][1]} ${icon('M5 12h14M13 6l6 6-6 6',18)}`:`Head to the draft combine ${icon('M5 12h14M13 6l6 6-6 6',18)}`}
     $$('[data-crtab]').forEach(b=>b.classList.toggle('on',b.dataset.crtab===T));bindBody()};
   const set=(fn,re)=>{fn();sfx('click');re===false?0:paint()};
-  const bindBody=()=>{const L=CRN.look,B=CRN.bio,S=CRN.sig;
+  const bindBody=()=>{const L=CRN.look,B=CRN.bio,S=CRN.sig;$$('[data-crsub]').forEach(b=>b.onclick=()=>{CRN.sub[CRN.tab]=b.dataset.crsub;sfx('click');paint()});
     const sw=(a,k)=>$$(`[data-${a}]`).forEach(b=>b.onclick=()=>set(()=>L[k]=+b.dataset[a]));
     sw('skin','skin');sw('hairc','hairC');sw('gearc','gearC');sw('shoec','shoeC');sw('shoec2','shoeC2');sw('sockc','sockC');sw('jc1','jc1');sw('jc2','jc2');
     const op=(a,obj,k)=>$$(`[data-${a}]`).forEach(b=>b.onclick=()=>set(()=>obj[k]=b.dataset[a]));
