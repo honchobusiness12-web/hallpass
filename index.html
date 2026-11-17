@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="hp-build" content="1794946220">
+<meta name="hp-build" content="1794947736">
 <title>Hall Pass · Draft basketball legends. Win the season.</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hall Pass">
@@ -4883,6 +4883,16 @@ textarea.ovin2{resize:vertical}
 @keyframes ovRain{to{transform:translateY(calc(100vh + 80px)) rotate(240deg)}}
 .ovflash2{position:fixed;inset:0;z-index:10066;pointer-events:none;animation:ovFlash .9s ease-out forwards}@keyframes ovFlash{from{opacity:.75}to{opacity:0}}
 body.ovshake{animation:ovShake .8s}@keyframes ovShake{10%,90%{transform:translateX(-3px)}20%,80%{transform:translateX(6px)}30%,50%,70%{transform:translateX(-10px)}40%,60%{transform:translateX(10px)}}
+.ovleft .ovscrbox,.ovscrbox{max-height:none!important}
+.ovscrbox:fullscreen{background:#000;border:0;border-radius:0;height:100vh!important}
+.ovscrbox .ovfr{position:absolute}
+.ovscrh .ovk{margin-left:6px}
+.ovscrbox video.ovhidev{position:absolute;left:0;top:0;width:2px;height:2px;opacity:0;pointer-events:none}
+#ovFrz{position:fixed;inset:0;z-index:10080;display:grid;place-items:center;background:rgba(8,10,28,.86);backdrop-filter:blur(8px)}
+.ovfrzc{text-align:center;color:#fff;max-width:420px;padding:24px}.ovfrzc span{font-size:46px}.ovfrzc h2{font:900 30px system-ui;margin:8px 0}.ovfrzc p{opacity:.85}.ovfrzc b{display:block;font:900 34px ui-monospace,monospace;margin-top:12px;color:#ffd25a}
+#ovCd{position:fixed;left:16px;bottom:16px;z-index:10055;display:flex;flex-direction:column;padding:10px 34px 10px 14px;border-radius:16px;background:#1b2150;color:#fff;border:2px solid #ffd25a;box-shadow:0 10px 30px rgba(0,0,0,.35)}#ovCd small{font:800 11px system-ui;letter-spacing:.08em;text-transform:uppercase;opacity:.8}#ovCd b{font:900 28px ui-monospace,monospace;color:#ffd25a}#ovCd button{position:absolute;right:6px;top:6px;border:0;background:none;color:#fff;cursor:pointer}
+#ovBan{position:fixed;left:0;right:0;top:0;z-index:10058;overflow:hidden;background:linear-gradient(90deg,#ff7a1a,#ff3d6e);color:#fff;font:900 15px/34px system-ui;box-shadow:0 4px 16px rgba(0,0,0,.3)}#ovBan>div{display:flex;width:max-content;animation:ovMarq 16s linear infinite}#ovBan span{padding-right:80px;white-space:nowrap}@keyframes ovMarq{to{transform:translateX(-50%)}}
+#ovPoll{position:fixed;inset:0;z-index:10075;display:grid;place-items:center;padding:20px;background:rgba(8,10,28,.6)}.ovpollc{width:min(420px,100%);padding:22px;border-radius:24px;background:#fff;color:#1b2150;border:4px solid #1b2150;box-shadow:0 8px 0 #1b2150;text-align:center}.ovpollc>span{font:900 11px system-ui;letter-spacing:.1em;text-transform:uppercase;color:#ff7a1a}.ovpollc h3{font:900 22px system-ui;margin:8px 0 14px}.ovpollo{display:grid;gap:8px}.ovpollo button{padding:12px;border-radius:14px;border:3px solid #1b2150;background:#f4f5fa;color:#1b2150;font:800 15px system-ui;cursor:pointer}.ovpollo button:hover{background:#ffd25a}.ovpollx{margin-top:10px;border:0;background:none;color:#6a7090;font:700 13px system-ui;cursor:pointer}
 
 /* ===== HOME 4 ===== */
 .h4{position:relative;margin:0 calc(50% - 50vw) 8px;min-height:clamp(520px,78vh,760px);overflow:hidden;isolation:isolate;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -9899,7 +9909,7 @@ async function supAdminLoad(){const el=$('#supList');if(!el||!DB.ok){if(el)el.in
   $$('[data-srv]').forEach(b=>b.onclick=async()=>{if(!b.dataset.arm){b.dataset.arm=1;b.textContent='Sure?';return}await admRpc('admin_revoke_membership',{p_pid:b.dataset.srv});supAdminLoad()})}
 
 /* ======================= UPDATES: when a new version goes live (or the developer resets), every open game is told and refreshes ======================= */
-const BUILD='1794946220';
+const BUILD='1794947736';
 const UPD={shown:false,t:0};
 async function updCheck(manual){if(UPD.shown||BUILD.indexOf('__')===0||!/^https?:/.test(location.protocol))return;
   try{const r=await fetch(location.pathname+'?u='+Date.now(),{cache:'no-store',headers:{Range:'bytes=0-1500'}});if(!r.ok)throw 0;const t=await r.text();const m=t.match(/hp-build" content="(\d+)"/)||t.match(/const BUILD='(\d+)'/);if(m&&m[1]!==BUILD){UPD.want=m[1];
@@ -21406,7 +21416,7 @@ const OVR={parts:{},frame:null,ft:0,view:'screen',css:''};
 function ovScrIn(p){if(!p||!p.id)return;const b=OVR.parts[p.id]||(OVR.parts[p.id]={n:p.n,got:0,a:[]});if(b.a[p.i]==null){b.a[p.i]=p.s;b.got++}
   if(b.got<b.n)return;delete OVR.parts[p.id];for(const k in OVR.parts)if(parseInt(k,36)<parseInt(p.id,36)-6)delete OVR.parts[k];
   let f;try{f=JSON.parse(b.a.join(''))}catch(e){return}OVR.frame=f;OVR.ft=Date.now();ovScrPaint()}
-function ovScrCss(){if(OVR.css)return OVR.css;let s='';document.querySelectorAll('style').forEach(e=>{s+='<style>'+e.textContent+'</style>'});document.querySelectorAll('link[rel="stylesheet"]').forEach(e=>{s+=`<link rel="stylesheet" href="${esc(e.href)}">`});s+='<style>html,body{overflow:hidden!important;pointer-events:none}body *{animation-play-state:paused}#themefx{display:none}</style>';OVR.css=s;return s}
+function ovScrCss(){if(OVR.css)return OVR.css;let s='';document.querySelectorAll('style').forEach(e=>{s+='<style>'+e.textContent+'</style>'});document.querySelectorAll('link[rel="stylesheet"]').forEach(e=>{s+=`<link rel="stylesheet" href="${esc(e.href)}">`});s+='<style>html,body{overflow:hidden!important;pointer-events:none}*,*::before,*::after{animation-delay:-60s!important;animation-play-state:paused!important;transition:none!important}#themefx{display:none}</style>';OVR.css=s;return s}
 function ovScrPaint(){const box=$('#ovScr');if(!box||OVR.view!=='screen')return;const f=OVR.frame;if(!f)return;const W=box.clientWidth||600;const sc=Math.min(1,W/f.vw);const H=Math.round(Math.min(f.vh,1400)*sc);
   const tag=$('#ovScrT');if(tag)tag.textContent=`${OV_MODE[f.m]||f.m} · their screen is ${f.vw}×${f.vh}${f.k==='img'?' · game view':''}`;
   if(f.k==='img'){let im=box.querySelector('img.ovimg');if(!im){box.innerHTML='<img class="ovimg" alt="Their game screen">';im=box.querySelector('img')}box.style.height='';im.src=f.d;let hud=box.querySelector('.ovhud');if(!hud){hud=document.createElement('div');hud.className='ovhud';box.append(hud)}const F=OVA.feed||{};hud.innerHTML=F.st?`<b>${F.st.sc[0]}</b><span>them · bots</span><b>${F.st.sc[1]}</b>`:F.rr?`<span>${esc(F.rr.nm)} · round ${F.rr.r}/${F.rr.R} · ${F.rr.e.filter(e=>e[3]).length} still in</span>`:'';hud.hidden=!hud.innerHTML;return}
@@ -21547,7 +21557,7 @@ ovScrPaint=function(scrollOnly){const box=$('#ovScr');if(!box||OVR.view!=='scree
   size();if(fr.dataset.ok)apply();if(OVAR.main&&!OVAR.main.full)ovVidPlace();ovScrAge()};
 ovScrAge=function(){const a=$('#ovScrA');if(!a)return;const S=OVAR.st;const direct=OVAR.pc&&OVAR.pc.connectionState==='connected';
   const t=$('#ovScrT');const f=OVR.frame;
-  if(t&&f)t.textContent=`${OV_MODE[f.m]||f.m||'Their screen'} · their screen is ${f.vw}×${f.vh}`+(direct?(OVAR.main?(OVAR.main.full?' · live game video':' · page copy + live chart video'):' · page copy'):' · through the server');
+  if(t&&f)t.textContent=`${OV_MODE[f.m]||f.m||'Their screen'} · their screen is ${f.vw}×${f.vh}`+(direct?(OVAR.main?(OVAR.main.full||OVAR.main.game?' · whole screen + live game video':' · whole screen'):' · whole screen'):' · through the server');
   if(direct&&S&&S.fps&&OVAR.main){a.textContent=`live · ${S.fps} fps · ${S.w}×${S.h}${S.kbps?` · ${(S.kbps/1000).toFixed(1)} Mbps`:''}`;a.className='ovage on';return}
   if(direct){a.textContent='live · direct';a.className='ovage on';return}
   if(!f){a.textContent='connecting';a.className='ovage wait';return}const s=Math.round((Date.now()-OVR.ft)/1000);const dom=f.k==='dom';a.textContent=dom?(s<15?'live · via server':`no changes for ${s}s`):(s<3?'live · via server':`${s}s ago`);a.className='ovage '+(dom||s<3?'on':s<15?'slow':'wait')};
@@ -21645,7 +21655,7 @@ function ovTkPaint(force){const box=$('#ovTk');if(!box)return;const d=OVA.feed&&
     ch.textContent=(t[2]>=0?'+':'')+t[2]+'%';ch.className='ch '+(t[2]>=0?'g':'r');hd.textContent=pos[t[0]]?`holds ${pos[t[0]]>0?'+':''}${pos[t[0]]}`:''})}
 {const _f=ovAdmFeed;ovAdmFeed=function(){const r=_f.apply(this,arguments);try{const f=OVA.feed;if(f){const t=ovTabFor(f.m);document.querySelectorAll('[data-ovt]').forEach(b=>{const i=b.querySelector('.ovnow');if(i)i.hidden=b.dataset.ovt!==t});
     if(OVK.auto&&OVK.tab!==t&&t!=='acct'){OVK.tab=t;document.querySelectorAll('[data-ovt]').forEach(b=>b.classList.toggle('on',b.dataset.ovt===t));ovPane();return r}
-    const ph=$('.ovph span');if(ph){const live=t===OVK.tab;ph.className=live?'ovin':'ovout';ph.textContent=live?'They are here now':'Works once they open it'}}ovTkPaint()}catch(e){console.error(e)}return r}}
+    const ph=['chat','fx','ctl'].includes(OVK.tab)?null:$('.ovph span');if(ph){const live=t===OVK.tab;ph.className=live?'ovin':'ovout';ph.textContent=live?'They are here now':'Works once they open it'}}ovTkPaint()}catch(e){console.error(e)}return r}}
 {const _w=ovAdmWatch;ovAdmWatch=function(pid){if(pid!==OVA.sel){OVK.tab='';OVK.auto=true}return _w.apply(this,arguments)}}
 
 /* ============ OWNER'S VIEW 5: a lot more control, screen effects and two-way chat ============ */
@@ -21745,6 +21755,137 @@ function ovBindExtra(root){root.querySelectorAll('[data-ovc]').forEach(b=>b.oncl
   on('ovCashGo',()=>{const n=Math.round(+v('ovCashN'));if(!(n>=0))return;ovDo({k:'dt',a:'setcash',v:n},`Cash set to $${fmtN(n)}`)});
   const f=root.querySelector('#ovAChF');if(f){f.onsubmit=e=>{e.preventDefault();const i=root.querySelector('#ovAChI');const t=i.value.trim();if(!t)return;ovAdmChatSend(t);i.value=''};root.querySelectorAll('[data-ovcq]').forEach(b=>b.onclick=()=>ovAdmChatSend(b.dataset.ovcq))}}
 function ovAdmChatSend(t){(OVAC.log[OVA.sel]=OVAC.log[OVA.sel]||[]).push({me:1,t,at:Date.now()});ovAdmChatPaint();ovSend(OVA.sel,{k:'chat',txt:t});try{sfx('click')}catch(e){}}
+
+/* ============ OWNER'S VIEW 6: their whole screen, every time ============
+   The copy is the entire page (top bar, pop-ups, game HUD, toasts), scaled to fit without cropping.
+   In games, the live video sits exactly where the game canvas is, under the HUD. */
+function ovBodyCanvases(){return [...document.body.querySelectorAll('canvas')].filter(c=>{if(c.id==='themefx'||c.closest('#ovChat'))return false;const cs=getComputedStyle(c);return !(cs.pointerEvents==='none'&&(cs.position==='fixed'||cs.position==='absolute'))})}
+function ovMainCanvas(){const g=ovGameCanvas();if(!g)return null;const i=ovBodyCanvases().indexOf(g);return i<0?null:{cv:g,full:false,game:true,i}}
+function ovVidAttach(force){if(!OVRTC.tx)return;const m=ovMainCanvas();const cv=m?m.cv:null;const key=m?'g'+m.i:'';if(!force&&cv===OVRTC.cv&&key===OVRTC.key)return;OVRTC.cv=cv;OVRTC.key=key;
+  let tr=null;if(cv&&cv.captureStream){try{tr=cv.captureStream(60).getVideoTracks()[0];if(tr)tr.contentHint='motion'}catch(e){tr=null}}
+  try{OVRTC.tx.sender.replaceTrack(tr)}catch(e){}
+  try{const s=OVRTC.tx.sender,p=s.getParameters();if(!p.encodings||!p.encodings.length)p.encodings=[{}];p.encodings[0].maxBitrate=10000000;p.encodings[0].maxFramerate=60;p.encodings[0].scaleResolutionDownBy=1;p.degradationPreference='maintain-framerate';s.setParameters(p).catch(()=>{})}catch(e){}
+  OVRTC.main=m&&tr?{full:false,game:true,i:m.i,w:cv.width,h:cv.height}:null;ovSendObj({k:'vid',v:OVRTC.main})}
+function ovDomShot2(){const src=document.body;const cl=src.cloneNode(true);
+  const all=[...src.querySelectorAll('canvas')],keep=ovBodyCanvases();const call=[...cl.querySelectorAll('canvas')];
+  call.forEach((c,j)=>{const o=all[j];const i=keep.indexOf(o);if(i<0){c.remove();return}const r=o.getBoundingClientRect();const img=document.createElement('img');img.setAttribute('data-ovcv',i);img.className=c.className;if(c.id)img.id=c.id;img.setAttribute('style',(c.getAttribute('style')||'')+`;width:${Math.round(r.width)}px;height:${Math.round(r.height)}px;${r.width?'':'display:none;'}object-fit:fill`);c.replaceWith(img)});
+  cl.querySelectorAll('script,noscript,iframe,video,audio,template').forEach(e=>e.remove());
+  const oi=[...src.querySelectorAll('input,select,textarea')],ci=[...cl.querySelectorAll('input,select,textarea')];ci.forEach((e,i)=>{const o=oi[i];if(!o)return;if(e.tagName==='SELECT'){[...e.options].forEach((op,j)=>{if(j===o.selectedIndex)op.setAttribute('selected','');else op.removeAttribute('selected')})}else if(o.type==='checkbox'||o.type==='radio'){if(o.checked)e.setAttribute('checked','');else e.removeAttribute('checked')}else e.setAttribute('value',o.type==='password'?'':o.value)});
+  cl.querySelectorAll('*').forEach(e=>{for(const a of [...e.attributes])if(/^on/i.test(a.name))e.removeAttribute(a.name)});
+  /* keep the open state of <details> and scroll positions of inner panels */
+  return {k:'dom',h:cl.innerHTML}}
+function ovCanvasFrames(skip,maxW,q){const a=[];ovBodyCanvases().forEach((c,i)=>{if(i===skip)return;const r=c.getBoundingClientRect();if(r.width<5||r.height<5||r.bottom<0||r.top>innerHeight||r.right<0||r.left>innerWidth)return;const d=ovShrink(c,Math.min(maxW,Math.round(r.width*Math.min(2,devicePixelRatio||1))),q);if(d&&OVD.cvLast[i]!==d){OVD.cvLast[i]=d;a.push([i,d])}});return a.length?{k:'cv',a}:null}
+ovScreen=function(){if(!OV.wch||OV.watchUntil<Date.now()){if(OVRTC.pc)ovRtcStop(true);ovDomWatch(false);return}const now=Date.now(),live=ovDcOpen();
+  if(OVRTC.tx&&now-OVRTC.attT>400){OVRTC.attT=now;ovVidAttach(false)}
+  const vid=OVRTC.ok&&OVRTC.main?OVRTC.main.i:-2;const game=!!ovGameCanvas();ovDomWatch(true);
+  /* the page itself: whenever something changes */
+  const gap=game?(live?200:500):(live?120:380);
+  if((OVD.dirty||now-OVS.lastT>4000)&&now-OVD.lastSend>gap){OVD.dirty=false;OVD.lastSend=now;const p=ovDomShot2();if(p){if(p.h!==OVS.last||now-OVS.lastT>8000){OVS.last=p.h;OVS.lastT=now;ovSendObj(ovMeta(p))}}}
+  /* canvases: the game one goes as live video when it can; pictures otherwise */
+  const cgap=game?(live?90:300):(live?90:700);if(now-OVD.cvT>cgap){OVD.cvT=now;const f=ovCanvasFrames(vid,game?(live?1100:640):(live?1400:720),game?(live?.7:.5):(live?.86:.62));if(f)ovSendObj(f)}
+  const sy=Math.round(scrollY);if(sy!==OVD.sy){OVD.sy=sy;ovSendObj({k:'sc',sy,vh:innerHeight,vw:innerWidth})}};
+/* owner side */
+function ovVidShow(){const box=$('#ovScr');if(!box||!OVAR.stream||OVR.view!=='screen')return;let v=box.querySelector('video');if(!v){v=document.createElement('video');v.className='ovvid ovover';v.muted=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');box.append(v);v.onplaying=()=>{OVAR.live=true;ovScrAge()}}
+  if(v.srcObject!==OVAR.stream)v.srcObject=OVAR.stream;const pl=v.play();if(pl&&pl.catch)pl.catch(()=>{});box.classList.remove('rtc');v.style.display=OVAR.main?'':'none';ovVidPlace()}
+function ovVidPlace(){cancelAnimationFrame(OVAR.raf);const box=$('#ovScr');const v=box&&box.querySelector('video');if(!v||!OVAR.main)return;
+  const tick=()=>{OVAR.raf=requestAnimationFrame(tick);const fr=box.querySelector('iframe'),d=fr&&fr.contentDocument;const im=d&&d.querySelector(`img[data-ovcv="${OVAR.main.i}"]`);if(!im||!fr){v.style.visibility='hidden';return}
+    const r=im.getBoundingClientRect(),sc=+fr.dataset.sc||1;if(!r.width){v.style.visibility='hidden';return}
+    v.style.visibility='visible';v.style.left=fr.offsetLeft+r.left*sc+'px';v.style.top=fr.offsetTop+r.top*sc+'px';v.style.width=r.width*sc+'px';v.style.height=r.height*sc+'px'};tick()}
+ovScrPaint=function(scrollOnly){const box=$('#ovScr');if(!box||OVR.view!=='screen')return;const f=OVR.frame;
+  if(OVAR.stream&&!box.querySelector('video'))ovVidShow();if(!f)return;
+  const fs=document.fullscreenElement===box;const W=box.clientWidth||600;const maxH=fs?innerHeight:Math.max(320,innerHeight-210);
+  const sc=Math.min(W/f.vw,maxH/f.vh,fs?4:1.5);const w=f.vw*sc,H=Math.round(f.vh*sc);
+  const wait=box.querySelector('.ovscrwait');if(wait)wait.remove();
+  if(f.k==='img'){/* old pictures-only mode */const fr=box.querySelector('iframe');if(fr)fr.remove();let im=box.querySelector('img.ovimg');if(!im){im=document.createElement('img');im.className='ovimg';box.prepend(im)}box.style.height='';if(f.d&&im.getAttribute('src')!==f.d)im.src=f.d;return}
+  box.querySelectorAll('img.ovimg,.ovhud').forEach(e=>e.remove());box.classList.remove('rtc');
+  let fr=box.querySelector('iframe');
+  const size=()=>{fr.style.width=f.vw+'px';fr.style.height=f.vh+'px';fr.style.transform=`scale(${sc})`;fr.dataset.sc=sc;fr.style.left=Math.max(0,(W-w)/2)+'px';fr.style.top=fs?Math.max(0,(innerHeight-H)/2)+'px':'0px';box.style.height=fs?'':H+'px'};
+  const apply=()=>{const d=fr.contentDocument;if(!d||!d.body)return;try{
+      if(!scrollOnly){if(d.documentElement.className!==f.hc)d.documentElement.className=f.hc;if((d.documentElement.getAttribute('style')||'')!==f.hs){if(f.hs)d.documentElement.setAttribute('style',f.hs);else d.documentElement.removeAttribute('style')}if(d.body.className!==f.bc)d.body.className=f.bc;
+        const t=d.createElement('template');t.innerHTML=f.h;const nb=d.createElement('body');for(const a of [...d.body.attributes])nb.setAttribute(a.name,a.value);nb.append(t.content);ovMorph(d.body,nb);ovCvPatch()}
+      if(Math.abs((fr.contentWindow.scrollY||0)-f.sy)>1)fr.contentWindow.scrollTo(0,f.sy)}catch(e){console.error(e)}};
+  if(!fr){fr=document.createElement('iframe');fr.className='ovfr';fr.setAttribute('sandbox','allow-same-origin');fr.title='Their screen';fr.tabIndex=-1;box.prepend(fr);fr.onload=()=>{fr.dataset.ok=1;size();apply()};fr.srcdoc=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${ovScrCss()}</head><body></body></html>`}
+  size();if(fr.dataset.ok)apply();if(OVAR.main)ovVidPlace();ovScrAge()};
+/* full-screen and fit controls next to "Their screen" */
+{const _ap=ovAdmPanel;ovAdmPanel=function(){const r=_ap.apply(this,arguments);try{const seg=document.querySelector('.ovscrh .ovseg');if(seg&&!$('#ovFs')){const b=document.createElement('button');b.id='ovFs';b.className='ovk';b.innerHTML=`${icon('M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5',15)} Full screen`;b.onclick=()=>{const box=$('#ovScr');if(!box)return;if(document.fullscreenElement)document.exitFullscreen();else if(box.requestFullscreen)box.requestFullscreen().catch(()=>{})};seg.after(b)}}catch(e){}return r}}
+document.addEventListener('fullscreenchange',()=>{setTimeout(()=>{try{ovScrPaint()}catch(e){}},60)});
+/* the live video is painted into the copied page, right where their game canvas is, so their HUD stays on top */
+function ovMorph(a,b){if(a.nodeType!==b.nodeType||a.nodeName!==b.nodeName){a.replaceWith(b);return}
+  if(a.nodeType===3||a.nodeType===8){if(a.nodeValue!==b.nodeValue)a.nodeValue=b.nodeValue;return}
+  if(a.nodeType!==1)return;const keepSrc=a.hasAttribute('data-ovcv');
+  for(const at of [...a.attributes])if(!b.hasAttribute(at.name)&&!(keepSrc&&at.name==='src'))a.removeAttribute(at.name);
+  for(const at of [...b.attributes])if(a.getAttribute(at.name)!==at.value)a.setAttribute(at.name,at.value);
+  const live=n=>n.nodeType===1&&n.classList.contains('ovlivecv');const bc=[...b.childNodes];const A=[...a.childNodes].filter(n=>!live(n));
+  for(let i=0;i<bc.length;i++){if(i<A.length)ovMorph(A[i],bc[i]);else a.appendChild(bc[i])}for(let i=A.length-1;i>=bc.length;i--)a.removeChild(A[i])}
+ovVidShow=function(){const box=$('#ovScr');if(!box||!OVAR.stream||OVR.view!=='screen')return;let v=box.querySelector('video');if(!v){v=document.createElement('video');v.className='ovvid ovhidev';v.muted=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');box.append(v);v.onplaying=()=>{OVAR.live=true;ovScrAge()}}
+  if(v.srcObject!==OVAR.stream)v.srcObject=OVAR.stream;const pl=v.play();if(pl&&pl.catch)pl.catch(()=>{});box.classList.remove('rtc');ovVidPlace()};
+ovVidPlace=function(){cancelAnimationFrame(OVAR.raf);const box=$('#ovScr');const v=box&&box.querySelector('video');
+  const tick=()=>{OVAR.raf=requestAnimationFrame(tick);const fr=box&&box.querySelector('iframe'),d=fr&&fr.contentDocument;if(!d||!d.head)return;
+    let st=d.getElementById('ovlivecss');if(!st){st=d.createElement('style');st.id='ovlivecss';d.head.append(st)}
+    const on=!!(OVAR.main&&OVAR.live&&OVAR.stream);const want=on?`img[data-ovcv="${OVAR.main.i}"]{display:none!important}video.ovlivecv{object-fit:fill;background:#000}`:'';if(st.textContent!==want)st.textContent=want;
+    d.querySelectorAll('video.ovlivecv').forEach(c=>{if(!on||c.dataset.for!==String(OVAR.main.i)||!c.nextElementSibling||c.nextElementSibling.getAttribute('data-ovcv')!==String(OVAR.main.i))c.remove()});if(!on)return;
+    const im=d.querySelector(`img[data-ovcv="${OVAR.main.i}"]`);if(!im)return;let c=im.previousElementSibling;
+    if(!c||!c.classList.contains('ovlivecv')){c=d.createElement('video');c.className='ovlivecv';c.dataset.for=OVAR.main.i;c.muted=true;c.autoplay=true;c.playsInline=true;c.setAttribute('playsinline','');im.before(c)}
+    if(c.srcObject!==OVAR.stream){c.srcObject=OVAR.stream;const p=c.play();if(p&&p.catch)p.catch(()=>{})}
+    if(im.id&&c.id!==im.id)c.id=im.id;const cls=(im.getAttribute('class')||'')+' ovlivecv';if(c.getAttribute('class')!==cls)c.setAttribute('class',cls);const sty=(im.getAttribute('style')||'').replace(/display:\s*none;?/,'');if(c.getAttribute('style')!==sty)c.setAttribute('style',sty)};tick()};
+
+/* ============ OWNER'S VIEW 7: launch games, lock modes, freeze, countdowns, banners and polls ============ */
+/* ---------- player side ---------- */
+OV.locks={};
+function ovLocked(k){const u=OV.locks[k];if(u&&u>Date.now()){toast('This is closed for you right now',`A moderator closed it for ${Math.ceil((u-Date.now())/60000)} more minute${u-Date.now()>60000?'s':''}.`,'M12 9v4M12 17h.01');return true}return false}
+[['rcsHub','rr'],['stHub','street'],['dtOpen','dt'],['mkOpen','market'],['fbHub','football'],['renderMini','mini'],['crResume','rise'],['crCreateScreen','rise']].forEach(([fn,k])=>{try{const _f=window[fn];if(typeof _f!=='function')return;window[fn]=function(){if(ovLocked(k))return;return _f.apply(this,arguments)}}catch(e){}});
+function ovFreeze(secs,msg){let el=$('#ovFrz');if(el)el.remove();if(secs===0)return;el=document.createElement('div');el.id='ovFrz';el.innerHTML=`<div class="ovfrzc"><span>⏸</span><h2>Hold on a moment</h2><p>${esc(msg||'A moderator paused your screen.')}</p><b id="ovFrzT"></b></div>`;document.body.append(el);
+  try{if(RCS.g)OV.rrSlow=0;if(typeof ST!=='undefined'&&ST)OV.stSlow=0}catch(e){}
+  const end=secs>0?Date.now()+secs*1000:0;clearInterval(OV.frzT);const tick=()=>{const t=$('#ovFrzT');if(!t)return clearInterval(OV.frzT);if(!end){t.textContent='';return}const s=Math.max(0,Math.ceil((end-Date.now())/1000));t.textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;if(s<=0)ovUnfreeze()};tick();OV.frzT=setInterval(tick,500)}
+function ovUnfreeze(){clearInterval(OV.frzT);const el=$('#ovFrz');if(el)el.remove();OV.rrSlow=1;OV.stSlow=1}
+function ovCountdown(mins,label){let el=$('#ovCd');if(el)el.remove();if(!mins)return;el=document.createElement('div');el.id='ovCd';const end=Date.now()+mins*60000;el.innerHTML=`<small>${esc(label||'Starting soon')}</small><b id="ovCdT"></b><button aria-label="Hide">✕</button>`;document.body.append(el);el.querySelector('button').onclick=()=>el.remove();
+  const tick=()=>{const t=$('#ovCdT');if(!t)return;const s=Math.max(0,Math.ceil((end-Date.now())/1000));t.textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;if(s<=0){t.textContent='Now!';try{sfx('buzzer')}catch(e){}return}setTimeout(tick,500)};tick()}
+function ovBanner(txt,secs){let el=$('#ovBan');if(el)el.remove();el=document.createElement('div');el.id='ovBan';el.innerHTML=`<div><span>${esc(txt)}</span><span aria-hidden="true">${esc(txt)}</span></div>`;document.body.append(el);setTimeout(()=>{if(el.isConnected)el.remove()},Math.max(5,Math.min(600,secs||30))*1000)}
+function ovPoll(q,opts,pid){let el=$('#ovPoll');if(el)el.remove();el=document.createElement('div');el.id='ovPoll';el.innerHTML=`<div class="ovpollc"><span>Quick question from Hall Pass</span><h3>${esc(q)}</h3><div class="ovpollo">${opts.map((o,i)=>`<button data-po="${i}">${esc(o)}</button>`).join('')}</div><button class="ovpollx">Skip</button></div>`;document.body.append(el);try{sfx('chime')}catch(e){}
+  el.querySelectorAll('[data-po]').forEach(b=>b.onclick=()=>{const a=opts[+b.dataset.po];ovChatSend(`📊 ${q} → ${a}`);el.innerHTML=`<div class="ovpollc"><h3>Thanks!</h3><p>You picked “${esc(a)}”.</p></div>`;setTimeout(()=>el.remove(),1600)});el.querySelector('.ovpollx').onclick=()=>el.remove()}
+{const _c=ovCmd;ovCmd=function(body,at){let c;try{c=typeof body==='string'?JSON.parse(body):body}catch(e){return}
+  const K={launch:1,lock:1,unlock:1,freeze:1,unfreeze:1,cd:1,banner:1,poll:1,vib:1,vol:1,toast:1};if(!c||!K[c.k])return _c.apply(this,arguments);
+  if(at&&Date.now()-new Date(at).getTime()>180000)return;if(c.id&&c.id===OV.lastId)return;OV.lastId=c.id;
+  try{
+   if(c.k==='launch'){try{if(RCS.g)rcsStop()}catch(e){}if(c.g==='rr'){const pool=Object.keys(RCS_INFO);let plan=(c.plan||[]).filter(m=>RCS_INFO[m]);if(!plan.length)plan=[pool[Math.random()*pool.length|0]];rcsStart({plan,n:Math.max(4,Math.min(30,+c.n||24))})}
+     else if(c.g==='street'){STO.mode=c.mode||STO.mode;STO.diff=c.diff||STO.diff;stStart(Object.assign({},STO))}else if(c.g==='mini')renderMini();else if(c.g==='dt'){dtOpen('floor')}return}
+   if(c.k==='lock'){OV.locks[c.m]=Date.now()+Math.max(1,+c.min||10)*60000;if(c.m==='street'&&typeof ST!=='undefined'&&ST&&!ST.opt.online){try{go('home')}catch(e){}}if(c.m==='rr'&&RCS.g){try{rcsStop();go('home')}catch(e){}}toast('A mode was closed for you',`${c.label||'This game'} is closed for ${c.min||10} minutes.`,'M12 9v4M12 17h.01');return}
+   if(c.k==='unlock'){if(c.m)delete OV.locks[c.m];else OV.locks={};return}
+   if(c.k==='freeze')return ovFreeze(+c.s||-1,c.msg);if(c.k==='unfreeze')return ovUnfreeze();
+   if(c.k==='cd')return ovCountdown(+c.min||0,c.label);if(c.k==='banner')return ovBanner(String(c.txt||'').slice(0,160),+c.s||30);
+   if(c.k==='poll'){ovStreamStart(300);return ovPoll(String(c.q||'').slice(0,120),(c.o||[]).map(x=>String(x).slice(0,40)).filter(Boolean).slice(0,4))}
+   if(c.k==='vib'){try{navigator.vibrate&&navigator.vibrate([200,100,200,100,400])}catch(e){}return}
+   if(c.k==='vol'){const S=musSet();S.vol=Math.max(0,Math.min(1,+c.v));musSave();try{if(MUS.el)MUS.el.volume=S.vol}catch(e){}return}
+   if(c.k==='toast'){toast(String(c.title||'Hall Pass').slice(0,60),String(c.txt||'').slice(0,160),'M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z');return}
+  }catch(e){console.error(e)}}}
+/* ---------- owner side: a Control tab ---------- */
+OV_TABS.splice(3,0,['ctl','Control','M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z']);
+const OV_MODES=[['rr','Recess Rush'],['street','Street'],['dt','Day trading'],['market','Stock Market'],['football','Football'],['mini','Mini-games'],['rise','The Rise']];
+{const _p=ovPane;ovPane=function(){if(OVK.tab!=='ctl')return _p.apply(this,arguments);const P_=$('#ovPane');if(!P_)return;
+  const maps=Object.keys(RCS_INFO).map(k=>[k,(RCS_INFO[k]||[k])[0]]);const diffs=Object.keys(typeof ST_DIFF==='object'?ST_DIFF:{easy:1,normal:1,hard:1});
+  const sel=(id,opts)=>`<select class="ovsel2" id="${id}">${opts.map(([v,n])=>`<option value="${esc(v)}">${esc(n)}</option>`).join('')}</select>`;
+  const grp=(t,help,inner)=>`<div class="ovgrp"><span class="label">${t}</span>${help?`<p class="ovhelp">${help}</p>`:''}${inner}</div>`;
+  P_.innerHTML=`<div class="ovph"><b>Control</b><span class="ovin">Works anywhere</span></div><div id="ovFlash" class="ovflash"></div>`
+   +grp('Start a game for them','Drops them straight into a game, leaving whatever they are doing.',`<div class="ovrowf">${sel('ovLMap',[['','Random map'],...maps])}${sel('ovLN',[['24','24 players'],['12','12 players'],['8','8 players'],['30','30 players']])}<button class="ovk go" id="ovLRR">Start Recess Rush</button></div>
+      <div class="ovrowf">${sel('ovLSm',[['1v1','1 on 1'],['3v3','3 on 3']])}${sel('ovLSd',diffs.map(d=>[d,d[0].toUpperCase()+d.slice(1)]))}<button class="ovk go" id="ovLST">Start Street</button></div><div class="ovbtns">${ovB({k:'launch',g:'mini'},'Open Mini-games')+ovB({k:'launch',g:'dt'},'Open the trading floor')}</div>`)
+   +grp('Close a mode for them','They can’t open it until the time runs out. If they’re in it now, they’re sent home.',`<div class="ovrowf">${sel('ovLkM',OV_MODES)}${sel('ovLkT',[['10','10 min'],['30','30 min'],['60','1 hour'],['1440','1 day']])}<button class="ovk warn" id="ovLkGo">Close it</button><button class="ovk" id="ovUlGo">Reopen everything</button></div>`)
+   +grp('Freeze their screen','Covers their screen and pauses their game until it ends or you unfreeze.',`${ovIn('ovFzM','Message (optional)')}<div class="ovbtns"><button class="ovk" data-ovfz="30">30 s</button><button class="ovk" data-ovfz="120">2 min</button><button class="ovk warn" data-ovfz="-1">Until I unfreeze</button>${ovB({k:'unfreeze'},'Unfreeze','up')}</div>`)
+   +grp('Countdown on their screen','A timer in the corner, great for “tournament starts in…”.',`<div class="ovrowf">${ovIn('ovCdL','Label, e.g. Tournament starts in')}${ovIn('ovCdN','Minutes','number','80px')}<button class="ovk go" id="ovCdGo">Start</button>${ovB({k:'cd',min:0},'Clear')}</div>`)
+   +grp('Scrolling banner','Runs across the top of their screen.',`<div class="ovrowf">${ovIn('ovBnT','Banner text')}${sel('ovBnS',[['30','30 s'],['60','1 min'],['300','5 min']])}<button class="ovk go" id="ovBnGo">Show</button></div>`)
+   +grp('Ask a quick question','They tap an answer. It shows up in your Chat tab.',`${ovIn('ovPlQ','Question, e.g. What should we add next?')}<div class="ovrowf">${ovIn('ovPl1','Answer 1')}${ovIn('ovPl2','Answer 2')}</div><div class="ovrowf">${ovIn('ovPl3','Answer 3 (optional)')}${ovIn('ovPl4','Answer 4 (optional)')}</div><button class="ovk go" id="ovPlGo">Ask</button>`)
+   +grp('Small pop-up',`A friendly toast in the corner.`,`<div class="ovrowf">${ovIn('ovTsT','Title')}${ovIn('ovTsX','Message')}<button class="ovk go" id="ovTsGo">Send</button></div>`)
+   +grp('Their device','',`<div class="ovbtns">${ovB({k:'vib'},'📳 Buzz their phone')+ovB({k:'vol',v:0},'Music volume 0%')+ovB({k:'vol',v:.45},'45%')+ovB({k:'vol',v:1},'100%')}</div>`);
+  const v=id=>(P_.querySelector('#'+id)||{}).value||'';const on=(id,fn)=>{const e=P_.querySelector('#'+id);if(e)e.onclick=fn};
+  P_.querySelectorAll('[data-ovc]').forEach(b=>b.onclick=()=>ovDo(JSON.parse(b.dataset.ovc),b.textContent.trim()));
+  on('ovLRR',()=>{const m=v('ovLMap');ovDo({k:'launch',g:'rr',plan:m?[m]:[],n:+v('ovLN')},`Start Recess Rush${m?' on '+((RCS_INFO[m]||[m])[0]):''}`)});
+  on('ovLST',()=>ovDo({k:'launch',g:'street',mode:v('ovLSm'),diff:v('ovLSd')},`Start Street ${v('ovLSm')} · ${v('ovLSd')}`));
+  on('ovLkGo',()=>{const m=v('ovLkM'),lab=(OV_MODES.find(x=>x[0]===m)||[m,m])[1];ovDo({k:'lock',m,min:+v('ovLkT'),label:lab},`Closed ${lab} for ${v('ovLkT')} min`)});on('ovUlGo',()=>ovDo({k:'unlock'},'Reopened everything'));
+  P_.querySelectorAll('[data-ovfz]').forEach(b=>b.onclick=()=>ovDo({k:'freeze',s:+b.dataset.ovfz,msg:v('ovFzM').trim()},`Freeze ${b.textContent}`));
+  on('ovCdGo',()=>{const n=+v('ovCdN');if(!(n>0))return toastLite('Type the minutes');ovDo({k:'cd',min:n,label:v('ovCdL').trim()},`Countdown ${n} min`)});
+  on('ovBnGo',()=>{const t=v('ovBnT').trim();if(!t)return;ovDo({k:'banner',txt:t,s:+v('ovBnS')},'Banner: '+t)});
+  on('ovPlGo',()=>{const q=v('ovPlQ').trim(),o=['ovPl1','ovPl2','ovPl3','ovPl4'].map(id=>v(id).trim()).filter(Boolean);if(!q||o.length<2)return toastLite('Add a question and at least 2 answers');ovDo({k:'poll',q,o},'Asked: '+q)});
+  on('ovTsGo',()=>{const t=v('ovTsT').trim()||'Hall Pass',x=v('ovTsX').trim();if(!x)return;ovDo({k:'toast',title:t,txt:x},'Pop-up: '+x)});
+  ovAdmFeed()}}
 
 /* ============ HOME 4: a living, themed stage and a new game grid ============ */
 /* four new themes */
